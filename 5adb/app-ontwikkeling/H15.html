@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Design — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H15" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom-rwd">15.1 Waarom RWD?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.2"><span class="sidebar-check__box"></span></label>
+          <a href="#geschiedenis">15.2 Geschiedenis</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.3"><span class="sidebar-check__box"></span></label>
+          <a href="#viewport">15.3 Viewport metatag</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.4"><span class="sidebar-check__box"></span></label>
+          <a href="#flexibele-eenheden">15.4 Flexibele eenheden</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.5"><span class="sidebar-check__box"></span></label>
+          <a href="#afbeeldingen">15.5 Afbeeldingen schalen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.6"><span class="sidebar-check__box"></span></label>
+          <a href="#media-queries">15.6 Media queries</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.7"><span class="sidebar-check__box"></span></label>
+          <a href="#mobile-first">15.7 Mobile-first</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.8"><span class="sidebar-check__box"></span></label>
+          <a href="#css-functies">15.8 CSS-functies clamp/min/max</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.9"><span class="sidebar-check__box"></span></label>
+          <a href="#grid-auto-fill">15.9 Grid auto-fill</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.10"><span class="sidebar-check__box"></span></label>
+          <a href="#devtools">15.10 Developer tools</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Responsive Web Design</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H15 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Responsive Web Design</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen wat Responsive Web Design (RWD) is en waarom het belangrijk is</li>
+          <li>Je kan de <code>&lt;meta name="viewport"&gt;</code> tag correct toepassen</li>
+          <li>Je kan afbeeldingen automatisch laten schalen met <code>max-width: 100%</code></li>
+          <li>Je kan media queries schrijven met <code>@media</code> om lay-out aan te passen per schermgrootte</li>
+          <li>Je kan relatieve eenheden (<code>%</code>, <code>em</code>, <code>rem</code>) gebruiken in plaats van vaste <code>px</code>-waarden</li>
+          <li>Je kan het mobile-first principe uitleggen en toepassen</li>
+          <li>Je kan CSS-functies <code>min()</code>, <code>max()</code> en <code>clamp()</code> gebruiken voor vloeiende lay-outs</li>
+        </ul>
+      </div>
+
+      <h2 id="waarom-rwd">1. Waarom Responsive Web Design?</h2>
+
+      <p>Vandaag bezoeken mensen websites op heel verschillende toestellen: smartphones, tablets, laptops, desktops en zelfs tv's. Al die schermen hebben andere afmetingen.</p>
+
+      <p>Als jouw website er goed uitziet op een laptop van 1920px breed, maar op een smartphone van 375px breed alles over elkaar staat of de tekst microscopisch klein is, dan heb je een probleem.</p>
+
+      <p><strong>Responsive Web Design (RWD)</strong> is de aanpak waarbij één website zich aanpast aan alle schermformaten — zonder aparte mobiele versie te bouwen.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Onthoud</div>
+        <p>Het is onze plicht als front-end developer om zoveel mogelijk mensen toe te laten een site zonder moeilijkheden te gebruiken — ongeacht hun toestel.</p>
+      </div>
+
+      <h2 id="geschiedenis">2. Een korte geschiedenis</h2>
+
+      <h3>2.1 Steve Jobs en de iPhone (2007)</h3>
+      <p>In 2007 stelt Steve Jobs de eerste iPhone voor. De webbrowserwereld zou nooit meer dezelfde zijn. Vóór de iPhone waren bijna alle websites ontworpen voor brede desktopschermen — typisch 960px breed. De iPhone had een volwaardige browser (Safari), maar een smal scherm. Websites moesten zich aanpassen.</p>
+
+      <h3>2.2 Ethan Marcotte en RWD (2010)</h3>
+      <p>In 2010 publiceert <strong>Ethan Marcotte</strong> een invloedrijk artikel en introduceert de term <strong>Responsive Web Design</strong>. Hij beschrijft drie technieken:</p>
+      <ol>
+        <li><strong>Flexibele eenheden</strong> — werk met <code>%</code> of <code>fr</code> in plaats van vaste <code>px</code></li>
+        <li><strong>Schaalbare afbeeldingen</strong> — <code>max-width: 100%</code> zodat afbeeldingen automatisch krimpen</li>
+        <li><strong>Media queries</strong> — <code>@media</code> om CSS aan te passen per schermgrootte</li>
+      </ol>
+
+      <h2 id="viewport">3. De meta viewport tag — verplicht!</h2>
+
+      <p>Voeg altijd deze regel toe in de <code>&lt;head&gt;</code> van elk HTML-document:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+      </div>
+
+      <p><strong>Waarom?</strong> Toen de iPhone uitkwam, deed Safari alsof het scherm 980px breed was. Met deze meta-tag zeg je: <em>"Gelieve de werkelijke schermbreedte te gebruiken."</em></p>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Let op</div>
+        <p><strong>Zonder deze tag:</strong> Je site lijkt responsief in de devtools van de browser, maar op een echte smartphone zie je de desktopversie (heel klein).</p>
+      </div>
+
+      <h2 id="flexibele-eenheden">4. Flexibele eenheden</h2>
+
+      <h3>4.1 Percentages (%)</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Niet responsief — altijd 960px wide */
+.container {
+    width: 960px;
+}
+
+/* Responsief — maximaal 960px, maar krimpt mee */
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+}</code></pre>
+      </div>
+
+      <h3>4.2 em en rem</h3>
+      <ul>
+        <li><code>1em</code> = de lettergrootte van het huidige element</li>
+        <li><code>1rem</code> = de lettergrootte van het root-element (<code>&lt;html&gt;</code>, standaard 16px)</li>
+      </ul>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">html {
+    font-size: 16px; /* 1rem = 16px */
+}
+
+h1 {
+    font-size: 2rem;     /* = 32px */
+    margin-bottom: 1rem; /* = 16px */
+}
+
+p {
+    font-size: 1rem;    /* = 16px */
+    line-height: 1.6;
+}</code></pre>
+      </div>
+
+      <h2 id="afbeeldingen">5. Afbeeldingen schalen</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">img {
+    max-width: 100%;
+    height: auto; /* behoudt de verhoudingen */
+}</code></pre>
+      </div>
+
+      <p>De afbeelding zal nooit breder worden dan haar container. Als de container krimpt, krimpt de afbeelding mee. De hoogte past zich automatisch aan zodat de afbeelding niet vervormt.</p>
+
+      <h2 id="media-queries">6. Media queries (@media)</h2>
+
+      <p>Een media query werkt als een <code>if</code>-statement: <em>"Als het scherm minstens X breed is, pas dan deze CSS toe."</em></p>
+
+      <h3>6.1 Basisstructuur</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Basisstijl (voor het kleinste scherm — mobile first) */
+body {
+    font-size: 1rem;
+}
+
+/* Grotere schermen: als breedte >= 600px */
+@media (min-width: 600px) {
+    body {
+        font-size: 1.1rem;
+    }
+}
+
+/* Nog grotere schermen: als breedte >= 1024px */
+@media (min-width: 1024px) {
+    body {
+        font-size: 1.2rem;
+    }
+}</code></pre>
+      </div>
+
+      <h3>6.2 Lay-out aanpassen</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Mobile: één kolom */
+.kaarten {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Tablet en groter: twee kolommen */
+@media (min-width: 600px) {
+    .kaarten {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .kaart {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+}
+
+/* Desktop: drie kolommen */
+@media (min-width: 1024px) {
+    .kaart {
+        flex: 1 1 calc(33.333% - 0.67rem);
+    }
+}</code></pre>
+      </div>
+
+      <h3>6.3 Veelgebruikte breekpunten (breakpoints)</h3>
+
+      <table>
+        <thead>
+          <tr><th>Naam</th><th>Breedte</th><th>Typisch toestel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Small</td><td>&lt; 600px</td><td>Smartphone</td></tr>
+          <tr><td>Medium</td><td>600px–1023px</td><td>Tablet</td></tr>
+          <tr><td>Large</td><td>≥ 1024px</td><td>Laptop/desktop</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="mobile-first">7. Mobile-first aanpak</h2>
+
+      <p><strong>Mobile first</strong> betekent: schrijf eerst de CSS voor het kleinste scherm. Voeg daarna media queries toe voor grotere schermen.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Mobile-first: begin klein, voeg toe voor groot */
+.navigatie {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .navigatie {
+        flex-direction: row;
+    }
+}</code></pre>
+      </div>
+
+      <h2 id="css-functies">8. CSS-functies voor vloeiende lay-outs</h2>
+
+      <h3>8.1 min()</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    width: min(100%, 960px);
+    /* op breed scherm: 960px, op smal scherm: 100% */
+}</code></pre>
+      </div>
+
+      <h3>8.2 max()</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">p {
+    font-size: max(1rem, 2vw);
+    /* minimaal 1rem, maar groeit mee met de viewport */
+}</code></pre>
+      </div>
+
+      <h3>8.3 clamp() — de krachtigste</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    /* minimaal 1.5rem (mobiel)
+       voorkeur: 4% van de viewport-breedte
+       maximaal 3rem (desktop) */
+}
+
+.container {
+    padding: clamp(1rem, 5%, 3rem);
+}</code></pre>
+      </div>
+
+      <h2 id="grid-auto-fill">9. CSS Grid auto-fill voor responsief zonder media queries</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.kaarten {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}</code></pre>
+      </div>
+
+      <p>Dit werkt volledig responsief: op een breed scherm 4 kolommen, op een tablet 2-3, op een smartphone 1 kolom — <strong>geen enkele media query nodig!</strong></p>
+
+      <h2 id="devtools">10. De developer tools gebruiken</h2>
+
+      <p>Elke browser heeft een <strong>responsive design view</strong> in de developer tools:</p>
+      <ol>
+        <li>Open de developer tools (<code>F12</code> of <code>Ctrl+Shift+I</code>)</li>
+        <li>Klik op het smartphonepictogram (responsive design view)</li>
+        <li>Pas de breedte aan om verschillende schermformaten te simuleren</li>
+        <li>Kies een vooraf ingesteld toestel (iPhone, Galaxy, iPad, enz.)</li>
+      </ol>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Let op</div>
+        <p>Dit is een simulatie. Test ook op een echt toestel als je kunt!</p>
+      </div>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 1 — Responsieve receptenpagina</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een HTML-pagina <code>responsive-recept.html</code> met bijhorend <code>stijl.css</code>.</p>
+            <p><strong>Inhoud:</strong></p>
+            <ul>
+              <li>Een navigatie met 3 links</li>
+              <li>Een hoofding met paginatitel</li>
+              <li>Drie receptenkaartjes met naam, beschrijving en een afbeelding</li>
+            </ul>
+            <p><strong>Eisen:</strong></p>
+            <ol>
+              <li>Gebruik de <code>&lt;meta name="viewport"&gt;</code> tag correct</li>
+              <li>Afbeeldingen zijn schaalbaar (<code>max-width: 100%</code>)</li>
+              <li>Mobile-first: op smal scherm staan de kaartjes onder elkaar</li>
+              <li>Via een media query bij 600px staan er twee kaartjes naast elkaar</li>
+              <li>Via een media query bij 1024px staan er drie kaartjes naast elkaar</li>
+              <li>Gebruik <code>rem</code> voor lettertypes en <code>%</code> of <code>fr</code> voor breedtes</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H15-oef1-browser.svg" alt="Browser-mockup: responsieve receptenpagina op drie formaten naast elkaar" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Responsive Web Design
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H15-voorbeeld.svg', 'Voorbeeld — Responsieve portfoliopagina')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Responsieve portfoliopagina</h3>
+            <ol>
+              <li><strong>Deel 1 — Structuur (3 punten):</strong> Maak een pagina <code>portfolio.html</code> met een header, navigatie, sectie met projectkaarten en een footer. Gebruik semantische HTML-elementen.</li>
+              <li><strong>Deel 2 — Mobile-first styling (3 punten):</strong> Schrijf eerst de CSS voor een smal scherm (één kolom). Gebruik <code>rem</code> voor lettertypes en voeg de <code>meta viewport</code> tag toe.</li>
+              <li><strong>Deel 3 — Breakpoints (4 punten):</strong> Voeg twee media queries toe: bij 600px twee kaarten naast elkaar, bij 1024px drie kaarten naast elkaar. Test in de browser-devtools.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H15 — Responsive Web Design</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke metatag moet je toevoegen zodat een mobiele browser de werkelijke schermbreedte gebruikt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="a"> <span>&lt;meta name="charset" content="UTF-8"&gt;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="b"> <span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="c"> <span>&lt;meta name="responsive" content="true"&gt;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="d"> <span>&lt;meta name="screen" content="mobile"&gt;</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is de CSS-regel om een afbeelding automatisch te laten schalen zonder te vervormen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="a"> <span>max-width: 100%; height: auto;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="b"> <span>width: 100%; height: 100%;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="c"> <span>display: responsive;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="d"> <span>overflow: hidden;</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat betekent "mobile-first" bij het schrijven van CSS?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="a"> <span>Je bouwt eerst een aparte mobiele website</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="b"> <span>Je gebruikt max-width media queries</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="c"> <span>Je schrijft eerst de basisstijl voor het kleinste scherm en voegt daarna CSS toe voor grotere schermen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="d"> <span>Je laadt de CSS apart voor mobiel en desktop</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke CSS-functie begrenst een waarde tussen een minimum en maximum met een voorkeurwaarde ertussen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="a"> <span>min()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="b"> <span>max()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="c"> <span>between()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="d"> <span>clamp()</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke CSS-grid regel maakt automatisch zoveel kolommen als mogelijk, elk minimaal 250px breed?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="a"> <span>grid-template-columns: repeat(4, 1fr);</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="b"> <span>grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="c"> <span>grid-template-columns: auto 250px;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="d"> <span>grid-columns: responsive(250px);</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat doet @media (min-width: 768px)?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="a"> <span>De CSS erin wordt toegepast als het scherm minstens 768px breed is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="b"> <span>De CSS erin wordt toegepast als het scherm maximaal 768px breed is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="c"> <span>De CSS erin wordt alleen op tablets toegepast</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="d"> <span>De CSS erin verbergt de pagina op schermen kleiner dan 768px</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H15')" data-progress-key="5adb/app-ontwikkeling/H15">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H14.html" class="btn btn-ghost">← H14</a>
+          <a href="H16.html" class="btn btn-ghost">H16 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

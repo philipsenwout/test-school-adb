@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typeconversie — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H19" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.1"><span class="sidebar-check__box"></span></label>
+          <a href="#zwak-sterk">19.1 Zwak vs sterk getypeerd</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.2"><span class="sidebar-check__box"></span></label>
+          <a href="#impliciete-conversie">19.2 Impliciete conversie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.3"><span class="sidebar-check__box"></span></label>
+          <a href="#expliciete-conversie">19.3 Expliciete conversie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.4"><span class="sidebar-check__box"></span></label>
+          <a href="#gebruikersinvoer">19.4 Gebruikersinvoer</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Typeconversie</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H19 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Typeconversie</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen wat het verschil is tussen zwak en sterk getypeerde talen</li>
+          <li>Je kan beschrijven wat impliciete typeconversie is en wanneer JavaScript dit toepast</li>
+          <li>Je kan voorspellen wat het resultaat is van bewerkingen met gemengde types</li>
+          <li>Je kan de functies <code>Number()</code>, <code>String()</code>, <code>parseInt()</code>, <code>parseFloat()</code> en <code>Boolean()</code> correct gebruiken</li>
+          <li>Je kan uitleggen waarom <code>parseInt()</code> belangrijk is bij het verwerken van gebruikersinvoer</li>
+        </ul>
+      </div>
+
+      <h2 id="zwak-sterk">1. Zwak vs sterk getypeerd</h2>
+
+      <p><strong>Sterk getypeerde talen</strong> (zoals Java of Python) zijn streng: als je een getal en een tekst probeert op te tellen, geeft de taal meteen een foutmelding.</p>
+
+      <p><strong>JavaScript is zwak getypeerd:</strong> de taal probeert zélf te raden wat je bedoelt als je twee verschillende types combineert.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// In Python zou dit een fout geven: TypeError
+// In JavaScript niet:
+let resultaat = 2 + "1";
+console.log(resultaat);   // "21" — geen fout, maar ook niet wat je verwacht!</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H19-afb1.svg" alt="Vergelijking: sterk vs zwak getypeerde taal" loading="lazy">
+      </figure>
+
+      <h2 id="impliciete-conversie">2. Impliciete typeconversie</h2>
+
+      <h3>2.1 De +-operator: getal + string = string</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(5 + "3");     // "53"  — niet 8!
+console.log("5" + 3);     // "53"
+console.log(5 + 3);       // 8     — beide number, gewone optelling</code></pre>
+      </div>
+
+      <div class="callout callout--danger">
+        <div class="callout-header">❌ Klassieke valkuil</div>
+        <p>Dit is één van de meest klassieke valkuilen voor beginnende JavaScript-programmeurs. <code>5 + "3"</code> geeft <code>"53"</code>, niet <code>8</code>!</p>
+      </div>
+
+      <h3>2.2 Andere operatoren: -, *, /</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log("5" - 3);    // 2    — "5" wordt omgezet naar 5
+console.log("5" * 2);    // 10
+console.log("10" / 2);   // 5
+console.log("abc" - 3);  // NaN  — "abc" kan niet naar een getal</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H19-afb2.svg" alt="Impliciete conversie: de gevaarlijke gevallen" loading="lazy">
+      </figure>
+
+      <h3>2.3 Meer gevallen</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(true + 1);      // 2   — true wordt 1
+console.log(false + 1);     // 1   — false wordt 0
+console.log(null + 5);      // 5   — null wordt 0
+console.log(undefined + 5); // NaN — undefined kan niet omgezet worden</code></pre>
+      </div>
+
+      <h2 id="expliciete-conversie">3. Expliciete typeconversie</h2>
+
+      <h3>3.1 Number() — naar een getal</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(Number("42"));      // 42
+console.log(Number("3.14"));    // 3.14
+console.log(Number(""));        // 0
+console.log(Number(true));      // 1
+console.log(Number(false));     // 0
+console.log(Number(null));      // 0
+console.log(Number(undefined)); // NaN
+console.log(Number("appel"));   // NaN
+console.log(Number("  42  "));  // 42 — spaties worden genegeerd
+console.log(Number("42px"));    // NaN — "px" maakt het ongeldig</code></pre>
+      </div>
+
+      <h3>3.2 parseInt() — naar een geheel getal</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(parseInt("42"));       // 42
+console.log(parseInt("42.9"));     // 42   — kommagetallen worden afgekapt
+console.log(parseInt("42px"));     // 42   — stopt bij "px"
+console.log(parseInt("px42"));     // NaN  — begint niet met een cijfer
+console.log(parseInt("3.14"));     // 3</code></pre>
+      </div>
+
+      <h3>3.3 parseFloat() — naar een kommagetal</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(parseFloat("3.14"));     // 3.14
+console.log(parseFloat("3.14px"));   // 3.14
+console.log(parseFloat("42"));       // 42
+console.log(parseFloat("abc"));      // NaN</code></pre>
+      </div>
+
+      <h3>3.4 String() — naar tekst</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(String(42));        // "42"
+console.log(String(true));      // "true"
+console.log(String(null));      // "null"
+console.log(String(undefined)); // "undefined"</code></pre>
+      </div>
+
+      <h3>3.5 Boolean() — naar true of false</h3>
+
+      <p>De <strong>falsy waarden</strong> — er zijn er maar zes:</p>
+
+      <table>
+        <thead>
+          <tr><th>Waarde</th><th>Boolean() geeft</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>false</code></td><td><code>false</code></td></tr>
+          <tr><td><code>0</code></td><td><code>false</code></td></tr>
+          <tr><td><code>""</code> (lege string)</td><td><code>false</code></td></tr>
+          <tr><td><code>null</code></td><td><code>false</code></td></tr>
+          <tr><td><code>undefined</code></td><td><code>false</code></td></tr>
+          <tr><td><code>NaN</code></td><td><code>false</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(Boolean(0));          // false
+console.log(Boolean(""));         // false
+console.log(Boolean(1));          // true
+console.log(Boolean(-1));         // true — negatieve getallen zijn ook truthy!
+console.log(Boolean("hallo"));    // true
+console.log(Boolean("false"));    // true — de STRING "false" is truthy!</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H19-afb3.svg" alt="Falsy waarden gegroepeerd in een overzicht" loading="lazy">
+      </figure>
+
+      <h2 id="gebruikersinvoer">4. Waarom is dit belangrijk? — Gebruikersinvoer</h2>
+
+      <p>De functie <code>prompt()</code> vraagt de gebruiker om iets in te typen, maar geeft altijd een <strong>string</strong> terug — ook als de gebruiker een getal intypt.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let invoer = prompt("Geef een getal in:");
+console.log(typeof invoer);   // "string" — altijd!
+
+// Omzetten voor berekeningen:
+let leeftijd = parseInt(invoer);
+
+if (isNaN(leeftijd)) {
+    console.log("Dat is geen geldig getal.");
+} else {
+    console.log(`Je bent ${leeftijd} jaar oud.`);
+}
+
+// Kortere schrijfwijze:
+let leeftijd2 = parseInt(prompt("Hoe oud ben je?"));</code></pre>
+      </div>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Voorspel en test</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Tweedelige oefening: eerst voorspellen, dan testen in de browser.</p>
+            <p><strong>Deel 1 — Voorspel (doe dit ZONDER de browser):</strong></p>
+            <p>Noteer voor elke regel wat het resultaat zal zijn:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-js">console.log(5 + "5");
+console.log("10" - 4);
+console.log("3" * "4");
+console.log(true + true);
+console.log(null + "test");
+console.log(parseInt("50px"));
+console.log(Number(""));
+console.log(Boolean(0));
+console.log(Boolean("0"));</code></pre>
+            </div>
+            <p><strong>Deel 2 — Test in de browser:</strong> Open de console (F12) en typ elke regel in. Vergelijk met je voorspellingen.</p>
+            <p><strong>Deel 3 — Toepassing:</strong> Schrijf een script dat via <code>prompt()</code> twee getallen vraagt, omzet met <code>parseInt()</code>, de som berekent en controleert of de invoer geldig was.</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H19-oef1-browser.svg" alt="Browser-mockup: prompt-venster en console-uitvoer" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Typeconversie
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H19-voorbeeld.svg', 'Voorbeeld — Typeconversie toepassing')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Eenvoudige rekenmachine met invoercontrole</h3>
+            <ol>
+              <li><strong>Deel 1 — Invoer verzamelen (3 punten):</strong> Vraag via <code>prompt()</code> twee getallen aan de gebruiker. Gebruik <code>parseFloat()</code> zodat kommagetallen ook werken. Sla de resultaten op in variabelen.</li>
+              <li><strong>Deel 2 — Geldigheidscontrole (3 punten):</strong> Controleer met <code>isNaN()</code> of de invoer geldig is. Toon een foutmelding via <code>console.log()</code> als de invoer ongeldig is.</li>
+              <li><strong>Deel 3 — Berekeningen (4 punten):</strong> Toon het resultaat van optelling, aftrekking, vermenigvuldiging en deling. Controleer of de deler nul is. Gebruik template literals voor nette uitvoer.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H19 — Typeconversie</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het resultaat van 5 + "3" in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="a"> <span>8 (getal)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="b"> <span>"53" (string)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="c"> <span>NaN</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="d"> <span>Een foutmelding</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat geeft parseInt("42px") terug?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="a"> <span>42</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="b"> <span>NaN</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="c"> <span>"42"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="d"> <span>0</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke functie gebruik je om prompt()-invoer om te zetten naar een geheel getal?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="a"> <span>Number()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="b"> <span>String()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="c"> <span>Boolean()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="d"> <span>parseInt()</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoeveel falsy waarden zijn er in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="a"> <span>3</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="b"> <span>4</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="c"> <span>6</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="d"> <span>10</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat geeft Boolean("false") terug?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="a"> <span>false — omdat "false" de boolean false betekent</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="b"> <span>true — omdat "false" een niet-lege string is en dus truthy</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="c"> <span>NaN</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="d"> <span>undefined</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welk type geeft de prompt()-functie altijd terug?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="a"> <span>string</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="b"> <span>number</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="c"> <span>boolean</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="d"> <span>Het type hangt af van wat de gebruiker invoert</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H19')" data-progress-key="5adb/app-ontwikkeling/H19">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H18.html" class="btn btn-ghost">← H18</a>
+          <a href="H20.html" class="btn btn-ghost">H20 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

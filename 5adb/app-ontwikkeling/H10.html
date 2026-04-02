@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model en CSS Eenheden — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H10" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.1"><span class="sidebar-check__box"></span></label>
+          <a href="#het-box-model">10.1 Het CSS Box Model</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.2"><span class="sidebar-check__box"></span></label>
+          <a href="#box-sizing">10.2 box-sizing: border-box</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.3"><span class="sidebar-check__box"></span></label>
+          <a href="#padding-en-margin-afzonderlijk">10.3 Afzonderlijke zijden</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.4"><span class="sidebar-check__box"></span></label>
+          <a href="#css-eenheden">10.4 CSS Eenheden</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#quiz">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../5adb/index.html">5ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">App-ontwikkeling</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>Box Model en CSS Eenheden</span>
+    </nav>
+
+    <div class="page-header vak-appdev">
+      <div class="page-header__vak">H10 &mdash; App-ontwikkeling 5ADB</div>
+      <h1 class="page-header__title">Box Model en CSS Eenheden</h1>
+    </div>
+
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">&#x1F3AF; Leerdoelen</div>
+      <ul>
+        <li>Het CSS box model (content, padding, border, margin) uitleggen en visualiseren</li>
+        <li>Het verschil tussen <code>box-sizing: content-box</code> en <code>border-box</code> verklaren</li>
+        <li>De totale afmetingen van een element berekenen</li>
+        <li>Absolute en relatieve CSS-eenheden onderscheiden (px, %, em, rem, vw, vh)</li>
+        <li>De juiste eenheid kiezen voor een bepaalde situatie</li>
+        <li>Oefeningen met marges, opvulling en randen correct uitwerken</li>
+      </ul>
+    </div>
+
+    <h2 id="het-box-model">10.1 Het CSS Box Model</h2>
+    <p>Elk HTML-element is in CSS een rechthoekig doosje. Dat doosje bestaat uit <strong>vier lagen</strong>, van binnen naar buiten:</p>
+    <ul>
+      <li><strong>Content</strong> — de eigenlijke inhoud (tekst, afbeelding, …)</li>
+      <li><strong>Padding</strong> — ruimte <em>binnen</em> de rand (tussen inhoud en rand)</li>
+      <li><strong>Border</strong> — de zichtbare rand rond het element</li>
+      <li><strong>Margin</strong> — ruimte <em>buiten</em> de rand (afstand tot andere elementen)</li>
+    </ul>
+
+    <figure class="chapter-figure">
+      <img src="../../../app-ontwikkeling/images/H10-afb1.svg" alt="Illustratie van het CSS box model met margin, border, padding en content" loading="lazy">
+      <figcaption>Het CSS box model — vier lagen rond elk element</figcaption>
+    </figure>
+
+    <div class="code-block">
+      <div class="code-block__lang">CSS</div>
+      <pre><code class="language-css">.artikel {
+    /* Content */
+    width: 400px;
+    height: 200px;
+
+    /* Padding — ruimte rondom de inhoud */
+    padding: 20px;            /* alle kanten gelijk */
+    padding: 10px 20px;       /* boven/onder  links/rechts */
+    padding: 10px 20px 15px 20px; /* top right bottom left */
+
+    /* Border — rand */
+    border: 2px solid #333;
+    border-radius: 8px;       /* afgeronde hoeken */
+
+    /* Margin — ruimte buiten het element */
+    margin: 16px;
+    margin: 0 auto;           /* horizontaal gecentreerd */
+}</code></pre>
+    </div>
+
+    <div class="callout callout--warning">
+      <div class="callout-header">&#x26A0;&#xFE0F; Berekening van de totale breedte</div>
+      <p>Met de <strong>standaardinstellingen</strong> (<code>box-sizing: content-box</code>) telt CSS padding en border bij de opgegeven breedte op:</p>
+      <p><strong>Totale breedte</strong> = width + padding-left + padding-right + border-left + border-right</p>
+      <p>Een element met <code>width: 400px; padding: 20px; border: 2px solid</code> is dus <strong>444px breed</strong>.</p>
+    </div>
+
+    <h2 id="box-sizing">10.2 box-sizing: border-box</h2>
+    <p>Het gedrag van <code>content-box</code> is verwarrend voor beginners. Stel <code>box-sizing: border-box</code> in zodat <code>width</code> de <em>totale</em> breedte is inclusief padding en border:</p>
+
+    <figure class="chapter-figure">
+      <img src="../../../app-ontwikkeling/images/H10-afb2.svg" alt="Vergelijking tussen content-box en border-box box-sizing" loading="lazy">
+      <figcaption>content-box vs border-box — border-box maakt lay-out voorspelbaarder</figcaption>
+    </figure>
+
+    <div class="code-block">
+      <div class="code-block__lang">CSS</div>
+      <pre><code class="language-css">/* Best practice: pas dit toe op alle elementen */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.kolom {
+    width: 50%;
+    padding: 16px;
+    border: 1px solid #ddd;
+    /* Totale breedte = precies 50% — geen surprises */
+}</code></pre>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">&#x1F4A1; Tip</div>
+      <p>Zet <code>*, *::before, *::after { box-sizing: border-box; }</code> <em>altijd</em> bovenaan je CSS-bestand. Dit is een universele reset die door vrijwel alle professionele webprojecten gebruikt wordt.</p>
+    </div>
+
+    <h2 id="padding-en-margin-afzonderlijk">10.3 Afzonderlijke zijden instellen</h2>
+    <p>Je hoeft niet alle kanten tegelijk in te stellen. Elke kant heeft een eigen eigenschap:</p>
+    <div class="code-block">
+      <div class="code-block__lang">CSS</div>
+      <pre><code class="language-css">.element {
+    /* Padding per kant */
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+
+    /* Verkorte notatie: top right bottom left (met de klok mee) */
+    padding: 8px 16px 8px 16px;
+    /* Nog korter als top=bottom en right=left: */
+    padding: 8px 16px;
+
+    /* Margin werkt hetzelfde */
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: auto;   /* auto centreert horizontaal */
+    margin-right: auto;
+}</code></pre>
+    </div>
+
+    <h2 id="css-eenheden">10.4 CSS Eenheden</h2>
+    <p>CSS heeft veel eenheden om afmetingen mee uit te drukken. We verdelen ze in <strong>absoluut</strong> en <strong>relatief</strong>.</p>
+
+    <figure class="chapter-figure">
+      <img src="../../../app-ontwikkeling/images/H10-afb3.svg" alt="Overzicht van CSS eenheden — absoluut versus relatief" loading="lazy">
+      <figcaption>CSS eenheden — overzicht van de meest gebruikte</figcaption>
+    </figure>
+
+    <h3>Absolute eenheden</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Eenheid</th><th>Naam</th><th>Gebruik</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>px</code></td><td>Pixel</td><td>Vaste afmetingen op scherm: borders, shadows, kleine spaties</td></tr>
+        <tr><td><code>cm</code>, <code>mm</code></td><td>Centimeter, millimeter</td><td>Zelden — enkel voor print</td></tr>
+        <tr><td><code>pt</code></td><td>Point (1/72 inch)</td><td>Zelden — legacy</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Relatieve eenheden</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Eenheid</th><th>Naam</th><th>Relatief aan</th><th>Gebruik</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>%</code></td><td>Procent</td><td>Ouderelement</td><td>Breedte van kolommen, layout</td></tr>
+        <tr><td><code>em</code></td><td>Em</td><td>Font-size van het element zelf</td><td>Padding, margin t.o.v. tekst</td></tr>
+        <tr><td><code>rem</code></td><td>Root em</td><td>Font-size van <code>&lt;html&gt;</code> (standaard 16px)</td><td>Font-sizes, spacing — meest aanbevolen</td></tr>
+        <tr><td><code>vw</code></td><td>Viewport width</td><td>1% van de breedte van het browservenster</td><td>Brede secties, hero-elementen</td></tr>
+        <tr><td><code>vh</code></td><td>Viewport height</td><td>1% van de hoogte van het browservenster</td><td>Volledige schermhoogte</td></tr>
+      </tbody>
+    </table>
+
+    <div class="code-block">
+      <div class="code-block__lang">CSS</div>
+      <pre><code class="language-css">/* Richtlijn voor welke eenheid wanneer */
+
+/* Tekst: gebruik rem */
+h1 { font-size: 2rem; }         /* 32px als root = 16px */
+p  { font-size: 1rem; }         /* 16px */
+
+/* Spacing: gebruik rem of px */
+section { padding: 3rem 0; }    /* schaalbaar met tekst */
+.card   { padding: 16px; }      /* vaste maat */
+
+/* Layout / breedte: gebruik % of px */
+.kolom   { width: 50%; }
+.zijbalk { width: 280px; }
+
+/* Volledige schermhoogte */
+.hero { min-height: 100vh; }
+
+/* Border: altijd px */
+.knop { border: 2px solid #333; }</code></pre>
+    </div>
+
+    <div class="callout callout--tip">
+      <div class="callout-header">&#x1F4A1; Vuistregels</div>
+      <ul>
+        <li><strong>Tekst:</strong> altijd <code>rem</code> (schaalbaar, toegankelijk)</li>
+        <li><strong>Borders &amp; shadows:</strong> <code>px</code></li>
+        <li><strong>Breedte van een kolom/container:</strong> <code>%</code> of <code>px</code></li>
+        <li><strong>Padding rondom tekst:</strong> <code>rem</code> of <code>em</code></li>
+        <li><strong>Volledige schermhoogte:</strong> <code>100vh</code></li>
+        <li><strong>Vermijd <code>em</code> voor font-size</strong> — cascadeprobleem bij geneste elementen</li>
+      </ul>
+    </div>
+
+    <!-- OEFENINGEN -->
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening">
+      <div class="oefening__header">
+        <span class="oefening__num">10.1</span>
+        <span class="oefening__title">Box model berekeningen</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Maak een bestand <code>boxmodel.html</code> met drie <code>&lt;div&gt;</code>-elementen. Geef elk een andere combinatie van padding, border en margin. Gebruik de DevTools (F12 &rarr; tab "Computed") om de totale breedte na te meten.</p>
+        <p>Bereken <em>op papier</em> eerst de verwachte totale breedte van elk element, daarna controleer je in de browser.</p>
+        <div class="code-block">
+          <div class="code-block__lang">CSS</div>
+          <pre><code class="language-css">.doos-a {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid navy;
+    margin: 10px;
+    /* Totale breedte = ? */
+}
+
+.doos-b {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid navy;
+    margin: 10px;
+    box-sizing: border-box;
+    /* Totale breedte = ? */
+}</code></pre>
+        </div>
+        <figure class="chapter-figure">
+          <img src="../../../app-ontwikkeling/images/H10-oef1-browser.svg" alt="Browser-mockup: box model oefening met berekening van totale breedte en CSS eenheden overzicht" loading="lazy">
+          <figcaption>Verwacht resultaat — box model demo + eenheden overzicht</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="oefening">
+      <div class="oefening__header">
+        <span class="oefening__num">10.2</span>
+        <span class="oefening__title">Profielkaart met border-box</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Maak een profielkaart van 260px breed. Gebruik overal <code>box-sizing: border-box</code>. De kaart bevat een kleurrijke header, een avatar (emoji of afbeelding), naam, functie en een knop.</p>
+        <p>Gebruik <strong>minstens drie verschillende CSS-eenheden</strong> in je stijlen (bv. <code>px</code> voor de border, <code>rem</code> voor tekst, <code>%</code> voor de breedte van de knop).</p>
+        <figure class="chapter-figure">
+          <img src="../../../app-ontwikkeling/images/H10-oef2-browser.svg" alt="Browser-mockup: profielkaart met header, avatar, naam en knop, met CSS border-box notaties" loading="lazy">
+          <figcaption>Verwacht resultaat — profielkaart met border-box</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- HUISTAAK -->
+    <div id="huistaak" class="callout callout--huistaak">
+      <div class="callout-header">&#x1F4CB; Huistaak &mdash; H10 Box Model en CSS Eenheden<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H10-oef2-browser.svg', 'Voorbeeld — Profielkaart met box model')">&#128065; Bekijk voorbeeld</button></div>
+      <p>Bouw een "Prijstabel" met drie kaarten naast elkaar (gebruik wat je al weet over layout, of gebruik <code>display: inline-block</code>). Elke kaart heeft:</p>
+      <ul>
+        <li>Een gekleurde header met de naam van het abonnement (Gratis, Pro, Business)</li>
+        <li>Een prijs in grote letters (<code>font-size: 2.5rem</code>)</li>
+        <li>Een lijst van 4 voordelen</li>
+        <li>Een knop onderaan</li>
+      </ul>
+      <p>Gebruik overal <code>box-sizing: border-box</code> en zorg dat alle kaarten exact even breed zijn (gebruik <code>%</code> of een vaste <code>px</code>-waarde).</p>
+      <p>Voeg daarna toe in de CSS: <code>gap</code> tussen de kaarten, <code>padding</code> in <code>rem</code> voor de kaartinhoud en <code>margin: 0 auto</code> om de hele tabel te centreren.</p>
+    </div>
+
+    <!-- QUIZ -->
+    <h2 id="quiz">&#x1F7E0; Kennischeck</h2>
+    <div class="oefening">
+      <div class="oefening__header">
+        <span class="oefening__title">H10 &mdash; Box Model en CSS Eenheden</span>
+      </div>
+      <div class="oefening__body">
+        <div class="vraag" data-type="mc" data-correct="B">
+          <p class="vraag__tekst">1. Een element heeft <code>width: 200px; padding: 20px; border: 5px solid</code> met de standaard <code>box-sizing</code>. Hoe breed is het element in totaal?</p>
+          <label class="vraag__keuze"><input type="radio" name="q1" value="A"><span>200px</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q1" value="B"><span>250px</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q1" value="C"><span>220px</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q1" value="D"><span>210px</span></label>
+          <div class="vraag__feedback" style="display:none"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="C">
+          <p class="vraag__tekst">2. Welke instelling zorgt ervoor dat <code>width</code> de totale breedte is inclusief padding en border?</p>
+          <label class="vraag__keuze"><input type="radio" name="q2" value="A"><span><code>box-model: total</code></span></label>
+          <label class="vraag__keuze"><input type="radio" name="q2" value="B"><span><code>box-sizing: content-box</code></span></label>
+          <label class="vraag__keuze"><input type="radio" name="q2" value="C"><span><code>box-sizing: border-box</code></span></label>
+          <label class="vraag__keuze"><input type="radio" name="q2" value="D"><span><code>width: total</code></span></label>
+          <div class="vraag__feedback" style="display:none"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="A">
+          <p class="vraag__tekst">3. Je schrijft <code>font-size: 1.5rem</code>. Waaraan is <code>rem</code> relatief?</p>
+          <label class="vraag__keuze"><input type="radio" name="q3" value="A"><span>De font-size van het <code>&lt;html&gt;</code>-element (standaard 16px)</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q3" value="B"><span>De font-size van het ouderelement</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q3" value="C"><span>De breedte van het scherm</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q3" value="D"><span>De breedte van het element zelf</span></label>
+          <div class="vraag__feedback" style="display:none"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="D">
+          <p class="vraag__tekst">4. Welke eenheid gebruik je best voor een sectie die altijd de volledige hoogte van het scherm inneemt?</p>
+          <label class="vraag__keuze"><input type="radio" name="q4" value="A"><span><code>100%</code></span></label>
+          <label class="vraag__keuze"><input type="radio" name="q4" value="B"><span><code>100em</code></span></label>
+          <label class="vraag__keuze"><input type="radio" name="q4" value="C"><span><code>100px</code></span></label>
+          <label class="vraag__keuze"><input type="radio" name="q4" value="D"><span><code>100vh</code></span></label>
+          <div class="vraag__feedback" style="display:none"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="B">
+          <p class="vraag__tekst">5. Wat doet <code>margin: 0 auto</code> op een blok-element met een vaste breedte?</p>
+          <label class="vraag__keuze"><input type="radio" name="q5" value="A"><span>Verwijdert alle marges</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q5" value="B"><span>Centreert het element horizontaal</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q5" value="C"><span>Maakt de breedte automatisch</span></label>
+          <label class="vraag__keuze"><input type="radio" name="q5" value="D"><span>Verwijdert de bovenste en onderste marge</span></label>
+          <div class="vraag__feedback" style="display:none"></div>
+        </div>
+
+        <button class="btn btn-accent" onclick="checkQuiz(this)">Controleer antwoorden</button>
+      </div>
+    </div>
+
+    <!-- VOORTGANG + NAVIGATIE -->
+    <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H10')" data-progress-key="5adb/app-ontwikkeling/H10">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H09.html" class="btn btn-ghost">&#8592; H09</a> <a href="H11.html" class="btn btn-ghost">H11 &#8594;</a></div>
+    </div>
+
+    </div><!-- end chapter-content -->
+  </div><!-- end chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Tekst en Opmaak — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H02" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.1"><span class="sidebar-check__box"></span></label>
+          <a href="#alineas">2.1 Alinea's</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.2"><span class="sidebar-check__box"></span></label>
+          <a href="#hoofdingen">2.2 Hoofdingen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.3"><span class="sidebar-check__box"></span></label>
+          <a href="#lijsten">2.3 Lijsten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.4"><span class="sidebar-check__box"></span></label>
+          <a href="#figure">2.4 Afbeeldingen met bijschrift</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.5"><span class="sidebar-check__box"></span></label>
+          <a href="#inline-tekst">2.5 Inline tekstelementen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.6"><span class="sidebar-check__box"></span></label>
+          <a href="#div-span">2.6 Generieke elementen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.7"><span class="sidebar-check__box"></span></label>
+          <a href="#entities">2.7 Speciale HTML-tekens</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>HTML Tekst en Opmaak</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H02 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">HTML Tekst en Opmaak</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.07</span><span class="ld-tag__title">De leerlingen implementeren softwaremodules op een manier die herbruikbaarheid bevordert en samenwerking vereenvoudigt.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Alinea's correct markeren met <code>&lt;p&gt;</code> en uitleggen waarom je <code>&lt;br&gt;</code> NIET gebruikt voor witruimte</li>
+          <li>Hoofdingen gebruiken als een logische inhoudstafel (<code>&lt;h1&gt;</code> t.e.m. <code>&lt;h6&gt;</code>)</li>
+          <li>Geordende en ongeordende lijsten maken met <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> en <code>&lt;li&gt;</code></li>
+          <li>Afbeeldingen met bijschrift plaatsen via <code>&lt;figure&gt;</code> en <code>&lt;figcaption&gt;</code></li>
+          <li>Klemtoon en sterke klemtoon geven met <code>&lt;em&gt;</code> en <code>&lt;strong&gt;</code></li>
+          <li>Generieke elementen <code>&lt;span&gt;</code> en <code>&lt;div&gt;</code> begrijpen en toepassen</li>
+          <li>Speciale HTML-tekens gebruiken (entities)</li>
+        </ul>
+      </div>
+
+      <h2 id="alineas">2.1 Alinea's — het <code>&lt;p&gt;</code> element</h2>
+      <p>Een <strong>alinea</strong> is een reeks zinnen die bij elkaar horen. Als je een nieuw idee begint, start je een nieuwe alinea. In HTML markeer je een alinea met het <code>&lt;p&gt;</code> element ('paragraaf'):</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p&gt;
+    Hypertext Markup Language is een markeertaal. Ze houdt zich bezig
+    met het toevoegen van betekenis en structuur aan tekst.
+&lt;/p&gt;
+&lt;p&gt;
+    De vraag hoe iets getoond moet worden is het domein van CSS.
+    Dat bekijken we in een later hoofdstuk.
+&lt;/p&gt;</code></pre>
+      </div>
+      <p>Een browser toont standaard wat ruimte tussen twee alinea's. Dat is visueel, maar de reden om een <code>&lt;p&gt;</code> te gebruiken is <strong>inhoudelijk</strong>: een nieuw idee begint.</p>
+      <h3>Veelgemaakte beginnersfout: <code>&lt;br&gt;</code> misbruiken</h3>
+      <p>Het <code>&lt;br&gt;</code> element staat voor een <strong>gedwongen regelafbreking</strong> (line break). Beginners gebruiken het soms om witruimte te creëren tussen tekstblokken. Dat is <strong>fout</strong>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- FOUT — gebruik &lt;br&gt; niet voor witruimte tussen alinea's --&gt;
+&lt;p&gt;
+    Eerste idee hier. &lt;br&gt;&lt;br&gt;
+    Tweede idee hier.
+&lt;/p&gt;</code></pre>
+      </div>
+      <p><strong>Waarom fout?</strong></p>
+      <ul>
+        <li>Je mengt <em>presentatie</em> (visuele witruimte) met <em>structuur</em> (HTML).</li>
+        <li>Een screenreader voor blinde bezoekers leest <code>&lt;br&gt;</code> voor als een regelafbreking, niet als een nieuw idee.</li>
+        <li>De witruimte aanpassen doe je later met CSS.</li>
+      </ul>
+      <p><strong>Correct:</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p&gt;Eerste idee hier.&lt;/p&gt;
+&lt;p&gt;Tweede idee hier.&lt;/p&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p><code>&lt;br&gt;</code> gebruik je alleen wanneer een regelafbreking <em>inhoudelijk</em> noodzakelijk is, zoals in een gedicht of een adres.</p>
+      </div>
+
+      <h2 id="hoofdingen">2.2 Hoofdingen — <code>&lt;h1&gt;</code> tot <code>&lt;h6&gt;</code></h2>
+      <p>HTML heeft <strong>zes niveaus van hoofdingen</strong>: <code>&lt;h1&gt;</code> (het hoogste niveau, meest belangrijk) tot <code>&lt;h6&gt;</code> (het laagste niveau).</p>
+      <h3>Denk aan een inhoudstafel</h3>
+      <p>Hoofdingen werken zoals een inhoudstafel van een boek. Elke HTML-pagina heeft <strong>één <code>&lt;h1&gt;</code></strong> — de hoofdtitel van die specifieke pagina. De rest zijn onderverdielingen.</p>
+      <h3>Regels voor hoofdingen</h3>
+      <ol>
+        <li><strong>Sla geen niveaus over.</strong> Na een <code>&lt;h2&gt;</code> kom je een <code>&lt;h3&gt;</code>, niet direct een <code>&lt;h4&gt;</code>.</li>
+        <li><strong>Denk semantisch, niet visueel.</strong> Gebruik geen <code>&lt;h3&gt;</code> omdat die kleiner is dan je wilt. Gebruik de juiste hiërarchie en pas de grootte aan met CSS.</li>
+        <li><strong>Eén <code>&lt;h1&gt;</code> per pagina.</strong> De <code>&lt;h1&gt;</code> is de unieke hoofdtitel van de pagina.</li>
+      </ol>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H02-afb1.svg" alt="Visuele voorstelling van heading-hiërarchie als inhoudstafel" loading="lazy">
+      </figure>
+
+      <h2 id="lijsten">2.3 Lijsten — <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> en <code>&lt;li&gt;</code></h2>
+      <p>Soms wil je geen alinea met zinnen, maar een <strong>opsomming</strong>. HTML heeft drie soorten lijsten:</p>
+      <h3>Ongeordende lijst — <code>&lt;ul&gt;</code></h3>
+      <p>Gebruik je wanneer de <strong>volgorde niet belangrijk</strong> is. De items worden standaard met een bolletje weergegeven:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+      <h3>Geordende lijst — <code>&lt;ol&gt;</code></h3>
+      <p>Gebruik je wanneer de <strong>volgorde wel belangrijk</strong> is. De items worden standaard genummerd:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Open VS Code&lt;/li&gt;
+    &lt;li&gt;Maak een nieuw bestand aan&lt;/li&gt;
+    &lt;li&gt;Typ de HTML-structuur&lt;/li&gt;
+    &lt;li&gt;Sla op als index.html&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </div>
+      <h3>Beschrijvingslijst — <code>&lt;dl&gt;</code></h3>
+      <p>Gebruik je voor <strong>begrippen met uitleg</strong>, zoals een woordenboek:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Geeft structuur en betekenis aan tekst op het web.&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Beschrijft de lay-out, kleur en lettertype van een webpagina.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+      </div>
+      <ul>
+        <li><code>&lt;dl&gt;</code> = description list (beschrijvingslijst)</li>
+        <li><code>&lt;dt&gt;</code> = description term (het begrip)</li>
+        <li><code>&lt;dd&gt;</code> = description detail (de uitleg)</li>
+      </ul>
+
+      <h2 id="figure">2.4 Afbeeldingen met bijschrift — <code>&lt;figure&gt;</code> en <code>&lt;figcaption&gt;</code></h2>
+      <p>Wanneer je een afbeelding wilt plaatsen die een punt van je inhoud illustreert, gebruik je het <code>&lt;figure&gt;</code> element. Dit element groepeert de afbeelding samen met een optioneel bijschrift (<code>&lt;figcaption&gt;</code>).</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;figure&gt;
+    &lt;img
+        src="img/netwerk-schema.jpg"
+        alt="Schema van een eenvoudig computernetwerk"
+        width="800"
+        height="500"
+    &gt;
+    &lt;figcaption&gt;
+        Figuur 1: Een eenvoudig netwerk met router, switch en computers.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+      </div>
+
+      <h2 id="inline-tekst">2.5 Inline tekstelementen — <code>&lt;em&gt;</code> en <code>&lt;strong&gt;</code></h2>
+      <h3>Klemtoon — <code>&lt;em&gt;</code></h3>
+      <p><code>&lt;em&gt;</code> staat voor <em>emphasis</em> (klemtoon). Je gebruikt het wanneer je een woord wilt benadrukken zoals je dat in gesproken taal zou doen door je stem te verhogen. Browsers tonen <code>&lt;em&gt;</code> standaard in cursief — maar de <em>betekenis</em> is klemtoon.</p>
+      <h3>Sterke klemtoon — <code>&lt;strong&gt;</code></h3>
+      <p><code>&lt;strong&gt;</code> staat voor sterke nadruk. Je gebruikt het voor kritisch belangrijke informatie. Browsers tonen <code>&lt;strong&gt;</code> standaard vet — maar gebruik het voor de <em>betekenis</em>, niet voor de visuele opmaak.</p>
+      <h3>Waarom niet <code>&lt;b&gt;</code> en <code>&lt;i&gt;</code> gebruiken?</h3>
+      <p>In oude HTML-code zie je soms <code>&lt;b&gt;</code> (bold, vet) en <code>&lt;i&gt;</code> (italic, cursief). Die elementen zijn <em>puur visueel</em> — ze voegen geen betekenis toe. <code>&lt;em&gt;</code> en <code>&lt;strong&gt;</code> zijn de betere keuze omdat ze <em>betekenis</em> dragen.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H02-afb2.svg" alt="Overzicht van de meest gebruikte HTML entities" loading="lazy">
+      </figure>
+
+      <h2 id="div-span">2.6 Generieke elementen — <code>&lt;div&gt;</code> en <code>&lt;span&gt;</code></h2>
+      <p>Soms wil je elementen <strong>groeperen omwille van lay-out</strong> (CSS), zonder dat er een geschikt semantisch element voor bestaat. Hiervoor bestaan twee <strong>generieke</strong> (betekenisloze) elementen:</p>
+      <ul>
+        <li><strong><code>&lt;div&gt;</code></strong> — groepeert andere elementen in een blok, zonder zelf betekenis toe te voegen.</li>
+        <li><strong><code>&lt;span&gt;</code></strong> — omhult een stuk tekst inline, zonder betekenis. Je gebruikt het om een stuk tekst op een speciale manier op te maken met CSS.</li>
+      </ul>
+      <p><strong>Belangrijke regel:</strong> <code>&lt;div&gt;</code> en <code>&lt;span&gt;</code> zijn de <strong>laatste keuze</strong>. Bekijk altijd eerst of er een passend semantisch element is.</p>
+
+      <h2 id="entities">2.7 Speciale HTML-tekens (entities)</h2>
+      <p>Sommige tekens hebben in HTML een speciale betekenis. Als je deze tekens letterlijk wilt tonen in je tekst, gebruik je <strong>HTML entities</strong>. Een entity begint altijd met <code>&amp;</code> en eindigt met <code>;</code>:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Entity</th><th>Teken</th><th>Uitleg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&amp;lt;</code></td><td>&lt;</td><td>Kleiner-dan teken</td></tr>
+          <tr><td><code>&amp;gt;</code></td><td>&gt;</td><td>Groter-dan teken</td></tr>
+          <tr><td><code>&amp;amp;</code></td><td>&amp;</td><td>Ampersand</td></tr>
+          <tr><td><code>&amp;copy;</code></td><td>&copy;</td><td>Copyright-symbool</td></tr>
+          <tr><td><code>&amp;nbsp;</code></td><td>(vaste spatie)</td><td>Non-breaking space</td></tr>
+          <tr><td><code>&amp;euro;</code></td><td>&euro;</td><td>Euro-teken</td></tr>
+        </tbody>
+      </table>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Alinea's en hoofdingen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>profiel.html</code>. Maak een pagina over een fictief persoon of jezelf met:</p>
+            <ol>
+              <li>Een <code>&lt;h1&gt;</code> met de naam van de persoon</li>
+              <li>Twee secties, elk met een <code>&lt;h2&gt;</code>: "Over mij" en "Mijn favoriete programmeertalen"</li>
+              <li>Eén woord beklemtoond met <code>&lt;em&gt;</code>, één woord met <code>&lt;strong&gt;</code></li>
+              <li>Een footer met een copyright-bericht (gebruik <code>&amp;copy;</code>)</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H02-oef1-browser.svg" alt="Browser-mockup: profielpagina met naam, twee secties en een lijst" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Lijsten en hiërarchie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>stappenplan.html</code> met een geordende lijst die een stappenplan beschrijft om een eenvoudige website online te zetten. Gebruik minstens 5 stappen. Voeg bij de stap "Code schrijven" een geneste ongeordende lijst toe met 3 subitems.</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H02-oef2-browser.svg" alt="Browser-mockup: geordende lijst met geneste ongeordende lijst" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 3 — Figure en speciale tekens</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>recept.html</code> voor een eenvoudig recept naar keuze. Zorg voor:</p>
+            <ol>
+              <li>Een <code>&lt;h1&gt;</code> met de naam van het gerecht</li>
+              <li>Een <code>&lt;figure&gt;</code> met een afbeelding en <code>&lt;figcaption&gt;</code></li>
+              <li>Een <code>&lt;h2&gt;</code> "Ingrediënten" met een <code>&lt;ul&gt;</code></li>
+              <li>Een <code>&lt;h2&gt;</code> "Bereiding" met een <code>&lt;ol&gt;</code></li>
+              <li>Minimaal twee HTML entities in de tekst</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H02-oef3-browser.svg" alt="Browser-mockup: receptenpagina met figure, ingrediëntenlijst en bereidingslijst" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H02 HTML Tekst en Opmaak<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H02-oef2-browser.svg', 'Voorbeeld — Persoonlijke tekstpagina')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+          <h3>Opdracht: Een receptenpagina</h3>
+          <p>Je maakt een HTML-pagina voor een recept van jouw favoriete gerecht (pasta, pizza, lasagne, pannenkoeken, curry, … — kies zelf). De pagina bevat gestructureerde tekst met titels, alinea's, lijsten en een afbeeldingsbeschrijving.</p>
+          <p>Gebruik de <code>index.html</code> van H01 of maak een nieuw bestand <code>recept.html</code>.</p>
+          <h4>Deel 1 — Titels en alinea's (3 punten)</h4>
+          <ol>
+            <li>Voeg een <code>&lt;h1&gt;</code> toe met de naam van het recept.</li>
+            <li>Voeg een <code>&lt;h2&gt;</code> toe met de tekst "Ingrediënten".</li>
+            <li>Voeg een <code>&lt;h2&gt;</code> toe met de tekst "Bereiding".</li>
+            <li>Voeg onder de <code>&lt;h1&gt;</code> een korte introductie-alinea (<code>&lt;p&gt;</code>) toe die het gerecht beschrijft.</li>
+          </ol>
+          <h4>Deel 2 — Lijsten (4 punten)</h4>
+          <ol>
+            <li>Maak een <strong>ongeordende lijst</strong> (<code>&lt;ul&gt;</code>) met minstens <strong>5 ingrediënten</strong> onder de <code>&lt;h2&gt;Ingrediënten&lt;/h2&gt;</code>.</li>
+            <li>Maak een <strong>geordende lijst</strong> (<code>&lt;ol&gt;</code>) met minstens <strong>4 bereidingsstappen</strong> onder de <code>&lt;h2&gt;Bereiding&lt;/h2&gt;</code>.</li>
+            <li>Gebruik het correcte list-item element (<code>&lt;li&gt;</code>) voor elk item.</li>
+          </ol>
+          <h4>Deel 3 — Figuur en bijschrift (3 punten)</h4>
+          <p>Voeg onderaan de pagina een <code>&lt;figure&gt;</code>-blok toe met:</p>
+          <ol>
+            <li>Een <code>&lt;img&gt;</code>-element (je kan een placeholder-URL gebruiken: <code>https://placehold.co/400x300</code>) met een zinvol <code>alt</code>-attribuut.</li>
+            <li>Een <code>&lt;figcaption&gt;</code> met een beschrijving van de afbeelding, bv. "Mijn zelfgemaakte spaghetti bolognese."</li>
+          </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H02 — HTML Tekst en Opmaak</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wanneer gebruik je het <code>&lt;br&gt;</code> element?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="a"> <span>Om witruimte te creëren tussen twee alinea's</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="b"> <span>Als vervanging voor een nieuw <code>&lt;p&gt;</code> element</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="c"> <span>Wanneer een regelafbreking inhoudelijk noodzakelijk is (bv. in een adres)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="d"> <span>Om de tekst groter te maken</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Hoeveel <code>&lt;h1&gt;</code> elementen mag een HTML-pagina hebben?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="a"> <span>Zo veel als je wilt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="b"> <span>Eén — de unieke hoofdtitel van de pagina</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="c"> <span>Twee — één in de header en één in de main</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="d"> <span>Geen — gebruik liever <code>&lt;h2&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welk lijsttype gebruik je voor een stappenplan waarbij de volgorde belangrijk is?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="a"> <span><code>&lt;ol&gt;</code> — geordende lijst</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="b"> <span><code>&lt;ul&gt;</code> — ongeordende lijst</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="c"> <span><code>&lt;dl&gt;</code> — beschrijvingslijst</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="d"> <span><code>&lt;list&gt;</code> — standaard lijst</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is het verschil tussen <code>&lt;em&gt;</code> en <code>&lt;strong&gt;</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="a"> <span><code>&lt;em&gt;</code> maakt tekst vet, <code>&lt;strong&gt;</code> maakt tekst cursief</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="b"> <span>Er is geen verschil — beide zijn hetzelfde</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="c"> <span><code>&lt;em&gt;</code> is voor titels, <code>&lt;strong&gt;</code> is voor alinea's</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="d"> <span><code>&lt;em&gt;</code> is klemtoon, <code>&lt;strong&gt;</code> is sterke klemtoon — beide dragen betekenis</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk HTML-element gebruik je om een afbeelding samen met een bijschrift te groeperen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="a"> <span><code>&lt;img&gt;</code> met een <code>&lt;p&gt;</code> eronder</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="b"> <span><code>&lt;figure&gt;</code> met <code>&lt;figcaption&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="c"> <span><code>&lt;div&gt;</code> met <code>&lt;caption&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="d"> <span><code>&lt;picture&gt;</code> met <code>&lt;caption&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welke entity gebruik je om het copyright-symbool © te tonen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="a"> <span><code>&amp;cr;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="b"> <span><code>&amp;circle-c;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="c"> <span><code>&amp;copy;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="d"> <span><code>&amp;cpright;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H02')" data-progress-key="5adb/app-ontwikkeling/H02">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H01.html" class="btn btn-ghost">← H01</a> <a href="H03.html" class="btn btn-ghost">H03 →</a></div>
+    </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

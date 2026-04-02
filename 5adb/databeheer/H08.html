@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H08 &mdash; Python, Excel en JSON &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Python, Excel en JSON &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H08</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-8-python-excel-en-json">Hoofdstuk 8 — Python: Excel en JSON</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#81-waarom-python-voor-data">8.1 Waarom Python voor data?</a></li><li><a href="#82-excel-met-python-openpyxl">8.2 Excel met Python (openpyxl)</a></li><li><a href="#821-een-excel-bestand-openen" style="padding-left:1.25rem">8.2.1 Een Excel-bestand openen</a></li><li><a href="#822-cellen-uitlezen" style="padding-left:1.25rem">8.2.2 Cellen uitlezen</a></li><li><a href="#823-berekeningen-op-een-kolom" style="padding-left:1.25rem">8.2.3 Berekeningen op een kolom</a></li><li><a href="#824-resultaat-opslaan-in-een-nieuw-excel-bestand" style="padding-left:1.25rem">8.2.4 Resultaat opslaan in een nieuw Excel-bestand</a></li><li><a href="#83-json-met-python">8.3 JSON met Python</a></li><li><a href="#831-wat-is-json" style="padding-left:1.25rem">8.3.1 Wat is JSON?</a></li><li><a href="#832-json-inlezen" style="padding-left:1.25rem">8.3.2 JSON inlezen</a></li><li><a href="#833-json-wegschrijven" style="padding-left:1.25rem">8.3.3 JSON wegschrijven</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h08" style="padding-left:1.25rem">Huistaak H08</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H08 &mdash; Python, Excel en JSON</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-8-python-excel-en-json">Hoofdstuk 8 — Python: Excel en JSON</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB19]</span> Verwerken van gegevens met behulp van een programmeertaal <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 6 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>Uitleggen waarom Python nuttig is voor data verwerken.</li>
+<li>Een Excel-bestand inlezen en verwerken met Python (openpyxl).</li>
+<li>Berekeningen uitvoeren op cijfers uit een Excel-bestand.</li>
+<li>Een JSON-bestand inlezen en wegschrijven met Python.</li>
+<li>Gegevens ophalen uit een JSON-object.</li>
+</ol>
+<h2 id="81-waarom-python-voor-data">8.1 Waarom Python voor data?</h2>
+<p>SQL is ideaal voor het opvragen en aanpassen van gegevens in een database. Maar in de praktijk ontvang je data ook in andere formaten: <strong>Excel-bestanden</strong>, <strong>JSON-bestanden</strong>, CSV-bestanden …</p>
+<p>Python is de meest gebruikte taal voor dataverwerking omdat:</p>
+<ul>
+<li>het eenvoudig te lezen is</li>
+<li>er veel handige bibliotheken voor data zijn (openpyxl, json, pandas …)</li>
+<li>het automatisering mogelijk maakt: stel je voor dat je elke maand 50 Excel-bestanden moet verwerken</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Python installeer je via <a href="https://www.python.org" target="_blank" rel="noopener">python.org</a>. Zorg dat je ook <code>openpyxl</code> installeert:</p>
+<pre data-lang=""><code>
+pip install openpyxl
+</code></pre>
+</div>
+<h2 id="82-excel-met-python-openpyxl">8.2 Excel met Python (openpyxl)</h2>
+<h3 id="821-een-excel-bestand-openen">8.2.1 Een Excel-bestand openen</h3>
+<pre data-lang="python"><code>
+import openpyxl
+
+# Werkmap openen
+wb = openpyxl.load_workbook('cijfers.xlsx')
+
+# Werkblad selecteren
+ws = wb.active  # het eerste werkblad
+
+print(ws.title)  # naam van het werkblad
+</code></pre>
+<h3 id="822-cellen-uitlezen">8.2.2 Cellen uitlezen</h3>
+<pre data-lang="python"><code>
+import openpyxl
+
+wb = openpyxl.load_workbook('cijfers.xlsx')
+ws = wb.active
+
+# Eén cel opvragen
+cel_a1 = ws['A1'].value
+print(cel_a1)
+
+# Alle rijen doorlopen
+for rij in ws.iter_rows(min_row=2, values_only=True):
+    naam = rij[0]    # kolom A
+    score = rij[1]   # kolom B
+    print(f"{naam}: {score}")
+</code></pre>
+<p>!<a href="../../images/H08-python-excel.png" target="_blank" rel="noopener">Excel met Python</a></p>
+<p><em>Figuur 8.1 — Python leest een Excel-bestand rij per rij</em></p>
+<h3 id="823-berekeningen-op-een-kolom">8.2.3 Berekeningen op een kolom</h3>
+<p>Stel: je hebt een Excel-bestand <code>cijfers.xlsx</code> met twee kolommen:</p>
+<ul>
+<li>Kolom A: naam van de leerling</li>
+<li>Kolom B: score (getal van 0 tot 20)</li>
+</ul>
+<pre data-lang="python"><code>
+import openpyxl
+
+wb = openpyxl.load_workbook('cijfers.xlsx')
+ws = wb.active
+
+scores = []
+
+# Alle scores verzamelen (sla de titelbalk over met min_row=2)
+for rij in ws.iter_rows(min_row=2, values_only=True):
+    naam = rij[0]
+    score = rij[1]
+    if score is not None:
+        scores.append(score)
+        print(f"{naam}: {score}/20")
+
+# Berekeningen
+totaal = sum(scores)
+gemiddelde = totaal / len(scores)
+hoogste = max(scores)
+laagste = min(scores)
+
+print(f"\nGemiddelde: {gemiddelde:.1f}")
+print(f"Hoogste score: {hoogste}")
+print(f"Laagste score: {laagste}")
+</code></pre>
+<h3 id="824-resultaat-opslaan-in-een-nieuw-excel-bestand">8.2.4 Resultaat opslaan in een nieuw Excel-bestand</h3>
+<pre data-lang="python"><code>
+import openpyxl
+
+# Nieuw werkmap aanmaken
+wb_nieuw = openpyxl.Workbook()
+ws_nieuw = wb_nieuw.active
+ws_nieuw.title = "Resultaten"
+
+# Kopteksten toevoegen
+ws_nieuw['A1'] = 'Naam'
+ws_nieuw['B1'] = 'Score'
+ws_nieuw['C1'] = 'Geslaagd?'
+
+# Data toevoegen
+data = [
+    ('Jan', 14),
+    ('Sara', 8),
+    ('Raf', 17),
+]
+
+for rij_nr, (naam, score) in enumerate(data, start=2):
+    ws_nieuw.cell(row=rij_nr, column=1, value=naam)
+    ws_nieuw.cell(row=rij_nr, column=2, value=score)
+    ws_nieuw.cell(row=rij_nr, column=3, value='Ja' if score &gt;= 10 else 'Nee')
+
+# Opslaan
+wb_nieuw.save('resultaten.xlsx')
+print("Bestand opgeslagen!")
+</code></pre>
+<h2 id="83-json-met-python">8.3 JSON met Python</h2>
+<h3 id="831-wat-is-json">8.3.1 Wat is JSON?</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>JSON (JavaScript Object Notation) is een tekstformaat voor het opslaan en uitwisselen van gestructureerde gegevens. Het lijkt op een Python-woordenboek (dictionary).</p>
+</div>
+<p>JSON wordt veel gebruikt bij API's (koppeling tussen applicaties), configuratiebestanden en webapplicaties. Je zal het ook tegenkomen in App-ontwikkeling.</p>
+<p><strong>Voorbeeld van een JSON-bestand (<code>producten.json</code>):</strong></p>
+<pre data-lang="json"><code>
+{
+  "producten": [
+    {"id": 1, "naam": "Laptop", "prijs": 999.99},
+    {"id": 2, "naam": "Muis", "prijs": 24.95},
+    {"id": 3, "naam": "Toetsenbord", "prijs": 44.50}
+  ]
+}
+</code></pre>
+<p>!<a href="../../images/H08-json-structuur.png" target="_blank" rel="noopener">JSON structuur</a></p>
+<p><em>Figuur 8.2 — JSON-structuur: sleutel-waardeparen en lijsten</em></p>
+<h3 id="832-json-inlezen">8.3.2 JSON inlezen</h3>
+<pre data-lang="python"><code>
+import json
+
+# JSON-bestand openen en inlezen
+with open('producten.json', 'r', encoding='utf-8') as bestand:
+    data = json.load(bestand)
+
+# Data raadplegen
+print(data['producten'])           # de volledige lijst
+print(data['producten'][0])        # eerste product
+print(data['producten'][0]['naam']) # naam van eerste product
+
+# Door alle producten lopen
+for product in data['producten']:
+    print(f"{product['naam']}: €{product['prijs']}")
+</code></pre>
+<h3 id="833-json-wegschrijven">8.3.3 JSON wegschrijven</h3>
+<pre data-lang="python"><code>
+import json
+
+# Data die we willen opslaan
+leerlingen = [
+    {"naam": "Jan Peeters", "klas": "5ADB", "score": 14},
+    {"naam": "Sara Claes", "klas": "5ADB", "score": 17},
+    {"naam": "Raf Dubois", "klas": "5ADB", "score": 9},
+]
+
+data = {"leerlingen": leerlingen}
+
+# Wegschrijven naar JSON-bestand
+with open('leerlingen.json', 'w', encoding='utf-8') as bestand:
+    json.dump(data, bestand, indent=4, ensure_ascii=False)
+
+print("JSON-bestand opgeslagen!")
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p><code>indent=4</code> zorgt voor mooie opmaak met inspringen. <code>ensure_ascii=False</code> laat speciale tekens (é, à, ë …) correct opslaan.</p>
+</div>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Je krijgt een Excel-bestand <code>punten_5adb.xlsx</code> met de kolommen: Naam, Toets1, Toets2, Toets3.</p>
+<pre data-lang="python"><code>
+import openpyxl
+
+wb = openpyxl.load_workbook('punten_5adb.xlsx')
+ws = wb.active
+
+for rij in ws.iter_rows(min_row=2, values_only=True):
+naam, t1, t2, t3 = rij
+if naam and t1 and t2 and t3:
+gemiddelde = (t1 + t2 + t3) / 3
+print(f"{naam}: gemiddelde = {gemiddelde:.1f}/20")
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+import json
+
+# Inlezen
+with open('producten.json', 'r') as f:
+data = json.load(f)
+
+# Nieuw product toevoegen
+nieuw_product = {"id": 4, "naam": "Monitor", "prijs": 299.00}
+data['producten'].append(nieuw_product)
+
+# Wegschrijven
+with open('producten.json', 'w') as f:
+json.dump(data, f, indent=4)
+
+print("Product toegevoegd!")
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h08-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 8.1</span>
+    <span class="oefening__title">Python en Excel met openpyxl</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je werkt met het bestand <code>scores.xlsx</code> (kolommen: Naam, Score). Test je kennis van de openpyxl-bibliotheek.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke functie gebruik je om een bestaand Excel-bestand te openen in Python met openpyxl?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q1" value="a"><span><code>openpyxl.open('bestand.xlsx')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q1" value="b"><span><code>openpyxl.load_workbook('bestand.xlsx')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q1" value="c"><span><code>openpyxl.read('bestand.xlsx')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q1" value="d"><span><code>open('bestand.xlsx', 'r')</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="openpyxl.load_workbook('bestand.xlsx') — laadt de werkmap. Daarna gebruik je wb.active om het actieve werkblad te selecteren"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="iter_rows|iter_rows()">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke methode gebruik je om alle rijen van een werkblad te doorlopen in Python met openpyxl?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de methodenaam...">
+      <div class="vraag__feedback" data-correct-label="iter_rows() — bijv. for rij in ws.iter_rows(min_row=2, values_only=True): doorloopt alle rijen vanaf rij 2"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Je wil de titelbalk (rij 1) overslaan bij het doorlopen van een Excel-bestand. Welk argument gebruik je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q3" value="a"><span><code>iter_rows(skip=1)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q3" value="b"><span><code>iter_rows(start_row=2)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q3" value="c"><span><code>iter_rows(min_row=2)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q3" value="d"><span><code>iter_rows(header=False)</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="iter_rows(min_row=2) — min_row=2 start het doorlopen vanaf rij 2, waardoor de koptekstrij (rij 1) wordt overgeslagen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Hoe sla je een aangepaste werkmap op in openpyxl?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q4" value="a"><span><code>wb.save('resultaten.xlsx')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q4" value="b"><span><code>wb.write('resultaten.xlsx')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q4" value="c"><span><code>openpyxl.save(wb, 'resultaten.xlsx')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-1-q4" value="d"><span><code>ws.save('resultaten.xlsx')</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="wb.save('resultaten.xlsx') — je roept .save() aan op de werkmap (wb), niet op het werkblad (ws)"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h08-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 8.2</span>
+    <span class="oefening__title">JSON lezen en schrijven in Python</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">JSON is een veelgebruikt formaat voor data-uitwisseling. Python heeft een ingebouwde <code>json</code>-module.</p>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Hoe lees je een JSON-bestand in Python in?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q1" value="a"><span><code>data = json.read('producten.json')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q1" value="b"><span><code>data = json.open('producten.json')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q1" value="c"><span><code>data = json.parse('producten.json')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q1" value="d"><span><code>with open('producten.json') as f: data = json.load(f)</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="with open('producten.json') as f: data = json.load(f) — json.load() leest een bestandsobject in en converteert JSON naar een Python-dictionary"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="json.dump|json.dump()">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke Python-functie gebruik je om data weg te schrijven naar een JSON-bestand?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de functienaam...">
+      <div class="vraag__feedback" data-correct-label="json.dump() — schrijft een Python-object (dict of lijst) weg als JSON naar een bestand. Gebruik indent=4 voor mooie opmaak"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">JSON lijkt sterk op een Python-datatype. Welk Python-type komt het meest overeen met een JSON-object?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q3" value="a"><span>Lijst (list)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q3" value="b"><span>Tuple</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q3" value="c"><span>Woordenboek (dict) — sleutel-waardeparen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-2-q3" value="d"><span>String</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Woordenboek (dict) — een JSON-object met sleutel-waardeparen { } wordt in Python een dict. Een JSON-array [ ] wordt een Python-lijst"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h08-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 8.3</span>
+    <span class="oefening__title">Excel naar JSON converteren</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je leest productnamen en prijzen uit een Excel-bestand en schrijft ze weg als JSON. Test of je de stappen correct combineert.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke bibliotheken heb je nodig om Excel te lezen én JSON te schrijven?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q1" value="a"><span><code>import excel</code> en <code>import json</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q1" value="b"><span><code>import openpyxl</code> en <code>import json</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q1" value="c"><span>Alleen <code>import json</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q1" value="d"><span><code>import pandas</code> en <code>import json</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="import openpyxl en import json — openpyxl voor Excel-bestanden, json is ingebouwd in Python en hoeft niet apart geïnstalleerd te worden"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat doet het argument <code>ensure_ascii=False</code> bij <code>json.dump()</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q2" value="a"><span>Versnelt het wegschrijven</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q2" value="b"><span>Controleert de JSON-syntax</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q2" value="c"><span>Maakt het bestand kleiner</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h08-3-q2" value="d"><span>Laat speciale tekens (é, à, ë …) correct opslaan in het JSON-bestand</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laat speciale tekens (é, à, ë …) correct opslaan — zonder dit argument worden ze omgezet naar escape-codes zoals \\u00e9"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="values_only=true|values_only=true|values_only">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk argument geef je mee aan <code>iter_rows()</code> zodat je direct de celwaarden krijgt (geen Cell-objecten)?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het argument...">
+      <div class="vraag__feedback" data-correct-label="values_only=True — zonder dit argument krijg je Cell-objecten terug; met values_only=True krijg je direct de waarden (strings, getallen, ...)"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h08">Huistaak H08</h3>
+<p><strong>Excel-bestand verwerken met Python</strong></p>
+<p>Download het bestand <code>H08-huistaak-cijfers.xlsx</code> van de schoolomgeving (of maak het zelf aan met 10 rijen: naam + 3 toetsscores).</p>
+<p><strong>Opdracht:</strong></p>
+<ol>
+<li>Lees het bestand in met Python.</li>
+<li>Bereken voor elke leerling het gemiddelde van de 3 toetsen.</li>
+<li>Toon de namen van de leerlingen die geslaagd zijn (gemiddelde >= 10).</li>
+<li>Sla de resultaten (naam + gemiddelde + geslaagd?) op in een nieuw bestand <code>resultaten.xlsx</code>.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H08-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Python is nuttig om data te verwerken in Excel- en JSON-formaten.</li>
+<li><strong>openpyxl</strong>: Excel-bestanden openen (<code>load_workbook</code>), rijen doorlopen (<code>iter_rows</code>), cellen lezen en schrijven, opslaan (<code>save</code>).</li>
+<li><strong>json</strong>: JSON-bestanden inlezen (<code>json.load</code>) en wegschrijven (<code>json.dump</code>).</li>
+<li>JSON lijkt op een Python-dictionary: sleutel-waardeparen en lijsten.</li>
+<li>Combineer Python met Excel/JSON om data-taken te automatiseren.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB19]</span> Verwerken van gegevens met behulp van een programmeertaal <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H08">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H07.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H07 &mdash; Relaties en JOIN</span></div></a>
+          <a href="H09.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H09 &mdash; Datavisualisatie met Python</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H22 — Voorwaarden — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H22" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.1"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-if">22.1 Het if-statement</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.2"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-if-else">22.2 if / else</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.3"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-else-if">22.3 if / else if / else</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.4"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-switch">22.4 switch</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.5"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-ternair">22.5 Ternaire operator</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.6"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-nesting">22.6 Geneste if-statements</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H22 — Voorwaarden</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H22 — App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Voorwaarden</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een <code>if</code>-statement schrijven en uitleggen wat het doet</li>
+          <li>Een <code>if / else</code>-constructie toepassen bij twee mogelijke gevallen</li>
+          <li>Meerdere gevallen afhandelen met <code>if / else if / else</code></li>
+          <li>Een <code>switch</code>-statement lezen en schrijven voor vaste waarden</li>
+          <li>De ternaire operator <code>? :</code> gebruiken voor eenvoudige keuzes</li>
+          <li>Geneste <code>if</code>-statements herkennen en weten wanneer je ze beter vermijdt</li>
+        </ul>
+      </div>
+
+      <!-- 22.1 Het if-statement -->
+      <section id="sectie-if">
+        <h2>22.1 Het if-statement</h2>
+        <p>Een programma dat altijd hetzelfde doet, is weinig nuttig. Pas wanneer je code kan <strong>reageren op de situatie</strong> — op wat de gebruiker invult, op wat er in een variabele staat — wordt het interessant. Voorwaarden laten je programma kiezen: doe dit <em>als</em> iets geldt, doe dat anders.</p>
+
+        <h3>Structuur</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">if (voorwaarde) {
+    // code die uitgevoerd wordt ALS de voorwaarde waar (true) is
+}</code></pre>
+        </div>
+
+        <h3>Eerste voorbeeld: leeftijdscontrole</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let leeftijd = 17;
+
+if (leeftijd &gt;= 18) {
+    console.log("Je mag naar binnen.");
+}</code></pre>
+        </div>
+        <p>Stap voor stap: JavaScript evalueert <code>leeftijd &gt;= 18</code> → dat is <code>17 &gt;= 18</code> → dat is <code>false</code>. De <code>console.log</code> wordt <strong>niet</strong> uitgevoerd.</p>
+
+        <h3>Vergelijkingsoperatoren</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Operator</th><th>Betekenis</th><th>Voorbeeld</th><th>Resultaat</th></tr></thead>
+            <tbody>
+              <tr><td><code>===</code></td><td>Gelijk aan (waarde én type)</td><td><code>5 === 5</code></td><td><code>true</code></td></tr>
+              <tr><td><code>!==</code></td><td>Niet gelijk aan</td><td><code>5 !== 3</code></td><td><code>true</code></td></tr>
+              <tr><td><code>&gt;</code></td><td>Groter dan</td><td><code>10 &gt; 5</code></td><td><code>true</code></td></tr>
+              <tr><td><code>&lt;</code></td><td>Kleiner dan</td><td><code>3 &lt; 7</code></td><td><code>true</code></td></tr>
+              <tr><td><code>&gt;=</code></td><td>Groter dan of gelijk aan</td><td><code>5 &gt;= 5</code></td><td><code>true</code></td></tr>
+              <tr><td><code>&lt;=</code></td><td>Kleiner dan of gelijk aan</td><td><code>4 &lt;= 3</code></td><td><code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--warning">
+          <div class="callout-header">⚠️ == versus ===</div>
+          <p>Gebruik altijd <code>===</code> (strikte vergelijking). De <code>==</code> operator doet automatische typeomzetting en kan verrassende resultaten geven: <code>"5" == 5</code> is <code>true</code>, maar <code>"5" === 5</code> is <code>false</code>.</p>
+        </div>
+      </section>
+
+      <!-- 22.2 if / else -->
+      <section id="sectie-if-else">
+        <h2>22.2 if / else — twee gevallen</h2>
+        <p>Soms wil je iets doen als de voorwaarde geldt, en iets anders als dat niet het geval is. Dat doe je met <code>else</code>.</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">if (voorwaarde) {
+    // uitgevoerd als voorwaarde TRUE is
+} else {
+    // uitgevoerd als voorwaarde FALSE is
+}</code></pre>
+        </div>
+
+        <h3>Voorbeeld: geslaagd of niet</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let punt = 48;
+
+if (punt &gt;= 50) {
+    console.log("Geslaagd! Proficiat.");
+} else {
+    console.log("Niet geslaagd. Veel succes bij de herexamens.");
+}</code></pre>
+        </div>
+
+        <figure class="chapter-figure">
+          <img src="../../../app-ontwikkeling/images/H22-afb1.svg" alt="Stroomdiagram van if/else: beslissingsruit met twee paden" loading="lazy">
+        </figure>
+      </section>
+
+      <!-- 22.3 if / else if / else -->
+      <section id="sectie-else-if">
+        <h2>22.3 if / else if / else — meerdere gevallen</h2>
+        <p>Wat als je meer dan twee gevallen hebt? Dan gebruik je <code>else if</code>.</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">if (voorwaarde1) {
+    // uitgevoerd als voorwaarde1 TRUE is
+} else if (voorwaarde2) {
+    // uitgevoerd als voorwaarde1 FALSE is EN voorwaarde2 TRUE is
+} else if (voorwaarde3) {
+    // uitgevoerd als voorwaarde1 en voorwaarde2 FALSE zijn EN voorwaarde3 TRUE is
+} else {
+    // uitgevoerd als GEEN enkele voorwaarde hierboven TRUE is
+}</code></pre>
+        </div>
+
+        <div class="callout callout--info">
+          <div class="callout-header">ℹ️ Volgorde telt</div>
+          <p>JavaScript controleert de voorwaarden van boven naar onder. Zodra er één <code>true</code> is, wordt die blok uitgevoerd en stopt de controle. Begin altijd met de <strong>meest restrictieve</strong> voorwaarde (de hoogste grens).</p>
+        </div>
+
+        <h3>Voorbeeld: puntenbeoordeling</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let punt = 72;
+
+if (punt &gt;= 90) {
+    console.log("Uitstekend!");
+} else if (punt &gt;= 70) {
+    console.log("Goed");
+} else if (punt &gt;= 50) {
+    console.log("Voldoende");
+} else {
+    console.log("Onvoldoende");
+}
+// → "Goed" (punt 72 haalt de grens van 70, maar niet van 90)</code></pre>
+        </div>
+
+        <h3>Verkeerde volgorde leidt tot fouten</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">// FOUT — de volgorde klopt niet
+let punt = 85;
+
+if (punt &gt;= 50) {
+    console.log("Voldoende");   // dit wordt altijd als eerste geraakt voor alles boven 50!
+} else if (punt &gt;= 70) {
+    console.log("Goed");        // wordt nooit bereikt voor 70-89
+} else if (punt &gt;= 90) {
+    console.log("Uitstekend"); // wordt nooit bereikt
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- 22.4 switch -->
+      <section id="sectie-switch">
+        <h2>22.4 switch — vaste gevallen</h2>
+        <p>Als je een variabele vergelijkt met een reeks <strong>vaste, bekende waarden</strong>, is <code>switch</code> soms overzichtelijker dan een lange reeks <code>else if</code>-blokken.</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">switch (uitdrukking) {
+    case waarde1:
+        // code
+        break;
+    case waarde2:
+        // code
+        break;
+    default:
+        // code als geen enkel geval overeenkomt
+}</code></pre>
+        </div>
+
+        <div class="callout callout--warning">
+          <div class="callout-header">⚠️ Vergeet break niet</div>
+          <p><code>break</code> stopt de uitvoering. Zonder <code>break</code> "valt" de code door naar het volgende geval — dit is zelden wat je wil.</p>
+        </div>
+
+        <h3>Voorbeeld: dag van de week</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let dag = "maandag";
+
+switch (dag) {
+    case "maandag":
+        console.log("Begin van de werkweek.");
+        break;
+    case "vrijdag":
+        console.log("Bijna weekend!");
+        break;
+    case "zaterdag":
+    case "zondag":
+        console.log("Weekend! Genieten.");
+        break;
+    default:
+        console.log("Gewone werkdag.");
+}</code></pre>
+        </div>
+
+        <h3>Wanneer switch, wanneer if/else?</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Gebruik if / else if</th><th>Gebruik switch</th></tr></thead>
+            <tbody>
+              <tr><td>Bereikcontroles (&gt;, &lt;, &gt;=)</td><td>Vergelijking met exacte, vaste waarden</td></tr>
+              <tr><td>Complexe logische uitdrukkingen</td><td>Veel gevallen op één variabele</td></tr>
+              <tr><td>Booleaanse controles</td><td>Leesbare vervanging van lange if/else-ketens</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 22.5 Ternaire operator -->
+      <section id="sectie-ternair">
+        <h2>22.5 Ternaire operator ? :</h2>
+        <p>De ternaire operator is een compacte manier om een eenvoudige <code>if / else</code> in één regel te schrijven.</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let resultaat = voorwaarde ? waardeAlsTrue : waardeAlsFalse;</code></pre>
+        </div>
+
+        <h3>Vergelijking met if/else</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">// Met if/else:
+let boodschap;
+if (leeftijd &gt;= 18) {
+    boodschap = "Welkom!";
+} else {
+    boodschap = "Toegang geweigerd.";
+}
+
+// Met ternaire operator (zelfde resultaat):
+let boodschap = leeftijd &gt;= 18 ? "Welkom!" : "Toegang geweigerd.";</code></pre>
+        </div>
+
+        <h3>Gebruik in een string</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let score = 65;
+let resultaat = score &gt;= 50 ? "geslaagd" : "niet geslaagd";
+console.log(`De leerling is ${resultaat}.`);
+// → "De leerling is geslaagd."</code></pre>
+        </div>
+
+        <div class="callout callout--info">
+          <div class="callout-header">ℹ️ Eenvoud eerst</div>
+          <p>De ternaire operator is korter, maar gebruik hem alleen voor eenvoudige gevallen. Complexe logica schrijf je beter uit met <code>if/else</code>.</p>
+        </div>
+      </section>
+
+      <!-- 22.6 Geneste if -->
+      <section id="sectie-nesting">
+        <h2>22.6 Geneste if-statements</h2>
+        <p>Je kan een <code>if</code> binnenin een andere <code>if</code> plaatsen. Dit noem je <strong>nesting</strong> (nestelen).</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let leeftijd = 20;
+let heeftRijbewijs = true;
+
+if (leeftijd &gt;= 18) {
+    if (heeftRijbewijs) {
+        console.log("Je mag een auto huren.");
+    } else {
+        console.log("Je bent oud genoeg, maar je hebt geen rijbewijs.");
+    }
+} else {
+    console.log("Je bent te jong om een auto te huren.");
+}</code></pre>
+        </div>
+
+        <div class="callout callout--warning">
+          <div class="callout-header">⚠️ Vuistregel: max. 2 niveaus</div>
+          <p>Ga nooit dieper dan <strong>twee niveaus</strong> van nesting. Als je merkt dat je een derde niveau nodig hebt, herdenk je structuur. Combineer de voorwaarden liever met logische operatoren (zie H23).</p>
+        </div>
+
+        <h3>Herschreven zonder nesting</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">// Makkelijker te lezen:
+if (leeftijd &gt;= 18 &amp;&amp; heeftRijbewijs) {
+    console.log("Je mag een auto huren.");
+} else if (leeftijd &gt;= 18) {
+    console.log("Je bent oud genoeg, maar je hebt geen rijbewijs.");
+} else {
+    console.log("Je bent te jong om een auto te huren.");
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Puntenbeoordeling</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een JavaScript-programma dat een cijfer (van 0 tot 100) omzet naar een beoordeling.</p>
+            <p><strong>Beoordelingstabel:</strong></p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Cijfer</th><th>Beoordeling</th></tr></thead>
+                <tbody>
+                  <tr><td>90 — 100</td><td>Uitstekend</td></tr>
+                  <tr><td>70 — 89</td><td>Goed</td></tr>
+                  <tr><td>50 — 69</td><td>Voldoende</td></tr>
+                  <tr><td>0 — 49</td><td>Onvoldoende</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ol>
+              <li>Maak een variabele <code>cijfer</code> en geef die een waarde tussen 0 en 100</li>
+              <li>Schrijf de <code>if / else if / else</code> structuur met de vier gevallen</li>
+              <li>Toon de beoordeling met <code>console.log</code></li>
+              <li>Test je programma met minstens vier verschillende cijfers: één per categorie</li>
+            </ol>
+            <p><strong>Uitbreiding (optioneel):</strong></p>
+            <ul>
+              <li>Voeg een controle toe: als het cijfer kleiner is dan 0 of groter dan 100, toon dan "Ongeldig cijfer"</li>
+              <li>Gebruik de ternaire operator om apart te bepalen of de leerling "geslaagd" of "niet geslaagd" is (grens: 50)</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H22-oef1-browser.svg" alt="Browser-mockup: JavaScript-console toont de puntenbeoordeling voor verschillende invoerwaarden" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Voorwaarden
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H22-voorbeeld.svg', 'Voorbeeld — Dag-nacht boodschap')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Dag-nacht boodschap</h3>
+            <p>Schrijf een JavaScript-programma dat op basis van het uur van de dag een gepaste boodschap toont.</p>
+
+            <p><strong>Deel 1 — if / else if / else (4 punten)</strong></p>
+            <ol>
+              <li>Maak een variabele <code>uur</code> met een waarde tussen 0 en 23</li>
+              <li>Gebruik <code>if / else if / else</code> om te bepalen welke periode het is:
+                <ul>
+                  <li>0 – 5: "Nacht — slaap lekker!"</li>
+                  <li>6 – 11: "Ochtend — goedemorgen!"</li>
+                  <li>12 – 17: "Namiddag — goedemiddag!"</li>
+                  <li>18 – 23: "Avond — goedenavond!"</li>
+                </ul>
+              </li>
+              <li>Toon de boodschap in de console</li>
+            </ol>
+
+            <p><strong>Deel 2 — switch (3 punten)</strong></p>
+            <ol>
+              <li>Maak een variabele <code>seizoen</code> met één van de waarden: <code>"lente"</code>, <code>"zomer"</code>, <code>"herfst"</code>, <code>"winter"</code></li>
+              <li>Gebruik een <code>switch</code>-statement om een passende boodschap te tonen per seizoen</li>
+              <li>Voeg een <code>default</code> toe voor ongeldige waarden</li>
+            </ol>
+
+            <p><strong>Deel 3 — Ternaire operator (3 punten)</strong></p>
+            <ol>
+              <li>Maak een variabele <code>temperatuur</code> (getal)</li>
+              <li>Gebruik de ternaire operator om te bepalen of het "warm" (&gt;= 20°C) of "koud" is</li>
+              <li>Combineer dit in een template literal: <code>"Het is 22 graden en dat is warm."</code></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H22 — Voorwaarden</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het resultaat van de volgende code als <code>punt = 45</code>?<br><code>if (punt &gt;= 50) { console.log("Geslaagd"); } else { console.log("Niet geslaagd"); }</code></p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="a"> <span>Geslaagd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="b"> <span>Niet geslaagd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="c"> <span>Er wordt niets getoond</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="d"> <span>Een foutmelding</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Waarom gebruik je best altijd <code>===</code> in plaats van <code>==</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="a"> <span><code>===</code> werkt sneller dan <code>==</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="b"> <span><code>==</code> bestaat niet in JavaScript</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="c"> <span><code>===</code> vergelijkt ook het type, waardoor je geen verrassende automatische typeomzettingen krijgt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="d"> <span><code>===</code> werkt ook voor objecten</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat toont de volgende code als <code>punt = 85</code>?<br><code>if (punt &gt;= 90) { console.log("Uitstekend"); } else if (punt &gt;= 70) { console.log("Goed"); } else { console.log("Voldoende"); }</code></p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="a"> <span>Goed</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="b"> <span>Uitstekend</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="c"> <span>Voldoende</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="d"> <span>Goed en Voldoende</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat doet <code>break</code> in een <code>switch</code>-statement?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="a"> <span>Het verwijdert het geval uit de switch</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="b"> <span>Het slaat het huidige geval over</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="c"> <span>Het zorgt dat alle gevallen worden uitgevoerd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="d"> <span>Het stopt de uitvoering zodat de code niet doorgaat naar het volgende geval</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is de uitvoer van: <code>let x = 8; let r = x &gt; 5 ? "groot" : "klein"; console.log(r);</code></p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="a"> <span>klein</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="b"> <span>groot</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="c"> <span>true</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="d"> <span>undefined</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wanneer is het beter om een <code>switch</code> te gebruiken in plaats van <code>if / else if</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v6" value="a"> <span>Als je bereikcontroles doet (bv. groter dan, kleiner dan)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v6" value="b"> <span>Als je booleans vergelijkt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v6" value="c"> <span>Als je één variabele vergelijkt met meerdere exacte, vaste waarden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v6" value="d"> <span>Als je meer dan tien gevallen hebt</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H22')" data-progress-key="5adb/app-ontwikkeling/H22">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H21.html" class="btn btn-ghost">&#8592; H21</a>
+          <a href="H23.html" class="btn btn-ghost">H23 &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Appschool Munsterbilzen — Data- en Applicatiebeheer</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

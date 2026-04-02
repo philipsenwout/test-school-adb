@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functies — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H25" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom-functies">25.1 Waarom functies?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.2"><span class="sidebar-check__box"></span></label>
+          <a href="#declaratie">25.2 Klassieke functiedeclaratie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.3"><span class="sidebar-check__box"></span></label>
+          <a href="#zonder-return">25.3 Functies zonder return</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.4"><span class="sidebar-check__box"></span></label>
+          <a href="#standaard-params">25.4 Standaardparameters</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.5"><span class="sidebar-check__box"></span></label>
+          <a href="#expression">25.5 Function expression</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.6"><span class="sidebar-check__box"></span></label>
+          <a href="#arrow">25.6 Arrow functions</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.7"><span class="sidebar-check__box"></span></label>
+          <a href="#hoisting">25.7 Hoisting</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="25.8"><span class="sidebar-check__box"></span></label>
+          <a href="#scope">25.8 Scope</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Functies</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H25 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Functies</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen waarom functies nuttig zijn (herbruikbaarheid, leesbaarheid)</li>
+          <li>Een klassieke functie schrijven met parameters en een return-waarde</li>
+          <li>Een functie aanroepen en het resultaat gebruiken</li>
+          <li>Standaardparameters instellen met <code>=</code></li>
+          <li>Het verschil begrijpen tussen een function declaration en een function expression</li>
+          <li>Een arrow function schrijven in de compacte notatie</li>
+          <li>Uitleggen wat hoisting is bij functies</li>
+          <li>Begrijpen waarom variabelen binnen een functie lokaal zijn (scope)</li>
+        </ul>
+      </div>
+
+      <h2 id="waarom-functies">25.1 Waarom functies?</h2>
+      <p>Stel je voor dat je op drie verschillende plaatsen in je programma de omtrek van een rechthoek wil berekenen. Zonder functies schrijf je dezelfde formule drie keer:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let omtrek1 = 2 * (10 + 5);
+console.log(omtrek1);
+
+let omtrek2 = 2 * (8 + 3);
+console.log(omtrek2);
+
+let omtrek3 = 2 * (15 + 7);
+console.log(omtrek3);</code></pre>
+      </div>
+      <p>Als de formule verandert, moet je hem op drie plaatsen aanpassen — en je riskeert er één te vergeten. Met een functie schrijf je de logica <strong>één keer</strong>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function berekenOmtrek(breedte, hoogte) {
+    return 2 * (breedte + hoogte);
+}
+
+console.log(berekenOmtrek(10, 5));   // → 30
+console.log(berekenOmtrek(8, 3));    // → 22
+console.log(berekenOmtrek(15, 7));   // → 44</code></pre>
+      </div>
+      <p><strong>Voordelen van functies:</strong></p>
+      <ul>
+        <li><strong>Herbruikbaarheid:</strong> schrijf één keer, gebruik overal</li>
+        <li><strong>Leesbaarheid:</strong> een goede functienaam maakt de code begrijpelijk</li>
+        <li><strong>Onderhoudbaarheid:</strong> aanpassen op één plaats volstaat</li>
+        <li><strong>Testeerbaarheid:</strong> je kan een functie apart testen</li>
+      </ul>
+
+      <h2 id="declaratie">25.2 Klassieke functiedeclaratie</h2>
+      <h3>Structuur</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function naam(parameter1, parameter2) {
+    // functiebody
+    return resultaat;
+}</code></pre>
+      </div>
+      <ul>
+        <li><strong><code>function</code></strong> — sleutelwoord dat de definitie start</li>
+        <li><strong><code>naam</code></strong> — de naam van de functie (gebruik een werkwoord: <code>bereken</code>, <code>controleer</code>, <code>toon</code>)</li>
+        <li><strong>parameters</strong> — variabelen die de functie bij aanroep ontvangt (optioneel)</li>
+        <li><strong><code>return</code></strong> — geeft een waarde terug aan de aanroepende code (optioneel)</li>
+      </ul>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H25-afb1.svg" alt="Anatomie van een JavaScript-functie met gelabelde onderdelen" loading="lazy">
+      </figure>
+      <h3>Voorbeeld met parameters en return</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function telOp(a, b) {
+    let som = a + b;
+    return som;
+}
+
+let resultaat = telOp(3, 7);
+console.log(resultaat);   // → 10</code></pre>
+      </div>
+      <h3>Parameters vs argumenten</h3>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Parameters vs argumenten</div>
+        <ul>
+          <li><strong>Parameters</strong> zijn de namen in de definitie: <code>function telOp(a, b)</code> → <code>a</code> en <code>b</code> zijn parameters</li>
+          <li><strong>Argumenten</strong> zijn de concrete waarden bij aanroep: <code>telOp(3, 7)</code> → <code>3</code> en <code>7</code> zijn argumenten</li>
+        </ul>
+        <p>Beide termen worden vaak door elkaar gebruikt. Dat mag.</p>
+      </div>
+
+      <h2 id="zonder-return">25.3 Functies zonder return-waarde</h2>
+      <p>Niet elke functie hoeft iets terug te geven. Een functie die alleen iets doet (bv. iets toont) heeft geen <code>return</code> nodig.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function toonBoodschap(naam) {
+    console.log(`Hallo, ${naam}! Welkom bij de les.`);
+}
+
+toonBoodschap("Senne");   // → "Hallo, Senne! Welkom bij de les."
+toonBoodschap("Lies");    // → "Hallo, Lies! Welkom bij de les."</code></pre>
+      </div>
+      <p>Als je geen <code>return</code> schrijft, geeft de functie automatisch <code>undefined</code> terug.</p>
+
+      <h2 id="standaard-params">25.4 Standaardparameters</h2>
+      <p>Met een <strong>standaardparameter</strong> geef je een waarde mee die gebruikt wordt als het argument ontbreekt bij de aanroep.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function groet(naam = "bezoeker") {
+    console.log(`Hallo, ${naam}!`);
+}
+
+groet("Marie");   // → "Hallo, Marie!"
+groet();          // → "Hallo, bezoeker!"  (standaard gebruikt)</code></pre>
+      </div>
+      <p>Parameters met een standaardwaarde zet je <strong>achteraan</strong>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function berekenPrijs(prijs, korting = 0, btw = 21) {
+    let naPrijs = prijs * (1 - korting / 100);
+    let metBtw = naPrijs * (1 + btw / 100);
+    return Math.round(metBtw * 100) / 100;
+}
+
+console.log(berekenPrijs(100));         // → 121
+console.log(berekenPrijs(100, 10));     // → 108.9
+console.log(berekenPrijs(100, 10, 6));  // → 90</code></pre>
+      </div>
+
+      <h2 id="expression">25.5 Function expression — functie in een variabele</h2>
+      <p>Je kan een functie ook opslaan in een variabele:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let kwadrateer = function(getal) {
+    return getal * getal;
+};
+
+console.log(kwadrateer(4));   // → 16
+console.log(kwadrateer(7));   // → 49</code></pre>
+      </div>
+      <p>Dit heet een <strong>function expression</strong>. De functie heeft geen naam na het <code>function</code>-sleutelwoord — dit is een <strong>anonieme functie</strong>.</p>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Verschil met een functiedeclaratie</div>
+        <p>Een function expression kan je <strong>niet vóór de declaratie aanroepen</strong> — hoisting werkt hier niet (zie volgende sectie).</p>
+      </div>
+
+      <h2 id="arrow">25.6 Arrow functions — compacte notatie</h2>
+      <p>Arrow functions (pijlfuncties) zijn een kortere schrijfwijze, geïntroduceerd in ES6 (2015).</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// Klassieke function expression:
+let kwadrateer = function(getal) {
+    return getal * getal;
+};
+
+// Arrow function — zelfde functie:
+let kwadrateer = (getal) =&gt; {
+    return getal * getal;
+};
+
+// Nog korter: één parameter → haakjes mogen weg
+let kwadrateer = getal =&gt; {
+    return getal * getal;
+};
+
+// Kortst: één uitdrukking → impliciete return
+let kwadrateer = getal =&gt; getal * getal;</code></pre>
+      </div>
+      <h3>Voorbeelden</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// Meerdere parameters → haakjes verplicht
+let telOp = (a, b) =&gt; a + b;
+console.log(telOp(3, 4));   // → 7
+
+// Geen parameters → lege haakjes verplicht
+let geefHallo = () =&gt; "Hallo!";
+console.log(geefHallo());   // → "Hallo!"
+
+// Meerdere regels → accolades en return verplicht
+let berekenBmi = (gewicht, lengte) =&gt; {
+    let bmi = gewicht / (lengte * lengte);
+    return Math.round(bmi * 10) / 10;
+};
+console.log(berekenBmi(70, 1.75));   // → 22.9</code></pre>
+      </div>
+
+      <h2 id="hoisting">25.7 Hoisting — voor de declaratie aanroepen</h2>
+      <p><strong>Hoisting</strong> is een JavaScript-gedrag waarbij functiedeclaraties naar boven worden verplaatst vóór de code wordt uitgevoerd.</p>
+      <h3>Klassieke functiedeclaraties: hoisting werkt</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// Aanroep VÓÓR de definitie — dit werkt!
+console.log(telOp(3, 4));   // → 7
+
+function telOp(a, b) {
+    return a + b;
+}</code></pre>
+      </div>
+      <h3>Function expressions en arrow functions: geen hoisting</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// Aanroep VÓÓR de definitie — dit geeft een fout!
+console.log(kwadrateer(4));   // TypeError: kwadrateer is not a function
+
+let kwadrateer = getal =&gt; getal * getal;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Vuistregel</div>
+        <p>Definieer je functies altijd vóór je ze aanroept, tenzij je bewust gebruik maakt van hoisting met klassieke declaraties.</p>
+      </div>
+
+      <h2 id="scope">25.8 Scope — lokale variabelen</h2>
+      <p>Variabelen die je <strong>binnen</strong> een functie aanmaakt, bestaan alleen binnen die functie. Buiten de functie zijn ze niet toegankelijk. Dit noem je <strong>lokale scope</strong>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function berekenBtw(prijs) {
+    let btw = prijs * 0.21;   // btw is een lokale variabele
+    return btw;
+}
+
+console.log(berekenBtw(100));   // → 21
+console.log(btw);               // ReferenceError: btw is not defined</code></pre>
+      </div>
+      <p><strong>Parameters zijn ook lokaal:</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">function verdubbel(getal) {
+    getal = getal * 2;   // getal is een lokale kopie
+    return getal;
+}
+
+let mijnGetal = 5;
+console.log(verdubbel(mijnGetal));   // → 10
+console.log(mijnGetal);              // → 5  (ongewijzigd)</code></pre>
+      </div>
+      <p>De functie werkt met een <strong>kopie</strong> van de waarde. De originele variabele wordt niet gewijzigd.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Drie functies schrijven</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf de volgende drie functies en roep elke minstens twee keer aan met verschillende argumenten.</p>
+
+            <h4>Functie 1 — Omtrek van een rechthoek</h4>
+            <p>Schrijf een functie <code>berekenOmtrek</code> die de breedte en hoogte als parameters ontvangt en de omtrek teruggeeft.</p>
+            <p>Formule: <code>omtrek = 2 × (breedte + hoogte)</code></p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-js">// Verwachte uitvoer:
+// berekenOmtrek(10, 5)  →  30
+// berekenOmtrek(4, 4)   →  16</code></pre>
+            </div>
+
+            <h4>Functie 2 — Controleer of een getal even is</h4>
+            <p>Schrijf een functie <code>isEven</code> die een getal als parameter ontvangt en <code>true</code> teruggeeft als het even is, <code>false</code> als het oneven is.</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-js">// Verwachte uitvoer:
+// isEven(4)   →  true
+// isEven(7)   →  false
+// isEven(0)   →  true</code></pre>
+            </div>
+
+            <h4>Functie 3 — Naam begroeten met standaardparameter</h4>
+            <p>Schrijf een functie <code>begroet</code> die een naam en een tijdstip als parameters heeft. Het tijdstip heeft een standaardwaarde <code>"dag"</code>.</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-js">// Verwachte uitvoer:
+// begroet("Jana")            →  "Goeiedag, Jana!"
+// begroet("Senne", "ochtend")  →  "Goedemorgen, Senne!"</code></pre>
+            </div>
+
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H25-oef1-browser.svg" alt="Browser-mockup met console output van de drie functies" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Functies
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H25-voorbeeld.svg', 'Voorbeeld — Functies huistaak')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Rekenmachine met functies</h3>
+            <h4>Deel 1 — Basisfuncties (4 punten)</h4>
+            <ol>
+              <li>Schrijf vier functies: <code>telOp(a, b)</code>, <code>treckAf(a, b)</code>, <code>vermenigvuldig(a, b)</code>, <code>deel(a, b)</code></li>
+              <li>Elke functie ontvangt twee parameters en geeft het resultaat terug</li>
+              <li>Bij <code>deel</code>: controleer of <code>b</code> niet 0 is — return dan een foutmelding als string</li>
+              <li>Test elke functie met minstens twee aanroepen en toon het resultaat via <code>console.log()</code></li>
+            </ol>
+            <h4>Deel 2 — Arrow functions (3 punten)</h4>
+            <ol>
+              <li>Herschrijf de vier functies als arrow functions</li>
+              <li>Gebruik de kortste notatie waar mogelijk (impliciete return)</li>
+            </ol>
+            <h4>Deel 3 — Samengestelde berekening (3 punten)</h4>
+            <ol>
+              <li>Schrijf een functie <code>berekenBmi(gewicht, lengte)</code> die de BMI berekent</li>
+              <li>Formule: <code>BMI = gewicht / (lengte × lengte)</code></li>
+              <li>Rond af op 1 decimaal met <code>Math.round()</code></li>
+              <li>Test met realistische waarden</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H25 — Functies</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het sleutelwoord om een klassieke functie te declareren?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h25-v1" value="a"> <span><code>def</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v1" value="b"> <span><code>func</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v1" value="c"> <span><code>function</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v1" value="d"> <span><code>let</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat geeft een functie terug als er geen <code>return</code> statement in staat?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h25-v2" value="a"> <span><code>undefined</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v2" value="b"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v2" value="c"> <span><code>0</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v2" value="d"> <span>Een fout</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat zijn <em>parameters</em> in een functie?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h25-v3" value="a"> <span>De concrete waarden die je meegeeft bij de aanroep</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v3" value="b"> <span>De namen in de functiedefinitie die waarden ontvangen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v3" value="c"> <span>De return-waarde van de functie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v3" value="d"> <span>Globale variabelen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke schrijfwijze is een correcte arrow function met impliciete return?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h25-v4" value="a"> <span><code>function(x) =&gt; x * 2</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v4" value="b"> <span><code>x → x * 2</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v4" value="c"> <span><code>let f = (x) { return x * 2; }</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v4" value="d"> <span><code>let f = x =&gt; x * 2;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is hoisting bij klassieke functiedeclaraties?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h25-v5" value="a"> <span>Functiedeclaraties zijn beschikbaar vóór de regel waar ze staan in de code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v5" value="b"> <span>Arrow functions kunnen ook vóór hun declaratie worden aangeroepen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v5" value="c"> <span>Functies worden automatisch naar de server gestuurd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v5" value="d"> <span>Variabelen in een functie zijn globaal beschikbaar</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat gebeurt er als je een variabele aanmaakt <em>binnen</em> een functie en die probeert te gebruiken <em>buiten</em> de functie?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h25-v6" value="a"> <span>De variabele is beschikbaar overal in het bestand</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v6" value="b"> <span>De variabele krijgt de waarde <code>undefined</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v6" value="c"> <span>Je krijgt een <code>ReferenceError</code> — de variabele bestaat niet buiten de functie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h25-v6" value="d"> <span>De variabele wordt automatisch global</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H25')" data-progress-key="5adb/app-ontwikkeling/H25">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H24.html" class="btn btn-ghost">← H24</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

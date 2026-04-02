@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H07 &mdash; Praktijkproject: UniFi-netwerk &mdash; Netwerken 6ADB &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Eindproject: stel samen een volledig functioneel en beveiligd netwerk op met de UniFi Express 7 en USW Lite 8 PoE Gen2.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">Netwerken</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>H07</span>
+    </nav>
+    <div class="chapter-layout">
+      <aside class="chapter-sidebar">
+        <div class="chapter-sidebar__title">Inhoud</div>
+        <ul class="chapter-sidebar__list">
+          <li><a href="#leerdoelen">Leerdoelen</a></li>
+          <li><a href="#hardware">1. Hardware</a></li>
+          <li><a href="#opzet">2. Projectomschrijving</a></li>
+          <li><a href="#fase1">Fase 1: Installatie</a></li>
+          <li><a href="#fase2">Fase 2: VLANs</a></li>
+          <li><a href="#fase3">Fase 3: Firewall</a></li>
+          <li><a href="#fase4">Fase 4: Wi-Fi</a></li>
+          <li><a href="#fase5">Fase 5: Monitoring</a></li>
+          <li><a href="#evaluatie">Evaluatierubriek</a></li>
+        </ul>
+      </aside>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 6ADB</div>
+          <h1 class="page-header__title">H07 &mdash; Praktijkproject: UniFi-netwerk opzetten</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-verdieping">verdieping</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u (eindproject)</span>
+          </div>
+        </div>
+
+        <div class="callout callout--info">
+          <div class="callout-header">&#8505;&#65039; Eindproject</div>
+          <p>Dit is het sluitstuk van de cursus Netwerken 6ADB. Je werkt in groep en zet samen een volledig functioneel en beveiligd netwerk op met de beschikbare schoolhardware. Alle theorie uit H01 t/m H06 komt hier samen.</p>
+        </div>
+
+        <section id="leerdoelen">
+          <h2>Leerdoelen</h2>
+          <div class="ld-badges">
+            <span class="badge badge-ld">[LD-NET-04]</span> Netwerksysteem configureren <span class="badge badge-verdieping">verdieping</span>
+            &nbsp;
+            <span class="badge badge-ld">[LD-NET-06]</span> Netwerksysteem beveiligen <span class="badge badge-verdieping">verdieping</span>
+            &nbsp;
+            <span class="badge badge-ld">[LD-NET-08]</span> Netwerk monitoren en beheren <span class="badge badge-verdieping">verdieping</span>
+            &nbsp;
+            <span class="badge badge-ld">[LD-NET-09]</span> Werkzaamheden plannen en documenteren <span class="badge badge-verdieping">verdieping</span>
+          </div>
+          <p>Na dit project kan je:</p>
+          <ul>
+            <li>een UniFi-apparaat adopteren en basisconfiguratie uitvoeren</li>
+            <li>meerdere VLANs aanmaken en juist toewijzen aan switchpoorten</li>
+            <li>firewallregels instellen die VLAN-segmentering afdwingen</li>
+            <li>meerdere SSIDs aanmaken en koppelen aan de juiste VLANs</li>
+            <li>het netwerk monitoren via het UniFi-dashboard</li>
+            <li>je configuratie documenteren in een netwerktopologieschema</li>
+          </ul>
+        </section>
+
+        <section id="hardware">
+          <h2>1. Beschikbare hardware</h2>
+          <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Apparaat</th><th>Rol</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr><td><strong>UniFi Express 7</strong></td><td>Router / Firewall / Access Point</td><td>WiFi 7, UniFi OS, WAN-poort, 2&times; LAN-poort</td></tr>
+              <tr><td><strong>USW Lite 8 PoE Gen2</strong></td><td>Managed switch</td><td>8 poorten, 4&times; PoE+, 52W totaal</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <section id="opzet">
+          <h2>2. Projectomschrijving</h2>
+          <p>Jullie bouwen een schoolnetwerk voor een fictief IT-lokaal met de volgende vereisten:</p>
+          <ul>
+            <li><strong>VLAN 10 &mdash; Leerlingen</strong>: pc&#8217;s in het lokaal, internet toegestaan, geen toegang tot servers</li>
+            <li><strong>VLAN 20 &mdash; Leerkrachten</strong>: laptops leerkrachten, internet + toegang tot fileserver</li>
+            <li><strong>VLAN 30 &mdash; Servers</strong>: fileserver en schoolwebserver</li>
+            <li><strong>VLAN 99 &mdash; Management</strong>: beheer van switch en router, enkel via VLAN 20 bereikbaar</li>
+            <li><strong>Wi-Fi &mdash; Leerlingen-SSID</strong>: koppelen aan VLAN 10, WPA3, client isolation</li>
+            <li><strong>Wi-Fi &mdash; Leerkrachten-SSID</strong>: koppelen aan VLAN 20, WPA3</li>
+          </ul>
+        </section>
+
+        <section id="fase1">
+          <h2>Fase 1 &mdash; Installatie en adoptie (1,5 u)</h2>
+          <ol>
+            <li>Sluit de UniFi Express 7 aan op de internetverbinding (WAN-poort).</li>
+            <li>Verbind de USW Lite 8 PoE met een LAN-poort van de Express 7.</li>
+            <li>Open een browser en ga naar <code>https://unifi.ui.com</code> of het lokale IP van de Express 7 (<code>192.168.1.1</code>).</li>
+            <li>Maak een UniFi-account aan of log in.</li>
+            <li>Doorloop de setup wizard: stel de tijdzone in, geef het netwerk een naam, stel een beheerwachtwoord in (sterk! min. 12 tekens).</li>
+            <li>Adopteer de switch via <strong>UniFi Devices &rarr; Adopt</strong>.</li>
+            <li>Verifi&#235;er dat beide apparaten als <strong>Connected</strong> worden weergegeven.</li>
+          </ol>
+
+          <div class="callout callout--tip">
+            <div class="callout-header">&#128161; Tip</div>
+            <p>Het adoptieproces kan 2&ndash;5 minuten duren terwijl firmware wordt bijgewerkt. Niet onderbreken!</p>
+          </div>
+        </section>
+
+        <section id="fase2">
+          <h2>Fase 2 &mdash; VLANs configureren (2 u)</h2>
+          <ol>
+            <li>Ga naar <strong>Settings &rarr; Networks &rarr; Add Network</strong>.</li>
+            <li>Maak de vier netwerken aan (VLAN 10, 20, 30, 99) met de juiste subnetten en DHCP-instellingen.</li>
+            <li>Ga naar <strong>UniFi Devices &rarr; Switch &rarr; Ports</strong>.</li>
+            <li>Wijs poorten 1&ndash;3 toe aan VLAN 10, poorten 4&ndash;5 aan VLAN 20, poort 6 aan VLAN 30.</li>
+            <li>Test: sluit een pc aan op een VLAN 10-poort. Krijgt hij een IP in <code>10.10.10.x</code>?</li>
+            <li>Verifi&#235;er ook VLAN 20 en VLAN 30.</li>
+          </ol>
+        </section>
+
+        <section id="fase3">
+          <h2>Fase 3 &mdash; Firewallregels (2 u)</h2>
+          <ol>
+            <li>Ga naar <strong>Settings &rarr; Traffic &amp; Firewall &rarr; Traffic Rules</strong>.</li>
+            <li>Maak een regel: BLOCK VLAN10 &rarr; VLAN30 (leerlingen kunnen servers niet bereiken).</li>
+            <li>Uitzondering: ALLOW VLAN10 &rarr; 192.168.30.10:80 (leerlingen kunnen schoolwebserver zien).</li>
+            <li>Maak een regel: BLOCK ANY &rarr; VLAN99 (management VLAN afschermen).</li>
+            <li>Uitzondering: ALLOW VLAN20 &rarr; VLAN99 (leerkrachten kunnen switch beheren).</li>
+            <li>Test elke regel: verbind een pc met het juiste VLAN en probeer pingen, HTTP, SSH.</li>
+          </ol>
+        </section>
+
+        <section id="fase4">
+          <h2>Fase 4 &mdash; Wi-Fi configureren (1 u)</h2>
+          <ol>
+            <li>Ga naar <strong>Settings &rarr; WiFi &rarr; Add WiFi Network</strong>.</li>
+            <li>Maak SSID "Leerlingen-WiFi" aan: koppel aan VLAN 10, beveiliging WPA3, activeer client isolation.</li>
+            <li>Maak SSID "Leerkrachten-WiFi" aan: koppel aan VLAN 20, beveiliging WPA3.</li>
+            <li>Test: verbind een smartphone met "Leerlingen-WiFi". Welk IP krijg je? Kan je de schoolwebserver bereiken via de browser?</li>
+          </ol>
+        </section>
+
+        <section id="fase5">
+          <h2>Fase 5 &mdash; Monitoring en documentatie (1,5 u)</h2>
+          <ol>
+            <li>Bekijk in het UniFi-dashboard alle verbonden clients. Maak een screenshot.</li>
+            <li>Bekijk de bandbreedte per switchpoort. Noteer welke poort het meeste verkeer heeft.</li>
+            <li>Stel een alert in voor "Apparaat offline" via <strong>Settings &rarr; Notifications</strong>.</li>
+            <li>Documenteer je netwerk: teken een topologieschema met alle VLANs, subnetten, apparaten en poorten (op papier of digitaal).</li>
+            <li>Schrijf een korte reflectie: wat liep vlot? Wat was moeilijk? Wat zou je anders aanpakken?</li>
+          </ol>
+        </section>
+
+        <section id="evaluatie">
+          <h2>Evaluatierubriek</h2>
+          <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Criterium</th><th>Max. punten</th></tr></thead>
+            <tbody>
+              <tr><td>Correcte adoptie van beide apparaten</td><td>10</td></tr>
+              <tr><td>VLANs correct aangemaakt en getest</td><td>20</td></tr>
+              <tr><td>Firewallregels correct en getest</td><td>20</td></tr>
+              <tr><td>Wi-Fi correct geconfigureerd met client isolation</td><td>15</td></tr>
+              <tr><td>Monitoring bekeken en alert ingesteld</td><td>10</td></tr>
+              <tr><td>Topologieschema volledig en correct</td><td>15</td></tr>
+              <tr><td>Samenwerking en planning</td><td>10</td></tr>
+              <tr><td><strong>Totaal</strong></td><td><strong>100</strong></td></tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit project? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H07">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H06-monitoring.html" class="chapter-nav__link chapter-nav__link--prev">
+            <span>&#8592;</span>
+            <div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H06 &mdash; Netwerkmonitoring</span></div>
+          </a>
+          <a href="index.html" class="chapter-nav__link chapter-nav__link--next">
+            <div><span class="chapter-nav__link-label">Overzicht</span><span class="chapter-nav__link-title">Netwerken 6ADB</span></div>
+            <span>&#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

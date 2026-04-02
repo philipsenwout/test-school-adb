@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vergelijken — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H21" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.1"><span class="sidebar-check__box"></span></label>
+          <a href="#vergelijkingsoperatoren">21.1 Vergelijkingsoperatoren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.2"><span class="sidebar-check__box"></span></label>
+          <a href="#gelijkheid">21.2 == vs ===</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.3"><span class="sidebar-check__box"></span></label>
+          <a href="#strings-vergelijken">21.3 Strings vergelijken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.4"><span class="sidebar-check__box"></span></label>
+          <a href="#truthy-falsy">21.4 Truthy en falsy</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.5"><span class="sidebar-check__box"></span></label>
+          <a href="#logische-operatoren">21.5 Logische operatoren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Vergelijken</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H21 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Vergelijken</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.09</span><span class="ld-tag__title">De leerlingen kunnen eigen implementaties testen en debuggen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan alle vergelijkingsoperatoren gebruiken — het resultaat is altijd een boolean</li>
+          <li>Je kan het cruciale verschil uitleggen tussen <code>==</code> (losse gelijkheid) en <code>===</code> (strikte gelijkheid)</li>
+          <li>Je kan uitleggen hoe JavaScript strings alfabetisch vergelijkt</li>
+          <li>Je kan de zes falsy waarden opnoemen en het concept truthy/falsy toepassen</li>
+          <li>Je kan vergelijkingen schrijven die gebruikt worden in beslissingsstructuren</li>
+        </ul>
+      </div>
+
+      <h2 id="vergelijkingsoperatoren">1. Vergelijkingsoperatoren</h2>
+
+      <p>Wanneer je twee waarden vergelijkt in JavaScript, is het resultaat altijd een <strong>boolean</strong>: <code>true</code> of <code>false</code>.</p>
+
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Betekenis</th><th>Voorbeeld</th><th>Resultaat</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&gt;</code></td><td>Groter dan</td><td><code>10 &gt; 5</code></td><td><code>true</code></td></tr>
+          <tr><td><code>&lt;</code></td><td>Kleiner dan</td><td><code>10 &lt; 5</code></td><td><code>false</code></td></tr>
+          <tr><td><code>&gt;=</code></td><td>Groter dan of gelijk aan</td><td><code>5 &gt;= 5</code></td><td><code>true</code></td></tr>
+          <tr><td><code>&lt;=</code></td><td>Kleiner dan of gelijk aan</td><td><code>4 &lt;= 5</code></td><td><code>true</code></td></tr>
+          <tr><td><code>===</code></td><td>Strikt gelijk aan</td><td><code>5 === "5"</code></td><td><code>false</code></td></tr>
+          <tr><td><code>!==</code></td><td>Strikt niet gelijk aan</td><td><code>5 !== "5"</code></td><td><code>true</code></td></tr>
+          <tr><td><code>==</code></td><td>Los gelijk aan</td><td><code>5 == "5"</code></td><td><code>true</code></td></tr>
+          <tr><td><code>!=</code></td><td>Los niet gelijk aan</td><td><code>5 != "5"</code></td><td><code>false</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let leeftijd = 17;
+
+console.log(leeftijd &gt; 18);    // false
+console.log(leeftijd &gt;= 16);   // true
+console.log(leeftijd &lt; 21);    // true
+console.log(leeftijd === 17);  // true
+console.log(leeftijd !== 18);  // true
+
+// Resultaat opslaan in een variabele:
+let isVolwassen = leeftijd &gt;= 18;
+console.log(isVolwassen);          // false
+console.log(typeof isVolwassen);   // "boolean"</code></pre>
+      </div>
+
+      <h2 id="gelijkheid">2. == vs === — het grote verschil</h2>
+
+      <h3>2.1 Losse gelijkheid ==</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(5 == "5");     // true  — "5" wordt omgezet naar 5
+console.log(0 == false);   // true  — false wordt 0
+console.log(0 == "");      // true
+console.log(null == undefined); // true</code></pre>
+      </div>
+
+      <h3>2.2 Strikte gelijkheid ===</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(5 === "5");    // false — getal ≠ string
+console.log(0 === false);  // false — getal ≠ boolean
+console.log(0 === "");     // false
+console.log(null === undefined); // false</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H21-afb1.svg" alt="Visuele vergelijking: == vs === met voorbeelden" loading="lazy">
+      </figure>
+
+      <div class="callout callout--danger">
+        <div class="callout-header">❌ Gouden regel</div>
+        <p>Gebruik <strong>altijd <code>===</code> en <code>!==</code></strong>. De losse operatoren <code>==</code> en <code>!=</code> zijn er voor backward-compatibiliteit maar worden afgeraden in moderne JavaScript.</p>
+      </div>
+
+      <h2 id="strings-vergelijken">3. Strings vergelijken</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log("appel" &lt; "banaan");   // true  — 'a' komt voor 'b'
+console.log("zebra" &gt; "aap");      // true  — 'z' komt na 'a'
+console.log("abc" &lt; "abd");        // true  — eerste twee gelijk, 'c' &lt; 'd'
+
+// Let op: hoofdletters komen vóór kleine letters in Unicode!
+console.log("Appel" &lt; "appel");   // true  — 'A' (code 65) &lt; 'a' (code 97)
+
+// Hoofdletterongevoelig vergelijken:
+let woord1 = "Appel";
+let woord2 = "appel";
+console.log(woord1.toLowerCase() === woord2.toLowerCase()); // true</code></pre>
+      </div>
+
+      <h2 id="truthy-falsy">4. Truthy en falsy</h2>
+
+      <p>In JavaScript is elke waarde ofwel truthy of falsy — niet alleen echte booleans.</p>
+
+      <h3>4.1 De zes falsy waarden</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">if (false)     { /* nooit */ }
+if (0)         { /* nooit */ }
+if ("")        { /* nooit */ }
+if (null)      { /* nooit */ }
+if (undefined) { /* nooit */ }
+if (NaN)       { /* nooit */ }</code></pre>
+      </div>
+
+      <h3>4.2 Alles anders is truthy</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">if (1)       { console.log("truthy"); }   // wordt uitgevoerd
+if (-1)      { console.log("truthy"); }   // negatieve getallen zijn truthy!
+if ("hallo") { console.log("truthy"); }
+if ("false") { console.log("truthy"); }   // de string "false" is truthy!
+if ([])      { console.log("truthy"); }   // lege array is truthy
+if ({})      { console.log("truthy"); }   // leeg object is truthy</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H21-afb2.svg" alt="Overzicht truthy en falsy waarden" loading="lazy">
+      </figure>
+
+      <h2 id="logische-operatoren">5. Logische operatoren</h2>
+
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Naam</th><th>Wat het doet</th><th>Voorbeeld</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&amp;&amp;</code></td><td>EN</td><td>Beide moeten true zijn</td><td><code>a &gt; 0 &amp;&amp; b &gt; 0</code></td></tr>
+          <tr><td><code>||</code></td><td>OF</td><td>Minstens één moet true zijn</td><td><code>a &gt; 0 || b &gt; 0</code></td></tr>
+          <tr><td><code>!</code></td><td>NIET</td><td>Keert de boolean om</td><td><code>!isActief</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let leeftijd = 17;
+let heeftToestemming = true;
+
+console.log(leeftijd &gt;= 18 &amp;&amp; heeftToestemming);  // false
+console.log(leeftijd &gt;= 16 || heeftToestemming);  // true
+
+let isMinderjarig = leeftijd &lt; 18;
+console.log(!isMinderjarig);   // false</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H21-afb3.svg" alt="Stroomdiagram: vergelijking leidt tot een beslissing" loading="lazy">
+      </figure>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / SV07.09</span>
+            <span class="oefening__title">Oefening 1 — Twee getallen vergelijken</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>vergelijken.html</code> met een script dat:</p>
+            <ol>
+              <li>Twee getallen opvraagt via <code>prompt()</code> en omzet met <code>Number()</code></li>
+              <li>Controleert of de invoer geldig is (<code>isNaN</code>)</li>
+              <li>Het grootste getal toont</li>
+              <li>Toont of de getallen gelijk zijn, of het eerste groter is, of het tweede groter is</li>
+              <li>Toont of beide getallen positief, negatief of gemengd zijn</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H21-oef1-browser.svg" alt="Browser-mockup: vergelijkingsoefening in de console" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Vergelijken
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H21-voorbeeld.svg', 'Voorbeeld — Vergelijkingen in de console')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Inlogcontrole</h3>
+            <ol>
+              <li><strong>Deel 1 — Invoer (3 punten):</strong> Vraag via <code>prompt()</code> een gebruikersnaam en wachtwoord. Sla de verwachte correcte waarden op in <code>const</code>-variabelen.</li>
+              <li><strong>Deel 2 — Strikte vergelijking (4 punten):</strong> Gebruik <code>===</code> om de ingevoerde waarden te vergelijken met de correcte waarden. Toon "Welkom, [naam]!" of "Onjuiste gegevens." op basis van het resultaat.</li>
+              <li><strong>Deel 3 — Truthy/falsy (3 punten):</strong> Controleer of de invoer niet leeg is vóór je vergelijkt. Gebruik de truthy/falsy-eigenschap van strings (lege string is falsy). Toon een gepaste melding als de gebruiker niets ingevuld heeft.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H21 — Vergelijken</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welk type geeft een vergelijking altijd terug?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="a"> <span>number</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="b"> <span>string</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="c"> <span>boolean</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="d"> <span>object</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is het resultaat van 5 === "5"?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="a"> <span>true</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="b"> <span>false</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="c"> <span>NaN</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="d"> <span>undefined</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke operator moet je altijd gebruiken voor gelijkheidsvergelijkingen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="a"> <span>=== (strikte gelijkheid)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="b"> <span>== (losse gelijkheid)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="c"> <span>= (toewijzing)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="d"> <span>Maakt niet uit, ze zijn identiek</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke van deze waarden is truthy?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="a"> <span>0</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="b"> <span>""</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="c"> <span>null</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="d"> <span>-1</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet de && operator?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="a"> <span>Geeft true als minstens één zijde true is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="b"> <span>Geeft true als beide zijden true zijn</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="c"> <span>Keert een boolean om</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="d"> <span>Vergelijkt twee strings</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe vergelijk je strings op een hoofdletterongevoelige manier?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v6" value="a"> <span>Gebruik == in plaats van ===</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v6" value="b"> <span>Gebruik de ignore() methode</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v6" value="c"> <span>Zet beide strings eerst om naar kleine letters met .toLowerCase()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v6" value="d"> <span>Gebruik de caseInsensitive-operator ~=</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H21')" data-progress-key="5adb/app-ontwikkeling/H21">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H20.html" class="btn btn-ghost">← H20</a>
+          <a href="H22.html" class="btn btn-ghost">H22 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

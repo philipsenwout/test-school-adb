@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 &mdash; Python basics op de Raspberry Pi &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Python basics op de Raspberry Pi &amp;mdash; E-STEM 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H03</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-3-python-basics-op-de-raspberry-pi">Hoofdstuk 3 — Python basics op de Raspberry Pi</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#31-python-starten-op-de-pi">3.1 Python starten op de Pi</a></li><li><a href="#32-variabelen-en-datatypes">3.2 Variabelen en datatypes</a></li><li><a href="#33-invoer-van-de-gebruiker">3.3 Invoer van de gebruiker</a></li><li><a href="#34-condities-if-elif-else">3.4 Condities: if / elif / else</a></li><li><a href="#35-lussen">3.5 Lussen</a></li><li><a href="#for-lus" style="padding-left:1.25rem">For-lus</a></li><li><a href="#while-lus" style="padding-left:1.25rem">While-lus</a></li><li><a href="#36-functies">3.6 Functies</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h03" style="padding-left:1.25rem">Huistaak H03</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-estem" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127827; E-STEM &mdash; 5ADB</div>
+          <h1 class="page-header__title">H03 &mdash; Python basics op de Raspberry Pi</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="e-stem">E-STEM</h1>
+<h2 id="hoofdstuk-3-python-basics-op-de-raspberry-pi">Hoofdstuk 3 — Python basics op de Raspberry Pi</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht E-STEM</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-05]</span> Een eenvoudig programma schrijven en uitvoeren <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-06]</span> Creatieve ideeën genereren om een probleem op te lossen <span class="badge badge-basis">basis</span></div>
+<p>Na dit hoofdstuk kan de leerling:</p>
+<ul>
+<li>een Python-script aanmaken en uitvoeren op de Raspberry Pi;</li>
+<li>variabelen gebruiken met de juiste datatypes;</li>
+<li>invoer vragen aan de gebruiker met <code>input()</code>;</li>
+<li>beslissingen maken met <code>if/elif/else</code>;</li>
+<li>herhalingen schrijven met <code>for</code> en <code>while</code>;</li>
+<li>een eenvoudige functie definiëren en aanroepen.</li>
+</ul>
+<p><strong>Geschatte lesuren:</strong> 6 uur</p>
+<h2 id="31-python-starten-op-de-pi">3.1 Python starten op de Pi</h2>
+<p>Python 3 is voorgeïnstalleerd op Raspberry Pi OS.</p>
+<p><strong>Interactieve modus (snel testen):</strong></p>
+<pre data-lang="bash"><code>
+python3
+&gt;&gt;&gt; print("Hallo wereld!")
+Hallo wereld!
+&gt;&gt;&gt; 3 + 5
+8
+&gt;&gt;&gt; exit()
+</code></pre>
+<p><strong>Script schrijven en uitvoeren:</strong></p>
+<pre data-lang="bash"><code>
+nano mijnscript.py    # script schrijven
+python3 mijnscript.py # script uitvoeren
+</code></pre>
+<h2 id="32-variabelen-en-datatypes">3.2 Variabelen en datatypes</h2>
+<pre data-lang="python"><code>
+# Variabelen
+naam = "Sara"           # str (tekst)
+leeftijd = 17           # int (geheel getal)
+score = 14.5            # float (decimaal getal)
+geslaagd = True         # bool (True of False)
+
+print(naam)
+print(leeftijd)
+print(type(leeftijd))   # &lt;class 'int'&gt;
+</code></pre>
+<p><strong>Omrekenen tussen types:</strong></p>
+<pre data-lang="python"><code>
+getal_tekst = "42"
+getal = int(getal_tekst)   # str → int
+kommagetal = float("3.14") # str → float
+tekst = str(100)           # int → str
+</code></pre>
+<p>!<a href="../../images/H03-python-datatypes.png" target="_blank" rel="noopener">Python datatypes</a></p>
+<p><em>Figuur 3.1 — De vier basisdatatypes in Python</em></p>
+<h2 id="33-invoer-van-de-gebruiker">3.3 Invoer van de gebruiker</h2>
+<pre data-lang="python"><code>
+naam = input("Wat is je naam? ")
+print("Hallo, " + naam + "!")
+
+leeftijd = int(input("Hoe oud ben je? "))
+print("Je bent", leeftijd, "jaar oud.")
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>input()</code> geeft altijd een <strong>tekst</strong> (str) terug. Als je ermee wil rekenen, moet je het omzetten met <code>int()</code> of <code>float()</code>.</p>
+</div>
+<h2 id="34-condities-if-elif-else">3.4 Condities: if / elif / else</h2>
+<pre data-lang="python"><code>
+score = int(input("Geef je score: "))
+
+if score &gt;= 10:
+    print("Geslaagd!")
+elif score &gt;= 8:
+    print("Bijna — nog een kleine inspanning.")
+else:
+    print("Niet geslaagd.")
+</code></pre>
+<p><strong>Vergelijkingsoperatoren:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Operator</th><th>Betekenis</th></tr></thead><tbody>
+<tr><td><code>==</code></td><td>gelijk aan</td></tr>
+<tr><td><code>!=</code></td><td>niet gelijk aan</td></tr>
+<tr><td><code>></code></td><td>groter dan</td></tr>
+<tr><td><code><</code></td><td>kleiner dan</td></tr>
+<tr><td><code>>=</code></td><td>groter dan of gelijk aan</td></tr>
+<tr><td><code><=</code></td><td>kleiner dan of gelijk aan</td></tr>
+</tbody></table></div>
+<pre data-lang="python"><code>
+# Meerdere condities combineren
+if score &gt;= 10 and score &lt;= 20:
+    print("Geldige score en geslaagd!")
+
+if naam == "admin" or naam == "beheerder":
+    print("Welkom, beheerder!")
+</code></pre>
+<h2 id="35-lussen">3.5 Lussen</h2>
+<h3 id="for-lus">For-lus</h3>
+<pre data-lang="python"><code>
+# Tabel van 3
+for i in range(1, 11):
+    print(f"3 × {i} = {3 * i}")
+
+# Over een lijst lopen
+vakken = ["Netwerken", "Python", "Databeheer"]
+for vak in vakken:
+    print("Vak:", vak)
+</code></pre>
+<h3 id="while-lus">While-lus</h3>
+<pre data-lang="python"><code>
+# Blijf vragen tot het juiste wachtwoord
+wachtwoord = ""
+while wachtwoord != "geheim":
+    wachtwoord = input("Wachtwoord: ")
+    if wachtwoord != "geheim":
+        print("Fout wachtwoord, probeer opnieuw.")
+
+print("Toegang verleend!")
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Gebruik een <code>for</code>-lus als je <strong>weet hoeveel keer</strong> je wil herhalen.</p>
+<p>Gebruik een <code>while</code>-lus als je wil herhalen <strong>zolang een voorwaarde geldt</strong>.</p>
+</div>
+<h2 id="36-functies">3.6 Functies</h2>
+<pre data-lang="python"><code>
+def begroet(naam):
+    print("Hallo, " + naam + "!")
+
+begroet("Sara")
+begroet("Jan")
+</code></pre>
+<p><strong>Functie met return-waarde:</strong></p>
+<pre data-lang="python"><code>
+def bereken_gemiddelde(score1, score2, score3):
+    totaal = score1 + score2 + score3
+    gemiddelde = totaal / 3
+    return gemiddelde
+
+resultaat = bereken_gemiddelde(14, 12, 16)
+print(f"Gemiddelde: {resultaat:.1f}")
+</code></pre>
+<p><strong>Waarom functies?</strong></p>
+<ul>
+<li>Code hergebruiken zonder te kopiëren</li>
+<li>Programma overzichtelijk houden</li>
+<li>Elke functie doet één ding</li>
+</ul>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+def reken(a, b, operator):
+if operator == '+':
+return a + b
+elif operator == '-':
+return a - b
+elif operator == '*':
+return a * b
+elif operator == '/':
+if b != 0:
+return a / b
+else:
+return "Kan niet delen door nul!"
+else:
+return "Onbekende operator"
+
+a = float(input("Eerste getal: "))
+operator = input("Operator (+, -, *, /): ")
+b = float(input("Tweede getal: "))
+
+print("Resultaat:", reken(a, b, operator))
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+def druk_tafel(n):
+print(f"\nTafel van {n}:")
+for i in range(1, 11):
+print(f"  {n} × {i} = {n * i}")
+
+for tafel in [2, 3, 5, 10]:
+druk_tafel(tafel)
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="estem5-h03-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.1</span>
+    <span class="oefening__title">Python datatypes en variabelen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van Python-variabelen, datatypes en invoer.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk datatype heeft de variabele <code>leeftijd = 17</code> in Python?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v1" value="a"><span>str</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v1" value="b"><span>int</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v1" value="c"><span>float</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v1" value="d"><span>bool</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="int (geheel getal) — 17 zonder decimaalcomma is een int in Python"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat geeft <code>input()</code> altijd terug, ongeacht wat de gebruiker intypt?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v2" value="a"><span>int</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v2" value="b"><span>float</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v2" value="c"><span>str (tekst)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v2" value="d"><span>bool</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="str (tekst) — input() geeft altijd een string terug. Gebruik int() of float() om er mee te rekenen."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="int()|int( )|int">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoe converteer je de string <code>"42"</code> naar een geheel getal in Python? (Typ de functienaam met haakjes)</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de functie...">
+      <div class="vraag__feedback" data-correct-label="int() — bv. int('42') geeft het getal 42. Voor decimale getallen gebruik je float()."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke operator gebruik je in Python om te controleren of twee waarden gelijk zijn?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v4" value="a"><span><code>=</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v4" value="b"><span><code>!=</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v4" value="c"><span><code>&gt;=</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-1-v4" value="d"><span><code>==</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="== — dubbel gelijkteken voor vergelijken. Enkel = is toekenning (variabele een waarde geven)."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="estem5-h03-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.2</span>
+    <span class="oefening__title">Condities en lussen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van if/elif/else, for-lussen en while-lussen in Python.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Een script vraagt een getal van 1 tot 100. Als het getal kleiner is dan 50 print het "Kleiner dan 50". Wat gebruik je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v1" value="a"><span><code>if getal &lt; 50:</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v1" value="b"><span><code>while getal &lt; 50:</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v1" value="c"><span><code>for getal in range(50):</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v1" value="d"><span><code>elif getal &lt; 50:</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="if getal < 50: — if is de eerste conditie in een if/elif/else-structuur"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wanneer gebruik je een <code>while</code>-lus in plaats van een <code>for</code>-lus?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v2" value="a"><span>Als je weet hoeveel keer je wil herhalen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v2" value="b"><span>Als je wil herhalen zolang een voorwaarde geldt</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v2" value="c"><span>Als je door een lijst wil lopen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v2" value="d"><span>Als je een functie wil definiëren</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Als je wil herhalen zolang een voorwaarde geldt — while herhaalt totdat de conditie False wordt"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="range(1, 11)|range(1,11)">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke <code>range()</code>-aanroep geeft de getallen 1 t/m 10?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ range(...)...">
+      <div class="vraag__feedback" data-correct-label="range(1, 11) — range(start, stop) geeft getallen van start tot (maar niet inclusief) stop"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Hoe definieer je een functie <code>begroet</code> die één parameter <code>naam</code> ontvangt?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v4" value="a"><span><code>function begroet(naam):</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v4" value="b"><span><code>begroet = function(naam):</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v4" value="c"><span><code>def begroet(naam):</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-2-v4" value="d"><span><code>define begroet(naam):</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="def begroet(naam): — in Python gebruik je het sleutelwoord def om een functie te definiëren"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="estem5-h03-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.3</span>
+    <span class="oefening__title">Raaodspelscript analyseren</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">De computer heeft het getal 7. De gebruiker moet het raden. Na elke poging zegt het script of het hoger of lager moet. Analyseer welke concepten je nodig hebt.</p>
+
+    <div class="vraag" data-type="check" data-correct="a,b,c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke Python-concepten zijn nodig voor dit raadspelscript? (Selecteer alle juiste antwoorden)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h03-3-v1" value="a"><span><code>while</code>-lus — herhalen totdat het getal geraden is</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h03-3-v1" value="b"><span><code>input()</code> en <code>int()</code> — invoer van de gebruiker omzetten naar getal</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h03-3-v1" value="c"><span><code>if/elif/else</code> — vergelijken of het getal hoger, lager of gelijk is</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h03-3-v1" value="d"><span><code>import csv</code> — gegevens opslaan in een CSV-bestand</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="while-lus, input()/int() en if/elif/else — een CSV is niet nodig voor een raadspel in het geheugen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is de juiste conditie om de while-lus te stoppen als het getal geraden is (het geheim is 7)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-3-v2" value="a"><span><code>while gok &lt; 7:</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-3-v2" value="b"><span><code>while gok != 7:</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-3-v2" value="c"><span><code>while gok == 7:</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h03-3-v2" value="d"><span><code>while gok &gt; 7:</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="while gok != 7: — de lus gaat door zolang de gok NIET gelijk is aan 7. Zodra gok == 7, stopt de lus."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h03">Huistaak H03</h3>
+<p>Schrijf een Python-script <code>welkom.py</code> dat het volgende doet:</p>
+<ol>
+<li>Vraag de naam van de gebruiker.</li>
+<li>Vraag de leeftijd.</li>
+<li>Als de leeftijd 18 of ouder is: print "Welkom, volwassene!"</li>
+<li>Als de leeftijd jonger is dan 18: print "Welkom, jongere! Je mag nog X jaar jonger zijn." (bereken X = 18 - leeftijd)</li>
+<li>Herhaal stap 1–4 totdat de naam "stop" is.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/e-stem/huistaken/H03-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Python schrijf je in een <code>.py</code>-bestand, uitvoeren via <code>python3 bestand.py</code>.</li>
+<li><strong>Datatypes:</strong> <code>str</code> (tekst), <code>int</code> (geheel), <code>float</code> (decimaal), <code>bool</code> (waar/niet waar).</li>
+<li><strong><code>input()</code></strong> geeft altijd een string terug — gebruik <code>int()</code> of <code>float()</code> om te rekenen.</li>
+<li><strong><code>if/elif/else</code></strong> voor beslissingen.</li>
+<li><strong><code>for</code></strong> voor een bekend aantal herhalingen; <strong><code>while</code></strong> zolang een voorwaarde geldt.</li>
+<li><strong><code>def</code></strong> om een functie te definiëren; functies maken code herbruikbaar en overzichtelijk.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-05]</span> Een eenvoudig programma schrijven en uitvoeren <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-06]</span> Creatieve ideeën genereren om een probleem op te lossen <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/e-stem/H03">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H02.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H02 &mdash; Linux basiscommandos</span></div></a>
+          <a href="H04.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H04 &mdash; SSH en netwerkconfiguratie</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

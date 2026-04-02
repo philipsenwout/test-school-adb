@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software installatie — 5ADB — Appschool Munsterbilzen</title>
+  <meta name="description" content="Overzicht van alle software die je nodig hebt per vak in het 5e jaar.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../index.html" class="site-nav__logo">
+        <img src="../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../index.html" class="site-nav__link">Home</a>
+    <a href="../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">5ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>Software</span>
+    </nav>
+
+    <div class="page-header" style="--page-header-accent: #7c3aed; overflow:hidden; padding:0">
+      <img src="../../app-ontwikkeling/images/software-banner.svg"
+           alt="" aria-hidden="true"
+           style="width:100%; height:200px; object-fit:contain; background:#051428; display:block; border-radius:var(--radius-lg) var(--radius-lg) 0 0">
+      <div style="padding:var(--space-6)">
+        <div class="page-header__vak">&#128295; 5ADB &mdash; Software installatie</div>
+        <h1 class="page-header__title">Software installatie</h1>
+        <p class="page-header__desc">
+          Kies je vak om te zien welke software je moet installeren. Volg de installatiegids stap voor stap voordat je begint met de cursus.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout callout--info" style="margin-bottom:var(--space-8)">
+      <div class="callout-header">&#x2139; Hoe werkt dit?</div>
+      <p>Elke richting gebruikt andere tools. Klik op je vak om de volledige installatiestappen te zien. Doe dit <strong>voor de eerste les</strong> zodat je meteen kan meevolgen.</p>
+    </div>
+
+    <!-- 4 blokken per richting -->
+    <div class="vak-grid">
+
+      <!-- App-ontwikkeling — ACTIEF -->
+      <a href="app-ontwikkeling/software.html" class="card-vak card-vak--appdev animate-fade-in-up animate-delay-1">
+        <img src="../assets/images/visual-studio-code-icons/vscode.svg" alt="Visual Studio Code" class="card-vak__icon-img">
+        <div class="card-vak__title">App-ontwikkeling</div>
+        <p class="card-vak__subtitle">Installeer Visual Studio Code en de benodigde extensions (Live Server, HTML Snippets, Prettier).</p>
+        <div class="card-vak__meta" style="margin-top:auto">
+          <span>VS Code</span>
+          <span>Extensions</span>
+          <span>Prettier</span>
+        </div>
+      </a>
+
+      <!-- Netwerken — COMING SOON -->
+      <div class="card-vak card-vak--netwerken card-vak--coming-soon animate-fade-in-up animate-delay-2">
+        <span class="card-vak__icon">&#127760;</span>
+        <div class="card-vak__title">Netwerken</div>
+        <p class="card-vak__subtitle">Cisco Packet Tracer, PuTTY en VirtualBox. Installatiestappen volgen binnenkort.</p>
+        <span class="card-vak__coming-badge">Binnenkort beschikbaar</span>
+        <div class="card-vak__meta" style="margin-top:auto">
+          <span>Packet Tracer</span>
+          <span>PuTTY</span>
+        </div>
+      </div>
+
+      <!-- Databeheer — COMING SOON -->
+      <div class="card-vak card-vak--data card-vak--coming-soon animate-fade-in-up animate-delay-3">
+        <span class="card-vak__icon">&#128441;</span>
+        <div class="card-vak__title">Databeheer</div>
+        <p class="card-vak__subtitle">MySQL Workbench, DBeaver, Python (Anaconda) en Jupyter Notebook. Installatiestappen volgen binnenkort.</p>
+        <span class="card-vak__coming-badge">Binnenkort beschikbaar</span>
+        <div class="card-vak__meta" style="margin-top:auto">
+          <span>MySQL</span>
+          <span>Python</span>
+        </div>
+      </div>
+
+      <!-- E-STEM — COMING SOON -->
+      <div class="card-vak card-vak--estem card-vak--coming-soon animate-fade-in-up animate-delay-4">
+        <span class="card-vak__icon">&#127827;</span>
+        <div class="card-vak__title">E-STEM</div>
+        <p class="card-vak__subtitle">Raspberry Pi Imager, SSH-client en Thonny IDE. Installatiestappen volgen binnenkort.</p>
+        <span class="card-vak__coming-badge">Binnenkort beschikbaar</span>
+        <div class="card-vak__meta" style="margin-top:auto">
+          <span>Pi Imager</span>
+          <span>Thonny</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:var(--space-10); text-align:center">
+      <a href="index.html" class="btn btn-ghost">&#8592; Terug naar 5ADB overzicht</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

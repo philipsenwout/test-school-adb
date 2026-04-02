@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 &mdash; SQL bevraging: SELECT &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="SQL bevraging: SELECT &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H05</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-5-sql-bevraging-select">Hoofdstuk 5 — SQL-bevraging: SELECT</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#51-de-select-opdracht">5.1 De SELECT-opdracht</a></li><li><a href="#511-basisstructuur" style="padding-left:1.25rem">5.1.1 Basisstructuur</a></li><li><a href="#512-specifieke-kolommen-selecteren" style="padding-left:1.25rem">5.1.2 Specifieke kolommen selecteren</a></li><li><a href="#513-kolomaliassen-met-as" style="padding-left:1.25rem">5.1.3 Kolomaliassen met AS</a></li><li><a href="#52-filteren-met-where">5.2 Filteren met WHERE</a></li><li><a href="#521-vergelijkingsoperatoren" style="padding-left:1.25rem">5.2.1 Vergelijkingsoperatoren</a></li><li><a href="#522-logische-operatoren-and-or-not" style="padding-left:1.25rem">5.2.2 Logische operatoren: AND, OR, NOT</a></li><li><a href="#523-between-in-like-is-null" style="padding-left:1.25rem">5.2.3 BETWEEN, IN, LIKE, IS NULL</a></li><li><a href="#53-sorteren-met-order-by">5.3 Sorteren met ORDER BY</a></li><li><a href="#54-resultaten-beperken-met-limit">5.4 Resultaten beperken met LIMIT</a></li><li><a href="#55-aggregaatfuncties">5.5 Aggregaatfuncties</a></li><li><a href="#56-groeperen-met-group-by">5.6 Groeperen met GROUP BY</a></li><li><a href="#561-groepen-filteren-met-having" style="padding-left:1.25rem">5.6.1 Groepen filteren met HAVING</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h05" style="padding-left:1.25rem">Huistaak H05</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H05 &mdash; SQL bevraging: SELECT</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-5-sql-bevraging-select">Hoofdstuk 5 — SQL-bevraging: SELECT</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 8 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>Een SELECT-query schrijven om gegevens op te halen uit een tabel.</li>
+<li>Resultaten filteren met de WHERE-clausule en logische operatoren.</li>
+<li>Resultaten sorteren met ORDER BY.</li>
+<li>Het aantal resultaten beperken met LIMIT.</li>
+<li>Aggregaatfuncties toepassen: COUNT, SUM, AVG, MIN, MAX.</li>
+<li>Resultaten groeperen met GROUP BY en gefilterde groepen selecteren met HAVING.</li>
+<li>Kolomaliassen gebruiken met AS.</li>
+</ol>
+<h2 id="51-de-select-opdracht">5.1 De SELECT-opdracht</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p><code>SELECT</code> is het SQL-sleutelwoord waarmee je gegevens ophaalt uit een of meer tabellen. Het is de meest gebruikte SQL-opdracht en vormt de basis van alle databevragingen.</p>
+</div>
+<h3 id="511-basisstructuur">5.1.1 Basisstructuur</h3>
+<pre data-lang="sql"><code>
+SELECT kolom1, kolom2, ...
+FROM tabelnaam;
+</code></pre>
+<p><strong>Alle kolommen ophalen (gebruik met mate):</strong></p>
+<pre data-lang="sql"><code>
+SELECT * FROM product;
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>SELECT *</code> haalt alle kolommen op, ook kolommen die je niet nodig hebt. Dit is traag bij grote tabellen en maakt code minder leesbaar. In productieomgevingen vermeld je altijd de kolomnamen expliciet.</p>
+</div>
+<h3 id="512-specifieke-kolommen-selecteren">5.1.2 Specifieke kolommen selecteren</h3>
+<pre data-lang="sql"><code>
+-- Alleen naam en prijs ophalen
+SELECT naam, prijs
+FROM product;
+</code></pre>
+<h3 id="513-kolomaliassen-met-as">5.1.3 Kolomaliassen met AS</h3>
+<pre data-lang="sql"><code>
+-- Kolomnamen hernoemen in het resultaat
+SELECT
+    naam          AS productnaam,
+    prijs         AS verkoopprijs,
+    voorraad      AS aantal_in_stock
+FROM product;
+</code></pre>
+<p><strong>Resultaat:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>productnaam</th><th>verkoopprijs</th><th>aantal_in_stock</th></tr></thead><tbody>
+<tr><td>Laptop Pro 15</td><td>999.00</td><td>10</td></tr>
+<tr><td>Smartphone X12</td><td>599.00</td><td>25</td></tr>
+</tbody></table></div>
+<h2 id="52-filteren-met-where">5.2 Filteren met WHERE</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De <code>WHERE</code>-clausule filtert rijen op basis van een of meer condities. Alleen rijen waarvoor de conditie WAAR (TRUE) is, worden opgenomen in het resultaat.</p>
+</div>
+<h3 id="521-vergelijkingsoperatoren">5.2.1 Vergelijkingsoperatoren</h3>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Operator</th><th>Betekenis</th><th>Voorbeeld</th></tr></thead><tbody>
+<tr><td><code>=</code></td><td>Gelijk aan</td><td><code>WHERE stad = 'Gent'</code></td></tr>
+<tr><td><code><></code> of <code>!=</code></td><td>Niet gelijk aan</td><td><code>WHERE status <> 'geannuleerd'</code></td></tr>
+<tr><td><code><</code></td><td>Kleiner dan</td><td><code>WHERE prijs < 100</code></td></tr>
+<tr><td><code>></code></td><td>Groter dan</td><td><code>WHERE prijs > 100</code></td></tr>
+<tr><td><code><=</code></td><td>Kleiner dan of gelijk</td><td><code>WHERE leeftijd <= 18</code></td></tr>
+<tr><td><code>>=</code></td><td>Groter dan of gelijk</td><td><code>WHERE voorraad >= 10</code></td></tr>
+</tbody></table></div>
+<pre data-lang="sql"><code>
+-- Producten duurder dan €500
+SELECT naam, prijs
+FROM product
+WHERE prijs &gt; 500;
+</code></pre>
+<h3 id="522-logische-operatoren-and-or-not">5.2.2 Logische operatoren: AND, OR, NOT</h3>
+<pre data-lang="sql"><code>
+-- Elektronica duurder dan €500
+SELECT naam, prijs, categorie_id
+FROM product
+WHERE categorie_id = 1 AND prijs &gt; 500;
+
+-- Producten duurder dan €500 OF met meer dan 20 in voorraad
+SELECT naam, prijs, voorraad
+FROM product
+WHERE prijs &gt; 500 OR voorraad &gt; 20;
+
+-- Producten die NIET in categorie 1 zitten
+SELECT naam
+FROM product
+WHERE NOT categorie_id = 1;
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Gebruik haakjes bij complexe condities om de volgorde van uitwerking duidelijk te maken:</p>
+<p><code>WHERE (prijs > 500 OR voorraad > 20) AND actief = 1</code></p>
+</div>
+<h3 id="523-between-in-like-is-null">5.2.3 BETWEEN, IN, LIKE, IS NULL</h3>
+<p><strong>BETWEEN — bereik van waarden:</strong></p>
+<pre data-lang="sql"><code>
+-- Producten met prijs tussen €50 en €200 (beide grenzen inbegrepen)
+SELECT naam, prijs
+FROM product
+WHERE prijs BETWEEN 50 AND 200;
+</code></pre>
+<p><strong>IN — lijst van waarden:</strong></p>
+<pre data-lang="sql"><code>
+-- Klanten uit Gent, Antwerpen of Brussel
+SELECT voornaam, achternaam, stad
+FROM klant
+WHERE stad IN ('Gent', 'Antwerpen', 'Brussel');
+</code></pre>
+<p><strong>LIKE — patroonvergelijking:</strong></p>
+<pre data-lang="sql"><code>
+-- Klanten waarvan de achternaam begint met 'V'
+SELECT voornaam, achternaam
+FROM klant
+WHERE achternaam LIKE 'V%';
+
+-- Klanten waarvan de e-mail '@gmail.com' bevat
+SELECT voornaam, email
+FROM klant
+WHERE email LIKE '%@gmail.com';
+</code></pre>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Bij <code>LIKE</code> gebruik je wildcards: <code>%</code> vervangt nul of meer tekens, <code>_</code> vervangt precies één teken.</p>
+</div>
+<p><strong>IS NULL — lege waarden:</strong></p>
+<pre data-lang="sql"><code>
+-- Bestellingen zonder terugbrengdatum (nog niet teruggegeven)
+SELECT lening_id, lid_id, boek_id, uitleendatum
+FROM lening
+WHERE terugbrengdatum IS NULL;
+
+-- Het tegengestelde:
+WHERE terugbrengdatum IS NOT NULL
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>WHERE kolom = NULL</code> werkt NIET in SQL. Gebruik altijd <code>IS NULL</code> of <code>IS NOT NULL</code>.</p>
+</div>
+<h2 id="53-sorteren-met-order-by">5.3 Sorteren met ORDER BY</h2>
+<pre data-lang="sql"><code>
+-- Sorteren van goedkoopste naar duurste (ASC = standaard)
+SELECT naam, prijs
+FROM product
+ORDER BY prijs ASC;
+
+-- Sorteren van duurste naar goedkoopste
+SELECT naam, prijs
+FROM product
+ORDER BY prijs DESC;
+
+-- Sorteren op meerdere kolommen
+SELECT achternaam, voornaam, stad
+FROM klant
+ORDER BY stad ASC, achternaam ASC;
+</code></pre>
+<h2 id="54-resultaten-beperken-met-limit">5.4 Resultaten beperken met LIMIT</h2>
+<pre data-lang="sql"><code>
+-- Eerste 5 producten ophalen
+SELECT naam, prijs
+FROM product
+LIMIT 5;
+
+-- Top 3 duurste producten
+SELECT naam, prijs
+FROM product
+ORDER BY prijs DESC
+LIMIT 3;
+
+-- Paginering: sla 10 resultaten over, toon de volgende 10
+SELECT naam, prijs
+FROM product
+LIMIT 10 OFFSET 10;
+</code></pre>
+<h2 id="55-aggregaatfuncties">5.5 Aggregaatfuncties</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een aggregaatfunctie berekent een enkelvoudige waarde op basis van een reeks rijen. Aggregaatfuncties negeren NULL-waarden (behalve COUNT(*)).</p>
+</div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Functie</th><th>Beschrijving</th></tr></thead><tbody>
+<tr><td><code>COUNT(*)</code></td><td>Aantal rijen</td></tr>
+<tr><td><code>COUNT(kolom)</code></td><td>Aantal niet-NULL waarden in de kolom</td></tr>
+<tr><td><code>SUM(kolom)</code></td><td>Som van de waarden</td></tr>
+<tr><td><code>AVG(kolom)</code></td><td>Gemiddelde van de waarden</td></tr>
+<tr><td><code>MIN(kolom)</code></td><td>Minimumwaarde</td></tr>
+<tr><td><code>MAX(kolom)</code></td><td>Maximumwaarde</td></tr>
+</tbody></table></div>
+<pre data-lang="sql"><code>
+-- Hoeveel producten zijn er?
+SELECT COUNT(*) AS aantal_producten FROM product;
+
+-- Wat is de gemiddelde prijs?
+SELECT AVG(prijs) AS gemiddelde_prijs FROM product;
+
+-- Wat is de goedkoopste en duurste prijs?
+SELECT MIN(prijs) AS goedkoopste, MAX(prijs) AS duurste FROM product;
+
+-- Totale waarde van alle voorraad
+SELECT SUM(prijs * voorraad) AS totale_voorraadwaarde FROM product;
+</code></pre>
+<h2 id="56-groeperen-met-group-by">5.6 Groeperen met GROUP BY</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p><code>GROUP BY</code> groepeert rijen met dezelfde waarde in een kolom samen. Op elke groep kan je vervolgens een aggregaatfunctie toepassen.</p>
+</div>
+<pre data-lang="sql"><code>
+-- Aantal producten per categorie
+SELECT categorie_id, COUNT(*) AS aantal
+FROM product
+GROUP BY categorie_id;
+
+-- Gemiddelde prijs per categorie
+SELECT categorie_id, AVG(prijs) AS gem_prijs, COUNT(*) AS aantal
+FROM product
+GROUP BY categorie_id
+ORDER BY gem_prijs DESC;
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>In een SELECT-query met GROUP BY mogen alleen kolommen voorkomen die (a) in de GROUP BY staan, of (b) binnen een aggregaatfunctie zitten.</p>
+</div>
+<h3 id="561-groepen-filteren-met-having">5.6.1 Groepen filteren met HAVING</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p><code>HAVING</code> filtert groepen na de GROUP BY-operatie, zoals WHERE rijen filtert. Gebruik <code>HAVING</code> voor condities op aggregaatfuncties.</p>
+</div>
+<pre data-lang="sql"><code>
+-- Categorieën met meer dan 2 producten
+SELECT categorie_id, COUNT(*) AS aantal
+FROM product
+GROUP BY categorie_id
+HAVING COUNT(*) &gt; 2;
+
+-- Categorieën waarvan de gemiddelde prijs boven €200 ligt
+SELECT categorie_id, AVG(prijs) AS gem_prijs
+FROM product
+GROUP BY categorie_id
+HAVING AVG(prijs) &gt; 200;
+</code></pre>
+<p><strong>Verschil WHERE vs. HAVING:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th>WHERE</th><th>HAVING</th></tr></thead><tbody>
+<tr><td>Wanneer</td><td>Vóór GROUP BY</td><td>Ná GROUP BY</td></tr>
+<tr><td>Filtert</td><td>Individuele rijen</td><td>Groepen</td></tr>
+<tr><td>Aggregaatfuncties</td><td>Niet toegelaten</td><td>Toegelaten</td></tr>
+</tbody></table></div>
+<pre data-lang="sql"><code>
+-- WHERE en HAVING samen:
+-- Actieve producten per categorie, maar toon alleen categorieën met gem. prijs &gt; 100
+SELECT categorie_id, COUNT(*) AS aantal, AVG(prijs) AS gem_prijs
+FROM product
+WHERE actief = 1           -- filter EERST individuele rijen
+GROUP BY categorie_id
+HAVING AVG(prijs) &gt; 100;   -- filter DAN de groepen
+</code></pre>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>We gebruiken de webshop-database uit H04.</p>
+<pre data-lang="sql"><code>
+-- Alle bestellingen van klant met id = 1, gesorteerd op datum
+SELECT bestelling_id, datum, status
+FROM bestelling
+WHERE klant_id = 1
+ORDER BY datum DESC;
+</code></pre>
+<p><strong>Resultaat:</strong></p>
+<p>| bestelling_id | datum | status |</p>
+<p>|---|---|---|</p>
+<p>| 1 | 2026-02-10 14:30:00 | nieuw |</p>
+<pre data-lang="sql"><code>
+-- Top 3 duurste actieve producten
+SELECT naam, prijs
+FROM product
+WHERE actief = 1
+ORDER BY prijs DESC
+LIMIT 3;
+</code></pre>
+<p><strong>Resultaat:</strong></p>
+<p>| naam | prijs |</p>
+<p>|---|---|</p>
+<p>| Laptop Pro 15 | 999.00 |</p>
+<p>| Smartphone X12 | 599.00 |</p>
+<p>| Bureau 120cm | 199.00 |</p>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="sql"><code>
+-- Statistieken per categorie (gebruik JOIN — zie H07 — hier vereenvoudigd met categorie_id)
+SELECT
+categorie_id,
+COUNT(*)         AS aantal_producten,
+MIN(prijs)       AS goedkoopste,
+MAX(prijs)       AS duurste,
+ROUND(AVG(prijs), 2) AS gemiddelde_prijs,
+SUM(voorraad)    AS totaal_in_voorraad
+FROM product
+GROUP BY categorie_id
+ORDER BY gemiddelde_prijs DESC;
+</code></pre>
+<p><strong>Resultaat:</strong></p>
+<p>| categorie_id | aantal_producten | goedkoopste | duurste | gemiddelde_prijs | totaal_in_voorraad |</p>
+<p>|---|---|---|---|---|---|</p>
+<p>| 1 | 3 | 89.99 | 999.00 | 562.66 | 75 |</p>
+<p>| 2 | 1 | 199.00 | 199.00 | 199.00 | 5 |</p>
+<p>| 3 | 1 | 24.99 | 24.99 | 24.99 | 100 |</p>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h05-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.1</span>
+    <span class="oefening__title">SELECT en WHERE — webshop queries</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je werkt met de webshop-database uit H04: tabellen <code>klant</code>, <code>product</code>, <code>bestelling</code>. Test je kennis van SELECT, WHERE en sorteren.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke query haalt alle klanten op, gesorteerd op achternaam van A naar Z?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q1" value="a"><span><code>SELECT * FROM klant ORDER BY achternaam DESC;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q1" value="b"><span><code>SELECT * FROM klant ORDER BY achternaam ASC;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q1" value="c"><span><code>SELECT * FROM klant SORT BY achternaam;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q1" value="d"><span><code>SELECT achternaam FROM klant ORDER BY naam;</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SELECT * FROM klant ORDER BY achternaam ASC; — ASC staat voor oplopend (A naar Z). ASC is ook de standaard als je geen richting opgeeft"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="like|like '%@gmail.com'">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk SQL-sleutelwoord gebruik je voor patroonvergelijking (bv. zoeken op klanten met een e-mail die eindigt op '@gmail.com')?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het sleutelwoord...">
+      <div class="vraag__feedback" data-correct-label="LIKE — bijv. WHERE email LIKE '%@gmail.com'. Het % teken vervangt nul of meer tekens"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoe controleer je in SQL of een waarde leeg (NULL) is?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q3" value="a"><span><code>WHERE kolom = NULL</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q3" value="b"><span><code>WHERE kolom == NULL</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q3" value="c"><span><code>WHERE kolom EQUALS NULL</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q3" value="d"><span><code>WHERE kolom IS NULL</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="WHERE kolom IS NULL — je mag nooit '= NULL' gebruiken in SQL. Gebruik altijd IS NULL of IS NOT NULL"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke query haalt producten op met een prijs tussen €50 en €200 (grenzen inbegrepen)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q4" value="a"><span><code>WHERE prijs > 50 AND prijs &lt; 200</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q4" value="b"><span><code>WHERE prijs FROM 50 TO 200</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q4" value="c"><span><code>WHERE prijs BETWEEN 50 AND 200</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-1-q4" value="d"><span><code>WHERE prijs IN (50, 200)</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="WHERE prijs BETWEEN 50 AND 200 — BETWEEN is inclusief, dus 50 en 200 zijn ook inbegrepen in het resultaat"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h05-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.2</span>
+    <span class="oefening__title">Aggregaatfuncties en GROUP BY</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Aggregaatfuncties berekenen een enkelvoudige waarde op basis van meerdere rijen. GROUP BY groepeert rijen samen.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke aggregaatfunctie tel je het aantal rijen in een tabel?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q1" value="a"><span><code>COUNT(*)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q1" value="b"><span><code>SUM(*)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q1" value="c"><span><code>TOTAL(*)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q1" value="d"><span><code>NUMBER(*)</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="COUNT(*) — telt het totale aantal rijen. COUNT(kolom) telt enkel rijen waar de kolom niet NULL is"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Je wil categorieën tonen met meer dan 2 producten. Welke clausule gebruik je daarvoor <em>na</em> GROUP BY?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q2" value="a"><span><code>WHERE COUNT(*) &gt; 2</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q2" value="b"><span><code>FILTER COUNT(*) &gt; 2</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q2" value="c"><span><code>HAVING COUNT(*) &gt; 2</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q2" value="d"><span><code>LIMIT COUNT(*) &gt; 2</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="HAVING COUNT(*) > 2 — HAVING filtert groepen na GROUP BY. WHERE filtert individuele rijen vóór het groeperen; aggregaatfuncties mogen niet in WHERE"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="avg|avg(prijs)|avg()">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke SQL-functie gebruik je om de gemiddelde prijs te berekenen?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de functienaam...">
+      <div class="vraag__feedback" data-correct-label="AVG — berekent het gemiddelde van alle waarden in een kolom. Bijv. AVG(prijs)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is het verschil tussen WHERE en HAVING?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q4" value="a"><span>Geen verschil — beide doen hetzelfde</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q4" value="b"><span>WHERE filtert rijen vóór GROUP BY; HAVING filtert groepen ná GROUP BY</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q4" value="c"><span>HAVING filtert rijen vóór GROUP BY; WHERE filtert groepen ná GROUP BY</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-2-q4" value="d"><span>WHERE is sneller, HAVING is voor grote tabellen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="WHERE filtert rijen vóór GROUP BY; HAVING filtert groepen ná GROUP BY. Gebruik HAVING wanneer je een aggregaatfunctie in de conditie gebruikt"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h05-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.3</span>
+    <span class="oefening__title">LIMIT, ORDER BY en kolomaliassen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van LIMIT, ORDER BY en het hernoemen van kolommen met AS.</p>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke query toont de 3 duurste producten?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q1" value="a"><span><code>SELECT naam, prijs FROM product LIMIT 3;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q1" value="b"><span><code>SELECT naam, prijs FROM product ORDER BY prijs ASC LIMIT 3;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q1" value="c"><span><code>SELECT naam, prijs FROM product TOP 3;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q1" value="d"><span><code>SELECT naam, prijs FROM product ORDER BY prijs DESC LIMIT 3;</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SELECT naam, prijs FROM product ORDER BY prijs DESC LIMIT 3; — DESC sorteert van hoog naar laag, dan LIMIT 3 toont alleen de eerste 3 resultaten"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="as|alias">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Met welk SQL-sleutelwoord geef je een kolom of tabel een alternatieve naam in het resultaat?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het sleutelwoord...">
+      <div class="vraag__feedback" data-correct-label="AS — bijv. SELECT naam AS productnaam hernoemt de kolom 'naam' naar 'productnaam' in het resultaat"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat doet <code>SELECT * FROM product</code> (met een asterisk)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q3" value="a"><span>Haalt alle kolommen en rijen op uit de tabel product</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q3" value="b"><span>Haalt enkel de primaire sleutel op</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q3" value="c"><span>Verwijdert alle records uit de tabel</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h05-3-q3" value="d"><span>Werkt alleen als de tabel leeg is</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Haalt alle kolommen en rijen op. Let op: in productieomgevingen vermeld je altijd expliciet de kolomnamen (geen SELECT *) voor betere leesbaarheid en performantie"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h05">Huistaak H05</h3>
+<p><strong>Rapport schrijven met SQL</strong></p>
+<p>Gebruik je eigen database (uit H04) om een "rapport" te genereren via SQL-queries.</p>
+<p><strong>Opdracht:</strong> Schrijf minstens <strong>6 zinvolle SELECT-queries</strong> die samen een nuttig overzicht geven van de data in je database. Minimale vereisten:</p>
+<ol>
+<li>Eén query met <code>WHERE</code> en meerdere condities (<code>AND</code>/<code>OR</code>)</li>
+<li>Eén query met <code>ORDER BY</code> op meerdere kolommen</li>
+<li>Eén query met een aggregaatfunctie (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code> of <code>MAX</code>)</li>
+<li>Eén query met <code>GROUP BY</code></li>
+<li>Eén query met <code>HAVING</code></li>
+<li>Één vrije query die iets interessants toont over je data</li>
+</ol>
+<p>Voeg elke query toe aan het bestand <code>queries/rapport.sql</code> in je GitHub-repository. Voeg boven elke query een commentaarregel toe (<code>-- Beschrijving van de query</code>).</p>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H05-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>SELECT</strong> haalt gegevens op; vermeld altijd de kolomnamen (geen <code>SELECT *</code> in productie).</li>
+<li><strong>WHERE</strong> filtert rijen: gebruik <code>=</code>, <code><></code>, <code><</code>, <code>></code>, <code>BETWEEN</code>, <code>IN</code>, <code>LIKE</code>, <code>IS NULL</code>.</li>
+<li><strong>ORDER BY</strong> sorteert: <code>ASC</code> (standaard, oplopend) of <code>DESC</code> (aflopend).</li>
+<li><strong>LIMIT</strong> beperkt het aantal resultaten; <code>OFFSET</code> gebruikt voor paginering.</li>
+<li><strong>Aggregaatfuncties</strong> (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>) berekenen een waarde over een groep rijen.</li>
+<li><strong>GROUP BY</strong> groepeert rijen; <strong>HAVING</strong> filtert groepen (zoals WHERE voor rijen).</li>
+<li><strong>AS</strong> hernoemt kolommen of tabellen in het resultaat (alias).</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H05">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H04.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H04 &mdash; Databank aanmaken en vullen</span></div></a>
+          <a href="H06.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H06 &mdash; SQL manipulatie: UPDATE en DELETE</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

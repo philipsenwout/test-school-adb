@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantische HTML — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H03" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-semantisch">3.1 Wat is semantische HTML?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.2"><span class="sidebar-check__box"></span></label>
+          <a href="#flowchart">3.2 De flowchart</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.3"><span class="sidebar-check__box"></span></label>
+          <a href="#header">3.3 &lt;header&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.4"><span class="sidebar-check__box"></span></label>
+          <a href="#main-element">3.4 &lt;main&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.5"><span class="sidebar-check__box"></span></label>
+          <a href="#footer">3.5 &lt;footer&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.6"><span class="sidebar-check__box"></span></label>
+          <a href="#nav">3.6 &lt;nav&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.7"><span class="sidebar-check__box"></span></label>
+          <a href="#section">3.7 &lt;section&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.8"><span class="sidebar-check__box"></span></label>
+          <a href="#article">3.8 &lt;article&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.9"><span class="sidebar-check__box"></span></label>
+          <a href="#aside">3.9 &lt;aside&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.10"><span class="sidebar-check__box"></span></label>
+          <a href="#alles-samen">3.10 Alles samen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.11"><span class="sidebar-check__box"></span></label>
+          <a href="#toegankelijkheid">3.11 Semantiek en toegankelijkheid</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+    <div class="chapter-content">
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Semantische HTML</span>
+      </nav>
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H03 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Semantische HTML: Pagina Organiseren</h1>
+      </div>
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.07</span><span class="ld-tag__title">De leerlingen implementeren softwaremodules op een manier die herbruikbaarheid bevordert en samenwerking vereenvoudigt.</span></div>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat <em>semantische HTML</em> betekent en waarom het belangrijk is</li>
+          <li>De juiste elementen kiezen om een pagina te structureren: <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code></li>
+          <li>Een navigatiebalk bouwen met <code>&lt;nav&gt;</code> en een lijst van links</li>
+          <li>Het verschil uitleggen tussen <code>&lt;section&gt;</code> en <code>&lt;article&gt;</code></li>
+          <li>Uitleggen waarom semantische HTML de toegankelijkheid verhoogt</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-semantisch">3.1 Wat is semantische HTML?</h2>
+      <p><strong>Semantiek</strong> betekent <em>betekenis</em>. <strong>Semantische HTML</strong> wil zeggen: gebruik elementen die duidelijk aangeven <em>wat</em> de inhoud is, niet enkel <em>hoe</em> ze eruitziet.</p>
+      <p>Vergelijk deze twee codefragmenten. Beide zien er visueel <em>identiek</em> uit in de browser. Maar het semantische fragment is veel beter omdat:</p>
+      <ol>
+        <li><strong>Mensen</strong> die de code lezen begrijpen onmiddellijk de structuur.</li>
+        <li><strong>Zoekmachines</strong> (Google) begrijpen beter wat belangrijk is op de pagina.</li>
+        <li><strong>Screenreaders</strong> (hulpsoftware voor blinde en slechtziende gebruikers) kunnen de pagina correct navigeren.</li>
+      </ol>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Niet-semantisch — alles is een div --&gt;
+&lt;div class="header"&gt;
+    &lt;div class="titel"&gt;Mijn website&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="inhoud"&gt;...&lt;/div&gt;
+&lt;div class="voet"&gt;Copyright 2025&lt;/div&gt;
+
+&lt;!-- Semantisch — elementen hebben betekenis --&gt;
+&lt;header&gt;
+    &lt;h1&gt;Mijn website&lt;/h1&gt;
+&lt;/header&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2025&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+      </div>
+
+      <h2 id="flowchart">3.2 De flowchart: welk element kies ik?</h2>
+      <p>Bij het kiezen van het juiste HTML-element stel je jezelf de volgende vragen:</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H03-afb1.svg" alt="HTML5 semantisch element flowchart" loading="lazy">
+      </figure>
+      <ul>
+        <li>Is de inhoud de hoofdinhoud van de pagina? → <code>&lt;main&gt;</code></li>
+        <li>Is het een zelfstandig artikel (nieuwsbericht, blogpost)? → <code>&lt;article&gt;</code></li>
+        <li>Is het een groep verwante inhoud met een titel? → <code>&lt;section&gt;</code></li>
+        <li>Is het randinformatie (niet essentieel voor de hoofdinhoud)? → <code>&lt;aside&gt;</code></li>
+        <li>Is het een inleiding of navigatie bovenaan? → <code>&lt;header&gt;</code></li>
+        <li>Is het een set van navigatielinks? → <code>&lt;nav&gt;</code></li>
+        <li>Is het sluitende informatie (copyright, contactinfo)? → <code>&lt;footer&gt;</code></li>
+        <li>Is geen van bovenstaande van toepassing? → <code>&lt;div&gt;</code> of <code>&lt;span&gt;</code> als laatste keuze</li>
+      </ul>
+
+      <h2 id="header">3.3 <code>&lt;header&gt;</code> — Inleidende informatie</h2>
+      <p>Een <code>&lt;header&gt;</code> bevat <strong>inleidende informatie</strong>. Typisch staat er bovenaan de pagina en bevat het de naam/logo van de website, de paginatitel en de navigatie (<code>&lt;nav&gt;</code>).</p>
+      <p><strong>Belangrijk:</strong> Een <code>&lt;header&gt;</code> kan ook voorkomen <em>binnen</em> een <code>&lt;article&gt;</code> of <code>&lt;section&gt;</code> — dan is het de inleiding van dat specifieke onderdeel, niet van de hele pagina.</p>
+
+      <h2 id="main-element">3.4 <code>&lt;main&gt;</code> — Hoofdinhoud</h2>
+      <p>Het <code>&lt;main&gt;</code> element bevat de <strong>unieke hoofdinhoud</strong> van de pagina. Geen navigatie, geen sidebars, geen footers — alleen de kern.</p>
+      <p><strong>Regels:</strong></p>
+      <ul>
+        <li>Er mag maar <strong>één <code>&lt;main&gt;</code></strong> per pagina zijn.</li>
+        <li>Het verhoogt de <strong>toegankelijkheid</strong>: gebruikers van screenreaders kunnen direct naar de hoofdinhoud springen zonder eerst de navigatie te doorlopen.</li>
+      </ul>
+
+      <h2 id="footer">3.5 <code>&lt;footer&gt;</code> — Sluitende informatie</h2>
+      <p>Een <code>&lt;footer&gt;</code> bevat <strong>sluitende informatie</strong>. Typisch staat er onderaan de pagina en bevat het copyright-informatie, contactgegevens en links naar juridische documenten.</p>
+
+      <h2 id="nav">3.6 <code>&lt;nav&gt;</code> — Navigatie</h2>
+      <p><code>&lt;nav&gt;</code> markeert een <strong>belangrijk navigatieblok</strong>. Een navigatie is een <em>lijst van links</em>, dus je markeert die ook als een lijst:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="/home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/opo"&gt;OPO&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/tools"&gt;Tools&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/html"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+      </div>
+      <p><strong>Toegankelijkheidstip:</strong> Een blinde bezoeker kan zijn screenreader de instructie geven "ga naar het nav element". Dat werkt alleen als je daadwerkelijk <code>&lt;nav&gt;</code> gebruikt.</p>
+
+      <h2 id="section">3.7 <code>&lt;section&gt;</code> — Verwante inhoud groeperen</h2>
+      <p><code>&lt;section&gt;</code> groepeert <strong>verwante inhoud</strong> die bij elkaar hoort. Een section heeft gewoonlijk een titel (<code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, ...).</p>
+
+      <h2 id="article">3.8 <code>&lt;article&gt;</code> — Zelfstandig inhoudstuk</h2>
+      <p><code>&lt;article&gt;</code> lijkt erg op <code>&lt;section&gt;</code>, maar met één cruciaal verschil: het moet <strong>op zichzelf kunnen staan</strong>.</p>
+      <p>Stel jezelf de vraag: <em>"Als ik dit stuk uit de pagina haal en afzonderlijk publiceer, heeft het dan nog zin?"</em></p>
+      <ul>
+        <li>Een <strong>nieuwsartikel</strong>: JA → <code>&lt;article&gt;</code></li>
+        <li>Een <strong>blogpost</strong>: JA → <code>&lt;article&gt;</code></li>
+        <li>Een <strong>sectie "Onze diensten"</strong>: NEE (mist context) → <code>&lt;section&gt;</code></li>
+      </ul>
+
+      <h2 id="aside">3.9 <code>&lt;aside&gt;</code> — Randinformatie</h2>
+      <p><code>&lt;aside&gt;</code> bevat informatie die <strong>niet essentieel</strong> is voor de hoofdinhoud, maar er wel mee samenhangt. Typisch een zijbalk (sidebar) met gerelateerde links, woordenlijst of definitiebox.</p>
+      <p><strong>Belangrijk:</strong> <code>&lt;aside&gt;</code> gaat over de <em>betekenis</em> (randinformatie), niet over de visuele positie.</p>
+
+      <h2 id="alles-samen">3.10 Alles samen — een complete paginastructuur</h2>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H03-afb2.svg" alt="Schematische weergave van de paginastructuur met semantische elementen" loading="lazy">
+      </figure>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;TechBlog&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/artikels"&gt;Artikels&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Recente artikels&lt;/h2&gt;
+        &lt;article&gt;
+            &lt;header&gt;
+                &lt;h3&gt;HTML5 voor beginners&lt;/h3&gt;
+            &lt;/header&gt;
+            &lt;p&gt;In dit artikel leer je de basisstructuur van HTML5.&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+    &lt;aside&gt;
+        &lt;h2&gt;Populaire tags&lt;/h2&gt;
+        &lt;ul&gt;&lt;li&gt;HTML&lt;/li&gt;&lt;li&gt;CSS&lt;/li&gt;&lt;/ul&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2025 TechBlog.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+      </div>
+
+      <h2 id="toegankelijkheid">3.11 Semantiek en toegankelijkheid</h2>
+      <p>Toegankelijkheid (accessibility) betekent dat je website bruikbaar is voor <em>iedereen</em> — ook voor mensen met een visuele, motorische of cognitieve beperking.</p>
+      <p>Een <strong>screenreader</strong> is software die de inhoud van een scherm voorleest. Een gebruiker van een screenreader kan <strong>springen naar landmarks</strong>: <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;aside&gt;</code>. Als je alleen <code>&lt;div&gt;</code> en <code>&lt;span&gt;</code> gebruikt, heeft een screenreader geen houvast.</p>
+      <p><strong>Praktische tip:</strong> Test je eigen website eens met een screenreader! Op Windows kan je NVDA (gratis downloaden) gebruiken. Op macOS is VoiceOver ingebouwd (activeer via Cmd + F5).</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H03-afb3.svg" alt="Illustratie: screenreader navigeert via semantische landmarks" loading="lazy">
+      </figure>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Structuur herkennen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bekijk onderstaande website-structuur. Omschrijf welk semantisch HTML-element je voor elk genummerd onderdeel zou gebruiken en waarom:</p>
+            <ol>
+              <li>Een blok bovenaan met het bedrijfslogo en de navigatielinks</li>
+              <li>De navigatielinks zelf (Home, Producten, Over ons, Contact)</li>
+              <li>Het middelste gedeelte met alle unieke pagina-inhoud</li>
+              <li>Een sectie met drie nieuwsberichten die elk afzonderlijk kunnen worden gelezen</li>
+              <li>Elk individueel nieuwsbericht</li>
+              <li>Een klein blok aan de zijkant met "Laatste tweets" van het bedrijf</li>
+              <li>Het gedeelte onderaan met copyright en links naar het privacybeleid</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 2 — Pagina bouwen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>blog.html</code> — een eenvoudige blogpagina over jouw hobby. Zorg voor:</p>
+            <ol>
+              <li>Een <code>&lt;header&gt;</code> met de naam van de blog en een <code>&lt;nav&gt;</code> met 4 links</li>
+              <li>Een <code>&lt;main&gt;</code> met een <code>&lt;section&gt;</code> "Recente posts" met twee <code>&lt;article&gt;</code> elementen</li>
+              <li>Een <code>&lt;aside&gt;</code> "Over mij" met een korte tekst</li>
+              <li>Een <code>&lt;footer&gt;</code> met copyright-bericht</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H03-oef2-browser.svg" alt="Browser-mockup: blogpagina met header, navigatie, twee artikels, aside en footer" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 3 — Fouten zoeken</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">De onderstaande code bevat 5 fouten in het gebruik van semantische elementen. Zoek ze en verbeter ze. Schrijf ook op <em>waarom</em> elk een fout is.</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;body&gt;
+    &lt;div class="header"&gt;
+        &lt;h1&gt;Mijn website&lt;/h1&gt;
+        &lt;div class="nav"&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+            &lt;a href="/over"&gt;Over&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="content"&gt;
+        &lt;div class="artikel"&gt;
+            &lt;h2&gt;Nieuws&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="sidebar"&gt;
+        &lt;p&gt;Gerelateerde links&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="footer"&gt;
+        &lt;p&gt;&amp;copy; 2025&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H03 Semantische HTML: Pagina Organiseren<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H03-oef2-browser.svg', 'Voorbeeld — Semantisch gestructureerde pagina')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+          <h3>Opdracht: De startpagina van een fictief schooltijdschrift</h3>
+          <p>Je bouwt de HTML-structuur van de startpagina van een fictief schooltijdschrift genaamd <strong>"De Pixel"</strong>. De pagina bevat enkel HTML — nog geen CSS.</p>
+          <p>Maak een nieuw bestand: <code>tijdschrift.html</code></p>
+          <h4>Deel 1 — Header en navigatie (3 punten)</h4>
+          <ol>
+            <li>Maak een <code>&lt;header&gt;</code>-element aan met daarin:
+              <ul>
+                <li>Een <code>&lt;h1&gt;</code> met de naam "De Pixel"</li>
+                <li>Een <code>&lt;p&gt;</code> met de ondertitel "Het schooltijdschrift van 5ADB"</li>
+              </ul>
+            </li>
+            <li>Maak een <code>&lt;nav&gt;</code>-element aan met een ongeordende lijst (<code>&lt;ul&gt;</code>) die 4 navigatie-items bevat:
+              <ul>
+                <li>Nieuws</li>
+                <li>Sport</li>
+                <li>Cultuur</li>
+                <li>Contact</li>
+              </ul>
+            </li>
+          </ol>
+          <h4>Deel 2 — Main, sections en articles (5 punten)</h4>
+          <ol>
+            <li>Maak een <code>&lt;main&gt;</code>-element aan.</li>
+            <li>Maak daarbinnen <strong>twee <code>&lt;section&gt;</code>-elementen</strong>:
+              <ul>
+                <li>Section 1: "Laatste nieuws" — bevat <strong>twee <code>&lt;article&gt;</code>-elementen</strong>, elk met een <code>&lt;h2&gt;</code>, een <code>&lt;p&gt;</code> en een datum in een <code>&lt;time&gt;</code>-element (bv. <code>&lt;time datetime="2025-10-15"&gt;15 oktober 2025&lt;/time&gt;</code>)</li>
+                <li>Section 2: "Sport" — bevat <strong>één <code>&lt;article&gt;</code></strong> met een <code>&lt;h2&gt;</code> en een <code>&lt;p&gt;</code></li>
+              </ul>
+            </li>
+          </ol>
+          <h4>Deel 3 — Aside en Footer (2 punten)</h4>
+          <ol>
+            <li>Voeg een <code>&lt;aside&gt;</code> toe naast de <code>&lt;main&gt;</code> (als broer-element, niet erin genest) met:
+              <ul>
+                <li>Een <code>&lt;h3&gt;</code> "Over ons"</li>
+                <li>Een korte <code>&lt;p&gt;</code> over het tijdschrift</li>
+              </ul>
+            </li>
+            <li>Voeg een <code>&lt;footer&gt;</code> toe met:
+              <ul>
+                <li>Een <code>&lt;p&gt;</code> met de tekst "© 2025 De Pixel — Alle rechten voorbehouden"</li>
+              </ul>
+            </li>
+          </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H03 — Semantische HTML</span>
+          </div>
+          <div class="oefening__body">
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat betekent "semantische HTML"?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="a"> <span>HTML met veel klassen en ID's voor styling</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="b"> <span>HTML waarbij elementen worden gebruikt die de betekenis van de inhoud beschrijven</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="c"> <span>HTML die er visueel goed uitziet in de browser</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="d"> <span>HTML zonder CSS</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Hoeveel <code>&lt;main&gt;</code> elementen mag een HTML-pagina hebben?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="a"> <span>Zo veel als nodig</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="b"> <span>Twee — één voor mobiel en één voor desktop</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="c"> <span>Slechts één</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="d"> <span>Geen — gebruik liever <code>&lt;div id="main"&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat is het verschil tussen <code>&lt;section&gt;</code> en <code>&lt;article&gt;</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="a"> <span>Er is geen verschil — beide zijn hetzelfde</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="b"> <span><code>&lt;article&gt;</code> is voor tekst, <code>&lt;section&gt;</code> is voor afbeeldingen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="c"> <span><code>&lt;section&gt;</code> kan zelfstandig staan, <code>&lt;article&gt;</code> niet</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="d"> <span><code>&lt;article&gt;</code> kan zelfstandig staan (bv. blogpost), <code>&lt;section&gt;</code> groepeert verwante inhoud</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wanneer gebruik je <code>&lt;aside&gt;</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="a"> <span>Voor randinformatie die samenhangt met de hoofdinhoud maar niet essentieel is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="b"> <span>Alleen als je een zijbalk rechts van de pagina wilt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="c"> <span>Als vervanging voor <code>&lt;div&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="d"> <span>Voor de navigatie</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Waarom gebruik je een <code>&lt;ul&gt;</code> met <code>&lt;li&gt;</code> binnen een <code>&lt;nav&gt;</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="a"> <span>Omdat dat er mooier uitziet</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="b"> <span>Omdat een navigatie inhoudelijk een ongeordende lijst van links is — screenreaders lezen het aantal items voor</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="c"> <span>Omdat browsers anders geen stijlen toepassen op de navigatie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="d"> <span>Omdat <code>&lt;a&gt;</code> elementen niet direct in <code>&lt;nav&gt;</code> mogen staan</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H03')" data-progress-key="5adb/app-ontwikkeling/H03">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H02.html" class="btn btn-ghost">← H02</a> <a href="H04.html" class="btn btn-ghost">H04 →</a></div>
+    </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

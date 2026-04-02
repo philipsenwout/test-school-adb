@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 &mdash; Raspberry Pi hardware (verdieping) &mdash; E-STEM 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H01</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Raspberry Pi 4 vs 5</a></li>
+        <li><a href="#s2">2. GPIO verdieping</a></li>
+        <li><a href="#s3">3. I2C protocol</a></li>
+        <li><a href="#s4">4. SPI protocol</a></li>
+        <li><a href="#s5">5. Camera module</a></li>
+        <li><a href="#s6">6. Headless setup</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-estem">
+      <div class="page-header__vak">&#9881; E-STEM &mdash; H01</div>
+      <h1 class="page-header__title">Raspberry Pi hardware (verdieping)</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">5 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-ES-05] Raspberry Pi hardware verdiept gebruiken &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Raspberry Pi 4 vs. Raspberry Pi 5</h2>
+    <p>In 5ADB maakten we kennis met de Raspberry Pi. Nu bekijken we de hardware meer in detail en vergelijken modellen 4 en 5:</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Specificatie</th><th>Raspberry Pi 4 Model B</th><th>Raspberry Pi 5</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Processor</strong></td><td>Cortex-A72 (ARM v8) quad-core 1.8 GHz</td><td>Cortex-A76 quad-core 2.4 GHz</td></tr>
+        <tr><td><strong>RAM opties</strong></td><td>2 GB, 4 GB, 8 GB LPDDR4</td><td>4 GB, 8 GB LPDDR4X</td></tr>
+        <tr><td><strong>USB</strong></td><td>2x USB 3.0 + 2x USB 2.0</td><td>2x USB 3.0 (5 Gbps) + 2x USB 2.0</td></tr>
+        <tr><td><strong>GPIO</strong></td><td>40-pin (backwards compatible)</td><td>40-pin (zelfde pinout)</td></tr>
+        <tr><td><strong>PCIe</strong></td><td>Niet aanwezig</td><td>PCIe 2.0 x1 (M.2 HAT)</td></tr>
+        <tr><td><strong>Stroomverbruik</strong></td><td>5V/3A USB-C</td><td>5V/5A USB-C (aanbevolen)</td></tr>
+        <tr><td><strong>Werktemperatuur</strong></td><td>0°C – 50°C (actieve koeling aanbevolen)</td><td>0°C – 85°C (fan aanbevolen)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="s2">2. GPIO verdieping</h2>
+    <p>In 5ADB leerden we de basispin-functies. Nu gaan we dieper:</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Pin-type</th><th>Functie</th><th>Pinnen (BCM)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GPIO</strong></td><td>Digitale input/output</td><td>2–27 (niet allemaal)</td></tr>
+        <tr><td><strong>PWM</strong></td><td>Pulsbreedte modulatie (analoge output simuleren)</td><td>18, 19 (hardware PWM)</td></tr>
+        <tr><td><strong>I2C</strong></td><td>Inter-Integrated Circuit protocol</td><td>SDA=2, SCL=3</td></tr>
+        <tr><td><strong>SPI</strong></td><td>Serial Peripheral Interface</td><td>MOSI=10, MISO=9, SCLK=11, CE0=8</td></tr>
+        <tr><td><strong>UART</strong></td><td>Seri&euml;le communicatie</td><td>TX=14, RX=15</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <pre><code>import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+# PWM op pin 18 (hardware PWM)
+GPIO.setup(18, GPIO.OUT)
+pwm = GPIO.PWM(18, 1000)   # 1000 Hz frequentie
+pwm.start(0)               # 0% duty cycle (uit)
+
+# LED dimmen van 0% naar 100%
+for duty in range(0, 101, 5):
+    pwm.ChangeDutyCycle(duty)
+    time.sleep(0.05)
+
+pwm.stop()
+GPIO.cleanup()</code></pre>
+
+    <h2 id="s3">3. I2C protocol</h2>
+    <p><strong>I2C</strong> (Inter-Integrated Circuit) is een seri&euml;el communicatieprotocol waarmee meerdere apparaten op twee draden kunnen communiceren: <strong>SDA</strong> (data) en <strong>SCL</strong> (klok). Elk apparaat heeft een uniek adres (bv. <code>0x48</code>).</p>
+    <pre><code># I2C inschakelen: sudo raspi-config &rarr; Interface Options &rarr; I2C &rarr; Enable
+
+# Aangesloten I2C-apparaten detecteren
+sudo i2cdetect -y 1
+
+# Python met smbus2 library
+# pip install smbus2
+import smbus2
+
+bus = smbus2.SMBus(1)   # I2C bus 1 (SDA=GPIO2, SCL=GPIO3)
+
+ADRES = 0x48  # adres van jouw sensor (zie i2cdetect)
+
+# Byte lezen van een register
+waarde = bus.read_byte_data(ADRES, 0x00)
+print(f"Register 0x00: {waarde}")
+
+# Meerdere bytes lezen (bv. 2 bytes voor een 16-bit waarde)
+bytes_data = bus.read_i2c_block_data(ADRES, 0x00, 2)
+waarde_16bit = (bytes_data[0] &lt;&lt; 8) | bytes_data[1]
+print(f"16-bit waarde: {waarde_16bit}")</code></pre>
+
+    <h2 id="s4">4. SPI protocol</h2>
+    <p><strong>SPI</strong> (Serial Peripheral Interface) is sneller dan I2C en gebruikt 4 draden: MOSI (Master Out Slave In), MISO (Master In Slave Out), SCLK (klok) en CS/CE (Chip Select).</p>
+    <pre><code># SPI inschakelen: sudo raspi-config &rarr; Interface Options &rarr; SPI &rarr; Enable
+
+# pip install spidev
+import spidev
+
+spi = spidev.SpiDev()
+spi.open(0, 0)           # bus 0, device 0 (CE0)
+spi.max_speed_hz = 1000000  # 1 MHz
+
+# Byte sturen en ontvangen (full duplex)
+antwoord = spi.xfer2([0x01, 0x02, 0x03])
+print(f"Ontvangen: {antwoord}")
+
+spi.close()</code></pre>
+
+    <h2 id="s5">5. Camera module</h2>
+    <p>De Raspberry Pi Camera Module V2 (of V3) sluit aan via de CSI-poort.</p>
+    <pre><code># Camera inschakelen: sudo raspi-config &rarr; Interface Options &rarr; Camera
+
+# Foto nemen via terminal
+libcamera-still -o foto.jpg
+
+# Video opnemen (10 seconden)
+libcamera-vid -t 10000 -o video.h264
+
+# Python via picamera2 (Raspberry Pi OS Bookworm)
+# pip install picamera2
+from picamera2 import Picamera2
+import time
+
+camera = Picamera2()
+camera.start()
+time.sleep(2)  # even laten opwarmen
+
+camera.capture_file("foto.jpg")
+print("Foto opgeslagen als foto.jpg")
+
+camera.stop()</code></pre>
+
+    <h2 id="s6">6. Headless setup</h2>
+    <p>Een <strong>headless</strong> Raspberry Pi draait zonder monitor, muis of toetsenbord. Je beheert hem via SSH.</p>
+    <pre><code># 1. SSH inschakelen: maak een leeg bestand 'ssh' aan op de boot-partitie
+touch /boot/ssh
+
+# 2. WiFi configureren (wpa_supplicant.conf op boot-partitie)
+# Bestand: /boot/wpa_supplicant.conf
+country=BE
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="JouwWifiNaam"
+    psk="JouwWifiWachtwoord"
+}
+
+# 3. Verbinden via SSH
+ssh pi@raspberrypi.local
+# of via IP: ssh pi@192.168.1.x
+
+# 4. IP-adres vinden (vanop de Pi zelf)
+hostname -I
+
+# 5. Beveiliging: wachtwoord wijzigen (ALTIJD doen!)
+passwd</code></pre>
+    <div class="callout callout--tip">
+      <div class="callout__title">Tip &mdash; Raspberry Pi Imager</div>
+      <p>Gebruik de <strong>Raspberry Pi Imager</strong> om het OS te installeren. In de geavanceerde opties kan je direct SSH inschakelen, WiFi-gegevens invullen en een gebruikersnaam/wachtwoord instellen — dan is geen handmatige headless-configuratie nodig.</p>
+    </div>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="estem6-h01-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 1.1</span>
+        <span class="oefening__title">GPIO, I2C en SPI</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van de Raspberry Pi GPIO-pinnen, communicatieprotocollen en hardware-interfaces.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Hoeveel pinnen heeft de GPIO-header van de Raspberry Pi 4 én de Pi 5?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>26 pinnen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>40 pinnen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>50 pinnen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>32 pinnen</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="40 pinnen — zowel de Pi 4 als de Pi 5 hebben dezelfde 40-pin GPIO-header met dezelfde pinout."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="i2cdetect -y 1|i2cdetect">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welk Linux-commando gebruik je om alle aangesloten I2C-apparaten te detecteren en hun adressen te tonen?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+          <div class="vraag__feedback" data-correct-label="i2cdetect -y 1 — toont een grid met de hexadecimale adressen van alle gevonden I2C-apparaten op bus 1."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">I2C gebruikt twee draden. Wat zijn ze?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>MOSI en MISO</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>TX en RX</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>SDA (data) en SCL (klok)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>SCLK en CE0</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="SDA (Serial Data) en SCL (Serial Clock) — I2C communiceert over twee draden en kan meerdere apparaten op dezelfde bus verbinden via unieke adressen."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="b,c">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Welke uitspraken over SPI zijn correct?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span>SPI gebruikt 2 draden (dezelfde als I2C)</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span>SPI is sneller dan I2C</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span>SPI gebruikt MOSI, MISO, SCLK en CS/CE draden</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span>SPI kan meerdere apparaten op dezelfde twee draden verbinden zonder extra bedrading</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="B en C zijn correct. SPI gebruikt 4 draden en is sneller dan I2C. Voor elk extra SPI-apparaat is een aparte CS-lijn nodig."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="estem6-h01-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 1.2</span>
+        <span class="oefening__title">Headless setup en SSH</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van het headless opzetten van een Raspberry Pi en verbinden via SSH.</p>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Wat betekent "headless" bij een Raspberry Pi?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>De Pi heeft geen processor (CPU)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>De Pi draait zonder besturingssysteem</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>De Pi heeft geen GPIO-pinnen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>De Pi draait zonder monitor, toetsenbord of muis en wordt op afstand beheerd via SSH</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Headless — de Pi draait zonder randapparatuur. Je beheert hem vanop afstand via SSH over het netwerk."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="ssh|ssh pi@raspberrypi.local">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welk protocol/commando gebruik je om vanuit een andere computer in te loggen op een headless Raspberry Pi?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het commando of de afkorting...">
+          <div class="vraag__feedback" data-correct-label="SSH (Secure Shell) — je verbindt met: ssh pi@raspberrypi.local of ssh pi@<IP-adres>. SSH versleutelt de verbinding."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Waarom moet je altijd het standaardwachtwoord van een nieuwe Raspberry Pi wijzigen?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Alle Pi's hebben hetzelfde standaardwachtwoord — iedereen in het netwerk kan anders inloggen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Het standaardwachtwoord werkt enkel tijdelijk en vervalt na 24 uur</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Het standaardwachtwoord is te lang en moeilijk te onthouden</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Je moet het wachtwoord wijzigen om SSH te activeren</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Beveiliging — het standaardwachtwoord is publiek bekend. Elke aanvaller in het netwerk kan anders inloggen. Gebruik 'passwd' om het te wijzigen."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Raspberry Pi 5 is sneller dan de Pi 4, maar heeft dezelfde 40-pin GPIO-header.</li>
+        <li>PWM simuleert analoge output op digitale pinnen (duty cycle = percentage aan-tijd).</li>
+        <li>I2C: 2 draden (SDA, SCL), meerdere apparaten via unieke adressen. Detecteer met <code>i2cdetect</code>.</li>
+        <li>SPI: 4 draden, sneller dan I2C, punt-tot-punt via chip select.</li>
+        <li>Camera module: via CSI, aansturen met <code>libcamera-still</code> of <code>picamera2</code>.</li>
+        <li>Headless setup: SSH + WiFi-config op boot-partitie of via Raspberry Pi Imager.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H01</h2>
+    <p>Stel een headless Raspberry Pi in en maak verbinding via SSH:</p>
+    <ol>
+      <li>Installeer Raspberry Pi OS Lite via Raspberry Pi Imager.</li>
+      <li>Verbind via SSH en voer alle updates uit.</li>
+      <li>Schakel I2C en SPI in via raspi-config.</li>
+      <li>Schrijf een Python-script dat de GPIO-status van 3 pinnen uitleest en toont.</li>
+      <li>Maak een screenshot van je SSH-sessie als bewijs.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/e-stem/H01">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <span></span>
+      <a href="H02-linux-python.html" class="btn btn-secondary">H02 &mdash; Linux en Python &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

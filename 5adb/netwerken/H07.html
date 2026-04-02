@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H07 &mdash; Subnetting &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Subnetting &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H07</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-7-subnetting">Hoofdstuk 7 — Subnetting</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#71-waarom-subnetten">7.1 Waarom subnetten?</a></li><li><a href="#72-de-referentietabel">7.2 De referentietabel</a></li><li><a href="#73-stappenplan-gelijke-subnetten">7.3 Stappenplan gelijke subnetten</a></li><li><a href="#74-voorbeelden">7.4 Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h07" style="padding-left:1.25rem">Huistaak H07</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H07 &mdash; Subnetting</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-7-subnetting">Hoofdstuk 7 — Subnetting</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v2.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>4 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>uitleggen waarom subnetting gebruikt wordt</li>
+<li>een netwerk opdelen in gelijke subnetten met een eenvoudig stappenplan</li>
+<li>voor elk subnet het netwerkadres, broadcastadres en hostbereik bepalen met behulp van de referentietabel</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span></div>
+<h2 id="71-waarom-subnetten">7.1 Waarom subnetten?</h2>
+<p>Een groot netwerk (<code>192.168.1.0/24</code>) met 254 toestellen heeft nadelen:</p>
+<ul>
+<li>Alle broadcasts gaan naar alle 254 apparaten</li>
+<li>Als er een probleem is, heeft het invloed op iedereen</li>
+<li>Geen scheiding tussen afdelingen</li>
+</ul>
+<p><strong>Subnetting</strong> laat toe een groot netwerk op te splitsen in kleinere stukken.</p>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een subnet is een logisch afgebakend deel van een groter netwerk. Elk subnet heeft zijn eigen netwerkadres, broadcastadres en hostbereik. Apparaten in verschillende subnetten communiceren via een router.</p>
+</div>
+<p>!<a href="../../images/H07-subnetting-schema.png" target="_blank" rel="noopener">Netwerk opdelen in subnetten</a></p>
+<p><em>Figuur 7.1 — Een /24-netwerk opgedeeld in kleinere subnetten</em></p>
+<h2 id="72-de-referentietabel">7.2 De referentietabel</h2>
+<p>Je hoeft subnetten niet uit te rekenen — gebruik deze tabel:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>CIDR</th><th>Subnetmasker</th><th>Stapgrootte</th><th>Bruikbare hosts/subnet</th></tr></thead><tbody>
+<tr><td>/24</td><td>255.255.255.0</td><td>256</td><td>254</td></tr>
+<tr><td>/25</td><td>255.255.255.128</td><td>128</td><td>126</td></tr>
+<tr><td>/26</td><td>255.255.255.192</td><td>64</td><td>62</td></tr>
+<tr><td>/27</td><td>255.255.255.224</td><td>32</td><td>30</td></tr>
+<tr><td>/28</td><td>255.255.255.240</td><td>16</td><td>14</td></tr>
+<tr><td>/29</td><td>255.255.255.248</td><td>8</td><td>6</td></tr>
+<tr><td>/30</td><td>255.255.255.252</td><td>4</td><td>2</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>De <strong>stapgrootte</strong> vertelt je hoe ver elk subnet van het volgende begint. Bij /26 is de stapgrootte 64: de subnetten beginnen op 0, 64, 128, 192.</p>
+</div>
+<h2 id="73-stappenplan-gelijke-subnetten">7.3 Stappenplan gelijke subnetten</h2>
+<p><strong>Gegeven:</strong> <code>192.168.1.0/24</code>, opdelen in 4 gelijke subnetten.</p>
+<p><strong>Stap 1:</strong> Zoek in de tabel een prefix die minstens 4 subnetten geeft.</p>
+<ul>
+<li>/26 geeft 4 subnetten van elk 62 hosts ✓</li>
+</ul>
+<p><strong>Stap 2:</strong> Bepaal de stapgrootte.</p>
+<ul>
+<li>/26 → stapgrootte = 64</li>
+</ul>
+<p><strong>Stap 3:</strong> Stel de subnettabel op (begin bij 0, tel telkens de stapgrootte op):</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Subnet</th><th>Netwerkadres</th><th>Eerste host</th><th>Laatste host</th><th>Broadcast</th></tr></thead><tbody>
+<tr><td>1</td><td>192.168.1.0/26</td><td>192.168.1.1</td><td>192.168.1.62</td><td>192.168.1.63</td></tr>
+<tr><td>2</td><td>192.168.1.64/26</td><td>192.168.1.65</td><td>192.168.1.126</td><td>192.168.1.127</td></tr>
+<tr><td>3</td><td>192.168.1.128/26</td><td>192.168.1.129</td><td>192.168.1.190</td><td>192.168.1.191</td></tr>
+<tr><td>4</td><td>192.168.1.192/26</td><td>192.168.1.193</td><td>192.168.1.254</td><td>192.168.1.255</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<ul>
+<li>Netwerkadres = eerste adres van het subnet (niet bruikbaar)</li>
+<li>Broadcast = laatste adres van het subnet (niet bruikbaar)</li>
+<li>Eerste bruikbare host = netwerkadres + 1</li>
+<li>Laatste bruikbare host = broadcast - 1</li>
+</ul>
+</div>
+<p>!<a href="../../images/H07-subnet-tabel-voorbeeld.png" target="_blank" rel="noopener">Subnet tabel voorbeeld</a></p>
+<p><em>Figuur 7.2 — Hoe een /24 wordt opgedeeld in vier /26-subnetten</em></p>
+<h2 id="74-voorbeelden">7.4 Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een school heeft het netwerk <code>10.0.0.0/24</code> en wil het opdelen in 2 gelijke stukken.</p>
+<ul>
+<li>/25 geeft 2 subnetten van elk 126 hosts</li>
+<li>Stapgrootte = 128</li>
+</ul>
+<p>| Subnet | Netwerkadres | Eerste host | Laatste host | Broadcast |</p>
+<p>|--------|-------------|-------------|--------------|-----------|</p>
+<p>| Leerlingen | 10.0.0.0/25 | 10.0.0.1 | 10.0.0.126 | 10.0.0.127 |</p>
+<p>| Leerkrachten | 10.0.0.128/25 | 10.0.0.129 | 10.0.0.254 | 10.0.0.255 |</p>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Gegeven: <code>192.168.5.100/26</code></p>
+<ul>
+<li>/26 → stapgrootte = 64</li>
+<li>Subnetten: 0–63, 64–127, <strong>128–191</strong> ← maar .100 zit in 64–127!</li>
+<li>Subnet 1: 192.168.5.0/26 (hosts .1 t/m .62)</li>
+<li><strong>Subnet 2: 192.168.5.64/26</strong> (hosts .65 t/m .126) ← .100 zit hier</li>
+</ul>
+<p>Netwerkadres: <code>192.168.5.64</code>, Broadcast: <code>192.168.5.127</code></p>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h07-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 7.1</span>
+    <span class="oefening__title">Netwerk opdelen in 4 gelijke subnetten (/26)</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Deel het netwerk 192.168.10.0/24 op in 4 gelijke subnetten met /26. Gebruik de referentietabel.</p>
+
+    <div class="vraag" data-type="text" data-correct="64">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is de stapgrootte bij een /26-subnet?</div>
+      <input type="text" class="vraag__invoer" placeholder="Getal...">
+      <div class="vraag__feedback" data-correct-label="64 — bij /26 zijn er 6 hostbits: 2^6 = 64. De subnetten starten op 0, 64, 128, 192."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="192.168.10.64">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is het netwerkadres van het tweede /26-subnet (van 192.168.10.0/24)?</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="192.168.10.64 — subnet 1 = .0–.63, subnet 2 begint op .64 (stapgrootte 64)."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="62">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoeveel bruikbare hosts heeft elk /26-subnet?</div>
+      <input type="text" class="vraag__invoer" placeholder="Getal...">
+      <div class="vraag__feedback" data-correct-label="62 — formule: 2^(hostbits) - 2 = 2^6 - 2 = 64 - 2 = 62. De -2 is voor netwerkadres en broadcastadres."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="192.168.10.255">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is het broadcastadres van het vierde (laatste) /26-subnet van 192.168.10.0/24?</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="192.168.10.255 — het vierde subnet is 192.168.10.192/26. De broadcast = netwerkadres + stapgrootte - 1 = 192 + 64 - 1 = 255."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h07-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 7.2</span>
+    <span class="oefening__title">Subnettabel invullen met de referentietabel</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Gebruik de referentietabel om voor gegeven adressen het netwerkadres, broadcast en hostbereik te bepalen.</p>
+
+    <div class="vraag" data-type="text" data-correct="192.168.1.64">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is het netwerkadres van 192.168.1.80/26? (Hint: stapgrootte /26 = 64)</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="192.168.1.64 — subnetten bij /26: 0–63, 64–127, 128–191, 192–255. Het adres .80 valt in het bereik 64–127, dus netwerkadres = 192.168.1.64."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="10.0.0.128">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is het netwerkadres van 10.0.0.200/25? (Hint: stapgrootte /25 = 128)</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="10.0.0.128 — subnetten bij /25: 0–127, 128–255. Het adres .200 valt in het bereik 128–255, dus netwerkadres = 10.0.0.128."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoeveel bruikbare hosts heeft een /25-subnet?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>128</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>126</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>127</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>62</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="126 — 2^7 - 2 = 128 - 2 = 126. Bij /25 zijn er 7 hostbits (32 - 25 = 7)."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="172.16.0.63">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is het broadcastadres van 172.16.0.50/27? (Hint: stapgrootte /27 = 32, eerste subnet: 0–31, tweede: 32–63)</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="172.16.0.63 — het adres .50 valt in het subnet 172.16.0.32/27 (bereik 32–63). Broadcast = 172.16.0.63."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h07-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 7.3</span>
+    <span class="oefening__title">Subnetten ontwerpen voor een bedrijf</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een bedrijf heeft 3 afdelingen: Administratie (50 pc's), Verkoop (25 pc's) en IT (5 pc's). Netwerk: 192.168.100.0/24.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk prefix kies je voor Administratie (minstens 50 hosts per subnet)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>/25 — 126 hosts (correct, maar te groot)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>/26 — 62 hosts (kleinst mogelijke subnet voor 50 hosts)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>/27 — 30 hosts (te klein voor 50 hosts)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>/28 — 14 hosts (te klein)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="/26 — 62 bruikbare hosts, voldoende voor 50 computers. /27 geeft maar 30 hosts, dat is te weinig. We kiezen altijd het kleinst mogelijke subnet dat groot genoeg is."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk prefix kies je voor Verkoop (minstens 25 hosts)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>/26 — 62 hosts (correct maar te groot)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>/28 — 14 hosts (te klein)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>/27 — 30 hosts (kleinst mogelijke voor 25 hosts)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>/29 — 6 hosts (te klein)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="/27 — 30 bruikbare hosts, net genoeg voor 25 computers. /28 geeft maar 14 hosts, dat is te weinig."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk prefix kies je voor IT (minstens 5 hosts)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>/27 — 30 hosts (te groot)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>/30 — 2 hosts (te klein)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>/28 — 14 hosts (correct maar /29 is kleiner)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>/29 — 6 hosts (kleinst mogelijke voor 5 hosts)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="/29 — 6 bruikbare hosts, net genoeg voor 5 computers. /30 geeft maar 2 hosts. Altijd het kleinst mogelijke subnet kiezen dat groot genoeg is."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Waarom is subnetting nuttig voor dit bedrijf? (Selecteer alle juiste redenen)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>Betere organisatie: elke afdeling heeft zijn eigen netwerkgebied</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>Minder broadcast-verkeer: broadcasts gaan enkel binnen het eigen subnet</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>Subnetting maakt het netwerk sneller door meer bandbreedte toe te voegen</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>Subnetting verwijdert de nood aan een router</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Organisatie en minder broadcast-verkeer zijn de twee hoofdredenen. Subnetting voegt geen extra bandbreedte toe en vereist juist een router om tussen subnetten te communiceren."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Subnetting verdeelt een groot netwerk in kleinere segmenten.</li>
+<li>Gebruik de referentietabel: kies het prefix dat genoeg hosts geeft.</li>
+<li>Stapgrootte = de afstand tussen twee opeenvolgende netwerkadresssen.</li>
+<li>Netwerkadres = eerste adres (niet bruikbaar). Broadcast = laatste adres (niet bruikbaar).</li>
+<li>Eerste bruikbare host = netwerkadres + 1. Laatste bruikbare host = broadcast - 1.</li>
+</ul>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h07">Huistaak H07</h3>
+<p>Een school heeft het adresblok <code>192.168.50.0/24</code> en wil vier afdelingen onderbrengen:</p>
+<ul>
+<li>Leerlingen graad 1: 50 computers</li>
+<li>Leerlingen graad 2: 50 computers</li>
+<li>Leerkrachten: 25 computers</li>
+<li>Administratie: 10 computers</li>
+</ul>
+<ol>
+<li>Kies voor elke afdeling het kleinst mogelijke subnet (gebruik de referentietabel).</li>
+<li>Maak een volledige tabel: netwerkadres, subnetmasker/CIDR, broadcast, eerste host, laatste host, aantal hosts.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H07-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 7 — 5e jaar DAB — v2.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H07">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H06.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H06 &mdash; IPv4-adressering</span></div></a>
+          <a href="H08.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H08 &mdash; Transportlaag: TCP en UDP</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

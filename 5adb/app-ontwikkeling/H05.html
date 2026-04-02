@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afbeeldingen — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H05" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.1"><span class="sidebar-check__box"></span></label>
+          <a href="#het-img-element">5.1 Het &lt;img&gt;-element</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.2"><span class="sidebar-check__box"></span></label>
+          <a href="#paden-naar-afbeeldingen">5.2 Paden naar afbeeldingen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.3"><span class="sidebar-check__box"></span></label>
+          <a href="#afbeeldingsformaten">5.3 Afbeeldingsformaten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.4"><span class="sidebar-check__box"></span></label>
+          <a href="#alt-tekst-toegankelijkheid">5.4 Alt-tekst: toegankelijkheid</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.5"><span class="sidebar-check__box"></span></label>
+          <a href="#afbeeldingen-koppelen-aan-links">5.5 Afbeeldingen koppelen aan links</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Afbeeldingen</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H05 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Afbeeldingen: <code>&lt;img&gt;</code> en Toegankelijkheid</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een afbeelding invoegen met het <code>&lt;img&gt;</code>-element</li>
+          <li>De juiste attributen gebruiken: <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code></li>
+          <li>Het verschil uitleggen tussen de meest gebruikte afbeeldingsformaten (JPG, PNG, SVG, WebP)</li>
+          <li>Een zinvolle alt-tekst schrijven voor toegankelijkheid</li>
+          <li>Uitleggen wanneer je geen alt-tekst nodig hebt (decoratieve afbeeldingen)</li>
+        </ul>
+      </div>
+
+      <h2 id="het-img-element">5.1 Het <code>&lt;img&gt;</code>-element</h2>
+      <p>Het <code>&lt;img&gt;</code>-element voegt een afbeelding in op de pagina. Het is een <strong>leeg element</strong> — het heeft geen afsluitende tag en geen inhoud tussen opening en sluiting.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;img src="img/foto.jpg" alt="Een groep studenten werkt samen aan een project"&gt;</code></pre>
+      </div>
+      <h3>Verplichte attributen</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Attribuut</th><th>Functie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>src</code></td><td>Het pad naar het afbeeldingsbestand (<strong>source</strong>)</td></tr>
+          <tr><td><code>alt</code></td><td>Alternatieve tekst bij schermlezer of als afbeelding niet laadt</td></tr>
+        </tbody>
+      </table>
+      <h3>Optionele attributen</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Attribuut</th><th>Functie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>width</code></td><td>Breedte in pixels (of via CSS)</td></tr>
+          <tr><td><code>height</code></td><td>Hoogte in pixels (of via CSS)</td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Met breedte en hoogte --&gt;
+&lt;img src="img/banner.jpg" alt="Welkomstbanner van de school" width="1200" height="400"&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Geef altijd <code>width</code> en <code>height</code> op. De browser reserveert dan al de juiste ruimte terwijl de afbeelding laadt, zodat de pagina niet verspringt.</p>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H05-afb2.svg" alt="Anatomie van een img-element: src, alt, width en height toegelicht" loading="lazy">
+      </figure>
+
+      <h2 id="paden-naar-afbeeldingen">5.2 Paden naar afbeeldingen</h2>
+      <p>Net als bij links (zie H04) gebruik je <strong>relatieve paden</strong> voor eigen afbeeldingen.</p>
+      <h3>Mapstructuur voorbeeld</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">mijnwebsite/
+├── index.html
+├── over.html
+└── img/
+    ├── logo.svg
+    ├── banner.jpg
+    └── team/
+        └── jan.jpg</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Vanuit index.html --&gt;
+&lt;img src="img/logo.svg" alt="Logo van Mijn Website"&gt;
+&lt;img src="img/banner.jpg" alt="Welkomstbanner"&gt;
+&lt;img src="img/team/jan.jpg" alt="Portretfoto van Jan"&gt;</code></pre>
+      </div>
+
+      <h2 id="afbeeldingsformaten">5.3 Afbeeldingsformaten</h2>
+      <p>Niet elk formaat is even geschikt voor elke situatie. Ken het verschil — het beïnvloedt de laadsnelheid en kwaliteit van je website.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H05-afb1.svg" alt="Vergelijkingstabel van afbeeldingsformaten: JPG, PNG, SVG en WebP" loading="lazy">
+      </figure>
+      <table class="data-table">
+        <thead>
+          <tr><th>Formaat</th><th>Transparantie</th><th>Animatie</th><th>Best voor</th><th>Typische grootte</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>JPG / JPEG</strong></td><td>Nee</td><td>Nee</td><td>Foto's, complexe beelden</td><td>Klein (verliesgevende compressie)</td></tr>
+          <tr><td><strong>PNG</strong></td><td>Ja</td><td>Nee</td><td>Logo's, schermafbeeldingen, iconen</td><td>Middelgroot</td></tr>
+          <tr><td><strong>GIF</strong></td><td>Beperkt</td><td>Ja</td><td>Kleine animaties</td><td>Klein</td></tr>
+          <tr><td><strong>SVG</strong></td><td>Ja</td><td>Ja (via CSS)</td><td>Iconen, logo's, diagrammen</td><td>Zeer klein (vectorformaat)</td></tr>
+          <tr><td><strong>WebP</strong></td><td>Ja</td><td>Ja</td><td>Alles — modern alternatief</td><td>Klein (betere compressie dan JPG/PNG)</td></tr>
+        </tbody>
+      </table>
+      <h3>Wanneer welk formaat?</h3>
+      <ul>
+        <li><strong>Foto van een persoon of landschap</strong> → <strong>JPG</strong></li>
+        <li><strong>Logo of icoon</strong> → <strong>SVG</strong> (schaalbaar zonder kwaliteitsverlies)</li>
+        <li><strong>Schermafbeelding met tekst</strong> → <strong>PNG</strong> (scherpe randen)</li>
+        <li><strong>Icoon dat transparant moet zijn</strong> → <strong>PNG</strong> of <strong>SVG</strong></li>
+        <li><strong>Grote foto op website</strong> → <strong>WebP</strong> (30-50% kleiner dan JPG)</li>
+      </ul>
+
+      <h2 id="alt-tekst-toegankelijkheid">5.4 Alt-tekst: toegankelijkheid</h2>
+      <p>De <code>alt</code>-tekst (alternatieve tekst) is een van de <strong>belangrijkste</strong> attributen in HTML. Het heeft drie functies:</p>
+      <ol>
+        <li><strong>Screenreaders</strong> lezen de alt-tekst voor aan blinde en slechtziende gebruikers.</li>
+        <li><strong>Als de afbeelding niet laadt</strong> (trage verbinding, verkeerd pad), toont de browser de alt-tekst.</li>
+        <li><strong>Zoekmachines</strong> gebruiken de alt-tekst om de inhoud van de afbeelding te begrijpen.</li>
+      </ol>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H05-afb3.svg" alt="Vergelijking: ontbrekende alt-tekst vs. zinvolle alt-tekst vanuit het perspectief van een screenreader" loading="lazy">
+      </figure>
+      <h3>Goede alt-tekst schrijven</h3>
+      <p><strong>Beschrijf wat je ziet én waarom de afbeelding er staat.</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- FOUT: leeg of nutteloos --&gt;
+&lt;img src="hond.jpg" alt=""&gt;
+&lt;img src="hond.jpg" alt="afbeelding"&gt;
+&lt;img src="hond.jpg" alt="foto"&gt;
+
+&lt;!-- GOED: beschrijvend en contextueel --&gt;
+&lt;img src="hond.jpg" alt="Bruine labrador die speelt in het park"&gt;
+
+&lt;!-- GOED: in context van een artikel over hondenverzorging --&gt;
+&lt;img src="vacht.jpg" alt="Een labrador met een goed verzorgde, glanzende vacht na het kammen"&gt;</code></pre>
+      </div>
+      <h3>Decoratieve afbeeldingen: lege alt</h3>
+      <p>Heeft een afbeelding <strong>geen informatieve functie</strong> (puur decoratief), dan gebruik je een <strong>lege alt</strong> (<code>alt=""</code>). De screenreader slaat de afbeelding dan over.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Decoratieve scheidingslijn of achtergrondpatroon --&gt;
+&lt;img src="img/decoratie-golfpatroon.svg" alt=""&gt;
+
+&lt;!-- Icoon dat al beschreven wordt door de omliggende tekst --&gt;
+&lt;p&gt;
+    &lt;img src="img/icoon-telefoon.svg" alt=""&gt;
+    Bel ons: 012 34 56 78
+&lt;/p&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p><code>alt=""</code> (lege alt) is iets anders dan het <code>alt</code>-attribuut weglaten. Zonder <code>alt</code> weet een screenreader niet wat te doen en leest soms de bestandsnaam voor — wat verwarrend is voor de gebruiker.</p>
+      </div>
+
+      <h2 id="afbeeldingen-koppelen-aan-links">5.5 Afbeeldingen koppelen aan links</h2>
+      <p>Je kan een afbeelding klikbaar maken door ze te wikkelen in een <code>&lt;a&gt;</code>-element:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Klikbare afbeelding die naar de homepage verwijst --&gt;
+&lt;a href="index.html"&gt;
+    &lt;img src="img/logo.svg" alt="Ga naar de homepage van TechSchool"&gt;
+&lt;/a&gt;</code></pre>
+      </div>
+      <p>Bij een klikbare afbeelding beschrijft de alt-tekst het <strong>doel van de link</strong>, niet de afbeelding zelf.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB11</span>
+            <span class="oefening__title">Oefening 1 — Alt-tekst beoordelen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Beoordeel elke alt-tekst: goed, aanvaardbaar of slecht? Leg uit waarom.</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;img src="kat.jpg" alt="kat"&gt;
+&lt;img src="zonsondergang.jpg" alt="Oranje en rode zonsondergang boven de zee bij Oostende"&gt;
+&lt;img src="icoon-mail.svg" alt="icoon-mail.svg"&gt;
+&lt;img src="banner.jpg" alt=""&gt;
+&lt;img src="team.jpg" alt="Ons team van vijf medewerkers staat lachend voor het kantoor"&gt;</code></pre>
+            </div>
+            <p>Beoordeel elke alt-tekst als <strong>goed</strong>, <strong>aanvaardbaar</strong> of <strong>slecht</strong> en leg uit waarom.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 2 — Fotopagina bouwen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>galerij.html</code> met:</p>
+            <ol>
+              <li>Een <code>&lt;header&gt;</code> met de titel "Mijn Fotogalerij"</li>
+              <li>Een <code>&lt;main&gt;</code> met <strong>vier afbeeldingen</strong> in een <code>&lt;section&gt;</code>:
+                <ul>
+                  <li>Gebruik <code>img/foto1.jpg</code> t/m <code>img/foto4.jpg</code> als <code>src</code></li>
+                  <li>Elke afbeelding krijgt een <strong>zinvolle alt-tekst</strong></li>
+                  <li>Elke afbeelding krijgt <code>width="400"</code> en <code>height="300"</code></li>
+                  <li>Onder elke afbeelding een <code>&lt;p&gt;</code> met een korte bijschrift</li>
+                </ul>
+              </li>
+              <li>Een decoratieve afbeelding <code>img/scheiding.svg</code> tussen de header en de galerij met lege alt</li>
+            </ol>
+            <div class="callout callout--info">
+              <div class="callout-header">💡 Tip</div>
+              <p>Gebruik <code>&lt;figure&gt;</code> en <code>&lt;figcaption&gt;</code> om een afbeelding samen met haar bijschrift te groeperen. Dat is semantischer dan een losse <code>&lt;img&gt;</code> gevolgd door een <code>&lt;p&gt;</code>.</p>
+            </div>
+            <p>Zo ziet het resultaat eruit in de browser:</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H05-oef2-browser.svg" alt="Browser-mockup van galerij.html: header, vier foto's met figcaption in een grid" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 3 — Fouten zoeken</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Zoek en verbeter de fouten:</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;img src="https://mijnsite.be/img/logo.png"&gt;
+&lt;img src="banner.jpg" alt="banner.jpg"&gt;
+&lt;img src="icoon.svg"&gt;
+&lt;img src="foto.jpg" alt="foto van onze producten" width="500"&gt;</code></pre>
+            </div>
+            <p>Er zijn <strong>4 fouten</strong> in deze code. Zoek ze allemaal en schrijf voor elke fout op: wat er fout is en hoe je het verbetert.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H05 Afbeeldingen: <code>&lt;img&gt;</code> en Toegankelijkheid<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H05-oef2-browser.svg', 'Voorbeeld — HTML fotogalerij')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+          <h3>Opdracht: Een fotogalerij-pagina</h3>
+          <p>Je maakt een simpele HTML-fotogalerij over een onderwerp naar keuze: dieren, reizen, sport, natuur, kunst, … De pagina oefent correct gebruik van afbeeldingen in HTML.</p>
+          <p>Maak een nieuw bestand: <code>galerij.html</code></p>
+          <h4>Deel 1 — Afbeeldingen met alt-tekst (4 punten)</h4>
+          <ol>
+            <li>Voeg <strong>minstens 4 afbeeldingen</strong> toe op je pagina.
+              <ul>
+                <li>Je mag placeholder-afbeeldingen gebruiken: <code>https://placehold.co/300x200</code></li>
+                <li>Of echte afbeeldingen die je downloadt en opslaat in een map <code>images/</code></li>
+              </ul>
+            </li>
+            <li>Elke afbeelding moet:
+              <ul>
+                <li>Een <code>src</code>-attribuut hebben</li>
+                <li>Een <strong>zinvol</strong> <code>alt</code>-attribuut hebben (beschrijf wat er op de afbeelding staat)</li>
+                <li>Een <code>width</code>-attribuut hebben (bv. <code>width="300"</code>)</li>
+              </ul>
+            </li>
+          </ol>
+          <h4>Deel 2 — Figure en figcaption (3 punten)</h4>
+          <p>Wrap <strong>minstens 2</strong> van je afbeeldingen in een <code>&lt;figure&gt;</code>-element met een <code>&lt;figcaption&gt;</code>:</p>
+          <ul>
+            <li>De <code>&lt;figcaption&gt;</code> geeft een beschrijving of bijschrift bij de foto.</li>
+          </ul>
+          <h4>Deel 3 — Afbeelding als link (2 punten)</h4>
+          <p>Maak van <strong>één afbeelding</strong> een klikbare link:</p>
+          <ul>
+            <li>Wrap de <code>&lt;img&gt;</code> in een <code>&lt;a&gt;</code>-element dat linkt naar een externe website (bv. de website van het dier, de sportclub, …)</li>
+            <li>De link opent in een nieuw tabblad.</li>
+          </ul>
+          <h4>Deel 4 — Decoratieve afbeelding (1 punt)</h4>
+          <p>Voeg één <strong>decoratieve</strong> afbeelding toe (bv. een scheidingslijn of achtergrondpatroon) die geen inhoudelijke betekenis heeft:</p>
+          <ul>
+            <li>Gebruik een lege <code>alt=""</code>  — dit is correct voor decoratieve afbeeldingen!</li>
+            <li>Voeg een HTML-commentaar toe die uitlegt waarom de alt leeg is.</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H05 — Afbeeldingen</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke twee attributen zijn <strong>verplicht</strong> bij een <code>&lt;img&gt;</code>-element?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="a"> <span><code>width</code> en <code>height</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="b"> <span><code>src</code> en <code>width</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="c"> <span><code>src</code> en <code>alt</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="d"> <span><code>alt</code> en <code>height</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk bestandsformaat is het beste voor een logo dat scherp moet blijven op elk schermformaat?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="a"> <span>JPG</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="b"> <span>SVG</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="c"> <span>GIF</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="d"> <span>BMP</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat is de juiste alt-tekst voor een puur decoratieve achtergrondlijn?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="a"> <span><code>alt=""</code> (lege alt)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="b"> <span><code>alt="decoratie"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="c"> <span>Het alt-attribuut weglaten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="d"> <span><code>alt="afbeelding"</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Waarom is het nuttig om altijd <code>width</code> en <code>height</code> op te geven bij een afbeelding?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="a"> <span>Zodat de afbeelding altijd die exacte grootte heeft</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="b"> <span>Zodat de afbeelding sneller laadt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="c"> <span>Omdat het verplicht is in HTML5</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="d"> <span>Zodat de browser ruimte reserveert en de pagina niet verspringt tijdens het laden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk formaat gebruik je voor een grote foto op een website om de laadtijd te optimaliseren?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="a"> <span>PNG</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="b"> <span>WebP</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="c"> <span>BMP</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="d"> <span>GIF</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welk HTML-element gebruik je samen met <code>&lt;figcaption&gt;</code> om een afbeelding met bijschrift semantisch te groeperen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="a"> <span><code>&lt;section&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="b"> <span><code>&lt;picture&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="c"> <span><code>&lt;figure&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="d"> <span><code>&lt;aside&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H05')" data-progress-key="5adb/app-ontwikkeling/H05">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H04.html" class="btn btn-ghost">← H04</a> <a href="H06.html" class="btn btn-ghost">H06 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

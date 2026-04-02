@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H12 &mdash; Cyberveiligheid: basisprincipes &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Cyberveiligheid: basisprincipes &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H12</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-12-cyberveiligheid-basisprincipes">Hoofdstuk 12 — Cyberveiligheid: basisprincipes</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#12-theorie">12. Theorie</a></li><li><a href="#121-de-cia-triad" style="padding-left:1.25rem">12.1 De CIA-triad</a></li><li><a href="#122-veelvoorkomende-aanvallen" style="padding-left:1.25rem">12.2 Veelvoorkomende aanvallen</a></li><li><a href="#123-veilig-werken-praktische-regels" style="padding-left:1.25rem">12.3 Veilig werken: praktische regels</a></li><li><a href="#12-voorbeelden">12. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h12" style="padding-left:1.25rem">Huistaak H12</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H12 &mdash; Cyberveiligheid: basisprincipes</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-12-cyberveiligheid-basisprincipes">Hoofdstuk 12 — Cyberveiligheid: basisprincipes</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>6 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>de CIA-triad (Confidentiality, Integrity, Availability) uitleggen</li>
+<li>veelvoorkomende aanvallen beschrijven (phishing, MITM, DoS, social engineering)</li>
+<li>het begrip "cyberveiligheid" situeren in het kader van data- en applicatiebeheer</li>
+<li>veilig gedrag beschrijven bij het werken in het netwerklokaal en online</li>
+<li>het belang van sterke wachtwoorden en multi-factor authenticatie uitleggen</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-07]</span> De leerlingen werken volgens de procedures van cyberveiligheid <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-12]</span> De leerlingen handelen kwaliteitsbewust <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-14]</span> De leerlingen handelen veilig, ergonomisch en hygiënisch <span class="badge badge-basis">basis</span></div>
+<h2 id="12-theorie">12. Theorie</h2>
+<h3 id="121-de-cia-triad">12.1 De CIA-triad</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De CIA-triad is het fundamentele model voor informatiebeveiliging, bestaande uit drie pijlers: <strong>Confidentiality</strong> (vertrouwelijkheid), <strong>Integrity</strong> (integriteit) en <strong>Availability</strong> (beschikbaarheid).</p>
+</div>
+<h4 id="1211-confidentiality-vertrouwelijkheid">12.1.1 Confidentiality (Vertrouwelijkheid)</h4>
+<p>Data is enkel toegankelijk voor geautoriseerde personen of systemen.</p>
+<ul>
+<li>Encryptie (TLS, AES, RSA)</li>
+<li>Toegangscontrole (wachtwoorden, 2FA, ACL's)</li>
+<li>Principe van least privilege: gebruikers krijgen enkel de rechten die ze nodig hebben</li>
+</ul>
+<p><strong>Bedreigingen:</strong> diefstal van data, afluisteren (sniffing), onbevoegde toegang</p>
+<h4 id="1212-integrity-integriteit">12.1.2 Integrity (Integriteit)</h4>
+<p>Data is correct en ongewijzigd — niemand heeft het gemanipuleerd.</p>
+<ul>
+<li>Hashfuncties (SHA-256, MD5 — verouderd)</li>
+<li>Digitale handtekeningen</li>
+<li>Versiecontrole en audit trails</li>
+</ul>
+<p><strong>Bedreigingen:</strong> man-in-the-middle aanvallen, databasemanipulatie, bestandswijziging</p>
+<h4 id="1213-availability-beschikbaarheid">12.1.3 Availability (Beschikbaarheid)</h4>
+<p>Systemen en data zijn beschikbaar wanneer geautoriseerde gebruikers ze nodig hebben.</p>
+<ul>
+<li>Redundantie (RAID, failover, backups)</li>
+<li>DDoS-bescherming</li>
+<li>Noodherstellingsplanning (disaster recovery)</li>
+</ul>
+<p><strong>Bedreigingen:</strong> DoS/DDoS-aanvallen, ransomware, hardwarestoringen</p>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Een beveiligingssysteem is zo sterk als zijn zwakste schakel. Perfecte encryptie helpt niet als de beheerder <code>wachtwoord123</code> gebruikt.</p>
+</div>
+<h3 id="122-veelvoorkomende-aanvallen">12.2 Veelvoorkomende aanvallen</h3>
+<h4 id="1221-phishing">12.2.1 Phishing</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Phishing is een aanval waarbij een aanvaller zich voordoet als een betrouwbare entiteit (bank, overheidsdienst, collega) om het slachtoffer te misleiden zijn wachtwoord, creditcardgegevens of persoonlijke info prijs te geven.</p>
+</div>
+<p>Varianten:</p>
+<ul>
+<li><strong>Spear phishing:</strong> gericht op één specifieke persoon of organisatie (gepersonaliseerde e-mail)</li>
+<li><strong>Vishing:</strong> phishing via telefoongesprekken</li>
+<li><strong>Smishing:</strong> phishing via SMS</li>
+</ul>
+<p>Herkennen:</p>
+<ul>
+<li>Dringend taalgebruik ("Uw account wordt geblokkeerd!")</li>
+<li>Onbekend of vervalst e-mailadres (bv. <code>support@paypa1.com</code>)</li>
+<li>Links naar neppe websites (hover over de link voor je klikt)</li>
+<li>Slechte grammatica of spelling</li>
+</ul>
+<h4 id="1222-man-in-the-middle-mitm">12.2.2 Man-in-the-Middle (MITM)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Bij een man-in-the-middle aanval plaatst de aanvaller zich tussen twee communicerende partijen. Hij kan communicatie afluisteren en eventueel manipuleren, terwijl beide partijen denken rechtstreeks met elkaar te communiceren.</p>
+</div>
+<p>Methoden:</p>
+<ul>
+<li><strong>ARP Spoofing:</strong> valse ARP-berichten sturen zodat verkeer via de aanvaller gaat (zie H05)</li>
+<li><strong>SSL Stripping:</strong> HTTPS downgraden naar HTTP</li>
+<li><strong>Evil Twin:</strong> een nep-wifi-hotspot aanmaken met dezelfde naam als een legitiem netwerk</li>
+</ul>
+<p>Bescherming: HTTPS, HSTS, certificaatpinning, VPN op publieke netwerken</p>
+<h4 id="1223-dos-en-ddos">12.2.3 DoS en DDoS</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een Denial of Service (DoS) aanval probeert een dienst of systeem onbeschikbaar te maken door het te overstelpen met verkeer of verzoeken.</p>
+</div>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een Distributed Denial of Service (DDoS) aanval gebruikt duizenden tot miljoenen gecompromitteerde apparaten (botnet) tegelijk om de aanval te lanceren — veel moeilijker te blokkeren.</p>
+</div>
+<p>Technieken:</p>
+<ul>
+<li><strong>SYN Flood:</strong> TCP half-open verbindingen creëren om serverbuffers te vullen</li>
+<li><strong>UDP Flood:</strong> grote hoeveelheden UDP-pakketten sturen</li>
+<li><strong>HTTP Flood:</strong> duizenden HTTP-requests per seconde</li>
+</ul>
+<p>Bescherming: rate limiting, DDoS-mitigatiediensten (Cloudflare, Akamai), firewallregels</p>
+<h4 id="1224-social-engineering">12.2.4 Social engineering</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Social engineering is het manipuleren van mensen (niet technologie) om beveiligde informatie of toegang te verkrijgen. Het maakt gebruik van vertrouwen, autoriteit of urgentie.</p>
+</div>
+<p>Voorbeelden:</p>
+<ul>
+<li>Iemand nabootsen die zegt van de IT-dienst te zijn en wachtwoorden vraagt</li>
+<li>Een USB-stick met malware laten rondslingeren op de parking</li>
+<li>Hulpvaardig iemand "meelopen" door een beveiligde deur (tailgating)</li>
+</ul>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>De zwakste schakel in cyberveiligheid is bijna altijd de mens. Technische maatregelen helpen niet als medewerkers wachtwoorden doorgeven via de telefoon.</p>
+</div>
+<h4 id="1225-ransomware">12.2.5 Ransomware</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Ransomware is malware die bestanden op een systeem versleutelt en losgeld vraagt voor de decryptiesleutel. Het verspreidt zich vaak via phishing-e-mails of kwetsbare systemen.</p>
+</div>
+<p>Bekende voorbeelden: WannaCry (2017), NotPetya (2017), REvil, LockBit.</p>
+<p>Bescherming:</p>
+<ul>
+<li>Regelmatige offline backups (3-2-1 regel: 3 kopieën, 2 media, 1 offsite)</li>
+<li>Patch management: systemen up-to-date houden</li>
+<li>Beperkte gebruikersrechten</li>
+<li>E-mailfiltering</li>
+</ul>
+<h3 id="123-veilig-werken-praktische-regels">12.3 Veilig werken: praktische regels</h3>
+<h4 id="1231-wachtwoorden">12.3.1 Wachtwoorden</h4>
+<ul>
+<li>Minimum 12 tekens</li>
+<li>Combinatie van letters, cijfers en speciale tekens</li>
+<li>Geen hergebruik van wachtwoorden</li>
+<li>Gebruik een <strong>wachtwoordmanager</strong> (Bitwarden, 1Password, KeePass)</li>
+<li>Activeer <strong>multi-factor authenticatie (MFA)</strong> overal waar mogelijk</li>
+</ul>
+<h4 id="1232-updates-en-patches">12.3.2 Updates en patches</h4>
+<ul>
+<li>Houd besturingssysteem en software up-to-date</li>
+<li>Schakel automatische updates in</li>
+<li>Verouderde software is de meest voorkomende aanvalsvector</li>
+</ul>
+<h4 id="1233-veilig-omgaan-met-netwerken">12.3.3 Veilig omgaan met netwerken</h4>
+<ul>
+<li>Gebruik geen onbekende USB-sticks</li>
+<li>Verbind niet met onbekende wifi-netwerken zonder VPN</li>
+<li>Klik niet op links in e-mails zonder verificatie</li>
+<li>Rapporteer verdachte activiteiten aan de IT-beheerder</li>
+</ul>
+<h4 id="1234-in-het-netwerklokaal">12.3.4 In het netwerklokaal</h4>
+<ul>
+<li>Verbind nooit ongeautoriseerde apparaten met het schoolnetwerk</li>
+<li>Voer geen scan-tools of aanvalstools uit op het netwerk zonder expliciete toestemming</li>
+<li>Sluit sessies af na gebruik (router/switch logout)</li>
+</ul>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Ongeautoriseerd gebruik van netwerkhulpmiddelen (scanners, sniffers) op een netwerk dat je niet bezit, is <strong>illegaal</strong> in België (artikel 550bis Strafwetboek).</p>
+</div>
+<h2 id="12-voorbeelden">12. Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een school bewaart leerlinggegevens in een database.</p>
+<ul>
+<li><strong>Confidentiality:</strong> de database is versleuteld en enkel toegankelijk via authenticatie. Leerkrachten kunnen enkel de gegevens van hun eigen leerlingen inzien.</li>
+<li><strong>Integrity:</strong> alle wijzigingen worden gelogd met timestamp en gebruikersnaam. Een hashfunctie controleert of bestanden niet gewijzigd zijn.</li>
+<li><strong>Availability:</strong> dagelijkse backups worden gemaakt op een extern systeem. Als de server uitvalt, is er een failover-server.</li>
+</ul>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Je ontvangt de volgende e-mail:</p>
+<pre data-lang="text"><code>
+Van: noreply@itsupport-school.be-login.com
+Onderwerp: DRINGEND — Uw account wordt geblokkeerd
+
+Beste gebruiker, uw schoolaccount loopt af. Klik hier om uw
+gegevens te bevestigen: http://school-login.ru/bevestig
+</code></pre>
+<p>Rode vlaggen:</p>
+<ul>
+<li>Afzenderdomein: <code>be-login.com</code> — nep! Het echte domein is <code>school.be</code></li>
+<li>Dringend taalgebruik</li>
+<li>Linkbestemming: <code>.ru</code> (Rusland) — verdacht</li>
+<li>Vraag om persoonlijke gegevens via een link</li>
+</ul>
+</div>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h12-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 12.1</span>
+    <span class="oefening__title">CIA-triad koppelen aan scenario's</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Koppel elk scenario aan de juiste CIA-pijler: Confidentiality (vertrouwelijkheid), Integrity (integriteit) of Availability (beschikbaarheid).</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Een hacker versleutelt alle bestanden op de fileserver en vraagt losgeld (ransomware). Welke CIA-pijler wordt hier aangevallen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v1" value="a"><span>Confidentiality — vertrouwelijkheid van de data</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v1" value="b"><span>Integrity — de data wordt gewijzigd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v1" value="c"><span>Availability — de bestanden zijn niet meer beschikbaar</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Availability — ransomware maakt bestanden onbereikbaar (versleuteld). De maatregel: offline backups (3-2-1 regel) zodat je niet hoeft te betalen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Iemand onderschept de communicatie tussen twee vestigingen en leest de inhoud mee. Welke CIA-pijler is in gevaar?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v2" value="a"><span>Confidentiality — onbevoegden lezen mee</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v2" value="b"><span>Integrity — de data wordt gewijzigd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v2" value="c"><span>Availability — de verbinding valt uit</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Confidentiality — de data is leesbaar voor onbevoegden. Maatregel: HTTPS of VPN zodat de communicatie versleuteld is"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Een script-kiddie wijzigt de cijfers in een leerlingenrapport in de database. Welke CIA-pijler is aangetast?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v3" value="a"><span>Confidentiality — de data is niet meer privé</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v3" value="b"><span>Integrity — de data is gemanipuleerd en niet meer correct</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v3" value="c"><span>Availability — de database is niet beschikbaar</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Integrity — de data is gewijzigd zonder toestemming. Maatregel: audit logs, digitale handtekeningen en beperkte schrijfrechten"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Een medewerker kan zijn werkbestanden niet openen omdat de server uitgevallen is. Welke CIA-pijler is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v4" value="a"><span>Confidentiality</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v4" value="b"><span>Integrity</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-1-v4" value="c"><span>Availability</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Availability — systemen moeten beschikbaar zijn wanneer geautoriseerde gebruikers ze nodig hebben. Maatregel: redundantie, failover-server, backups"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h12-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 12.2</span>
+    <span class="oefening__title">Type aanval herkennen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Bepaal voor elk scenario het type cyberaanval: phishing, DDoS, social engineering of man-in-the-middle (MITM).</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Je ontvangt een e-mail van "je bank" met een dringende vraag om je wachtwoord te bevestigen via een link. Welk type aanval is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v1" value="a"><span>Phishing — misleiding via nep-e-mail</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v1" value="b"><span>DDoS — overstelpen met verzoeken</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v1" value="c"><span>MITM — afluisteren van communicatie</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v1" value="d"><span>Ransomware — bestanden versleutelen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Phishing — de aanvaller doet zich voor als een vertrouwde bron (bank) om inloggegevens te stelen. Bescherming: controleer het afzenderadres en klik nooit op links in e-mails"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">De webserver van een school is niet bereikbaar door 50.000 gelijktijdige verzoeken vanuit heel de wereld. Welk type aanval is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v2" value="a"><span>Phishing</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v2" value="b"><span>DDoS (Distributed Denial of Service)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v2" value="c"><span>Social engineering</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v2" value="d"><span>MITM</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="DDoS — duizenden gecompromitteerde apparaten (botnet) overstelpen de server tegelijk. Bescherming: rate limiting en DDoS-mitigatiediensten zoals Cloudflare"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Iemand belt naar de IT-dienst, beweert de systeembeheerder te zijn en vraagt een wachtwoord te resetten. Welk type aanval is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v3" value="a"><span>Phishing — misleiding via telefoon</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v3" value="b"><span>Ransomware</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v3" value="c"><span>Social engineering — mensen manipuleren in plaats van technologie</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v3" value="d"><span>DDoS</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Social engineering — de aanvaller manipuleert een medewerker via vertrouwen en autoriteit. Bescherming: procedures volgen (identiteit verifiëren), nooit wachtwoorden via telefoon doorgeven"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Een laptop op het netwerk stuurt valse ARP-berichten zodat zijn MAC-adres gekoppeld wordt aan het IP van de router. Welk type aanval is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v4" value="a"><span>Phishing</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v4" value="b"><span>DDoS</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v4" value="c"><span>Social engineering</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-2-v4" value="d"><span>MITM via ARP Spoofing — al het netwerkverkeer gaat via de aanvaller</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Man-in-the-Middle via ARP Spoofing — door valse ARP-berichten te sturen loopt al het verkeer via de laptop van de aanvaller. Bescherming: HTTPS, VPN en dynamic ARP inspection op de switch"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h12-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 12.3</span>
+    <span class="oefening__title">Veilig gedrag en wachtwoorden</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je bent de nieuwe IT-beheerder van een klein bedrijf. Test je kennis van de praktische beveiligingsregels.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is de minimale aanbevolen lengte voor een sterk wachtwoord?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v1" value="a"><span>6 tekens</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v1" value="b"><span>8 tekens</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v1" value="c"><span>12 tekens</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v1" value="d"><span>20 tekens</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="12 tekens minimum — combineer letters (hoofd/kleine), cijfers en speciale tekens. Gebruik een wachtwoordmanager (Bitwarden, 1Password) om ze te onthouden"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is MFA (Multi-Factor Authenticatie)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v2" value="a"><span>Een wachtwoord van meer dan 20 tekens</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v2" value="b"><span>Inloggen vereist twee of meer bewijzen: iets wat je weet (wachtwoord) + iets wat je hebt (telefoon)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v2" value="c"><span>Een firewall die meerdere verbindingen controleert</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="MFA combineert meerdere authenticatiefactoren: wachtwoord + een code op je telefoon of vingerafdruk. Zelfs als je wachtwoord gestolen wordt, kan de aanvaller niet inloggen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Je vindt een USB-stick op de parking van je school. Wat doe je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v3" value="a"><span>Nooit insteken — geef het aan de IT-beheerder. USB-sticks kunnen malware bevatten.</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v3" value="b"><span>Insteken in een schoolcomputer om te zien van wie het is</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h12-3-v3" value="c"><span>Insteken thuis op je eigen pc want dat is veiliger</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Nooit insteken — dit is een klassieke social engineering truc. Aanvallers laten USB-sticks achter met malware, wetende dat iemand nieuwsgierig is en ze insteekt"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="3-2-1|321|drie-twee-één|3 2 1">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke bekende backupregel schrijft voor dat je 3 kopieën hebt op 2 media waarvan 1 offsite?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de naam van de regel...">
+      <div class="vraag__feedback" data-correct-label="De 3-2-1 regel: 3 kopieën van je data, op 2 verschillende opslagmedia, waarvan 1 op een externe locatie (offsite)"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>CIA-triad: Confidentiality (vertrouwelijkheid), Integrity (integriteit), Availability (beschikbaarheid) — de drie pijlers van informatiebeveiliging.</li>
+<li>Phishing: misleiding via e-mail/sms/telefoon om gegevens te stelen. Herken rode vlaggen (afzender, link, urgentie).</li>
+<li>MITM: aanvaller plaatst zich tussen twee partijen. Bescherming: HTTPS, VPN, HSTS.</li>
+<li>DoS/DDoS: systeem overstelpen om het onbeschikbaar te maken. Bescherming: rate limiting, DDoS-mitigatie.</li>
+<li>Ransomware: bestanden versleuteld, losgeld gevraagd. Bescherming: offline backups, patches, MFA.</li>
+<li>Social engineering: mensen manipuleren. Bewustwording en procedures zijn de enige bescherming.</li>
+<li>Sterke wachtwoorden + MFA + updates = de drie basismaatregelen voor elke gebruiker.</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h12">Huistaak H12</h3>
+<p>Voer een persoonlijke cyberveiligheidsaudit uit.</p>
+<ol>
+<li>Controleer hoeveel unieke wachtwoorden je gebruikt. Gebruik je hetzelfde wachtwoord meerdere keren?</li>
+<li>Controleer op <a href="https://haveibeenpwned.com" target="_blank" rel="noopener">https://haveibeenpwned.com</a> of je e-mailadres in een datalek voorkomt.</li>
+<li>Stel MFA in op minstens één account (Google, Microsoft, GitHub, ...). Beschrijf welk account en welke methode je gebruikte.</li>
+<li>Schrijf een korte reflectie (5–8 zinnen): wat was je meest verrassende bevinding? Wat ga je aanpassen?</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H12-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 12 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H12">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H11.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H11 &mdash; IPv6 introductie</span></div></a>
+          <a href="H13.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H13 &mdash; Netwerkontwerp met Packet Tracer</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float en Positioning — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H14" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.1"><span class="sidebar-check__box"></span></label>
+          <a href="#historische-context">14.1 Historische context</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.2"><span class="sidebar-check__box"></span></label>
+          <a href="#float">14.2 Float</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.3"><span class="sidebar-check__box"></span></label>
+          <a href="#float-tekst-vloeit">14.3 Tekst laten vloeien</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.4"><span class="sidebar-check__box"></span></label>
+          <a href="#float-citaat">14.4 Uitgelicht citaat</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.5"><span class="sidebar-check__box"></span></label>
+          <a href="#clear">14.5 clear</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.6"><span class="sidebar-check__box"></span></label>
+          <a href="#css-positioning">14.6 CSS Positioning</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.7"><span class="sidebar-check__box"></span></label>
+          <a href="#position-static">14.7 static</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.8"><span class="sidebar-check__box"></span></label>
+          <a href="#position-relative">14.8 relative</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.9"><span class="sidebar-check__box"></span></label>
+          <a href="#position-absolute">14.9 absolute</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.10"><span class="sidebar-check__box"></span></label>
+          <a href="#position-fixed">14.10 fixed</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.11"><span class="sidebar-check__box"></span></label>
+          <a href="#position-sticky">14.11 sticky</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.12"><span class="sidebar-check__box"></span></label>
+          <a href="#z-index">14.12 z-index</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="14.13"><span class="sidebar-check__box"></span></label>
+          <a href="#wanneer-wat">14.13 Overzicht</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Float en Positioning</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H14 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Float en Positioning</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat <code>float</code> doet en wanneer het nog zinvol is</li>
+          <li><code>float: left</code> en <code>float: right</code> toepassen voor tekst rondom een afbeelding</li>
+          <li><code>clear</code> gebruiken om het float-effect te stoppen</li>
+          <li>De vijf positioneringsmodi begrijpen: <code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></li>
+          <li><code>z-index</code> gebruiken om elementen voor of achter elkaar te plaatsen</li>
+          <li>Correct inschatten wanneer je float/position gebruikt en wanneer je beter kiest voor Flexbox of Grid</li>
+        </ul>
+      </div>
+
+      <blockquote>
+        <em>"Float and position are for special cases, not for general layout. For that, use Flex or Grid."</em><br>
+        &mdash; Kevin Powell
+      </blockquote>
+
+      <!-- ===== SECTION 1 ===== -->
+      <h2 id="historische-context">1. Historische context — waarom leren we dit nog?</h2>
+
+      <p>Tot ongeveer 2015 was <code>float</code> de standaard manier om lay-outs te bouwen. Je vindt nog veel websites, tutorials en code online die van <code>float</code> gebruikmaakten. Het is dus nuttig om te begrijpen wat het doet.</p>
+
+      <p>Maar: <strong>voor algemene lay-out gebruik je vandaag Flexbox of Grid.</strong> Float en position zijn gereserveerd voor specifieke doeleinden.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Gebruik <code>float</code> voor:</div>
+        <ul>
+          <li>Tekst die om een afbeelding heen loopt</li>
+          <li>Een uitgelicht citaat (blockquote) naast tekst</li>
+        </ul>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Gebruik <code>position</code> voor:</div>
+        <ul>
+          <li>Een element op een nauwkeurige plek binnen een container zetten</li>
+          <li>Een sticky navigatiebalk die bovenaan blijft</li>
+          <li>Een overlay of badge over een afbeelding</li>
+        </ul>
+      </div>
+
+      <!-- ===== SECTION 2 ===== -->
+      <h2 id="float">2. Float</h2>
+
+      <h3 id="float-tekst-vloeit">2.1 Tekst laten vloeien rond een afbeelding</h3>
+
+      <p>Het meest klassieke gebruik van <code>float</code>: een afbeelding staat links en de tekst vloeit ernaast.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code>&lt;p&gt;
+    &lt;img class="links" src="paraplu.jpg" width="200" height="300" alt="kleurrijke paraplu's"&gt;
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Animi, velit quaerat magnam expedita ipsa eos ...
+&lt;/p&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat alias eveniet ...&lt;/p&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>body {
+    max-width: 30em;
+    margin: 0 auto;
+    font-family: "Trebuchet MS", sans-serif;
+    line-height: 1.45;
+}
+
+.links {
+    float: left;
+    margin: 10px 10px 10px 0; /* ruimte rechts en onder de afbeelding */
+}</code></pre>
+      </div>
+
+      <p><strong>Wat er gebeurt:</strong> De afbeelding "zweeft" naar de linkerkant. De omringende tekst vloeit er rechts naast.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H14-01-float-links.svg" alt="Afbeelding gefloat links — tekst vloeit rechts ernaast" loading="lazy">
+        <figcaption>Float left: de afbeelding zweeft naar links, de tekst vloeit rechts ernaast</figcaption>
+      </figure>
+
+      <p><strong>Float rechts</strong> werkt op dezelfde manier:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>.rechts {
+    float: right;
+    margin: 10px 0 10px 10px; /* ruimte links en onder de afbeelding */
+}</code></pre>
+      </div>
+
+      <h3 id="float-citaat">2.2 Een uitgelicht citaat floaten</h3>
+
+      <p>Een <code>blockquote</code> kan je ook floaten voor een visueel aantrekkelijk effect:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code>&lt;p&gt;Lorem ipsum dolor sit amet ...&lt;/p&gt;
+&lt;blockquote&gt;"To be or not to be, that's the question!"&lt;/blockquote&gt;
+&lt;p&gt;Facilis non a sapiente quos rerum similique ...&lt;/p&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>blockquote {
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+    width: 5em;
+    float: left;
+    font-family: georgia, serif;
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 1.1;
+    color: #444;
+    border-top: 3px solid #aaa;
+    border-bottom: 3px solid #aaa;
+    background-color: #eee;
+}</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Vuistregel</div>
+        <p>Bij het floaten van andere elementen dan afbeeldingen moet je altijd een <code>width</code> meegeven, anders weet de browser niet hoe breed het element moet zijn.</p>
+      </div>
+
+      <h3 id="clear">2.3 <code>clear</code> — het float-effect stoppen</h3>
+
+      <p>Soms wil je dat een element <strong>niet</strong> naast een gefloat element staat, maar eronder. Gebruik daarvoor <code>clear</code>.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>h2 {
+    clear: left;  /* geen gefloat element toegelaten links van h2 */
+}</code></pre>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Waarde</th>
+            <th>Wat het doet</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>clear: left</code></td>
+            <td>Staat niet naast links-gefloate elementen</td>
+          </tr>
+          <tr>
+            <td><code>clear: right</code></td>
+            <td>Staat niet naast rechts-gefloate elementen</td>
+          </tr>
+          <tr>
+            <td><code>clear: both</code></td>
+            <td>Staat niet naast enig gefloat element</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H14-02-clear.svg" alt="Het verschil met en zonder clear bij een gefloate afbeelding" loading="lazy">
+        <figcaption>Links zonder clear — de tekst vloeit door. Rechts met clear — de tekst start pas onder de afbeelding.</figcaption>
+      </figure>
+
+      <!-- ===== SECTION 3 ===== -->
+      <h2 id="css-positioning">3. CSS Positioning</h2>
+
+      <p>Met <code>position</code> kan je elementen op een specifieke plaats zetten. Er zijn vijf waarden.</p>
+
+      <h3 id="position-static">3.1 <code>position: static</code> — de standaard</h3>
+
+      <p>Alle elementen hebben standaard <code>position: static</code>. Dit betekent: het element staat gewoon in de normale documentstroom. Je hoeft dit nooit expliciet in te stellen.</p>
+
+      <h3 id="position-relative">3.2 <code>position: relative</code></h3>
+
+      <p>Het element blijft in de normale stroom, maar je kan het <strong>verschuiven</strong> ten opzichte van zijn normale positie.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>.verschoven {
+    position: relative;
+    top: 20px;   /* 20px naar beneden verschoven */
+    left: 10px;  /* 10px naar rechts verschoven */
+}</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p><strong>De lege ruimte blijft behouden</strong> — de andere elementen reageren niet op de verschuiving. Dit is zelden direct nuttig, maar het heeft één heel belangrijk doel: het maakt van het element een <strong>positioneringscontext</strong> voor absolute kinderen (zie hieronder).</p>
+      </div>
+
+      <h3 id="position-absolute">3.3 <code>position: absolute</code></h3>
+
+      <p>Het element wordt <strong>uit de normale stroom gehaald</strong>. Het zweeft boven de andere elementen en neemt geen ruimte meer in.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Cruciaal</div>
+        <p>Een absoluut gepositioneerd element wordt geplaatst ten opzichte van zijn <strong>dichtstbijzijnde gepositioneerde voorouder</strong>. Dat is een voorouder die <code>position: relative</code>, <code>absolute</code>, <code>fixed</code> of <code>sticky</code> heeft.</p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code>&lt;div class="kaart"&gt;          &lt;!-- position: relative --&gt;
+    &lt;img src="foto.jpg" alt="product"&gt;
+    &lt;span class="badge"&gt;Nieuw&lt;/span&gt;   &lt;!-- position: absolute --&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>.kaart {
+    position: relative; /* dit maakt de kaart de positioneringscontext */
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}</code></pre>
+      </div>
+
+      <ul>
+        <li><strong>Gebruik dit voor:</strong> badges op afbeeldingen, tooltips, overlays, dropdown-menu's.</li>
+        <li><strong>Gebruik dit NIET voor:</strong> de algemene lay-out van je pagina.</li>
+      </ul>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H14-03-position-absolute.svg" alt="Badge gepositioneerd op een afbeelding met position absolute" loading="lazy">
+        <figcaption>Met position: relative op de kaart en position: absolute op de badge staat de badge precies in de rechterbovenhoek van de kaart.</figcaption>
+      </figure>
+
+      <h3 id="position-fixed">3.4 <code>position: fixed</code></h3>
+
+      <p>Het element wordt geplaatst ten opzichte van het <strong>browservenster</strong> en scrolt <strong>niet mee</strong> met de pagina.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>nav.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    z-index: 100; /* zorgt dat de nav boven andere elementen staat */
+}</code></pre>
+      </div>
+
+      <p><strong>Gebruik dit voor:</strong> navigatiebalken die altijd bovenaan zichtbaar blijven, cookiebanners onderaan het scherm.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">⚠️ Let op</div>
+        <p><code>fixed</code> elementen overlappen andere inhoud. Voeg een <code>padding-top</code> toe aan <code>body</code> gelijk aan de hoogte van de navigatie, anders verdwijnt de bovenkant van je inhoud achter de navigatiebalk.</p>
+      </div>
+
+      <h3 id="position-sticky">3.5 <code>position: sticky</code></h3>
+
+      <p><code>sticky</code> is een combinatie van <code>relative</code> en <code>fixed</code>: het element scrollt mee tot het een bepaalde grens bereikt, dan "kleeft" het vast.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>nav {
+    position: sticky;
+    top: 0; /* kleeft aan de bovenkant zodra het die bereikt bij scrollen */
+    background-color: #222;
+    z-index: 100;
+}</code></pre>
+      </div>
+
+      <p>Dit is de modernste en meest gebruikte manier voor een navigatiebalk die bovenaan blijft plakken.</p>
+
+      <!-- ===== SECTION 4 ===== -->
+      <h2 id="z-index">4. <code>z-index</code> — de stapelvolgorde</h2>
+
+      <p>Als elementen elkaar overlappen (door <code>position: absolute</code>, <code>fixed</code> of <code>sticky</code>), bepaalt <code>z-index</code> welk element <strong>bovenop</strong> staat. Hogere waarden komen voor lagere waarden.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code>.achtergrond {
+    position: absolute;
+    z-index: 1;
+}
+
+.voorgrond {
+    position: absolute;
+    z-index: 10; /* staat voor .achtergrond */
+}
+
+.overlay {
+    position: fixed;
+    z-index: 1000; /* staat boven alles */
+}</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Gebruik geen willekeurige grote getallen (zoals <code>z-index: 9999</code>). Werk met logische stappen: 1, 10, 100, 1000 voor lagen.</p>
+      </div>
+
+      <p><code>z-index</code> werkt <strong>alleen op gepositioneerde elementen</strong> (alles behalve <code>static</code>).</p>
+
+      <!-- ===== SECTION 5 ===== -->
+      <h2 id="wanneer-wat">5. Overzicht: wanneer wat gebruiken?</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Situatie</th>
+            <th>Oplossing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tekst om een afbeelding laten lopen</td>
+            <td><code>float</code></td>
+          </tr>
+          <tr>
+            <td>Citaat naast tekst</td>
+            <td><code>float</code></td>
+          </tr>
+          <tr>
+            <td>Elementen naast elkaar (navigatie, kaartjes)</td>
+            <td><strong>Flexbox</strong></td>
+          </tr>
+          <tr>
+            <td>Paginalay-out met kolommen en rijen</td>
+            <td><strong>Grid</strong></td>
+          </tr>
+          <tr>
+            <td>Badge op een afbeelding</td>
+            <td><code>position: absolute</code></td>
+          </tr>
+          <tr>
+            <td>Navigatiebalk die bovenaan blijft</td>
+            <td><code>position: sticky</code> of <code>fixed</code></td>
+          </tr>
+          <tr>
+            <td>Modal/overlay over de pagina</td>
+            <td><code>position: fixed</code></td>
+          </tr>
+          <tr>
+            <td>Element verschuiven zonder stroom te verstoren</td>
+            <td><code>position: relative</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ===== SAMENVATTING ===== -->
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Samenvatting</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Eigenschap</th>
+              <th>Waarde</th>
+              <th>Wat het doet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>float</code></td><td><code>left</code> / <code>right</code></td><td>Element zweeft, tekst vloeit ernaast</td></tr>
+            <tr><td><code>clear</code></td><td><code>left</code> / <code>right</code> / <code>both</code></td><td>Verhindert naast een gefloat element staan</td></tr>
+            <tr><td><code>position</code></td><td><code>static</code></td><td>Standaard — in de normale stroom</td></tr>
+            <tr><td><code>position</code></td><td><code>relative</code></td><td>Verschuifbaar + positioneringscontext</td></tr>
+            <tr><td><code>position</code></td><td><code>absolute</code></td><td>Uit de stroom, geplaatst tov gepositioneerde voorouder</td></tr>
+            <tr><td><code>position</code></td><td><code>fixed</code></td><td>Vast tov browservenster, scrolt niet mee</td></tr>
+            <tr><td><code>position</code></td><td><code>sticky</code></td><td>Scrollt mee tot grens, kleeft dan vast</td></tr>
+            <tr><td><code>z-index</code></td><td>getal</td><td>Stapelvolgorde bij overlappende elementen</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Onthoud:</strong> Float en position zijn voor speciale gevallen. Voor de algemene lay-out van je pagina gebruik je altijd Flexbox of Grid.</p>
+      </div>
+
+      <!-- ===== OEFENINGEN ===== -->
+      <h2 id="oefeningen">Oefeningen</h2>
+
+      <div class="oefening">
+        <div class="oefening__header">
+          <span class="oefening__nummer">Oefening 1</span>
+          <span class="oefening__titel">Artikel met float</span>
+          <span class="badge badge--appdev">ADB10</span>
+        </div>
+        <div class="oefening__body">
+          <p>Maak een HTML-pagina <code>artikel.html</code> met:</p>
+          <ul>
+            <li>Een hoofding</li>
+            <li>Twee alinea's tekst</li>
+            <li>Tussen de eerste en tweede alinea: een afbeelding die links zweeft met tekst ernaast</li>
+          </ul>
+          <figure class="chapter-figure">
+            <img src="../../../app-ontwikkeling/images/H14-oef1-browser.svg" alt="Browser-mockup: artikel met h1, een afbeelding gefloat links met tekst ernaast, en een tweede alinea eronder" loading="lazy">
+            <figcaption>Verwacht resultaat: afbeelding zweeft links, tekst vloeit ernaast</figcaption>
+          </figure>
+          <p><strong>Tip:</strong> Gebruik <code>float: left</code> op de afbeelding en voeg een marge toe aan de rechterkant zodat de tekst niet direct aansluit.</p>
+        </div>
+      </div>
+
+      <div class="oefening">
+        <div class="oefening__header">
+          <span class="oefening__nummer">Oefening 2</span>
+          <span class="oefening__titel">Productenkaartje met badge</span>
+          <span class="badge badge--appdev">ADB10</span>
+        </div>
+        <div class="oefening__body">
+          <p>Maak een productenkaartje met een "Nieuw"-badge in de rechterbovenhoek van de productafbeelding.</p>
+          <figure class="chapter-figure">
+            <img src="../../../app-ontwikkeling/images/H14-oef2-browser.svg" alt="Browser-mockup: twee productenkaartjes naast elkaar, het eerste met een rood 'Nieuw' badge in de rechterbovenhoek van de afbeelding" loading="lazy">
+            <figcaption>Verwacht resultaat: rode badge in de rechterbovenhoek van de afbeelding</figcaption>
+          </figure>
+          <p><strong>Tip:</strong> Gebruik <code>position: relative</code> op de kaart-container en <code>position: absolute</code> op de badge. Stel <code>top</code> en <code>right</code> in om de badge te positioneren.</p>
+        </div>
+      </div>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H14 Float en Positioning<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H14-oef2-browser.svg', 'Voorbeeld — Float en positioning')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+                      <h3>Opdracht: Lay-outpagina met positioning</h3>
+          <p>Maak een pagina <code>layout.html</code> met bijhorend <code>layout.css</code>. Je oefent <code>position</code>-eigenschappen in een realistische context.</p>
+          <h4>Deel 1 — Sticky navigatie (3 punten)</h4>
+          <ul>
+            <li>Een navigatiebalk bovenaan die <strong>plakt</strong> terwijl je scrollt: <code>position: sticky; top: 0;</code></li>
+            <li>De navigatie heeft een achtergrondkleur en een subtiele schaduw (<code>box-shadow</code>)</li>
+            <li>De pagina heeft genoeg inhoud om te scrollen (bv. 4 lange secties)</li>
+          </ul>
+          <h4>Deel 2 — Badge op een kaart (3 punten)</h4>
+          <ul>
+            <li>Een of meerdere kaarten met een <strong>badge</strong> in een hoek: bv. "Nieuw" of "Uitverkocht"</li>
+            <li>De kaart heeft <code>position: relative</code>, de badge heeft <code>position: absolute; top: 8px; right: 8px;</code></li>
+          </ul>
+          <h4>Deel 3 — Vaste "Terug naar boven"-knop (4 punten)</h4>
+          <ul>
+            <li>Een knop rechtsonder die <strong>altijd zichtbaar</strong> blijft: <code>position: fixed; bottom: 24px; right: 24px;</code></li>
+            <li>De knop linkt naar de bovenkant van de pagina (<code>href="#"</code>)</li>
+            <li>Geef de knop een cirkelvorm met <code>border-radius: 50%</code> en een opvallende kleur</li>
+            <li>Voeg een <code>:hover</code>-effect toe</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== VRAGENLIJST ===== -->
+      <h2 id="vragenlijst">Vragenlijst</h2>
+
+      <div class="oefening">
+        <div class="oefening__header">
+          <span class="oefening__nummer">Kennistest</span>
+          <span class="oefening__titel">Float en Positioning</span>
+        </div>
+        <div class="oefening__body">
+
+          <div class="vraag" data-type="mc" data-correct="B">
+            <p class="vraag__tekst">1. Waarvoor gebruik je <code>float</code> vandaag nog?</p>
+            <ul class="vraag__keuzes">
+              <li class="vraag__keuze"><label><input type="radio" name="v1" value="A"> <span>Voor de algemene paginalay-out met kolommen</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v1" value="B"> <span>Om tekst om een afbeelding te laten vloeien</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v1" value="C"> <span>Om elementen naast elkaar in een navigatiebalk te zetten</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v1" value="D"> <span>Om een badge op een afbeelding te plaatsen</span></label></li>
+            </ul>
+            <div class="vraag__feedback" style="display:none"></div>
+          </div>
+
+          <div class="vraag" data-type="mc" data-correct="C">
+            <p class="vraag__tekst">2. Wat doet <code>clear: both</code>?</p>
+            <ul class="vraag__keuzes">
+              <li class="vraag__keuze"><label><input type="radio" name="v2" value="A"> <span>Het verwijdert de float-eigenschap van een element</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v2" value="B"> <span>Het wist de inhoud van een element</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v2" value="C"> <span>Het element staat niet naast enig gefloat element</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v2" value="D"> <span>Het drijft het element naar het midden</span></label></li>
+            </ul>
+            <div class="vraag__feedback" style="display:none"></div>
+          </div>
+
+          <div class="vraag" data-type="mc" data-correct="A">
+            <p class="vraag__tekst">3. Welke positie-waarde haalt een element volledig uit de normale documentstroom?</p>
+            <ul class="vraag__keuzes">
+              <li class="vraag__keuze"><label><input type="radio" name="v3" value="A"> <span><code>position: absolute</code></span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v3" value="B"> <span><code>position: relative</code></span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v3" value="C"> <span><code>position: static</code></span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v3" value="D"> <span><code>position: sticky</code></span></label></li>
+            </ul>
+            <div class="vraag__feedback" style="display:none"></div>
+          </div>
+
+          <div class="vraag" data-type="mc" data-correct="D">
+            <p class="vraag__tekst">4. Ten opzichte van wat wordt een <code>position: absolute</code> element geplaatst?</p>
+            <ul class="vraag__keuzes">
+              <li class="vraag__keuze"><label><input type="radio" name="v4" value="A"> <span>Altijd ten opzichte van de <code>body</code></span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v4" value="B"> <span>Altijd ten opzichte van het browservenster</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v4" value="C"> <span>Ten opzichte van het eerste ouderelement</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v4" value="D"> <span>Ten opzichte van de dichtstbijzijnde gepositioneerde voorouder</span></label></li>
+            </ul>
+            <div class="vraag__feedback" style="display:none"></div>
+          </div>
+
+          <div class="vraag" data-type="mc" data-correct="B">
+            <p class="vraag__tekst">5. Wat is het verschil tussen <code>position: fixed</code> en <code>position: sticky</code>?</p>
+            <ul class="vraag__keuzes">
+              <li class="vraag__keuze"><label><input type="radio" name="v5" value="A"> <span>Fixed is moderner dan sticky</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v5" value="B"> <span>Sticky scrollt mee tot een grens en kleeft dan vast; fixed staat altijd vast ten opzichte van het browservenster</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v5" value="C"> <span>Fixed werkt alleen op navigatiebalken; sticky op alle elementen</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v5" value="D"> <span>Ze zijn identiek, alleen de naam verschilt</span></label></li>
+            </ul>
+            <div class="vraag__feedback" style="display:none"></div>
+          </div>
+
+          <div class="vraag" data-type="mc" data-correct="C">
+            <p class="vraag__tekst">6. Op welke elementen werkt <code>z-index</code>?</p>
+            <ul class="vraag__keuzes">
+              <li class="vraag__keuze"><label><input type="radio" name="v6" value="A"> <span>Op alle HTML-elementen</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v6" value="B"> <span>Alleen op <code>div</code>-elementen</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v6" value="C"> <span>Alleen op gepositioneerde elementen (alles behalve static)</span></label></li>
+              <li class="vraag__keuze"><label><input type="radio" name="v6" value="D"> <span>Alleen op elementen met <code>display: flex</code></span></label></li>
+            </ul>
+            <div class="vraag__feedback" style="display:none"></div>
+          </div>
+
+          <button class="btn btn-secondary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+        </div>
+      </div>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H14')" data-progress-key="5adb/app-ontwikkeling/H14">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav"><a href="H13.html" class="btn btn-ghost">&#8592; H13</a><a href="H15.html" class="btn btn-ghost">H15 &#8594;</a></div>
+      </div>
+
+    </div><!-- /chapter-content -->
+  </div><!-- /chapter-layout -->
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

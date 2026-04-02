@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H09 &mdash; Datavisualisatie met Python &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Datavisualisatie met Python &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H09</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-9-datavisualisatie-met-python">Hoofdstuk 9 — Datavisualisatie met Python</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#91-waarom-visualiseren">9.1 Waarom visualiseren?</a></li><li><a href="#92-lijndiagram">9.2 Lijndiagram</a></li><li><a href="#93-staafdiagram">9.3 Staafdiagram</a></li><li><a href="#94-cirkeldiagram">9.4 Cirkeldiagram</a></li><li><a href="#95-grafiek-opslaan-als-bestand">9.5 Grafiek opslaan als bestand</a></li><li><a href="#96-meerdere-grafieken-per-figuur">9.6 Meerdere grafieken per figuur</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h09" style="padding-left:1.25rem">Huistaak H09</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H09 &mdash; Datavisualisatie met Python</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-9-datavisualisatie-met-python">Hoofdstuk 9 — Datavisualisatie met Python</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Verwerken van gegevens met behulp van een programmeertaal <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 4 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>Uitleggen waarom datavisualisatie nuttig is.</li>
+<li>Een lijndiagram, staafdiagram en cirkeldiagram maken met matplotlib.</li>
+<li>Een titel, aslabels en legenda toevoegen aan een grafiek.</li>
+<li>Een grafiek opslaan als afbeelding.</li>
+</ol>
+<h2 id="91-waarom-visualiseren">9.1 Waarom visualiseren?</h2>
+<p>Een tabel met 100 rijen is moeilijk te lezen. Een grafiek toont direct:</p>
+<ul>
+<li>Welke maand de meeste verkopen had</li>
+<li>Hoe scores over de klas verdeeld zijn</li>
+<li>Welk product het populairst is</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Installeer matplotlib via de terminal:</p>
+<pre data-lang=""><code>
+pip install matplotlib
+</code></pre>
+</div>
+<h2 id="92-lijndiagram">9.2 Lijndiagram</h2>
+<p>Een lijndiagram is ideaal om een <strong>evolutie over de tijd</strong> te tonen.</p>
+<pre data-lang="python"><code>
+import matplotlib.pyplot as plt
+
+# Data
+maanden = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun']
+verkopen = [120, 145, 98, 160, 175, 130]
+
+# Grafiek aanmaken
+plt.plot(maanden, verkopen, marker='o', color='blue')
+
+# Labels en titel
+plt.title('Verkopen per maand')
+plt.xlabel('Maand')
+plt.ylabel('Aantal verkopen')
+
+# Tonen
+plt.show()
+</code></pre>
+<p>!<a href="../../images/H09-lijndiagram.png" target="_blank" rel="noopener">Lijndiagram voorbeeld</a></p>
+<p><em>Figuur 9.1 — Lijndiagram van verkopen per maand</em></p>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p><code>marker='o'</code> zet een rondje op elk datapunt. Andere opties: <code>'s'</code> (vierkant), <code>'^'</code> (driehoek), <code>'*'</code> (ster).</p>
+</div>
+<h2 id="93-staafdiagram">9.3 Staafdiagram</h2>
+<p>Een staafdiagram toont een <strong>vergelijking tussen categorieën</strong>.</p>
+<pre data-lang="python"><code>
+import matplotlib.pyplot as plt
+
+# Data
+vakken = ['Netwerken', 'App-ontwikkeling', 'Databeheer', 'E-STEM']
+gemiddelden = [12.5, 14.2, 11.8, 13.1]
+
+# Grafiek
+plt.bar(vakken, gemiddelden, color='steelblue')
+
+# Labels
+plt.title('Gemiddelde score per vak — 5ADB')
+plt.xlabel('Vak')
+plt.ylabel('Gemiddelde score (/20)')
+
+# Y-as van 0 tot 20
+plt.ylim(0, 20)
+
+plt.show()
+</code></pre>
+<p>!<a href="../../images/H09-staafdiagram.png" target="_blank" rel="noopener">Staafdiagram voorbeeld</a></p>
+<p><em>Figuur 9.2 — Staafdiagram met gemiddelde scores per vak</em></p>
+<h2 id="94-cirkeldiagram">9.4 Cirkeldiagram</h2>
+<p>Een cirkeldiagram toont <strong>verhoudingen</strong> (hoe groot is elk stuk van het geheel).</p>
+<pre data-lang="python"><code>
+import matplotlib.pyplot as plt
+
+# Data
+categorieën = ['Elektronica', 'Kleding', 'Voeding', 'Sport']
+aandelen = [35, 25, 20, 20]
+
+# Grafiek
+plt.pie(aandelen, labels=categorieën, autopct='%1.1f%%', startangle=90)
+
+plt.title('Verkopen per categorie')
+
+plt.show()
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p><code>autopct='%1.1f%%'</code> toont het percentage op elk taartpunt. <code>startangle=90</code> begint het eerste stuk bovenaan.</p>
+</div>
+<h2 id="95-grafiek-opslaan-als-bestand">9.5 Grafiek opslaan als bestand</h2>
+<pre data-lang="python"><code>
+import matplotlib.pyplot as plt
+
+maanden = ['Jan', 'Feb', 'Mar']
+verkopen = [120, 145, 98]
+
+plt.bar(maanden, verkopen, color='green')
+plt.title('Verkopen Q1')
+
+# Opslaan VOOR plt.show()
+plt.savefig('verkopen_q1.png', dpi=150)
+
+plt.show()
+print("Grafiek opgeslagen!")
+</code></pre>
+<h2 id="96-meerdere-grafieken-per-figuur">9.6 Meerdere grafieken per figuur</h2>
+<pre data-lang="python"><code>
+import matplotlib.pyplot as plt
+
+# Twee grafieken naast elkaar
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+
+# Eerste grafiek
+ax1.bar(['Jan', 'Feb', 'Mar'], [120, 145, 98], color='steelblue')
+ax1.set_title('Verkopen Q1')
+
+# Tweede grafiek
+ax2.plot(['Jan', 'Feb', 'Mar'], [12.5, 13.2, 11.8], marker='o', color='red')
+ax2.set_title('Gemiddelde score Q1')
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+import matplotlib.pyplot as plt
+
+namen = ['Jan', 'Sara', 'Raf', 'Lena', 'Tom']
+scores = [14, 17, 9, 12, 15]
+
+kleuren = ['green' if s &gt;= 10 else 'red' for s in scores]
+
+plt.bar(namen, scores, color=kleuren)
+plt.axhline(y=10, color='black', linestyle='--', label='Grens geslaagd')
+plt.title('Scores toets 1 — 5ADB')
+plt.ylabel('Score (/20)')
+plt.ylim(0, 20)
+plt.legend()
+plt.savefig('scores_toets1.png')
+plt.show()
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+import openpyxl
+import matplotlib.pyplot as plt
+
+# Excel inlezen
+wb = openpyxl.load_workbook('maandrapport.xlsx')
+ws = wb.active
+
+maanden = []
+verkopen = []
+
+for rij in ws.iter_rows(min_row=2, values_only=True):
+if rij[0] and rij[1]:
+maanden.append(rij[0])
+verkopen.append(rij[1])
+
+# Grafiek
+plt.plot(maanden, verkopen, marker='o')
+plt.title('Maandrapport')
+plt.xlabel('Maand')
+plt.ylabel('Verkopen')
+plt.savefig('maandrapport.png')
+plt.show()
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h09-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 9.1</span>
+    <span class="oefening__title">Grafiektypes kiezen en maken</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je werkt met de scores van 5 leerlingen op een toets. Test je kennis van de matplotlib-bibliotheek en het kiezen van het juiste grafietype.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk grafietype gebruik je om de scores van 5 leerlingen naast elkaar te vergelijken?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q1" value="a"><span>Lijndiagram (<code>plt.plot</code>)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q1" value="b"><span>Cirkeldiagram (<code>plt.pie</code>)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q1" value="c"><span>Staafdiagram (<code>plt.bar</code>)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q1" value="d"><span>Spreidingsdiagram (<code>plt.scatter</code>)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Staafdiagram (plt.bar) — perfect voor vergelijking tussen categorieën (hier: leerlingen). Lijndiagrammen zijn voor evolutie over tijd"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="plt.savefig|savefig|plt.savefig()">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke matplotlib-functie gebruik je om een grafiek op te slaan als afbeeldingsbestand?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de functienaam...">
+      <div class="vraag__feedback" data-correct-label="plt.savefig() — bijv. plt.savefig('toets1.png'). Let op: roep savefig() op VÓÓR plt.show(), anders is de grafiek al gewist"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Je hebt maandelijkse verkoopscijfers over 12 maanden. Welk grafietype toont de evolutie het best?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q3" value="a"><span>Lijndiagram — toont evolutie over de tijd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q3" value="b"><span>Cirkeldiagram — toont verhoudingen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q3" value="c"><span>Staafdiagram — vergelijkt categorieën</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q3" value="d"><span>Alle types zijn even geschikt</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Lijndiagram — een lijndiagram verbindt de datapunten en maakt de trend over tijd duidelijk zichtbaar (stijging, daling, pieken)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Hoe voeg je een titel toe aan een matplotlib-grafiek?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q4" value="a"><span><code>plt.add_title('Mijn grafiek')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q4" value="b"><span><code>plt.header('Mijn grafiek')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q4" value="c"><span><code>plt.set_title('Mijn grafiek')</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-1-q4" value="d"><span><code>plt.title('Mijn grafiek')</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="plt.title('Mijn grafiek') — voegt een titel toe. Gebruik ook plt.xlabel() en plt.ylabel() voor de aslabels"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h09-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 9.2</span>
+    <span class="oefening__title">Maandelijkse bezoekers visualiseren</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Gegeven data: maandelijkse bezoekers van een website: Jan=1200, Feb=1450, Mar=980, Apr=1600, Mei=1750.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk grafietype past <em>het best</em> bij het tonen van de bezoekersevolutie over de 5 maanden?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q1" value="a"><span>Cirkeldiagram — toont de verhouding per maand</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q1" value="b"><span>Lijndiagram — verbindt de punten en toont de trend over de tijd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q1" value="c"><span>Staafdiagram — vergelijkt de maanden naast elkaar</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q1" value="d"><span>Alle types zijn even goed</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Lijndiagram — voor tijdreeksen is een lijndiagram de beste keuze omdat het de trend en evolutie duidelijk maakt. Een staafdiagram kan ook maar toont minder goed de verbinding in de tijd"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="import matplotlib.pyplot as plt|matplotlib|matplotlib.pyplot">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Hoe importeer je de matplotlib-module voor grafieken? (standaard alias)</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de importregel...">
+      <div class="vraag__feedback" data-correct-label="import matplotlib.pyplot as plt — de conventionele manier, zodat je plt.plot(), plt.bar(), plt.show() etc. kan gebruiken"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat doet <code>marker='o'</code> bij een lijndiagram?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q3" value="a"><span>Maakt de lijn oranje</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q3" value="b"><span>Voegt een originele stijl toe</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q3" value="c"><span>Plaatst een rondje op elk datapunt</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h09-2-q3" value="d"><span>Optimaliseert de grafiek</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Plaatst een rondje op elk datapunt — andere opties: 's' (vierkant), '^' (driehoek), '*' (ster). Dit maakt de individuele datapunten zichtbaar op de lijn"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h09">Huistaak H09</h3>
+<p><strong>Dataset visualiseren</strong></p>
+<p>Kies een dataset naar keuze (bv. jouw toetsscores dit jaar, sportresultaten, het weer, ...).</p>
+<p><strong>Opdracht:</strong></p>
+<ol>
+<li>Verzamel minimaal 5 datapunten.</li>
+<li>Maak <strong>twee verschillende grafiektypes</strong> (bv. een lijndiagram EN een staafdiagram).</li>
+<li>Geef elke grafiek een titel en aslabels.</li>
+<li>Sla beide grafieken op als PNG-bestand.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H09-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>Datavisualisatie</strong> maakt patronen in data zichtbaar die in een tabel moeilijk te zien zijn.</li>
+<li><strong>Lijndiagram</strong> (<code>plt.plot</code>): evolutie over tijd.</li>
+<li><strong>Staafdiagram</strong> (<code>plt.bar</code>): vergelijking tussen categorieën.</li>
+<li><strong>Cirkeldiagram</strong> (<code>plt.pie</code>): verhoudingen.</li>
+<li>Altijd toevoegen: titel (<code>plt.title</code>), aslabels (<code>plt.xlabel</code>, <code>plt.ylabel</code>).</li>
+<li>Grafiek opslaan: <code>plt.savefig('naam.png')</code> — vóór <code>plt.show()</code>!</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Verwerken van gegevens met behulp van een programmeertaal <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H09">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H08.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H08 &mdash; Python, Excel en JSON</span></div></a>
+          <a href="H10.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H10 &mdash; Miniproject 5ADB</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

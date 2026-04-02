@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H13" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-css-grid">13.1 Wat is CSS Grid?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.2"><span class="sidebar-check__box"></span></label>
+          <a href="#grid-vs-flexbox">13.2 Grid vs. Flexbox</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.3"><span class="sidebar-check__box"></span></label>
+          <a href="#een-grid-aanmaken">13.3 Een grid aanmaken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.4"><span class="sidebar-check__box"></span></label>
+          <a href="#kolommen-definieren">13.4 Kolommen definiëren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.5"><span class="sidebar-check__box"></span></label>
+          <a href="#de-fr-eenheid">13.5 De fr-eenheid</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.6"><span class="sidebar-check__box"></span></label>
+          <a href="#rijen-definieren">13.6 Rijen definiëren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.7"><span class="sidebar-check__box"></span></label>
+          <a href="#gap-in-grid">13.7 gap</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.8"><span class="sidebar-check__box"></span></label>
+          <a href="#repeat-functie">13.8 repeat()</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.9"><span class="sidebar-check__box"></span></label>
+          <a href="#auto-fill-auto-fit">13.9 auto-fill en auto-fit</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.10"><span class="sidebar-check__box"></span></label>
+          <a href="#span-technieken">13.10 Span-technieken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.11"><span class="sidebar-check__box"></span></label>
+          <a href="#fotogalerij">13.11 Fotogalerij</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>CSS Grid</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H13 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">CSS Grid</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat CSS Grid is en wanneer je het gebruikt</li>
+          <li>Het verschil kennen tussen Grid en Flexbox</li>
+          <li><code>display: grid</code>, <code>grid-template-columns</code> en <code>grid-template-rows</code> toepassen</li>
+          <li>De <code>fr</code>-eenheid begrijpen en gebruiken</li>
+          <li><code>gap</code> instellen voor ruimte in een grid</li>
+          <li><code>auto-fill</code> en <code>auto-fit</code> gebruiken voor automatische kolommen</li>
+          <li>Eenvoudige span-technieken gebruiken (<code>grid-column</code>, <code>grid-row</code>)</li>
+          <li>Een fotogalerij en kaartenlay-out bouwen</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-css-grid">1. Wat is CSS Grid?</h2>
+      <p>In <strong>maart 2017</strong> implementeerden alle grote browsers CSS Grid op dezelfde weken. Dat was groot nieuws, want <strong>designers</strong> zijn van oudsher opgeleid om met <strong>rasters</strong> te werken.</p>
+      <p>Voor die tijd gebruikte men floats of CSS-frameworks zoals Bootstrap. CSS Grid is de moderne, ingebouwde oplossing.</p>
+      <p><strong>Wat doet Grid?</strong> Grid laat je toe om een <strong>tweedimensionaal raster</strong> te definiëren: rijen én kolommen tegelijk. Je plaatst daarna elementen in dat raster.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H13-afb1.svg" alt="Overzicht van een CSS Grid — kolommen, rijen en cellen" loading="lazy">
+      </figure>
+
+      <h2 id="grid-vs-flexbox">2. Grid vs. Flexbox — wanneer gebruik je wat?</h2>
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Vuistregel</div>
+        <p>"Flexbox is for one-dimensional layout. A row OR a column. Grid is for two-dimensional layout. Rows AND columns." — Rachel Andrew</p>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Situatie</th><th>Gebruik</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Navigatiebalk (één rij)</td><td>Flexbox</td></tr>
+          <tr><td>Kaartjes naast elkaar (één rij)</td><td>Flexbox of Grid</td></tr>
+          <tr><td>Volledig paginalay-out (rijen én kolommen)</td><td>Grid</td></tr>
+          <tr><td>Fotogalerij</td><td>Grid</td></tr>
+          <tr><td>Elementen centreren</td><td>Flexbox</td></tr>
+          <tr><td>Dashboard met kolommen en rijen</td><td>Grid</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="een-grid-aanmaken">3. Een grid aanmaken</h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: grid;
+}</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div class="container"&gt;    &lt;!-- grid-container --&gt;
+    &lt;div&gt;Item 1&lt;/div&gt;      &lt;!-- grid-item --&gt;
+    &lt;div&gt;Item 2&lt;/div&gt;      &lt;!-- grid-item --&gt;
+    &lt;div&gt;Item 3&lt;/div&gt;      &lt;!-- grid-item --&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <p>Zonder verdere instellingen plaatst Grid alle items automatisch onder elkaar (één kolom).</p>
+
+      <h2 id="kolommen-definieren">4. Kolommen definiëren: <code>grid-template-columns</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px; /* drie kolommen van 200px */
+}</code></pre>
+      </div>
+      <p>Pixels zijn niet flexibel. Daarvoor hebben we de <code>fr</code>-eenheid.</p>
+
+      <h2 id="de-fr-eenheid">5. De <code>fr</code>-eenheid — fractions</h2>
+      <p><code>fr</code> staat voor <strong>fraction</strong> (breuk). Het verdeelt de beschikbare ruimte proportioneel.</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Drie gelijke kolommen */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Twee kolommen: één smal (1 deel) en één breed (2 delen) */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+/* Zijbalk van 250px, rest van de ruimte voor de inhoud */
+.pagina {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}</code></pre>
+      </div>
+
+      <h2 id="rijen-definieren">6. Rijen definiëren: <code>grid-template-rows</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 200px; /* eerste rij 100px, tweede rij 200px */
+}</code></pre>
+      </div>
+      <p>In de meeste gevallen definieer je alleen kolommen en laat je de rijen automatisch bepalen. Grid is slim genoeg om de rijen te berekenen op basis van de inhoud.</p>
+
+      <h2 id="gap-in-grid">7. Ruimte tussen cellen: <code>gap</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;           /* gelijke ruimte rondom en boven/onder */
+    /* of: */
+    gap: 1rem 2rem;      /* rij-gap | kolom-gap */
+}</code></pre>
+      </div>
+
+      <h2 id="repeat-functie">8. De <code>repeat()</code>-functie</h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Drie gelijke kolommen — omslachtig: */
+grid-template-columns: 1fr 1fr 1fr;
+
+/* Zelfde, maar met repeat — beter: */
+grid-template-columns: repeat(3, 1fr);
+
+/* Vier kolommen van 200px: */
+grid-template-columns: repeat(4, 200px);</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H13-afb2.svg" alt="Gebruik van repeat(), fr-eenheid en gap in een grid" loading="lazy">
+      </figure>
+
+      <h2 id="auto-fill-auto-fit">9. Automatische kolommen: <code>auto-fill</code> en <code>auto-fit</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}</code></pre>
+      </div>
+      <p><strong>Wat doet dit?</strong></p>
+      <ul>
+        <li><code>auto-fill</code>: Maak zoveel kolommen als er passen</li>
+        <li><code>minmax(200px, 1fr)</code>: Elke kolom is minstens 200px breed en maximaal 1fr</li>
+      </ul>
+      <p><strong>Resultaat:</strong> Op een breed scherm staan er veel kolommen naast elkaar. Op een smal scherm worden het automatisch minder kolommen. <strong>Geen media queries nodig!</strong></p>
+      <p>Het verschil tussen <code>auto-fill</code> en <code>auto-fit</code>:</p>
+      <ul>
+        <li><code>auto-fill</code>: Houdt lege kolommen aan als er niet genoeg items zijn</li>
+        <li><code>auto-fit</code>: Laat de bestaande items uitrekken als er lege kolommen zouden zijn</li>
+      </ul>
+
+      <h2 id="span-technieken">10. Items over meerdere kolommen/rijen laten lopen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.groot-item {
+    grid-column: span 2; /* dit item neemt 2 kolommen in */
+}
+
+.lang-item {
+    grid-row: span 2; /* dit item neemt 2 rijen in */
+}</code></pre>
+      </div>
+      <p><strong>Voorbeeld: een uitgelicht kaartje</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.kaart--uitgelicht {
+    grid-column: span 2; /* neemt twee kolommen in */
+}</code></pre>
+      </div>
+
+      <h2 id="fotogalerij">11. Een fotogalerij bouwen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;section class="galerij"&gt;
+    &lt;figure&gt;&lt;img src="foto1.jpg" alt="Berg"&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;img src="foto2.jpg" alt="Zee"&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;img src="foto3.jpg" alt="Bos"&gt;&lt;/figure&gt;
+    &lt;figure&gt;&lt;img src="foto4.jpg" alt="Stad"&gt;&lt;/figure&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.galerij {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.galerij figure {
+    margin: 0;
+}
+
+.galerij img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* afbeelding wordt bijgesneden maar niet vervormd */
+    display: block;
+}</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p><code>object-fit: cover</code> is erg handig: de afbeelding vult de ruimte volledig maar wordt niet vervormd — ze wordt bijgesneden als dat nodig is.</p>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H13-afb3.svg" alt="Fotogalerij gebouwd met CSS Grid en auto-fill" loading="lazy">
+      </figure>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 1 — Fotogalerij</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een HTML-bestand <code>galerij.html</code> met een fotogalerij van minstens 6 afbeeldingen (gebruik placeholder-afbeeldingen van <a href="https://picsum.photos" target="_blank">picsum.photos</a>).</p>
+            <p>Eisen:</p>
+            <ol>
+              <li>Gebruik <code>display: grid</code> met <code>auto-fill</code></li>
+              <li>Minimale kolombreedte van 200px</li>
+              <li>Ruimte van <code>1rem</code> tussen de foto's</li>
+              <li>Foto's vullen hun cel volledig maar worden niet vervormd (<code>object-fit: cover</code>)</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H13-oef1-browser.svg" alt="Browser-mockup: fotogalerij met 6 foto's in een responsief CSS Grid" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H13 CSS Grid<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H13-oef1-browser.svg', 'Voorbeeld — CSS Grid layout')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+                      <h3>Opdracht: CSS Grid portfolio</h3>
+          <p>Maak een pagina <code>portfolio.html</code> met bijhorend <code>portfolio.css</code>. Je bouwt een portfoliopagina voor een fictieve web developer. De volledige lay-out wordt gebouwd met <strong>CSS Grid</strong>.</p>
+          <h4>Deel 1 — Paginastructuur met Grid (4 punten)</h4>
+          <ul>
+            <li>Gebruik <code>display: grid</code> op het <code>&lt;body&gt;</code>-element of een wrapper met de rijen: header, nav, main, footer</li>
+            <li>De <code>&lt;header&gt;</code> en <code>&lt;footer&gt;</code> nemen de volledige breedte in</li>
+            <li>Gebruik <code>grid-template-areas</code> om de lay-out visueel te definiëren</li>
+          </ul>
+          <h4>Deel 2 — Projectenraster (4 punten)</h4>
+          <ul>
+            <li>Een sectie met minstens <strong>6 projectkaarten</strong> in een grid van 3 kolommen</li>
+            <li>Gebruik <code>repeat(3, 1fr)</code> of <code>repeat(auto-fill, minmax(200px, 1fr))</code></li>
+            <li>Eén kaart neemt <strong>2 kolommen breed</strong> in via <code>grid-column: span 2</code></li>
+            <li>Gebruik <code>gap</code> voor de tussenruimte</li>
+          </ul>
+          <h4>Deel 3 — Responsief (2 punten)</h4>
+          <ul>
+            <li>Pas een <code>@media</code>-query toe: op smallere schermen (&lt; 640px) worden de projectkaarten 1 kolom breed</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H13 — CSS Grid</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat doet <code>grid-template-columns: repeat(3, 1fr)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="a"> <span>Maakt drie gelijke kolommen die de beschikbare breedte verdelen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="b"> <span>Maakt drie rijen van gelijke hoogte</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="c"> <span>Herhaalt de grid-inhoud drie keer</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="d"> <span>Maakt drie kolommen van elk 1 pixel breed</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat betekent <code>fr</code> in CSS Grid?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="a"> <span>Fixed row</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="b"> <span>Full relative</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="c"> <span>Fraction — een breuk van de beschikbare ruimte</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="d"> <span>Frame ratio</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>grid-column: span 2</code> op een grid-item?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="a"> <span>Plaatst het item in de tweede kolom</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="b"> <span>Laat het item twee kolommen innemen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="c"> <span>Voegt twee kolommen toe aan het grid</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="d"> <span>Verbergt het item in twee kolommen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat doet <code>repeat(auto-fill, minmax(200px, 1fr))</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="a"> <span>Maakt altijd exact 200 kolommen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="b"> <span>Vult het grid automatisch met items van 200px</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="c"> <span>Beperkt het grid tot maximaal 1 kolom van 200px</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="d"> <span>Maakt automatisch zoveel kolommen van minstens 200px als er passen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke CSS-eigenschap gebruik je om een afbeelding haar cel volledig te laten vullen zonder vervorming?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="a"> <span><code>image-fit: cover</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="b"> <span><code>object-fit: cover</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="c"> <span><code>background-size: cover</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="d"> <span><code>img-size: fill</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wanneer kies je voor CSS Grid in plaats van Flexbox?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="a"> <span>Altijd — Grid is moderner en beter</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="b"> <span>Voor navigatiebalken en horizontale lijsten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="c"> <span>Voor tweedimensionale lay-out met rijen én kolommen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="d"> <span>Nooit — Flexbox vervangt Grid volledig</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H13')" data-progress-key="5adb/app-ontwikkeling/H13">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H12.html" class="btn btn-ghost">← H12</a> <a href="H14.html" class="btn btn-ghost">H14 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

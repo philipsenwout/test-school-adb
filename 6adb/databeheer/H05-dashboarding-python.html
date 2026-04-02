@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 &mdash; Dashboarding met Python &mdash; Databeheer 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H05</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. pandas van query-resultaat</a></li>
+        <li><a href="#s2">2. groupby en aggregatie</a></li>
+        <li><a href="#s3">3. matplotlib subplots</a></li>
+        <li><a href="#s4">4. Grafiekentypen</a></li>
+        <li><a href="#s5">5. Volledig dashboard</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-data">
+      <div class="page-header__vak">&#128202; Databeheer &mdash; H05</div>
+      <h1 class="page-header__title">Dashboarding met Python</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">4 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-DB-13] Datavisualisatie en dashboarding met pandas en matplotlib &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. pandas DataFrame van een query-resultaat</h2>
+    <p>pandas heeft een ingebouwde functie om direct een DataFrame te maken vanuit een databasequery via <code>pd.read_sql()</code>:</p>
+    <pre><code>import pandas as pd
+import mysql.connector
+import matplotlib.pyplot as plt
+
+# Verbinding maken
+verbinding = mysql.connector.connect(
+    host="localhost", user="root",
+    password="geheim", database="winkel_db"
+)
+
+# Direct een DataFrame laden vanuit een query
+df_bestellingen = pd.read_sql("""
+    SELECT
+        b.bestelling_id,
+        k.naam AS klant,
+        k.stad,
+        b.besteldatum,
+        SUM(br.aantal * p.prijs) AS totaal
+    FROM bestellingen b
+    JOIN klanten k             ON b.klant_id = k.klant_id
+    JOIN bestelling_regels br  ON b.bestelling_id = br.bestelling_id
+    JOIN producten p            ON br.product_id = p.product_id
+    GROUP BY b.bestelling_id, k.naam, k.stad, b.besteldatum
+""", verbinding)
+
+verbinding.close()
+
+print(df_bestellingen.head())
+print(df_bestellingen.dtypes)  # datatypes controleren</code></pre>
+    <div class="callout callout--tip">
+      <div class="callout__title">Tip &mdash; pd.read_sql vs. cursor.fetchall()</div>
+      <p><code>pd.read_sql()</code> is de eenvoudigste manier: het voert de query uit en laadt het resultaat direct in een DataFrame. Alternatieven: <code>cursor.fetchall()</code> gevolgd door <code>pd.DataFrame(rijen)</code>. Beide werken, maar <code>pd.read_sql()</code> is compacter.</p>
+    </div>
+
+    <h2 id="s2">2. groupby en aggregatie in pandas</h2>
+    <pre><code># Datumkolom omzetten naar datetime
+df_bestellingen["besteldatum"] = pd.to_datetime(df_bestellingen["besteldatum"])
+
+# Maand extracteren
+df_bestellingen["maand"] = df_bestellingen["besteldatum"].dt.to_period("M")
+
+# Omzet per maand
+omzet_per_maand = df_bestellingen.groupby("maand")["totaal"].sum().reset_index()
+print(omzet_per_maand)
+
+# Meerdere aggregaties tegelijk
+analyse = df_bestellingen.groupby("stad").agg(
+    bestellingen = ("bestelling_id", "count"),
+    totaal_omzet = ("totaal",        "sum"),
+    gem_bedrag   = ("totaal",        "mean"),
+    max_bedrag   = ("totaal",        "max")
+).reset_index()
+
+analyse["gem_bedrag"] = analyse["gem_bedrag"].round(2)
+print(analyse.sort_values("totaal_omzet", ascending=False))</code></pre>
+
+    <h2 id="s3">3. matplotlib subplots</h2>
+    <p>Met <code>plt.subplots(rijen, kolommen)</code> maak je een grid van grafieken in &eacute;&eacute;n figuur:</p>
+    <pre><code>fig, assen = plt.subplots(2, 2, figsize=(14, 10))
+fig.suptitle("Verkoopdashboard 2025", fontsize=16, fontweight="bold")
+
+# assen[rij][kolom] of assen[rij, kolom] voor toegang
+ax1 = assen[0, 0]
+ax2 = assen[0, 1]
+ax3 = assen[1, 0]
+ax4 = assen[1, 1]</code></pre>
+
+    <h2 id="s4">4. Grafiekentypen</h2>
+    <pre><code># --- Lijndiagram: omzet per maand ---
+maanden = omzet_per_maand["maand"].astype(str)
+ax1.plot(maanden, omzet_per_maand["totaal"],
+         marker="o", color="#6C63FF", linewidth=2)
+ax1.set_title("Maandelijkse omzet")
+ax1.set_xlabel("Maand")
+ax1.set_ylabel("Omzet (EUR)")
+ax1.tick_params(axis="x", rotation=45)
+ax1.grid(True, alpha=0.3)
+
+# --- Staafdiagram: bestellingen per stad ---
+ax2.bar(analyse["stad"], analyse["bestellingen"],
+        color=["#6C63FF", "#FF6584", "#43E97B", "#F7971E"])
+ax2.set_title("Bestellingen per stad")
+ax2.set_xlabel("Stad")
+ax2.set_ylabel("Aantal")
+
+# --- Taartdiagram: omzet-aandeel per stad ---
+ax3.pie(analyse["totaal_omzet"], labels=analyse["stad"],
+        autopct="%1.1f%%", startangle=90)
+ax3.set_title("Omzetverdeling per stad")
+
+# --- Horizontaal staafdiagram: gemiddeld bedrag per stad ---
+ax4.barh(analyse["stad"], analyse["gem_bedrag"], color="#6C63FF")
+ax4.set_title("Gemiddeld bestelbedrag per stad")
+ax4.set_xlabel("EUR")
+
+plt.tight_layout()
+plt.savefig("dashboard.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+
+    <h2 id="s5">5. Volledig dashboard script</h2>
+    <pre><code>import pandas as pd
+import mysql.connector
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
+def laad_data():
+    """Verbinding maken en data ophalen als DataFrames."""
+    conn = mysql.connector.connect(
+        host="localhost", user="root",
+        password="geheim", database="winkel_db"
+    )
+    df_orders = pd.read_sql("""
+        SELECT b.bestelling_id,
+               k.naam AS klant, k.stad,
+               b.besteldatum,
+               p.categorie,
+               SUM(br.aantal * p.prijs) AS totaal
+        FROM bestellingen b
+        JOIN klanten k ON b.klant_id = k.klant_id
+        JOIN bestelling_regels br ON b.bestelling_id = br.bestelling_id
+        JOIN producten p ON br.product_id = p.product_id
+        GROUP BY b.bestelling_id, k.naam, k.stad, b.besteldatum, p.categorie
+    """, conn)
+    conn.close()
+    df_orders["besteldatum"] = pd.to_datetime(df_orders["besteldatum"])
+    df_orders["maand"] = df_orders["besteldatum"].dt.month
+    return df_orders
+
+def maak_dashboard(df):
+    """Dashboard met 4 grafieken opbouwen."""
+    fig, assen = plt.subplots(2, 2, figsize=(14, 10))
+    fig.suptitle("Verkoopdashboard", fontsize=18, fontweight="bold", y=1.02)
+
+    # 1. Omzet per maand
+    per_maand = df.groupby("maand")["totaal"].sum()
+    assen[0,0].plot(per_maand.index, per_maand.values,
+                    marker="o", color="#6C63FF")
+    assen[0,0].set_title("Maandelijkse omzet")
+
+    # 2. Omzet per categorie
+    per_cat = df.groupby("categorie")["totaal"].sum().sort_values(ascending=False)
+    assen[0,1].bar(per_cat.index, per_cat.values, color="#FF6584")
+    assen[0,1].set_title("Omzet per categorie")
+    assen[0,1].tick_params(axis="x", rotation=30)
+
+    # 3. Taartdiagram steden
+    per_stad = df.groupby("stad")["totaal"].sum()
+    assen[1,0].pie(per_stad, labels=per_stad.index, autopct="%1.1f%%")
+    assen[1,0].set_title("Omzet per stad")
+
+    # 4. Top-10 klanten
+    top_klanten = df.groupby("klant")["totaal"].sum().nlargest(10)
+    assen[1,1].barh(top_klanten.index, top_klanten.values, color="#43E97B")
+    assen[1,1].set_title("Top 10 klanten")
+
+    plt.tight_layout()
+    plt.savefig("dashboard.png", dpi=150, bbox_inches="tight")
+    print("Dashboard opgeslagen als dashboard.png")
+
+# Uitvoeren
+df = laad_data()
+maak_dashboard(df)</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="db6-h05-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 5.1</span>
+        <span class="oefening__title">pandas + matplotlib dashboard</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van het bouwen van een datavisualisatie-dashboard op basis van een MySQL-database via pandas en matplotlib.</p>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welke pandas-functie laadt een SQL-queryresultaat direct in een DataFrame?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>pd.from_sql()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>pd.load_sql()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>pd.read_sql()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>pd.query_sql()</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="pd.read_sql(query, verbinding) — de meest compacte manier om een SQL-query uit te voeren en het resultaat direct als DataFrame te laden."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Je wil per stad de totale omzet, het aantal bestellingen én het gemiddelde bedrag tegelijk berekenen. Welke pandas-methode gebruik je?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>df.groupby("stad")["totaal"].sum()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>df.groupby("stad").agg({"totaal": ["sum", "count", "mean"]})</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>df.pivot_table()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>df.groupby("stad").describe()</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="groupby().agg() met een dictionary van aggregaties — je kan meerdere aggregatiefuncties tegelijk toepassen op dezelfde kolom of meerdere kolommen."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="assen[0, 0]|assen[0][0]|ax1">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Na <code>fig, assen = plt.subplots(2, 2)</code>, hoe spreek je de subplot linksboven aan?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de notatie...">
+          <div class="vraag__feedback" data-correct-label="assen[0, 0] of assen[0][0] — rij 0, kolom 0 = linksboven. Je kan ook unpacking gebruiken: ax1, ax2 = assen[0]."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,b,d">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Welke matplotlib-functies maak je een grafiek aan op een Axes-object <code>ax</code>?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span><code>ax.plot(x, y)</code> — lijndiagram</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span><code>ax.bar(x, y)</code> — staafdiagram</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span><code>ax.draw(x, y)</code> — vrij tekenen</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span><code>ax.barh(x, y)</code> — horizontaal staafdiagram</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="A, B en D zijn correcte matplotlib-methoden voor grafieken op een Axes. ax.draw() bestaat niet als grafiekmethode."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li><code>pd.read_sql(query, verbinding)</code> laadt queryresultaten direct in een DataFrame.</li>
+        <li><code>groupby("kolom").agg({...})</code> groepeert en aggregeert meerdere kolommen tegelijk.</li>
+        <li><code>plt.subplots(r, k)</code> maakt een r&times;k grid van grafieken. Toegang via <code>assen[rij, kolom]</code>.</li>
+        <li>Grafiektypes: <code>plot()</code> (lijn), <code>bar()</code> (staaf), <code>barh()</code> (horizontaal), <code>pie()</code> (taart).</li>
+        <li><code>plt.savefig("bestand.png", dpi=150)</code> exporteert de grafiek.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H05</h2>
+    <p>Maak een volledig verkoopdashboard voor de winkel_db:</p>
+    <ol>
+      <li>Laad alle benodigde data via SQL-queries in pandas DataFrames.</li>
+      <li>Bereken: omzet per maand, top-5 producten, omzet per categorie, gemiddeld bedrag per stad.</li>
+      <li>Maak een dashboard van 2x3 grafieken (6 totaal) met een consistente kleurstijl.</li>
+      <li>Voeg annotaties toe: het maximum op de lijndiagram, percentages op de taart.</li>
+      <li>Sla op als <code>dashboard-2025.png</code>.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/databeheer/H05">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H04-python-database-koppeling.html" class="btn btn-secondary">&larr; H04 &mdash; Python + Database</a>
+      <a href="H06-gip-backend-voorbereiding.html" class="btn btn-secondary">H06 &mdash; GIP Backend &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

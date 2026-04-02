@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulieren — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H07" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-een-formulier">7.1 Wat is een formulier?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.2"><span class="sidebar-check__box"></span></label>
+          <a href="#het-form-element">7.2 Het &lt;form&gt; element</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.3"><span class="sidebar-check__box"></span></label>
+          <a href="#het-label-element">7.3 Het &lt;label&gt; element</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.4"><span class="sidebar-check__box"></span></label>
+          <a href="#invoervelden-met-input">7.4 Invoervelden met &lt;input&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.5"><span class="sidebar-check__box"></span></label>
+          <a href="#keuzemenut-select-option">7.5 Keuzemenu met &lt;select&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.6"><span class="sidebar-check__box"></span></label>
+          <a href="#groot-tekstveld-textarea">7.6 &lt;textarea&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.7"><span class="sidebar-check__box"></span></label>
+          <a href="#knoppen-met-button">7.7 Knoppen met &lt;button&gt;</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.8"><span class="sidebar-check__box"></span></label>
+          <a href="#volledig-formulier">7.8 Volledig formulier</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.9"><span class="sidebar-check__box"></span></label>
+          <a href="#fieldset-en-legend">7.9 Fieldset en legend</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.10"><span class="sidebar-check__box"></span></label>
+          <a href="#form-usability">7.10 Form usability</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Formulieren</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H07 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Formulieren</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een formulier aanmaken met <code>&lt;form&gt;</code> en de attributen <code>action</code> en <code>method</code> uitleggen</li>
+          <li>Inputvelden aanmaken voor tekst, e-mail, getal, wachtwoord, checkbox en radio</li>
+          <li>Labels correct koppelen aan inputvelden via <code>for</code> en <code>id</code></li>
+          <li>Een keuzelijst maken met <code>&lt;select&gt;</code> en <code>&lt;option&gt;</code></li>
+          <li>Een groot tekstveld aanmaken met <code>&lt;textarea&gt;</code></li>
+          <li>Een knop aanmaken met <code>&lt;button type="submit"&gt;</code></li>
+          <li>De 10 richtlijnen voor bruikbare formulieren toepassen</li>
+          <li>Uitleggen waarom je geen resetknop gebruikt</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-een-formulier">7.1 Wat is een formulier?</h2>
+      <p>Een formulier (<code>&lt;form&gt;</code>) is de manier waarop een HTML-pagina <strong>gegevens van de gebruiker ophaalt</strong> en verstuurt. Denk aan:</p>
+      <ul>
+        <li>Een inlogpagina (gebruikersnaam + wachtwoord)</li>
+        <li>Een contactformulier (naam, e-mail, bericht)</li>
+        <li>Een bestelformulier (producten, aantal, adres)</li>
+        <li>Een zoekbalk</li>
+      </ul>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H07-afb1.svg" alt="Voorbeeld van een eenvoudig contactformulier" loading="lazy">
+      </figure>
+      <p>Formulieren zijn het belangrijkste interactiemiddel op het web. Een goed ontworpen formulier maakt het verschil tussen een fijne en een frustrerende gebruikerservaring.</p>
+
+      <h2 id="het-form-element">7.2 Het <code>&lt;form&gt;</code> element</h2>
+      <p>De <code>&lt;form&gt;</code> tag omsluit alle velden van het formulier. De twee belangrijkste attributen zijn:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Attribuut</th><th>Betekenis</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>action</code></td><td>Naar welk adres worden de gegevens gestuurd?</td></tr>
+          <tr><td><code>method</code></td><td>Hoe worden de gegevens gestuurd? (<code>GET</code> of <code>POST</code>)</td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;form action="verwerking.html" method="GET"&gt;
+  &lt;!-- velden komen hier --&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+      <p><strong>Verschil <code>GET</code> en <code>POST</code>:</strong></p>
+      <ul>
+        <li><code>GET</code> — de gegevens worden zichtbaar in de URL (goed voor zoekopdrachten)</li>
+        <li><code>POST</code> — de gegevens worden verborgen meegestuurd (goed voor wachtwoorden, persoonlijke info)</li>
+      </ul>
+
+      <h2 id="het-label-element">7.3 Het <code>&lt;label&gt;</code> element en de <code>for</code>/<code>id</code> koppeling</h2>
+      <p><strong>Elke invoer heeft een label nodig.</strong> Het <code>&lt;label&gt;</code> element koppel je aan een inputveld via twee bijpassende attributen:</p>
+      <ul>
+        <li>Het <code>for</code>-attribuut op het <code>&lt;label&gt;</code> — bevat de naam</li>
+        <li>Het <code>id</code>-attribuut op het <code>&lt;input&gt;</code> — dezelfde naam</li>
+      </ul>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;label for="voornaam"&gt;Voornaam&lt;/label&gt;
+&lt;input type="text" id="voornaam" name="voornaam"&gt;</code></pre>
+      </div>
+      <p><strong>Waarom is dit belangrijk?</strong></p>
+      <ol>
+        <li>Als je op het label klikt, springt de cursor naar het veld — gebruiksvriendelijk</li>
+        <li>Screenreaders koppelen het label aan het veld — toegankelijk voor blinden</li>
+        <li>Op smartphones is het label een groter klikgebied</li>
+      </ol>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Nooit een inputveld zonder label! Placeholdertekst (<code>placeholder="..."</code>) is geen vervanging voor een label — die verdwijnt zodra de gebruiker begint te typen.</p>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H07-afb2.svg" alt="Verschil tussen correct label en placeholder als label" loading="lazy">
+      </figure>
+
+      <h2 id="invoervelden-met-input">7.4 Invoervelden met <code>&lt;input&gt;</code></h2>
+      <p>Het <code>&lt;input&gt;</code> element is het meest veelzijdige element in formulieren. Het <code>type</code>-attribuut bepaalt het soort invoer.</p>
+      <h3><code>type="text"</code> — tekstveld</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div&gt;
+  &lt;label for="naam"&gt;Naam&lt;/label&gt;
+  &lt;input type="text" id="naam" name="naam" required&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <h3><code>type="email"</code> — e-mailadres</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div&gt;
+  &lt;label for="email"&gt;E-mailadres&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <h3><code>type="number"</code> — getal</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div&gt;
+  &lt;label for="leeftijd"&gt;Leeftijd&lt;/label&gt;
+  &lt;input type="number" id="leeftijd" name="leeftijd" min="1" max="120" step="1"&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <h3><code>type="password"</code> — wachtwoord</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div&gt;
+  &lt;label for="wachtwoord"&gt;Wachtwoord&lt;/label&gt;
+  &lt;input type="password" id="wachtwoord" name="wachtwoord" required&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <h3><code>type="checkbox"</code> — aanvinkvakje</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Interesses&lt;/legend&gt;
+  &lt;div&gt;
+    &lt;input type="checkbox" id="netwerken" name="interesse" value="netwerken"&gt;
+    &lt;label for="netwerken"&gt;Netwerken&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="checkbox" id="programmeren" name="interesse" value="programmeren"&gt;
+    &lt;label for="programmeren"&gt;Programmeren&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+      </div>
+      <h3><code>type="radio"</code> — keuzerondje</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Klas&lt;/legend&gt;
+  &lt;div&gt;
+    &lt;input type="radio" id="klas5" name="klas" value="5ADB"&gt;
+    &lt;label for="klas5"&gt;5ADB&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="radio" id="klas6" name="klas" value="6ADB"&gt;
+    &lt;label for="klas6"&gt;6ADB&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+      </div>
+
+      <h2 id="keuzemenut-select-option">7.5 Keuzemenu met <code>&lt;select&gt;</code> en <code>&lt;option&gt;</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div&gt;
+  &lt;label for="school"&gt;School&lt;/label&gt;
+  &lt;select id="school" name="school"&gt;
+    &lt;option value=""&gt;-- Kies je school --&lt;/option&gt;
+    &lt;option value="kta"&gt;KTA&lt;/option&gt;
+    &lt;option value="atheneum"&gt;Atheneum&lt;/option&gt;
+    &lt;option value="college"&gt;College&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>De eerste lege <code>&lt;option&gt;</code> is een goede gewoonte: ze dwingt de gebruiker bewust een keuze te maken in plaats van dat de eerste optie automatisch geselecteerd staat.</p>
+      </div>
+
+      <h2 id="groot-tekstveld-textarea">7.6 Groot tekstveld met <code>&lt;textarea&gt;</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div&gt;
+  &lt;label for="bericht"&gt;Bericht&lt;/label&gt;
+  &lt;textarea id="bericht" name="bericht" rows="5" cols="40"&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Laat <code>&lt;textarea&gt;</code> nooit zelfsluitend schrijven: <code>&lt;textarea /&gt;</code> werkt NIET. Schrijf altijd de afsluitende tag: <code>&lt;/textarea&gt;</code>.</p>
+      </div>
+
+      <h2 id="knoppen-met-button">7.7 Knoppen met <code>&lt;button&gt;</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;button type="submit"&gt;Verstuur formulier&lt;/button&gt;</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Waarde</th><th>Gedrag</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>submit</code></td><td>Verzendt het formulier</td></tr>
+          <tr><td><code>button</code></td><td>Doet niets van zichzelf (voor JavaScript-knoppen)</td></tr>
+          <tr><td><code>reset</code></td><td><strong>Wis alle velden — gebruik dit NOOIT</strong></td></tr>
+        </tbody>
+      </table>
+      <p><strong>Waarom geen resetknop?</strong> Stel: een gebruiker heeft vijf minuten lang een formulier ingevuld. Per ongeluk klikt hij op "Reset" in plaats van "Verstuur". Alles is weg. Er is geen enkel scenario waarbij een resetknop nuttig is voor de gebruiker.</p>
+
+      <h2 id="volledig-formulier">7.8 Een volledig formulier — stap voor stap</h2>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;form action="bedankt.html" method="GET"&gt;
+
+  &lt;div&gt;
+    &lt;label for="naam"&gt;Naam *&lt;/label&gt;
+    &lt;input type="text" id="naam" name="naam" required&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for="email"&gt;E-mailadres *&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for="onderwerp"&gt;Onderwerp&lt;/label&gt;
+    &lt;select id="onderwerp" name="onderwerp"&gt;
+      &lt;option value=""&gt;-- Kies een onderwerp --&lt;/option&gt;
+      &lt;option value="info"&gt;Algemene informatie&lt;/option&gt;
+      &lt;option value="technisch"&gt;Technische vraag&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for="bericht"&gt;Bericht *&lt;/label&gt;
+    &lt;textarea id="bericht" name="bericht" rows="6"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;input type="checkbox" id="akkoord" name="akkoord" value="ja" required&gt;
+    &lt;label for="akkoord"&gt;Ik ga akkoord met de privacyverklaring *&lt;/label&gt;
+  &lt;/div&gt;
+
+  &lt;p&gt;* Verplicht veld&lt;/p&gt;
+  &lt;button type="submit"&gt;Verstuur bericht&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H07-afb3.svg" alt="Volledig contactformulier zoals het eruitziet in de browser" loading="lazy">
+      </figure>
+
+      <h2 id="fieldset-en-legend">7.9 Het <code>&lt;fieldset&gt;</code> en <code>&lt;legend&gt;</code> element</h2>
+      <p>Wanneer een formulier uit meerdere secties bestaat, gebruik je <code>&lt;fieldset&gt;</code> om velden te groeperen en <code>&lt;legend&gt;</code> als titel van die groep:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;form action="registreer.html" method="POST"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Persoonlijke gegevens&lt;/legend&gt;
+    &lt;div&gt;
+      &lt;label for="voornaam"&gt;Voornaam&lt;/label&gt;
+      &lt;input type="text" id="voornaam" name="voornaam" required&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;label for="achternaam"&gt;Achternaam&lt;/label&gt;
+      &lt;input type="text" id="achternaam" name="achternaam" required&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+  &lt;button type="submit"&gt;Registreer&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+
+      <h2 id="form-usability">7.10 Form usability — 10 richtlijnen</h2>
+      <p>Dit zijn de 10 richtlijnen van Kathryn Whitenton voor bruikbare formulieren:</p>
+      <ol>
+        <li><strong>Hou het kort.</strong> Een formulier met 3 velden is beter dan één met 10.</li>
+        <li><strong>Groepeer bij elkaar horende labels en inputvelden.</strong> Gebruik <code>&lt;fieldset&gt;</code> en <code>&lt;legend&gt;</code>.</li>
+        <li><strong>Zet je velden in één kolom.</strong> Formulieren verspreid over meerdere kolommen zijn verwarrender.</li>
+        <li><strong>Zorg voor een logische volgorde.</strong> Eerst naam, dan e-mail, dan bericht.</li>
+        <li><strong>Gebruik geen placeholdertekst als label.</strong> Placeholder verdwijnt bij het typen.</li>
+        <li><strong>Gebruik de lengte van een inputveld</strong> om te tonen hoeveel input je verwacht.</li>
+        <li><strong>Maak duidelijk welke velden verplicht zijn.</strong> Gebruik een asterisk <code>*</code>.</li>
+        <li><strong>Communiceer voorwaarden op voorhand.</strong> Schrijf <em>boven</em> het wachtwoordveld: "Minimaal 8 tekens".</li>
+        <li><strong>Vermijd een resetknop.</strong> Dit is nooit nuttig voor de gebruiker.</li>
+        <li><strong>Voorzie duidelijke foutmeldingen.</strong> Zeg precies wat er fout is en hoe het te herstellen.</li>
+      </ol>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Registratieformulier</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een registratieformulier voor een fictieve school-app. Het formulier bevat:</p>
+            <ul>
+              <li>Voornaam (tekst, verplicht)</li>
+              <li>Achternaam (tekst, verplicht)</li>
+              <li>E-mailadres (verplicht)</li>
+              <li>Wachtwoord (verplicht)</li>
+              <li>Klas (radio buttons: 5ADB of 6ADB)</li>
+              <li>Favoriete vak (checkboxes: Netwerken, App-ontwikkeling, Databeheer, E-STEM)</li>
+              <li>Verzendknop (geen resetknop!)</li>
+            </ul>
+            <p>Pas de 10 usability-richtlijnen toe: één kolom, duidelijke labels, verplichte velden markeren.</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H07-oef1-browser.svg" alt="Browser-mockup: registratieformulier met fieldsets, radio buttons, checkboxes en verzendknop" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 2 — Zoekformulier</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een eenvoudig zoekformulier voor een bibliotheek-website.</p>
+            <ul>
+              <li>Zoekveld (tekst)</li>
+              <li>Categorie (dropdown: Boeken, Tijdschriften, Films, Muziek)</li>
+              <li>Sortering (radio buttons: Meest relevant, Nieuwste eerst, Alfabetisch)</li>
+              <li>Zoekknop</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H07-oef2-browser.svg" alt="Browser-mockup: zoekformulier met tekstveld, dropdownmenu, radio buttons en zoekknop" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H07 Formulieren<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H07-oef2-browser.svg', 'Voorbeeld — Contactformulier')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+          <h3>Opdracht: Inschrijvingsformulier voor een schoolevenement</h3>
+          <p>Je maakt een HTML-formulier voor de inschrijving van leerlingen voor een fictief schoolevenement (bv. schoolreisje, sportdag, debatclub, filmavond, …). Je kiest zelf het evenement.</p>
+          <p>Maak een nieuw bestand: <code>inschrijving.html</code></p>
+          <h4>Deel 1 — Basisstructuur formulier (2 punten)</h4>
+          <ol>
+            <li>Maak een <code>&lt;form&gt;</code>-element aan met:
+              <ul>
+                <li><code>action="#"</code> (we sturen het formulier nog nergens naartoe)</li>
+                <li><code>method="post"</code></li>
+              </ul>
+            </li>
+            <li>Voeg een <code>&lt;h1&gt;</code> toe boven het formulier met de naam van het evenement.</li>
+            <li>Voeg een <code>&lt;fieldset&gt;</code> toe met een <code>&lt;legend&gt;</code> "Persoonlijke gegevens".</li>
+          </ol>
+          <h4>Deel 2 — Tekstvelden en labels (4 punten)</h4>
+          <p>Voeg binnen het fieldset de volgende velden toe, elk <strong>voorzien van een correct <code>&lt;label&gt;</code></strong>:</p>
+          <ol>
+            <li>Voornaam (<code>type="text"</code>, <code>required</code>)</li>
+            <li>Achternaam (<code>type="text"</code>, <code>required</code>)</li>
+            <li>E-mailadres (<code>type="email"</code>, <code>required</code>)</li>
+            <li>Geboortedatum (<code>type="date"</code>)</li>
+            <li>Telefoonnummer (<code>type="tel"</code>, <code>placeholder="bv. 0412 34 56 78"</code>)</li>
+          </ol>
+          <p>Elk label moet via <code>for</code> gekoppeld zijn aan het bijhorende input-veld via <code>id</code>.</p>
+          <h4>Deel 3 — Keuze-elementen (3 punten)</h4>
+          <ol>
+            <li>Voeg een tweede <code>&lt;fieldset&gt;</code> toe met <code>&lt;legend&gt;</code> "Voorkeuren".</li>
+            <li>Voeg <strong>radiobuttons</strong> toe voor de keuze van een activiteit (minstens 3 opties):
+              <ul>
+                <li>bv. Wandeltocht | Fietsen | Sportspelen</li>
+              </ul>
+            </li>
+            <li>Voeg <strong>checkboxes</strong> toe voor extra opties (minstens 2):
+              <ul>
+                <li>bv. Vegetarische maaltijd | Allergieën melden</li>
+              </ul>
+            </li>
+            <li>Voeg een <strong><code>&lt;select&gt;</code>-dropdown</strong> toe voor de klas (bv. 5ADB, 5B, 5C, 6ADB).</li>
+          </ol>
+          <h4>Deel 4 — Verzendknop en textarea (1 punt)</h4>
+          <ol>
+            <li>Voeg een <code>&lt;textarea&gt;</code> toe met het label "Opmerkingen" (niet verplicht).</li>
+            <li>Voeg een <code>&lt;button type="submit"&gt;</code> toe met de tekst "Inschrijven".</li>
+          </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H07 — Formulieren</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Hoe koppel je een <code>&lt;label&gt;</code> aan een <code>&lt;input&gt;</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="a"> <span>Via het <code>name</code>-attribuut op beide elementen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="b"> <span>Via <code>for</code> op het label en <code>id</code> op het inputveld met dezelfde waarde</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="c"> <span>Door het inputveld fysiek binnen het label-element te zetten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="d"> <span>Dat hoeft niet — de browser koppelt ze automatisch</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk <code>type</code>-attribuut gebruik je voor een veld waarbij slechts één optie uit een groep gekozen kan worden?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="a"> <span><code>type="checkbox"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="b"> <span><code>type="select"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="c"> <span><code>type="radio"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="d"> <span><code>type="single"</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welk formuliermethode gebruik je wanneer je een wachtwoord verstuurt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="a"> <span><code>method="POST"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="b"> <span><code>method="GET"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="c"> <span><code>method="SEND"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="d"> <span><code>method="SECURE"</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Waarom mag je nooit een <code>type="reset"</code> knop gebruiken?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="a"> <span>Omdat reset verouderd is in HTML5</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="b"> <span>Omdat het de pagina opnieuw laadt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="c"> <span>Omdat het niet compatibel is met alle browsers</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="d"> <span>Omdat gebruikers per ongeluk hun ingevulde gegevens kunnen verliezen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk element gebruik je voor een lange tekst (zoals een bericht) in een formulier?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="a"> <span><code>&lt;input type="text"&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="b"> <span><code>&lt;textarea&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="c"> <span><code>&lt;input type="multiline"&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="d"> <span><code>&lt;input type="longtext"&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welk element gebruik je om velden in een formulier semantisch te groeperen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="a"> <span><code>&lt;section&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="b"> <span><code>&lt;group&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="c"> <span><code>&lt;fieldset&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="d"> <span><code>&lt;div&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H07')" data-progress-key="5adb/app-ontwikkeling/H07">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H06.html" class="btn btn-ghost">← H06</a> <a href="H08.html" class="btn btn-ghost">H08 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 &mdash; Wat is een netwerk? &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Wat is een netwerk? &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H01</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-1-wat-is-een-netwerk">Hoofdstuk 1 — Wat is een netwerk?</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#1-theorie">1. Theorie</a></li><li><a href="#11-wat-is-een-computernetwerk" style="padding-left:1.25rem">1.1 Wat is een computernetwerk?</a></li><li><a href="#12-soorten-netwerken" style="padding-left:1.25rem">1.2 Soorten netwerken</a></li><li><a href="#13-netwerktopologieën" style="padding-left:1.25rem">1.3 Netwerktopologieën</a></li><li><a href="#14-professionele-toepassingen" style="padding-left:1.25rem">1.4 Professionele toepassingen</a></li><li><a href="#15-werkhouding-en-veiligheid-in-het-netwerklokaal" style="padding-left:1.25rem">1.5 Werkhouding en veiligheid in het netwerklokaal</a></li><li><a href="#2-voorbeelden">2. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h01" style="padding-left:1.25rem">Huistaak H01</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H01 &mdash; Wat is een netwerk?</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-1-wat-is-een-netwerk">Hoofdstuk 1 — Wat is een netwerk?</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>4 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>uitleggen wat een computernetwerk is en waarvoor het dient</li>
+<li>de belangrijkste soorten netwerken (LAN, WAN, WLAN, MAN, PAN) van elkaar onderscheiden</li>
+<li>de meest gebruikte netwerktopologieën herkennen en vergelijken</li>
+<li>concrete toepassingen van netwerken benoemen in een professionele context</li>
+<li>je werkplek netjes en georganiseerd houden bij het werken met netwerkapparatuur</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-09]</span> De leerlingen plannen de werkzaamheden in functie van de opdracht <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-11]</span> De leerlingen werken in teamverband met aandacht voor organisatiecultuur, communicatie en procedures <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-15]</span> De leerlingen houden het werkoppervlak ordelijk en net <span class="badge badge-basis">basis</span></div>
+<h2 id="1-theorie">1. Theorie</h2>
+<h3 id="11-wat-is-een-computernetwerk">1.1 Wat is een computernetwerk?</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een computernetwerk is een verzameling van twee of meer apparaten (computers, printers, servers, smartphones, ...) die met elkaar verbonden zijn om gegevens uit te wisselen en resources te delen. De verbinding kan via kabels (bedraad) of via radiogolven (draadloos) verlopen.</p>
+</div>
+<p>Vroeger had elke computer zijn eigen printer, zijn eigen harde schijf, zijn eigen data. Als je een bestand aan een collega wou geven, kopieerde je het op een diskette — dat noemden mensen vroeger de "sneakernet": je liep letterlijk met je data naar de andere computer.</p>
+<p>Vandaag de dag zijn netwerken overal: thuis, op school, in kantoren, in ziekenhuizen, in fabrieken. Ze maken het mogelijk dat je:</p>
+<ul>
+<li>bestanden deelt zonder USB-sticks</li>
+<li>samen aan hetzelfde document werkt (Google Docs, SharePoint)</li>
+<li>printert op een gedeelde printer</li>
+<li>toegang hebt tot het internet</li>
+<li>via e-mail of Teams communiceert</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Een netwerk hoeft niet groot te zijn. Twee laptops die via wifi verbonden zijn met dezelfde router vormen al een netwerk.</p>
+</div>
+<h3 id="12-soorten-netwerken">1.2 Soorten netwerken</h3>
+<p>Netwerken worden ingedeeld op basis van hun <strong>geografisch bereik</strong>.</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Afkorting</th><th>Naam</th><th>Bereik</th><th>Voorbeeld</th></tr></thead><tbody>
+<tr><td><strong>PAN</strong></td><td>Personal Area Network</td><td>enkele meters</td><td>Bluetooth-koppeling laptop–smartphone</td></tr>
+<tr><td><strong>LAN</strong></td><td>Local Area Network</td><td>één gebouw of campus</td><td>schoolnetwerk, kantoornetwerk</td></tr>
+<tr><td><strong>WLAN</strong></td><td>Wireless Local Area Network</td><td>één gebouw (draadloos)</td><td>wifi-netwerk thuis of op school</td></tr>
+<tr><td><strong>MAN</strong></td><td>Metropolitan Area Network</td><td>één stad of regio</td><td>stadsnetwerk Gent, vezelnetwerk tussen campus A en B</td></tr>
+<tr><td><strong>WAN</strong></td><td>Wide Area Network</td><td>land, continent, wereld</td><td>internet, internationale bedrijfsnetwerken</td></tr>
+</tbody></table></div>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een Local Area Network (LAN) is een netwerk binnen een beperkte geografische ruimte, zoals een gebouw of een campus. Het wordt beheerd door één organisatie en heeft doorgaans hoge snelheden (1 Gbps of meer).</p>
+</div>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een Wide Area Network (WAN) is een netwerk dat grote geografische afstanden overbrugt. Het internet is het grootste WAN ter wereld. WAN-verbindingen worden doorgaans geleverd door een internetprovider (ISP).</p>
+</div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Op het examen wordt vaak gevraagd om het juiste netwerktype te koppelen aan een scenario. Denk altijd eerst aan de <strong>afstand</strong>: hoe groot is de geografische omvang?</p>
+</div>
+<h3 id="13-netwerktopologieën">1.3 Netwerktopologieën</h3>
+<p>De <strong>topologie</strong> van een netwerk beschrijft hoe apparaten met elkaar verbonden zijn. We onderscheiden de <strong>fysieke topologie</strong> (de werkelijke kabels en apparaten) en de <strong>logische topologie</strong> (hoe data door het netwerk stroomt).</p>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De topologie van een netwerk is de manier waarop de apparaten (nodes) met elkaar verbonden zijn, zowel fysiek (de bekabeling) als logisch (het datapad).</p>
+</div>
+<h4 id="131-bustopologie">1.3.1 Bustopologie</h4>
+<p>Alle apparaten zijn aangesloten op één centrale kabel (de "bus"). Data wordt naar alle apparaten gestuurd, maar alleen de ontvanger verwerkt het pakket.</p>
+<ul>
+<li><strong>Voordeel:</strong> goedkoop, weinig kabel</li>
+<li><strong>Nadeel:</strong> als de kabel kapotgaat, valt het hele netwerk uit. Botsingen (collisions) zijn mogelijk.</li>
+<li><strong>Status:</strong> verouderd — niet meer in gebruik in moderne netwerken</li>
+</ul>
+<h4 id="132-ringtopologie">1.3.2 Ringtopologie</h4>
+<p>Elk apparaat is verbonden met twee buren, zodat een gesloten ring ontstaat. Data circuleert in één richting.</p>
+<ul>
+<li><strong>Voordeel:</strong> ordelijke datatransmissie (token ring)</li>
+<li><strong>Nadeel:</strong> één defect apparaat kan de hele ring verbreken (tenzij dubbele ring)</li>
+<li><strong>Status:</strong> verouderd — nog gebruikt in industriële omgevingen (FDDI)</li>
+</ul>
+<h4 id="133-ster-topologie">1.3.3 Ster-topologie</h4>
+<p>Elk apparaat is rechtstreeks verbonden met een centrale hub of switch. Dit is de meest gebruikte topologie in moderne LAN-netwerken.</p>
+<ul>
+<li><strong>Voordeel:</strong> als één kabel of apparaat defect is, werken de andere nog. Eenvoudig beheer.</li>
+<li><strong>Nadeel:</strong> als de centrale switch uitvalt, valt het hele netwerk uit.</li>
+<li><strong>Status:</strong> <strong>standaard in moderne LAN-omgevingen</strong></li>
+</ul>
+<h4 id="134-mesh-topologie">1.3.4 Mesh-topologie</h4>
+<p>Elk apparaat is verbonden met meerdere andere apparaten. Volledig mesh = elk apparaat verbonden met elk ander apparaat.</p>
+<ul>
+<li><strong>Voordeel:</strong> zeer hoge redundantie — er is altijd een alternatief pad</li>
+<li><strong>Nadeel:</strong> duur en complex (veel kabels en poorten nodig)</li>
+<li><strong>Status:</strong> gebruikt in WAN-omgevingen en kritische infrastructuur (bv. datacenterverbindingen)</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>In de praktijk zie je vaak een <strong>hybride topologie</strong>: een combinatie van meerdere topologieën. Bv. een ster-topologie per verdieping, gekoppeld via een gedeeltelijke mesh tussen verdiepingen.</p>
+</div>
+<h3 id="14-professionele-toepassingen">1.4 Professionele toepassingen</h3>
+<p>Netwerken zijn de ruggengraat van moderne organisaties. In jouw toekomstige job als data- en applicatiebeheerder kom je dagelijks in aanraking met:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Toepassing</th><th>Omschrijving</th></tr></thead><tbody>
+<tr><td><strong>Bestandsdeling</strong></td><td>Centrale fileserver of cloudopslag (SharePoint, OneDrive)</td></tr>
+<tr><td><strong>E-mail</strong></td><td>E-mailserver (Exchange, Gmail) bereikbaar via het netwerk</td></tr>
+<tr><td><strong>VoIP</strong></td><td>Telefoneren via het netwerk (Teams, Cisco Webex)</td></tr>
+<tr><td><strong>Printers</strong></td><td>Netwerkprinters gedeeld door alle medewerkers</td></tr>
+<tr><td><strong>Beveiliging</strong></td><td>Camerabewaking (IP-camera's) over het netwerk</td></tr>
+<tr><td><strong>Cloud</strong></td><td>Toegang tot clouddiensten (Azure, AWS) via het internet</td></tr>
+<tr><td><strong>IoT</strong></td><td>Slimme apparaten (thermostaten, toegangscontrole) op het netwerk</td></tr>
+</tbody></table></div>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Als netwerken zo centraal zijn, betekent dit ook dat een netwerkverstoring een hele organisatie plat kan leggen. Netwerkbeheer is een verantwoordelijke job.</p>
+</div>
+<h3 id="15-werkhouding-en-veiligheid-in-het-netwerklokaal">1.5 Werkhouding en veiligheid in het netwerklokaal</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-14]</span> De leerlingen handelen veilig, ergonomisch en hygiënisch <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-15]</span> De leerlingen houden het werkoppervlak ordelijk en net <span class="badge badge-basis">basis</span></div>
+<p>In het netwerklokaal werken we met elektrische apparaten, kabels en actieve netwerkapparatuur. Volg altijd deze basisregels:</p>
+<ul>
+<li>Leg kabels geordend neer — een kabel op de grond is een struikelgevaar</li>
+<li>Verbind nooit een onbekend apparaat met het schoolnetwerk zonder toestemming</li>
+<li>Schakel apparaten correct uit voor je ze verplaatst</li>
+<li>Rapporteer defecte kabels of apparaten onmiddellijk aan de leerkracht</li>
+<li>Houd je werkplek opgeruimd: apparatuur, labels en gereedschap op de juiste plek</li>
+</ul>
+<h2 id="2-voorbeelden">2. Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>De school heeft één gebouw met meerdere lokalen. Op elke verdieping hangt een netwerkkast (patchkast) met een switch. Alle lokalen zijn bekabeld naar deze switch. De switches zijn onderling verbonden. Centraal staat een core-switch die verbonden is met de router en verder met het internet. Dit is een klassiek LAN met een ster-topologie per verdieping.</p>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Thuis heb je een router van je internetprovider (Telenet, Proximus, ...). Hierop sluit je via ethernet je desktop aan en via wifi je laptop, smartphone en smart-tv. Alle apparaten kunnen bestanden delen en het internet bereiken. Dit is een WLAN (en klein LAN voor de bedrade verbindingen). De topologie is een ster, met de router als middelpunt.</p>
+</div>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h01-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 1.1</span>
+    <span class="oefening__title">Soorten netwerken herkennen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Koppel elk scenario aan het juiste netwerktype op basis van het geografisch bereik.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Het netwerk van een ziekenhuis dat alle computers binnen het gebouw met elkaar verbindt — welk type netwerk is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>PAN (Personal Area Network)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>LAN (Local Area Network)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>MAN (Metropolitan Area Network)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>WAN (Wide Area Network)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="LAN — een ziekenhuis is één gebouw of campus, beheerd door één organisatie. Dat is een klassiek LAN."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Je koppelt je draadloze koptelefoon via Bluetooth aan je laptop. Welk type netwerk gebruik je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>PAN (Personal Area Network)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>WLAN (Wireless Local Area Network)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>LAN (Local Area Network)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>WAN (Wide Area Network)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="PAN — Bluetooth verbindt persoonlijke apparaten op enkele meters afstand. Dat is een Personal Area Network."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Twee vestigingen van een bedrijf, één in Brussel en één in Gent, zijn verbonden via een glasvezelverbinding van een provider. Welk netwerktype is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>LAN</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>WLAN</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>MAN</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>WAN</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="WAN — de verbinding overbrugt een grote geografische afstand (twee steden) en wordt geleverd door een externe provider."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="internet|wan|wide area network">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Het internet is het grootste netwerk ter wereld en overbrugt continenten. Welk type netwerk is het internet?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+      <div class="vraag__feedback" data-correct-label="WAN (Wide Area Network) — het internet is het grootste WAN ter wereld."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h01-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 1.2</span>
+    <span class="oefening__title">Netwerktopologieën</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis over de verschillende netwerktopologieën en hun eigenschappen.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke topologie is de standaard in moderne LAN-omgevingen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Bustopologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Ringtopologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Ster-topologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Mesh-topologie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Ster-topologie — elk apparaat is verbonden met een centrale switch. Bij een defect apparaat of kabel werken de anderen nog gewoon."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke topologie biedt de hoogste redundantie (meeste alternatieve paden)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Bustopologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Ringtopologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Ster-topologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Mesh-topologie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Mesh-topologie — elk apparaat is verbonden met meerdere andere apparaten, zodat er altijd een alternatief pad bestaat. Nadeel: duur en complex."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Waarom is de bustopologie een slechte keuze voor een modern netwerklokaal? (Selecteer alle juiste redenen)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>Als de centrale kabel kapotgaat, valt het hele netwerk uit</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>Botsingen (collisions) zijn mogelijk als meerdere apparaten tegelijk zenden</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>Er is een aparte switch per apparaat nodig</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>Bustopologie vereist glasvezelkabels</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="A en B zijn correct: de bus is een single point of failure én collisions zijn mogelijk wanneer twee apparaten tegelijk zenden."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="ster|star|ster-topologie">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">In welke topologie is elk apparaat rechtstreeks verbonden met één centrale switch?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de naam van de topologie...">
+      <div class="vraag__feedback" data-correct-label="Ster-topologie — alle apparaten zijn verbonden met een centrale switch als middelpunt."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h01-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 1.3</span>
+    <span class="oefening__title">Netwerk voor een klein kantoor</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een kleine ondernemer opent een kantoor met 8 werknemers. Hij wil alle computers aan een gedeelde printer laten printen, internettoegang geven en draadloos werken mogelijk maken.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk type netwerk kies je voor dit kantoor?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>PAN</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>LAN / WLAN (combinatie bedraad en draadloos)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>MAN</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>WAN</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="LAN/WLAN — het kantoor is één ruimte, dus een lokaal netwerk. Omdat er ook draadloos gewerkt wordt, is het een WLAN (of combinatie LAN + WLAN)."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke topologie is het meest geschikt voor dit kantoor?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Bustopologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Ringtopologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Ster-topologie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Mesh-topologie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Ster-topologie — eenvoudig te beheren, als één kabel defect is werken de anderen nog, en het is de standaard voor moderne LAN-omgevingen."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,b,c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke apparaten heb je minimaal nodig voor dit kantoor? (Selecteer alle juiste opties)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>Een router (voor internettoegang)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>Een switch (voor de bedrade verbindingen)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>Een access point of wifi-router (voor draadloos werken)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>Een mainframe-server</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Router, switch en access point zijn de minimale vereisten: de router geeft internettoegang, de switch verbindt de bedrade pc's, het access point zorgt voor wifi."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Een computernetwerk verbindt apparaten om data en resources te delen.</li>
+<li>Netwerken worden ingedeeld naar geografisch bereik: PAN, LAN, WLAN, MAN, WAN.</li>
+<li>De meest gebruikte topologie in LAN-omgevingen is de <strong>ster-topologie</strong> (elk apparaat verbonden met een centrale switch).</li>
+<li>Bus en ring zijn verouderde topologieën; mesh wordt gebruikt voor hoge redundantie in WAN en datacenters.</li>
+<li>In professionele omgevingen zijn netwerken essentieel voor communicatie, bestandsdeling, cloud en beveiliging.</li>
+<li>Veilig en ordelijk werken in het netwerklokaal is een professionele vereiste.</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h01">Huistaak H01</h3>
+<p>Zoek thuis het netwerk van je eigen huis op.</p>
+<ol>
+<li>Maak een eenvoudig schema (op papier of digitaal) van de apparaten die verbonden zijn met je thuisnetwerk. Label elk apparaat met zijn naam en type verbinding (bedraad of wifi).</li>
+<li>Bepaal het type netwerk (LAN, WLAN, ...) en de topologie.</li>
+<li>Schrijf drie toepassingen op die jij dagelijks gebruikt via dit netwerk.</li>
+<li>Zoek op welke internetprovider je thuis hebt en wat de downloadsnelheid van je abonnement is.</li>
+</ol>
+<p>Breng je schema mee naar de volgende les. We bespreken ze klassikaal.</p>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H01-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 1 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H01">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          
+          <a href="H02.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H02 &mdash; Computerarchitectuur als basis</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

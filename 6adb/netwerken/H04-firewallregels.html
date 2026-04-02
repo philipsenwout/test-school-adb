@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 &mdash; Firewallregels &mdash; Netwerken 6ADB &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Hoe werken firewalls? Stateless vs stateful filtering, zones, firewallregels schrijven en Traffic Rules in UniFi.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">Netwerken</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>H04</span>
+    </nav>
+    <div class="chapter-layout">
+      <aside class="chapter-sidebar">
+        <div class="chapter-sidebar__title">Inhoud</div>
+        <ul class="chapter-sidebar__list">
+          <li><a href="#leerdoelen">Leerdoelen</a></li>
+          <li><a href="#wat-is-firewall">1.1 Wat is een firewall?</a></li>
+          <li><a href="#stateless-stateful">1.2 Stateless vs stateful</a></li>
+          <li><a href="#zones">1.3 Firewall-zones</a></li>
+          <li><a href="#regels">1.4 Regels schrijven</a></li>
+          <li><a href="#unifi">1.5 Firewall in UniFi</a></li>
+          <li><a href="#oefeningen">2. Oefeningen</a></li>
+          <li><a href="#samenvatting">3. Samenvatting</a></li>
+        </ul>
+      </aside>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 6ADB</div>
+          <h1 class="page-header__title">H04 &mdash; Firewallregels</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-verdieping">verdieping</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <section id="leerdoelen">
+          <h2>Leerdoelen</h2>
+          <div class="ld-badges">
+            <span class="badge badge-ld">[LD-NET-06]</span> Netwerksysteem beveiligen <span class="badge badge-verdieping">verdieping</span>
+            &nbsp;
+            <span class="badge badge-ld">[LD-NET-07]</span> Netwerksecurity toepassen <span class="badge badge-verdieping">verdieping</span>
+          </div>
+          <p>Na dit hoofdstuk kan je:</p>
+          <ul>
+            <li>de rol van een firewall in een netwerk beschrijven</li>
+            <li>het verschil uitleggen tussen stateless en stateful packet filtering</li>
+            <li>firewall-zones (LAN, WAN, DMZ) herkennen en beschrijven</li>
+            <li>eenvoudige firewallregels opstellen op basis van bron, doel, protocol en poort</li>
+            <li>Traffic Rules aanmaken in het UniFi-dashboard</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>1. Theorie</h2>
+
+          <h3 id="wat-is-firewall">1.1 Wat is een firewall?</h3>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Definitie &mdash; Firewall</div>
+            <p>Een firewall is een netwerkapparaat of softwarecomponent dat inkomend en uitgaand verkeer controleert op basis van vooraf ingestelde regels. Verkeer dat niet aan de regels voldoet, wordt geblokkeerd.</p>
+          </div>
+
+          <p>Een firewall bewaakt de grens tussen twee of meer netwerksegmenten. Elk pakket dat die grens passeert, wordt getoetst aan:</p>
+          <ul>
+            <li><strong>Bron-IP en doel-IP</strong></li>
+            <li><strong>Protocol</strong>: TCP, UDP, ICMP &hellip;</li>
+            <li><strong>Poort</strong>: bv. 80 (HTTP), 443 (HTTPS), 22 (SSH), 3306 (MySQL)</li>
+            <li><strong>Richting</strong>: inbound of outbound</li>
+          </ul>
+
+          <h3 id="stateless-stateful">1.2 Stateless vs stateful filtering</h3>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Definitie &mdash; Stateless firewall</div>
+            <p>Controleert elk pakket afzonderlijk, zonder context van vorige pakketten. Retourverkeer moet apart worden toegestaan. Eenvoudig maar beperkt.</p>
+          </div>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Definitie &mdash; Stateful firewall</div>
+            <p>Houdt verbindingsstatus bij (connection tracking). Retourverkeer van een toegestane verbinding wordt automatisch doorgelaten. Modern en veiliger.</p>
+          </div>
+
+          <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th></th><th>Stateless</th><th>Stateful</th></tr></thead>
+            <tbody>
+              <tr><td>Context</td><td>Geen</td><td>Verbindingsstatus bijgehouden</td></tr>
+              <tr><td>Retourverkeer</td><td>Expliciete regel nodig</td><td>Automatisch toegestaan</td></tr>
+              <tr><td>Beveiliging</td><td>Basaal</td><td>Beter</td></tr>
+              <tr><td>Gebruik</td><td>Router ACLs</td><td>Moderne firewalls (UniFi, pfSense)</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3 id="zones">1.3 Firewall-zones</h3>
+          <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Zone</th><th>Beschrijving</th><th>Vertrouwen</th></tr></thead>
+            <tbody>
+              <tr><td><strong>LAN</strong></td><td>Intern netwerk (pc's, printers, servers)</td><td>Hoog</td></tr>
+              <tr><td><strong>WAN</strong></td><td>Internet / extern netwerk</td><td>Geen</td></tr>
+              <tr><td><strong>DMZ</strong></td><td>Gedemilitariseerde zone voor publieke servers</td><td>Gemiddeld</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Definitie &mdash; DMZ</div>
+            <p>Een DMZ is een apart netwerksegment voor servers die van buitenaf bereikbaar moeten zijn (webserver, mailserver). Ze staan buiten het interne LAN zodat een aanval op de DMZ het interne netwerk niet direct raakt.</p>
+          </div>
+
+          <h3 id="regels">1.4 Firewallregels schrijven</h3>
+          <p>Elke regel heeft: <strong>actie &mdash; richting &mdash; bron &mdash; doel &mdash; protocol &mdash; poort</strong></p>
+
+          <div class="callout callout--tip">
+            <div class="callout-header">&#128161; Vuistregel: default deny</div>
+            <p>Een goed beveiligde firewall blokkeert standaard <em>alles</em> en staat alleen toe wat expliciet nodig is. Dit heet <strong>whitelisting</strong> of <em>default deny</em>. Veiliger dan alles toestaan en gevaarlijk blokkeren.</p>
+          </div>
+
+          <pre><code>-- Leerlingen (VLAN10) mogen HTTP/HTTPS naar internet:
+ALLOW  src=VLAN10  dst=ANY  proto=TCP  port=80,443
+
+-- Leerlingen mogen servers NIET bereiken:
+BLOCK  src=VLAN10  dst=VLAN30  proto=ANY
+
+-- SSH naar switch alleen vanuit management-VLAN:
+ALLOW  src=VLAN99  dst=switch-IP  proto=TCP  port=22
+BLOCK  src=ANY     dst=switch-IP  proto=TCP  port=22
+
+-- Impliciete deny-all (alles wat hierboven niet is toegestaan):
+BLOCK  src=ANY  dst=ANY  proto=ANY</code></pre>
+
+          <h3 id="unifi">1.5 Firewallregels in UniFi</h3>
+          <p>Via <strong>Settings &rarr; Traffic &amp; Firewall &rarr; Traffic Rules</strong>:</p>
+          <ol>
+            <li>Klik <strong>Create New Rule</strong></li>
+            <li>Kies richting: inbound / outbound</li>
+            <li>Stel bron en doel in: apparaat, IP of VLAN-netwerk</li>
+            <li>Kies protocol en poort (of gebruik een voorgedefinieerde app)</li>
+            <li>Kies actie: Block of Allow</li>
+          </ol>
+
+          <div class="callout callout--tip">
+            <div class="callout-header">&#128161; Client isolation</div>
+            <p>UniFi biedt ook <em>client isolation</em> per netwerk: apparaten op hetzelfde VLAN/SSID kunnen niet met elkaar communiceren. Handig voor gasten-wifi.</p>
+          </div>
+        </section>
+
+        <section id="oefeningen">
+          <h2>2. Oefeningen</h2>
+
+          <div class="oefening" data-oef-id="net6-h04-1">
+            <div class="oefening__header">
+              <span class="oefening__badge">Oefening 4.1</span>
+              <span class="oefening__title">Firewallregels analyseren</span>
+            </div>
+            <div class="oefening__body">
+              <p class="oefening__intro">Analyseer de volgende firewall-regelset (bovenste = hoogste prioriteit):<br>
+              <code>1. ALLOW src=192.168.10.0/24 dst=ANY proto=TCP port=443</code><br>
+              <code>2. BLOCK src=192.168.10.0/24 dst=192.168.30.0/24 proto=ANY</code><br>
+              <code>3. ALLOW src=ANY dst=ANY proto=ANY</code></p>
+
+              <div class="vraag" data-type="mc" data-correct="a">
+                <div class="vraag__nr">Vraag 1</div>
+                <div class="vraag__tekst">Mag VLAN10 (192.168.10.0/24) HTTPS (poort 443) naar een server in VLAN30 (192.168.30.0/24)?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v1" value="a"><span>Ja — regel 1 staat het toe (HTTPS naar ANY), en regel 1 heeft hogere prioriteit dan regel 2</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v1" value="b"><span>Nee — regel 2 blokkeert al het verkeer van VLAN10 naar VLAN30</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v1" value="c"><span>Nee — HTTPS is niet toegestaan zonder expliciete toestemming</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v1" value="d"><span>Ja — regel 3 staat alles toe</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Ja — regel 1 staat TCP poort 443 toe naar ANY (inclusief VLAN30), en hogere prioriteit dan de BLOCK-regel 2"></div>
+              </div>
+
+              <div class="vraag" data-type="mc" data-correct="b">
+                <div class="vraag__nr">Vraag 2</div>
+                <div class="vraag__tekst">Mag VLAN10 pingen (ICMP) naar VLAN30?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v2" value="a"><span>Ja — pingen is altijd toegestaan</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v2" value="b"><span>Nee — regel 2 blokkeert ALL protocols van VLAN10 naar VLAN30 (ICMP is ook een protocol)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v2" value="c"><span>Ja — pingen gebruikt UDP, niet TCP, dus regel 1 geldt</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v2" value="d"><span>Nee — pingen is altijd geblokkeerd door firewalls</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Nee — regel 2 gebruikt proto=ANY, wat ook ICMP omvat. Ping gebruikt ICMP, geen TCP/UDP."></div>
+              </div>
+
+              <div class="vraag" data-type="mc" data-correct="c">
+                <div class="vraag__nr">Vraag 3</div>
+                <div class="vraag__tekst">Is dit een goede firewallconfiguratie? Wat is het probleem?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v3" value="a"><span>Ja, de configuratie is correct</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v3" value="b"><span>Nee — VLAN10 heeft te weinig toegang</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v3" value="c"><span>Nee — regel 3 staat alles toe voor iedereen, dit schendt het principe van default deny</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v3" value="d"><span>Nee — er zijn te weinig regels</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Nee — regel 3 (ALLOW ANY ANY) is gevaarlijk. Default deny betekent: blokkeer alles en sta alleen toe wat expliciet nodig is."></div>
+              </div>
+
+              <div class="vraag" data-type="mc" data-correct="a">
+                <div class="vraag__nr">Vraag 4</div>
+                <div class="vraag__tekst">Welke zone heeft het laagste vertrouwen en moet altijd geblokkeerd zijn tenzij expliciet toegestaan?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v4" value="a"><span>WAN (internet)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v4" value="b"><span>LAN (intern netwerk)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v4" value="c"><span>DMZ</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-1-v4" value="d"><span>Management VLAN</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="WAN (internet) — vertrouwen = geen. LAN = hoog vertrouwen, DMZ = gemiddeld vertrouwen voor publieke servers."></div>
+              </div>
+
+            </div>
+            <div class="oefening__footer">
+              <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+              <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+              <div class="oefening__score" hidden>
+                <div class="oefening__score-tekst"></div>
+                <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oefening" data-oef-id="net6-h04-2">
+            <div class="oefening__header">
+              <span class="oefening__badge">Oefening 4.2</span>
+              <span class="oefening__title">Stateful vs stateless en UniFi</span>
+            </div>
+            <div class="oefening__body">
+              <p class="oefening__intro">Test je kennis van stateless vs stateful filtering en de UniFi Traffic Rules.</p>
+
+              <div class="vraag" data-type="mc" data-correct="b">
+                <div class="vraag__nr">Vraag 1</div>
+                <div class="vraag__tekst">Wat is het voordeel van een stateful firewall tegenover een stateless firewall?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v1" value="a"><span>Stateful firewalls zijn sneller</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v1" value="b"><span>Retourverkeer van toegestane verbindingen wordt automatisch doorgelaten zonder extra regel</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v1" value="c"><span>Stateful firewalls verbruiken minder geheugen</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v1" value="d"><span>Stateful firewalls blokkeren meer verkeer</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Retourverkeer wordt automatisch doorgelaten — de firewall houdt verbindingsstatus bij (connection tracking). Bij stateless moet je retourverkeer apart toestaan."></div>
+              </div>
+
+              <div class="vraag" data-type="text" data-correct="settings > traffic & firewall > traffic rules|traffic rules|settings > traffic and firewall">
+                <div class="vraag__nr">Vraag 2</div>
+                <div class="vraag__tekst">Via welk menu maak je Traffic Rules aan in het UniFi-dashboard?</div>
+                <input type="text" class="vraag__invoer" placeholder="Typ het menupad...">
+                <div class="vraag__feedback" data-correct-label="Settings → Traffic &amp; Firewall → Traffic Rules — hier maak je ALLOW/BLOCK-regels per richting, bron en doel aan"></div>
+              </div>
+
+              <div class="vraag" data-type="mc" data-correct="c">
+                <div class="vraag__nr">Vraag 3</div>
+                <div class="vraag__tekst">Wat doet client isolation op een Wi-Fi-netwerk in UniFi?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v3" value="a"><span>Apparaten op het VLAN kunnen geen internet bereiken</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v3" value="b"><span>Apparaten kunnen niet verbinden met het SSID</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v3" value="c"><span>Apparaten op hetzelfde VLAN/SSID kunnen niet met elkaar communiceren</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h04-2-v3" value="d"><span>Apparaten worden automatisch verwijderd na gebruik</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Apparaten op hetzelfde VLAN/SSID kunnen niet met elkaar communiceren — handig voor gasten-wifi om onderlinge snuffelen te voorkomen"></div>
+              </div>
+
+            </div>
+            <div class="oefening__footer">
+              <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+              <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+              <div class="oefening__score" hidden>
+                <div class="oefening__score-tekst"></div>
+                <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="samenvatting">
+          <h2>3. Samenvatting</h2>
+          <div class="callout callout--samenvatting">
+            <div class="callout-header">&#128203; Samenvatting</div>
+            <ul>
+              <li>Een firewall filtert verkeer op bron, doel, protocol en poort. Actie: ALLOW of BLOCK.</li>
+              <li>Stateful filtering houdt verbindingsstatus bij en laat retourverkeer automatisch door.</li>
+              <li>Zones: LAN (intern, hoog vertrouwen), WAN (internet, geen vertrouwen), DMZ (publieke servers, middel).</li>
+              <li>Vuistregel: default deny &mdash; blokkeer alles, laat alleen expliciet toe wat nodig is.</li>
+              <li>UniFi: Traffic Rules via Settings &rarr; Traffic &amp; Firewall. Client isolation per VLAN/SSID.</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H04">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H03-serverbeheer.html" class="chapter-nav__link chapter-nav__link--prev">
+            <span>&#8592;</span>
+            <div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H03 &mdash; Serverbeheer</span></div>
+          </a>
+          <a href="H05-netwerksecurity.html" class="chapter-nav__link chapter-nav__link--next">
+            <div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H05 &mdash; Netwerksecurity</span></div>
+            <span>&#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

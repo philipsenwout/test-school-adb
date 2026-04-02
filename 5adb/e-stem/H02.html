@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 &mdash; Linux basiscommandos &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Linux basiscommandos &amp;mdash; E-STEM 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H02</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-2-linux-basiscommandos-op-de-raspberry-pi">Hoofdstuk 2 — Linux basiscommando's op de Raspberry Pi</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#21-wat-is-een-terminal">2.1 Wat is een terminal?</a></li><li><a href="#22-navigatiecommandos">2.2 Navigatiecommando's</a></li><li><a href="#23-bestanden-en-mappen-beheren">2.3 Bestanden en mappen beheren</a></li><li><a href="#24-bestandsinhoud-bekijken-en-bewerken">2.4 Bestandsinhoud bekijken en bewerken</a></li><li><a href="#25-systeem--en-netwerkcommandos">2.5 Systeem- en netwerkcommando's</a></li><li><a href="#26-software-installeren-met-apt">2.6 Software installeren met apt</a></li><li><a href="#27-geheugensteuntje-alle-commandos">2.7 Geheugensteuntje: alle commando's</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h02" style="padding-left:1.25rem">Huistaak H02</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-estem" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127827; E-STEM &mdash; 5ADB</div>
+          <h1 class="page-header__title">H02 &mdash; Linux basiscommandos</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="e-stem">E-STEM</h1>
+<h2 id="hoofdstuk-2-linux-basiscommandos-op-de-raspberry-pi">Hoofdstuk 2 — Linux basiscommando's op de Raspberry Pi</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht E-STEM</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-03]</span> Systemen onderscheiden aan de hand van STEM-concepten <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-04]</span> Componenten van een systeem beschrijven en hun onderlinge relatie <span class="badge badge-basis">basis</span></div>
+<p>Na dit hoofdstuk kan de leerling:</p>
+<ul>
+<li>de terminal openen en basiscommando's uitvoeren;</li>
+<li>door het Linux-bestandssysteem navigeren;</li>
+<li>bestanden en mappen aanmaken, verplaatsen en verwijderen;</li>
+<li>een tekstbestand bewerken met nano;</li>
+<li>software installeren via apt.</li>
+</ul>
+<p><strong>Geschatte lesuren:</strong> 4 uur</p>
+<h2 id="21-wat-is-een-terminal">2.1 Wat is een terminal?</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De terminal (ook: command line of CLI) is een tekstvenster waarin je commando's typt om de computer te besturen. In plaats van op pictogrammen te klikken, typ je instructies.</p>
+</div>
+<p><strong>Waarom de terminal gebruiken?</strong></p>
+<ul>
+<li>Veel sneller dan klikken voor herhaalde taken</li>
+<li>Noodzakelijk voor serverbeheer (servers hebben vaak geen grafische interface)</li>
+<li>Basis van Linux- en netwerksysteembeheer</li>
+</ul>
+<p>Open de terminal: <strong>Menu → Accessoires → Terminal</strong> of <code>Ctrl + Alt + T</code></p>
+<p>!<a href="../../images/H02-linux-terminal.png" target="_blank" rel="noopener">Linux terminal</a></p>
+<p><em>Figuur 2.1 — De Linux-terminal op Raspberry Pi OS</em></p>
+<h2 id="22-navigatiecommandos">2.2 Navigatiecommando's</h2>
+<h3 id="pwd-huidige-map-tonen"><code>pwd</code> — huidige map tonen</h3>
+<pre data-lang="bash"><code>
+pwd
+</code></pre>
+<p><strong>Uitvoer:</strong> <code>/home/pi</code> — je staat in de hoofmap van de gebruiker "pi"</p>
+<h3 id="ls-inhoud-van-een-map-tonen"><code>ls</code> — inhoud van een map tonen</h3>
+<pre data-lang="bash"><code>
+ls          # eenvoudige lijst
+ls -l       # gedetailleerde lijst (met rechten, datum, grootte)
+ls -la      # ook verborgen bestanden tonen (beginnen met .)
+</code></pre>
+<h3 id="cd-van-map-wisselen"><code>cd</code> — van map wisselen</h3>
+<pre data-lang="bash"><code>
+cd Desktop          # ga naar de map Desktop
+cd ..               # ga één map omhoog
+cd /                # ga naar de rootmap
+cd ~                # ga naar je hoofmap (/home/pi)
+cd /home/pi/Desktop # absoluut pad (vanuit elke map)
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Druk op <strong>Tab</strong> na de eerste letters van een mapnaam om automatisch aan te vullen. Bv.: <code>cd Des</code> + Tab → <code>cd Desktop/</code>. Dit vermijdt typfouten.</p>
+</div>
+<h2 id="23-bestanden-en-mappen-beheren">2.3 Bestanden en mappen beheren</h2>
+<h3 id="mkdir-map-aanmaken"><code>mkdir</code> — map aanmaken</h3>
+<pre data-lang="bash"><code>
+mkdir mijnmap
+mkdir projecten/estem    # map aanmaken in een submap
+</code></pre>
+<h3 id="touch-leeg-bestand-aanmaken"><code>touch</code> — leeg bestand aanmaken</h3>
+<pre data-lang="bash"><code>
+touch notities.txt
+touch script.py
+</code></pre>
+<h3 id="cp-kopiëren"><code>cp</code> — kopiëren</h3>
+<pre data-lang="bash"><code>
+cp notities.txt backup.txt           # bestand kopiëren
+cp -r mijnmap mapkopie               # map kopiëren (-r = recursief)
+</code></pre>
+<h3 id="mv-verplaatsen-of-hernoemen"><code>mv</code> — verplaatsen of hernoemen</h3>
+<pre data-lang="bash"><code>
+mv notities.txt Desktop/notities.txt   # verplaatsen
+mv oud_naam.txt nieuw_naam.txt         # hernoemen
+</code></pre>
+<h3 id="rm-verwijderen"><code>rm</code> — verwijderen</h3>
+<pre data-lang="bash"><code>
+rm notities.txt          # bestand verwijderen
+rm -r mijnmap            # map verwijderen (inclusief inhoud)
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>rm</code> verwijdert bestanden <strong>permanent</strong> — geen prullenbak op Linux! Dubbelcheck altijd voor je <code>rm</code> uitvoert.</p>
+</div>
+<h2 id="24-bestandsinhoud-bekijken-en-bewerken">2.4 Bestandsinhoud bekijken en bewerken</h2>
+<h3 id="cat-inhoud-tonen"><code>cat</code> — inhoud tonen</h3>
+<pre data-lang="bash"><code>
+cat notities.txt
+</code></pre>
+<h3 id="nano-tekstbestand-bewerken"><code>nano</code> — tekstbestand bewerken</h3>
+<pre data-lang="bash"><code>
+nano notities.txt
+</code></pre>
+<p><strong>In nano:</strong></p>
+<ul>
+<li>Typ je tekst gewoon</li>
+<li><strong>Ctrl + S</strong> — opslaan</li>
+<li><strong>Ctrl + X</strong> — afsluiten</li>
+<li><strong>Ctrl + K</strong> — regel knippen</li>
+<li><strong>Ctrl + U</strong> — plakken</li>
+</ul>
+<p>!<a href="../../images/H02-nano-editor.png" target="_blank" rel="noopener">Nano tekstbewerker</a></p>
+<p><em>Figuur 2.2 — De nano-tekstbewerker in de terminal</em></p>
+<h2 id="25-systeem--en-netwerkcommandos">2.5 Systeem- en netwerkcommando's</h2>
+<pre data-lang="bash"><code>
+uname -a          # Linux-versie tonen
+hostname          # naam van de computer
+hostname -I       # IP-adres van de Pi
+df -h             # schijfruimte tonen
+free -h           # geheugengebruik tonen
+top               # processen bekijken (Ctrl+C om te stoppen)
+</code></pre>
+<h2 id="26-software-installeren-met-apt">2.6 Software installeren met apt</h2>
+<pre data-lang="bash"><code>
+sudo apt update              # lijst van beschikbare software bijwerken
+sudo apt install [pakket]    # software installeren
+sudo apt upgrade             # alle geïnstalleerde software bijwerken
+</code></pre>
+<p><strong>Voorbeeld — Python pip installeren:</strong></p>
+<pre data-lang="bash"><code>
+sudo apt update
+sudo apt install python3-pip
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p><code>sudo</code> staat voor "superuser do" — het voert een commando uit met beheerdersrechten. Heb je een foutmelding "permission denied"? Probeer <code>sudo</code> ervoor.</p>
+</div>
+<h2 id="27-geheugensteuntje-alle-commandos">2.7 Geheugensteuntje: alle commando's</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Commando</th><th>Wat het doet</th></tr></thead><tbody>
+<tr><td><code>pwd</code></td><td>Huidige map tonen</td></tr>
+<tr><td><code>ls</code></td><td>Mapinhoud tonen</td></tr>
+<tr><td><code>cd map</code></td><td>Naar map navigeren</td></tr>
+<tr><td><code>cd ..</code></td><td>Eén map omhoog</td></tr>
+<tr><td><code>mkdir naam</code></td><td>Nieuwe map aanmaken</td></tr>
+<tr><td><code>touch bestand</code></td><td>Leeg bestand aanmaken</td></tr>
+<tr><td><code>cat bestand</code></td><td>Inhoud van bestand tonen</td></tr>
+<tr><td><code>nano bestand</code></td><td>Bestand bewerken</td></tr>
+<tr><td><code>cp bron doel</code></td><td>Bestand kopiëren</td></tr>
+<tr><td><code>mv bron doel</code></td><td>Bestand verplaatsen/hernoemen</td></tr>
+<tr><td><code>rm bestand</code></td><td>Bestand verwijderen</td></tr>
+<tr><td><code>hostname -I</code></td><td>IP-adres tonen</td></tr>
+<tr><td><code>sudo apt install</code></td><td>Software installeren</td></tr>
+</tbody></table></div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="estem5-h02-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.1</span>
+    <span class="oefening__title">Navigatie in de terminal</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van de Linux-navigatiecommando's op de Raspberry Pi.</p>
+
+    <div class="vraag" data-type="text" data-correct="pwd">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk commando toont de huidige map (working directory) in de terminal?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="pwd (print working directory) — toont het volledige pad van de huidige map"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat doet het commando <code>cd ..</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v2" value="a"><span>Ga naar de rootmap <code>/</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v2" value="b"><span>Ga één map omhoog (naar de bovenliggende map)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v2" value="c"><span>Maak een nieuwe map aan met naam ".."</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v2" value="d"><span>Verwijder de huidige map</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Ga één map omhoog (naar de bovenliggende map) — .. verwijst altijd naar de bovenliggende directory"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk commando toont ook verborgen bestanden (bestanden die beginnen met een punt)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v3" value="a"><span><code>ls</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v3" value="b"><span><code>ls -l</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v3" value="c"><span><code>ls -la</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-1-v3" value="d"><span><code>ls --hidden</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="ls -la — de vlag -a toont ook verborgen bestanden (bestanden die beginnen met .), -l geeft een gedetailleerde lijst"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="cd ~|cd ~/">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Hoe navigeer je vanuit elke map terug naar je hoofmap (<code>/home/pi</code>)?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="cd ~ — de tilde (~) is een snelkoppeling naar je hoofmap"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="estem5-h02-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.2</span>
+    <span class="oefening__title">Bestanden en mappen beheren</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van de commando's voor het aanmaken en beheren van bestanden en mappen.</p>
+
+    <div class="vraag" data-type="text" data-correct="mkdir">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk commando gebruik je om een nieuwe map aan te maken?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="mkdir (make directory) — bv. mkdir estem maakt een map estem aan"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk commando maakt een leeg bestand <code>notities.txt</code> aan?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v2" value="a"><span><code>touch notities.txt</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v2" value="b"><span><code>create notities.txt</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v2" value="c"><span><code>new notities.txt</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v2" value="d"><span><code>make notities.txt</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="touch notities.txt — touch maakt een leeg bestand aan of werkt de datum bij van een bestaand bestand"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat is het risico van het commando <code>rm bestand.txt</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v3" value="a"><span>Het bestand wordt hernoemd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v3" value="b"><span>Het bestand wordt verplaatst naar de prullenbak</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v3" value="c"><span>Het bestand wordt verborgen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-2-v3" value="d"><span>Het bestand wordt permanent verwijderd — er is geen prullenbak op Linux</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Het bestand wordt permanent verwijderd — er is geen prullenbak op Linux. Dubbelcheck altijd voor je rm uitvoert!"></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,c">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke commando's worden gebruikt voor kopiëren en verplaatsen van bestanden? (Selecteer alle juiste antwoorden)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h02-2-v4" value="a"><span><code>cp</code> — kopiëren</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h02-2-v4" value="b"><span><code>move</code> — verplaatsen</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h02-2-v4" value="c"><span><code>mv</code> — verplaatsen of hernoemen</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h02-2-v4" value="d"><span><code>copy</code> — kopiëren</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="cp (copy) en mv (move) — dit zijn de correcte Linux-commando's voor kopiëren en verplaatsen"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="estem5-h02-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.3</span>
+    <span class="oefening__title">Software en bestanden bekijken</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van nano, cat en het installeren van software met apt.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Hoe sla je een bestand op in de nano-tekstbewerker?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v1" value="a"><span>Ctrl + Q</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v1" value="b"><span>Ctrl + S</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v1" value="c"><span>Ctrl + Z</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v1" value="d"><span>F2</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Ctrl + S — opslaan in nano. Ctrl + X sluit nano af."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="sudo apt update">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk commando gebruik je <em>eerst</em> om de lijst van beschikbare software bij te werken op Raspberry Pi OS?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het volledige commando...">
+      <div class="vraag__feedback" data-correct-label="sudo apt update — dit haalt de lijst van beschikbare pakketten op. Daarna gebruik je sudo apt install."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Waarvoor staat <code>sudo</code> in een Linux-commando?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v3" value="a"><span>Voer het commando uit met beheerdersrechten (superuser)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v3" value="b"><span>Voer het commando stil uit (geen uitvoer)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v3" value="c"><span>Voer het commando in de achtergrond uit</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h02-3-v3" value="d"><span>Stuur de uitvoer naar een bestand</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Voer het commando uit met beheerdersrechten (superuser) — sudo staat voor 'superuser do'"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h02">Huistaak H02</h3>
+<p><strong>Mappenstructuur aanmaken</strong></p>
+<p>Maak op de Raspberry Pi (of thuis op je eigen Linux/Mac/Windows terminal) de volgende structuur aan:</p>
+<pre data-lang=""><code>
+schooljaar/
+├── netwerken/
+│   └── notities.txt
+├── app-ontwikkeling/
+│   └── notities.txt
+├── databeheer/
+│   └── notities.txt
+└── e-stem/
+    └── notities.txt
+</code></pre>
+<p>Voeg in elk <code>notities.txt</code>-bestand een korte beschrijving toe van wat je over dat vak al geleerd hebt (via nano).</p>
+<p>Maak een screenshot van het eindresultaat (gebruik <code>ls -R schooljaar/</code> om de volledige structuur te tonen).</p>
+<p><strong>Verbetersleutel:</strong> zie <code>output/e-stem/huistaken/H02-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>De <strong>terminal</strong> is het hart van Linux-beheer: commando's typen is sneller en krachtiger dan klikken.</li>
+<li>Navigeren: <code>pwd</code> (huidige map), <code>ls</code> (inhoud), <code>cd</code> (wisselen van map).</li>
+<li>Beheren: <code>mkdir</code> (map aanmaken), <code>touch</code> (bestand aanmaken), <code>cp</code> (kopiëren), <code>mv</code> (verplaatsen), <code>rm</code> (verwijderen).</li>
+<li>Bewerken: <code>nano</code> voor tekstbestanden, <code>cat</code> voor snel bekijken.</li>
+<li>Installeren: <code>sudo apt update</code> + <code>sudo apt install</code>.</li>
+<li>Gebruik <strong>Tab</strong> voor auto-aanvulling — minder typewerk, minder fouten.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-03]</span> Systemen onderscheiden aan de hand van STEM-concepten <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-04]</span> Componenten van een systeem beschrijven en hun onderlinge relatie <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/e-stem/H02">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H01.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H01 &mdash; Introductie Raspberry Pi en Linux</span></div></a>
+          <a href="H03.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H03 &mdash; Python basics op de Raspberry Pi</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 &mdash; Computerarchitectuur als basis &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Computerarchitectuur als basis &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H02</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-2-computerarchitectuur-als-basis">Hoofdstuk 2 — Computerarchitectuur als basis</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#2-theorie">2. Theorie</a></li><li><a href="#21-het-von-neumann-model" style="padding-left:1.25rem">2.1 Het Von Neumann-model</a></li><li><a href="#22-de-cpu-processor" style="padding-left:1.25rem">2.2 De CPU (processor)</a></li><li><a href="#23-geheugen-ram" style="padding-left:1.25rem">2.3 Geheugen (RAM)</a></li><li><a href="#24-opslag-hdd-vs-ssd" style="padding-left:1.25rem">2.4 Opslag: HDD vs SSD</a></li><li><a href="#25-processorarchitecturen-x86-vs-arm" style="padding-left:1.25rem">2.5 Processorarchitecturen: x86 vs ARM</a></li><li><a href="#26-gegevenstransport-de-bus" style="padding-left:1.25rem">2.6 Gegevenstransport: de bus</a></li><li><a href="#2-voorbeelden">2. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h02" style="padding-left:1.25rem">Huistaak H02</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H02 &mdash; Computerarchitectuur als basis</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-2-computerarchitectuur-als-basis">Hoofdstuk 2 — Computerarchitectuur als basis</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>6 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>de hoofdcomponenten van een computersysteem benoemen en hun functie beschrijven</li>
+<li>de werking van een processor (CPU) uitleggen</li>
+<li>het verschil tussen RAM, ROM en opslagmedium toelichten</li>
+<li>x86- en ARM-architecturen onderscheiden</li>
+<li>HDD en SSD vergelijken op basis van werking en toepassing</li>
+<li>een computerconfiguratie samenstellen op basis van gegeven eisen</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-01]</span> De leerlingen lichten de werking toe van een computersysteem <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-02]</span> De leerlingen ontwerpen een configuratie van een computersysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-12]</span> De leerlingen handelen kwaliteitsbewust <span class="badge badge-basis">basis</span></div>
+<h2 id="2-theorie">2. Theorie</h2>
+<h3 id="21-het-von-neumann-model">2.1 Het Von Neumann-model</h3>
+<p>Vrijwel alle moderne computers zijn gebaseerd op het Von Neumann-model, voorgesteld door wiskundige John von Neumann in 1945. Het model beschrijft een computersysteem met vier basiscomponenten:</p>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Het Von Neumann-model is de architectuur waarop bijna alle moderne computers zijn gebouwd. Het beschrijft een systeem met een centrale verwerkingseenheid (CPU), geheugen (RAM), invoer/uitvoer-eenheden en een bus die alles verbindt.</p>
+</div>
+<ol>
+<li><strong>CPU</strong> (Central Processing Unit) — voert instructies uit</li>
+<li><strong>Geheugen</strong> (RAM) — slaat tijdelijk data en instructies op</li>
+<li><strong>Opslag</strong> (HDD, SSD) — slaat data permanent op</li>
+<li><strong>I/O-apparaten</strong> — invoer (toetsenbord, muis) en uitvoer (scherm, printer)</li>
+<li><strong>Bus</strong> — verbindt alle componenten met elkaar</li>
+</ol>
+<pre data-lang=""><code>
++----------------+       +-----------+
+|      CPU       |&lt;-----&gt;|    RAM    |
+| (ALU + CU)     |       +-----------+
++----------------+
+        |
+   [Systeembus]
+        |
++-------+--------+
+|                |
++-------+   +----+-----+
+| Opslag|   | I/O      |
+| HDD/  |   | Toets.,  |
+| SSD   |   | Scherm,  |
++-------+   | Printer  |
+            +----------+
+</code></pre>
+<h3 id="22-de-cpu-processor">2.2 De CPU (processor)</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De Central Processing Unit (CPU) is het "brein" van de computer. De CPU haalt instructies op uit het geheugen, interpreteert ze en voert ze uit. De snelheid van een CPU wordt uitgedrukt in GHz (gigahertz) en het aantal cores.</p>
+</div>
+<p>De CPU bestaat intern uit twee kerndelen:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Component</th><th>Naam</th><th>Functie</th></tr></thead><tbody>
+<tr><td><strong>ALU</strong></td><td>Arithmetic Logic Unit</td><td>Voert berekeningen en logische operaties uit</td></tr>
+<tr><td><strong>CU</strong></td><td>Control Unit</td><td>Haalt instructies op, decodeert ze en coördineert de uitvoering</td></tr>
+</tbody></table></div>
+<p><strong>Kernbegrippen bij processors:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Begriff</th><th>Omschrijving</th></tr></thead><tbody>
+<tr><td><strong>Kloksnelheid</strong></td><td>Aantal bewerkingen per seconde (GHz). Hogere klok = sneller (maar niet altijd!)</td></tr>
+<tr><td><strong>Cores</strong></td><td>Aparte verwerkingseenheden in één chip. Meer cores = beter voor parallelle taken</td></tr>
+<tr><td><strong>Cache</strong></td><td>Supersnel klein geheugen direct op de CPU (L1, L2, L3)</td></tr>
+<tr><td><strong>TDP</strong></td><td>Thermal Design Power — hoe veel warmte (en stroom) de CPU verbruikt</td></tr>
+<tr><td><strong>64-bit</strong></td><td>Kan 64-bit data per cyclus verwerken; alle moderne OS'en vereisen dit</td></tr>
+</tbody></table></div>
+<h3 id="23-geheugen-ram">2.3 Geheugen (RAM)</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Random Access Memory (RAM) is het werkgeheugen van de computer. Het slaat tijdelijk de data op waarmee de CPU actief bezig is. RAM is vluchtig: bij uitschakeling gaat alle inhoud verloren.</p>
+</div>
+<p>RAM-types:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Type</th><th>Beschrijving</th></tr></thead><tbody>
+<tr><td><strong>DDR4</strong></td><td>Huidig standaard in desktops en laptops</td></tr>
+<tr><td><strong>DDR5</strong></td><td>Nieuwste generatie — hogere snelheid en bandbreedte</td></tr>
+<tr><td><strong>LPDDR5</strong></td><td>Low-Power DDR5 — voor laptops en mobiele apparaten</td></tr>
+</tbody></table></div>
+<p>Vuistregel voor geheugen:</p>
+<ul>
+<li>8 GB: minimum voor schoolgebruik</li>
+<li>16 GB: comfortabel voor kantoor en ontwikkeling</li>
+<li>32 GB+: dataverwerking, virtualisatie, gaming</li>
+</ul>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Meer RAM is niet altijd sneller. Een CPU kan alleen snel werken als er voldoende RAM is voor de actieve processen. Als het RAM volzit, gebruikt het OS <strong>swap</strong> (pagina-uitwisseling met de harde schijf) — dit is véél trager.</p>
+</div>
+<h3 id="24-opslag-hdd-vs-ssd">2.4 Opslag: HDD vs SSD</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een Hard Disk Drive (HDD) is een mechanisch opslagmedium met roterende schijven en een beweegbare lees/schrijfkop. Data wordt magnetisch opgeslagen.</p>
+</div>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een Solid State Drive (SSD) is een elektronisch opslagmedium zonder bewegende onderdelen. Data wordt opgeslagen in flash-geheugen (NAND). Veel sneller en stiller dan een HDD.</p>
+</div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>HDD</th><th>SSD</th></tr></thead><tbody>
+<tr><td><strong>Snelheid lezen</strong></td><td>~100–200 MB/s</td><td>~500–7000 MB/s</td></tr>
+<tr><td><strong>Snelheid schrijven</strong></td><td>~100–150 MB/s</td><td>~400–6000 MB/s</td></tr>
+<tr><td><strong>Prijs per GB</strong></td><td>Goedkoop</td><td>Duurder (maar dalend)</td></tr>
+<tr><td><strong>Capaciteit</strong></td><td>Tot 20 TB (consument)</td><td>Tot 8 TB (consument)</td></tr>
+<tr><td><strong>Slagvastheid</strong></td><td>Kwetsbaar (mechanisch)</td><td>Robuust (geen bewegende delen)</td></tr>
+<tr><td><strong>Geluid</strong></td><td>Hoorbaar</td><td>Stil</td></tr>
+<tr><td><strong>Levensduur</strong></td><td>Sleet door beweging</td><td>Beperkt aantal schrijfcycli (TBW)</td></tr>
+<tr><td><strong>Gebruik</strong></td><td>Bulk-opslag, archief, NAS</td><td>OS-schijf, snelle werkopslag</td></tr>
+</tbody></table></div>
+<p>SSD-formaten:</p>
+<ul>
+<li><strong>2,5" SATA</strong> — oud formaat, langzamer</li>
+<li><strong>M.2 SATA</strong> — compact, zelfde snelheid als 2,5" SATA</li>
+<li><strong>M.2 NVMe (PCIe)</strong> — huidig standaard voor snelle SSD's</li>
+</ul>
+<h3 id="25-processorarchitecturen-x86-vs-arm">2.5 Processorarchitecturen: x86 vs ARM</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De instructieset-architectuur bepaalt welke machinecodetaal de CPU begrijpt. De twee dominante architecturen zijn x86 (voor desktops en servers) en ARM (voor mobiel en steeds meer laptops).</p>
+</div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>x86 (AMD/Intel)</th><th>ARM</th></tr></thead><tbody>
+<tr><td><strong>Primair gebruik</strong></td><td>Desktop, laptop, server</td><td>Smartphone, tablet, embedded</td></tr>
+<tr><td><strong>Voorbeelden</strong></td><td>Intel Core i7, AMD Ryzen 9</td><td>Apple M4, Qualcomm Snapdragon, Raspberry Pi</td></tr>
+<tr><td><strong>Stroomverbruik</strong></td><td>Hoger</td><td>Lager — efficiënter</td></tr>
+<tr><td><strong>Prestaties</strong></td><td>Hoog (brute kracht)</td><td>Hoog-efficiënt (prestatie/watt)</td></tr>
+<tr><td><strong>OS-ondersteuning</strong></td><td>Windows, Linux, macOS (pre-M1)</td><td>Android, iOS, macOS (M1+), Windows ARM</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Apple schakelde in 2020 over van x86 (Intel) naar eigen ARM-chips (Apple Silicon M1/M2/M3/M4). Dit leverde enorm efficiëntere laptops op met betere batterijduur. Microsoft heeft een ARM-versie van Windows die draait op Qualcomm Snapdragon-processors.</p>
+</div>
+<h3 id="26-gegevenstransport-de-bus">2.6 Gegevenstransport: de bus</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een bus is een set van elektrische verbindingen (draden of sporen op een moederbord) waarover data, adressen en controleinfo tussen CPU, geheugen en randapparatuur worden uitgewisseld.</p>
+</div>
+<p>Drie soorten bussen:</p>
+<ol>
+<li><strong>Databus</strong> — transporteert de eigenlijke data (8, 16, 32, 64 bit breed)</li>
+<li><strong>Adresbus</strong> — geeft aan welk geheugenadres aangesproken wordt</li>
+<li><strong>Controlebus</strong> — stuurt de timing en richting van het datatransport</li>
+</ol>
+<p>Moderne bussen:</p>
+<ul>
+<li><strong>PCIe (PCI Express)</strong> — snelle interne bus voor GPU, SSD (NVMe), netwerkkaarten</li>
+<li><strong>USB</strong> — universele externe bus (USB 3.2, USB4, Thunderbolt)</li>
+<li><strong>SATA</strong> — voor HDD en oudere SSD's</li>
+</ul>
+<h2 id="2-voorbeelden">2. Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een netwerkbeheerder heeft een computer nodig voor:</p>
+<ul>
+<li>Beheer van netwerkapparatuur via SSH en webinterface</li>
+<li>Draaien van virtuele machines (VM's) voor testomgevingen</li>
+<li>Verwerking van grote logbestanden</li>
+</ul>
+<p>Geschikte configuratie:</p>
+<ul>
+<li>CPU: Intel Core i7-13700 (16 cores) of AMD Ryzen 7 7700X</li>
+<li>RAM: 32 GB DDR5 (voor VM's)</li>
+<li>Opslag: 512 GB NVMe SSD (OS) + 2 TB HDD (archief/logs)</li>
+<li>Architectuur: x86-64</li>
+</ul>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een UniFi Express 7 (de router die we later in het praktijkproject gebruiken) draait op een ARM-processor. Dit is bewust: ARM verbruikt minder stroom, genereert minder warmte, en is goedkoper voor apparaten die 24/7 aan staan. De UniFi Express 7 heeft geen ventilator nodig dankzij de lage TDP van de ARM-chip.</p>
+</div>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h02-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.1</span>
+    <span class="oefening__title">Computercomponenten herkennen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Koppel elk onderdeel aan de juiste categorie in het Von Neumann-model.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">De "Intel Core i9-14900K" is een voorbeeld van welke component?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>CPU (processor)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>RAM (werkgeheugen)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Opslag</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Bus</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="CPU — Intel Core i9-14900K is een processor (Central Processing Unit), het 'brein' van de computer."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">"32 GB DDR5-6000" is een voorbeeld van welke component?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>CPU (processor)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>RAM (werkgeheugen)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Opslag (SSD/HDD)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>I/O-apparaat</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="RAM — DDR5 is het vluchtig werkgeheugen van de computer. Het slaat tijdelijk de actieve data op voor de CPU."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">De "Samsung 970 EVO NVMe 1 TB" is welk type opslagmedium?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>HDD (Hard Disk Drive)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>RAM (werkgeheugen)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>SSD (Solid State Drive)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>ROM</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SSD — NVMe is een snelle SSD-variant die via PCIe op het moederbord is aangesloten. Geen bewegende onderdelen, veel sneller dan een HDD."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="b,d">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke van de volgende zijn bussen (verbindingskanalen tussen componenten)? (Selecteer alle juiste opties)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>DDR5-geheugenmodule</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>PCIe 5.0 x16 slot</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>Intel Core i7-processor</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>USB-aansluiting</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="PCIe en USB zijn bussen: PCIe is een interne bus voor GPU, SSD en netwerkkaarten. USB is een universele externe bus voor randapparatuur."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h02-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.2</span>
+    <span class="oefening__title">HDD of SSD kiezen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Kies het juiste opslagmedium voor elke situatie. Denk aan snelheid, capaciteit en betrouwbaarheid.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Het opstartschijfje van een schoolserver die 24/7 draait — wat kies je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>HDD — goedkoper en grote capaciteit</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>SSD — sneller, stiller en betrouwbaarder voor doorlopend gebruik</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SSD — voor een OS-schijf die 24/7 draait kies je SSD: geen bewegende onderdelen, sneller opstarten en betrouwbaarder bij continu gebruik."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Een NAS voor backups van 50 TB — wat kies je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>HDD — goedkoper per GB, ideaal voor grote bulk-opslag</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>SSD — sneller en robuuster</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="HDD — voor 50 TB backup-opslag is prijs per GB doorslaggevend. HDD's zijn veel goedkoper per GB en perfect voor archief-opslag."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Een laptop voor netwerkdiagnose op locatie (valt soms) — wat kies je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>HDD — groter en goedkoper</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>SSD — slagvast, geen bewegende delen die beschadigen bij stoten</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SSD — een SSD heeft geen bewegende onderdelen en is robuust: een HDD kan beschadigen bij een stoot of val, een SSD niet."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="hdd|hard disk drive|harde schijf">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welk type opslag is een mechanisch apparaat met roterende schijven en een beweegbare lees/schrijfkop?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+      <div class="vraag__feedback" data-correct-label="HDD (Hard Disk Drive) — een mechanische harde schijf met roterende platters en een bewegende lees/schrijfkop."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h02-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.3</span>
+    <span class="oefening__title">Serverconfiguratie voor een school</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een school wil een server aanschaffen voor Active Directory, fileserver en DHCP/DNS. De server moet 24/7 draaien en energiezuinig zijn.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Hoeveel RAM is minimaal aangeraden voor een server die tegelijk drie rollen (AD, fileserver, DHCP/DNS) vervult?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>4 GB — voldoende voor basisservices</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>16 GB — comfortabel voor meerdere serverrollen</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>256 GB — voor grote virtualisatieomgevingen</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>512 MB — minimale serverinstallatie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="16 GB — voor meerdere serverrollen tegelijk is 16 GB een comfortabele keuze. 4 GB is te weinig; 256 GB is overdreven voor deze schaal."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke processorarchitectuur kies je voor een Windows Server-omgeving die Active Directory moet draaien?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>x86-64 (Intel/AMD) — volledige Windows Server-ondersteuning</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>ARM — energiezuiniger en goedkoper</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="x86-64 — Windows Server en Active Directory vereisen een x86-64 processor (Intel of AMD). ARM-ondersteuning voor Windows Server is beperkt."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="b,c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke opslagopties zijn geschikt voor deze server? (Selecteer alle zinvolle keuzes)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>Alleen een grote HDD van 10 TB voor alles</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>Een SSD voor het besturingssysteem (snel opstarten, betrouwbaar)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>Extra HDD's voor gedeelde bestanden (goedkoop, grote capaciteit)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>Enkel USB-sticks als opslag</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SSD voor OS + HDD voor data is de standaardaanpak: de SSD zorgt voor snel opstarten en betrouwbaarheid, de HDD's bieden goedkope opslag voor de gedeelde bestanden."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Een computer bestaat uit CPU, RAM, opslag, I/O-apparaten en bussen.</li>
+<li>De CPU (met ALU en CU) voert instructies uit; snelheid wordt bepaald door klok en cores.</li>
+<li>RAM is vluchtig werkgeheugen; SSD/HDD is permanente opslag.</li>
+<li>SSD is veel sneller dan HDD maar duurder per GB — gebruik SSD voor OS en actieve data, HDD voor bulk-archivering.</li>
+<li>x86 (Intel/AMD) is dominant in desktops en servers; ARM is energiezuiniger en overheerst in mobiel en embedded systemen.</li>
+<li>Bussen (PCIe, USB, SATA) verbinden de componenten intern en extern.</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h02">Huistaak H02</h3>
+<p>Kijk thuis de specificaties op van de computer die je het meest gebruikt (laptop, desktop, gaming-pc, ...).</p>
+<ol>
+<li>Noteer: merk + model, CPU (naam + kloksnelheid + aantal cores), RAM (hoeveelheid + type), opslag (type + capaciteit).</li>
+<li>Zoek op: is dit x86 of ARM?</li>
+<li>Vergelijk je configuratie met de minimum-eisen voor Windows 11. Voldoet jouw computer?</li>
+<li>Optioneel (verdieping): gebruik de gratis tool <strong>CPU-Z</strong> (Windows) of <strong>System Information</strong> (Mac) om alle hardware-info op te vragen. Maak een screenshot.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H02-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 2 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H02">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H01.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H01 &mdash; Wat is een netwerk?</span></div></a>
+          <a href="H03.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H03 &mdash; Het OSI-model</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

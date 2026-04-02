@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H06 &mdash; GIP Backend voorbereiding &mdash; Databeheer 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H06</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Databaseschema ontwerpen</a></li>
+        <li><a href="#s2">2. API-endpoints plannen</a></li>
+        <li><a href="#s3">3. Koppeling front-end &harr; back-end &harr; database</a></li>
+        <li><a href="#s4">4. Testen met Postman en curl</a></li>
+        <li><a href="#s5">5. GIP backend checklist</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-data">
+      <div class="page-header__vak">&#128202; Databeheer &mdash; H06</div>
+      <h1 class="page-header__title">GIP Backend voorbereiding</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">4 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-DB-14] GIP-database ontwerpen en koppelen aan de back-end &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Databaseschema ontwerpen voor het GIP</h2>
+    <p>V&oacute;&oacute;r je aan de code begint, ontwerp je het databaseschema. Een goed schema is de basis van een werkende applicatie.</p>
+
+    <div class="callout callout--definitie">
+      <div class="callout__title">Stappenplan</div>
+      <ol>
+        <li>Bepaal de <strong>entiteiten</strong> (objecten in je applicatie, bv. Gebruiker, Product, Bestelling)</li>
+        <li>Bepaal de <strong>attributen</strong> (kolommen) per entiteit</li>
+        <li>Bepaal de <strong>relaties</strong> (één-op-veel, veel-op-veel)</li>
+        <li>Teken een <strong>ERD</strong> (Entity Relationship Diagram)</li>
+        <li>Normaliseer het schema tot minstens 3NF</li>
+        <li>Schrijf de <strong>CREATE TABLE</strong> statements</li>
+      </ol>
+    </div>
+
+    <p>Voorbeeld: schema voor een eenvoudige takenapp (GIP-voorbeeld):</p>
+    <pre><code>-- schema.sql
+CREATE DATABASE IF NOT EXISTS takenapp_db;
+USE takenapp_db;
+
+CREATE TABLE gebruikers (
+  gebruiker_id INT AUTO_INCREMENT PRIMARY KEY,
+  gebruikersnaam VARCHAR(50)  NOT NULL UNIQUE,
+  email          VARCHAR(150) NOT NULL UNIQUE,
+  wachtwoord     VARCHAR(255) NOT NULL,  -- gehashed opslaan!
+  aangemaakt_op  DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE categorie&euml;n (
+  categorie_id INT AUTO_INCREMENT PRIMARY KEY,
+  naam         VARCHAR(100) NOT NULL,
+  kleur        CHAR(7) DEFAULT '#6C63FF'  -- CSS-kleurcode
+);
+
+CREATE TABLE taken (
+  taak_id      INT AUTO_INCREMENT PRIMARY KEY,
+  gebruiker_id INT  NOT NULL,
+  categorie_id INT,
+  titel        VARCHAR(200) NOT NULL,
+  beschrijving TEXT,
+  gedaan       BOOLEAN DEFAULT FALSE,
+  vervaldatum  DATE,
+  prioriteit   ENUM('laag','normaal','hoog') DEFAULT 'normaal',
+  aangemaakt_op DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (gebruiker_id) REFERENCES gebruikers(gebruiker_id) ON DELETE CASCADE,
+  FOREIGN KEY (categorie_id) REFERENCES categorie&euml;n(categorie_id) ON DELETE SET NULL
+);</code></pre>
+
+    <h2 id="s2">2. API-endpoints plannen</h2>
+    <p>Documenteer alle API-endpoints v&oacute;&oacute;r je begint met coderen. Dit is onderdeel van de functionele analyse.</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Methode</th><th>Endpoint</th><th>Beschrijving</th><th>Body</th><th>Response</th></tr></thead>
+      <tbody>
+        <tr><td>GET</td><td><code>/api/taken</code></td><td>Alle taken van ingelogde gebruiker</td><td>&mdash;</td><td>Array van taken</td></tr>
+        <tr><td>GET</td><td><code>/api/taken/:id</code></td><td>&Eacute;&eacute;n taak</td><td>&mdash;</td><td>Taak-object of 404</td></tr>
+        <tr><td>POST</td><td><code>/api/taken</code></td><td>Nieuwe taak aanmaken</td><td><code>{ titel, beschrijving, categorie_id }</code></td><td>Nieuwe taak (201)</td></tr>
+        <tr><td>PUT</td><td><code>/api/taken/:id</code></td><td>Taak volledig bijwerken</td><td><code>{ titel, beschrijving, gedaan }</code></td><td>Bijgewerkte taak</td></tr>
+        <tr><td>PATCH</td><td><code>/api/taken/:id/gedaan</code></td><td>Taak als gedaan markeren</td><td>&mdash;</td><td>Bijgewerkte taak</td></tr>
+        <tr><td>DELETE</td><td><code>/api/taken/:id</code></td><td>Taak verwijderen</td><td>&mdash;</td><td>204 No Content</td></tr>
+        <tr><td>GET</td><td><code>/api/categorie&euml;n</code></td><td>Alle categorie&euml;n</td><td>&mdash;</td><td>Array van categorie&euml;n</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="s3">3. Koppeling front-end &harr; back-end &harr; database</h2>
+    <p>Onderstaand schema toont hoe de drie lagen samenwerken voor &eacute;&eacute;n gebruikerssactie ("alle taken laden"):</p>
+    <pre><code>// FRONT-END (browser — app.js)
+async function laadTaken() {
+  const response = await fetch("/api/taken");
+  const taken    = await response.json();
+  toonTakenInDOM(taken);
+}
+
+// ↕ HTTP GET /api/taken
+
+// BACK-END (Express — routes/taken.js)
+router.get("/", async (req, res) => {
+  try {
+    const [rijen] = await pool.query(
+      "SELECT t.*, c.naam AS categorie_naam FROM taken t LEFT JOIN categorieën c ON t.categorie_id = c.categorie_id WHERE t.gebruiker_id = ?",
+      [req.user.id]
+    );
+    res.json(rijen);
+  } catch (fout) {
+    res.status(500).json({ fout: "Kon taken niet laden" });
+  }
+});
+
+// ↕ SQL SELECT
+
+// DATABASE (MySQL)
+-- Resultaat: array van rijen met taak-data</code></pre>
+
+    <h2 id="s4">4. Testen met Postman en curl</h2>
+    <p>Test je API grondig v&oacute;&oacute;r je de front-end koppelt. Gebruik Postman (grafische interface) of <code>curl</code> (terminal).</p>
+    <pre><code># curl voorbeelden
+# GET alle taken
+curl http://localhost:3000/api/taken
+
+# POST nieuwe taak
+curl -X POST http://localhost:3000/api/taken \
+  -H "Content-Type: application/json" \
+  -d '{"titel":"Studeren voor databeheer","prioriteit":"hoog"}'
+
+# PATCH taak als gedaan
+curl -X PATCH http://localhost:3000/api/taken/1/gedaan
+
+# DELETE taak
+curl -X DELETE http://localhost:3000/api/taken/1</code></pre>
+    <div class="callout callout--tip">
+      <div class="callout__title">Postman</div>
+      <p>Postman is een gratis tool waarmee je HTTP-aanvragen grafisch kan opbouwen en uitvoeren. Je kan er ook testcollecties mee opbouwen en automatisch testen schrijven die de responsedok controleren. Ideaal voor het testen van je GIP-API.</p>
+    </div>
+
+    <h2 id="s5">5. GIP Backend checklist</h2>
+    <div class="oefening" data-oef-id="db6-h06-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 6.1</span>
+        <span class="oefening__title">GIP backend-voorbereiding</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van het ontwerpen en testen van een GIP-backend: database-ontwerp, API-planning en veiligheid.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Wat is de correcte volgorde bij het opzetten van een GIP-backend?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Coderen → ERD tekenen → API testen → normaliseren</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>ERD tekenen → normaliseren → CREATE TABLE → API coderen → API testen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>API testen → CREATE TABLE → ERD tekenen → front-end koppelen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Front-end bouwen → database aanmaken → API coderen</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="ERD → normaliseren → CREATE TABLE → API coderen → testen — altijd beginnen met het ontwerp (ERD), dan de database, dan de code."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="erd|entity relationship diagram|entiteitsrelatiediagram">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Hoe heet het visueel schema dat de tabellen, kolommen en relaties van een database weergeeft? (afkorting is ook aanvaard)</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+          <div class="vraag__feedback" data-correct-label="ERD — Entity Relationship Diagram. Toont de entiteiten (tabellen), hun attributen (kolommen) en de relaties ertussen (één-op-veel, veel-op-veel)."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Welke statuscode stuur je als de aanvraag verplichte velden mist (bv. geen <code>titel</code> bij POST /api/taken)?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>500 Internal Server Error</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>404 Not Found</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>400 Bad Request</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>200 OK met een lege body</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="400 Bad Request — de client stuurde een ongeldige aanvraag (ontbrekende of foutieve data). De server heeft geen fout gemaakt."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,c,d">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Welke zijn verplichte items in een GIP backend-checklist?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span>Geparametriseerde queries overal toegepast</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span>Databasewachtwoord hardcoded in index.js voor eenvoud</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span>CORS-headers ingesteld zodat de front-end verbinding kan maken</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span>Elke route getest met Postman of curl vóór de front-end gekoppeld wordt</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="A, C en D zijn correct. Het wachtwoord nooit hardcoded opslaan — gebruik een .env-bestand of een config-bestand buiten de repository."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Start het GIP altijd met een ERD en genormaliseerd schema (tot 3NF).</li>
+        <li>Documenteer alle API-endpoints v&oacute;&oacute;r je begint met coderen.</li>
+        <li>Test elke route grondig met Postman of curl v&oacute;&oacute;r je de front-end koppelt.</li>
+        <li>Gebruik geparametriseerde queries, valideer input en geef correcte statuscodes.</li>
+        <li>De drie lagen (front-end, back-end, database) communiceren via HTTP en SQL.</li>
+      </ul>
+    </div>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/databeheer/H06">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H05-dashboarding-python.html" class="btn btn-secondary">&larr; H05 &mdash; Dashboarding</a>
+      <span></span>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

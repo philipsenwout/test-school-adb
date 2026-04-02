@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datatypes — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H18" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-zijn-datatypes">18.1 Wat zijn datatypes?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.2"><span class="sidebar-check__box"></span></label>
+          <a href="#number">18.2 number</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.3"><span class="sidebar-check__box"></span></label>
+          <a href="#string">18.3 string</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.4"><span class="sidebar-check__box"></span></label>
+          <a href="#boolean">18.4 boolean</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.5"><span class="sidebar-check__box"></span></label>
+          <a href="#null-undefined">18.5 null en undefined</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.6"><span class="sidebar-check__box"></span></label>
+          <a href="#typeof">18.6 De typeof-operator</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.7"><span class="sidebar-check__box"></span></label>
+          <a href="#template-literals">18.7 Template literals</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Datatypes</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H18 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Datatypes</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan de zes primitieve datatypes in JavaScript benoemen en beschrijven</li>
+          <li>Je kan het verschil uitleggen tussen <code>number</code>, <code>string</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code> en <code>object</code></li>
+          <li>Je kan de <code>typeof</code>-operator gebruiken om het datatype van een waarde op te vragen</li>
+          <li>Je kan strings schrijven met enkele aanhalingstekens, dubbele aanhalingstekens én template literals</li>
+          <li>Je kan escape-tekens gebruiken in strings (<code>\n</code>, <code>\'</code>, <code>\\</code>)</li>
+          <li>Je kan uitleggen wat <code>NaN</code> is en wanneer het ontstaat</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-zijn-datatypes">1. Wat zijn datatypes?</h2>
+
+      <p>Als je een variabele aanmaakt in JavaScript, sla je er een waarde in op. Maar niet alle waarden zijn hetzelfde: een getal is iets anders dan een stuk tekst, en tekst is iets anders dan <code>true</code> of <code>false</code>.</p>
+
+      <p>Een <strong>datatype</strong> bepaalt wat voor soort waarde iets is én wat je ermee kan doen.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let leeftijd = 17;          // een getal
+let naam = "Lena";          // tekst
+let isActief = true;        // ja of nee</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H18-afb1.svg" alt="Overzicht van de 6 primitieve datatypes in JavaScript" loading="lazy">
+      </figure>
+
+      <h2 id="number">2. number — getallen</h2>
+
+      <p>Het type <code>number</code> wordt gebruikt voor <strong>alle getallen</strong>: gehele getallen én kommagetallen.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let aantalLeerlingen = 28;
+let prijs = 4.99;
+let temperatuur = -3;
+let pi = 3.14159;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let a = 10;
+let b = 3;
+
+console.log(a + b);   // 13
+console.log(a - b);   // 7
+console.log(a * b);   // 30
+console.log(a / b);   // 3.3333...
+console.log(a % b);   // 1 (rest bij deling)</code></pre>
+      </div>
+
+      <h3>2.2 Speciale getalwaarden: Infinity en NaN</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(1 / 0);       // Infinity
+console.log(-1 / 0);      // -Infinity
+console.log("abc" * 2);   // NaN (Not a Number)</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ NaN is type number</div>
+        <p><code>NaN</code> (Not a Number) is van het type <code>number</code> — dat klinkt vreemd maar zo werkt JavaScript nu eenmaal. Gebruik <code>isNaN()</code> om te controleren of iets NaN is: <code>isNaN(NaN)</code> geeft <code>true</code>.</p>
+      </div>
+
+      <h2 id="string">3. string — tekst</h2>
+
+      <p>Een <code>string</code> is een reeks van nul of meer karakters. Je schrijft een string altijd tussen aanhalingstekens.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let voornaam = "Lena";        // dubbele aanhalingstekens
+let achternaam = 'Janssen';   // enkele aanhalingstekens — zelfde resultaat
+let leeg = "";                // een lege string</code></pre>
+      </div>
+
+      <h3>3.2 Escape-tekens</h3>
+
+      <table>
+        <thead>
+          <tr><th>Escape-teken</th><th>Betekenis</th><th>Voorbeeld</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>\'</code></td><td>Enkele aanhalingsteken</td><td><code>'I\'m OK'</code></td></tr>
+          <tr><td><code>\"</code></td><td>Dubbele aanhalingsteken</td><td><code>"Hij zei \"hallo\""</code></td></tr>
+          <tr><td><code>\\</code></td><td>Letterlijke backslash</td><td><code>"C:\\Users\\lena"</code></td></tr>
+          <tr><td><code>\n</code></td><td>Nieuwe regel</td><td><code>"Regel 1\nRegel 2"</code></td></tr>
+          <tr><td><code>\t</code></td><td>Tab</td><td><code>"Naam:\tLena"</code></td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="boolean">4. boolean — waar of niet waar</h2>
+
+      <p>Een <code>boolean</code> heeft slechts twee mogelijke waarden: <strong><code>true</code></strong> of <strong><code>false</code></strong>. Niets anders.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let isAangemeld = true;
+let heeftBetaald = false;
+let isVolwassen = (leeftijd &gt;= 18);   // wordt true of false</code></pre>
+      </div>
+
+      <h2 id="null-undefined">5. null en undefined</h2>
+
+      <h3>null — bewust leeg</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let gebruiker = null;   // er is momenteel geen gebruiker ingelogd</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Historische bug</div>
+        <p><code>typeof null</code> geeft <code>"object"</code> terug — dat is een bekende bug in JavaScript die nooit werd opgelost. Weet dat <code>null</code> echter géén object is; het is zijn eigen primitief type.</p>
+      </div>
+
+      <h3>undefined — onbekend</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let naam;
+console.log(naam);          // undefined
+console.log(typeof naam);   // "undefined"</code></pre>
+      </div>
+
+      <p><strong>Samengevat:</strong></p>
+      <ul>
+        <li><code>null</code> = er is bewust geen waarde (door de programmeur ingesteld)</li>
+        <li><code>undefined</code> = er is nog geen waarde (de variabele bestaat maar heeft niets gekregen)</li>
+      </ul>
+
+      <h2 id="typeof">6. De typeof-operator</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(typeof 42);          // "number"
+console.log(typeof "hallo");     // "string"
+console.log(typeof true);        // "boolean"
+console.log(typeof null);        // "object" — historische bug!
+console.log(typeof undefined);   // "undefined"
+console.log(typeof {});          // "object"</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H18-afb3.svg" alt="typeof operator in de browser console" loading="lazy">
+      </figure>
+
+      <h2 id="template-literals">7. Template literals — de moderne manier</h2>
+
+      <p>Template literals zijn een modernere manier om strings te schrijven. Je gebruikt <strong>backticks</strong> <code>`</code>. Het grote voordeel: je kan <strong>variabelen rechtstreeks in de string zetten</strong> met <code>${...}</code>.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let voornaam = "Lena";
+let leeftijd = 17;
+
+// Oude manier — omslachtig:
+let bericht1 = "Hallo, mijn naam is " + voornaam + " en ik ben " + leeftijd + " jaar.";
+
+// Moderne manier — template literal:
+let bericht2 = `Hallo, mijn naam is ${voornaam} en ik ben ${leeftijd} jaar.`;
+
+// Je kan ook berekeningen zetten binnen ${}:
+let a = 5;
+let b = 3;
+console.log(`${a} plus ${b} is ${a + b}.`);   // 5 plus 3 is 8.</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H18-afb2.svg" alt="Vergelijking: string concatenatie vs template literal" loading="lazy">
+      </figure>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Datatypes verkennen in de console</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een nieuw bestand <code>datatypes.html</code> en voeg een <code>&lt;script&gt;</code>-blok toe. Declareer voor elk primitief datatype een variabele en gebruik <code>console.log()</code> om zowel de waarde als het type te tonen.</p>
+            <p><strong>Verwacht resultaat in de console:</strong></p>
+            <div class="code-block">
+              <div class="code-block__lang">Bash</div>
+              <pre><code>Naam: Lena — type: string
+Leeftijd: 17 — type: number
+Is actief: true — type: boolean
+Score: null — type: object
+Woonplaats: undefined — type: undefined</code></pre>
+            </div>
+            <p>Gebruik template literals om de uitvoer netjes op te maken:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-js">console.log(`Naam: ${naam} — type: ${typeof naam}`);</code></pre>
+            </div>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H18-oef1-browser.svg" alt="Browser met geopende console — uitvoer van de typeof-oefening" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Datatypes
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H18-voorbeeld.svg', 'Voorbeeld — Datatypes in de console')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Datatypes toepassen in een profielpagina</h3>
+            <ol>
+              <li><strong>Deel 1 — Variabelen met de juiste types (4 punten):</strong> Maak een script met variabelen voor: naam (string), leeftijd (number), gemiddelde score (number met decimaal), is ingeschreven (boolean), favoriete kleur (string), en onbekend gegeven (null of undefined). Zorg voor correcte types en betekenisvolle namen.</li>
+              <li><strong>Deel 2 — typeof tonen (3 punten):</strong> Gebruik <code>console.log()</code> met <code>typeof</code> om van elke variabele de waarde én het type te tonen. Gebruik template literals voor een nette opmaak.</li>
+              <li><strong>Deel 3 — Template literal (3 punten):</strong> Schrijf één langere template literal die een profiel samenstelt: naam, leeftijd, status (ingeschreven of niet) en een berekening (bijv. jaar van inschrijving = huidig jaar - leeftijd + 6).</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H18 — Datatypes</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat geeft typeof null terug in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="a"> <span>"null"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="b"> <span>"undefined"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="c"> <span>"object"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="d"> <span>"boolean"</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk symbool gebruik je voor template literals?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="a"> <span>Backtick (`)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="b"> <span>Enkele aanhalingsteken (')</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="c"> <span>Dubbele aanhalingsteken (")</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="d"> <span>Schuine streep (/)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat is het verschil tussen null en undefined?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="a"> <span>Ze zijn identiek — geen verschil</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="b"> <span>null is bewust geen waarde (door programmeur), undefined is een variabele zonder waarde</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="c"> <span>undefined is bewust geen waarde, null is automatisch</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="d"> <span>null is een getal, undefined is een string</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is NaN?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="a"> <span>Een speciaal boolean type</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="b"> <span>Een string die "geen getal" bevat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="c"> <span>Een foutmelding die het programma stopt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="d"> <span>Een ongeldige getalwaarde van het type number (Not a Number)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Hoe schrijf je een variabele in een template literal?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="a"> <span>${variabele}</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="b"> <span>#{variabele}</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="c"> <span>{{variabele}}</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="d"> <span>%variabele%</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat is het escape-teken voor een nieuwe regel in een string?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="a"> <span>\r</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="b"> <span>\t</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="c"> <span>\n</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="d"> <span>\b</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H18')" data-progress-key="5adb/app-ontwikkeling/H18">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H17.html" class="btn btn-ghost">← H17</a>
+          <a href="H19.html" class="btn btn-ghost">H19 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

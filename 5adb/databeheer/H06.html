@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H06 &mdash; SQL manipulatie: UPDATE en DELETE &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="SQL manipulatie: UPDATE en DELETE &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H06</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-6-sql-manipulatie-update-en-delete">Hoofdstuk 6 — SQL-manipulatie: UPDATE en DELETE</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#61-gegevens-wijzigen-met-update">6.1 Gegevens wijzigen met UPDATE</a></li><li><a href="#611-basisstructuur" style="padding-left:1.25rem">6.1.1 Basisstructuur</a></li><li><a href="#612-voorbeelden" style="padding-left:1.25rem">6.1.2 Voorbeelden</a></li><li><a href="#613-update-met-berekeningen" style="padding-left:1.25rem">6.1.3 UPDATE met berekeningen</a></li><li><a href="#62-gegevens-verwijderen-met-delete">6.2 Gegevens verwijderen met DELETE</a></li><li><a href="#621-basisstructuur" style="padding-left:1.25rem">6.2.1 Basisstructuur</a></li><li><a href="#622-voorbeelden" style="padding-left:1.25rem">6.2.2 Voorbeelden</a></li><li><a href="#623-verwijdering-en-referentiële-integriteit" style="padding-left:1.25rem">6.2.3 Verwijdering en referentiële integriteit</a></li><li><a href="#63-transacties">6.3 Transacties</a></li><li><a href="#631-acid-eigenschappen" style="padding-left:1.25rem">6.3.1 ACID-eigenschappen</a></li><li><a href="#632-transacties-gebruiken" style="padding-left:1.25rem">6.3.2 Transacties gebruiken</a></li><li><a href="#633-transactie-met-foutcontrole" style="padding-left:1.25rem">6.3.3 Transactie met foutcontrole</a></li><li><a href="#64-soft-delete">6.4 Soft delete</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h06" style="padding-left:1.25rem">Huistaak H06</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H06 &mdash; SQL manipulatie: UPDATE en DELETE</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-6-sql-manipulatie-update-en-delete">Hoofdstuk 6 — SQL-manipulatie: UPDATE en DELETE</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB21]</span> Gebruiken van een querytaal voor het manipuleren van gegevens <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 4 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>Bestaande gegevens wijzigen met <code>UPDATE … SET … WHERE</code>.</li>
+<li>Gegevens verwijderen met <code>DELETE … WHERE</code>.</li>
+<li>Het belang van de <code>WHERE</code>-clausule bij <code>UPDATE</code> en <code>DELETE</code> uitleggen.</li>
+<li>Transacties gebruiken om destructieve operaties veilig te maken.</li>
+<li>Het verschil uitleggen tussen een harde verwijdering (DELETE) en een zachte verwijdering (soft delete).</li>
+</ol>
+<h2 id="61-gegevens-wijzigen-met-update">6.1 Gegevens wijzigen met UPDATE</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p><code>UPDATE</code> wijzigt de waarden van een of meer kolommen in een of meer bestaande rijen. De <code>WHERE</code>-clausule bepaalt welke rijen worden aangepast.</p>
+</div>
+<h3 id="611-basisstructuur">6.1.1 Basisstructuur</h3>
+<pre data-lang="sql"><code>
+UPDATE tabelnaam
+SET kolom1 = nieuwe_waarde1,
+    kolom2 = nieuwe_waarde2
+WHERE conditie;
+</code></pre>
+<h3 id="612-voorbeelden">6.1.2 Voorbeelden</h3>
+<pre data-lang="sql"><code>
+-- Prijs van één specifiek product aanpassen
+UPDATE product
+SET prijs = 899.00
+WHERE product_id = 1;
+
+-- Meerdere kolommen tegelijk aanpassen
+UPDATE product
+SET prijs    = 549.00,
+    voorraad = 30
+WHERE product_id = 2;
+
+-- E-mailadres van een klant bijwerken
+UPDATE klant
+SET email = 'lena.claes@nieuw.be'
+WHERE klant_id = 1;
+
+-- Meerdere rijen tegelijk aanpassen
+-- Deactiveer alle producten die niet meer op voorraad zijn
+UPDATE product
+SET actief = 0
+WHERE voorraad = 0;
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Een <code>UPDATE</code> zonder <code>WHERE</code>-clausule past <strong>alle rijen</strong> in de tabel aan. Dit is vrijwel altijd een fout. Controleer altijd eerst met een <code>SELECT</code> welke rijen worden geraakt.</p>
+</div>
+<p><strong>Veilige werkwijze:</strong></p>
+<pre data-lang="sql"><code>
+-- Stap 1: Controleer welke rijen worden geraakt
+SELECT product_id, naam, prijs
+FROM product
+WHERE product_id = 1;
+
+-- Stap 2: Pas aan
+UPDATE product
+SET prijs = 899.00
+WHERE product_id = 1;
+
+-- Stap 3: Verifieer het resultaat
+SELECT product_id, naam, prijs
+FROM product
+WHERE product_id = 1;
+</code></pre>
+<h3 id="613-update-met-berekeningen">6.1.3 UPDATE met berekeningen</h3>
+<pre data-lang="sql"><code>
+-- Verhoog de prijs van alle elektronica met 10%
+UPDATE product
+SET prijs = prijs * 1.10
+WHERE categorie_id = 1;
+
+-- Verminder de voorraad met 1 (na verkoop)
+UPDATE product
+SET voorraad = voorraad - 1
+WHERE product_id = 3;
+</code></pre>
+<h2 id="62-gegevens-verwijderen-met-delete">6.2 Gegevens verwijderen met DELETE</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p><code>DELETE</code> verwijdert een of meer rijen uit een tabel. De <code>WHERE</code>-clausule bepaalt welke rijen worden verwijderd. Verwijderde rijen kunnen niet worden teruggehaald (tenzij via een back-up of transactie).</p>
+</div>
+<h3 id="621-basisstructuur">6.2.1 Basisstructuur</h3>
+<pre data-lang="sql"><code>
+DELETE FROM tabelnaam
+WHERE conditie;
+</code></pre>
+<h3 id="622-voorbeelden">6.2.2 Voorbeelden</h3>
+<pre data-lang="sql"><code>
+-- Eén specifiek product verwijderen
+DELETE FROM product
+WHERE product_id = 5;
+
+-- Alle inactieve producten verwijderen
+DELETE FROM product
+WHERE actief = 0;
+
+-- Verwijder een lening op basis van ID
+DELETE FROM lening
+WHERE lening_id = 3;
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>DELETE FROM product;</code> (zonder WHERE) verwijdert <strong>alle producten</strong>. Dit is vrijwel altijd onbedoeld. Gebruik dezelfde "veilige werkwijze" als bij UPDATE: controleer eerst met SELECT.</p>
+</div>
+<h3 id="623-verwijdering-en-referentiële-integriteit">6.2.3 Verwijdering en referentiële integriteit</h3>
+<p>Als je een rij probeert te verwijderen die nog wordt gerefereerd door een FOREIGN KEY, geeft MySQL een foutmelding.</p>
+<pre data-lang="sql"><code>
+-- Probeer klant_id = 1 te verwijderen
+-- Maar bestelling heeft FK naar klant!
+DELETE FROM klant WHERE klant_id = 1;
+-- ERROR 1451: Cannot delete or update a parent row: a foreign key constraint fails
+</code></pre>
+<p><strong>Oplossingen:</strong></p>
+<ol>
+<li>Verwijder eerst de afhankelijke rijen (bestellingen van de klant).</li>
+<li>Gebruik <code>ON DELETE CASCADE</code> in de FOREIGN KEY-definitie.</li>
+<li>Gebruik een soft delete (zie 6.3).</li>
+</ol>
+<pre data-lang="sql"><code>
+-- ON DELETE CASCADE: als klant verwijderd wordt, worden zijn bestellingen ook verwijderd
+CREATE TABLE bestelling (
+    bestelling_id  INT  PRIMARY KEY AUTO_INCREMENT,
+    klant_id       INT  NOT NULL,
+    datum          DATETIME NOT NULL,
+    FOREIGN KEY (klant_id) REFERENCES klant(klant_id)
+        ON DELETE CASCADE
+);
+</code></pre>
+<h2 id="63-transacties">6.3 Transacties</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een transactie is een reeks SQL-operaties die als één geheel worden uitgevoerd. Als één operatie mislukt, worden alle wijzigingen teruggedraaid (ROLLBACK). Als alles slaagt, worden de wijzigingen permanent opgeslagen (COMMIT).</p>
+</div>
+<h3 id="631-acid-eigenschappen">6.3.1 ACID-eigenschappen</h3>
+<p>Transacties garanderen vier eigenschappen, aangeduid met het acroniem <strong>ACID</strong>:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>Beschrijving</th></tr></thead><tbody>
+<tr><td><strong>Atomicity</strong></td><td>Alles of niets: alle operaties slagen of geen enkele</td></tr>
+<tr><td><strong>Consistency</strong></td><td>De database blijft in een consistente toestand</td></tr>
+<tr><td><strong>Isolation</strong></td><td>Gelijktijdige transacties storen elkaar niet</td></tr>
+<tr><td><strong>Durability</strong></td><td>Eenmaal gecommit zijn wijzigingen permanent</td></tr>
+</tbody></table></div>
+<h3 id="632-transacties-gebruiken">6.3.2 Transacties gebruiken</h3>
+<pre data-lang="sql"><code>
+-- Start een transactie
+START TRANSACTION;
+
+-- Voer operaties uit
+UPDATE rekening SET saldo = saldo - 100 WHERE rekening_id = 1;
+UPDATE rekening SET saldo = saldo + 100 WHERE rekening_id = 2;
+
+-- Als alles correct: sla op
+COMMIT;
+
+-- Als er iets misloopt: draai alles terug
+ROLLBACK;
+</code></pre>
+<h3 id="633-transactie-met-foutcontrole">6.3.3 Transactie met foutcontrole</h3>
+<pre data-lang="sql"><code>
+START TRANSACTION;
+
+-- Verwijder bestelregels van een bestelling
+DELETE FROM bestelregel WHERE bestelling_id = 1;
+
+-- Verwijder de bestelling zelf
+DELETE FROM bestelling WHERE bestelling_id = 1;
+
+-- Controleer: zijn er nog andere bestellingen van deze klant?
+-- SELECT * FROM bestelling WHERE klant_id = 1;
+
+-- Als alles klopt:
+COMMIT;
+-- Als er twijfel is:
+-- ROLLBACK;
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>In MySQL Workbench kan je "Auto-Commit" uitschakelen. Dan worden alle wijzigingen pas opgeslagen als je expliciet <code>COMMIT</code> uitvoert. Dit is veiliger bij destructieve operaties.</p>
+</div>
+<h2 id="64-soft-delete">6.4 Soft delete</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Bij een soft delete worden rijen niet fysiek verwijderd maar gemarkeerd als "verwijderd" via een statuskolom (bv. <code>verwijderd_op</code> of <code>actief</code>). De data blijft beschikbaar voor rapportage of herstel.</p>
+</div>
+<p><strong>Voordelen van soft delete:</strong></p>
+<ul>
+<li>Data kan worden hersteld.</li>
+<li>Historische data blijft beschikbaar voor analyses.</li>
+<li>Voldoet beter aan GDPR (audit trail).</li>
+</ul>
+<pre data-lang="sql"><code>
+-- Tabel met soft delete kolom
+ALTER TABLE klant ADD COLUMN verwijderd_op DATETIME DEFAULT NULL;
+
+-- Soft delete: markeer als verwijderd
+UPDATE klant
+SET verwijderd_op = NOW()
+WHERE klant_id = 3;
+
+-- Query die soft-deleted rijen uitsluit
+SELECT klant_id, voornaam, achternaam
+FROM klant
+WHERE verwijderd_op IS NULL;
+
+-- Herstel: verwijder de markering
+UPDATE klant
+SET verwijderd_op = NULL
+WHERE klant_id = 3;
+</code></pre>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Scenario: de naam van een product moet worden verbeterd, en een uitverkocht product moet worden verwijderd.</p>
+<pre data-lang="sql"><code>
+-- 1. Controleer welke rijen geraakt worden
+SELECT product_id, naam, prijs, voorraad
+FROM product
+WHERE product_id IN (1, 4);
+
+-- 2. UPDATE: verbeter de naam
+START TRANSACTION;
+UPDATE product
+SET naam = 'Laptop Pro 15" (2026 editie)'
+WHERE product_id = 1;
+
+-- 3. Controleer het resultaat
+SELECT product_id, naam FROM product WHERE product_id = 1;
+
+-- 4. Bevestig de wijziging
+COMMIT;
+
+-- 5. Soft delete voor het uitverkochte product
+UPDATE product
+SET actief = 0
+WHERE product_id = 4 AND voorraad = 0;
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Illustratie van waarom transacties essentieel zijn.</p>
+<pre data-lang="sql"><code>
+CREATE TABLE rekening (
+rekening_id  INT          PRIMARY KEY AUTO_INCREMENT,
+eigenaar     VARCHAR(100) NOT NULL,
+saldo        DECIMAL(10,2) NOT NULL CHECK (saldo &gt;= 0)
+);
+
+INSERT INTO rekening (eigenaar, saldo) VALUES
+('Lena Claes',  1500.00),
+('Raf Dubois',   300.00);
+
+-- Overschrijving: Lena betaalt Raf €200
+START TRANSACTION;
+
+UPDATE rekening SET saldo = saldo - 200 WHERE rekening_id = 1;
+UPDATE rekening SET saldo = saldo + 200 WHERE rekening_id = 2;
+
+-- Controleer: totaalsom moet gelijk blijven (1500 + 300 = 1800)
+SELECT SUM(saldo) AS totaal FROM rekening;
+
+COMMIT;
+</code></pre>
+<p><strong>Zonder transactie:</strong> Als de server crasht na de eerste UPDATE, verliest Lena €200 maar Raf krijgt niets. Met transactie: bij crash wordt de eerste UPDATE ook teruggedraaid.</p>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h06-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 6.1</span>
+    <span class="oefening__title">UPDATE — gegevens aanpassen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">UPDATE past bestaande rijen aan. Een vergeten WHERE-clausule kan alle rijen in de tabel overschrijven. Test je begrip van UPDATE en de veilige werkwijze.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke query verhoogt de prijs van het product met <code>product_id = 3</code> met 10%?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q1" value="a"><span><code>UPDATE product SET prijs = 10% WHERE product_id = 3;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q1" value="b"><span><code>UPDATE product SET prijs = prijs * 1.10 WHERE product_id = 3;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q1" value="c"><span><code>CHANGE product SET prijs + 10% WHERE product_id = 3;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q1" value="d"><span><code>UPDATE product prijs = prijs * 1.10 WHERE product_id = 3;</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="UPDATE product SET prijs = prijs * 1.10 WHERE product_id = 3; — je vermenigvuldigt de huidige waarde met 1.10 om 10% te verhogen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat gebeurt er bij <code>UPDATE product SET actief = 0;</code> (zonder WHERE-clausule)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q2" value="a"><span>Enkel het eerste product wordt gedeactiveerd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q2" value="b"><span>De query geeft een foutmelding</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q2" value="c"><span>Alle producten worden gedeactiveerd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q2" value="d"><span>Enkel producten met actief = 1 worden aangepast</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Alle producten worden gedeactiveerd — zonder WHERE past UPDATE ALLE rijen aan. Altijd eerst controleren met SELECT welke rijen geraakt worden!"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="select|select *">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk commando voer je uit vóór een UPDATE om te controleren welke rijen worden aangepast?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="SELECT — voer eerst een SELECT uit met dezelfde WHERE-conditie om te zien welke rijen worden geraakt"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is een "soft delete"?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q4" value="a"><span>Verwijderen met een zachte Enter-toets</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q4" value="b"><span>Een DELETE zonder WHERE — voorzichtig uitvoeren</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q4" value="c"><span>Verwijderen via TRUNCATE in plaats van DELETE</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-1-q4" value="d"><span>Rijen markeren als verwijderd via een statuskolom, zonder fysiek te wissen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Rijen markeren als verwijderd via een statuskolom (bv. verwijderd_op of actief = 0), zonder de data echt te wissen. Beter voor GDPR en herstelbaarheid"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h06-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 6.2</span>
+    <span class="oefening__title">DELETE en referentiële integriteit</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">DELETE verwijdert rijen. Bij foreign keys moet je rekening houden met referentiële integriteit.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Je probeert een klant te verwijderen die nog bestellingen heeft. Wat geeft MySQL terug?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q1" value="a"><span>Een foutmelding: foreign key constraint fails</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q1" value="b"><span>De klant én zijn bestellingen worden automatisch verwijderd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q1" value="c"><span>De klant wordt verwijderd, de bestellingen blijven staan</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q1" value="d"><span>MySQL vraagt om bevestiging</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Een foutmelding: foreign key constraint fails — MySQL beschermt de referentiële integriteit. Je moet eerst de afhankelijke rijen (bestellingen) verwijderen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Met welke optie in de FOREIGN KEY-definitie zorg je dat bestellingen automatisch worden verwijderd als de klant wordt verwijderd?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q2" value="a"><span><code>ON DELETE RESTRICT</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q2" value="b"><span><code>ON DELETE SET NULL</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q2" value="c"><span><code>ON DELETE CASCADE</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q2" value="d"><span><code>ON DELETE AUTO</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="ON DELETE CASCADE — verwijdert automatisch alle afhankelijke rijen (bestellingen) wanneer de parent-rij (klant) wordt verwijderd"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="start transaction|begin|begin transaction">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk SQL-commando gebruik je om een transactie te starten?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="START TRANSACTION (of BEGIN) — na dit commando worden wijzigingen pas permanent na COMMIT, of teruggedraaid met ROLLBACK"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Waarvoor staat het ACID-acroniem in het kader van transacties?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q4" value="a"><span>Automated, Committed, Indexed, Duplicated</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q4" value="b"><span>Atomicity, Consistency, Isolation, Durability</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q4" value="c"><span>Automated, Consistent, Isolated, Direct</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-2-q4" value="d"><span>Access, Control, Integrity, Data</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Atomicity, Consistency, Isolation, Durability — de vier eigenschappen die transacties garanderen voor betrouwbare dataopslag"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h06-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 6.3</span>
+    <span class="oefening__title">Transacties en ROLLBACK</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Scenario: een bibliotheeklid geeft een boek terug en leent meteen een nieuw boek. Beide operaties moeten samen slagen of samen mislukken.</p>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Waarom gebruik je een transactie voor het terugbrengen én het uitlenen van een boek?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q1" value="a"><span>Om de query sneller te maken</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q1" value="b"><span>Omdat MySQL meerdere queries tegelijk niet aankan</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q1" value="c"><span>Om de tabel te vergrendelen voor andere gebruikers</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q1" value="d"><span>Zodat beide operaties slagen of allebei worden teruggedraaid — geen halftoestand</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Zodat beide operaties slagen of allebei worden teruggedraaid — dit is het 'alles of niets'-principe (Atomicity) van transacties"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="rollback|rollback;">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk commando draait alle wijzigingen binnen een transactie terug?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="ROLLBACK — maakt alle wijzigingen binnen de lopende transactie ongedaan en brengt de database terug naar de toestand voor START TRANSACTION"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Als een transactie succesvol is en je de wijzigingen permanent wil opslaan, gebruik je:</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q3" value="a"><span><code>SAVE</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q3" value="b"><span><code>PUSH</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q3" value="c"><span><code>COMMIT</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h06-3-q3" value="d"><span><code>APPLY</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="COMMIT — bevestigt de transactie en maakt de wijzigingen permanent en zichtbaar voor andere gebruikers"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h06">Huistaak H06</h3>
+<p><strong>Data-onderhoud in jouw database</strong></p>
+<p>Voer de volgende onderhoudstaken uit op je eigen database (uit H04).</p>
+<p><strong>Opdracht:</strong></p>
+<ol>
+<li>Schrijf minstens <strong>3 UPDATE-statements</strong> die zinvolle wijzigingen doorvoeren in je data.</li>
+<li>Schrijf minstens <strong>1 DELETE-statement</strong> met een correcte WHERE-clausule. Gebruik een transactie.</li>
+<li>Implementeer een soft delete: voeg een kolom <code>verwijderd_op</code> toe aan je belangrijkste tabel en pas de DELETE om naar een UPDATE.</li>
+<li>Documenteer elke operatie met een commentaarregel die uitlegt wat je doet en waarom.</li>
+<li>Voeg het bestand <code>queries/onderhoud.sql</code> toe aan GitHub.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H06-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>UPDATE</strong> wijzigt bestaande rijen: <code>UPDATE tabel SET kolom = waarde WHERE conditie;</code></li>
+<li><strong>DELETE</strong> verwijdert rijen: <code>DELETE FROM tabel WHERE conditie;</code></li>
+<li>Gebruik <strong>altijd</strong> een <code>WHERE</code>-clausule bij UPDATE en DELETE; controleer eerst met SELECT.</li>
+<li>Een <strong>transactie</strong> (<code>START TRANSACTION</code> → <code>COMMIT</code> / <code>ROLLBACK</code>) zorgt voor atomaire uitvoering.</li>
+<li><strong>Soft delete</strong> markeert rijen als verwijderd (via <code>verwijderd_op</code> of <code>actief</code>) zonder ze echt te verwijderen — beter voor GDPR en herstelbaarheid.</li>
+<li><strong>ON DELETE CASCADE</strong> verwijdert automatisch afhankelijke rijen bij het verwijderen van een parent.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB21]</span> Gebruiken van een querytaal voor het manipuleren van gegevens <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H06">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H05.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H05 &mdash; SQL bevraging: SELECT</span></div></a>
+          <a href="H07.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H07 &mdash; Relaties en JOIN</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

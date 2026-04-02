@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software installatie — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container container-narrow">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../5adb/index.html">5ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../5adb/software.html">Software</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>App-ontwikkeling</span>
+    </nav>
+
+    <div class="page-header vak-appdev">
+      <div class="page-header__vak">&#128187; App-ontwikkeling 5ADB</div>
+      <h1 class="page-header__title">Software installatie</h1>
+      <p class="page-header__desc">Installeer alle tools die je nodig hebt voordat je begint met programmeren. Volg de stappen in volgorde.</p>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">&#x1F4CC; Wat installeren we?</div>
+      <ul>
+        <li><strong>Visual Studio Code</strong> — onze code-editor voor HTML, CSS en JavaScript</li>
+        <li><strong>VS Code extensions</strong> — handige plugins die je werk versnellen</li>
+      </ul>
+    </div>
+
+    <!-- ===================== TOOL 1: VS CODE ===================== -->
+    <div class="software-tool" id="vscode">
+      <div class="software-tool__header">
+        <img src="../../../app-ontwikkeling/images/software-vscode-logo.svg"
+             alt="Visual Studio Code logo" class="software-tool__logo">
+        <div>
+          <h2 class="software-tool__name">Visual Studio Code</h2>
+          <p class="software-tool__sub">Gratis code-editor van Microsoft &mdash; Windows, macOS en Linux</p>
+        </div>
+      </div>
+
+      <p>Visual Studio Code (afgekort <strong>VS Code</strong>) is de code-editor die we gebruiken voor dit vak. Het is gratis, open-source en heeft ingebouwde ondersteuning voor HTML, CSS en JavaScript.</p>
+
+      <h3>Installatiestappen</h3>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Ga naar de officiële website</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Open je browser en surf naar <code>code.visualstudio.com</code>. Klik op de grote downloadknop — de website detecteert je besturingssysteem automatisch.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Download het installatiebestand</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">
+            <em>Windows:</em> download het <code>.exe</code> bestand (Stable Build).<br>
+            <em>macOS:</em> download het <code>.dmg</code> bestand.<br>
+            <em>Linux:</em> download het <code>.deb</code> of <code>.rpm</code> pakket.
+          </p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">3</div>
+        <div class="install-step__body">
+          <strong>Voer de installatie uit</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">
+            <em>Windows:</em> dubbelklik op het <code>.exe</code> bestand en volg de wizard. Vink zeker aan:<br>
+            &nbsp;&nbsp;&#10003; "Add to PATH"<br>
+            &nbsp;&nbsp;&#10003; "Add 'Open with Code' action to Windows Explorer"<br>
+            <em>macOS:</em> sleep de app naar de <em>Applications</em> map.<br>
+            <em>Linux:</em> installeer via de package manager of dubbelklik op het pakket.
+          </p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">4</div>
+        <div class="install-step__body">
+          <strong>Start VS Code</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Open VS Code vanuit het startmenu of de applicatiemap. Je ziet het welkomstscherm. VS Code is klaar voor gebruik.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--info" style="margin-top:var(--space-4)">
+        <div class="callout-header">&#x2714; Emmet is ingebouwd</div>
+        <p>VS Code bevat Emmet standaard. Typ een <code>!</code> in een leeg <code>.html</code> bestand en druk op <kbd>Tab</kbd> — de volledige HTML-basisstructuur wordt gegenereerd. Je hoeft niets extra te installeren voor Emmet.</p>
+      </div>
+    </div>
+
+    <!-- ===================== EXTENSIONS ===================== -->
+    <div class="software-tool" id="extensions">
+      <div class="software-tool__header">
+        <div style="width:52px;height:52px;background:var(--color-vak-appdev);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0">&#129520;</div>
+        <div>
+          <h2 class="software-tool__name">VS Code Extensions</h2>
+          <p class="software-tool__sub">Plugins die je workflow versnellen en fouten verminderen</p>
+        </div>
+      </div>
+
+      <p>Extensions installeer je via het paneel aan de linkerkant van VS Code (het blokjes-icoontje <kbd>Ctrl+Shift+X</kbd> / <kbd>Cmd+Shift+X</kbd>). Zoek op de naam en klik op <strong>Install</strong>.</p>
+
+      <h3>Verplichte extensions</h3>
+      <div class="extension-grid">
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#127760; Live Server</div>
+          <p class="extension-card__desc">Start een lokale server die je HTML-pagina automatisch herlaadt telkens je een bestand opslaat. Klik rechtsonder op "Go Live" om te starten.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>ritwickdey.liveserver</code></p>
+        </div>
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#128196; HTML Snippets</div>
+          <p class="extension-card__desc">Voegt automatisch aanvulling toe voor alle HTML-tags en attributen. Typ een paar letters en kies uit de lijst.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>abusaidm.html-snippets</code></p>
+        </div>
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#9889; JavaScript (ES6) Snippets</div>
+          <p class="extension-card__desc">Code-aanvulling voor moderne JavaScript. Shortcuts voor <code>console.log</code>, arrow functions, <code>forEach</code> en meer.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>xabikos.javascriptsnippets</code></p>
+        </div>
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#127912; Prettier</div>
+          <p class="extension-card__desc">Formatteert automatisch je HTML, CSS en JS code bij het opslaan. Houdt je code netjes en consistent zonder na te denken.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>esbenp.prettier-vscode</code></p>
+        </div>
+
+      </div>
+
+      <h3 style="margin-top:var(--space-6)">Hoe installeer je een extension?</h3>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Open het Extensions-paneel</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Druk op <kbd>Ctrl+Shift+X</kbd> (Windows/Linux) of <kbd>Cmd+Shift+X</kbd> (macOS), of klik op het blokjes-icoontje in de linkerbalk.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Zoek de extension op naam</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Typ de naam of de extension-id (bv. <code>ritwickdey.liveserver</code>) in het zoekveld bovenaan het paneel.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">3</div>
+        <div class="install-step__body">
+          <strong>Klik op Install</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Klik op de blauwe knop <strong>Install</strong> naast de extension. De installatie duurt enkele seconden. Je hoeft VS Code niet te herstarten.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">4</div>
+        <div class="install-step__body">
+          <strong>Controleer of Live Server werkt</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Open een <code>.html</code> bestand in VS Code. Rechtsonder in de statusbalk zie je <strong>Go Live</strong>. Klik erop — je browser opent de pagina op <code>http://127.0.0.1:5500</code>. Telkens je opslaat (<kbd>Ctrl+S</kbd>) herlaadt de browser automatisch.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== KLAAR ===================== -->
+    <div class="callout callout--info" style="border-color: var(--color-success); background: rgba(40,200,64,0.07)">
+      <div class="callout-header" style="color: var(--color-success)">&#10003; Alles geïnstalleerd? Dan ben je klaar om te beginnen!</div>
+      <p>Open VS Code, klik op <strong>File &rarr; Open Folder</strong>, maak een nieuwe map aan voor je project en maak je eerste <code>index.html</code> bestand aan. Vergeet niet op <strong>Go Live</strong> te klikken om Live Server te starten.</p>
+      <div style="margin-top:var(--space-4)">
+        <a href="H01.html" class="btn btn-primary">&#8594; Ga naar H01 &mdash; HTML Basisstructuur</a>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--space-8); text-align:center; display:flex; gap:var(--space-3); justify-content:center; flex-wrap:wrap">
+      <a href="../../5adb/software.html" class="btn btn-ghost">&#8592; Terug naar Software overzicht</a>
+      <a href="index.html" class="btn btn-ghost">App-ontwikkeling overzicht</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 &mdash; Het OSI-model &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Het OSI-model &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H03</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-3-het-osi-model">Hoofdstuk 3 — Het OSI-model</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#3-theorie">3. Theorie</a></li><li><a href="#31-waarom-een-referentiemodel" style="padding-left:1.25rem">3.1 Waarom een referentiemodel?</a></li><li><a href="#32-de-7-lagen-van-het-osi-model" style="padding-left:1.25rem">3.2 De 7 lagen van het OSI-model</a></li><li><a href="#33-encapsulatie-en-decapsulatie" style="padding-left:1.25rem">3.3 Encapsulatie en decapsulatie</a></li><li><a href="#34-osi-model-vs-tcpip-model" style="padding-left:1.25rem">3.4 OSI-model vs TCP/IP-model</a></li><li><a href="#3-voorbeelden">3. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h03" style="padding-left:1.25rem">Huistaak H03</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H03 &mdash; Het OSI-model</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-3-het-osi-model">Hoofdstuk 3 — Het OSI-model</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>8 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>de 7 lagen van het OSI-model benoemen in de juiste volgorde</li>
+<li>de functie van elke laag beschrijven</li>
+<li>protocollen koppelen aan de juiste OSI-laag</li>
+<li>encapsulatie en decapsulatie uitleggen</li>
+<li>het verschil tussen het OSI-model en het TCP/IP-model uitleggen</li>
+<li>een communicatieprobleem situeren op de juiste OSI-laag</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span></div>
+<h2 id="3-theorie">3. Theorie</h2>
+<h3 id="31-waarom-een-referentiemodel">3.1 Waarom een referentiemodel?</h3>
+<p>In de beginjaren van computernetwerken maakte elk bedrijf zijn eigen propriëtaire protocollen. Apparaten van merk A konden niet communiceren met merk B. In 1984 publiceerde de ISO (International Organization for Standardization) het <strong>OSI-model</strong> (Open Systems Interconnection) als universele standaard.</p>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Het OSI-model (Open Systems Interconnection) is een referentiemodel dat netwerkcommunicatie verdeelt in 7 abstracte lagen. Elke laag heeft een specifieke verantwoordelijkheid en communiceert via gedefinieerde interfaces met de lagen erboven en eronder.</p>
+</div>
+<p>Het model wordt gebruikt om:</p>
+<ul>
+<li>Netwerkcommunicatie te beschrijven en analyseren</li>
+<li>Problemen te diagnosticeren (welke laag is het probleem?)</li>
+<li>Standaarden te definiëren zodat apparaten van verschillende fabrikanten samenwerken</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p><strong>A</strong>lle <strong>P</strong>rofessionelen <strong>S</strong>taan <strong>N</strong>iet <strong>D</strong>irect <strong>F</strong>out <strong>P</strong>arkeerd</p>
+<p>→ Application, Presentation, Session, Network, Data Link, Physical</p>
+<p>Of van onder naar boven (laag 1 → 7):</p>
+<p><strong>P</strong>lease <strong>D</strong>o <strong>N</strong>ot <strong>S</strong>how <strong>P</strong>izza <strong>A</strong>way</p>
+<p>→ Physical, Data Link, Network, Session, Presentation, Application <em>(Transport valt hier weg — gebruik een van de twee)</em></p>
+</div>
+<h3 id="32-de-7-lagen-van-het-osi-model">3.2 De 7 lagen van het OSI-model</h3>
+<pre data-lang=""><code>
++-------+-------------------+------------------------+---------------------------+
+| Laag  | Naam              | PDU (dataeenheid)      | Voorbeeld-protocollen     |
++-------+-------------------+------------------------+---------------------------+
+|   7   | Application       | Data                   | HTTP, FTP, DNS, SMTP, SSH |
+|   6   | Presentation      | Data                   | SSL/TLS, JPEG, ASCII, MP4 |
+|   5   | Session           | Data                   | NetBIOS, RPC, SIP         |
+|   4   | Transport         | Segment                | TCP, UDP                  |
+|   3   | Network           | Packet                 | IP, ICMP, OSPF            |
+|   2   | Data Link         | Frame                  | Ethernet, Wi-Fi (802.11)  |
+|   1   | Physical          | Bits                   | UTP, Fiber, Coax, Radio   |
++-------+-------------------+------------------------+---------------------------+
+</code></pre>
+<h4 id="321-laag-1-physical-fysieke-laag">3.2.1 Laag 1 — Physical (Fysieke laag)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De fysieke laag is verantwoordelijk voor de daadwerkelijke transmissie van bits over een fysiek medium (kabel, glasvezel, radiogolven). Ze definieert spanningen, frequenties, connectoren en kabeltypen.</p>
+</div>
+<p>Wat regelt laag 1:</p>
+<ul>
+<li>Elektrische signalen (0 en 1)</li>
+<li>Kabeltypen: UTP, STP, glasvezel, coax</li>
+<li>Connectoren: RJ-45, LC, SC</li>
+<li>Draadloze media: WiFi (radiogolven), 4G/5G</li>
+<li><strong>Apparaten op laag 1:</strong> hub, repeater, netwerkkabel</li>
+</ul>
+<h4 id="322-laag-2-data-link-datalinklaag">3.2.2 Laag 2 — Data Link (Datalinklaag)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De datalinklaag verzorgt de betrouwbare overdracht van frames tussen twee rechtstreeks verbonden apparaten op hetzelfde netwerksegment. Ze gebruikt MAC-adressen voor adressering.</p>
+</div>
+<p>Wat regelt laag 2:</p>
+<ul>
+<li>MAC-adressen (48-bit hardwareadressen)</li>
+<li>Frames samenstellen en decoderen</li>
+<li>Foutdetectie (CRC-controle)</li>
+<li>Toegang tot het gedeeld medium (CSMA/CD voor Ethernet)</li>
+<li><strong>Apparaten op laag 2:</strong> switch, bridge, NIC (netwerkkaart)</li>
+</ul>
+<p>Twee sublagen:</p>
+<ul>
+<li><strong>LLC</strong> (Logical Link Control) — interface met laag 3</li>
+<li><strong>MAC</strong> (Media Access Control) — adressering en toegangscontrole</li>
+</ul>
+<h4 id="323-laag-3-network-netwerklaag">3.2.3 Laag 3 — Network (Netwerklaag)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De netwerklaag bepaalt het pad dat data aflegt van bron naar bestemming, mogelijk via meerdere netwerken. Ze gebruikt IP-adressen voor logische adressering en voert routing uit.</p>
+</div>
+<p>Wat regelt laag 3:</p>
+<ul>
+<li>Logische adressering: IPv4 en IPv6</li>
+<li>Routing: het bepalen van het beste pad</li>
+<li>Fragmentatie en reassemblage van pakketten</li>
+<li><strong>Apparaten op laag 3:</strong> router, layer-3-switch</li>
+<li><strong>Protocollen:</strong> IP, ICMP (ping), OSPF, BGP</li>
+</ul>
+<h4 id="324-laag-4-transport-transportlaag">3.2.4 Laag 4 — Transport (Transportlaag)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De transportlaag biedt end-to-end communicatie tussen toepassingen op twee hosts. Ze kan betrouwbaarheid garanderen (TCP) of snel en verbindingsloos werken (UDP).</p>
+</div>
+<p>Wat regelt laag 4:</p>
+<ul>
+<li>Poortnummers (TCP/UDP-poorten)</li>
+<li>Verbindingsgericht (TCP) vs verbindingsloos (UDP)</li>
+<li>Segmentatie en hersamenstelling</li>
+<li>Foutherstel en herchedering (TCP)</li>
+<li><strong>Protocollen:</strong> TCP, UDP</li>
+</ul>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>TCP</th><th>UDP</th></tr></thead><tbody>
+<tr><td>Verbindingsgericht</td><td>Verbindingsloos</td></tr>
+<tr><td>Betrouwbaar (bevestiging van ontvangst)</td><td>Onbetrouwbaar (geen bevestiging)</td></tr>
+<tr><td>Langzamer</td><td>Sneller</td></tr>
+<tr><td>HTTP, FTP, SMTP, SSH</td><td>DNS, DHCP, streaming, gaming, VoIP</td></tr>
+</tbody></table></div>
+<h4 id="325-laag-5-session-sessielaag">3.2.5 Laag 5 — Session (Sessielaag)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De sessielaag beheert het opzetten, onderhouden en beëindigen van communicatiesessies tussen twee toepassingen.</p>
+</div>
+<p>Wat regelt laag 5:</p>
+<ul>
+<li>Sessies openen en sluiten</li>
+<li>Synchronisatiepunten (checkpoints) bij grote overdrachten</li>
+<li><strong>Protocollen:</strong> NetBIOS, RPC, SIP (VoIP)</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Lagen 5, 6 en 7 worden in de praktijk vaak samengevoegd. In het TCP/IP-model bestaan ze niet apart — ze zijn allemaal onderdeel van de "Application layer".</p>
+</div>
+<h4 id="326-laag-6-presentation-presentatielaag">3.2.6 Laag 6 — Presentation (Presentatielaag)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De presentatielaag zorgt voor de vertaling, compressie en versleuteling van data zodat de ontvangende toepassing de data correct kan interpreteren.</p>
+</div>
+<p>Wat regelt laag 6:</p>
+<ul>
+<li>Codering/decodering van karaktersets (ASCII, Unicode)</li>
+<li>Compressie (JPEG, MP3, MPEG)</li>
+<li>Versleuteling/ontsleuteling (SSL/TLS bevindt zich deels hier)</li>
+<li><strong>Formaten:</strong> JPEG, GIF, SSL, ASCII</li>
+</ul>
+<h4 id="327-laag-7-application-toepassingslaag">3.2.7 Laag 7 — Application (Toepassingslaag)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De toepassingslaag is de laag die rechtstreeks communiceert met de eindgebruiker. Ze biedt netwerktoegang voor toepassingen.</p>
+</div>
+<p>Wat regelt laag 7:</p>
+<ul>
+<li>Gebruikersinterface met het netwerk</li>
+<li><strong>Protocollen:</strong> HTTP/HTTPS, FTP, SMTP, POP3, IMAP, DNS, DHCP, SSH, Telnet</li>
+</ul>
+<h3 id="33-encapsulatie-en-decapsulatie">3.3 Encapsulatie en decapsulatie</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Encapsulatie is het proces waarbij elke laag zijn eigen header (en soms trailer) toevoegt aan de data die van de bovenliggende laag komt. Zo wordt data omgevormd tot bits die over het netwerk gestuurd worden.</p>
+</div>
+<p><strong>Encapsulatieproces (zenden):</strong></p>
+<pre data-lang=""><code>
+Laag 7: [Data]
+Laag 4: [TCP-header | Data]                        → Segment
+Laag 3: [IP-header | TCP-header | Data]             → Packet
+Laag 2: [Eth-header | IP-header | TCP-header | Data | Eth-trailer]  → Frame
+Laag 1: 010110110101010...                           → Bits
+</code></pre>
+<p><strong>Decapsulatie (ontvangen):</strong> elk apparaat haalt de eigen header eraf en geeft de rest door aan de bovenliggende laag.</p>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Wanneer je in Chrome <code>https://www.school.be</code> intypt:</p>
+<ol>
+<li><strong>Laag 7 (Application):</strong> Chrome stuurt een HTTP GET-verzoek.</li>
+<li><strong>Laag 6 (Presentation):</strong> TLS versleutelt de data.</li>
+<li><strong>Laag 5 (Session):</strong> Een TLS-sessie wordt opgebouwd.</li>
+<li><strong>Laag 4 (Transport):</strong> TCP voegt een header toe met bronpoort (bv. 54321) en doelpoort (443). Segment aangemaakt.</li>
+<li><strong>Laag 3 (Network):</strong> IP voegt bron-IP en doel-IP toe. Packet aangemaakt.</li>
+<li><strong>Laag 2 (Data Link):</strong> Ethernet voegt bron-MAC en doel-MAC toe (+ CRC). Frame aangemaakt.</li>
+<li><strong>Laag 1 (Physical):</strong> Het frame wordt omgezet in elektrische signalen of radiogolven.</li>
+</ol>
+</div>
+<h3 id="34-osi-model-vs-tcpip-model">3.4 OSI-model vs TCP/IP-model</h3>
+<p>In de praktijk gebruikt men het <strong>TCP/IP-model</strong> (ook wel het Internet-model of DoD-model). Dit model heeft slechts 4 lagen en is de feitelijke basis van het internet.</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>OSI-laag</th><th>TCP/IP-laag</th></tr></thead><tbody>
+<tr><td>7 Application</td><td>Application</td></tr>
+<tr><td>6 Presentation</td><td>Application</td></tr>
+<tr><td>5 Session</td><td>Application</td></tr>
+<tr><td>4 Transport</td><td>Transport</td></tr>
+<tr><td>3 Network</td><td>Internet</td></tr>
+<tr><td>2 Data Link</td><td>Network Access</td></tr>
+<tr><td>1 Physical</td><td>Network Access</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Het OSI-model wordt gebruikt als <strong>referentie en leermiddel</strong>. Het TCP/IP-model is de <strong>werkelijke implementatie</strong> van het internet. In troubleshooting en examens verwijst men doorgaans naar het OSI-model.</p>
+</div>
+<h2 id="3-voorbeelden">3. Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een leerling klaagt: "Mijn computer heeft internet, maar de website van de school laadt niet."</p>
+<p>We werken van onder naar boven:</p>
+<ul>
+<li><strong>Laag 1 (Fysiek):</strong> Kabel aangesloten? Wifi-indicator aan? → OK</li>
+<li><strong>Laag 2 (Data Link):</strong> Kan hij andere apparaten op het LAN pingen? → OK</li>
+<li><strong>Laag 3 (Netwerk):</strong> Kan hij <code>8.8.8.8</code> pingen? → OK (IP-connectiviteit werkt)</li>
+<li><strong>Laag 4 (Transport):</strong> Is poort 443 (HTTPS) geblokkeerd? → Testen met <code>telnet www.school.be 443</code></li>
+<li><strong>Laag 7 (Application):</strong> DNS-probleem? Probeer het IP-adres direct in te tikken.</li>
+</ul>
+<p>Conclusie: het probleem zit op laag 7 (DNS lost de domeinnaam niet op) of laag 4 (firewall blokkeert de poort).</p>
+</div>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h03-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.1</span>
+    <span class="oefening__title">Protocollen en apparaten koppelen aan OSI-lagen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Elke protocol, elke technologie en elk apparaat hoort bij een specifieke OSI-laag. Test je kennis.</p>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Op welke OSI-laag werkt het IP-protocol (Internet Protocol)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Laag 1 — Physical</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Laag 2 — Data Link</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Laag 4 — Transport</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Laag 3 — Network</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laag 3 — Network. IP is het netwerkprotocol dat logische adressering (IP-adressen) en routing verzorgt."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Een switch werkt op welke OSI-laag?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Laag 1 — Physical</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Laag 2 — Data Link</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Laag 3 — Network</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Laag 7 — Application</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laag 2 — Data Link. Een switch gebruikt MAC-adressen voor het doorsturen van frames — dat is de verantwoordelijkheid van de datalinklaag."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">SSL/TLS (encryptie bij HTTPS) werkt op welke OSI-laag?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Laag 4 — Transport</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Laag 5 — Session</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Laag 6 — Presentation</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Laag 7 — Application</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laag 6 — Presentation. SSL/TLS verzorgt de versleuteling en ontsleuteling van data — dat is de verantwoordelijkheid van de presentatielaag."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,c">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke protocollen/apparaten horen bij laag 4 (Transport)? (Selecteer alle juiste opties)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>TCP (Transmission Control Protocol)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>HTTP (HyperText Transfer Protocol)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>UDP (User Datagram Protocol)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>IP (Internet Protocol)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="TCP en UDP zijn beiden transportprotocollen (laag 4). HTTP hoort bij laag 7 (Application) en IP bij laag 3 (Network)."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h03-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.2</span>
+    <span class="oefening__title">Encapsulatie bij een e-mail</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je verstuurt een e-mail via SMTP naar een collega op hetzelfde netwerk. Begrijp het encapsulatieproces.</p>
+
+    <div class="vraag" data-type="text" data-correct="smtp">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk laag 7-protocol gebruik je voor het versturen van e-mail?</div>
+      <input type="text" class="vraag__invoer" placeholder="Afkorting (3 letters)...">
+      <div class="vraag__feedback" data-correct-label="SMTP (Simple Mail Transfer Protocol) — het standaardprotocol voor het versturen van e-mail, op laag 7 (Application)."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke PDU (dataeenheid) maakt de transportlaag (laag 4) aan?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Frame</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Segment</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Packet</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Bits</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Segment — de transportlaag (laag 4) voegt een TCP/UDP-header toe en noemt het resultaat een segment."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat noemen we het omgekeerde proces van encapsulatie (headers verwijderen bij de ontvanger)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Encryptie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Fragmentatie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Decapsulatie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Compressie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Decapsulatie — bij ontvangst haalt elke laag zijn eigen header eraf en geeft de rest door aan de bovenliggende laag."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">In welke volgorde verloopt encapsulatie bij het versturen van data?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Laag 7 → Laag 4 → Laag 3 → Laag 2 → Laag 1 (van boven naar beneden)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Laag 1 → Laag 2 → Laag 3 → Laag 4 → Laag 7 (van onder naar boven)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Willekeurig — de volgorde maakt niet uit</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Altijd laag 3 eerst, dan laag 2, dan laag 7</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Van boven naar beneden (laag 7 → laag 1) bij de zender. Bij de ontvanger is het omgekeerd: decapsulatie verloopt van laag 1 naar laag 7."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h03-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.3</span>
+    <span class="oefening__title">Netwerkproblemen situeren op de juiste laag</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een netwerktechnicus werkt altijd van laag 1 naar laag 7 bij het oplossen van problemen. Op welke laag zit het probleem?</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Een computer krijgt geen IP-adres van de DHCP-server. De link-indicator van de netwerkkabel brandt wel. Op welke laag zit het probleem waarschijnlijk?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Laag 1 — Physical (kabelprobleem)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Laag 3 — Network (IP/DHCP-probleem)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Laag 7 — Application (softwareprobleem)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Laag 2 — Data Link (MAC-probleem)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laag 3 — Network. De kabel werkt (laag 1 OK), maar de computer krijgt geen IP-adres. DHCP is een laag 3/7-probleem (IP-adrestoewijzing)."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">De browser geeft "ERR_NAME_NOT_RESOLVED" — andere websites werken wel. Op welke laag zit het probleem?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Laag 1 — Physical</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Laag 2 — Data Link</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Laag 7 — Application (DNS-probleem)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Laag 4 — Transport</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laag 7 — Application. ERR_NAME_NOT_RESOLVED is een DNS-fout: de domeinnaam kan niet omgezet worden naar een IP-adres. DNS is een laag 7-protocol."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">De wifi-kaart van een laptop herkent geen netwerken en de indicator-LED brandt niet. Op welke laag zit het probleem?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Laag 1 — Physical (hardware/stuurprogramma)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Laag 3 — Network</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Laag 5 — Session</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Laag 7 — Application</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laag 1 — Physical. Als de LED niet brandt, is er een fysiek probleem: de kaart is uitgeschakeld, het stuurprogramma ontbreekt, of de hardware is defect."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Het OSI-model verdeelt netwerkcommunicatie in 7 lagen: Physical, Data Link, Network, Transport, Session, Presentation, Application.</li>
+<li>Elke laag heeft een eigen verantwoordelijkheid en een eigen header (PDU).</li>
+<li>Encapsulatie = headers toevoegen op weg naar de ontvanger; decapsulatie = headers verwijderen bij ontvangst.</li>
+<li>Het TCP/IP-model is de praktische implementatie (4 lagen): Network Access, Internet, Transport, Application.</li>
+<li>Het OSI-model is een krachtig diagnose-instrument: werk van laag 1 naar laag 7 om een probleem te isoleren.</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h03">Huistaak H03</h3>
+<p>Gebruik de website <a href="https://www.wireshark.org/" target="_blank" rel="noopener">https://www.wireshark.org/</a> of een online Wireshark-tutorial.</p>
+<ol>
+<li>Leg in eigen woorden uit wat Wireshark doet en op welke OSI-laag(en) het werkt.</li>
+<li>Zoek op internet een voorbeeld van een Wireshark-capture van een HTTP-request. Identificeer in de screenshot welke headers zichtbaar zijn en aan welke OSI-laag ze horen.</li>
+<li>Maak een overzichtstabel van de 7 OSI-lagen met: laagnummer, naam, PDU, 2 protocollen, en 1 voorbeeld-apparaat.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H03-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 3 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H03">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H02.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H02 &mdash; Computerarchitectuur als basis</span></div></a>
+          <a href="H04.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H04 &mdash; Fysieke laag &amp; bekabeling</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

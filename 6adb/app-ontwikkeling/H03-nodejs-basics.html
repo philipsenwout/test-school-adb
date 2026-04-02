@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 &mdash; Node.js basics &mdash; App-ontwikkeling 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">App-ontwikkeling</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H03</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Wat is Node.js?</a></li>
+        <li><a href="#s2">2. npm: pakketbeheer</a></li>
+        <li><a href="#s3">3. Express.js</a>
+          <ul>
+            <li><a href="#s3-1">3.1 Eerste server</a></li>
+            <li><a href="#s3-2">3.2 Routes</a></li>
+            <li><a href="#s3-3">3.3 req en res</a></li>
+            <li><a href="#s3-4">3.4 Middleware</a></li>
+          </ul>
+        </li>
+        <li><a href="#s4">4. REST API bouwen</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-app">
+      <div class="page-header__vak">&#128187; App-ontwikkeling &mdash; H03</div>
+      <h1 class="page-header__title">Node.js basics</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">6 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-APP-15] Server-side programmeren met Node.js en Express &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Wat is Node.js?</h2>
+    <p>Tot nu toe draaide al je JavaScript in de <em>browser</em>. <strong>Node.js</strong> laat toe om JavaScript uit te voeren op de <em>server</em>, buiten de browser. Dit opent de deur naar:</p>
+    <ul>
+      <li>Webservers bouwen in JavaScript</li>
+      <li>Bestanden lezen en schrijven op de server</li>
+      <li>Verbinding maken met een database</li>
+      <li>Automatiseringsscripts schrijven</li>
+    </ul>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; Node.js</div>
+      <p>Node.js is een JavaScript-runtime gebouwd op de V8-engine (dezelfde als in Chrome). Het gebruikt een event-driven, non-blocking I/O-model, wat het effici&euml;nt maakt voor netwerktoepassingen.</p>
+    </div>
+    <pre><code># Node.js versie controleren
+node --version   # v20.x.x
+
+# JavaScript-bestand uitvoeren
+node mijnscript.js</code></pre>
+
+    <h2 id="s2">2. npm: pakketbeheer</h2>
+    <p><strong>npm</strong> (Node Package Manager) is de pakketbeheerder van Node.js. Hiermee installeer je externe bibliotheken (packages).</p>
+    <pre><code># Nieuw project aanmaken (maakt package.json aan)
+npm init -y
+
+# Package installeren (wordt toegevoegd aan node_modules/)
+npm install express
+
+# Package installeren enkel voor development
+npm install --save-dev nodemon
+
+# Script uitvoeren uit package.json
+npm run start</code></pre>
+    <p>De <code>package.json</code> houdt bij welke packages je project gebruikt:</p>
+    <pre><code>{
+  "name": "mijn-api",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}</code></pre>
+    <div class="callout callout--tip">
+      <div class="callout__title">Tip &mdash; nodemon</div>
+      <p><code>nodemon</code> herstart de server automatisch bij elke bestandswijziging. Ideaal tijdens het ontwikkelen: je hoeft de server niet telkens handmatig te stoppen en te starten.</p>
+    </div>
+
+    <h2 id="s3">3. Express.js</h2>
+    <p><strong>Express.js</strong> is het meest gebruikte framework voor Node.js webservers. Het maakt het eenvoudig om routes en middleware te defini&euml;ren.</p>
+
+    <h3 id="s3-1">3.1 Eerste Express-server</h3>
+    <pre><code>// index.js
+const express = require("express");
+const app = express();
+const POORT = 3000;
+
+// Eenvoudige route
+app.get("/", (req, res) => {
+  res.send("Hallo wereld!");
+});
+
+// Server starten
+app.listen(POORT, () => {
+  console.log(`Server draait op http://localhost:${POORT}`);
+});</code></pre>
+    <p>Open <code>http://localhost:3000</code> in je browser en je ziet "Hallo wereld!"</p>
+
+    <h3 id="s3-2">3.2 Routes: GET, POST, PUT, DELETE</h3>
+    <pre><code>// GET: gegevens ophalen
+app.get("/producten", (req, res) => {
+  res.json([
+    { id: 1, naam: "Laptop", prijs: 999 },
+    { id: 2, naam: "Muis",   prijs:  25 }
+  ]);
+});
+
+// Route parameter (:id)
+app.get("/producten/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  res.json({ id, naam: "Voorbeeld product" });
+});
+
+// Query parameter (?categorie=elektronica)
+app.get("/zoek", (req, res) => {
+  const categorie = req.query.categorie;
+  res.json({ resultaten: `Zoekresultaten voor: ${categorie}` });
+});
+
+// POST: nieuw product aanmaken
+app.post("/producten", (req, res) => {
+  const nieuw = req.body; // vereist express.json() middleware!
+  console.log("Ontvangen:", nieuw);
+  res.status(201).json({ id: 3, ...nieuw });
+});
+
+// DELETE: product verwijderen
+app.delete("/producten/:id", (req, res) => {
+  const id = req.params.id;
+  res.status(204).send(); // 204 No Content
+});</code></pre>
+
+    <h3 id="s3-3">3.3 req en res object</h3>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Property/Methode</th><th>Beschrijving</th><th>Voorbeeld</th></tr></thead>
+      <tbody>
+        <tr><td><code>req.params</code></td><td>URL-parameters (<code>:id</code>)</td><td><code>req.params.id</code></td></tr>
+        <tr><td><code>req.query</code></td><td>Query-string parameters (<code>?sleutel=waarde</code>)</td><td><code>req.query.naam</code></td></tr>
+        <tr><td><code>req.body</code></td><td>Body van POST/PUT-aanvraag (JSON)</td><td><code>req.body.prijs</code></td></tr>
+        <tr><td><code>res.json(data)</code></td><td>Antwoord als JSON sturen</td><td><code>res.json({ ok: true })</code></td></tr>
+        <tr><td><code>res.send(tekst)</code></td><td>Antwoord als tekst sturen</td><td><code>res.send("Hallo")</code></td></tr>
+        <tr><td><code>res.status(code)</code></td><td>HTTP-statuscode instellen</td><td><code>res.status(404).json({...})</code></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 id="s3-4">3.4 Middleware</h3>
+    <p>Middleware is code die uitgevoerd wordt v&oacute;&oacute;r de route-handler. Typisch gebruik: JSON parseren, logging, authenticatie.</p>
+    <pre><code>// express.json() middleware: parseert JSON in de request body
+app.use(express.json());
+
+// Eigen logging middleware
+app.use((req, res, next) => {
+  const tijdstip = new Date().toISOString();
+  console.log(`[${tijdstip}] ${req.method} ${req.url}`);
+  next(); // verplicht! anders stopt de verwerking
+});
+
+// CORS middleware (voor gebruik vanuit browser)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});</code></pre>
+
+    <h2 id="s4">4. Volledige REST API voor producten</h2>
+    <pre><code>const express = require("express");
+const app = express();
+app.use(express.json());
+
+// In-memory opslag (later: echte database)
+let producten = [
+  { id: 1, naam: "Laptop",  prijs: 999 },
+  { id: 2, naam: "Muis",    prijs:  25 },
+  { id: 3, naam: "Monitor", prijs: 349 }
+];
+let volgendId = 4;
+
+// GET alle producten
+app.get("/api/producten", (req, res) => {
+  res.json(producten);
+});
+
+// GET &eacute;&eacute;n product
+app.get("/api/producten/:id", (req, res) => {
+  const product = producten.find(p => p.id === parseInt(req.params.id));
+  if (!product) return res.status(404).json({ fout: "Product niet gevonden" });
+  res.json(product);
+});
+
+// POST nieuw product
+app.post("/api/producten", (req, res) => {
+  const { naam, prijs } = req.body;
+  if (!naam || !prijs) {
+    return res.status(400).json({ fout: "naam en prijs zijn verplicht" });
+  }
+  const nieuw = { id: volgendId++, naam, prijs };
+  producten.push(nieuw);
+  res.status(201).json(nieuw);
+});
+
+// DELETE product
+app.delete("/api/producten/:id", (req, res) => {
+  const index = producten.findIndex(p => p.id === parseInt(req.params.id));
+  if (index === -1) return res.status(404).json({ fout: "Niet gevonden" });
+  producten.splice(index, 1);
+  res.status(204).send();
+});
+
+app.listen(3000, () => console.log("API draait op http://localhost:3000"));</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="app6-h03-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 3.1</span>
+        <span class="oefening__title">Node.js en npm</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je begrip van Node.js, het npm-ecosysteem en de Express-basisconcepten.</p>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Wat is het verschil tussen Node.js en JavaScript in de browser?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Node.js gebruikt een andere programmeertaal dan de browser</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Node.js kan enkel HTML verwerken, de browser kan ook JSON</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Node.js draait JavaScript op de server zonder browser, met toegang tot het bestandssysteem</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Node.js is een langzamere versie van JavaScript speciaal voor oudere systemen</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Node.js draait JavaScript buiten de browser — op de server. Het heeft geen DOM, maar wel toegang tot bestanden, netwerk en het besturingssysteem."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="package.json">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">In welk bestand slaat npm de projectnaam, versie en alle afhankelijkheden (dependencies) op?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de bestandsnaam...">
+          <div class="vraag__feedback" data-correct-label="package.json — het manifest van je Node.js-project met naam, versie, scripts en de lijst van dependencies."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Wat doet de middleware <code>app.use(express.json())</code>?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Het stuurt alle responses automatisch als JSON</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Het valideert of de JSON-responses geldig zijn</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Het converteert JSON-responses naar HTML</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Het parseert de JSON-body van inkomende requests en maakt die beschikbaar als <code>req.body</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="express.json() is middleware die de request-body parseert. Zonder deze middleware is req.body undefined bij POST/PUT-requests met een JSON-body."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,c">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Welke uitspraken over Express-routes zijn correct?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span><code>req.params.id</code> geeft de waarde van <code>:id</code> in de URL terug</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span><code>req.query</code> bevat de request-body van een POST</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span><code>res.status(404).json({...})</code> stuurt een 404-response met JSON-body</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span>Middleware wordt uitgevoerd <em>na</em> de route-handler</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="A en C zijn correct. req.query bevat querystring-parameters (?sleutel=waarde), niet de POST-body. Middleware wordt uitgevoerd vóór de route-handler."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="app6-h03-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 3.2</span>
+        <span class="oefening__title">REST API ontwerpen</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Verdiepingsvragen over het correct ontwerpen van een REST API voor een takenlijst.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Bij het aanmaken van een nieuwe taak via <code>POST /api/taken</code> — welke statuscode stuur je terug bij succes?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>200 OK</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>201 Created</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>204 No Content</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>202 Accepted</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="201 Created — de standaard REST-conventie bij het succesvol aanmaken van een nieuwe resource."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="204|204 no content">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welke statuscode stuur je bij een succesvolle DELETE waarbij je geen inhoud teruggeeft?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de numerieke code...">
+          <div class="vraag__feedback" data-correct-label="204 No Content — de actie is geslaagd maar er is geen body in de response. Gebruik res.status(204).send() in Express."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">In de route <code>GET /api/taken/:id</code> wordt taak met het gevraagde id niet gevonden. Welke statuscode geef je terug?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>404 Not Found</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>400 Bad Request</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>500 Internal Server Error</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>200 OK met een lege body</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="404 Not Found — de gevraagde resource bestaat niet. Gebruik return res.status(404).json({ fout: 'Niet gevonden' })."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Node.js laat toe JavaScript buiten de browser uit te voeren (server-side).</li>
+        <li><code>npm</code> beheert packages. <code>package.json</code> houdt de afhankelijkheden bij.</li>
+        <li>Express.js: <code>app.get/post/put/delete(route, handler)</code> definieert routes.</li>
+        <li><code>req.params</code> = URL-parameters, <code>req.query</code> = querystring, <code>req.body</code> = POST-body.</li>
+        <li><code>res.json()</code> stuurt JSON, <code>res.status(code)</code> stelt de statuscode in.</li>
+        <li>Middleware (<code>app.use()</code>) wordt uitgevoerd v&oacute;&oacute;r de route-handler. <code>express.json()</code> is verplicht om POST-body te lezen.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H03</h2>
+    <p>Breid de taken-API uit met validatie en extra functionaliteit:</p>
+    <ol>
+      <li>Voeg validatie toe: <code>beschrijving</code> mag niet leeg zijn en mag max. 200 tekens zijn.</li>
+      <li>Voeg een query-parameter toe aan <code>GET /api/taken?gedaan=true</code> die enkel gedane taken teruggeeft.</li>
+      <li>Voeg een route toe <code>GET /api/taken/statistieken</code> die het totaal aantal taken, gedane taken en openstaande taken teruggeeft.</li>
+      <li>Installeer <code>nodemon</code> en configureer het als dev-script in <code>package.json</code>.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/app-ontwikkeling/H03">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H02-apis-en-fetch.html" class="btn btn-secondary">&larr; H02 &mdash; API's en fetch</a>
+      <a href="H04-python-scripting.html" class="btn btn-secondary">H04 &mdash; Python scripting &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

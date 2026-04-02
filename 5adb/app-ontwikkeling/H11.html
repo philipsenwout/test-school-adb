@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selectoren — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H11" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-een-selector">11.1 Wat is een selector?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.2"><span class="sidebar-check__box"></span></label>
+          <a href="#de-meest-gebruikte-selectoren">11.2 Meest gebruikte selectoren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.3"><span class="sidebar-check__box"></span></label>
+          <a href="#pseudo-klassen">11.3 Pseudo-klassen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.4"><span class="sidebar-check__box"></span></label>
+          <a href="#de-has-selector">11.4 De :has() selector</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.5"><span class="sidebar-check__box"></span></label>
+          <a href="#combineren-van-selectoren">11.5 Combineren van selectoren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.6"><span class="sidebar-check__box"></span></label>
+          <a href="#caniuse">11.6 caniuse.com</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>CSS Selectoren</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H11 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">CSS Selectoren (verdieping)</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat een CSS-selector is en waarvoor hij dient</li>
+          <li>De meest gebruikte selectoren herkennen en toepassen: element, klasse, id, nakomelingen, kinderen</li>
+          <li>Pseudo-klassen gebruiken zoals <code>:hover</code>, <code>:focus</code>, <code>:first-child</code>, <code>:last-child</code>, <code>:nth-child()</code></li>
+          <li>De <code>:has()</code> selector uitleggen en toepassen</li>
+          <li>Controleren welke selectoren ondersteund worden via caniuse.com</li>
+          <li>Oefeningen maken op CSS Diner</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-een-selector">1. Wat is een selector?</h2>
+      <p>Een CSS-regel bestaat altijd uit twee delen: de <strong>selector</strong> en het <strong>declaratieblok</strong>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* selector { property: waarde; } */
+p {
+    color: blue;
+}</code></pre>
+      </div>
+      <p>De selector bepaalt <strong>welk(e) HTML-element(en)</strong> de stijlregel krijgen.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H11-afb1.svg" alt="Overzicht van de meest gebruikte CSS-selectoren" loading="lazy">
+      </figure>
+
+      <h2 id="de-meest-gebruikte-selectoren">2. De meest gebruikte selectoren</h2>
+
+      <h3>2.1 Element-selector (type-selector)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Alle paragrafen krijgen een blauwe tekstkleur */
+p {
+    color: blue;
+}
+
+/* Alle h1-titels worden groter */
+h1 {
+    font-size: 2rem;
+}</code></pre>
+      </div>
+      <p><strong>Let op:</strong> dit geldt voor <strong>alle</strong> <code>p</code>- of <code>h1</code>-elementen op de pagina. Wil je specifieker zijn, gebruik dan een klasse.</p>
+
+      <h3>2.2 Klasse-selector (<code>.klasse</code>)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p class="waarschuwing"&gt;Let op: sla regelmatig op!&lt;/p&gt;
+&lt;p&gt;Dit is gewone tekst.&lt;/p&gt;</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.waarschuwing {
+    color: red;
+    font-weight: bold;
+}</code></pre>
+      </div>
+      <p><strong>Semantische klassen:</strong></p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Slecht (beschrijft uiterlijk)</th><th>Goed (beschrijft betekenis)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>.roodeBalk</code></td><td><code>.foutmelding</code></td></tr>
+          <tr><td><code>.groteTekst</code></td><td><code>.hoofdtitel</code></td></tr>
+          <tr><td><code>.groen</code></td><td><code>.bevestigd</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.3 ID-selector (<code>#id</code>)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">#paginahoofd {
+    background-color: #222;
+    color: white;
+}</code></pre>
+      </div>
+      <p><strong>Gebruik id spaarzaam voor stijlen.</strong> In de praktijk worden id's meer gebruikt voor navigatie of JavaScript dan voor CSS.</p>
+
+      <h3>2.4 Nakomelingselector (spatie)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Selecteert ALLE a-elementen die ergens BINNEN nav staan */
+nav a {
+    text-decoration: none;
+    color: white;
+}</code></pre>
+      </div>
+
+      <h3>2.5 Kind-selector (<code>&gt;</code>)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Alleen de directe li-kinderen van .menu */
+.menu &gt; li {
+    font-weight: bold;
+}</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H11-afb2.svg" alt="Verschil tussen nakomelingselector en kind-selector" loading="lazy">
+      </figure>
+
+      <h3>2.6 Meervoudige selector (komma)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Met komma — veel efficiënter: */
+h1, h2, h3 {
+    color: #514F8C;
+}</code></pre>
+      </div>
+
+      <h2 id="pseudo-klassen">3. Pseudo-klassen</h2>
+      <p>Pseudo-klassen selecteren elementen op basis van hun <strong>toestand</strong> of <strong>positie</strong>. Ze beginnen altijd met een dubbele punt (<code>:</code>).</p>
+
+      <h3>3.1 <code>:hover</code> en <code>:focus</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Als de muis over een link beweegt */
+a:hover {
+    color: orange;
+    text-decoration: underline;
+}
+
+/* Als een invoerveld de focus heeft */
+input:focus {
+    border: 2px solid blue;
+    outline: none;
+}</code></pre>
+      </div>
+
+      <h3>3.2 <code>:first-child</code>, <code>:last-child</code>, <code>:nth-child()</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Het eerste li-element */
+li:first-child { font-weight: bold; }
+
+/* Het laatste li-element */
+li:last-child { border-bottom: none; }
+
+/* Elk tweede li-element (zebra-patroon) */
+li:nth-child(2n) { background-color: #f0f0f0; }
+
+/* Het derde element */
+li:nth-child(3) { color: red; }</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Formule</th><th>Wat wordt geselecteerd</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>2n</code> of <code>even</code></td><td>Alle even elementen (2, 4, 6, ...)</td></tr>
+          <tr><td><code>2n-1</code> of <code>odd</code></td><td>Alle oneven elementen (1, 3, 5, ...)</td></tr>
+          <tr><td><code>3n</code></td><td>Elk derde element (3, 6, 9, ...)</td></tr>
+          <tr><td><code>3</code></td><td>Enkel het derde element</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3.3 <code>:not()</code> — uitsluiten</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Alle li-elementen behalve degene met class="actief" */
+li:not(.actief) {
+    opacity: 0.6;
+}</code></pre>
+      </div>
+
+      <h2 id="de-has-selector">4. De <code>:has()</code> selector — de parent-selector</h2>
+      <p>De <code>:has()</code> selector is relatief nieuw en erg krachtig. Het laat je toe om een <strong>parent-element te selecteren op basis van wat erin zit</strong>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Selecteer a-elementen die een img bevatten */
+a:has(&gt; img) {
+    border: 3px solid gold;
+    display: block;
+}
+
+/* Alleen kaartjes MET een afbeelding */
+.kaart:has(img) {
+    background-color: #e8f4ff;
+    padding: 1rem;
+}</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Controleer altijd op <a href="https://caniuse.com" target="_blank">caniuse.com</a> of een selector al breed ondersteund wordt.</p>
+      </div>
+
+      <h2 id="combineren-van-selectoren">5. Combineren van selectoren</h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Alleen a-elementen met class="actief" */
+a.actief {
+    font-weight: bold;
+}
+
+/* Een p-element dat een direct kind is van section */
+section &gt; p {
+    margin-left: 1rem;
+}
+
+/* Een span die ergens binnen een article staat EN class="highlight" heeft */
+article span.highlight {
+    background-color: yellow;
+}</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H11-afb3.svg" alt="Combineren van CSS-selectoren — voorbeelden" loading="lazy">
+      </figure>
+
+      <h2 id="caniuse">6. caniuse.com — Browserondersteuning checken</h2>
+      <p>CSS groeit voortdurend. Voordat je een nieuwe selector gebruikt in een productiesite, check je altijd op <a href="https://caniuse.com" target="_blank">caniuse.com</a>.</p>
+      <p><strong>Stappenplan:</strong></p>
+      <ol>
+        <li>Ga naar caniuse.com</li>
+        <li>Typ de selector of property in (bv. <code>:has</code>)</li>
+        <li>Je ziet welke browsers en versies dit ondersteunen</li>
+        <li>Beslis of je het al kunt gebruiken</li>
+      </ol>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — CSS Diner</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">CSS Diner is een interactieve oefening waarbij je CSS-selectoren leert door de juiste borden, appels en vorken te selecteren.</p>
+            <ol>
+              <li>Ga naar <a href="https://flukeout.github.io/" target="_blank">https://flukeout.github.io/</a></li>
+              <li>Los de eerste 15 niveaus op. Schrijf telkens de selector die je gebruikt in je notitieboekje.</li>
+              <li>Probeer ook niveaus 16 tot 20!</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Selectoren oefening</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>oefening-selectoren.html</code> met de volgende structuur en stijl het daarna via een extern CSS-bestand <code>selectoren.css</code>:</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Nieuws&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="actief"&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Over ons&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;main&gt;
+  &lt;h1&gt;Mijn portfolio&lt;/h1&gt;
+  &lt;p class="intro"&gt;Welkom op mijn website.&lt;/p&gt;
+  &lt;p&gt;Ik ben een eerstejaars student.&lt;/p&gt;
+  &lt;ul class="projecten"&gt;
+    &lt;li&gt;Project 1&lt;/li&gt;
+    &lt;li&gt;Project 2&lt;/li&gt;
+    &lt;li&gt;Project 3 &lt;span&gt;(nieuw)&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;Project 4&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+            <p><strong>Maak nu een bestand <code>selectoren.css</code> en zorg voor het volgende:</strong></p>
+            <ol>
+              <li>Alle <code>a</code>-elementen in <code>nav</code> zijn wit en hebben geen onderstreping</li>
+              <li>Bij hover op een <code>a</code> in de <code>nav</code> verandert de kleur naar geel</li>
+              <li>Het <code>li</code>-element met class <code>actief</code> heeft een andere achtergrondkleur</li>
+              <li>De <code>p</code> met class <code>intro</code> is groter en vetgedrukt</li>
+              <li>Het eerste en het laatste <code>li</code> van <code>.projecten</code> zijn onderstreept</li>
+              <li>Elk even <code>li</code> van <code>.projecten</code> heeft een lichtgrijze achtergrond</li>
+              <li>De <code>span</code> in de lijst is rood en cursief</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H11-oef1-browser.svg" alt="Browser-mockup: pagina met donkere navigatiebalk, h1, intro-alinea, projectenlijst met zebra-achtergrond" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H11 CSS Selectoren (verdieping)<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H11-oef1-browser.svg', 'Voorbeeld — CSS selectoren')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+                      <h3>Opdracht: Stijlgids met CSS-selectoren</h3>
+          <p>Maak een pagina <code>stijlgids.html</code> met bijhorend <code>stijlgids.css</code>. De pagina toont een mini-stijlgids voor een fictieve website (bv. een school, een webwinkel of een blog). Je demonstreert je kennis van CSS-selectoren.</p>
+          <h4>Deel 1 — Basisstructuur (2 punten)</h4>
+          <ul>
+            <li>Een <code>&lt;header&gt;</code> met logo-tekst en navigatie (minstens 4 links)</li>
+            <li>Een <code>&lt;main&gt;</code> met minstens twee <code>&lt;section&gt;</code>-blokken</li>
+            <li>Een <code>&lt;footer&gt;</code> met copyright-tekst</li>
+          </ul>
+          <h4>Deel 2 — Selectoren in de praktijk (5 punten)</h4>
+          <ul>
+            <li>Stijl de navigatielinks met een <strong>nakomelingsselector</strong> (<code>nav a</code>)</li>
+            <li>Stijl een specifieke sectie via een <strong>klasse-selector</strong> (bv. <code>.uitgelicht</code>)</li>
+            <li>Stijl één uniek element via een <strong>id-selector</strong></li>
+            <li>Gebruik <strong><code>:hover</code></strong> op de navigatielinks (kleur- of achtergrondwijziging)</li>
+            <li>Gebruik <strong><code>:nth-child()</code></strong> om om-en-om rijen in een lijst een andere achtergrond te geven (zebra-effect)</li>
+          </ul>
+          <h4>Deel 3 — Specificiteit aantonen (3 punten)</h4>
+          <p>Maak een element dat door <em>drie verschillende regels</em> gestyled wordt: via het element, via een klasse en via een id. Voeg een HTML-commentaar toe dat uitlegt welke regel wint en waarom.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H11 — CSS Selectoren</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke selector selecteert alleen de <strong>directe kinderen</strong> van een element, niet de kleinkinderen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="a"> <span>Nakomelingselector (spatie): <code>ul li</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="b"> <span>Meervoudige selector (komma): <code>ul, li</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="c"> <span>Kind-selector: <code>ul &gt; li</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="d"> <span>ID-selector: <code>#ul li</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke pseudo-klasse stijlt een element wanneer de muis erover beweegt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="a"> <span><code>:focus</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="b"> <span><code>:hover</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="c"> <span><code>:active</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="d"> <span><code>:visited</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke <code>:nth-child()</code>-formule selecteert alle even elementen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="a"> <span><code>:nth-child(2n)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="b"> <span><code>:nth-child(2n-1)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="c"> <span><code>:nth-child(3)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="d"> <span><code>:nth-child(odd)</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat doet de selector <code>.kaart:has(img)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="a"> <span>Selecteert alle <code>img</code>-elementen die in een <code>.kaart</code> zitten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="b"> <span>Selecteert <code>img</code>-elementen na een <code>.kaart</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="c"> <span>Selecteert lege kaartjes</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="d"> <span>Selecteert <code>.kaart</code>-elementen die een <code>img</code> bevatten</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke website gebruik je om te controleren of een CSS-selector door browsers ondersteund wordt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="a"> <span>developer.mozilla.org</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="b"> <span>caniuse.com</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="c"> <span>w3schools.com</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="d"> <span>cssdiner.com</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat is het verschil tussen <code>nav a</code> en <code>nav &gt; a</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="a"> <span>Er is geen verschil</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="b"> <span><code>nav &gt; a</code> selecteert alle links in de navigatie, ook diep geneste</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="c"> <span><code>nav a</code> selecteert alle links in nav (ook geneste), <code>nav &gt; a</code> alleen directe kinderen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="d"> <span><code>nav a</code> werkt alleen in Chrome, <code>nav &gt; a</code> in alle browsers</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H11')" data-progress-key="5adb/app-ontwikkeling/H11">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H10.html" class="btn btn-ghost">← H10</a> <a href="H12.html" class="btn btn-ghost">H12 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

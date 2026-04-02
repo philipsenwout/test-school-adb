@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 &mdash; Fysieke laag &amp; bekabeling &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Fysieke laag &amp; bekabeling &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H04</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-4-fysieke-laag-bekabeling">Hoofdstuk 4 — Fysieke laag & bekabeling</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#4-theorie">4. Theorie</a></li><li><a href="#41-media-op-de-fysieke-laag" style="padding-left:1.25rem">4.1 Media op de fysieke laag</a></li><li><a href="#42-utp-bekabeling" style="padding-left:1.25rem">4.2 UTP-bekabeling</a></li><li><a href="#43-glasvezelkabels" style="padding-left:1.25rem">4.3 Glasvezelkabels</a></li><li><a href="#44-draadloze-media" style="padding-left:1.25rem">4.4 Draadloze media</a></li><li><a href="#4-voorbeelden">4. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h04" style="padding-left:1.25rem">Huistaak H04</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H04 &mdash; Fysieke laag &amp; bekabeling</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-4-fysieke-laag-bekabeling">Hoofdstuk 4 — Fysieke laag & bekabeling</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>6 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>UTP-kabelcategorieën (Cat5e, Cat6, Cat6A, Cat7, Cat8) vergelijken</li>
+<li>het verschil uitleggen tussen straight-through en crossover-kabels</li>
+<li>glasvezelkabeltypen (single-mode vs multi-mode) onderscheiden</li>
+<li>de meest gebruikte netwerkcConnectors herkennen (RJ-45, LC, SC)</li>
+<li>draadloze technologieën (WiFi, Bluetooth, 4G/5G) vergelijken</li>
+<li>de juiste bekabeling kiezen voor een gegeven scenario</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-14]</span> De leerlingen handelen veilig, ergonomisch en hygiënisch <span class="badge badge-basis">basis</span></div>
+<h2 id="4-theorie">4. Theorie</h2>
+<h3 id="41-media-op-de-fysieke-laag">4.1 Media op de fysieke laag</h3>
+<p>De fysieke laag (OSI Laag 1) gaat over het daadwerkelijke transport van bits. Dat kan via:</p>
+<ol>
+<li><strong>Koperkabels</strong> (elektrische signalen) — goedkoop, makkelijk te installeren</li>
+<li><strong>Glasvezelkabels</strong> (lichtpulsen) — snel, lange afstand, immuun voor elektromagnetische interferentie</li>
+<li><strong>Draadloze media</strong> (radiogolven) — flexibel, geen bekabeling nodig</li>
+</ol>
+<h3 id="42-utp-bekabeling">4.2 UTP-bekabeling</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Unshielded Twisted Pair (UTP) is de meest gebruikte netwerkkabel voor LAN-omgevingen. De kabel bevat 4 verdraaide (twisted) aderenparen in een plastic mantel. De verdraaiing vermindert elektromagnetische interferentie (EMI).</p>
+</div>
+<p>Kabelcategorieën:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Categorie</th><th>Max. snelheid</th><th>Max. bandbreedte</th><th>Max. afstand</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><strong>Cat5e</strong></td><td>1 Gbps</td><td>100 MHz</td><td>100 m</td><td>Oudere LAN-installaties</td></tr>
+<tr><td><strong>Cat6</strong></td><td>1 Gbps (10G tot 55m)</td><td>250 MHz</td><td>100 m</td><td>Huidige standaard LAN</td></tr>
+<tr><td><strong>Cat6A</strong></td><td>10 Gbps</td><td>500 MHz</td><td>100 m</td><td>Datacenter, toekomstbestendig</td></tr>
+<tr><td><strong>Cat7</strong></td><td>10 Gbps</td><td>600 MHz</td><td>100 m</td><td>Datacenter (minder gebruikt dan 6A)</td></tr>
+<tr><td><strong>Cat8</strong></td><td>25/40 Gbps</td><td>2000 MHz</td><td>30 m</td><td>Server-naar-switch verbindingen</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Voor nieuwe installaties in gebouwen kies je minimum <strong>Cat6A</strong>. De extra kost is minimaal, maar je bent toekomstbestendig voor 10G-netwerken.</p>
+</div>
+<h4 id="421-rj-45-connector-en-t568at568b">4.2.1 RJ-45 connector en T568A/T568B</h4>
+<p>De standaardconnector voor UTP-kabels is de <strong>RJ-45</strong> (Registered Jack 45). Een RJ-45 heeft 8 pinnen voor de 4 aderenparen.</p>
+<p>Er zijn twee bedradingsstandaarden:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Standaard</th><th>Pin 1</th><th>Pin 2</th><th>Pin 3</th><th>Pin 4</th><th>Pin 5</th><th>Pin 6</th><th>Pin 7</th><th>Pin 8</th></tr></thead><tbody>
+<tr><td><strong>T568A</strong></td><td>Wit/Groen</td><td>Groen</td><td>Wit/Oranje</td><td>Blauw</td><td>Wit/Blauw</td><td>Oranje</td><td>Wit/Bruin</td><td>Bruin</td></tr>
+<tr><td><strong>T568B</strong></td><td>Wit/Oranje</td><td>Oranje</td><td>Wit/Groen</td><td>Blauw</td><td>Wit/Blauw</td><td>Groen</td><td>Wit/Bruin</td><td>Bruin</td></tr>
+</tbody></table></div>
+<p><strong>Straight-through kabel:</strong> beide uiteinden hebben hetzelfde schema (T568B — T568B). Gebruikt voor verbindingen tussen <strong>verschillende</strong> apparaattypen (PC naar switch, switch naar router).</p>
+<p><strong>Crossover-kabel:</strong> de uiteinden hebben verschillende schema's (T568A — T568B). Vroeger gebruikt voor verbindingen tussen <strong>gelijke</strong> apparaattypen (PC naar PC, switch naar switch). Moderne apparaten met <strong>Auto-MDIX</strong> detecteren automatisch het type en schakelen zelf over — crossover-kabels zijn grotendeels verouderd.</p>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Verwar UTP Cat-categorieën niet met de kleur van de kabel. De kleur van de mantel heeft geen technische betekenis — het is enkel een organisatieconventie.</p>
+</div>
+<h3 id="43-glasvezelkabels">4.3 Glasvezelkabels</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een glasvezelkabel (fiber optic) transporteert data als lichtpulsen door een kern van uiterst puur glas of kunststof. Glasvezel is immuun voor elektromagnetische interferentie en ondersteunt veel hogere snelheden over langere afstanden dan koper.</p>
+</div>
+<h4 id="431-single-mode-fiber-smf">4.3.1 Single-mode fiber (SMF)</h4>
+<ul>
+<li><strong>Kern:</strong> 9 μm diameter — één lichtpad</li>
+<li><strong>Lichtbron:</strong> laser</li>
+<li><strong>Afstand:</strong> tot meerdere honderden km (lange afstand)</li>
+<li><strong>Gebruik:</strong> WAN-verbindingen, provider-backbone, datacenters op afstand</li>
+<li><strong>Kleurcode mantel:</strong> geel</li>
+</ul>
+<h4 id="432-multi-mode-fiber-mmf">4.3.2 Multi-mode fiber (MMF)</h4>
+<ul>
+<li><strong>Kern:</strong> 50 of 62,5 μm diameter — meerdere lichtpaden</li>
+<li><strong>Lichtbron:</strong> LED of VCSEL</li>
+<li><strong>Afstand:</strong> tot ~550 m bij 10G (OM4), tot ~400 m (OM3)</li>
+<li><strong>Gebruik:</strong> verbindingen binnen een gebouw of tussen nabijgelegen gebouwen</li>
+<li><strong>Kleurcode mantel:</strong> oranje (OM1/OM2), aqua/turquoise (OM3/OM4), limoen (OM5)</li>
+</ul>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>Single-mode</th><th>Multi-mode</th></tr></thead><tbody>
+<tr><td>Kern-diameter</td><td>9 μm</td><td>50/62,5 μm</td></tr>
+<tr><td>Afstand</td><td>Honderden km</td><td>Tot ~550 m</td></tr>
+<tr><td>Snelheid</td><td>Hoog (100G+)</td><td>Tot 100G (OM4/OM5)</td></tr>
+<tr><td>Kostprijs</td><td>Duurder</td><td>Goedkoper</td></tr>
+<tr><td>Lichtbron</td><td>Laser</td><td>LED/VCSEL</td></tr>
+</tbody></table></div>
+<h4 id="433-glasvezelconnectoren">4.3.3 Glasvezelconnectoren</h4>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Connector</th><th>Type</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><strong>SC</strong> (Subscriber/Square Connector)</td><td>Push-pull, vierkant</td><td>Oudere installaties, patchkabels</td></tr>
+<tr><td><strong>LC</strong> (Lucent Connector)</td><td>Kleine push-pull clip</td><td>Moderne standaard in datacenters en switches</td></tr>
+<tr><td><strong>ST</strong> (Straight Tip)</td><td>Bajonetschroef</td><td>Verouderd</td></tr>
+<tr><td><strong>MTP/MPO</strong></td><td>Multi-fiber (12 of 24 vezels)</td><td>Hoge-densiteit datacenters</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>LC is de huidige standaard in datacenters. Wanneer je een SFP+-module koopt voor een switch of router, is LC de meest gangbare connector.</p>
+</div>
+<h3 id="44-draadloze-media">4.4 Draadloze media</h3>
+<h4 id="441-wifi-ieee-80211">4.4.1 WiFi (IEEE 802.11)</h4>
+<p>WiFi is de meest gebruikte draadloze LAN-technologie. De standaard evolueert doorheen generaties:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Generatie</th><th>Standaard</th><th>Max. snelheid</th><th>Frequentie</th><th>Release</th></tr></thead><tbody>
+<tr><td>WiFi 4</td><td>802.11n</td><td>600 Mbps</td><td>2,4 + 5 GHz</td><td>2009</td></tr>
+<tr><td>WiFi 5</td><td>802.11ac</td><td>3,5 Gbps</td><td>5 GHz</td><td>2013</td></tr>
+<tr><td>WiFi 6</td><td>802.11ax</td><td>9,6 Gbps</td><td>2,4 + 5 GHz</td><td>2019</td></tr>
+<tr><td>WiFi 6E</td><td>802.11ax</td><td>9,6 Gbps</td><td>2,4 + 5 + 6 GHz</td><td>2021</td></tr>
+<tr><td><strong>WiFi 7</strong></td><td><strong>802.11be</strong></td><td><strong>46 Gbps</strong></td><td><strong>2,4 + 5 + 6 GHz</strong></td><td><strong>2024</strong></td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>De UniFi Express 7 die we gebruiken in het eindproject ondersteunt WiFi 7. Dit is de recentste standaard met multi-link operation (MLO): een apparaat kan tegelijk op meerdere frequenties communiceren.</p>
+</div>
+<p><strong>2,4 GHz vs 5 GHz vs 6 GHz:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Band</th><th>Bereik</th><th>Snelheid</th><th>Storingen</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td>2,4 GHz</td><td>Groot</td><td>Lager</td><td>Veel (magnetron, buren)</td><td>IoT, grote afstand</td></tr>
+<tr><td>5 GHz</td><td>Kleiner</td><td>Hoger</td><td>Minder</td><td>Laptops, smartphones</td></tr>
+<tr><td>6 GHz</td><td>Kleinst</td><td>Hoogst</td><td>Weinig (nieuw spectrum)</td><td>WiFi 6E/7, hoge throughput</td></tr>
+</tbody></table></div>
+<h4 id="442-bluetooth">4.4.2 Bluetooth</h4>
+<ul>
+<li><strong>Bereik:</strong> tot ~10 m (klasse 2) of ~100 m (klasse 1)</li>
+<li><strong>Frequentie:</strong> 2,4 GHz ISM-band</li>
+<li><strong>Snelheid:</strong> tot 3 Mbps (Bluetooth 3.0) of ~2 Mbps effectief (BLE 5.0)</li>
+<li><strong>Gebruik:</strong> PAN — koptelefoon, muis, toetsenbord, smartwatch</li>
+<li><strong>Bluetooth Low Energy (BLE):</strong> voor IoT-sensoren met batterijwerking</li>
+</ul>
+<h4 id="443-4g-5g">4.4.3 4G / 5G</h4>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>4G LTE</th><th>5G</th></tr></thead><tbody>
+<tr><td><strong>Theoretische snelheid</strong></td><td>150–1000 Mbps</td><td>1–10 Gbps</td></tr>
+<tr><td><strong>Latentie</strong></td><td>~30–50 ms</td><td>~1–5 ms</td></tr>
+<tr><td><strong>Gebruik</strong></td><td>Mobiel internet, 4G-routers</td><td>Hoge dichtheid, IoT, industrie</td></tr>
+<tr><td><strong>Frequentie</strong></td><td>700–2600 MHz</td><td>Sub-6 GHz + mmWave (26–28 GHz)</td></tr>
+</tbody></table></div>
+<h2 id="4-voorbeelden">4. Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een bedrijf bouwt een nieuw kantoorgebouw met 3 verdiepingen en een serverlokaal in de kelder.</p>
+<ul>
+<li><strong>Horizontale bekabeling</strong> (van de patchkast naar de werkplekken): Cat6A UTP — maximaal 90 m, met patchkabels van elk 5 m aan beide zijden.</li>
+<li><strong>Verticale bekabeling</strong> (backbone tussen verdiepingen): Multi-mode glasvezel (OM4) met LC-connectoren — hoge snelheid, voldoende voor de afstand (~15 m per verdieping).</li>
+<li><strong>Connectie serverlokaal naar core-switch:</strong> Single-mode fiber — toekomstbestendig voor hoge snelheden op langere termijn.</li>
+</ul>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een school heeft:</p>
+<ul>
+<li>Klaslokalen met 30 leerlingen tegelijk online</li>
+<li>Een gang van 50 m</li>
+<li>Een sportzaal met hoge plafonds</li>
+</ul>
+<p>Keuze: WiFi 6 access points (802.11ax) op 5 GHz voor de klassen (hoge gebruikersdichtheid), 2,4 GHz voor de gang en sportzaal (groter bereik). De UniFi access points bieden roaming tussen AP's (seamless handover).</p>
+</div>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h04-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.1</span>
+    <span class="oefening__title">De juiste kabel kiezen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Kies voor elk scenario het meest geschikte kabeltype. Denk aan afstand, snelheid en omgeving.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Verbinding tussen twee gebouwen op een campus, 300 m uit elkaar, 10 Gbps vereist. Welk kabeltype kies je?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>UTP Cat6A — goedkoop en snel genoeg</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Multi-mode glasvezel (MMF) — snel over middellange afstand</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Single-mode glasvezel (SMF) — voor lange afstanden tot honderden km</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>UTP Cat5e — goedkoopste optie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Multi-mode glasvezel (MMF) — UTP heeft een maximumbereik van 100 m. Voor 300 m kies je glasvezel. SMF is voor WAN-afstanden (honderden km), MMF is ideaal voor campus-verbindingen tot ~550 m."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Verbinding tussen twee steden, 80 km uit elkaar, voor een internetprovider. Welk kabeltype?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>UTP Cat6A</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Multi-mode glasvezel (MMF)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Single-mode glasvezel (SMF)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>UTP Cat8</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Single-mode glasvezel (SMF) — voor WAN-verbindingen over tientallen of honderden km is SMF de enige keuze. Lichtbron is een laser, maximale afstand: honderden km."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Een bureaukabel van de wanddoos naar de desktop-pc, 3 m. Nieuwe installatie in een kantoorgebouw. Welk kabeltype?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Cat5e — voldoende voor een werkplek</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Cat6A — toekomstbestendig voor 10G</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Single-mode glasvezel</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Cat8 — maximale snelheid</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Cat6A — voor nieuwe installaties kies je minimum Cat6A. De meerprijs is minimaal, maar je bent toekomstbestendig voor 10G-netwerken."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="rj-45|rj45">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke standaardconnector gebruik je bij UTP-kabels (8 pinnen, voor LAN-verbindingen)?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de naam van de connector...">
+      <div class="vraag__feedback" data-correct-label="RJ-45 (Registered Jack 45) — de standaardconnector voor UTP-netwerkkabels met 8 pinnen voor 4 aderenparen."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h04-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.2</span>
+    <span class="oefening__title">WiFi-frequentiebanden vergelijken</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">WiFi werkt op verschillende frequentiebanden, elk met eigen eigenschappen. Kies de juiste band voor elk scenario.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Een sportzaal met hoge plafonds en een lange gang van 50 m. Welke WiFi-band gebruik je voor het beste bereik?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>5 GHz — hogere snelheid</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>2,4 GHz — groter bereik door lagere frequentie</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>6 GHz — nieuwste band</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="2,4 GHz — de lagere frequentie dringt beter door muren en overbrugt grotere afstanden. Nadeel: meer storing van magnetrons en buurnetwerken."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Een klaslokaal met 30 leerlingen die tegelijk met hun laptop online zijn. Welke band is het meest geschikt voor hoge doorvoersnelheid?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>5 GHz — hogere snelheid en minder storing</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>2,4 GHz — groter bereik</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Bluetooth — energiezuiniger</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="5 GHz — hogere snelheid en minder kanaalinterferentie dan 2,4 GHz. Ideaal voor lokalen met veel gebruikers tegelijk."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke WiFi-standaard ondersteunt de UniFi Express 7 die we gebruiken in ons schoolproject?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>WiFi 5 (802.11ac)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>WiFi 6 (802.11ax)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>WiFi 7 (802.11be)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>WiFi 4 (802.11n)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="WiFi 7 (802.11be) — de UniFi Express 7 ondersteunt de recentste WiFi 7-standaard met maximaal 46 Gbps en multi-link operation (MLO)."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,c">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke eigenschappen gelden voor glasvezelkabels ten opzichte van koperkabels? (Selecteer alle juiste opties)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>Immuun voor elektromagnetische interferentie (EMI)</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>Goedkoper dan UTP</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>Ondersteunt hogere snelheden over langere afstanden</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>Gebruikt elektrische signalen voor datatransmissie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Glasvezel is immuun voor EMI (het gebruikt licht, geen elektrische signalen) en ondersteunt hogere snelheden over grotere afstanden. Glasvezel is echter duurder dan UTP."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h04-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.3</span>
+    <span class="oefening__title">UTP-kabel crimpen (T568B)</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je maakt een straight-through UTP-kabel met T568B-bedradingsstandaard. Test je kennis van de procedure.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke volgorde gebruik je bij de T568B-standaard voor pin 1 en pin 2?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Wit/Groen — Groen</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Wit/Oranje — Oranje</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Wit/Blauw — Blauw</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Wit/Bruin — Bruin</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Wit/Oranje (pin 1) — Oranje (pin 2) — dit is de T568B-volgorde. T568A begint met Wit/Groen — Groen."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Een straight-through kabel gebruik je voor welk type verbinding?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Verbinding tussen verschillende apparaattypen (pc naar switch)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Verbinding tussen gelijke apparaattypen (pc naar pc)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Alleen voor glasvezelverbindingen</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Alleen voor wifi-verbindingen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Straight-through kabels verbinden verschillende apparaattypen: pc naar switch, switch naar router. Crossover-kabels (T568A—T568B) verbonden vroeger gelijke typen, maar Auto-MDIX maakt dit overbodig."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="auto-mdix|automdix|auto mdix">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Moderne netwerkapparaten detecteren automatisch of een straight-through of crossover-kabel nodig is. Hoe heet deze functie?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de technologienaam...">
+      <div class="vraag__feedback" data-correct-label="Auto-MDIX — moderne switches en netwerkkaarten detecteren automatisch het kabeltype en schakelen intern over. Crossover-kabels zijn daardoor grotendeels verouderd."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>UTP-categorieën gaan van Cat5e (1 Gbps) tot Cat8 (40 Gbps). Cat6A is de huidige installatiestandaard.</li>
+<li>Straight-through kabels verbinden ongelijksoortige apparaten; crossover verbindt gelijksoortige. Moderne apparaten met Auto-MDIX detecteren dit automatisch.</li>
+<li>Glasvezel: single-mode voor grote afstanden (WAN, backbone), multi-mode voor gebouwinterne verbindingen.</li>
+<li>LC-connector is de huidige standaard voor glasvezel in switches en patchpanelen.</li>
+<li>WiFi 7 (802.11be) is de recentste standaard — ook gebruikt in ons praktijkproject met de UniFi Express 7.</li>
+<li>Bij WiFi: 2,4 GHz = groter bereik, meer storing; 5 GHz = hogere snelheid, kleiner bereik; 6 GHz = nieuw spectrum, minste interferentie.</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h04">Huistaak H04</h3>
+<p>Onderzoek de netwerkaansluitingen in jouw school of thuis.</p>
+<ol>
+<li>Loop langs de gangen en zoek naar patchkasten (wandkasten met netwerkapparatuur). Noteer wat je ziet: welk type apparatuur, hoeveel poorten, welke kabelkleur.</li>
+<li>Zoek op: wat is het verschil tussen een <strong>patchkast</strong> (patch panel) en een <strong>switch</strong>? Teken een schema van hoe ze samenwerken.</li>
+<li>Zoek op internet op welke WiFi-generatie (WiFi 4/5/6/6E/7) de access points van jullie school of thuis werken. Hoe weet je dit?</li>
+<li>Optioneel (verdieping): Maak een eigen netwerkkabel (straight-through, T568B aan beide kanten) en test hem.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H04-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 4 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H04">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H03.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H03 &mdash; Het OSI-model</span></div></a>
+          <a href="H05.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H05 &mdash; Datalinklaag &amp; Ethernet</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H11 &mdash; IPv6 introductie &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="IPv6 introductie &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H11</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-11-ipv6-waarom-bestaat-het">Hoofdstuk 11 — IPv6: waarom bestaat het?</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#111-waarom-ipv6">11.1 Waarom IPv6?</a></li><li><a href="#112-hoe-ziet-een-ipv6-adres-eruit">11.2 Hoe ziet een IPv6-adres eruit?</a></li><li><a href="#113-adrestypen">11.3 Adrestypen</a></li><li><a href="#114-ipv4-vs-ipv6-kort-overzicht">11.4 IPv4 vs IPv6 — kort overzicht</a></li><li><a href="#115-dual-stack-overgangsfase">11.5 Dual-stack — overgangsfase</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h11" style="padding-left:1.25rem">Huistaak H11</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H11 &mdash; IPv6 introductie</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-11-ipv6-waarom-bestaat-het">Hoofdstuk 11 — IPv6: waarom bestaat het?</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v2.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>2 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>uitleggen waarom IPv6 noodzakelijk is</li>
+<li>het verschil beschrijven tussen een IPv4- en IPv6-adres</li>
+<li>de drie meest voorkomende adrestypen herkennen (Global Unicast, Link-Local, Loopback)</li>
+<li>het dual-stack principe uitleggen</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-08]</span> De leerlingen informeren zich over de stand van zaken, evoluties en vernieuwingen in het vakgebied <span class="badge badge-basis">basis</span></div>
+<h2 id="111-waarom-ipv6">11.1 Waarom IPv6?</h2>
+<p>IPv4 heeft ruimte voor <strong>4,3 miljard</strong> unieke adressen. Dat klinkt veel — maar:</p>
+<ul>
+<li>Er zijn meer dan 8 miljard mensen op aarde</li>
+<li>Elk persoon heeft gemiddeld meerdere apparaten (telefoon, laptop, tablet, smart-tv…)</li>
+<li>Alles raakt verbonden met het internet: camera's, thermostaten, auto's, sensoren…</li>
+</ul>
+<p>Rond <strong>2019-2020</strong> waren de laatste IPv4-adressen in Europa uitgedeeld. Er zijn er gewoon niet genoeg meer.</p>
+<p>IPv6 is de oplossing: <strong>340 undeciljoen adressen</strong> — dat is een 3 met 38 nullen. Meer dan genoeg voor de komende eeuwen.</p>
+<h2 id="112-hoe-ziet-een-ipv6-adres-eruit">11.2 Hoe ziet een IPv6-adres eruit?</h2>
+<p>IPv4-adres (oud): <code>192.168.1.10</code> — 4 groepen cijfers, gescheiden door punten</p>
+<p>IPv6-adres (nieuw): <code>2001:0DB8:0000:0001:0000:0000:0000:0001</code></p>
+<ul>
+<li>8 groepen van 4 <strong>hexadecimale</strong> cijfers</li>
+<li>Gescheiden door dubbele punten</li>
+</ul>
+<p>Dat is lang! Gelukkig mag je het verkorten:</p>
+<ul>
+<li>Groepen met voorloopnullen mogen ingekort: <code>0DB8</code> → <code>DB8</code>, <code>0001</code> → <code>1</code></li>
+<li>Een aaneengesloten reeks nullen mag vervangen worden door <code>::</code> (één keer)</li>
+</ul>
+<p><strong>Voorbeeld:</strong></p>
+<pre data-lang=""><code>
+Volledig:    2001:0DB8:0000:0001:0000:0000:0000:0001
+Verkort:     2001:DB8:0:1::1
+</code></pre>
+<p>!<a href="../../images/H11-ipv4-vs-ipv6.png" target="_blank" rel="noopener">IPv4 vs IPv6 vergelijking</a></p>
+<p><em>Figuur 11.1 — Vergelijking IPv4 (32-bit) en IPv6 (128-bit) adresnotatie</em></p>
+<h2 id="113-adrestypen">11.3 Adrestypen</h2>
+<p>Je hoeft niet alle adrestypen te kennen, maar deze drie kom je zeker tegen:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Type</th><th>Begint met</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><strong>Global Unicast</strong></td><td><code>2001:</code> of <code>2000::/3</code></td><td>Publiek, routeerbaar — het "echte" IPv6-adres</td></tr>
+<tr><td><strong>Link-Local</strong></td><td><code>FE80::</code></td><td>Automatisch aangemaakt op elke interface, enkel lokaal bruikbaar</td></tr>
+<tr><td><strong>Loopback</strong></td><td><code>::1</code></td><td>Eigen computer (= <code>127.0.0.1</code> in IPv4)</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Elk apparaat met IPv6 heeft automatisch een Link-Local adres (begint met <code>FE80</code>). Dit adres wordt gebruikt voor communicatie op hetzelfde netwerksegment en hoef je nooit zelf in te stellen.</p>
+</div>
+<h2 id="114-ipv4-vs-ipv6-kort-overzicht">11.4 IPv4 vs IPv6 — kort overzicht</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>IPv4</th><th>IPv6</th></tr></thead><tbody>
+<tr><td>Adreslengte</td><td>32 bit</td><td>128 bit</td></tr>
+<tr><td>Notatie</td><td>Decimaal (192.168.1.1)</td><td>Hexadecimaal (2001:DB8::1)</td></tr>
+<tr><td>Aantal adressen</td><td>~4,3 miljard</td><td>~340 undeciljoen</td></tr>
+<tr><td>Broadcast</td><td>Ja</td><td>Nee (multicast vervangt het)</td></tr>
+</tbody></table></div>
+<h2 id="115-dual-stack-overgangsfase">11.5 Dual-stack — overgangsfase</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Dual-stack betekent dat een apparaat of netwerk tegelijk IPv4 <strong>en</strong> IPv6 ondersteunt. Het heeft dus twee adressen.</p>
+</div>
+<p>We leven vandaag in een dual-stack wereld. De meeste grote websites zijn bereikbaar via zowel IPv4 als IPv6. Je browser kiest automatisch het beste protocol.</p>
+<p>De overgang van IPv4 naar IPv6 gaat langzaam omdat er miljarden apparaten zijn die moeten worden bijgewerkt.</p>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Open een opdrachtprompt en typ <code>ipconfig /all</code> (Windows).</p>
+<p>Zoek naar "IPv6-adres". Je ziet waarschijnlijk een adres dat begint met <code>FE80::</code> (link-local) en misschien een <code>2001::</code> adres (global unicast) als je thuis IPv6 hebt.</p>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Gegeven: <code>FE80::20C:29FF:FE12:3456</code></p>
+<ul>
+<li>Begint met <code>FE80</code> → Link-Local adres</li>
+<li>Dit adres is automatisch aangemaakt door het besturingssysteem</li>
+<li>Enkel bruikbaar op het lokale netwerksegment</li>
+</ul>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h11-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 11.1</span>
+    <span class="oefening__title">IPv6-adrestypen herkennen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Er zijn drie adrestypen die je moet kennen: Global Unicast (2001:), Link-Local (FE80:) en Loopback (::1). Herken ze op basis van het begin van het adres.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk type adres is ::1?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v1" value="a"><span>Global Unicast — publiek routeerbaar adres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v1" value="b"><span>Link-Local — automatisch lokaal adres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v1" value="c"><span>Loopback — verwijst naar de eigen computer</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Loopback — ::1 is het IPv6-equivalent van 127.0.0.1 in IPv4 en verwijst altijd naar de eigen computer"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk type adres is FE80::20C:29FF:FE5A:1234?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v2" value="a"><span>Global Unicast — dit is een publiek adres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v2" value="b"><span>Link-Local — automatisch aangemaakt, enkel lokaal bruikbaar</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v2" value="c"><span>Loopback</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Link-Local — elk adres dat begint met FE80 is een Link-Local adres. Het wordt automatisch aangemaakt en is enkel bruikbaar op het lokale netwerksegment"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk type adres is 2001:DB8::1?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v3" value="a"><span>Global Unicast — publiek, routeerbaar IPv6-adres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v3" value="b"><span>Link-Local — lokaal adres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-1-v3" value="c"><span>Loopback</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Global Unicast — adressen die beginnen met 2001: zijn publieke, routeerbare IPv6-adressen, het equivalent van een publiek IPv4-adres"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="fe80|link-local|link local">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Met welke letters begint een Link-Local IPv6-adres altijd?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de beginletters...">
+      <div class="vraag__feedback" data-correct-label="FE80 — elk Link-Local adres begint met FE80:: en wordt automatisch aangemaakt door het besturingssysteem"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h11-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 11.2</span>
+    <span class="oefening__title">IPv4 vs IPv6 en dual-stack</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je begrip van het verschil tussen IPv4 en IPv6, en waarom de overgang naar IPv6 nodig en complex is.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Waarom zijn we IPv4-adressen aan het opgebruiken?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v1" value="a"><span>IPv4-adressen zijn technisch verouderd en werken niet meer</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v1" value="b"><span>Er zijn slechts 4,3 miljard IPv4-adressen, maar er zijn meer apparaten dan dat</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v1" value="c"><span>IPv4-adressen kosten te veel geld</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="IPv4 biedt slechts ~4,3 miljard adressen (32-bit). Met meer dan 8 miljard mensen en meerdere apparaten per persoon zijn de adressen op — de laatste werden in Europa rond 2019-2020 uitgedeeld"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Hoeveel bits heeft een IPv6-adres?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v2" value="a"><span>128 bit</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v2" value="b"><span>64 bit</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v2" value="c"><span>32 bit</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v2" value="d"><span>256 bit</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="128 bit — IPv6-adressen zijn 128-bit lang (vs 32-bit voor IPv4), waardoor er 340 undeciljoen unieke adressen mogelijk zijn"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat betekent dual-stack?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v3" value="a"><span>Een router met twee WAN-verbindingen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v3" value="b"><span>Een systeem met twee netwerkkaarten</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h11-2-v3" value="c"><span>Een apparaat of netwerk dat tegelijk IPv4 en IPv6 ondersteunt</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Dual-stack betekent dat een apparaat zowel een IPv4- als een IPv6-adres heeft en beide protocollen tegelijk ondersteunt — de huidige overgangssituatie"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>IPv4</strong> heeft slechts 4,3 miljard adressen — dat is niet genoeg voor de huidige wereld.</li>
+<li><strong>IPv6</strong> lost dit op met 128-bit adressen (340 undeciljoen).</li>
+<li>IPv6-adressen zijn hexadecimaal en kunnen ingekort worden.</li>
+<li>Drie adrestypen: <strong>Global Unicast</strong> (publiek), <strong>Link-Local</strong> (FE80, automatisch, lokaal), <strong>Loopback</strong> (::1).</li>
+<li><strong>Dual-stack</strong> = IPv4 en IPv6 tegelijk — de huidige overgangssituatie.</li>
+</ul>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h11">Huistaak H11</h3>
+<p>Onderzoek de IPv6-situatie.</p>
+<ol>
+<li>Ga naar <a href="https://test-ipv6.com" target="_blank" rel="noopener">https://test-ipv6.com</a> en controleer of je thuisverbinding IPv6 ondersteunt.</li>
+<li>Noteer het resultaat.</li>
+<li>Schrijf in 5 zinnen uit: waarom is IPv6 noodzakelijk, en waarom duurt de overgang zo lang?</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H11-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 11 — 5e jaar DAB — v2.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H11">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H10.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H10 &mdash; Basisroutering &amp; switches instellen</span></div></a>
+          <a href="H12.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H12 &mdash; Cyberveiligheid: basisprincipes</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 &mdash; Normalisatie &mdash; Databeheer 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H01</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Waarom normaliseren?</a></li>
+        <li><a href="#s2">2. Eerste normaalvorm (1NF)</a></li>
+        <li><a href="#s3">3. Tweede normaalvorm (2NF)</a></li>
+        <li><a href="#s4">4. Derde normaalvorm (3NF)</a></li>
+        <li><a href="#s5">5. Volledig voorbeeld</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-data">
+      <div class="page-header__vak">&#128202; Databeheer &mdash; H01</div>
+      <h1 class="page-header__title">Normalisatie</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">4 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-DB-09] Databaseschema normaliseren tot 3NF &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Waarom normaliseren?</h2>
+    <p>Een slecht ontworpen database leidt tot drie typische problemen:</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Probleem</th><th>Omschrijving</th><th>Voorbeeld</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Invoeg-anomalie</strong></td><td>Je kan een feit niet opslaan zonder ander feit</td><td>Klant toevoegen zonder bestelling</td></tr>
+        <tr><td><strong>Bijwerk-anomalie</strong></td><td>Dezelfde info staat op meerdere plaatsen &rarr; inconsistentie</td><td>Adres klant op 10 rijen aanpassen</td></tr>
+        <tr><td><strong>Verwijder-anomalie</strong></td><td>Verwijderen van iets wist ook andere info</td><td>Laatste bestelling verwijderen wist klantengegevens</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>Normalisatie</strong> is het proces waarbij je een databaseschema stap voor stap verbetert volgens vaste regels (normaalvormen) om deze anomalie&euml;n te vermijden.</p>
+
+    <h2 id="s2">2. Eerste normaalvorm (1NF)</h2>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; 1NF</div>
+      <p>Een tabel is in 1NF als:</p>
+      <ul>
+        <li>Elke cel bevat slechts &eacute;&eacute;n waarde (<strong>atomaire waarden</strong>)</li>
+        <li>Er zijn geen herhalende groepen of arrays in een cel</li>
+        <li>Elke rij is uniek (er is een primaire sleutel)</li>
+      </ul>
+    </div>
+    <p><strong>Niet in 1NF</strong> (probleem: meerdere telefoonnummers in &eacute;&eacute;n cel):</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>klant_id</th><th>naam</th><th>telefoon</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Jan Peeters</td><td>0472 11 22 33, 0498 44 55 66</td></tr>
+        <tr><td>2</td><td>Marie Janssen</td><td>0456 77 88 99</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>In 1NF</strong> (telefoonnummers in aparte tabel):</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>klant_id</th><th>naam</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Jan Peeters</td></tr>
+        <tr><td>2</td><td>Marie Janssen</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>tel_id</th><th>klant_id</th><th>telefoon</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>1</td><td>0472 11 22 33</td></tr>
+        <tr><td>2</td><td>1</td><td>0498 44 55 66</td></tr>
+        <tr><td>3</td><td>2</td><td>0456 77 88 99</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="s3">3. Tweede normaalvorm (2NF)</h2>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; 2NF</div>
+      <p>Een tabel is in 2NF als:</p>
+      <ul>
+        <li>Ze in 1NF is</li>
+        <li>Elk niet-sleutelattribuut <strong>volledig functioneel afhankelijk</strong> is van de volledige primaire sleutel (geen parti&euml;le afhankelijkheid)</li>
+      </ul>
+      <p>2NF is enkel relevant bij samengestelde primaire sleutels.</p>
+    </div>
+    <p><strong>Niet in 2NF</strong> (primaire sleutel = bestelling_id + product_id, maar <code>product_naam</code> hangt enkel af van <code>product_id</code>):</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>bestelling_id</th><th>product_id</th><th>product_naam</th><th>aantal</th></tr></thead>
+      <tbody>
+        <tr><td>101</td><td>5</td><td>Laptop</td><td>2</td></tr>
+        <tr><td>101</td><td>8</td><td>Muis</td><td>3</td></tr>
+        <tr><td>102</td><td>5</td><td>Laptop</td><td>1</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>In 2NF</strong> (product_naam verhuist naar aparte producten-tabel):</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>bestelling_id</th><th>product_id</th><th>aantal</th></tr></thead>
+      <tbody>
+        <tr><td>101</td><td>5</td><td>2</td></tr>
+        <tr><td>101</td><td>8</td><td>3</td></tr>
+        <tr><td>102</td><td>5</td><td>1</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>product_id</th><th>product_naam</th></tr></thead>
+      <tbody>
+        <tr><td>5</td><td>Laptop</td></tr>
+        <tr><td>8</td><td>Muis</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="s4">4. Derde normaalvorm (3NF)</h2>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; 3NF</div>
+      <p>Een tabel is in 3NF als:</p>
+      <ul>
+        <li>Ze in 2NF is</li>
+        <li>Er zijn geen <strong>transitieve afhankelijkheden</strong>: een niet-sleutelattribuut mag niet afhangen van een ander niet-sleutelattribuut</li>
+      </ul>
+    </div>
+    <p><strong>Niet in 3NF</strong> (<code>stad</code> hangt af van <code>postcode</code>, niet van <code>klant_id</code>):</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>klant_id</th><th>naam</th><th>postcode</th><th>stad</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Jan Peeters</td><td>2000</td><td>Antwerpen</td></tr>
+        <tr><td>2</td><td>Marie Janssen</td><td>9000</td><td>Gent</td></tr>
+        <tr><td>3</td><td>Lien Claes</td><td>2000</td><td>Antwerpen</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>In 3NF</strong> (postcode-stad naar aparte tabel):</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>klant_id</th><th>naam</th><th>postcode</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Jan Peeters</td><td>2000</td></tr>
+        <tr><td>2</td><td>Marie Janssen</td><td>9000</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>postcode</th><th>stad</th></tr></thead>
+      <tbody>
+        <tr><td>2000</td><td>Antwerpen</td></tr>
+        <tr><td>9000</td><td>Gent</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="s5">5. Volledig voorbeeld: stap voor stap</h2>
+    <p>We beginnen met deze niet-genormaliseerde tabel voor een boekhandel:</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>bestelling_id</th><th>klant_naam</th><th>klant_email</th><th>klant_stad</th><th>postcode</th><th>boeken (titels)</th><th>boek_auteurs</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Jan Peeters</td><td>jan@mail.be</td><td>Antwerpen</td><td>2000</td><td>Clean Code, Refactoring</td><td>R. Martin, M. Fowler</td></tr>
+        <tr><td>2</td><td>Marie Janssen</td><td>marie@mail.be</td><td>Gent</td><td>9000</td><td>Clean Code</td><td>R. Martin</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Na normalisatie tot 3NF:</p>
+    <pre><code>-- 3NF schema
+CREATE TABLE steden (
+  postcode CHAR(4) PRIMARY KEY,
+  stad     VARCHAR(100)
+);
+
+CREATE TABLE klanten (
+  klant_id  INT AUTO_INCREMENT PRIMARY KEY,
+  naam      VARCHAR(100),
+  email     VARCHAR(150) UNIQUE,
+  postcode  CHAR(4),
+  FOREIGN KEY (postcode) REFERENCES steden(postcode)
+);
+
+CREATE TABLE boeken (
+  boek_id INT AUTO_INCREMENT PRIMARY KEY,
+  titel   VARCHAR(200),
+  auteur  VARCHAR(100)
+);
+
+CREATE TABLE bestellingen (
+  bestelling_id INT AUTO_INCREMENT PRIMARY KEY,
+  klant_id      INT,
+  besteldatum   DATE,
+  FOREIGN KEY (klant_id) REFERENCES klanten(klant_id)
+);
+
+CREATE TABLE bestelling_boeken (
+  bestelling_id INT,
+  boek_id       INT,
+  aantal        INT DEFAULT 1,
+  PRIMARY KEY (bestelling_id, boek_id),
+  FOREIGN KEY (bestelling_id) REFERENCES bestellingen(bestelling_id),
+  FOREIGN KEY (boek_id)       REFERENCES boeken(boek_id)
+);</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="db6-h01-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 1.1</span>
+        <span class="oefening__title">Normaalvormen herkennen</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van de drie normaalvormen (1NF, 2NF, 3NF) en de anomalieën die optreden bij slecht ontworpen databases.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Een cel in een tabel bevat de waarde "Jan Peeters, Marie Janssen" (twee namen in één veld). Welke normaalvorm is geschonden?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>2NF — partiële afhankelijkheid</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>1NF — geen atomaire waarden</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>3NF — transitieve afhankelijkheid</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Geen normaalvorm — dit is toegestaan</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="1NF — de eerste normaalvorm vereist atomaire waarden: elke cel mag slechts één waarde bevatten."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">In tabel BESTELLING_REGEL (bestelling_id, product_id, product_naam, aantal): de samengestelde primaire sleutel is (bestelling_id, product_id), maar product_naam hangt enkel af van product_id. Welke normaalvorm is dit?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Tabel voldoet aan alle normaalvormen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Schending van 1NF</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Schending van 2NF — partiële afhankelijkheid</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Schending van 3NF — transitieve afhankelijkheid</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Schending van 2NF — product_naam hangt slechts af van een deel van de samengestelde primaire sleutel (enkel product_id). Oplossing: verplaats product_naam naar een aparte producten-tabel."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="transitieve afhankelijkheid|transitief|transitieve">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">In 3NF mag er geen _______ zijn: dat wil zeggen dat een niet-sleutelattribuut niet mag afhangen van een ander niet-sleutelattribuut.</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+          <div class="vraag__feedback" data-correct-label="Transitieve afhankelijkheid — voorbeeld: klant_id → postcode → stad. 'stad' is transitief afhankelijk van klant_id via postcode."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,c">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Welke problemen vermijdt normalisatie?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span>Bijwerk-anomalieën (dezelfde data op meerdere plaatsen bijwerken)</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span>Trage SQL-queries door te veel indexen</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span>Verwijder-anomalieën (verwijderen van een record wist ook andere data)</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span>Problemen met netwerkcommunicatie</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="A en C zijn correct. Normalisatie vermijdt invoeg-, bijwerk- en verwijder-anomalieën door redundantie te elimineren."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="db6-h01-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 1.2</span>
+        <span class="oefening__title">Normaliseren stap voor stap</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Verdiepingsvragen over het normalisatieproces en de bijbehorende SQL-structuren.</p>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welke volgorde is correct bij het normaliseren?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>3NF → 2NF → 1NF</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>2NF → 1NF → 3NF</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>1NF → 3NF → 2NF</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>1NF → 2NF → 3NF</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="1NF → 2NF → 3NF — je werkt altijd stap voor stap. Een tabel in 2NF moet al in 1NF zijn, en een tabel in 3NF moet al in 2NF zijn."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="foreign key|foreign keys|fremdschlüssel|referentiële integriteit">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Na het opdelen van een tabel in meerdere genormaliseerde tabellen, gebruik je _______ om de verbanden tussen de tabellen te bewaren.</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+          <div class="vraag__feedback" data-correct-label="Foreign keys (externe sleutels) — bewaren de relaties tussen tabellen en zorgen voor referentiële integriteit."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">2NF is enkel relevant voor tabellen met een bepaald type primaire sleutel. Welk type?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Samengestelde primaire sleutel (meerdere kolommen samen)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Enkelvoudige primaire sleutel (één kolom)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>AUTO_INCREMENT primaire sleutel</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>UUID als primaire sleutel</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Samengestelde primaire sleutel — 2NF is enkel relevant als de primaire sleutel uit meerdere kolommen bestaat. Partiële afhankelijkheid kan dan optreden als een attribuut slechts van een deel van de sleutel afhangt."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Slechte schemas leiden tot invoeg-, bijwerk- en verwijderanomalieën.</li>
+        <li><strong>1NF:</strong> atomaire waarden, geen herhalende groepen, unieke rijen.</li>
+        <li><strong>2NF:</strong> geen partiële afhankelijkheden van de samengestelde primaire sleutel.</li>
+        <li><strong>3NF:</strong> geen transitieve afhankelijkheden (A → B → C, terwijl A primaire sleutel is).</li>
+        <li>Normaliseren leidt tot meer tabellen maar vermijdt redundantie en anomalieën.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H01</h2>
+    <p>Ontwerp een genormaliseerd schema (tot 3NF) voor een schoolbibliotheek:</p>
+    <ol>
+      <li>Leerlingen kunnen boeken uitlenen (meerdere tegelijk).</li>
+      <li>Boeken hebben een titel, auteur, ISBN en categorie.</li>
+      <li>Een categorie heeft een naam en een beschrijving.</li>
+      <li>Bijhouden wanneer een boek werd uitgeleend en wanneer het teruggegeven moet worden.</li>
+      <li>Lever: ERD-diagram (op papier of via draw.io) + CREATE TABLE SQL-statements.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/databeheer/H01">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <span></span>
+      <a href="H02-geavanceerde-sql.html" class="btn btn-secondary">H02 &mdash; Geavanceerde SQL &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

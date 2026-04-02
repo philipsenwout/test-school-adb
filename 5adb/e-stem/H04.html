@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 &mdash; SSH en netwerkconfiguratie &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="SSH en netwerkconfiguratie &amp;mdash; E-STEM 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H04</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-4-raspberry-pi-ssh-en-netwerkconfiguratie">Hoofdstuk 4 — Raspberry Pi: SSH en netwerkconfiguratie</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#41-ssh-verbinding-op-afstand">4.1 SSH — verbinding op afstand</a></li><li><a href="#ssh-activeren-op-de-pi" style="padding-left:1.25rem">SSH activeren op de Pi</a></li><li><a href="#ssh-verbinding-maken" style="padding-left:1.25rem">SSH-verbinding maken</a></li><li><a href="#42-ip-adres-van-de-pi-vinden">4.2 IP-adres van de Pi vinden</a></li><li><a href="#43-bestanden-kopiëren-via-scp">4.3 Bestanden kopiëren via SCP</a></li><li><a href="#44-netwerkconfiguratie-bekijken">4.4 Netwerkconfiguratie bekijken</a></li><li><a href="#45-python-scripts-uitvoeren-via-ssh">4.5 Python-scripts uitvoeren via SSH</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h04" style="padding-left:1.25rem">Huistaak H04</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-estem" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127827; E-STEM &mdash; 5ADB</div>
+          <h1 class="page-header__title">H04 &mdash; SSH en netwerkconfiguratie</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <h1 id="e-stem">E-STEM</h1>
+<h2 id="hoofdstuk-4-raspberry-pi-ssh-en-netwerkconfiguratie">Hoofdstuk 4 — Raspberry Pi: SSH en netwerkconfiguratie</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v2.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht E-STEM</td></tr>
+<tr><td><strong>Status</strong></td><td>Herzien</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-01]</span> Digitale inhouden doelgericht creëren <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-03]</span> Systemen onderscheiden aan de hand van STEM-concepten <span class="badge badge-basis">basis</span></div>
+<p>Na dit hoofdstuk kan de leerling:</p>
+<ul>
+<li>een SSH-verbinding opzetten vanuit een laptop naar de Raspberry Pi;</li>
+<li>het IP-adres van de Pi opvragen;</li>
+<li>bestanden kopiëren via SCP;</li>
+<li>de Pi-netwerkconfiguratie bekijken;</li>
+<li>eenvoudige Python-scripts schrijven en uitvoeren via SSH.</li>
+</ul>
+<p><strong>Geschatte lesuren:</strong> 4 uur</p>
+<h2 id="41-ssh-verbinding-op-afstand">4.1 SSH — verbinding op afstand</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>SSH is een versleuteld protocol dat een veilige verbinding biedt tussen twee computers via het netwerk. Je kan via SSH commando's uitvoeren op de Raspberry Pi zonder monitor of keyboard op de Pi.</p>
+</div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>SSH werkt via TCP/IP op <strong>poort 22</strong>. Dit is dezelfde poort- en protocollogica die je in het vak Netwerken leert.</p>
+</div>
+<p>!<a href="../../images/H04-ssh-verbinding.png" target="_blank" rel="noopener">SSH verbinding</a></p>
+<p><em>Figuur 4.1 — SSH verbindt laptop en Raspberry Pi via het netwerk</em></p>
+<h3 id="ssh-activeren-op-de-pi">SSH activeren op de Pi</h3>
+<p>SSH is ingebouwd in Raspberry Pi OS. Zorg dat het geactiveerd is:</p>
+<ol>
+<li>Open een terminal op de Pi</li>
+<li>Voer uit: <code>sudo raspi-config</code></li>
+<li>Kies: Interface Options → SSH → Enable</li>
+</ol>
+<h3 id="ssh-verbinding-maken">SSH-verbinding maken</h3>
+<p><strong>Vanuit Windows (PowerShell):</strong></p>
+<pre data-lang="bash"><code>
+ssh pi@192.168.1.105
+# of via hostname:
+ssh pi@pi-jan.local
+</code></pre>
+<p><strong>Stappen:</strong></p>
+<ol>
+<li>Open PowerShell of een terminal op je laptop</li>
+<li>Typ <code>ssh pi@[ip-adres-van-pi]</code></li>
+<li>Eerste keer: bevestig met <code>yes</code></li>
+<li>Voer het wachtwoord in (niet zichtbaar bij typen)</li>
+</ol>
+<p>Je bent nu ingelogd op de Raspberry Pi!</p>
+<h2 id="42-ip-adres-van-de-pi-vinden">4.2 IP-adres van de Pi vinden</h2>
+<pre data-lang="bash"><code>
+# Op de Pi zelf:
+hostname -I
+
+# Meer details:
+ip addr show
+</code></pre>
+<p><strong>Of via Windows:</strong></p>
+<pre data-lang="bash"><code>
+# Ping de Pi om te zien of ze bereikbaar is
+ping pi-jan.local
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>In de router-instellingen (typ <code>192.168.1.1</code> in je browser) zie je een lijst van alle verbonden apparaten met hun IP-adressen. Handig om het adres van de Pi te vinden als je het niet weet.</p>
+</div>
+<h2 id="43-bestanden-kopiëren-via-scp">4.3 Bestanden kopiëren via SCP</h2>
+<p>SCP (Secure Copy Protocol) kopieert bestanden via SSH.</p>
+<pre data-lang="bash"><code>
+# Bestand van je laptop naar de Pi sturen:
+scp mijnscript.py pi@192.168.1.105:/home/pi/
+
+# Bestand van de Pi naar je laptop halen:
+scp pi@192.168.1.105:/home/pi/resultaten.csv ./
+
+# Een volledige map kopiëren:
+scp -r projectmap/ pi@192.168.1.105:/home/pi/
+</code></pre>
+<h2 id="44-netwerkconfiguratie-bekijken">4.4 Netwerkconfiguratie bekijken</h2>
+<pre data-lang="bash"><code>
+# IP-adres en netwerkinformatie
+ip addr show
+
+# Standaardgateway (= je router)
+ip route show
+
+# DNS-configuratie
+cat /etc/resolv.conf
+
+# Netwerkverbindingen testen
+ping 8.8.8.8          # ping naar Google DNS
+ping google.com       # test DNS + connectiviteit
+
+# Traceroute (hoe pakketten reizen)
+traceroute google.com
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p><code>ip addr show</code> geeft het IP-adres en subnetmasker. <code>ip route show</code> toont de standaardgateway. Dit zijn dezelfde concepten die je in het vak Netwerken leert bij IPv4 en subnetting.</p>
+</div>
+<h2 id="45-python-scripts-uitvoeren-via-ssh">4.5 Python-scripts uitvoeren via SSH</h2>
+<p>Via SSH kan je Python-scripts schrijven en uitvoeren zonder monitor op de Pi.</p>
+<p><strong>Workflow:</strong></p>
+<pre data-lang="bash"><code>
+# 1. Verbinden via SSH
+ssh pi@192.168.1.105
+
+# 2. Script aanmaken
+nano hallo.py
+
+# 3. Script uitvoeren
+python3 hallo.py
+</code></pre>
+<p><strong>Voorbeeld — systeminformatie script:</strong></p>
+<pre data-lang="python"><code>
+import subprocess
+
+# Voer een terminalcommando uit vanuit Python
+resultaat = subprocess.run(['hostname', '-I'], capture_output=True, text=True)
+ip = resultaat.stdout.strip()
+
+print(f"IP-adres van de Pi: {ip}")
+print("Dit script draait op de Raspberry Pi!")
+</code></pre>
+<p><strong>Script naar Pi sturen en uitvoeren:</strong></p>
+<pre data-lang="bash"><code>
+# Op je laptop: bestand schrijven
+# Op je laptop: scp gebruiken om het te sturen
+scp info.py pi@192.168.1.105:/home/pi/
+
+# SSH inloggen en uitvoeren
+ssh pi@192.168.1.105
+python3 info.py
+</code></pre>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="bash"><code>
+# SSH inloggen
+ssh pi@192.168.1.105
+
+# Projectstructuur aanmaken
+mkdir -p estem/scripts estem/data
+touch estem/scripts/project.py
+nano estem/scripts/project.py
+python3 estem/scripts/project.py
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+import subprocess
+from datetime import datetime
+
+def run_cmd(cmd):
+resultaat = subprocess.run(cmd, capture_output=True, text=True, shell=True)
+return resultaat.stdout.strip()
+
+print("=== Raspberry Pi Systeminformatie ===")
+print(f"Datum/tijd: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+print(f"Hostname:   {run_cmd('hostname')}")
+print(f"IP-adres:   {run_cmd('hostname -I')}")
+print(f"OS:         {run_cmd('uname -r')}")
+print("=====================================")
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="estem5-h04-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.1</span>
+    <span class="oefening__title">SSH begrijpen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van SSH en hoe je verbinding maakt met de Raspberry Pi.</p>
+
+    <div class="vraag" data-type="text" data-correct="22">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Op welke TCP-poort werkt SSH standaard?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het poortnummer...">
+      <div class="vraag__feedback" data-correct-label="Poort 22 — SSH gebruikt altijd TCP-poort 22 tenzij dit uitdrukkelijk gewijzigd werd"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is het juiste commando om via SSH in te loggen op een Pi met IP <code>192.168.1.105</code> als gebruiker <code>pi</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v2" value="a"><span><code>ssh pi@192.168.1.105</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v2" value="b"><span><code>connect pi 192.168.1.105</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v2" value="c"><span><code>ssh 192.168.1.105@pi</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v2" value="d"><span><code>login pi 192.168.1.105</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="ssh pi@192.168.1.105 — de structuur is ssh gebruiker@ip-adres"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat is het voornaamste voordeel van SSH tegenover telnet?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v3" value="a"><span>SSH is sneller dan telnet</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v3" value="b"><span>SSH werkt op een hogere poort</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v3" value="c"><span>SSH versleutelt de verbinding — wachtwoorden en data zijn niet leesbaar voor afluisteraars</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-1-v3" value="d"><span>SSH vereist geen wachtwoord</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SSH versleutelt de verbinding — bij telnet zijn wachtwoorden en commando's zichtbaar als platte tekst op het netwerk"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="hostname -i|hostname -I|ip addr show|ip addr">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welk commando gebruik je op de Pi zelf om het IP-adres op te vragen? (geef één van de twee besproken commando's)</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="hostname -I of ip addr show — beide commando's tonen het IP-adres van de Pi"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="estem5-h04-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.2</span>
+    <span class="oefening__title">SCP en netwerkconfiguratie</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van SCP en netwerktesten op de Raspberry Pi.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk commando stuur je het bestand <code>info.py</code> van je laptop naar de map <code>/home/pi/</code> op de Pi (IP: 192.168.1.105)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v1" value="a"><span><code>ssh info.py pi@192.168.1.105:/home/pi/</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v1" value="b"><span><code>scp info.py pi@192.168.1.105:/home/pi/</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v1" value="c"><span><code>copy info.py pi@192.168.1.105:/home/pi/</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v1" value="d"><span><code>send info.py pi@192.168.1.105</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="scp info.py pi@192.168.1.105:/home/pi/ — SCP (Secure Copy Protocol) kopieert bestanden via SSH"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat test je als je <code>ping google.com</code> uitvoert in vergelijking met <code>ping 8.8.8.8</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v2" value="a"><span>Ping naar google.com is sneller</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v2" value="b"><span>Ping 8.8.8.8 test ook DNS</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v2" value="c"><span>Er is geen verschil</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-2-v2" value="d"><span>Ping google.com test ook DNS (domeinnaamresolutie), ping 8.8.8.8 test alleen IP-connectiviteit</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Ping google.com test ook DNS — de naam 'google.com' moet eerst omgezet worden naar een IP-adres via DNS. Als dit werkt, werken zowel internet als DNS."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="ip route show|ip route">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk commando toont de standaardgateway (= je router) op de Raspberry Pi?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="ip route show — dit toont de routeringstabel, inclusief de default route (standaardgateway)"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="estem5-h04-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.3</span>
+    <span class="oefening__title">SSH activeren en gebruiken</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis over het activeren van SSH en werken met Python via SSH.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Hoe activeer je SSH op de Raspberry Pi via de terminal?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-3-v1" value="a"><span>Via <code>sudo apt install ssh</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-3-v1" value="b"><span>Via <code>sudo raspi-config</code> → Interface Options → SSH → Enable</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-3-v1" value="c"><span>Via <code>ssh --enable</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h04-3-v1" value="d"><span>SSH is altijd automatisch actief</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Via sudo raspi-config → Interface Options → SSH → Enable — raspi-config is het configuratieprogramma voor de Raspberry Pi"></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,b,d">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat kun je doen via een SSH-verbinding met de Raspberry Pi? (Selecteer alle juiste antwoorden)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h04-3-v2" value="a"><span>Terminal-commando's uitvoeren op de Pi</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h04-3-v2" value="b"><span>Python-scripts uitvoeren op de Pi</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h04-3-v2" value="c"><span>Video streamen van de Pi-camera naar je laptop</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h04-3-v2" value="d"><span>Bestanden aanmaken en bewerken op de Pi via nano</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Terminal-commando's, Python-scripts en bestanden bewerken — SSH geeft je toegang tot de volledige terminal van de Pi"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h04">Huistaak H04</h3>
+<p>Onderzoek het concept <strong>SSH</strong> vanuit het perspectief van beveiliging.</p>
+<ol>
+<li>Wat is het verschil tussen SSH en een gewone telnet-verbinding?</li>
+<li>Op welke TCP-poort werkt SSH?</li>
+<li>Waarom is het gevaarlijk om SSH beschikbaar te laten op het internet met een zwak wachtwoord?</li>
+<li>Wat zijn SSH-sleutels (public/private key) en hoe zijn ze veiliger dan een wachtwoord?</li>
+</ol>
+<p>Noteer je antwoorden in 4–6 zinnen per vraag.</p>
+<p><strong>Verbetersleutel:</strong> zie <code>output/e-stem/huistaken/H04-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>SSH</strong> maakt een versleutelde verbinding via TCP-poort 22: <code>ssh gebruiker@ip-adres</code>.</li>
+<li><strong>SCP</strong> kopieert bestanden via SSH: <code>scp bron pi@ip:/doel</code>.</li>
+<li>IP-adres opvragen op de Pi: <code>hostname -I</code> of <code>ip addr show</code>.</li>
+<li>Via SSH kan je Python-scripts uitvoeren op de Pi zonder monitor.</li>
+<li><code>ping</code> test de verbinding; <code>ip route show</code> toont de standaardgateway.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-01]</span> Digitale inhouden doelgericht creëren <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-03]</span> Systemen onderscheiden aan de hand van STEM-concepten <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/e-stem/H04">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H03.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H03 &mdash; Python basics op de Raspberry Pi</span></div></a>
+          <a href="H05.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H05 &mdash; Python: bestanden en data</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 &mdash; Geavanceerde projecten &mdash; E-STEM 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link active">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H03</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Flask + Jinja2 templates</a></li>
+        <li><a href="#s2">2. Formulieren verwerken</a></li>
+        <li><a href="#s3">3. SQLite database</a></li>
+        <li><a href="#s4">4. REST API bouwen</a></li>
+        <li><a href="#s5">5. Projectstructuur</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-estem">
+      <div class="page-header__vak">&#9881; E-STEM &mdash; H03</div>
+      <h1 class="page-header__title">Geavanceerde projecten</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">5 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-ES-07] Geavanceerd Flask-project bouwen met database &mdash; verdieping</span>
+      <span class="ld-badge">[LD-ES-08] REST API ontwerpen en implementeren &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Flask met Jinja2 templates</h2>
+    <p>In H02 maakten we een statische Flask-pagina. Nu gebruiken we <strong>Jinja2 templates</strong> om dynamische HTML te genereren vanuit Python-data:</p>
+    <pre><code># app.py
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+metingen = []   # tijdelijke lijst — later vervangen door database
+
+@app.route("/")
+def index():
+    return render_template("index.html", metingen=metingen)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=False)</code></pre>
+
+    <p>Template <code>templates/index.html</code> met Jinja2-syntax:</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+  &lt;title&gt;Pi Monitor&lt;/title&gt;
+  &lt;link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Metingen&lt;/h1&gt;
+
+  &lt;!-- Jinja2: lus over een lijst --&gt;
+  {% if metingen %}
+    &lt;table&gt;
+      &lt;tr&gt;&lt;th&gt;Tijdstip&lt;/th&gt;&lt;th&gt;Temperatuur&lt;/th&gt;&lt;/tr&gt;
+      {% for m in metingen %}
+        &lt;tr&gt;
+          &lt;td&gt;{{ m.tijdstip }}&lt;/td&gt;
+          &lt;td&gt;{{ m.temperatuur }} °C&lt;/td&gt;
+        &lt;/tr&gt;
+      {% endfor %}
+    &lt;/table&gt;
+  {% else %}
+    &lt;p&gt;Nog geen metingen beschikbaar.&lt;/p&gt;
+  {% endif %}
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <div class="callout callout--tip">
+      <div class="callout__title">Jinja2 cheatsheet</div>
+      <ul>
+        <li><code>{{ variabele }}</code> — waarde tonen</li>
+        <li><code>{% if … %} … {% endif %}</code> — voorwaarde</li>
+        <li><code>{% for x in lijst %} … {% endfor %}</code> — lus</li>
+        <li><code>{{ url_for('route_naam') }}</code> — URL genereren</li>
+      </ul>
+    </div>
+
+    <h2 id="s2">2. Formulieren verwerken (POST)</h2>
+    <p>Met een HTML-formulier kan een gebruiker data naar de server sturen via een <strong>POST-request</strong>:</p>
+    <pre><code>&lt;!-- templates/index.html — formulier toevoegen --&gt;
+&lt;form method="POST" action="/meting-toevoegen"&gt;
+  &lt;label&gt;Temperatuur: &lt;input type="number" step="0.1" name="temp" required&gt;&lt;/label&gt;
+  &lt;button type="submit"&gt;Opslaan&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    <pre><code># app.py — route voor POST-verzoek
+import datetime
+
+@app.route("/meting-toevoegen", methods=["POST"])
+def meting_toevoegen():
+    temp = request.form.get("temp")
+    if temp:
+        metingen.append({
+            "tijdstip":    datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "temperatuur": float(temp)
+        })
+    return redirect(url_for("index"))   # terug naar de hoofdpagina</code></pre>
+
+    <div class="callout callout--info">
+      <div class="callout__title">GET vs POST</div>
+      <ul>
+        <li><strong>GET:</strong> data in de URL (<code>?param=waarde</code>) — voor opvragen van informatie</li>
+        <li><strong>POST:</strong> data in de body van het verzoek — voor het <em>wijzigen</em> van data (formulieren, aanmaken, verwijderen)</li>
+      </ul>
+    </div>
+
+    <h2 id="s3">3. SQLite database koppelen</h2>
+    <p><strong>SQLite</strong> is een lichtgewicht database die als een enkel bestand opgeslagen wordt — perfect voor de Raspberry Pi.</p>
+    <pre><code># database.py — database initialiseren
+import sqlite3
+
+DB_PATH = "metingen.db"
+
+def init_db():
+    """Maak de tabel aan als die nog niet bestaat."""
+    conn = sqlite3.connect(DB_PATH)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS metingen (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            tijdstip    TEXT    NOT NULL,
+            temperatuur REAL    NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+def voeg_meting_toe(tijdstip, temperatuur):
+    conn = sqlite3.connect(DB_PATH)
+    conn.execute(
+        "INSERT INTO metingen (tijdstip, temperatuur) VALUES (?, ?)",
+        (tijdstip, temperatuur)
+    )
+    conn.commit()
+    conn.close()
+
+def haal_metingen_op(limit=50):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.execute(
+        "SELECT tijdstip, temperatuur FROM metingen ORDER BY id DESC LIMIT ?",
+        (limit,)
+    )
+    rijen = cursor.fetchall()
+    conn.close()
+    return [{"tijdstip": r[0], "temperatuur": r[1]} for r in rijen]</code></pre>
+
+    <pre><code># app.py — database gebruiken
+from database import init_db, voeg_meting_toe, haal_metingen_op
+import datetime
+
+app = Flask(__name__)
+init_db()   # eenmalig aanmaken bij opstart
+
+@app.route("/")
+def index():
+    metingen = haal_metingen_op()
+    return render_template("index.html", metingen=metingen)
+
+@app.route("/meting-toevoegen", methods=["POST"])
+def meting_toevoegen():
+    temp = request.form.get("temp")
+    if temp:
+        voeg_meting_toe(
+            tijdstip=datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            temperatuur=float(temp)
+        )
+    return redirect(url_for("index"))</code></pre>
+
+    <h2 id="s4">4. REST API bouwen</h2>
+    <p>Een <strong>REST API</strong> laat toe dat andere applicaties (bv. een JavaScript-frontend of een ander apparaat) data opvragen en versturen via JSON.</p>
+    <pre><code># app.py — API-routes toevoegen
+from flask import jsonify
+
+# GET: alle metingen opvragen als JSON
+@app.route("/api/metingen")
+def api_metingen():
+    metingen = haal_metingen_op()
+    return jsonify(metingen)
+
+# POST: meting toevoegen via API (JSON body)
+@app.route("/api/metingen", methods=["POST"])
+def api_meting_toevoegen():
+    data = request.get_json()
+    if not data or "temperatuur" not in data:
+        return jsonify({"fout": "temperatuur veld ontbreekt"}), 400
+
+    voeg_meting_toe(
+        tijdstip=datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        temperatuur=float(data["temperatuur"])
+    )
+    return jsonify({"status": "ok"}), 201
+
+# DELETE: alle metingen wissen
+@app.route("/api/metingen", methods=["DELETE"])
+def api_metingen_wissen():
+    conn = sqlite3.connect("metingen.db")
+    conn.execute("DELETE FROM metingen")
+    conn.commit()
+    conn.close()
+    return jsonify({"status": "gewist"})</code></pre>
+
+    <p>De API testen met <code>curl</code> vanuit de terminal:</p>
+    <pre><code># Metingen opvragen
+curl http://localhost:5000/api/metingen
+
+# Meting toevoegen
+curl -X POST http://localhost:5000/api/metingen \
+     -H "Content-Type: application/json" \
+     -d '{"temperatuur": 23.5}'
+
+# Metingen wissen
+curl -X DELETE http://localhost:5000/api/metingen</code></pre>
+
+    <div class="callout callout--tip">
+      <div class="callout__title">HTTP-methoden in REST</div>
+      <ul>
+        <li><code>GET</code> — lezen (geen wijziging)</li>
+        <li><code>POST</code> — aanmaken</li>
+        <li><code>PUT/PATCH</code> — bijwerken</li>
+        <li><code>DELETE</code> — verwijderen</li>
+      </ul>
+    </div>
+
+    <h2 id="s5">5. Projectstructuur</h2>
+    <p>Een gestructureerd Flask-project ziet er zo uit:</p>
+    <pre><code>pi-monitor/
+├── app.py              ← Flask-applicatie
+├── database.py         ← database-functies
+├── requirements.txt    ← pip-pakketten (flask)
+├── metingen.db         ← SQLite-bestand (automatisch aangemaakt)
+├── templates/
+│   └── index.html      ← Jinja2-template
+└── static/
+    └── style.css       ← CSS-stijlen</code></pre>
+
+    <pre><code># requirements.txt
+flask</code></pre>
+    <pre><code># Installeren
+pip install -r requirements.txt
+
+# Starten
+python app.py</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="estem6-h03-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 3.1</span>
+        <span class="oefening__title">Flask + SQLite + Jinja2</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van dynamische Flask-pagina's met Jinja2 templates, SQLite-integratie en formulierverwerking.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">In Jinja2, hoe toon je de waarde van de variabele <code>temperatuur</code> in een HTML-template?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>{% temperatuur %}</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>{{ temperatuur }}</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>&lt;var&gt;temperatuur&lt;/var&gt;</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>${ temperatuur }</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="{{ }} — dubbele accolades tonen een variabele-waarde. {% %} is voor logica (if/for)."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="sqlite3|sqlite">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welke Python-module (ingebouwd, geen installatie nodig) gebruik je om met SQLite te werken?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de modulenaam...">
+          <div class="vraag__feedback" data-correct-label="sqlite3 — ingebouwd in Python's standaardbibliotheek. Importeer met 'import sqlite3' en verbind met sqlite3.connect('bestand.db')."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Bij een POST-formulier in Flask, hoe lees je de waarde van een invoerveld met de naam <code>temp</code>?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>flask.input("temp")</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>request.body["temp"]</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>request.form.get("temp")</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>request.params["temp"]</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="request.form.get('temp') — leest het formulierveld met de naam 'temp'. .get() geeft None terug als het veld ontbreekt, in tegenstelling tot request.form['temp'] dat een KeyError gooit."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Na het verwerken van een POST-formulier in Flask, gebruik je _______ om de gebruiker terug naar de hoofdpagina te sturen (PRG-patroon).</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>return redirect(url_for("index"))</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>return render_template("index.html")</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>return goto("/index")</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>return forward("index")</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="redirect(url_for('index')) — het PRG-patroon (Post-Redirect-Get) voorkomt dat de gebruiker bij het herladen van de pagina het formulier opnieuw verstuurt."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="estem6-h03-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 3.2</span>
+        <span class="oefening__title">REST API met Flask</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van het bouwen van een REST API met Flask, inclusief JSON-responses en HTTP-statuscodes.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Hoe definieer je een Flask-route die zowel GET als POST accepteert?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>@app.route("/api/metingen", accept=["GET", "POST"])</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>@app.route("/api/metingen", methods=["GET", "POST"])</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>@app.route("/api/metingen").methods(["GET", "POST"])</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>@app.get_post("/api/metingen")</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="@app.route('/pad', methods=['GET', 'POST']) — standaard accepteert een Flask-route enkel GET. Je specificeert meerdere methoden via de methods-parameter."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="request.get_json()|get_json">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Hoe lees je de JSON-body van een POST-request in Flask? (methode op het request-object)</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de methode-aanroep...">
+          <div class="vraag__feedback" data-correct-label="request.get_json() — geeft een Python-dictionary terug van de JSON-body. Geeft None als de Content-Type niet 'application/json' is."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,b,c">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Welke HTTP-statuscodes zijn correct voor een Flask REST API?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span>200 OK bij een succesvolle GET</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span>201 Created bij een succesvolle POST</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span>400 Bad Request als een verplicht veld ontbreekt</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span>100 Continue bij elke succesvolle actie</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="A, B en C zijn correct. 100 Continue is een protocol-tussenantwoord en wordt niet gebruikt als eindstatus in REST APIs."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Jinja2: gebruik <code>{{ }}</code> voor waarden, <code>{% %}</code> voor logica (if/for) in HTML-templates.</li>
+        <li>POST-formulieren: <code>request.form.get("naam")</code> leest het formulierveld; <code>redirect(url_for(...))</code> stuurt terug.</li>
+        <li>SQLite: lichtgewicht bestandsdatabase, ideaal voor de Pi. Gebruik <code>sqlite3.connect()</code> en sluit altijd de verbinding.</li>
+        <li>REST API: <code>jsonify()</code> stuurt JSON. <code>request.get_json()</code> leest JSON uit een POST-body. HTTP-statuscodes: 200 OK, 201 Created, 400 Bad Request.</li>
+        <li>Structureer je project: <code>app.py</code>, <code>database.py</code>, <code>templates/</code>, <code>static/</code>.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H03</h2>
+    <p>Bouw een <strong>weerstation-app</strong> voor de Raspberry Pi:</p>
+    <ol>
+      <li>Sla temperatuurmetingen op in een SQLite-database (gesimuleerd met <code>random</code>).</li>
+      <li>Toon een overzichtspagina met de laatste 20 metingen in een tabel.</li>
+      <li>Voeg een REST API toe: <code>/api/metingen</code> (GET en POST) en <code>/api/metingen/gemiddelde</code> (GET).</li>
+      <li>Voeg een JavaScript-grafiek toe die de metingen visualiseert (gebruik <code>fetch</code> om de API te raadplegen).</li>
+      <li>Zorg dat de app automatisch start via een systemd-service (zie H02).</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/e-stem/H03">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H02-linux-python.html" class="btn btn-secondary">&larr; H02 &mdash; Linux en Python verdieping</a>
+      <a href="H04-koppeling-databeheer.html" class="btn btn-secondary">H04 &mdash; Koppeling met Databeheer &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

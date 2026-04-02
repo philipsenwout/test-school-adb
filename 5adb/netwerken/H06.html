@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H06 &mdash; IPv4-adressering &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="IPv4-adressering &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H06</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-6-netwerklaag-ipv4-adressering">Hoofdstuk 6 — Netwerklaag: IPv4-adressering</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#6-theorie">6. Theorie</a></li><li><a href="#61-binaire-rekenkunde-de-basis" style="padding-left:1.25rem">6.1 Binaire rekenkunde — de basis</a></li><li><a href="#62-ipv4-adresstructuur" style="padding-left:1.25rem">6.2 IPv4-adresstructuur</a></li><li><a href="#63-cidr-notatie" style="padding-left:1.25rem">6.3 CIDR-notatie</a></li><li><a href="#64-publieke-vs-private-adressen" style="padding-left:1.25rem">6.4 Publieke vs private adressen</a></li><li><a href="#65-adresklassen-historisch-classful" style="padding-left:1.25rem">6.5 Adresklassen (historisch — classful)</a></li><li><a href="#66-berekeningen" style="padding-left:1.25rem">6.6 Berekeningen</a></li><li><a href="#6-voorbeelden">6. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h06" style="padding-left:1.25rem">Huistaak H06</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H06 &mdash; IPv4-adressering</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">10 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-6-netwerklaag-ipv4-adressering">Hoofdstuk 6 — Netwerklaag: IPv4-adressering</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>10 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>binaire getallen omzetten naar decimaal en omgekeerd</li>
+<li>de structuur van een IPv4-adres uitleggen (netwerk- vs hostdeel)</li>
+<li>het verschil uitleggen tussen publieke en private adressen (RFC 1918)</li>
+<li>subnetmaskers in decimaal en CIDR-notatie interpreteren</li>
+<li>het netwerkadres, broadcastadres en het hostbereik berekenen</li>
+<li>speciale adressen (loopback, APIPA, all-ones broadcast) herkennen</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span></div>
+<h2 id="6-theorie">6. Theorie</h2>
+<h3 id="61-binaire-rekenkunde-de-basis">6.1 Binaire rekenkunde — de basis</h3>
+<p>IPv4-adressen worden intern voorgesteld als 32-bit binaire getallen. Om subnetting te begrijpen, moet je binair kunnen rekenen.</p>
+<h4 id="611-bits-en-octetten">6.1.1 Bits en octetten</h4>
+<p>Een IPv4-adres bestaat uit <strong>32 bits</strong>, opgedeeld in <strong>4 octetten</strong> van elk 8 bits, gescheiden door punten.</p>
+<pre data-lang=""><code>
+Decimaal:  192        .  168        .  1          .  10
+Binair:    11000000   .  10101000   .  00000001   .  00001010
+</code></pre>
+<h4 id="612-binair-naar-decimaal">6.1.2 Binair naar decimaal</h4>
+<p>Elke bitpositie in een octet heeft een vaste waarde (macht van 2):</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Positie</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th><th>0</th></tr></thead><tbody>
+<tr><td>Waarde</td><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+</tbody></table></div>
+<p><strong>Methode:</strong> tel de waarden op van alle posities waar een <code>1</code> staat.</p>
+<pre data-lang=""><code>
+Binair:    1  1  0  0  0  0  0  0
+Waarden: 128 64  0   0   0  0  0  0
+Decimaal: 128 + 64 = 192
+</code></pre>
+<pre data-lang=""><code>
+Binair:    1  0  1  0  1  0  0  0
+Waarden: 128  0  32  0  8  0  0  0
+Decimaal: 128 + 32 + 8 = 168
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>128 — 64 — 32 — 16 — 8 — 4 — 2 — 1</p>
+<p>Onthoud: <strong>1-2-4-8-16-32-64-128</strong> (van rechts naar links)</p>
+</div>
+<h4 id="613-decimaal-naar-binair">6.1.3 Decimaal naar binair</h4>
+<p><strong>Methode:</strong> deel herhaaldelijk door 2 en noteer de rest van rechts naar links.</p>
+<p>Voorbeeld: 192 naar binair:</p>
+<ul>
+<li>192 ÷ 2 = 96 rest <strong>0</strong></li>
+<li>96 ÷ 2 = 48 rest <strong>0</strong></li>
+<li>48 ÷ 2 = 24 rest <strong>0</strong></li>
+<li>24 ÷ 2 = 12 rest <strong>0</strong></li>
+<li>12 ÷ 2 = 6 rest <strong>0</strong></li>
+<li>6 ÷ 2 = 3 rest <strong>0</strong></li>
+<li>3 ÷ 2 = 1 rest <strong>1</strong></li>
+<li>1 ÷ 2 = 0 rest <strong>1</strong></li>
+</ul>
+<p>Lees van onder naar boven: <strong>11000000</strong> ✓</p>
+<p><strong>Alternatieve methode (aftrekken):</strong></p>
+<p>Schrijf de bitwaardes op: 128, 64, 32, 16, 8, 4, 2, 1.</p>
+<ul>
+<li>192 ≥ 128? Ja → bit = 1; rest = 64</li>
+<li>64 ≥ 64? Ja → bit = 1; rest = 0</li>
+<li>0 ≥ 32? Nee → bit = 0</li>
+<li>(... alle volgende bits = 0)</li>
+<li>Resultaat: <strong>11000000</strong> ✓</li>
+</ul>
+<h3 id="62-ipv4-adresstructuur">6.2 IPv4-adresstructuur</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een IPv4-adres is een 32-bit logisch adres dat een apparaat op een IP-netwerk uniek identificeert. Het bestaat uit twee delen: een <strong>netwerkdeel</strong> (gemeenschappelijk voor alle apparaten op hetzelfde netwerk) en een <strong>hostdeel</strong> (uniek per apparaat op dat netwerk).</p>
+</div>
+<p>Het <strong>subnetmasker</strong> bepaalt waar de grens ligt tussen het netwerk- en het hostdeel.</p>
+<pre data-lang=""><code>
+IP-adres:     192 . 168 . 1 . 10
+              11000000.10101000.00000001.00001010
+
+Subnetmasker: 255 . 255 . 255 . 0
+              11111111.11111111.11111111.00000000
+
+Netwerk:      192 . 168 . 1 . 0   (alle hostbits = 0)
+Broadcast:    192 . 168 . 1 . 255  (alle hostbits = 1)
+Hosts:        192.168.1.1 t/m 192.168.1.254
+</code></pre>
+<p><strong>De logische AND-bewerking:</strong></p>
+<p>Het netwerkadres = IP AND subnetmasker (bit voor bit)</p>
+<pre data-lang=""><code>
+IP:       11000000.10101000.00000001.00001010
+Masker:   11111111.11111111.11111111.00000000
+AND:      11000000.10101000.00000001.00000000  = 192.168.1.0
+</code></pre>
+<h3 id="63-cidr-notatie">6.3 CIDR-notatie</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>CIDR (Classless Inter-Domain Routing) is een compacte notatie voor subnetmaskers. Na het IP-adres schrijf je een schuine streep gevolgd door het aantal <code>1</code>-bits in het masker.</p>
+</div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Subnetmasker</th><th>CIDR</th><th>Aantal <code>1</code>-bits</th></tr></thead><tbody>
+<tr><td>255.0.0.0</td><td>/8</td><td>8</td></tr>
+<tr><td>255.255.0.0</td><td>/16</td><td>16</td></tr>
+<tr><td>255.255.255.0</td><td>/24</td><td>24</td></tr>
+<tr><td>255.255.255.128</td><td>/25</td><td>25</td></tr>
+<tr><td>255.255.255.192</td><td>/26</td><td>26</td></tr>
+<tr><td>255.255.255.224</td><td>/27</td><td>27</td></tr>
+<tr><td>255.255.255.240</td><td>/28</td><td>28</td></tr>
+<tr><td>255.255.255.248</td><td>/29</td><td>29</td></tr>
+<tr><td>255.255.255.252</td><td>/30</td><td>30</td></tr>
+</tbody></table></div>
+<p>Voorbeeld: <code>192.168.1.0/24</code> = IP-adres <code>192.168.1.0</code> met subnetmasker <code>255.255.255.0</code>.</p>
+<h3 id="64-publieke-vs-private-adressen">6.4 Publieke vs private adressen</h3>
+<h4 id="641-private-adresruimten-rfc-1918">6.4.1 Private adresruimten (RFC 1918)</h4>
+<p>Niet alle IPv4-adressen zijn routeerbaar op het internet. Drie bereiken zijn gereserveerd voor intern (privaat) gebruik:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Bereik</th><th>CIDR</th><th>Notatie</th></tr></thead><tbody>
+<tr><td>10.0.0.0 t/m 10.255.255.255</td><td>/8</td><td>10.0.0.0/8</td></tr>
+<tr><td>172.16.0.0 t/m 172.31.255.255</td><td>/12</td><td>172.16.0.0/12</td></tr>
+<tr><td>192.168.0.0 t/m 192.168.255.255</td><td>/16</td><td>192.168.0.0/16</td></tr>
+</tbody></table></div>
+<p>Private adressen zijn niet routeerbaar op het internet. NAT (Network Address Translation) vertaalt private adressen naar een publiek adres bij communicatie met het internet.</p>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Thuis en in de meeste kantoren gebruik je <code>192.168.x.x</code>-adressen. Grotere bedrijven gebruiken <code>10.x.x.x</code>. Ken deze drie bereiken vanbuiten!</p>
+</div>
+<h4 id="642-speciale-adressen">6.4.2 Speciale adressen</h4>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Adres/bereik</th><th>Naam</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><code>0.0.0.0</code></td><td>Ongespecificeerd</td><td>Alle interfaces (bv. DHCP-server luistert op 0.0.0.0)</td></tr>
+<tr><td><code>127.0.0.0/8</code></td><td>Loopback</td><td><code>127.0.0.1</code> = je eigen computer (testen zonder netwerk)</td></tr>
+<tr><td><code>169.254.0.0/16</code></td><td>APIPA</td><td>Automatisch toegewezen bij DHCP-fout</td></tr>
+<tr><td><code>255.255.255.255</code></td><td>Limited broadcast</td><td>Broadcast naar alle apparaten op het lokale netwerk</td></tr>
+<tr><td><code>x.x.x.0</code></td><td>Netwerkadres</td><td>Mag nooit aan een apparaat worden toegewezen</td></tr>
+<tr><td><code>x.x.x.255</code></td><td>Broadcastadres</td><td>Mag nooit aan een apparaat worden toegewezen</td></tr>
+</tbody></table></div>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Als een apparaat een <code>169.254.x.x</code>-adres heeft, is er iets mis met DHCP. Controleer eerst de DHCP-server en de netwerkkabel.</p>
+</div>
+<h3 id="65-adresklassen-historisch-classful">6.5 Adresklassen (historisch — classful)</h3>
+<p>Vroeger (vóór CIDR) waren IP-adressen ingedeeld in klassen. Dit systeem is verouderd maar wordt soms nog vermeld:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Klasse</th><th>Eerste bits</th><th>Bereik</th><th>Standaard masker</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td>A</td><td>0</td><td>1.0.0.0 – 126.0.0.0</td><td>/8</td><td>Grote organisaties</td></tr>
+<tr><td>B</td><td>10</td><td>128.0.0.0 – 191.255.0.0</td><td>/16</td><td>Middelgrote organisaties</td></tr>
+<tr><td>C</td><td>110</td><td>192.0.0.0 – 223.255.255.0</td><td>/24</td><td>Kleine organisaties</td></tr>
+<tr><td>D</td><td>1110</td><td>224.0.0.0 – 239.255.255.255</td><td>—</td><td>Multicast</td></tr>
+<tr><td>E</td><td>1111</td><td>240.0.0.0 – 255.255.255.255</td><td>—</td><td>Gereserveerd/experimenteel</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>In de praktijk gebruikt men CIDR (classless). Adresklassen zijn achterhaald maar je zult ze nog tegenkomen in oudere documentatie en Cisco-cursussen.</p>
+</div>
+<h3 id="66-berekeningen">6.6 Berekeningen</h3>
+<p><strong>Hoeveel hosts kan een netwerk bevatten?</strong></p>
+<p>Formule: <strong>2^(hostbits) - 2</strong></p>
+<p>De -2 is voor: netwerkadres (alle hostbits = 0) en broadcastadres (alle hostbits = 1).</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>CIDR</th><th>Hostbits</th><th>Hosts</th><th>Netwerkadres</th><th>Broadcastadres</th></tr></thead><tbody>
+<tr><td>/24</td><td>8</td><td>254</td><td>x.x.x.0</td><td>x.x.x.255</td></tr>
+<tr><td>/25</td><td>7</td><td>126</td><td>x.x.x.0 of x.x.x.128</td><td>x.x.x.127 of x.x.x.255</td></tr>
+<tr><td>/26</td><td>6</td><td>62</td><td>x.x.x.0, 64, 128, 192</td><td>x.x.x.63, 127, 191, 255</td></tr>
+<tr><td>/28</td><td>4</td><td>14</td><td>—</td><td>—</td></tr>
+<tr><td>/30</td><td>2</td><td>2</td><td>—</td><td>— (point-to-point links)</td></tr>
+</tbody></table></div>
+<h2 id="6-voorbeelden">6. Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Gegeven: IP <code>172.16.45.200/20</code></p>
+<p>Stap 1: Subnetmasker van /20 = 20 bits = <code>11111111.11111111.11110000.00000000</code> = <code>255.255.240.0</code></p>
+<p>Stap 2: AND met het IP-adres:</p>
+<pre data-lang=""><code>
+172  .  16  .  45  .  200
+10101100.00010000.00101101.11001000
+
+255  .  255  .  240 .  0
+11111111.11111111.11110000.00000000
+
+AND:
+10101100.00010000.00100000.00000000 = 172.16.32.0
+</code></pre>
+<p>Stap 3: Broadcastadres = alle hostbits op 1:</p>
+<pre data-lang=""><code>
+10101100.00010000.00101111.11111111 = 172.16.47.255
+</code></pre>
+<p><strong>Conclusie:</strong></p>
+<ul>
+<li>Netwerkadres: <code>172.16.32.0/20</code></li>
+<li>Broadcastadres: <code>172.16.47.255</code></li>
+<li>Eerste host: <code>172.16.32.1</code></li>
+<li>Laatste host: <code>172.16.47.254</code></li>
+<li>Aantal hosts: 2^12 - 2 = 4094</li>
+</ul>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een collega roept: "Ik kan het internet niet op!" Je vraagt hem <code>ipconfig</code> uit te voeren:</p>
+<pre data-lang="text"><code>
+IPv4-adres: 169.254.45.12
+Subnetmasker: 255.255.0.0
+</code></pre>
+<p>Diagnose: APIPA-adres (<code>169.254.x.x</code>) → de computer heeft geen IP-adres ontvangen van de DHCP-server.</p>
+<p>Mogelijke oorzaken: DHCP-server down, netwerkkabel niet aangesloten, VLAN fout geconfigureerd.</p>
+</div>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h06-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 6.1</span>
+    <span class="oefening__title">Binaire omzettingen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">IPv4-adressen zijn 32-bit binaire getallen. Oefen de omzetting tussen binair en decimaal.</p>
+
+    <div class="vraag" data-type="text" data-correct="10000000|1000 0000">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Zet het decimale getal 128 om naar binair (8 bits). Gebruik de bitwaardes 128-64-32-16-8-4-2-1.</div>
+      <input type="text" class="vraag__invoer" placeholder="8 bits, bv. 00000000">
+      <div class="vraag__feedback" data-correct-label="10000000 — enkel bit 7 (waarde 128) staat aan. 128 = 128+0+0+0+0+0+0+0."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="192|honderd tweeënnegentig">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Zet het binaire getal 11000000 om naar decimaal.</div>
+      <input type="text" class="vraag__invoer" placeholder="Decimaal getal (0-255)">
+      <div class="vraag__feedback" data-correct-label="192 — bits 7 en 6 staan aan: 128 + 64 = 192. Dit is het eerste octet van het bekende 192.168.x.x-adresbereik."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat is de decimale waarde van het binaire octet 11111111?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>128</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>200</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>255</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>254</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="255 — alle 8 bits staan aan: 128+64+32+16+8+4+2+1 = 255. Dit is de maximale waarde van een octet."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Een IPv4-adres bestaat uit hoeveel bits?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>16 bits (2 octetten)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>32 bits (4 octetten)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>48 bits (6 octetten)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>128 bits (16 octetten)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="32 bits, verdeeld in 4 octetten van elk 8 bits, gescheiden door punten (bv. 192.168.1.10). IPv6 gebruikt 128 bits."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h06-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 6.2</span>
+    <span class="oefening__title">Netwerkadres, broadcast en hostbereik berekenen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Gegeven een IP-adres met CIDR-prefix, bereken je het netwerkadres, broadcastadres en het hostbereik.</p>
+
+    <div class="vraag" data-type="text" data-correct="192.168.10.0">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is het netwerkadres van 192.168.10.75/24?</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="192.168.10.0 — bij /24 zijn de eerste 3 octetten het netwerkdeel, het laatste octet is het hostdeel. Alle hostbits op 0 = netwerkadres."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="192.168.10.255">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is het broadcastadres van 192.168.10.75/24?</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="192.168.10.255 — bij /24 zijn alle 8 hostbits 1: 255. Het broadcastadres = netwerkadres met alle hostbits op 1."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoeveel bruikbare hosts heeft een /24-netwerk?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>256</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>255</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>254</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>128</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="254 — formule: 2^(hostbits) - 2 = 2^8 - 2 = 256 - 2 = 254. De -2 is voor het netwerkadres (.0) en het broadcastadres (.255)."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="255.255.255.0|/24">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is het subnetmasker in decimale notatie dat overeenkomt met /24?</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x">
+      <div class="vraag__feedback" data-correct-label="255.255.255.0 — 24 bits zijn 1 (netwerkdeel), de laatste 8 bits zijn 0 (hostdeel): 11111111.11111111.11111111.00000000 = 255.255.255.0."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h06-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 6.3</span>
+    <span class="oefening__title">Publieke, private en speciale adressen herkennen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Niet alle IPv4-adressen zijn routeerbaar op het internet. Herken de verschillende adrestypes.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk type adres is 192.168.100.1?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Publiek adres — routeerbaar op het internet</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Privaat adres (RFC 1918) — niet routeerbaar op het internet</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Loopback-adres</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>APIPA-adres</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Privaat adres — 192.168.0.0/16 is een van de drie RFC 1918-bereiken. Wordt gebruikt in thuisnetwerken en kantoren, niet routeerbaar op het internet."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Een computer heeft het adres 169.254.45.12. Wat betekent dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Het is een normaal privaat adres</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Het is een loopback-adres voor lokaal testen</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>APIPA — de computer heeft geen IP-adres van de DHCP-server ontvangen</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Het is een publiek internetadres</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="APIPA (169.254.0.0/16) — Automatic Private IP Addressing. Windows kent automatisch een 169.254.x.x-adres toe als de DHCP-server niet bereikbaar is. Controleer de DHCP-server en de netwerkkabel!"></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,c,d">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke adressen zijn PRIVAAT (RFC 1918)? (Selecteer alle juiste opties)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" value="a"><span>10.0.0.1</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="b"><span>8.8.8.8</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="c"><span>172.20.5.1</span></label>
+        <label class="vraag__keuze"><input type="checkbox" value="d"><span>192.168.1.100</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="10.0.0.1 (10.0.0.0/8), 172.20.5.1 (172.16.0.0/12) en 192.168.1.100 (192.168.0.0/16) zijn de drie RFC 1918-bereiken. 8.8.8.8 is een publiek adres (Google DNS)."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="127.0.0.1|loopback">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welk adres gebruik je om de netwerkstack van je eigen computer te testen, zonder echt netwerk nodig te hebben?</div>
+      <input type="text" class="vraag__invoer" placeholder="x.x.x.x of naam...">
+      <div class="vraag__feedback" data-correct-label="127.0.0.1 (loopback) — ping 127.0.0.1 test of de TCP/IP-stack van je eigen computer correct werkt, zonder dat er een netwerk aanwezig hoeft te zijn."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>IPv4-adressen zijn 32 bits, genoteerd als 4 decimale octetten (0–255), gescheiden door punten.</li>
+<li>Het subnetmasker bepaalt het netwerkdeel (1-bits) en het hostdeel (0-bits).</li>
+<li>CIDR-notatie: <code>/24</code> betekent 24 bits in het subnetmasker = <code>255.255.255.0</code>.</li>
+<li>Netwerkadres = IP AND masker; alle hostbits = 0. Broadcastadres = alle hostbits = 1.</li>
+<li>Aantal bruikbare hosts = 2^(hostbits) - 2.</li>
+<li>Private bereiken (RFC 1918): <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code> — niet routeerbaar op het internet.</li>
+<li>Speciale adressen: <code>127.0.0.1</code> (loopback), <code>169.254.x.x</code> (APIPA = DHCP-fout), <code>255.255.255.255</code> (broadcast).</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h06">Huistaak H06</h3>
+<p>Gebruik <code>ipconfig /all</code> (Windows) of <code>ip addr</code> (Linux/Mac) op jouw computer.</p>
+<ol>
+<li>Noteer je IP-adres, subnetmasker en standaardgateway.</li>
+<li>Bereken zelf het netwerkadres en het broadcastadres van jouw netwerk.</li>
+<li>Hoeveel apparaten kunnen er maximaal op jouw subnet verbonden worden?</li>
+<li>Is jouw IP-adres privaat of publiek? Hoe weet je dit?</li>
+<li>Open een browser en ga naar <a href="https://whatismyip.com" target="_blank" rel="noopener">https://whatismyip.com</a>. Wat is je publiek IP-adres? Vergelijk met je lokale IP — leg uit waarom ze verschillen.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H06-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 6 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H06">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H05.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H05 &mdash; Datalinklaag &amp; Ethernet</span></div></a>
+          <a href="H07.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H07 &mdash; Subnetting</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

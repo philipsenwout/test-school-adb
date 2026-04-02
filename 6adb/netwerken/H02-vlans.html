@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 &mdash; VLANs &mdash; Netwerken 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H02</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s2">2. Theorie</a>
+          <ul>
+            <li><a href="#s2-1">2.1 Wat is een VLAN?</a></li>
+            <li><a href="#s2-2">2.2 Access en trunk</a></li>
+            <li><a href="#s2-3">2.3 802.1Q tagging</a></li>
+            <li><a href="#s2-4">2.4 VLANs aanmaken</a></li>
+            <li><a href="#s2-5">2.5 Inter-VLAN routing</a></li>
+          </ul>
+        </li>
+        <li><a href="#voorbeelden">Voorbeelden</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-netwerken">
+      <div class="page-header__vak">&#127760; Netwerken &mdash; H02</div>
+      <h1 class="page-header__title">VLANs</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">10 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-NET-04] Netwerksysteem configuratie ontwerpen — verdieping</span>
+      <span class="ld-badge">[LD-NET-05] Netwerk beheren — verdieping</span>
+      <span class="ld-badge">[LD-NET-10] Functionele oplossingen voor netwerkoptimalisatie — verdieping</span>
+    </div>
+
+    <h2 id="s2">2. Theorie</h2>
+
+    <h3 id="s2-1">2.1 Wat is een VLAN en waarom?</h3>
+
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; VLAN</div>
+      <p>Een VLAN (Virtual Local Area Network) is een logische segmentatie van een fysiek netwerk. Apparaten in hetzelfde VLAN communiceren alsof ze op hetzelfde fysieke netwerk zitten, ongeacht hun fysieke locatie. Communicatie tussen VLANs vereist een router of Layer 3-switch.</p>
+    </div>
+
+    <p><strong>Zonder VLAN:</strong> alle apparaten op dezelfde switch zitten in hetzelfde broadcast-domein. Broadcasts (ARP, DHCP-discover) bereiken alle apparaten.</p>
+    <p><strong>Met VLAN:</strong> elk VLAN is een apart broadcast-domein. Een DHCP Discover van VLAN 10 bereikt nooit VLAN 20.</p>
+
+    <p>Voordelen van VLANs:</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Voordeel</th><th>Uitleg</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Beveiliging</strong></td><td>Afdelingen gescheiden &mdash; HR-server niet bereikbaar vanuit gast-wifi</td></tr>
+        <tr><td><strong>Beheer</strong></td><td>Logische segmentatie onafhankelijk van fysieke locatie</td></tr>
+        <tr><td><strong>Minder broadcast-verkeer</strong></td><td>Kleinere broadcast-domeinen = minder overhead</td></tr>
+        <tr><td><strong>Flexibiliteit</strong></td><td>Apparaat verplaatsen = VLAN-configuratie wijzigen, geen bekabeling</td></tr>
+        <tr><td><strong>QoS</strong></td><td>Prioriteit geven aan VLAN-verkeer (bv. VoIP-VLAN hoge prioriteit)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 id="s2-2">2.2 Poorttypen: access en trunk</h3>
+
+    <h4>2.2.1 Access-poort (untagged)</h4>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; Access-poort</div>
+      <p>Een access-poort is geconfigureerd voor één VLAN. Apparaten aangesloten op een access-poort zijn "onbewust" van het VLAN &mdash; ze sturen gewone Ethernet-frames zonder VLAN-tag.</p>
+    </div>
+    <p>Gebruik: aansluiting van eindapparaten (pc, printer, IP-telefoon, access point) die slechts tot één VLAN behoren.</p>
+    <pre><code>SW1(config)# interface GigabitEthernet0/1
+SW1(config-if)# switchport mode access
+SW1(config-if)# switchport access vlan 10</code></pre>
+
+    <h4>2.2.2 Trunk-poort (tagged)</h4>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; Trunk-poort</div>
+      <p>Een trunk-poort draagt verkeer van <strong>meerdere VLANs</strong> tegelijk. Elk frame wordt voorzien van een <strong>802.1Q-tag</strong> met het VLAN-ID zodat de ontvangende switch weet bij welk VLAN het frame hoort.</p>
+    </div>
+    <p>Gebruik: verbindingen tussen switches onderling, of switch&ndash;router bij router-on-a-stick.</p>
+    <pre><code>SW1(config)# interface GigabitEthernet0/24
+SW1(config-if)# switchport mode trunk
+SW1(config-if)# switchport trunk allowed vlan 10,20,30
+SW1(config-if)# switchport trunk native vlan 1</code></pre>
+    <p><strong>Native VLAN:</strong> frames op de native VLAN worden <strong>niet</strong> getagged op de trunkpoort. Standaard is VLAN 1 de native VLAN. Best practice: verander de native VLAN naar een ongebruikt VLAN om VLAN-hopping aanvallen te voorkomen.</p>
+
+    <h3 id="s2-3">2.3 802.1Q tagging</h3>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; 802.1Q</div>
+      <p>IEEE 802.1Q is de standaard voor VLAN-tagging op Ethernet-netwerken. Er wordt een 4-byte tag ingevoegd in het Ethernet-frame na het bron-MAC-adres.</p>
+    </div>
+    <p>802.1Q tag-structuur:</p>
+    <pre><code>+--------+--------+--------+--------+
+| TPID   | PCP    | DEI    | VID    |
+| 2 bytes| 3 bits | 1 bit  | 12 bits|
++--------+--------+--------+--------+</code></pre>
+    <ul>
+      <li><strong>TPID</strong> (Tag Protocol Identifier): altijd <code>0x8100</code></li>
+      <li><strong>PCP</strong> (Priority Code Point): QoS-prioriteit (0&ndash;7)</li>
+      <li><strong>DEI</strong> (Drop Eligible Indicator): bij congestie mogen deze frames vallen</li>
+      <li><strong>VID</strong> (VLAN Identifier): VLAN-ID 1&ndash;4094 (0 en 4095 gereserveerd)</li>
+    </ul>
+
+    <h3 id="s2-4">2.4 VLANs aanmaken en beheren</h3>
+    <pre><code>! VLANs aanmaken
+SW1(config)# vlan 10
+SW1(config-vlan)# name ADMINISTRATIE
+SW1(config)# vlan 20
+SW1(config-vlan)# name ONTWIKKELING
+SW1(config)# vlan 30
+SW1(config-vlan)# name SERVERS
+
+! VLAN-database bekijken
+SW1# show vlan brief
+
+! Poortoverzicht met VLAN-info
+SW1# show interfaces trunk
+SW1# show interfaces GigabitEthernet0/1 switchport</code></pre>
+
+    <h3 id="s2-5">2.5 Inter-VLAN routing</h3>
+    <p>Apparaten in verschillende VLANs kunnen niet rechtstreeks communiceren &mdash; ze hebben een router (of Layer 3-switch) nodig.</p>
+
+    <h4>2.5.1 Router-on-a-stick</h4>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; Router-on-a-stick</div>
+      <p>Router-on-a-stick is een configuratie waarbij één fysieke router-interface via een trunk-verbinding meerdere VLANs bedient door gebruik te maken van subinterfaces, elk geconfigureerd met 802.1Q encapsulatie.</p>
+    </div>
+    <pre><code>! Router subinterfaces configureren
+R1(config)# interface GigabitEthernet0/0
+R1(config-if)# no shutdown
+
+R1(config)# interface GigabitEthernet0/0.10
+R1(config-subif)# encapsulation dot1Q 10
+R1(config-subif)# ip address 192.168.10.1 255.255.255.0
+
+R1(config)# interface GigabitEthernet0/0.20
+R1(config-subif)# encapsulation dot1Q 20
+R1(config-subif)# ip address 192.168.20.1 255.255.255.0
+
+R1(config)# interface GigabitEthernet0/0.30
+R1(config-subif)# encapsulation dot1Q 30
+R1(config-subif)# ip address 192.168.30.1 255.255.255.0</code></pre>
+    <p><strong>Nadeel:</strong> alle inter-VLAN-traffic gaat door de router &rarr; bottleneck bij veel verkeer.</p>
+
+    <h4>2.5.2 Layer 3-switch (SVI)</h4>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; Layer 3-switch</div>
+      <p>Een Layer 3-switch combineert switching (laag 2) en routing (laag 3). Inter-VLAN routing gebeurt intern op de switch via SVIs (Switched Virtual Interfaces) &mdash; veel sneller dan via een externe router.</p>
+    </div>
+    <pre><code>! Layer 3-switch configureren voor inter-VLAN routing
+L3SW(config)# ip routing
+
+L3SW(config)# interface vlan 10
+L3SW(config-if)# ip address 192.168.10.1 255.255.255.0
+L3SW(config-if)# no shutdown
+
+L3SW(config)# interface vlan 20
+L3SW(config-if)# ip address 192.168.20.1 255.255.255.0
+L3SW(config-if)# no shutdown</code></pre>
+
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Methode</th><th>Snelheid</th><th>Kostprijs</th><th>Schaalbaar</th></tr></thead>
+      <tbody>
+        <tr><td>Router-on-a-stick</td><td>Beperkt (router-bottleneck)</td><td>Goedkoper</td><td>Niet bij veel VLANs</td></tr>
+        <tr><td>Layer 3-switch (SVI)</td><td>Hoog (hardware routing)</td><td>Duurder switch</td><td>Ja</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="voorbeelden">Voorbeelden</h2>
+
+    <div class="callout callout--voorbeeld">
+      <div class="callout__title">Voorbeeld 1 &mdash; School VLAN-ontwerp</div>
+      <p>Een school heeft drie VLANs:</p>
+      <ul>
+        <li>VLAN 10 (LEERLINGEN): <code>192.168.10.0/24</code> &mdash; 180 leerlingen-pc's</li>
+        <li>VLAN 20 (LEERKRACHTEN): <code>192.168.20.0/24</code> &mdash; 30 leerkrachten-laptops</li>
+        <li>VLAN 30 (SERVERS): <code>192.168.30.0/24</code> &mdash; 5 servers</li>
+      </ul>
+      <p>Trunkpoort naar de Layer 3-switch die inter-VLAN routing doet. Servers in VLAN 30 bereikbaar vanuit beide VLANs via SVI's.</p>
+    </div>
+
+    <div class="callout callout--voorbeeld">
+      <div class="callout__title">Voorbeeld 2 &mdash; VLAN-hopping aanval voorkomen</div>
+      <p>Bescherming tegen een aanvaller die VLAN-hopping probeert:</p>
+      <ul>
+        <li>Schakel ongebruikte poorten uit: <code>shutdown</code></li>
+        <li>Zet poorten op <code>switchport mode access</code> (nooit <code>dynamic</code>)</li>
+        <li>Verander native VLAN: <code>switchport trunk native vlan 999</code> (ongebruikt VLAN)</li>
+        <li>VLAN 1 nooit gebruiken voor productieverkeer</li>
+      </ul>
+    </div>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="net6-h02-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 2.1</span>
+        <span class="oefening__title">VLANs en poorttypen</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van VLAN-concepten, access- en trunk-poorten.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Wat is een access-poort?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v1" value="a"><span>Een poort die verkeer van meerdere VLANs draagt met 802.1Q-tags</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v1" value="b"><span>Een poort geconfigureerd voor slechts één VLAN, zonder tag voor eindapparaten</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v1" value="c"><span>Een poort die alleen management-verkeer draagt</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v1" value="d"><span>Een poort die uitgeschakeld is</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Een poort geconfigureerd voor slechts één VLAN, zonder tag — eindapparaten (pc's, printers) zijn onbewust van het VLAN"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Wat is een trunk-poort?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v2" value="a"><span>Een poort voor slechts één VLAN, gebruikt bij servers</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v2" value="b"><span>Een poort die alleen internetverkeer draagt</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v2" value="c"><span>Een poort die verkeer van meerdere VLANs draagt met 802.1Q-tags</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v2" value="d"><span>Een poort die geblokkeerd is door Spanning Tree</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Een poort die verkeer van meerdere VLANs draagt met 802.1Q-tags — gebruikt tussen switches of bij router-on-a-stick"></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="12">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Hoeveel bits heeft het VID (VLAN Identifier) veld in een 802.1Q-tag?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het aantal bits...">
+          <div class="vraag__feedback" data-correct-label="12 bits — 12 bits geeft 4094 bruikbare VLAN-IDs (0 en 4095 zijn gereserveerd)"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Waarom is het een best practice om de native VLAN te wijzigen naar een ongebruikt VLAN?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v4" value="a"><span>Om meer bandbreedte vrij te maken</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v4" value="b"><span>Omdat VLAN 1 te traag is</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v4" value="c"><span>Om de switch sneller te configureren</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-1-v4" value="d"><span>Om VLAN-hopping aanvallen te voorkomen via double tagging</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Om VLAN-hopping aanvallen te voorkomen via double tagging — een aanvaller kan frames sturen met dubbele tag naar VLAN 1 als de native VLAN niet gewijzigd is"></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="net6-h02-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 2.2</span>
+        <span class="oefening__title">Inter-VLAN routing</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van router-on-a-stick en Layer 3-switch voor inter-VLAN routing.</p>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Kunnen apparaten in VLAN 10 en VLAN 20 op dezelfde switch rechtstreeks communiceren?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v1" value="a"><span>Nee — ze hebben een router of Layer 3-switch nodig</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v1" value="b"><span>Ja — VLANs op dezelfde switch kunnen altijd communiceren</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v1" value="c"><span>Ja — als de trunk-poort correct geconfigureerd is</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v1" value="d"><span>Nee — VLANs op dezelfde switch mogen nooit communiceren</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Nee — VLANs zijn aparte broadcast-domeinen. Inter-VLAN routing vereist altijd een router of Layer 3-switch."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Wat is het nadeel van router-on-a-stick ten opzichte van een Layer 3-switch?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v2" value="a"><span>Router-on-a-stick is moeilijker te configureren</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v2" value="b"><span>De router wordt een bottleneck bij veel inter-VLAN-verkeer</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v2" value="c"><span>Router-on-a-stick ondersteunt minder VLANs</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-2-v2" value="d"><span>Router-on-a-stick is duurder dan een Layer 3-switch</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="De router wordt een bottleneck bij veel inter-VLAN-verkeer — alle verkeer tussen VLANs moet door één fysieke router-interface"></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="ip routing">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Welk commando moet je activeren op een Layer 3-switch om inter-VLAN routing mogelijk te maken?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+          <div class="vraag__feedback" data-correct-label="ip routing — dit activeert Layer 3-routing op de switch. Daarna configureer je SVIs per VLAN."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="net6-h02-3">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 2.3</span>
+        <span class="oefening__title">VLAN-ontwerp analyseren</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Een bedrijf heeft drie afdelingen: HR (15 pc's), IT (8 pc's), Directie (5 pc's), serverruimte (3 servers) en gastnetwerk (max. 10). Analyseer het VLAN-ontwerp.</p>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welk VLAN moet absoluut geïsoleerd zijn van alle andere VLANs om beveiligingsredenen?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v1" value="a"><span>HR</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v1" value="b"><span>Directie</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v1" value="c"><span>Gastnetwerk</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v1" value="d"><span>IT</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Gastnetwerk — gasten mogen het interne netwerk nooit bereiken. Client isolation verhindert ook onderlinge communicatie tussen gasten."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Hoeveel VLANs heeft dit bedrijf minimaal nodig?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v2" value="a"><span>3 VLANs</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v2" value="b"><span>5 VLANs (HR, IT, Directie, Servers, Gasten)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v2" value="c"><span>10 VLANs</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h02-3-v2" value="d"><span>1 VLAN is genoeg</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="5 VLANs (HR, IT, Directie, Servers, Gasten) — elke afdeling met eigen beveiligingsnoden krijgt een eigen VLAN"></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>VLANs segmenteren een netwerk logisch in gescheiden broadcast-domeinen &mdash; beter beheer, beveiliging en minder broadcast-overhead.</li>
+        <li>Access-poorten: één VLAN, geen tag. Trunk-poorten: meerdere VLANs, 802.1Q-tagged.</li>
+        <li>Native VLAN = ongetagged op trunk. Verander de native VLAN om VLAN-hopping te voorkomen.</li>
+        <li>Inter-VLAN routing: router-on-a-stick (subinterfaces + trunk) of Layer 3-switch (SVI + <code>ip routing</code>).</li>
+        <li>Layer 3-switch is sneller en schaalbaarder voor inter-VLAN routing, maar duurder.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H02</h2>
+    <p>Onderzoek de VLAN-configuratie van een professionele switch (bv. Cisco Catalyst 2960 of UniFi USW via de documentatie).</p>
+    <ol>
+      <li>Zoek in de officiële Cisco- of UniFi-documentatie op hoe je een trunk-poort configureert.</li>
+      <li>Wat is het verschil tussen <code>switchport trunk allowed vlan add 30</code> en <code>switchport trunk allowed vlan 30</code>?</li>
+      <li>Wat is VTP (VLAN Trunking Protocol)? Beschrijf kort de modi (server, client, transparent) en waarom VTP in de praktijk vaak uitgeschakeld wordt.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H02">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H01-herhaling-subnetting-routing.html" class="btn btn-secondary">&larr; H01 &mdash; Subnetting en routing</a>
+      <a href="H03-serverbeheer.html" class="btn btn-secondary">H03 &mdash; Serverbeheer &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Basisstructuur — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H01" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-html">1.1 Wat is HTML?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+          <a href="#basisstructuur">1.2 De basisstructuur</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+          <a href="#elementen-tags-attributen">1.3 Elementen, tags en attributen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+          <a href="#blok-vs-inline">1.4 Blok- vs. inline-elementen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+          <a href="#nesting">1.5 Nesting</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.6"><span class="sidebar-check__box"></span></label>
+          <a href="#commentaar">1.6 Commentaar</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.7"><span class="sidebar-check__box"></span></label>
+          <a href="#emmet">1.7 Emmet</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.8"><span class="sidebar-check__box"></span></label>
+          <a href="#volledig-voorbeeld">1.8 Volledig voorbeeld</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>HTML Basisstructuur</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H01 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">HTML Basisstructuur</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB12</span><span class="ld-tag__title">De leerlingen documenteren een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat HTML is en waarvoor het dient</li>
+          <li>De basisstructuur van een HTML-document opschrijven</li>
+          <li>Het verschil uitleggen tussen blok- en inline-elementen</li>
+          <li>Emmet-snelkoppelingen gebruiken om sneller HTML te schrijven</li>
+          <li>Commentaar toevoegen aan HTML-code</li>
+          <li>Nesting correct toepassen (elementen correct in elkaar zetten)</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-html">1.1 Wat is HTML?</h2>
+      <p><strong>HTML</strong> staat voor <strong>HyperText Markup Language</strong>. Het is een <em>markeertaal</em>, geen programmeertaal. Het verschil is belangrijk:</p>
+      <ul>
+        <li>Een <strong>programmeertaal</strong> geeft instructies die de computer uitvoert (zoals berekeningen of beslissingen).</li>
+        <li>Een <strong>markeertaal</strong> geeft <em>betekenis en structuur</em> aan tekst. HTML zegt "dit is een titel", "dit is een alinea", "dit is een link".</li>
+      </ul>
+      <p>HTML houdt zich <strong>niet</strong> bezig met hoe iets eruitziet. Dat is het domein van <strong>CSS</strong> (dat leer je in een later hoofdstuk). HTML gaat over <em>wat iets is</em>, niet over <em>hoe het eruitziet</em>.</p>
+      <p>Stel je een krantenartikel voor. Daarin is er een grote krantenkop (de titel), kleinere tussenkopjes, alinea's met tekst, en foto's met bijschriften. HTML geeft al die onderdelen een naam en structuur.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H01-afb1.svg" alt="Vergelijking: ruwe tekst vs. gestructureerde HTML-pagina" loading="lazy">
+      </figure>
+
+      <h2 id="basisstructuur">1.2 De basisstructuur van een HTML-document</h2>
+      <p>Elke HTML-pagina ziet er als volgt uit:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mijn eerste pagina&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hallo wereld!&lt;/h1&gt;
+    &lt;p&gt;Dit is mijn eerste webpagina.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+      <p>Laten we elk onderdeel stap voor stap bekijken:</p>
+      <h3><code>&lt;!DOCTYPE html&gt;</code></h3>
+      <p>Dit is de <strong>documenttype-declaratie</strong>. Het is geen HTML-element, maar een instructie aan de browser: "dit document is HTML5". Je schrijft dit altijd op de allereerste regel.</p>
+      <h3><code>&lt;html lang="nl"&gt;</code></h3>
+      <p>Dit is het <strong>wortelelement</strong> (root element). Alle andere elementen staan erin. Het attribuut <code>lang="nl"</code> vertelt de browser (en screenreaders, zoekmachines) dat de pagina in het <strong>Nederlands</strong> is geschreven. Gebruik <code>lang="en"</code> voor Engelse pagina's.</p>
+      <h3><code>&lt;head&gt;</code></h3>
+      <p>De <code>&lt;head&gt;</code> bevat <strong>verborgen informatie</strong> over de pagina — informatie die de browser nodig heeft, maar die de bezoeker niet direct ziet op het scherm. Hierin vind je onder andere:</p>
+      <ul>
+        <li><strong><code>&lt;meta charset="UTF-8"&gt;</code></strong> — Zorgt dat speciale tekens (zoals é, ü, ñ, €) correct worden getoond. UTF-8 is de meest gebruikte tekencodering ter wereld.</li>
+        <li><strong><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></strong> — Zorgt dat de pagina correct wordt weergegeven op smartphones en tablets (responsive design).</li>
+        <li><strong><code>&lt;title&gt;Mijn eerste pagina&lt;/title&gt;</code></strong> — De titel die bovenaan het browsertabblad verschijnt. Dit is ook wat zoekmachines tonen als zoekresultaat.</li>
+      </ul>
+      <h3><code>&lt;body&gt;</code></h3>
+      <p>De <code>&lt;body&gt;</code> bevat alle inhoud die de bezoeker <strong>effectief ziet</strong> op de pagina: tekst, afbeeldingen, links, enzovoort.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H01-afb2.svg" alt="Schematische weergave van de HTML-boomstructuur (head en body)" loading="lazy">
+      </figure>
+
+      <h2 id="elementen-tags-attributen">1.3 Elementen, tags en attributen</h2>
+      <h3>Elementen en tags</h3>
+      <p>Een HTML-element bestaat uit een <strong>openingstag</strong>, <strong>inhoud</strong> en een <strong>sluitingstag</strong>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p&gt;Dit is een alinea.&lt;/p&gt;</code></pre>
+      </div>
+      <ul>
+        <li><code>&lt;p&gt;</code> = openingstag</li>
+        <li><code>Dit is een alinea.</code> = inhoud</li>
+        <li><code>&lt;/p&gt;</code> = sluitingstag</li>
+      </ul>
+      <p>Sommige elementen zijn <strong>leeg</strong> (void elements): ze hebben geen inhoud en ook geen sluitingstag. Ze bevatten alle informatie in hun attributen:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;meta charset="UTF-8"&gt;
+&lt;img src="foto.jpg" alt="Een foto"&gt;</code></pre>
+      </div>
+      <h3>Attributen</h3>
+      <p>Attributen geven <strong>extra informatie</strong> over een element. Ze staan altijd in de openingstag, na de elementnaam:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;html lang="nl"&gt;</code></pre>
+      </div>
+      <p>Hier is <code>lang</code> het attribuut en <code>"nl"</code> de waarde. Attribuutwaarden staan altijd tussen <strong>aanhalingstekens</strong>.</p>
+
+      <h2 id="blok-vs-inline">1.4 Blok- vs. inline-elementen</h2>
+      <p>Dit is een fundamenteel concept in HTML. Elementen gedragen zich op twee manieren:</p>
+      <h3>Blok-elementen (block elements)</h3>
+      <ul>
+        <li>Nemen de <strong>volledige breedte</strong> van hun container in</li>
+        <li>Beginnen altijd op een <strong>nieuwe regel</strong></li>
+        <li>Voorbeelden: <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;div&gt;</code></li>
+      </ul>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p&gt;Dit is de eerste alinea.&lt;/p&gt;
+&lt;p&gt;Dit is de tweede alinea. Ze staan onder elkaar.&lt;/p&gt;</code></pre>
+      </div>
+      <h3>Inline-elementen</h3>
+      <ul>
+        <li>Nemen slechts de <strong>breedte in die ze nodig hebben</strong></li>
+        <li>Staan <strong>naast</strong> andere tekst of elementen op dezelfde regel</li>
+        <li>Voorbeelden: <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;span&gt;</code></li>
+      </ul>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p&gt;Dit is een zin met een &lt;em&gt;beklemtoond woord&lt;/em&gt; en een &lt;strong&gt;sterk woord&lt;/strong&gt;.&lt;/p&gt;</code></pre>
+      </div>
+      <p>Een handig ezelsbruggetje: stel je voor dat blok-elementen <strong>dozen</strong> zijn (ze nemen de volledige breedte in) en inline-elementen <strong>letters</strong> zijn (ze passen naast elkaar op een regel).</p>
+
+      <h2 id="nesting">1.5 Nesting — elementen in elkaar zetten</h2>
+      <p>HTML-elementen mogen <em>in</em> andere elementen staan. Dit noem je <strong>nesting</strong> (nestelen). De volgorde van openen en sluiten moet echter kloppen:</p>
+      <p><strong>Correct:</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p&gt;Dit is een zin met een &lt;em&gt;beklemtoond&lt;/em&gt; woord.&lt;/p&gt;</code></pre>
+      </div>
+      <p><strong>Fout (overlapping):</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p&gt;Dit is een &lt;em&gt;fout geneste&lt;/p&gt;&lt;/em&gt;</code></pre>
+      </div>
+      <p>Bij fout geneste elementen gedraagt de browser zich onvoorspelbaar. Controleer altijd of elke openingstag een bijpassende sluitingstag heeft, op de juiste plek.</p>
+      <p>Een goede gewoonte is <strong>inspringen</strong> (indentation): voor elke genest niveau gebruik je een extra tab of spaties. Dit maakt de code veel leesbaarder:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Welkom&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;p&gt;Inhoud hier.&lt;/p&gt;
+    &lt;/main&gt;
+&lt;/body&gt;</code></pre>
+      </div>
+
+      <h2 id="commentaar">1.6 Commentaar</h2>
+      <p>Commentaar in HTML is tekst die de browser <strong>negeert</strong>. Het is voor de programmeur zelf (of andere lezers van de code) en verschijnt niet op de pagina:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Dit is commentaar. De browser toont dit niet. --&gt;
+&lt;p&gt;Dit zie je wel op de pagina.&lt;/p&gt;
+
+&lt;!--
+    Commentaar kan ook
+    meerdere regels bevatten.
+--&gt;</code></pre>
+      </div>
+      <p>Gebruik commentaar om:</p>
+      <ul>
+        <li>Secties van je code te markeren ("begin navigatie", "einde navigatie")</li>
+        <li>Tijdelijk code uit te schakelen zonder te verwijderen</li>
+        <li>Uitleg te geven bij ingewikkelde code</li>
+      </ul>
+
+      <h2 id="emmet">1.7 Emmet — sneller HTML schrijven</h2>
+      <p><strong>Emmet</strong> is een plugin die standaard ingebouwd is in <strong>VS Code</strong> (en andere code-editors). Met Emmet schrijf je HTML-afkortingen die automatisch worden uitgebreid tot volledige HTML-code.</p>
+      <h3>De basisstructuur in één keer</h3>
+      <p>Typ in VS Code in een leeg <code>.html</code>-bestand het uitroepteken <code>!</code> en druk op <strong>Tab</strong>.</p>
+      <h3>Veelgebruikte Emmet-afkortingen</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Afkorting</th><th>Resultaat</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>!</code></td><td>Volledige HTML-basisstructuur</td></tr>
+          <tr><td><code>h1</code></td><td><code>&lt;h1&gt;&lt;/h1&gt;</code></td></tr>
+          <tr><td><code>p</code></td><td><code>&lt;p&gt;&lt;/p&gt;</code></td></tr>
+          <tr><td><code>ul&gt;li*3</code></td><td><code>&lt;ul&gt;</code> met 3 <code>&lt;li&gt;</code> items</td></tr>
+          <tr><td><code>nav&gt;ul&gt;li*5&gt;a</code></td><td>Navigatie met 5 links</td></tr>
+          <tr><td><code>lorem</code></td><td>Vuloptekst (lorem ipsum, 30 woorden)</td></tr>
+          <tr><td><code>lorem10</code></td><td>Vuloptekst van 10 woorden</td></tr>
+        </tbody>
+      </table>
+      <h3>Nesting en vermenigvuldiging</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- ul&gt;li*3 + Tab --&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+      <p><strong>Uitleg van de operatoren:</strong></p>
+      <ul>
+        <li><code>&gt;</code> — Kind-element (child)</li>
+        <li><code>+</code> — Broer/zus-element (sibling), op hetzelfde niveau</li>
+        <li><code>*3</code> — Herhaal 3 keer</li>
+        <li><code>.klassenaam</code> — Voeg class attribuut toe</li>
+      </ul>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H01-afb3.svg" alt="Emmet-afkortingen en hun uitwerking in VS Code" loading="lazy">
+      </figure>
+
+      <h2 id="volledig-voorbeeld">1.8 Jouw eerste webpagina — volledig voorbeeld</h2>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Over mij&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Hoofding van de pagina --&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Over mij&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Hoofdinhoud --&gt;
+    &lt;main&gt;
+        &lt;h2&gt;Wie ben ik?&lt;/h2&gt;
+        &lt;p&gt;
+            Mijn naam is Lena. Ik ben 16 jaar en zit in het 5e jaar Data- en Applicatiebeheer.
+            Ik leer graag programmeren en ben geïnteresseerd in webdesign.
+        &lt;/p&gt;
+
+        &lt;h2&gt;Mijn hobby's&lt;/h2&gt;
+        &lt;p&gt;
+            In mijn vrije tijd speel ik gitaar en lees ik graag &lt;em&gt;sciencefiction&lt;/em&gt;.
+            Ik vind het ook &lt;strong&gt;heel leuk&lt;/strong&gt; om nieuwe programmeertalen te leren.
+        &lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;!-- Voettekst --&gt;
+    &lt;footer&gt;
+        &lt;p&gt;Gemaakt door Lena &amp;copy; 2025&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Jouw eerste pagina</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een nieuw bestand aan in VS Code: <code>index.html</code>. Gebruik de Emmet-afkorting <code>!</code> om de basisstructuur te genereren. Pas daarna de volgende zaken aan:</p>
+            <ol>
+              <li>Verander de <code>lang</code> naar <code>"nl"</code>.</li>
+              <li>Geef de pagina een zinvolle <code>&lt;title&gt;</code>.</li>
+              <li>Voeg in de <code>&lt;body&gt;</code> toe:
+                <ul>
+                  <li>Een <code>&lt;h1&gt;</code> met jouw naam</li>
+                  <li>Een <code>&lt;p&gt;</code> met een korte beschrijving over jezelf</li>
+                  <li>Een <code>&lt;p&gt;</code> met je drie favoriete vakken op school (gebruik hiervoor <code>&lt;em&gt;</code> voor jouw lievelingsvak)</li>
+                </ul>
+              </li>
+            </ol>
+            <p><strong>Sla op en open in je browser. Controleer of alles correct wordt getoond.</strong></p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H01-oef1-browser.svg" alt="Browser-mockup: eenvoudige pagina met naam als h1 en twee alinea's" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 2 — Emmet-training</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Typ onderstaande Emmet-afkortingen in VS Code en controleer het resultaat door op Tab te drukken:</p>
+            <ol>
+              <li><code>h2</code></li>
+              <li><code>ul&gt;li*4</code></li>
+              <li><code>section&gt;h2+p*2</code></li>
+              <li><code>nav&gt;ul&gt;li*3&gt;a</code></li>
+              <li><code>p&gt;lorem15</code></li>
+            </ol>
+            <p>Schrijf bij elke afkorting op wat het resultaat was (in commentaar in je HTML-bestand).</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 3 — Blok vs. inline herkennen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Geef bij elk van de volgende elementen aan of het een blok-element of een inline-element is:</p>
+            <ul>
+              <li><code>&lt;p&gt;</code></li>
+              <li><code>&lt;em&gt;</code></li>
+              <li><code>&lt;h1&gt;</code></li>
+              <li><code>&lt;strong&gt;</code></li>
+              <li><code>&lt;ul&gt;</code></li>
+              <li><code>&lt;a&gt;</code></li>
+              <li><code>&lt;div&gt;</code></li>
+              <li><code>&lt;span&gt;</code></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H01 HTML Basisstructuur<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H01-oef1-browser.svg', 'Voorbeeld — Mijn eerste webpagina')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+          <h3>Opdracht: Mijn eerste webpagina</h3>
+          <p>Je bouwt je allereerste eigen webpagina van nul af aan. De pagina gaat over jezelf of over iets wat jij interessant vindt (jouw hobby, favoriete game, sport, muziek, …).</p>
+          <h4>Deel 1 — Basisstructuur (4 punten)</h4>
+          <p>Maak een nieuw bestand aan met de naam <code>index.html</code> en zorg dat het volgende aanwezig is:</p>
+          <ol>
+            <li>De correcte <code>&lt;!DOCTYPE html&gt;</code>-declaratie</li>
+            <li>Het <code>&lt;html&gt;</code>-element met het attribuut <code>lang="nl"</code></li>
+            <li>Een volledig <code>&lt;head&gt;</code>-blok met:
+              <ul>
+                <li><code>&lt;meta charset="UTF-8"&gt;</code></li>
+                <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></li>
+                <li>Een zinvolle <code>&lt;title&gt;</code> (niet gewoon "Untitled")</li>
+              </ul>
+            </li>
+            <li>Een <code>&lt;body&gt;</code>-element dat de zichtbare inhoud zal bevatten</li>
+          </ol>
+          <h4>Deel 2 — Emmet gebruiken (3 punten)</h4>
+          <p>Gebruik Emmet (in VS Code) om de structuur sneller te typen:</p>
+          <ol>
+            <li>Genereer de volledige HTML5-boilerplate via de Emmet-afkorting <code>!</code> + Tab. Maak een screenshot van het resultaat en voeg dit toe aan je indiening (of beschrijf welke afkorting je hebt gebruikt).</li>
+            <li>Gebruik de Emmet-afkorting <code>h1{Welkom op mijn pagina}</code> om snel een h1-element aan te maken en voeg dit toe aan je <code>&lt;body&gt;</code>.</li>
+            <li>Gebruik de Emmet-afkorting <code>p{Dit is mijn eerste alinea.}</code> om een alinea toe te voegen.</li>
+          </ol>
+          <h4>Deel 3 — Inhoud toevoegen (3 punten)</h4>
+          <p>Voeg de volgende inhoud toe aan de <code>&lt;body&gt;</code> van je pagina:</p>
+          <ol>
+            <li>Een <code>&lt;h1&gt;</code> met je naam of de naam van je onderwerp</li>
+            <li>Minstens <strong>twee alinea's</strong> (<code>&lt;p&gt;</code>) met zinvolle tekst over jezelf of je onderwerp</li>
+            <li>Een HTML-commentaar (<code>&lt;!-- --&gt;</code>) die uitlegt waar een toekomstige sectie zal komen, bv. <code>&lt;!-- Hier komt later een navigatiebalk --&gt;</code></li>
+          </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H01 — HTML Basisstructuur</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is HTML?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="a"> <span>Een programmeertaal die berekeningen uitvoert</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="b"> <span>Een markeertaal die betekenis en structuur geeft aan tekst</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="c"> <span>Een stijlblad dat het uiterlijk van een pagina bepaalt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="d"> <span>Een databasetaal voor het opslaan van gegevens</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat moet op de allereerste regel van elk HTML-document staan?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="a"> <span><code>&lt;!DOCTYPE html&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="b"> <span><code>&lt;html&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="c"> <span><code>&lt;head&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="d"> <span><code>&lt;meta charset="UTF-8"&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke sectie van een HTML-document bevat de verborgen informatie die de browser nodig heeft?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="a"> <span><code>&lt;body&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="b"> <span><code>&lt;html&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="c"> <span><code>&lt;head&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="d"> <span><code>&lt;header&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welk van deze elementen is een blok-element?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="a"> <span><code>&lt;em&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="b"> <span><code>&lt;span&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="c"> <span><code>&lt;strong&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="d"> <span><code>&lt;p&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke Emmet-afkorting genereert de volledige HTML-basisstructuur in VS Code?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="a"> <span><code>html</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="b"> <span><code>!</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="c"> <span><code>base</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="d"> <span><code>*</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe schrijf je commentaar in HTML?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="a"> <span><code>&lt;!-- commentaar --&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="b"> <span><code>// commentaar</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="c"> <span><code>/* commentaar */</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="d"> <span><code># commentaar</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H01')" data-progress-key="5adb/app-ontwikkeling/H01">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H02.html" class="btn btn-ghost">H02 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

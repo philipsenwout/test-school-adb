@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typografie — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H16" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom-typografie">16.1 Waarom typografie?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.2"><span class="sidebar-check__box"></span></label>
+          <a href="#hoe-lezen">16.2 Hoe lezen mensen tekst?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.3"><span class="sidebar-check__box"></span></label>
+          <a href="#regellengte">16.3 Regellengte</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.4"><span class="sidebar-check__box"></span></label>
+          <a href="#font-size">16.4 Lettergrootte (rem)</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.5"><span class="sidebar-check__box"></span></label>
+          <a href="#line-height">16.5 Regelafstand</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.6"><span class="sidebar-check__box"></span></label>
+          <a href="#lettertypes">16.6 Lettertypefamilies &amp; Google Fonts</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.7"><span class="sidebar-check__box"></span></label>
+          <a href="#lettertypeparen">16.7 Lettertypeparen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.8"><span class="sidebar-check__box"></span></label>
+          <a href="#teksteffecten">16.8 Uitlijning en teksteffecten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Typografie</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H16 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Typografie</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen hoe mensen tekst op een scherm lezen en waarom typografie belangrijk is</li>
+          <li>Je kan de juiste CSS-eenheden kiezen voor lettergrootte (<code>rem</code>) en regellengte (<code>ch</code>)</li>
+          <li>Je kan <code>font-size</code>, <code>line-height</code>, <code>font-weight</code> en <code>letter-spacing</code> correct instellen</li>
+          <li>Je kan een extern lettertype van Google Fonts koppelen aan een webpagina</li>
+          <li>Je kan een passend lettertypepaar kiezen (heading + body)</li>
+          <li>Je kan de ideale regellengte instellen met <code>max-width</code></li>
+        </ul>
+      </div>
+
+      <h2 id="waarom-typografie">1. Waarom typografie?</h2>
+
+      <p>Veel websites bestaan voor een groot deel uit tekst. Als die tekst moeilijk te lezen is — te klein, te dicht op elkaar, regels te lang — haken bezoekers af. Goede typografie is onzichtbaar: ze maakt het lezen moeiteloos.</p>
+
+      <p>Als front-end developer ben je automatisch ook typograaf. Je maakt keuzes over lettertype, grootte, regelafstand en regellengte — of je het weet of niet.</p>
+
+      <h2 id="hoe-lezen">2. Hoe lezen mensen tekst?</h2>
+
+      <p>Je denkt misschien dat je letter per letter leest. Dat is niet zo. Onze ogen lezen <strong>woordbeelden</strong>, geen losse letters. Ze bewegen in kleine sprongetjes over de tekst, met korte pauzepunten.</p>
+
+      <p><strong>De rol van typografie:</strong> zorg ervoor dat die sprongetjes zo moeiteloos mogelijk verlopen.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H16-afb1.svg" alt="Visuele illustratie van hoe ogen tekst scannen — saccades en fixatiepunten" loading="lazy">
+      </figure>
+
+      <h2 id="regellengte">3. Regellengte</h2>
+
+      <p>Een te lange tekstlijn is vermoeiend: je ogen moeten een grote sprong maken van het einde van een regel naar het begin van de volgende. Precies daarom werken kranten met smalle kolommen.</p>
+
+      <p><strong>Richtlijn:</strong> 50–90 tekens per regel, ideaal rond de 70. In CSS gebruik je <code>max-width</code> op de tekstcontainer:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Met ch-eenheid: 1ch ≈ breedte van één "0"-karakter */
+p {
+    max-width: 70ch;
+}
+
+/* Of met em */
+.artikel {
+    max-width: 45em;
+}</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H16-afb2.svg" alt="Vergelijking: te lange regels (rood) vs. ideale regellengte (groen)" loading="lazy">
+      </figure>
+
+      <h2 id="font-size">4. Lettergrootte (font-size)</h2>
+
+      <p>Gebruik <strong>altijd <code>rem</code></strong> voor lettergroottes op het web — nooit <code>px</code>.</p>
+
+      <table>
+        <thead>
+          <tr><th>Eenheid</th><th>Relatief ten opzichte van</th><th>Gebruik</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>px</code></td><td>Niets — vaste grootte</td><td>Vermijden voor tekst</td></tr>
+          <tr><td><code>em</code></td><td>Het huidige element</td><td>Margins, padding</td></tr>
+          <tr><td><code>rem</code></td><td>Het root-element (<code>&lt;html&gt;</code>)</td><td>Lettergroottes</td></tr>
+        </tbody>
+      </table>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">html {
+    font-size: 100%; /* = de browservoorkeur van de gebruiker */
+}
+
+body { font-size: 1rem; }   /* = 16px */
+h1   { font-size: 2.5rem; } /* = 40px */
+h2   { font-size: 1.75rem; }/* = 28px */
+h3   { font-size: 1.25rem; }/* = 20px */
+p    { font-size: 1rem; }   /* = 16px */</code></pre>
+      </div>
+
+      <h2 id="line-height">5. Regelafstand (line-height)</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Gebruik een eenheidsloos getal — vermenigvuldigingsfactor */
+p {
+    line-height: 1.6;
+}
+
+/* NIET dit: */
+p {
+    line-height: 24px; /* vast — schaalt niet mee */
+}</code></pre>
+      </div>
+
+      <p><strong>Richtlijn:</strong></p>
+      <ul>
+        <li>Lopende tekst (<code>p</code>): 1.5–1.7</li>
+        <li>Hoofdingen (<code>h1</code>, <code>h2</code>): 1.1–1.3 (korter, want grotere letters)</li>
+      </ul>
+
+      <h2 id="lettertypes">6. Lettertypefamilies en Google Fonts</h2>
+
+      <h3>6.1 Websafe lettertypes</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+code {
+    font-family: "Courier New", Courier, monospace;
+}</code></pre>
+      </div>
+
+      <h3>6.2 Google Fonts</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;head&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"&gt;
+  &lt;link rel="stylesheet" href="stijl.css"&gt;
+&lt;/head&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">body {
+    font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Playfair Display", serif;
+}</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H16-afb3.svg" alt="Google Fonts interface — lettertypes selecteren en kopiëren" loading="lazy">
+      </figure>
+
+      <h2 id="lettertypeparen">7. Lettertypeparen kiezen</h2>
+
+      <p>Een goede webpagina gebruikt <strong>twee lettertypes</strong>: één voor hoofdingen, één voor lopende tekst.</p>
+
+      <table>
+        <thead>
+          <tr><th>Heading</th><th>Body</th><th>Sfeer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Playfair Display</td><td>Source Sans 3</td><td>Klassiek, editorial</td></tr>
+          <tr><td>Raleway</td><td>Lato</td><td>Modern, clean</td></tr>
+          <tr><td>Merriweather</td><td>Open Sans</td><td>Leesbaar, solide</td></tr>
+          <tr><td>Space Grotesk</td><td>Inter</td><td>Technisch, futuristisch</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Vuistregel</div>
+        <p>Gebruik <strong>nooit meer dan twee lettertypes</strong> op één pagina.</p>
+      </div>
+
+      <h2 id="teksteffecten">8. Uitlijning en overige teksteffecten</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Uitlijning */
+p    { text-align: left; }    /* standaard — altijd voor lopende tekst */
+h1   { text-align: center; }  /* voor titels */
+
+/* Hoofdletters */
+h1 { text-transform: uppercase; }   /* ALLES IN HOOFDLETTERS */
+h2 { text-transform: capitalize; }  /* Eerste Letter Elk Woord */
+
+/* Letterafstand */
+h1 { letter-spacing: 0.05em; }
+
+/* Onderlijn */
+a  { text-decoration: none; }       /* verwijdert standaard onderlijning */</code></pre>
+      </div>
+
+      <div class="callout callout--danger">
+        <div class="callout-header">❌ Vermijd</div>
+        <p>Gebruik <code>text-align: justify</code> nooit op het web — het creëert lelijke, ongelijke spaties tussen woorden.</p>
+      </div>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 1 — Lettertypes koppelen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een HTML-pagina <code>artikel.html</code>:</p>
+            <ol>
+              <li>Koppel twee lettertypes van Google Fonts (heading + body naar keuze)</li>
+              <li>Schrijf een kort artikel (hoofding <code>h1</code>, twee <code>h2</code>-subkoppen, drie paragrafen)</li>
+              <li>Stel een typografisch systeem in via CSS: lettergrootte in rem, line-height, max-width op de tekstcontainer</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H16-oef1-browser.svg" alt="Browser-mockup: artikel met Google Fonts heading en body, correcte regellengte en regelafstand" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 2 — Typografische hiërarchie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een pagina <code>menu.html</code> voor een fictief restaurant:</p>
+            <ul>
+              <li>Restaurantnaam als <code>h1</code> (groot, uppercase, letter-spacing)</li>
+              <li>Secties als <code>h2</code> (Starters, Hoofdgerechten, Desserts)</li>
+              <li>Gerechten als <code>h3</code>, prijs rechts uitgelijnd</li>
+              <li>Beschrijving als <code>p</code> (kleiner, lichtgrijs)</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H16-oef2-browser.svg" alt="Browser-mockup: restaurantmenu met typografische hiërarchie" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Typografie
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H16-voorbeeld.svg', 'Voorbeeld — Typografisch systeem')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Typografisch systeem voor een blogpagina</h3>
+            <ol>
+              <li><strong>Deel 1 — Lettertypes (3 punten):</strong> Kies een lettertypepaar van Google Fonts. Koppel ze correct aan je HTML-bestand met de <code>preconnect</code>-hints. Gebruik het ene lettertype voor headings en het andere voor de bodytekst.</li>
+              <li><strong>Deel 2 — Typografisch systeem (3 punten):</strong> Stel in je CSS een volledig typografisch systeem in: <code>font-size</code> in rem voor alle niveaus, <code>line-height</code> voor tekst en headings, <code>max-width: 70ch</code> op de tekstcontainer.</li>
+              <li><strong>Deel 3 — Blogpagina (4 punten):</strong> Maak een pagina met een hoofdartikel. Gebruik de juiste hiërarchie (h1, h2, h3, p). Pas <code>letter-spacing</code> toe op de paginatitel en zorg voor een professioneel visueel resultaat.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H16 — Typografie</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke CSS-eenheid wordt aanbevolen voor lettergroottes op het web?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="a"> <span>px</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="b"> <span>pt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="c"> <span>rem</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="d"> <span>vh</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is de aanbevolen ideale regellengte voor lopende tekst?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="a"> <span>20–30 tekens per regel</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="b"> <span>50–90 tekens per regel, ideaal ~70</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="c"> <span>100–120 tekens per regel</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="d"> <span>Er is geen richtlijn voor regellengte</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Hoe stel je de ideale regellengte in met CSS?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="a"> <span>max-width: 70ch; op de tekstcontainer</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="b"> <span>line-length: 70; op de p-elementen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="c"> <span>text-wrap: 70ch; op de body</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="d"> <span>column-width: 70ch;</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke line-height is aanbevolen voor lopende tekst?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="a"> <span>1.0 (geen extra ruimte)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="b"> <span>24px (vaste waarde)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="c"> <span>2.5 (dubbele interlinie)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="d"> <span>1.5–1.7 (eenheidsloos getal)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is het maximale aanbevolen aantal lettertypes op één webpagina?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="a"> <span>1</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="b"> <span>2</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="c"> <span>4</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="d"> <span>Er is geen limiet</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welke text-align waarde moet je vermijden op het web?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="a"> <span>left</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="b"> <span>center</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="c"> <span>justify</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="d"> <span>right</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H16')" data-progress-key="5adb/app-ontwikkeling/H16">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H15.html" class="btn btn-ghost">← H15</a>
+          <a href="H17.html" class="btn btn-ghost">H17 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Introductie — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H08" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-css">8.1 Wat is CSS?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.2"><span class="sidebar-check__box"></span></label>
+          <a href="#de-css-regel">8.2 De CSS-regel</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.3"><span class="sidebar-check__box"></span></label>
+          <a href="#css-koppelen-aan-html">8.3 CSS koppelen aan HTML</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.4"><span class="sidebar-check__box"></span></label>
+          <a href="#overerving-in-css">8.4 Overerving in CSS</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.5"><span class="sidebar-check__box"></span></label>
+          <a href="#selectoren">8.5 Selectoren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.6"><span class="sidebar-check__box"></span></label>
+          <a href="#cascade-en-specificiteit">8.6 Cascade en specificiteit</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.7"><span class="sidebar-check__box"></span></label>
+          <a href="#developer-tools">8.7 Developer tools</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>CSS Introductie</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H08 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Introductie CSS</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat CSS is en waarvoor het dient</li>
+          <li>De onderdelen van een CSS-regel benoemen (selector, declaratieblok, eigenschap, waarde)</li>
+          <li>CSS op drie manieren koppelen aan HTML en de voorkeursmethode kiezen</li>
+          <li>Uitleggen wat overerving is in CSS</li>
+          <li>Element-, class- en ID-selectoren schrijven</li>
+          <li>Uitleggen hoe specificiteit werkt via de Star Wars-metafoor</li>
+          <li>De developer tools van de browser gebruiken om CSS te inspecteren</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-css">8.1 Wat is CSS?</h2>
+      <p>CSS staat voor <strong>Cascading Style Sheets</strong>. Het is een <strong>declaratieve taal</strong> die beschrijft hoe een HTML-document eruitziet in de browser.</p>
+      <p>Met CSS bepaal je:</p>
+      <ul>
+        <li><strong>Waar</strong> een element staat op de pagina</li>
+        <li><strong>Welk lettertype</strong> gebruikt wordt</li>
+        <li><strong>Hoe groot</strong> een element is</li>
+        <li><strong>Welke kleuren</strong> voorgrond en achtergrond hebben</li>
+        <li>Of iets in een <strong>raster</strong> staat</li>
+      </ul>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H08-afb1.svg" alt="Vergelijking: dezelfde HTML-pagina zonder CSS en met CSS" loading="lazy">
+      </figure>
+      <p><strong>Belangrijk verschil met HTML:</strong></p>
+      <ul>
+        <li>HTML beschrijft de <strong>inhoud en structuur</strong> ("dit is een kop", "dit is een alinea")</li>
+        <li>CSS beschrijft de <strong>vormgeving</strong> ("koppen zijn blauw en groot", "alinea's hebben deze lettergrootte")</li>
+      </ul>
+
+      <h2 id="de-css-regel">8.2 De CSS-regel</h2>
+      <p>Een CSS-stijlblad bestaat uit <strong>CSS-regels</strong>. Elke CSS-regel heeft twee delen:</p>
+      <ol>
+        <li>De <strong>selector</strong> — welk HTML-element wordt gestyled?</li>
+        <li>Het <strong>declaratieblok</strong> — hoe ziet het er uit?</li>
+      </ol>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">body {
+    font-family: georgia, serif;
+    color: #000;
+}</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H08-afb2.svg" alt="Anatomie van een CSS-regel: selector, declaratieblok, eigenschap, waarde" loading="lazy">
+      </figure>
+      <h3>De onderdelen</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Onderdeel</th><th>Voorbeeld</th><th>Uitleg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Selector</td><td><code>body</code></td><td>Selecteert het HTML-element dat gestyled wordt</td></tr>
+          <tr><td>Declaratieblok</td><td><code>{ ... }</code></td><td>Alles tussen de accolades</td></tr>
+          <tr><td>Eigenschap</td><td><code>font-family</code></td><td>Wat wordt gestyled?</td></tr>
+          <tr><td>Waarde</td><td><code>georgia, serif</code></td><td>Hoe wordt het gestyled?</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="css-koppelen-aan-html">8.3 CSS koppelen aan HTML</h2>
+      <p>Er zijn <strong>drie manieren</strong> om CSS te koppelen aan HTML.</p>
+      <h3>Methode 1 — Extern stijlbestand (aanbevolen)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mijn pagina&lt;/title&gt;
+  &lt;link rel="stylesheet" href="stijlblad.css"&gt;
+&lt;/head&gt;</code></pre>
+      </div>
+      <p><strong>Voordelen:</strong></p>
+      <ul>
+        <li>HTML en CSS zijn gescheiden — overzichtelijker</li>
+        <li>Alle pagina's van je site delen hetzelfde CSS-bestand → consistente opmaak</li>
+        <li>Het bestand wordt <strong>gecached</strong> — snellere browse-ervaring</li>
+        <li>Wil je de kleur van alle titels veranderen? Je past het <strong>op één plaats</strong> aan.</li>
+      </ul>
+      <h3>Methode 2 — Embedded stijlblad (soms nuttig)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;head&gt;
+  &lt;style&gt;
+    body {
+        font-family: georgia, serif;
+        color: #000;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+      </div>
+      <p><strong>Wanneer gebruiken?</strong> Als je maar één HTML-bestand hebt (bv. voor een snelle test).</p>
+      <h3>Methode 3 — Inline stijlinformatie (vermijd dit)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;h1 style="color: red; font-size: 2rem;"&gt;Mijn titel&lt;/h1&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Vuistregel</div>
+        <p>Gebruik altijd een extern CSS-bestand voor je projecten.</p>
+      </div>
+
+      <h2 id="overerving-in-css">8.4 Overerving in CSS</h2>
+      <p>In HTML spreken we over <strong>ouders en kinderen</strong>. Veel CSS-eigenschappen worden <strong>overgeërfd</strong> van ouder naar kind.</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}</code></pre>
+      </div>
+      <p>Alle tekst op je pagina — titels, alinea's, lijsten — gebruikt nu Arial en de kleur #333, tenzij je dat elders overschrijft.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Wordt overgeërfd</th><th>Wordt NIET overgeërfd</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>font-family</code></td><td><code>background-color</code></td></tr>
+          <tr><td><code>font-size</code></td><td><code>border</code></td></tr>
+          <tr><td><code>color</code></td><td><code>margin</code></td></tr>
+          <tr><td><code>line-height</code></td><td><code>padding</code></td></tr>
+          <tr><td><code>text-align</code></td><td><code>width</code>, <code>height</code></td></tr>
+        </tbody>
+      </table>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H08-afb3.svg" alt="Visueel schema van HTML-ouder-kind relaties en overerving" loading="lazy">
+      </figure>
+
+      <h2 id="selectoren">8.5 Selectoren</h2>
+      <h3>Element-selector</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">h1 {
+    color: navy;
+}
+
+p {
+    line-height: 1.6;
+}</code></pre>
+      </div>
+      <h3>Class-selector (<code>.</code>)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;p class="update"&gt;Het restaurant is gesloten wegens verbouwing.&lt;/p&gt;</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.update {
+    border: 2px solid orange;
+    background-color: #fff3cd;
+}</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Geef klassen namen op basis van <strong>betekenis</strong>, niet op basis van vormgeving. Goed: <code>class="update"</code>, <code>class="foutmelding"</code>. Slecht: <code>class="rode-rand"</code>, <code>class="groene-tekst"</code>.</p>
+      </div>
+      <h3>ID-selector (<code>#</code>)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">#hoofdmenu {
+    background-color: #1a1a2e;
+    padding: 1rem;
+}</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Selector</th><th>Voorbeeld</th><th>Hoeveel keer te gebruiken?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Element</td><td><code>p { }</code></td><td>Onbeperkt</td></tr>
+          <tr><td>Class</td><td><code>.update { }</code></td><td>Onbeperkt</td></tr>
+          <tr><td>ID</td><td><code>#hoofdmenu { }</code></td><td>Eén keer per pagina</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="cascade-en-specificiteit">8.6 Cascade en specificiteit</h2>
+      <p>De <strong>C</strong> van CSS staat voor <strong>Cascade</strong> (waterval). Het cascade-systeem regelt wat er gebeurt als meerdere CSS-regels van toepassing zijn op hetzelfde element.</p>
+      <h3>De Star Wars-metafoor</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Kracht</th><th>Star Wars</th><th>CSS</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zwakst</td><td>Stormtrooper</td><td>HTML-element-selector (<code>p</code>, <code>h1</code>, <code>div</code>)</td></tr>
+          <tr><td>Sterker</td><td>Darth Maul</td><td>Class-selector (<code>.update</code>)</td></tr>
+          <tr><td>Nog sterker</td><td>Darth Vader</td><td>ID-selector (<code>#hoofdmenu</code>)</td></tr>
+          <tr><td>Zeer sterk</td><td>De Keizer</td><td>Inline style (<code>style="..."</code>)</td></tr>
+          <tr><td>Almachtig</td><td>Death Star</td><td><code>!important</code> — gebruik dit NOOIT zomaar</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="developer-tools">8.7 Developer tools</h2>
+      <p>Elke browser heeft ingebouwde <strong>developer tools</strong>. Je opent ze door:</p>
+      <ul>
+        <li>Rechts te klikken op een element → "Inspecteren"</li>
+        <li>Of met de toetsencombinatie <strong>F12</strong></li>
+      </ul>
+      <p>Met de developer tools kan je:</p>
+      <ul>
+        <li>De HTML-structuur van een pagina bekijken</li>
+        <li>Zien welke CSS-regels van toepassing zijn op een element</li>
+        <li>Zien welke CSS-regels <strong>doorstreept</strong> zijn (overschreven door een specifiekere regel)</li>
+        <li>CSS tijdelijk aanpassen om te experimenteren</li>
+      </ul>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 1 — Eerste CSS-bestand</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een HTML-bestand <code>index.html</code> en een CSS-bestand <code>stijlblad.css</code>. Koppel ze via <code>&lt;link&gt;</code>.</p>
+            <p>Stijl de pagina:</p>
+            <ul>
+              <li><code>body</code>: lettertype Arial of sans-serif, tekstkleur <code>#333</code>, achtergrond <code>#f5f5f5</code></li>
+              <li><code>h1</code>: kleur marineblauw (<code>#003087</code>), grootte <code>2rem</code></li>
+              <li><code>p</code>: regelafstand <code>1.7</code></li>
+              <li><code>.uitgelicht</code>: een gele achtergrond en een lichtoranje rand</li>
+            </ul>
+            <p>Maak een HTML-pagina met twee alinea's, waarvan de eerste de klasse <code>uitgelicht</code> heeft.</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H08-oef1-browser.svg" alt="Browser-mockup: pagina met lichtgrijze achtergrond, blauwe h1, eerste alinea met gele achtergrond en oranje rand" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 2 — Specificiteit voorspellen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Gegeven de volgende HTML en CSS. Voorspel de kleur van elk element <strong>zonder de pagina in de browser te openen</strong>. Controleer daarna je antwoord.</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;style&gt;
+  p { color: blue; }
+  .rood { color: red; }
+  #speciaal { color: green; }
+  div p { color: orange; }
+&lt;/style&gt;
+
+&lt;div&gt;
+  &lt;p&gt;Alinea 1&lt;/p&gt;
+  &lt;p class="rood"&gt;Alinea 2&lt;/p&gt;
+  &lt;p id="speciaal"&gt;Alinea 3&lt;/p&gt;
+  &lt;p id="speciaal" class="rood"&gt;Alinea 4&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H08 Introductie CSS<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H08-oef1-browser.svg', 'Voorbeeld — Webpagina met CSS opmaak')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+          <h3>Opdracht: Stijl geven aan de receptenpagina</h3>
+          <p>Je koppelt voor het eerst een extern CSS-bestand aan je <code>recept.html</code> van H02 (of een soortgelijke pagina) en schrijft je eerste CSS-regels.</p>
+          <h4>Startbestand</h4>
+          <p>Gebruik je <code>recept.html</code> van H02, of maak een nieuw bestand <code>recept.html</code> met minstens:</p>
+          <ul>
+            <li>Een <code>&lt;h1&gt;</code>, twee <code>&lt;h2&gt;</code>-elementen, twee <code>&lt;p&gt;</code>-elementen en een <code>&lt;ul&gt;</code>.</li>
+          </ul>
+          <h4>Deel 1 — CSS koppelen (3 punten)</h4>
+          <ol>
+            <li>Maak een nieuw bestand <code>stijl.css</code> aan in dezelfde map als je HTML-bestand.</li>
+            <li>Koppel het CSS-bestand correct aan je HTML via een <code>&lt;link&gt;</code>-element in de <code>&lt;head&gt;</code>.</li>
+            <li>Voeg ook één inline stijl toe aan een <code>&lt;p&gt;</code>-element: <code>style="font-style: italic;"</code> — alleen om te laten zien dat je het verschil kent.</li>
+            <li>Voeg ook één interne stijl toe in een <code>&lt;style&gt;</code>-tag in de <code>&lt;head&gt;</code>: <code>body { margin: 0; }</code> — en leg in een commentaar uit waarom je normaal GEEN interne stijlen gebruikt.</li>
+          </ol>
+          <h4>Deel 2 — CSS-regels schrijven (4 punten)</h4>
+          <p>Schrijf de volgende regels in <code>stijl.css</code>:</p>
+          <ol>
+            <li>Geef de <code>&lt;body&gt;</code> een <code>font-family: Arial, sans-serif;</code></li>
+            <li>Geef de <code>&lt;h1&gt;</code> een <code>color</code> naar keuze (gebruik een kleurwoord, bv. <code>darkblue</code>)</li>
+            <li>Geef alle <code>&lt;h2&gt;</code>-elementen een <code>color</code> naar keuze</li>
+            <li>Geef de <code>&lt;p&gt;</code>-elementen een <code>line-height: 1.6;</code></li>
+            <li>Geef de <code>&lt;ul&gt;</code> een <code>background-color</code> naar keuze</li>
+          </ol>
+          <h4>Deel 3 — Cascade en volgorde (3 punten)</h4>
+          <ol>
+            <li>Schrijf in <code>stijl.css</code> twee conflicterende regels voor <code>&lt;h1&gt;</code>:</li>
+          </ol>
+          <ol>
+            <li>Voeg een inline stijl toe aan je <code>&lt;h1&gt;</code>: <code>style="color: green;"</code>. Welke kleur wint nu? Schrijf het antwoord als commentaar.</li>
+          </ol>
+          <ol>
+            <li>Verwijder de inline stijl daarna weer — je pagina moet er netjes uitzien.</li>
+          </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H08 — CSS Introductie</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat staat de C in CSS voor?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="a"> <span>Computer</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="b"> <span>Cascading</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="c"> <span>Color</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="d"> <span>Creative</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke methode om CSS te koppelen aan HTML heeft de voorkeur?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="a"> <span>Extern stijlbestand via <code>&lt;link&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="b"> <span>Embedded via <code>&lt;style&gt;</code> in de <code>&lt;head&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="c"> <span>Inline via het <code>style</code>-attribuut op elk element</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="d"> <span>Alle drie zijn even goed</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke CSS-eigenschap wordt NIET overgeërfd van ouder naar kind?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="a"> <span><code>font-family</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="b"> <span><code>color</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="c"> <span><code>border</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="d"> <span><code>line-height</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">In de Star Wars-metafoor: welke selector is de "Stormtrooper" (zwakste kracht)?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="a"> <span>ID-selector (<code>#naam</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="b"> <span>Class-selector (<code>.klasse</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="c"> <span>Inline style (<code>style="..."</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="d"> <span>Element-selector (<code>p</code>, <code>h1</code>)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Hoe open je de developer tools in de browser?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="a"> <span>Via het menu Bestand → Developer Tools</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="b"> <span>Rechts klikken op een element en "Inspecteren" kiezen, of F12</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="c"> <span>Via Ctrl+D</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="d"> <span>Je moet een extensie installeren</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe schrijf je een class-selector voor een klasse "uitgelicht" in CSS?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="a"> <span><code>.uitgelicht { }</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="b"> <span><code>#uitgelicht { }</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="c"> <span><code>uitgelicht { }</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="d"> <span><code>*uitgelicht { }</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H08')" data-progress-key="5adb/app-ontwikkeling/H08">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H07.html" class="btn btn-ghost">← H07</a> <a href="H09.html" class="btn btn-ghost">H09 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

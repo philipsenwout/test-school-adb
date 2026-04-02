@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H08 &mdash; Transportlaag: TCP en UDP &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Transportlaag: TCP en UDP &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H08</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-8-transportlaag-tcp-en-udp">Hoofdstuk 8 — Transportlaag: TCP en UDP</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#81-de-transportlaag">8.1 De transportlaag</a></li><li><a href="#82-poortnummers">8.2 Poortnummers</a></li><li><a href="#83-tcp-betrouwbaar-maar-iets-trager">8.3 TCP — betrouwbaar maar iets trager</a></li><li><a href="#84-udp-snel-maar-zonder-garanties">8.4 UDP — snel maar zonder garanties</a></li><li><a href="#85-tcp-vs-udp-vergelijking">8.5 TCP vs UDP — vergelijking</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h08" style="padding-left:1.25rem">Huistaak H08</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H08 &mdash; Transportlaag: TCP en UDP</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-8-transportlaag-tcp-en-udp">Hoofdstuk 8 — Transportlaag: TCP en UDP</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v2.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>3 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>het doel van de transportlaag beschrijven</li>
+<li>het verschil uitleggen tussen TCP (betrouwbaar) en UDP (snel)</li>
+<li>de meest gebruikte poortnummers herkennen</li>
+<li>voor een gegeven toepassing de juiste keuze maken tussen TCP en UDP</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span></div>
+<h2 id="81-de-transportlaag">8.1 De transportlaag</h2>
+<p>De transportlaag (OSI Laag 4) zorgt ervoor dat data bij de <strong>juiste toepassing</strong> aankomt. Het IP-adres zegt welke computer het is; het <strong>poortnummer</strong> zegt welk programma op die computer.</p>
+<p><strong>Voorbeeld:</strong> Als je tegelijk een website bezoekt en een Teams-gesprek hebt, weet je computer welke data bij je browser hoort en welke bij Teams — dankzij de poortnummers.</p>
+<h2 id="82-poortnummers">8.2 Poortnummers</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een poortnummer is een getal dat een specifieke toepassing op een computer identificeert. Samen met het IP-adres weet het netwerk precies waar data naartoe moet.</p>
+</div>
+<p><strong>Meest gebruikte poortnummers (handig om te kennen):</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Poort</th><th>Dienst</th><th>Protocol</th></tr></thead><tbody>
+<tr><td>80</td><td>HTTP (websites)</td><td>TCP</td></tr>
+<tr><td>443</td><td>HTTPS (veilige websites)</td><td>TCP</td></tr>
+<tr><td>22</td><td>SSH (veilige verbinding op afstand)</td><td>TCP</td></tr>
+<tr><td>53</td><td>DNS (domeinnamen opzoeken)</td><td>TCP/UDP</td></tr>
+<tr><td>67/68</td><td>DHCP (automatisch IP-adres)</td><td>UDP</td></tr>
+</tbody></table></div>
+<h2 id="83-tcp-betrouwbaar-maar-iets-trager">8.3 TCP — betrouwbaar maar iets trager</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>TCP (Transmission Control Protocol) is een verbindingsgericht protocol. Het zorgt ervoor dat alle data aankomt, in de juiste volgorde, zonder fouten.</p>
+</div>
+<p><strong>Hoe TCP een verbinding opstart — de three-way handshake:</strong></p>
+<p>Voordat TCP data verstuurt, geven client en server elkaar een "teken":</p>
+<pre data-lang=""><code>
+Client                    Server
+  |                          |
+  |------ SYN ------------&gt; |   "Mag ik verbinden?"
+  |                          |
+  |&lt;----- SYN-ACK --------- |   "Ja, mag. Ik ook?"
+  |                          |
+  |------ ACK ------------&gt; |   "Akkoord!"
+  |                          |
+  |&lt;====== Data ============&gt;|
+</code></pre>
+<ul>
+<li><strong>SYN</strong> = "Ik wil verbinden"</li>
+<li><strong>SYN-ACK</strong> = "Begrepen, ik ook"</li>
+<li><strong>ACK</strong> = "OK, we zijn verbonden"</li>
+</ul>
+<p>!<a href="../../images/H08-tcp-handshake.png" target="_blank" rel="noopener">TCP three-way handshake</a></p>
+<p><em>Figuur 8.1 — De drie stappen van een TCP-verbinding</em></p>
+<p><strong>Wanneer kies je TCP?</strong></p>
+<ul>
+<li>Websites laden (HTTP/HTTPS)</li>
+<li>E-mail versturen</li>
+<li>Bestanden kopiëren</li>
+<li>SSH-verbinding</li>
+</ul>
+<h2 id="84-udp-snel-maar-zonder-garanties">8.4 UDP — snel maar zonder garanties</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>UDP (User Datagram Protocol) is een verbindingsloos protocol. Het verstuurt data zo snel mogelijk, zonder te controleren of alles aankomt.</p>
+</div>
+<p>UDP stuurt data gewoon weg — geen handshake, geen bevestiging. Als een pakket verloren gaat, wordt het niet opnieuw verstuurd.</p>
+<p><strong>Wanneer kies je UDP?</strong></p>
+<ul>
+<li>Videobellen (Teams, Zoom)</li>
+<li>Muziek/video streamen</li>
+<li>Online games</li>
+<li>DNS-opzoekingen</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Bij een Teams-gesprek merk je een hapering als een pakket verloren gaat. Dat is UDP in actie: het gaat gewoon verder. Bij TCP zou je wachten tot het pakket opnieuw verstuurd is — te laat voor een live gesprek.</p>
+</div>
+<h2 id="85-tcp-vs-udp-vergelijking">8.5 TCP vs UDP — vergelijking</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>TCP</th><th>UDP</th></tr></thead><tbody>
+<tr><td>Verbinding opzetten</td><td>Ja (handshake)</td><td>Nee</td></tr>
+<tr><td>Betrouwbaarheid</td><td>Ja</td><td>Nee</td></tr>
+<tr><td>Snelheid</td><td>Iets trager</td><td>Snel</td></tr>
+<tr><td>Gebruik</td><td>Web, e-mail, SSH, bestanden</td><td>Streaming, gaming, VoIP, DNS</td></tr>
+</tbody></table></div>
+<p>!<a href="../../images/H08-tcp-vs-udp.png" target="_blank" rel="noopener">TCP vs UDP vergelijking</a></p>
+<p><em>Figuur 8.2 — Vergelijking TCP (betrouwbaar) en UDP (snel)</em></p>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Je laadt een webpagina via HTTPS. Eén gemist pakket = de pagina laadt niet correct. Dus: <strong>TCP</strong> — betrouwbaarheid is hier het belangrijkste.</p>
+<p>Je speelt een online game. Een gemist pakket = een lichte hapering die vanzelf herstelt. Latency (vertraging) is hier het grootste probleem. Dus: <strong>UDP</strong> — snelheid primeert.</p>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Je bezoekt <code>https://www.school.be</code>. Je browser maakt een verbinding naar poort <strong>443</strong> (HTTPS) op de server van de school. Tegelijk doet je computer een DNS-opzoeking op poort <strong>53</strong> (UDP) om het IP-adres van <code>www.school.be</code> te vinden.</p>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h08-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 8.1</span>
+    <span class="oefening__title">TCP of UDP kiezen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Voor elk type toepassing moet je weten of TCP of UDP het meest geschikt is. Denk aan de prioriteiten: betrouwbaarheid vs. snelheid.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk protocol gebruik je voor het laden van een beveiligde website (HTTPS)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v1" value="a"><span>TCP — betrouwbaarheid is hier het belangrijkste</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v1" value="b"><span>UDP — snelheid primeert bij websites</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v1" value="c"><span>Beide TCP en UDP gelijkwaardig</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="TCP — bij het laden van een website mag geen enkel pakket verloren gaan, dus betrouwbaarheid primeert"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Je voert een live Teams-videogesprek. Welk protocol gebruikt Teams hiervoor en waarom?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v2" value="a"><span>TCP — om te garanderen dat elke video-frame aankomt</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v2" value="b"><span>UDP — snelheid primeert; een gemiste frame is beter dan vertraging</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v2" value="c"><span>HTTP — videogesprekken verlopen altijd via HTTP</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="UDP — bij live communicatie is snelheid belangrijker dan perfecte volledigheid; een hapering is beter dan stilstand"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke twee toepassingen gebruiken UDP? (Kies de juiste combinatie)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v3" value="a"><span>E-mail versturen en SSH-verbinding</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v3" value="b"><span>Bestanden downloaden en websites laden</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v3" value="c"><span>DNS-opzoeking en DHCP-adres aanvragen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="DNS-opzoeking (poort 53) en DHCP (poort 67/68) gebruiken beide UDP — snelle éénmalige verzoeken waarbij herverbinding te traag zou zijn"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is de three-way handshake van TCP?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v4" value="a"><span>DATA → ACK → FIN — de drie stappen om data te bevestigen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v4" value="b"><span>SYN → SYN-ACK → ACK — de drie stappen om een verbinding op te zetten</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-1-v4" value="c"><span>DISCOVER → OFFER → ACK — de drie stappen van een DHCP-verbinding</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SYN → SYN-ACK → ACK: de client vraagt te verbinden (SYN), de server bevestigt en vraagt ook (SYN-ACK), de client bevestigt (ACK)"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h08-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 8.2</span>
+    <span class="oefening__title">Poortnummers herkennen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Koppel elk poortnummer aan de juiste netwerkdienst. Bestudeer de tabel in sectie 8.2 van de cursus.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke dienst gebruikt poort 443?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-2-v1" value="a"><span>HTTP</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-2-v1" value="b"><span>HTTPS</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-2-v1" value="c"><span>SSH</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-2-v1" value="d"><span>DNS</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="HTTPS gebruikt poort 443 — beveiligde websites met TLS-encryptie"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="22">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Op welk poortnummer luistert een SSH-server?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het poortnummer...">
+      <div class="vraag__feedback" data-correct-label="SSH gebruikt poort 22 (TCP)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">DNS gebruikt poort 53. Op welke transportprotocollen werkt DNS?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-2-v3" value="a"><span>Alleen TCP</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-2-v3" value="b"><span>Alleen UDP</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h08-2-v3" value="c"><span>Zowel TCP als UDP</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="DNS werkt op zowel TCP als UDP via poort 53 — kleine opzoekingen via UDP, grote antwoorden via TCP"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="80">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welk poortnummer gebruikt onversleuteld HTTP?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het poortnummer...">
+      <div class="vraag__feedback" data-correct-label="HTTP gebruikt poort 80 (TCP) — dit is het verouderde, onversleutelde webprotocol"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>De transportlaag gebruikt poortnummers om data bij de juiste toepassing te brengen.</li>
+<li><strong>TCP</strong>: verbindingsgericht, betrouwbaar, three-way handshake (SYN → SYN-ACK → ACK). Gebruikt voor web, e-mail, bestanden.</li>
+<li><strong>UDP</strong>: verbindingsloos, snel, geen garanties. Gebruikt voor streaming, gaming, VoIP, DNS.</li>
+<li>Belangrijkste poorten: HTTP=80, HTTPS=443, SSH=22, DNS=53, DHCP=67/68.</li>
+</ul>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h08">Huistaak H08</h3>
+<p>Kijk op je eigen computer welke programma's het netwerk gebruiken.</p>
+<p><strong>Windows:</strong> Open de opdrachtprompt en typ <code>netstat -n</code>. Je ziet actieve verbindingen.</p>
+<ol>
+<li>Noteer 3 actieve verbindingen die je ziet. Schrijf per verbinding op:</li>
+</ol>
+<p>   - Het externe IP-adres en poort</p>
+<p>   - Is het TCP of UDP?</p>
+<p>   - Welke dienst is dit waarschijnlijk? (kijk naar de poortnummer)</p>
+<ol>
+<li>Leg in eigen woorden uit waarom je browser TCP gebruikt en niet UDP.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H08-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 8 — 5e jaar DAB — v2.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H08">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H07.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H07 &mdash; Subnetting</span></div></a>
+          <a href="H09.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H09 &mdash; Toepassingslaag: protocollen</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

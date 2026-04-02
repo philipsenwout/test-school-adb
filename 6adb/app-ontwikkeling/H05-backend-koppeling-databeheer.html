@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 &mdash; Backend koppeling met Databeheer &mdash; App-ontwikkeling 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">App-ontwikkeling</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H05</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Client-server architectuur</a></li>
+        <li><a href="#s2">2. MySQL instellen</a></li>
+        <li><a href="#s3">3. Express + mysql2</a>
+          <ul>
+            <li><a href="#s3-1">3.1 Verbinding maken</a></li>
+            <li><a href="#s3-2">3.2 GET route met query</a></li>
+            <li><a href="#s3-3">3.3 POST route met INSERT</a></li>
+          </ul>
+        </li>
+        <li><a href="#s4">4. Foutafhandeling</a></li>
+        <li><a href="#s5">5. Volledige CRUD API</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-app">
+      <div class="page-header__vak">&#128187; App-ontwikkeling &mdash; H05</div>
+      <h1 class="page-header__title">Backend koppeling met Databeheer</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">6 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-APP-17] Express API koppelen aan een MySQL-database &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Client-server architectuur</h2>
+    <p>In een volledige webapplicatie werken drie lagen samen:</p>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Laag</th><th>Technologie</th><th>Verantwoordelijkheid</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Front-end (client)</strong></td><td>HTML, CSS, JavaScript (browser)</td><td>Wat de gebruiker ziet en interageert</td></tr>
+        <tr><td><strong>Back-end (server)</strong></td><td>Node.js + Express</td><td>Businesslogica, API-endpoints, beveiliging</td></tr>
+        <tr><td><strong>Database</strong></td><td>MySQL</td><td>Gegevens opslaan en ophalen</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>De communicatie verloopt als volgt: Browser &rarr; HTTP-aanvraag &rarr; Express (Node.js) &rarr; SQL-query &rarr; MySQL &rarr; resultaat terug naar Express &rarr; JSON-antwoord &rarr; Browser.</p>
+
+    <h2 id="s2">2. MySQL instellen</h2>
+    <p>We gebruiken de database uit Databeheer. Maak eerst een testdatabase aan:</p>
+    <pre><code>-- SQL (MySQL Workbench of terminal)
+CREATE DATABASE winkel_db;
+USE winkel_db;
+
+CREATE TABLE producten (
+  id       INT AUTO_INCREMENT PRIMARY KEY,
+  naam     VARCHAR(100) NOT NULL,
+  prijs    DECIMAL(10,2) NOT NULL,
+  voorraad INT DEFAULT 0
+);
+
+INSERT INTO producten (naam, prijs, voorraad) VALUES
+  ('Laptop',  999.00, 10),
+  ('Muis',     24.99, 50),
+  ('Monitor', 349.00, 15);</code></pre>
+
+    <h2 id="s3">3. Express koppelen aan MySQL via mysql2</h2>
+    <pre><code># Package installeren
+npm install mysql2</code></pre>
+
+    <h3 id="s3-1">3.1 Verbinding maken</h3>
+    <pre><code>// db.js — databaseverbinding
+const mysql = require("mysql2/promise");
+
+const pool = mysql.createPool({
+  host:     "localhost",
+  user:     "root",
+  password: "jouw_wachtwoord",
+  database: "winkel_db",
+  waitForConnections: true,
+  connectionLimit:    10
+});
+
+module.exports = pool;</code></pre>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Connection pool vs. enkele verbinding</div>
+      <p>Een <strong>pool</strong> beheert meerdere databaseverbindingen tegelijk. Wanneer meerdere gebruikers tegelijk je API aanvragen, wordt elke aanvraag bediend door een beschikbare verbinding uit de pool. Dit is effici&euml;nter dan telkens een nieuwe verbinding openen.</p>
+    </div>
+
+    <h3 id="s3-2">3.2 GET route: data ophalen</h3>
+    <pre><code>// index.js
+const express = require("express");
+const pool    = require("./db");
+const app     = express();
+app.use(express.json());
+
+// GET alle producten
+app.get("/api/producten", async (req, res) => {
+  try {
+    const [rijen] = await pool.query("SELECT * FROM producten");
+    res.json(rijen);
+  } catch (fout) {
+    console.error(fout);
+    res.status(500).json({ fout: "Databasefout" });
+  }
+});
+
+// GET &eacute;&eacute;n product op ID
+app.get("/api/producten/:id", async (req, res) => {
+  try {
+    const [rijen] = await pool.query(
+      "SELECT * FROM producten WHERE id = ?",
+      [req.params.id]  // geparametriseerde query — voorkomt SQL-injectie
+    );
+    if (rijen.length === 0) {
+      return res.status(404).json({ fout: "Product niet gevonden" });
+    }
+    res.json(rijen[0]);
+  } catch (fout) {
+    res.status(500).json({ fout: "Databasefout" });
+  }
+});</code></pre>
+
+    <h3 id="s3-3">3.3 POST route: nieuw record invoegen</h3>
+    <pre><code>// POST nieuw product
+app.post("/api/producten", async (req, res) => {
+  const { naam, prijs, voorraad = 0 } = req.body;
+
+  if (!naam || prijs === undefined) {
+    return res.status(400).json({ fout: "naam en prijs zijn verplicht" });
+  }
+
+  try {
+    const [resultaat] = await pool.query(
+      "INSERT INTO producten (naam, prijs, voorraad) VALUES (?, ?, ?)",
+      [naam, prijs, voorraad]
+    );
+    res.status(201).json({
+      id: resultaat.insertId,
+      naam, prijs, voorraad
+    });
+  } catch (fout) {
+    res.status(500).json({ fout: "Kon product niet opslaan" });
+  }
+});</code></pre>
+
+    <h2 id="s4">4. Foutafhandeling</h2>
+    <div class="callout callout--tip">
+      <div class="callout__title">Altijd geparametriseerde queries!</div>
+      <p>Gebruik <strong>nooit</strong> string-concatenatie in SQL-queries: <code>"SELECT * FROM users WHERE naam = '" + naam + "'"</code>. Dit opent de deur voor SQL-injectie. Gebruik altijd vraagtekens als placeholders en geef de waarden als array mee: <code>pool.query("... WHERE naam = ?", [naam])</code>.</p>
+    </div>
+    <pre><code>// Globale foutafhandeling (zet onderaan, na alle routes)
+app.use((fout, req, res, next) => {
+  console.error("Onbehandelde fout:", fout.stack);
+  res.status(500).json({
+    fout: "Er is een interne serverfout opgetreden",
+    detail: process.env.NODE_ENV === "development" ? fout.message : undefined
+  });
+});</code></pre>
+
+    <h2 id="s5">5. Volledige CRUD API</h2>
+    <pre><code>// PUT: product bijwerken
+app.put("/api/producten/:id", async (req, res) => {
+  const { naam, prijs, voorraad } = req.body;
+  try {
+    const [resultaat] = await pool.query(
+      "UPDATE producten SET naam=?, prijs=?, voorraad=? WHERE id=?",
+      [naam, prijs, voorraad, req.params.id]
+    );
+    if (resultaat.affectedRows === 0) {
+      return res.status(404).json({ fout: "Niet gevonden" });
+    }
+    res.json({ id: parseInt(req.params.id), naam, prijs, voorraad });
+  } catch (fout) {
+    res.status(500).json({ fout: "Bijwerken mislukt" });
+  }
+});
+
+// DELETE: product verwijderen
+app.delete("/api/producten/:id", async (req, res) => {
+  try {
+    const [resultaat] = await pool.query(
+      "DELETE FROM producten WHERE id = ?",
+      [req.params.id]
+    );
+    if (resultaat.affectedRows === 0) {
+      return res.status(404).json({ fout: "Niet gevonden" });
+    }
+    res.status(204).send();
+  } catch (fout) {
+    res.status(500).json({ fout: "Verwijderen mislukt" });
+  }
+});
+
+app.listen(3000, () => console.log("API draait op poort 3000"));</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="app6-h05-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 5.1</span>
+        <span class="oefening__title">Express koppelen aan MySQL</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van de koppeling tussen een Express-server en een MySQL-database via de mysql2-bibliotheek.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Waarom gebruik je een <strong>connection pool</strong> in plaats van telkens een nieuwe verbinding te openen?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Een pool is verplicht in mysql2, je kan geen enkele verbinding gebruiken</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Een pool hergebruikt bestaande verbindingen zodat meerdere gelijktijdige requests efficiënt afgehandeld worden</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Een pool beveiligt automatisch alle queries tegen SQL-injectie</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Een pool versleutelt alle data tussen Node.js en MySQL</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Een connection pool beheert meerdere open verbindingen. Bij gelijktijdige requests wordt een beschikbare verbinding uit de pool gehaald — efficiënter dan telkens verbinden en verbreken."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="sql-injectie|sql injection|sql injectie">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Hoe heet de aanval waarbij kwaadaardige SQL-code in een invoerveld wordt geplaatst om ongeoorloofde toegang tot de database te krijgen?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het antwoord...">
+          <div class="vraag__feedback" data-correct-label="SQL-injectie — gebruik altijd geparametriseerde queries met ? als placeholder om dit te voorkomen."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Na een <code>pool.query("UPDATE producten SET prijs=? WHERE id=?", [prijs, id])</code> — hoe weet je of er een record bijgewerkt werd?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Via <code>resultaat.count</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Via <code>resultaat.rows</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Via <code>resultaat.affectedRows</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Via <code>resultaat.updatedRows</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="resultaat.affectedRows — geeft aan hoeveel rijen werden bijgewerkt. Als het 0 is, bestond het record niet en stuur je een 404-response."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,b,d">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Welke best practices zijn verplicht bij Express + MySQL routes?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span>Geparametriseerde queries gebruiken (<code>?</code> als placeholder)</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span><code>try/catch</code> gebruiken in alle async route-handlers</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span>Databasewachtwoord hardcoded in de source code zetten voor leesbaarheid</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span>404 teruggeven als een gevraagd record niet bestaat</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="A, B en D zijn correcte best practices. Het wachtwoord nooit hardcoded opslaan — gebruik een .env-bestand."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="app6-h05-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 5.2</span>
+        <span class="oefening__title">Drie-lagenarchitectuur</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je begrip van de client-server-database architectuur en de communicatie tussen de lagen.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">In de drie-lagenarchitectuur (client – server – database): welke laag bevat de businesslogica en de API-endpoints?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Front-end (browser)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Back-end (Express/Node.js)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Database (MySQL)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>CDN (Content Delivery Network)</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Back-end (Node.js + Express) — bevat de businesslogica, API-endpoints, validatie en de koppeling met de database. De front-end toont data, de database slaat ze op."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="insertid|insertId|resultaat.insertId">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Na een succesvolle INSERT in mysql2 — via welke property van het resultaat-object haal je het automatisch gegenereerde ID op?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de property-naam...">
+          <div class="vraag__feedback" data-correct-label="resultaat.insertId — geeft het AUTO_INCREMENT ID terug van het zojuist ingevoegde record."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Je front-end doet een <code>fetch("http://localhost:3000/api/producten")</code>. De browser blokkeert dit. Wat is het probleem?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>De URL is te lang</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>fetch() werkt niet op localhost</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>De Express-server is niet gestart</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>CORS — de browser blokkeert requests van een andere origin zonder de juiste headers</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="CORS (Cross-Origin Resource Sharing) — je front-end en back-end draaien op een andere poort of domein. Voeg de CORS-headers toe in Express via app.use(...) of de cors-package."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Client (browser) &rarr; HTTP &rarr; Express (Node.js) &rarr; SQL &rarr; MySQL.</li>
+        <li><code>mysql2/promise</code>: gebruik een <strong>pool</strong> voor meerdere verbindingen.</li>
+        <li>Geparametriseerde queries (<code>?</code>-placeholders) voorkomen SQL-injectie.</li>
+        <li><code>pool.query(sql, [params])</code> geeft <code>[rijen, velden]</code> terug via destructuring.</li>
+        <li>Controleer altijd <code>affectedRows</code> bij UPDATE/DELETE om 404 te geven als niets gevonden.</li>
+        <li>Gebruik altijd <code>try/catch</code> in async route-handlers.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H05</h2>
+    <p>Bouw een "bibliotheek-API" met de volgende vereisten:</p>
+    <ol>
+      <li>Database met tabel <code>boeken</code>: id, titel, auteur, jaar, beschikbaar (boolean).</li>
+      <li>Volledige CRUD API in Express + mysql2.</li>
+      <li>Extra route <code>GET /api/boeken/beschikbaar</code>: enkel beschikbare boeken.</li>
+      <li>Route <code>PATCH /api/boeken/:id/uitlenen</code>: zet <code>beschikbaar</code> op false.</li>
+      <li>Route <code>PATCH /api/boeken/:id/teruggeven</code>: zet <code>beschikbaar</code> op true.</li>
+      <li>Maak een eenvoudige HTML-pagina die de beschikbare boeken toont.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/app-ontwikkeling/H05">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H04-python-scripting.html" class="btn btn-secondary">&larr; H04 &mdash; Python scripting</a>
+      <a href="H06-gip-voorbereiding.html" class="btn btn-secondary">H06 &mdash; GIP-voorbereiding &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

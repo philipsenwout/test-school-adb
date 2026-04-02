@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 &mdash; Linux en Python verdieping &mdash; E-STEM 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H02</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Python recap</a></li>
+        <li><a href="#s2">2. Flask installatie</a></li>
+        <li><a href="#s3">3. Flask basis-app</a></li>
+        <li><a href="#s4">4. Cron jobs</a></li>
+        <li><a href="#s5">5. systemd service</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-estem">
+      <div class="page-header__vak">&#9881; E-STEM &mdash; H02</div>
+      <h1 class="page-header__title">Linux en Python verdieping</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">5 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-ES-06] Flask webserver bouwen op Raspberry Pi &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Python functies en modules recap</h2>
+    <p>Alvorens Flask te bouwen, herhalen we hoe we Python-code netjes organiseren:</p>
+    <pre><code># sensor.py — apart module-bestand
+import random
+
+def lees_temperatuur():
+    """Simuleer een temperatuursensor (in productie: echte sensor)."""
+    return round(random.uniform(18.0, 26.0), 1)
+
+def lees_luchtvochtigheid():
+    return round(random.uniform(40.0, 80.0), 1)
+
+# app.py — hoofdprogramma
+from sensor import lees_temperatuur, lees_luchtvochtigheid
+
+temp  = lees_temperatuur()
+vocht = lees_luchtvochtigheid()
+print(f"Temperatuur: {temp}°C, Luchtvochtigheid: {vocht}%")</code></pre>
+
+    <h2 id="s2">2. Flask installatie op de Raspberry Pi</h2>
+    <p><strong>Flask</strong> is een lichtgewicht Python-webframework. We installeren het in een <em>virtual environment</em> (afgesloten Python-omgeving):</p>
+    <pre><code># Virtual environment aanmaken (eenmalig)
+python3 -m venv venv
+
+# Virtual environment activeren
+source venv/bin/activate    # Linux/Mac
+# (venv) verschijnt nu in de terminal
+
+# Flask installeren
+pip install flask
+
+# Virtual environment deactiveren
+deactivate</code></pre>
+    <div class="callout callout--tip">
+      <div class="callout__title">Waarom een virtual environment?</div>
+      <p>Een virtual environment isoleert de packages van een project van de rest van het systeem. Zo voorkom je conflicten tussen projecten die verschillende versies van hetzelfde package nodig hebben.</p>
+    </div>
+
+    <h2 id="s3">3. Flask basis-app</h2>
+    <pre><code># app.py
+from flask import Flask, jsonify, render_template
+import random
+import datetime
+
+app = Flask(__name__)
+
+# Route: HTML-pagina
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+# Route: JSON API-endpoint
+@app.route("/api/sensor")
+def sensor_data():
+    data = {
+        "temperatuur":     round(random.uniform(18.0, 26.0), 1),
+        "luchtvochtigheid": round(random.uniform(40.0, 80.0), 1),
+        "tijdstip":        datetime.datetime.now().isoformat()
+    }
+    return jsonify(data)
+
+# Route met parameter
+@app.route("/api/sensor/&lt;int:aantal&gt;")
+def meerdere_metingen(aantal):
+    metingen = []
+    for _ in range(min(aantal, 100)):   # max 100
+        metingen.append({
+            "temperatuur": round(random.uniform(18.0, 26.0), 1),
+            "tijdstip":    datetime.datetime.now().isoformat()
+        })
+    return jsonify(metingen)
+
+if __name__ == "__main__":
+    # host="0.0.0.0" zorgt dat de server bereikbaar is vanop het netwerk
+    app.run(host="0.0.0.0", port=5000, debug=False)</code></pre>
+
+    <p>HTML-template aanmaken (<code>templates/index.html</code>):</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Raspberry Pi Dashboard&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Sensordata&lt;/h1&gt;
+  &lt;div id="data"&gt;Laden...&lt;/div&gt;
+  &lt;script&gt;
+    async function update() {
+      const resp = await fetch("/api/sensor");
+      const d = await resp.json();
+      document.getElementById("data").innerHTML =
+        `Temperatuur: ${d.temperatuur}°C | Vochtigheid: ${d.luchtvochtigheid}%`;
+    }
+    update();
+    setInterval(update, 5000);  // elke 5 seconden vernieuwen
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <pre><code># Flask starten
+source venv/bin/activate
+python app.py
+
+# Bezoek vanop een andere computer in hetzelfde netwerk:
+# http://&lt;IP-van-Pi&gt;:5000</code></pre>
+
+    <h2 id="s4">4. Cron jobs op Linux</h2>
+    <p>Een <strong>cron job</strong> is een automatisch gepland script dat op vaste tijdstippen uitgevoerd wordt.</p>
+    <pre><code># Crontab bewerken
+crontab -e
+
+# Formaat: min uur dag-v-maand maand dag-v-week commando
+# *  = elk/elke
+
+# Elke minuut
+* * * * * python3 /home/pi/sensor_log.py
+
+# Elke dag om 08:30
+30 8 * * * python3 /home/pi/dagrapport.py
+
+# Elke maandag om 09:00
+0 9 * * 1 python3 /home/pi/weekrapport.py
+
+# Elke 15 minuten
+*/15 * * * * python3 /home/pi/sensor_log.py
+
+# Logs opslaan (>> = toevoegen aan bestand)
+*/5 * * * * python3 /home/pi/sensor_log.py >> /home/pi/logs/sensor.log 2>&amp;1</code></pre>
+    <pre><code># sensor_log.py — script dat door cron uitgevoerd wordt
+import datetime
+import json
+
+def log_meting():
+    meting = {
+        "tijdstip":    datetime.datetime.now().isoformat(),
+        "temperatuur": 22.5   # in productie: echte sensor
+    }
+    with open("/home/pi/data/metingen.jsonl", "a") as f:
+        f.write(json.dumps(meting) + "\n")
+
+if __name__ == "__main__":
+    log_meting()</code></pre>
+
+    <h2 id="s5">5. systemd service voor Flask</h2>
+    <p>Om Flask automatisch te starten bij het opstarten van de Pi, maken we een <strong>systemd service</strong> aan:</p>
+    <pre><code># Bestand aanmaken: /etc/systemd/system/flask-app.service
+sudo nano /etc/systemd/system/flask-app.service</code></pre>
+    <pre><code>[Unit]
+Description=Flask Sensor Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/flask-app
+ExecStart=/home/pi/flask-app/venv/bin/python app.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+    <pre><code># Service activeren en starten
+sudo systemctl daemon-reload
+sudo systemctl enable flask-app    # automatisch starten bij boot
+sudo systemctl start  flask-app    # nu starten
+
+# Status controleren
+sudo systemctl status flask-app
+
+# Logs bekijken
+sudo journalctl -u flask-app -f</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="estem6-h02-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 2.1</span>
+        <span class="oefening__title">Flask webserver op de Pi</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van Flask, virtual environments en het draaien van een webserver op de Raspberry Pi.</p>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welk commando maak je een nieuw Python virtual environment aan met de naam <code>venv</code>?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>pip create venv</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>virtualenv --new venv</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>python3 -m venv venv</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>python3 init venv</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="python3 -m venv venv — het venv-module is ingebouwd in Python 3. Activeer daarna met 'source venv/bin/activate'."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="jsonify|jsonify()">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welke Flask-functie gebruik je om een Python-dictionary om te zetten naar een JSON HTTP-response?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de functienaam...">
+          <div class="vraag__feedback" data-correct-label="jsonify() — importeer vanuit flask: from flask import jsonify. Geef een dict mee als argument: return jsonify({'status': 'ok'})."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Je wil de Flask-server bereikbaar maken voor <strong>andere apparaten</strong> in hetzelfde netwerk (niet enkel localhost). Welke parameter gebruik je bij <code>app.run()</code>?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>app.run(host="localhost", port=5000)</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>app.run(host="0.0.0.0", port=5000)</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>app.run(host="broadcast", port=5000)</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>app.run(public=True, port=5000)</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="host='0.0.0.0' — dit bindt de server aan alle netwerkinterfaces. Andere apparaten kunnen dan verbinden via het IP-adres van de Pi."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="estem6-h02-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 2.2</span>
+        <span class="oefening__title">Cron jobs en systemd</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van het automatiseren van scripts via cron jobs en het als dienst draaien van een Flask-app via systemd.</p>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welke cron-expressie voert een script <strong>elke 15 minuten</strong> uit?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>15 * * * *</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>0 15 * * *</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>15/1 * * * *</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>*/15 * * * *</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="*/15 * * * * — de */n syntax in het minuut-veld betekent 'elke n minuten'. 15 * * * * is 'om 15 minuten elk uur' (dus slechts 1x per uur)."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="systemctl enable|sudo systemctl enable">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welk systemd-commando zorg je dat een service automatisch start bij het opstarten van de Pi?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+          <div class="vraag__feedback" data-correct-label="sudo systemctl enable <service-naam> — dit registreert de service om automatisch te starten bij boot. Gebruik 'start' om de service nu te starten."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Welk commando gebruik je om de logs van een lopende systemd-service te bekijken?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>cat /var/log/service.log</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>sudo journalctl -u flask-app -f</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>sudo systemctl logs flask-app</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>tail /etc/systemd/system/flask-app.service</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="sudo journalctl -u flask-app -f — journalctl leest de systemd-logs. De vlag -u filtert op de service, -f volgt de logs live (zoals tail -f)."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Gebruik virtual environments (<code>python3 -m venv venv</code>) voor project-isolatie.</li>
+        <li>Flask: <code>@app.route("/pad")</code> definieert een route. <code>jsonify()</code> stuurt JSON. <code>render_template()</code> toont HTML.</li>
+        <li>Start Flask met <code>host="0.0.0.0"</code> zodat andere toestellen verbinding kunnen maken.</li>
+        <li>Cron jobs: plannen op basis van minuut/uur/dag/maand/weekdag.</li>
+        <li>systemd service: <code>enable</code> = automatisch starten bij boot; <code>start</code> = nu starten.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H02</h2>
+    <p>Bouw een "Pi-monitor" webdashboard:</p>
+    <ol>
+      <li>Flask-app met routes: <code>/</code> (dashboard), <code>/api/cpu</code>, <code>/api/geheugen</code>, <code>/api/temperatuur</code>.</li>
+      <li>Gebruik de <code>psutil</code>-bibliotheek (<code>pip install psutil</code>) voor CPU en geheugengebruik.</li>
+      <li>Gebruik <code>vcgencmd measure_temp</code> voor de CPU-temperatuur (via <code>subprocess</code>).</li>
+      <li>Het dashboard vernieuwt elke 3 seconden automatisch via JavaScript fetch.</li>
+      <li>Maak een systemd-service zodat het dashboard automatisch start.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/e-stem/H02">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H01-raspberry-pi-hardware.html" class="btn btn-secondary">&larr; H01 &mdash; Raspberry Pi hardware</a>
+      <a href="H03-geavanceerde-projecten.html" class="btn btn-secondary">H03 &mdash; Geavanceerde projecten &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

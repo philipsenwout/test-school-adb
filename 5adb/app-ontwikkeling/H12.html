@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H12" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom-flexbox">12.1 Waarom Flexbox?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.2"><span class="sidebar-check__box"></span></label>
+          <a href="#flex-container-vs-flex-items">12.2 Flex-container vs. flex-items</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.3"><span class="sidebar-check__box"></span></label>
+          <a href="#de-twee-assen">12.3 De twee assen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.4"><span class="sidebar-check__box"></span></label>
+          <a href="#justify-content">12.4 justify-content</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.5"><span class="sidebar-check__box"></span></label>
+          <a href="#align-items">12.5 align-items</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.6"><span class="sidebar-check__box"></span></label>
+          <a href="#flex-wrap">12.6 flex-wrap</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.7"><span class="sidebar-check__box"></span></label>
+          <a href="#gap">12.7 gap</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.8"><span class="sidebar-check__box"></span></label>
+          <a href="#eigenschappen-van-flex-items">12.8 Eigenschappen van flex-items</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.9"><span class="sidebar-check__box"></span></label>
+          <a href="#navigatie-met-flexbox">12.9 Navigatie met Flexbox</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.10"><span class="sidebar-check__box"></span></label>
+          <a href="#float-is-verouderd">12.10 Float is verouderd</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Flexbox</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H12 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">CSS Flexbox</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat Flexbox is en wanneer je het gebruikt</li>
+          <li>Het verschil kennen tussen een flex-container en flex-items</li>
+          <li>De hoofdas en de nevenas uitleggen</li>
+          <li><code>flex-direction</code>, <code>justify-content</code>, <code>align-items</code> en <code>flex-wrap</code> correct toepassen</li>
+          <li><code>flex-grow</code>, <code>flex-shrink</code> en <code>flex-basis</code> begrijpen en gebruiken</li>
+          <li><code>gap</code> gebruiken voor ruimte tussen flex-items</li>
+          <li>Een navigatiebalk bouwen met Flexbox</li>
+          <li>Begrijpen waarom <code>float</code> voor lay-out verouderd is</li>
+        </ul>
+      </div>
+
+      <h2 id="waarom-flexbox">1. Waarom Flexbox?</h2>
+      <p>Voor Flexbox bestond was het aanmaken van lay-outs in CSS een pijnlijk proces. Developers gebruikten <code>float</code> of <code>inline-block</code> — beide zijn omslachtig en leveren vaak onverwachte problemen op.</p>
+      <p><strong>Flexbox</strong> is ontworpen om dit probleem op te lossen. Het maakt het eenvoudig om:</p>
+      <ul>
+        <li>Elementen naast elkaar of onder elkaar te plaatsen</li>
+        <li>Ruimte gelijkmatig te verdelen</li>
+        <li>Elementen te centreren (eindelijk gemakkelijk!)</li>
+        <li>De volgorde van elementen aan te passen</li>
+      </ul>
+      <p><strong>Wanneer gebruik je Flexbox?</strong> Flexbox is ideaal voor <strong>één richting tegelijk</strong>: ofwel een rij (horizontaal), ofwel een kolom (verticaal). Denk aan navigatiebalken, kaartenrijen, formulierrijen.</p>
+
+      <h2 id="flex-container-vs-flex-items">2. Flex-container vs. flex-items</h2>
+      <p>Alles begint met één CSS-eigenschap:</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: flex;
+}</code></pre>
+      </div>
+      <p>Dit verandert het element in een <strong>flex-container</strong>. De <strong>directe kinderen</strong> worden automatisch <strong>flex-items</strong>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;div class="container"&gt;     &lt;!-- flex-container --&gt;
+    &lt;div&gt;Item 1&lt;/div&gt;       &lt;!-- flex-item --&gt;
+    &lt;div&gt;Item 2&lt;/div&gt;       &lt;!-- flex-item --&gt;
+    &lt;div&gt;Item 3&lt;/div&gt;       &lt;!-- flex-item --&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H12-afb1.svg" alt="Flex-container en flex-items — visueel overzicht" loading="lazy">
+      </figure>
+
+      <h2 id="de-twee-assen">3. De twee assen</h2>
+      <p>Bij Flexbox werkt alles rond twee assen:</p>
+      <ul>
+        <li><strong>Hoofdas (main axis):</strong> De richting waarin de flex-items worden geplaatst. Standaard is dit <strong>horizontaal</strong>.</li>
+        <li><strong>Nevenas (cross axis):</strong> Loodrecht op de hoofdas. Standaard is dit <strong>verticaal</strong>.</li>
+      </ul>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: flex;
+    flex-direction: row;    /* standaard: horizontaal → */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* verticaal ↓ */
+}</code></pre>
+      </div>
+
+      <h2 id="justify-content">4. Ruimte verdelen langs de hoofdas: <code>justify-content</code></h2>
+      <p><code>justify-content</code> bepaalt hoe de flex-items verdeeld worden <strong>langs de hoofdas</strong>.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Waarde</th><th>Resultaat</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>flex-start</code></td><td>Alle items aan het begin (standaard)</td></tr>
+          <tr><td><code>flex-end</code></td><td>Alle items aan het einde</td></tr>
+          <tr><td><code>center</code></td><td>Items gecentreerd</td></tr>
+          <tr><td><code>space-between</code></td><td>Eerste en laatste item aan de rand, rest verdeeld</td></tr>
+          <tr><td><code>space-around</code></td><td>Gelijke ruimte rondom elk item</td></tr>
+          <tr><td><code>space-evenly</code></td><td>Gelijke ruimte tussen en rondom alle items</td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Navigatiebalk: logo links, links rechts */
+nav {
+    display: flex;
+    justify-content: space-between;
+}</code></pre>
+      </div>
+
+      <h2 id="align-items">5. Items uitlijnen langs de nevenas: <code>align-items</code></h2>
+      <p><code>align-items</code> bepaalt hoe de flex-items uitgelijnd worden <strong>langs de nevenas</strong>.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Waarde</th><th>Resultaat</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>stretch</code></td><td>Items rekken uit tot de hoogte van de container (standaard)</td></tr>
+          <tr><td><code>flex-start</code></td><td>Items bovenaan uitlijnen</td></tr>
+          <tr><td><code>flex-end</code></td><td>Items onderaan uitlijnen</td></tr>
+          <tr><td><code>center</code></td><td>Items verticaal centreren</td></tr>
+          <tr><td><code>baseline</code></td><td>Items uitlijnen op hun tekstbasislijn</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Verticaal centreren was vroeger lastig — nu eenvoudig:</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: flex;
+    justify-content: center; /* horizontaal centreren */
+    align-items: center;     /* verticaal centreren */
+    min-height: 100vh;
+}</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H12-afb2.svg" alt="justify-content en align-items — hoofdas en nevenas" loading="lazy">
+      </figure>
+
+      <h2 id="flex-wrap">6. Afbreken: <code>flex-wrap</code></h2>
+      <p>Standaard proberen flex-items allemaal op één rij te passen. Met <code>flex-wrap: wrap</code> mogen ze naar de volgende rij gaan:</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}</code></pre>
+      </div>
+
+      <h2 id="gap">7. Ruimte tussen items: <code>gap</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.container {
+    display: flex;
+    gap: 1rem;        /* gelijke ruimte in alle richtingen */
+    /* of: */
+    gap: 1rem 2rem;   /* rij-gap | kolom-gap */
+}</code></pre>
+      </div>
+      <p>Voordeel van <code>gap</code> boven <code>margin</code>: de eerste en laatste items krijgen geen extra ruimte aan de buitenkant.</p>
+
+      <h2 id="eigenschappen-van-flex-items">8. Eigenschappen van flex-items</h2>
+      <h3>8.1 <code>flex-grow</code> — groeien</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.item {
+    flex-grow: 1; /* mag groeien om beschikbare ruimte te vullen */
+}
+
+.groot-item {
+    flex-grow: 2; /* groeit dubbel zo snel als flex-grow: 1 */
+}</code></pre>
+      </div>
+      <h3>8.2 <code>flex-shrink</code> — krimpen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.item { flex-shrink: 1; }  /* mag krimpen (standaard) */
+.niet-krimpen { flex-shrink: 0; } /* krimpt nooit */</code></pre>
+      </div>
+      <h3>8.3 <code>flex-basis</code> — startgrootte</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.item { flex-basis: 200px; } /* startbreedte van 200px */
+.item { flex-basis: 33%; }   /* startbreedte van 33% */</code></pre>
+      </div>
+      <h3>8.4 De snelnotatie: <code>flex</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* flex: grow shrink basis */
+.item {
+    flex: 1;       /* = flex: 1 1 0 — meest gebruikt voor gelijke kolommen */
+}</code></pre>
+      </div>
+
+      <h2 id="navigatie-met-flexbox">9. Navigatie bouwen met Flexbox</h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}</code></pre>
+      </div>
+      <p><strong>Logo links, links rechts — met <code>margin-left: auto</code>:</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Het logo-item duwt alle andere items naar rechts */
+nav ul li:first-child {
+    margin-right: auto;
+}</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H12-afb3.svg" alt="Navigatiebalk met Flexbox — logo links, links rechts" loading="lazy">
+      </figure>
+
+      <h2 id="float-is-verouderd">10. Float is verouderd voor lay-out</h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* VEROUDERDE manier — doe dit NIET meer voor lay-out */
+.kolom {
+    float: left;
+    width: 33%;
+}
+/* Daarna moest je ook nog een clearfix toevoegen... */</code></pre>
+      </div>
+      <p><strong>Gebruik <code>float</code> nog wel voor:</strong> tekst die rondom een afbeelding loopt (zie H14).<br>
+      <strong>Gebruik Flexbox voor:</strong> navigatiebalken, kaartenrijen, elementen naast of onder elkaar plaatsen.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 1 — Navigatiebalk</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een HTML-bestand <code>navigatie.html</code> met een navigatiebalk die:</p>
+            <ul>
+              <li>Een sitenaam/logo links heeft</li>
+              <li>Vier navigatielinks rechts heeft</li>
+              <li>Een donkere achtergrond heeft</li>
+              <li>Bij hover de link-kleur verandert</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H12-oef1-browser.svg" alt="Browser-mockup: donkere navigatiebalk met sitenaam links en vier links rechts naast elkaar via Flexbox" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 2 — Kaartenrij</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak drie kaartjes naast elkaar met Flexbox. De kaartjes moeten gelijke breedte hebben en ruimte ertussen.</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H12-oef2-browser.svg" alt="Browser-mockup: drie gelijke kaartjes naast elkaar met titel, beschrijving en ruimte ertussen" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H12 CSS Flexbox<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H12-oef2-browser.svg', 'Voorbeeld — Flexbox layout')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+                      <h3>Opdracht: Flexbox-layout voor een blogpagina</h3>
+          <p>Maak een pagina <code>blog.html</code> met bijhorend <code>blog.css</code>. De pagina is een nep-blogpagina met een flexbox-layout. Gebruik <strong>geen float, geen grid</strong> voor de hoofdlayout — enkel flexbox.</p>
+          <h4>Deel 1 — Navigatiebalk (3 punten)</h4>
+          <ul>
+            <li>Een horizontale navigatiebalk die de volledige breedte inneemt</li>
+            <li>Logo links, navigatielinks rechts — gebruik <code>justify-content: space-between</code></li>
+            <li>Links worden op mobiele breedte (&lt; 600px) verticaal gestapeld via <code>flex-direction: column</code></li>
+          </ul>
+          <h4>Deel 2 — Kaartenrij (4 punten)</h4>
+          <ul>
+            <li>Minstens <strong>3 blogkaarten</strong> naast elkaar met <code>display: flex</code> en <code>flex-wrap: wrap</code></li>
+            <li>Elke kaart heeft een titel, een korte beschrijving en een "Lees meer"-knop onderaan</li>
+            <li>De knop staat altijd onderaan de kaart, ongeacht de lengte van de tekst (tip: gebruik <code>flex-direction: column</code> op de kaart zelf met <code>margin-top: auto</code> op de knop)</li>
+            <li>Gebruik <code>gap</code> voor de ruimte tussen de kaarten</li>
+          </ul>
+          <h4>Deel 3 — Gecentreerd hero-blok (3 punten)</h4>
+          <ul>
+            <li>Een volledige breedte hero-sectie met gecentreerde tekst (horizontaal én verticaal)</li>
+            <li>Gebruik <code>display: flex; align-items: center; justify-content: center;</code></li>
+            <li>Minimumhoogte van <code>300px</code></li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H12 — CSS Flexbox</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke CSS-eigenschap activeer je op de container om Flexbox te starten?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="a"> <span><code>display: block</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="b"> <span><code>display: flex</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="c"> <span><code>display: inline</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="d"> <span><code>display: grid</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke eigenschap gebruik je om flex-items <strong>verticaal</strong> te centreren?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="a"> <span><code>justify-content: center</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="b"> <span><code>vertical-align: center</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="c"> <span><code>align-items: center</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="d"> <span><code>flex-direction: center</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke waarde van <code>justify-content</code> plaatst het eerste item links en het laatste item rechts?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="a"> <span><code>space-between</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="b"> <span><code>space-around</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="c"> <span><code>flex-end</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="d"> <span><code>center</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat doet <code>flex-wrap: wrap</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="a"> <span>Wraps de container in een ander element</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="b"> <span>Verbergt flex-items die niet passen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="c"> <span>Dwingt alle items op één rij</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="d"> <span>Laat flex-items naar de volgende rij gaan als er geen ruimte meer is</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is de snelnotatie voor <code>flex-grow: 1; flex-shrink: 1; flex-basis: 0</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="a"> <span><code>flex: auto</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="b"> <span><code>flex: 1</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="c"> <span><code>flex: 100%</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="d"> <span><code>flex: grow</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Flexbox is het beste geschikt voor:</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="a"> <span>Tweedimensionale paginalay-out (rijen EN kolommen tegelijk)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="b"> <span>Tekst die om een afbeelding heen loopt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="c"> <span>Eendimensionale lay-out (rijen OF kolommen)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="d"> <span>Animaties en overgangen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H12')" data-progress-key="5adb/app-ontwikkeling/H12">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H11.html" class="btn btn-ghost">← H11</a> <a href="H13.html" class="btn btn-ghost">H13 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 &mdash; Koppeling met Databeheer &mdash; E-STEM 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link active">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H04</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Van SQLite naar MySQL</a></li>
+        <li><a href="#s2">2. Python + MySQL</a></li>
+        <li><a href="#s3">3. Data analyseren met pandas</a></li>
+        <li><a href="#s4">4. Visualisatie met matplotlib</a></li>
+        <li><a href="#s5">5. Eindproject opzet</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-estem">
+      <div class="page-header__vak">&#9881; E-STEM &mdash; H04</div>
+      <h1 class="page-header__title">Koppeling met Databeheer</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">5 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-ES-09] Pi-project koppelen aan een externe database &mdash; verdieping</span>
+      <span class="ld-badge">[LD-ES-10] Sensordata analyseren en visualiseren met Python &mdash; verdieping</span>
+    </div>
+
+    <p>In dit laatste hoofdstuk verbinden we alles wat we geleerd hebben. De Raspberry Pi verzamelt data, slaat die op in een database, en we analyseren en visualiseren de resultaten met Python &mdash; een volledige <strong>data pipeline</strong> van sensor naar dashboard.</p>
+
+    <h2 id="s1">1. Van SQLite naar MySQL/MariaDB</h2>
+    <p>SQLite is ideaal voor kleine projecten op de Pi zelf. Voor grotere projecten of als meerdere apparaten dezelfde database delen, gebruik je <strong>MySQL</strong> of <strong>MariaDB</strong> op een centrale server.</p>
+
+    <div class="callout callout--info">
+      <div class="callout__title">SQLite vs MySQL — wanneer welk?</div>
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="text-align:left; padding: 6px 12px;">Eigenschap</th><th style="padding: 6px 12px;">SQLite</th><th style="padding: 6px 12px;">MySQL/MariaDB</th></tr>
+        <tr><td style="padding: 4px 12px;">Installatie</td><td style="padding: 4px 12px;">Geen (ingebouwd)</td><td style="padding: 4px 12px;">Server nodig</td></tr>
+        <tr><td style="padding: 4px 12px;">Meerdere gebruikers</td><td style="padding: 4px 12px;">Beperkt</td><td style="padding: 4px 12px;">Ja</td></tr>
+        <tr><td style="padding: 4px 12px;">Meerdere apparaten</td><td style="padding: 4px 12px;">Nee (lokaal bestand)</td><td style="padding: 4px 12px;">Ja (netwerk)</td></tr>
+        <tr><td style="padding: 4px 12px;">Gebruik</td><td style="padding: 4px 12px;">Prototype, Pi-project</td><td style="padding: 4px 12px;">Productie, school, bedrijf</td></tr>
+      </table>
+    </div>
+
+    <p>MariaDB installeren op de Pi:</p>
+    <pre><code># MariaDB installeren
+sudo apt install mariadb-server python3-mysqldb -y
+
+# MariaDB starten en beveiligen
+sudo systemctl start mariadb
+sudo mysql_secure_installation
+
+# Aanmelden als root
+sudo mysql
+
+# Database en gebruiker aanmaken
+CREATE DATABASE pidata;
+CREATE USER 'piuser'@'localhost' IDENTIFIED BY 'geheim123';
+GRANT ALL PRIVILEGES ON pidata.* TO 'piuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;</code></pre>
+
+    <h2 id="s2">2. Python + MySQL koppelen</h2>
+    <p>We gebruiken de bibliotheek <strong>mysql-connector-python</strong> (of <code>PyMySQL</code>) om vanuit Python met MySQL te praten:</p>
+    <pre><code># Installeer mysql-connector
+pip install mysql-connector-python</code></pre>
+
+    <pre><code># database_mysql.py
+import mysql.connector
+import datetime
+
+DBCONFIG = {
+    "host":     "localhost",
+    "user":     "piuser",
+    "password": "geheim123",
+    "database": "pidata"
+}
+
+def init_db():
+    conn = mysql.connector.connect(**DBCONFIG)
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS metingen (
+            id          INT AUTO_INCREMENT PRIMARY KEY,
+            tijdstip    DATETIME     NOT NULL,
+            temperatuur DECIMAL(5,2) NOT NULL,
+            locatie     VARCHAR(50)  DEFAULT 'Pi'
+        )
+    """)
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+def voeg_meting_toe(temperatuur, locatie="Pi"):
+    conn = mysql.connector.connect(**DBCONFIG)
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO metingen (tijdstip, temperatuur, locatie) VALUES (%s, %s, %s)",
+        (datetime.datetime.now(), temperatuur, locatie)
+    )
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+def haal_metingen_op(limit=100):
+    conn = mysql.connector.connect(**DBCONFIG)
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute(
+        "SELECT tijdstip, temperatuur, locatie FROM metingen ORDER BY tijdstip DESC LIMIT %s",
+        (limit,)
+    )
+    resultaat = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return resultaat</code></pre>
+
+    <div class="callout callout--tip">
+      <div class="callout__title">Parameterised queries</div>
+      <p>Gebruik altijd <code>%s</code> placeholders met een tuple als tweede argument — <strong>nooit</strong> strings samenplakken met <code>+</code>. Dit voorkomt SQL-injectie.</p>
+      <pre><code># GOED
+cursor.execute("INSERT INTO t (naam) VALUES (%s)", (naam,))
+
+# FOUT (SQL-injectie mogelijk!)
+cursor.execute("INSERT INTO t (naam) VALUES ('" + naam + "')")</code></pre>
+    </div>
+
+    <h2 id="s3">3. Data analyseren met pandas</h2>
+    <p><strong>pandas</strong> is een Python-bibliotheek voor data-analyse. We kunnen de metingen uit de database laden als een <code>DataFrame</code> en er direct mee rekenen:</p>
+    <pre><code>pip install pandas</code></pre>
+
+    <pre><code># analyse.py
+import pandas as pd
+import mysql.connector
+
+DBCONFIG = {
+    "host": "localhost", "user": "piuser",
+    "password": "geheim123", "database": "pidata"
+}
+
+def laad_dataframe():
+    conn = mysql.connector.connect(**DBCONFIG)
+    df = pd.read_sql(
+        "SELECT tijdstip, temperatuur FROM metingen ORDER BY tijdstip",
+        conn,
+        parse_dates=["tijdstip"]
+    )
+    conn.close()
+    return df
+
+df = laad_dataframe()
+
+# Basisstatistieken
+print(df["temperatuur"].describe())
+# count, mean, std, min, 25%, 50%, 75%, max
+
+# Gemiddelde per dag
+df["dag"] = df["tijdstip"].dt.date
+daggemiddelden = df.groupby("dag")["temperatuur"].mean()
+print(daggemiddelden)
+
+# Filteren: enkel metingen boven 24 °C
+warme_metingen = df[df["temperatuur"] > 24.0]
+print(f"Aantal warme metingen: {len(warme_metingen)}")</code></pre>
+
+    <h2 id="s4">4. Visualisatie met matplotlib</h2>
+    <p><strong>matplotlib</strong> maakt grafieken van onze data. Samen met pandas is dit een krachtige combinatie:</p>
+    <pre><code>pip install matplotlib</code></pre>
+
+    <pre><code># visualisatie.py
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from analyse import laad_dataframe
+
+df = laad_dataframe()
+
+# --- Grafiek 1: tijdreeks ---
+fig, ax = plt.subplots(figsize=(10, 4))
+ax.plot(df["tijdstip"], df["temperatuur"],
+        color="#6c63ff", linewidth=1.5, label="Temperatuur")
+ax.set_title("Temperatuurverloop")
+ax.set_xlabel("Tijdstip")
+ax.set_ylabel("Temperatuur (°C)")
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%d/%m %H:%M"))
+fig.autofmt_xdate()
+ax.legend()
+plt.tight_layout()
+plt.savefig("static/grafiek_tijdreeks.png", dpi=100)
+plt.close()
+
+# --- Grafiek 2: histogram ---
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.hist(df["temperatuur"], bins=15, color="#6c63ff", edgecolor="white")
+ax.set_title("Verdeling temperaturen")
+ax.set_xlabel("Temperatuur (°C)")
+ax.set_ylabel("Aantal metingen")
+plt.tight_layout()
+plt.savefig("static/grafiek_histogram.png", dpi=100)
+plt.close()
+
+print("Grafieken opgeslagen in static/")</code></pre>
+
+    <p>De grafieken tonen op de Flask-webpagina:</p>
+    <pre><code>&lt;!-- templates/dashboard.html --&gt;
+&lt;h2&gt;Temperatuurverloop&lt;/h2&gt;
+&lt;img src="{{ url_for('static', filename='grafiek_tijdreeks.png') }}"
+     alt="Tijdreeksgrafiek" style="max-width:100%"&gt;
+
+&lt;h2&gt;Verdeling&lt;/h2&gt;
+&lt;img src="{{ url_for('static', filename='grafiek_histogram.png') }}"
+     alt="Histogram" style="max-width:100%"&gt;</code></pre>
+
+    <pre><code># app.py — dashboard route
+import subprocess
+
+@app.route("/dashboard")
+def dashboard():
+    # Grafieken opnieuw genereren
+    subprocess.run(["python3", "visualisatie.py"], check=True)
+    return render_template("dashboard.html")</code></pre>
+
+    <h2 id="s5">5. Eindproject opzet</h2>
+    <p>Je eindproject combineert alles uit E-STEM 6ADB in één samenhangend systeem:</p>
+    <div class="callout callout--info">
+      <div class="callout__title">Eindproject architectuur</div>
+      <pre><code>Raspberry Pi
+├── sensor_log.py      ← cron job: elke 5 min meting loggen
+├── app.py             ← Flask webserver (systemd-service)
+├── database_mysql.py  ← MySQL-koppeling
+├── visualisatie.py    ← grafieken genereren
+├── templates/
+│   ├── index.html     ← overzicht + formulier
+│   └── dashboard.html ← grafieken
+└── static/
+    ├── style.css
+    └── *.png          ← gegenereerde grafieken
+
+MySQL/MariaDB
+└── pidata.metingen    ← alle sensordata</code></pre>
+    </div>
+
+    <p>Projectstructuur aanmaken:</p>
+    <pre><code># Alles in één keer installeren
+pip install flask mysql-connector-python pandas matplotlib
+
+# Projectmap aanmaken
+mkdir ~/eindproject
+cd ~/eindproject
+mkdir templates static
+
+# Python-bestanden aanmaken
+touch app.py database_mysql.py sensor_log.py visualisatie.py</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="callout callout--oefening">
+      <div class="callout__title">Oefening 4.1 &mdash; MySQL koppeling</div>
+      <ul>
+        <li>a. Installeer MariaDB op je Pi en maak de database <code>pidata</code> aan met gebruiker <code>piuser</code>.</li>
+        <li>b. Schrijf <code>database_mysql.py</code> met functies om metingen toe te voegen en op te halen.</li>
+        <li>c. Schrijf een testscript dat 10 willekeurige temperatuurmetingen toevoegt en ze daarna ophaalt.</li>
+        <li>d. Verifieer de data via de MySQL-commandoregel: <code>SELECT * FROM metingen;</code></li>
+      </ul>
+    </div>
+
+    <div class="callout callout--oefening">
+      <div class="callout__title">Oefening 4.2 &mdash; Dashboard met grafieken</div>
+      <ul>
+        <li>a. Laad de metingen uit MySQL in een pandas DataFrame.</li>
+        <li>b. Maak een tijdreeksgrafiek van de temperatuur over de laatste 24 uur.</li>
+        <li>c. Voeg de grafiek toe aan een Flask-dashboard (<code>/dashboard</code>).</li>
+        <li>d. Voeg een tabel toe met de basisstatistieken (min, max, gemiddelde) berekend via pandas.</li>
+      </ul>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting van het hele jaar</div>
+      <ul>
+        <li><strong>H01</strong> Raspberry Pi: hardware, Linux CLI, GPIO, SSH remote access.</li>
+        <li><strong>H02</strong> Flask: virtual environment, routes, JSON API, cron jobs, systemd service.</li>
+        <li><strong>H03</strong> Geavanceerd Flask: Jinja2 templates, POST-formulieren, SQLite, REST API.</li>
+        <li><strong>H04</strong> Databeheer koppeling: MySQL/MariaDB, pandas data-analyse, matplotlib visualisatie.</li>
+        <li><strong>Eindproject:</strong> alles samengebracht in één data pipeline van sensor tot dashboard.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H04 &mdash; Eindproject</h2>
+    <p>Bouw het volledige eindproject voor E-STEM:</p>
+    <ol>
+      <li>Sensordata (gesimuleerde temperatuur + luchtvochtigheid) worden elke 5 minuten opgeslagen via een cron job in een MySQL-database.</li>
+      <li>Een Flask-webserver biedt:
+        <ul>
+          <li><code>/</code> — overzichtspagina met de laatste 20 metingen</li>
+          <li><code>/dashboard</code> — tijdreeksgrafiek + histogram via matplotlib</li>
+          <li><code>/api/metingen</code> — REST API (GET + POST)</li>
+          <li><code>/api/statistieken</code> — min, max, gemiddelde als JSON</li>
+        </ul>
+      </li>
+      <li>De Flask-app start automatisch via een systemd-service.</li>
+      <li>Schrijf een korte <strong>technische beschrijving</strong> (1 pagina) van je architectuur.</li>
+    </ol>
+
+    <div class="callout callout--info">
+      <div class="callout__title">Evaluatiecriteria eindproject</div>
+      <ul>
+        <li>Werkt de applicatie volledig? (Flask + database + grafieken)</li>
+        <li>Is de code netjes gestructureerd (aparte bestanden per functie)?</li>
+        <li>Zijn de leerplandoelnummers vermeld in de technische beschrijving?</li>
+        <li>Start de service automatisch op?</li>
+        <li>Is de API correct (juiste HTTP-methoden, juiste statuscodes)?</li>
+      </ul>
+    </div>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/e-stem/H04">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H03-geavanceerde-projecten.html" class="btn btn-secondary">&larr; H03 &mdash; Geavanceerde projecten</a>
+      <a href="index.html" class="btn btn-secondary">Terug naar overzicht &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

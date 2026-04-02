@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Links — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H04" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.1"><span class="sidebar-check__box"></span></label>
+          <a href="#het-a-element">4.1 Het &lt;a&gt;-element</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.2"><span class="sidebar-check__box"></span></label>
+          <a href="#absolute-vs-relatieve-paden">4.2 Absolute vs. relatieve paden</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.3"><span class="sidebar-check__box"></span></label>
+          <a href="#link-openen-in-nieuw-tabblad">4.3 Link openen in nieuw tabblad</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.4"><span class="sidebar-check__box"></span></label>
+          <a href="#ankerlinks">4.4 Ankerlinks</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.5"><span class="sidebar-check__box"></span></label>
+          <a href="#e-maillinks-en-andere-speciale-links">4.5 E-maillinks en andere speciale links</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.6"><span class="sidebar-check__box"></span></label>
+          <a href="#overzicht-soorten-links">4.6 Overzicht: soorten links</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Links</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H04 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Links: Navigeren op het Web</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een hyperlink maken met het <code>&lt;a&gt;</code>-element</li>
+          <li>Het verschil uitleggen tussen een absoluut en een relatief pad</li>
+          <li>Interne links (ankerlinks) maken naar een sectie op dezelfde pagina</li>
+          <li>Een link openen in een nieuw tabblad</li>
+          <li>Een klikbare e-maillink aanmaken</li>
+        </ul>
+      </div>
+
+      <h2 id="het-a-element">4.1 Het <code>&lt;a&gt;</code>-element</h2>
+      <p>Het <code>&lt;a&gt;</code>-element (<strong>anchor</strong> = anker) maakt van tekst of een afbeelding een klikbare link.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;a href="https://www.google.com"&gt;Ga naar Google&lt;/a&gt;</code></pre>
+      </div>
+      <p>Het <code>href</code>-attribuut (<strong>Hypertext REFerence</strong>) bepaalt <em>waarnaar</em> de link verwijst. Zonder <code>href</code> is het geen link.</p>
+      <h3>Structuur</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;a href="doel"&gt;zichtbare tekst of afbeelding&lt;/a&gt;
+  ↑                ↑
+  element          inhoud die klikbaar wordt</code></pre>
+      </div>
+      <h3>Voorbeelden</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Tekstlink naar een externe website --&gt;
+&lt;a href="https://developer.mozilla.org"&gt;MDN Web Docs&lt;/a&gt;
+
+&lt;!-- Link naar een eigen pagina --&gt;
+&lt;a href="contact.html"&gt;Contacteer ons&lt;/a&gt;
+
+&lt;!-- Link die een afbeelding klikbaar maakt --&gt;
+&lt;a href="producten.html"&gt;
+    &lt;img src="img/logo.svg" alt="Naar de productenpagina"&gt;
+&lt;/a&gt;</code></pre>
+      </div>
+
+      <h2 id="absolute-vs-relatieve-paden">4.2 Absolute vs. relatieve paden</h2>
+      <p>Dit is het meest verwarrende concept voor beginners. Begrijp je dit goed, dan heb je veel minder problemen met gebroken links.</p>
+      <h3>Absoluut pad</h3>
+      <p>Een <strong>absoluut pad</strong> bevat het volledige adres — inclusief protocol (<code>https://</code>), domeinnaam en mapstructuur.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;a href="https://www.voorbeeld.be/producten/stoel.html"&gt;Onze stoel&lt;/a&gt;</code></pre>
+      </div>
+      <p>Gebruik een absoluut pad wanneer je <strong>verwijst naar een andere website</strong>.</p>
+      <h3>Relatief pad</h3>
+      <p>Een <strong>relatief pad</strong> beschrijft de locatie <em>vanuit het huidige bestand</em>. Je laat het protocol en de domeinnaam weg.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Bestand in dezelfde map --&gt;
+&lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+
+&lt;!-- Bestand in een submap --&gt;
+&lt;a href="producten/stoel.html"&gt;Onze stoel&lt;/a&gt;
+
+&lt;!-- Eén map omhoog, dan in een andere map --&gt;
+&lt;a href="../afbeeldingen/logo.png"&gt;Logo&lt;/a&gt;</code></pre>
+      </div>
+      <p>Gebruik een relatief pad wanneer je <strong>verwijst naar een eigen pagina</strong> op dezelfde website.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H04-afb1.svg" alt="Diagram: mappenstructuur met absolute en relatieve padverwijzingen" loading="lazy">
+      </figure>
+      <h3>Waarom relatieve paden beter zijn voor eigen bestanden</h3>
+      <p>Stel je hebt een website op <code>https://mijnsite.be</code>. Als je overal <code>https://mijnsite.be/contact.html</code> gebruikt en je verplaatst de site naar een andere domeinnaam, zijn <strong>alle links gebroken</strong>. Met relatieve paden werkt alles altijd, ongeacht waar de site gehost wordt.</p>
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Vuistregel</div>
+        <p>Externe sites = absoluut pad. Eigen pagina's = relatief pad.</p>
+      </div>
+
+      <h2 id="link-openen-in-nieuw-tabblad">4.3 Link openen in nieuw tabblad</h2>
+      <p>Standaard opent een link in hetzelfde tabblad. Met het attribuut <code>target="_blank"</code> open je de link in een nieuw tabblad:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;a href="https://www.wikipedia.org" target="_blank"&gt;Wikipedia&lt;/a&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">📌 Vuistregel</div>
+        <p>Gebruik <code>target="_blank"</code> enkel voor <strong>externe websites</strong>. Als je een bezoeker naar een andere site stuurt, is het beleefd om je eigen pagina open te laten. Voor <strong>eigen pagina's</strong> is <code>target="_blank"</code> zelden nodig.</p>
+      </div>
+
+      <h2 id="ankerlinks">4.4 Ankerlinks — navigeren binnen dezelfde pagina</h2>
+      <p>Op een lange pagina wil je soms direct naar een bepaalde sectie springen zonder te scrollen. Dat doe je met een <strong>ankerlink</strong>.</p>
+      <h3>Stap 1 — Geef de sectie een <code>id</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;section id="contact"&gt;
+    &lt;h2&gt;Contactformulier&lt;/h2&gt;
+    ...
+&lt;/section&gt;</code></pre>
+      </div>
+      <h3>Stap 2 — Maak een link naar dat id</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;a href="#contact"&gt;Ga naar het contactformulier&lt;/a&gt;</code></pre>
+      </div>
+      <p>Het <code>#</code>-teken gevolgd door het <code>id</code> vertelt de browser: <em>scroll naar dit element op dezelfde pagina</em>.</p>
+      <h3>Voorbeeld: inhoudsopgave</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Inhoudsopgave bovenaan de pagina --&gt;
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#inleiding"&gt;1. Inleiding&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#methode"&gt;2. Methode&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#resultaten"&gt;3. Resultaten&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#conclusie"&gt;4. Conclusie&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;section id="inleiding"&gt;
+    &lt;h2&gt;1. Inleiding&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section id="methode"&gt;
+    &lt;h2&gt;2. Methode&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H04-afb2.svg" alt="Illustratie: inhoudsopgave met ankerlinks die verbonden zijn met secties op de pagina" loading="lazy">
+      </figure>
+
+      <h2 id="e-maillinks-en-andere-speciale-links">4.5 E-maillinks en andere speciale links</h2>
+      <h3>E-maillink</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;a href="mailto:info@school.be"&gt;Stuur ons een e-mail&lt;/a&gt;</code></pre>
+      </div>
+      <p>Bij klikken opent het standaard e-mailprogramma van de gebruiker met het e-mailadres al ingevuld.</p>
+      <h3>Telefoonnummerlink (handig op mobiel)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;a href="tel:+3212345678"&gt;Bel ons: 012 34 56 78&lt;/a&gt;</code></pre>
+      </div>
+      <p>Op smartphones opent dit direct de telefoonapp.</p>
+
+      <h2 id="overzicht-soorten-links">4.6 Overzicht: soorten links</h2>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H04-afb3.svg" alt="Vergelijkingskaart met de vier types links: intern, extern, anker en e-mail" loading="lazy">
+      </figure>
+      <table class="data-table">
+        <thead>
+          <tr><th>Type</th><th><code>href</code></th><th>Wanneer gebruiken</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Interne link</td><td><code>"pagina.html"</code> (relatief)</td><td>Naar eigen pagina</td></tr>
+          <tr><td>Externe link</td><td><code>"https://..."</code> (absoluut)</td><td>Naar andere website</td></tr>
+          <tr><td>Ankerlink</td><td><code>"#sectie-id"</code></td><td>Naar sectie op dezelfde pagina</td></tr>
+          <tr><td>E-maillink</td><td><code>"mailto:..."</code></td><td>E-mailadres openen</td></tr>
+          <tr><td>Telefoonlink</td><td><code>"tel:..."</code></td><td>Telefoonnummer op mobiel</td></tr>
+        </tbody>
+      </table>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Linktypes herkennen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bekijk de onderstaande links. Schrijf voor elke link op: (a) welk type het is en (b) of de <code>href</code>-waarde correct is.</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;a href="index.html"&gt;Home&lt;/a&gt;
+&lt;a href="https://www.google.com"&gt;Zoeken&lt;/a&gt;
+&lt;a href="#footer"&gt;Ga naar footer&lt;/a&gt;
+&lt;a href="mailto:jan@voorbeeld.be"&gt;E-mail Jan&lt;/a&gt;
+&lt;a href="https://mijnsite.be/contact.html"&gt;Contact&lt;/a&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 2 — Navigatie bouwen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>navigatie.html</code>. De pagina bevat:</p>
+            <ol>
+              <li>Een <code>&lt;header&gt;</code> met een <code>&lt;nav&gt;</code> met <strong>vier linkjes</strong>:
+                <ul>
+                  <li>"Home" → <code>index.html</code></li>
+                  <li>"Producten" → <code>producten.html</code></li>
+                  <li>"Over ons" → <code>over.html</code></li>
+                  <li>"Wikipedia" → <code>https://www.wikipedia.org</code> (opent in nieuw tabblad)</li>
+                </ul>
+              </li>
+              <li>Een <code>&lt;main&gt;</code> met <strong>drie secties</strong> (id: <code>intro</code>, <code>kenmerken</code>, <code>contact</code>) en een <strong>inhoudsopgave</strong> bovenaan die via ankerlinks naar elke sectie springt.</li>
+              <li>Een <code>&lt;footer&gt;</code> met een klikbaar e-mailadres.</li>
+            </ol>
+            <p>Zo ziet het resultaat eruit in de browser:</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H04-oef2-browser.svg" alt="Browser-mockup van navigatie.html: header met nav, inhoudsopgave met ankerlinks, drie secties en footer met e-maillink" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 3 — Fouten zoeken</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Zoek en verbeter de fouten in onderstaande code:</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="wikipedia.org"&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="mailto:info@school"&gt;E-mail&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <p>Er zijn <strong>4 fouten</strong> in deze code. Zoek ze allemaal en schrijf voor elke fout op: wat er fout is en hoe je het verbetert.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H04 Links: Navigeren op het Web<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H04-oef2-browser.svg', 'Voorbeeld — Navigatiepagina met links')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+          <h3>Opdracht: Een linkenpagina voor jouw favoriete websites</h3>
+          <p>Je maakt een HTML-pagina met een overzicht van jouw favoriete websites, verdeeld in categorieën. De pagina oefent alle soorten links die je in H04 geleerd hebt.</p>
+          <p>Maak een nieuw bestand: <code>links.html</code></p>
+          <h4>Deel 1 — Externe links (3 punten)</h4>
+          <ol>
+            <li>Maak een <code>&lt;section&gt;</code> aan met de titel <code>&lt;h2&gt;Mijn favoriete websites&lt;/h2&gt;</code>.</li>
+            <li>Voeg een ongeordende lijst toe met <strong>minstens 4 externe links</strong> naar echte websites (bv. YouTube, Wikipedia, een nieuwssite, een gamesite, …).</li>
+            <li>Elke link moet:
+              <ul>
+                <li>Een <code>href</code>-attribuut hebben met de volledige URL (inclusief <code>https://</code>)</li>
+                <li>Een duidelijke linktekst hebben (niet "klik hier")</li>
+                <li>Openen in een <strong>nieuw tabblad</strong> (<code>target="_blank"</code>)</li>
+                <li>Het <code>rel="noopener noreferrer"</code>-attribuut bevatten (veiligheid!)</li>
+              </ul>
+            </li>
+          </ol>
+          <h4>Deel 2 — Interne links en ankers (4 punten)</h4>
+          <p>Voeg bovenaan de pagina een <strong>inhoudsopgave</strong> toe:</p>
+          <ol>
+            <li>Maak een <code>&lt;nav&gt;</code>-element met de titel <code>&lt;h2&gt;Inhoudsopgave&lt;/h2&gt;</code>.</li>
+            <li>Maak een lijst met <strong>3 interne links</strong> die verwijzen naar secties lager op de pagina:
+              <ul>
+                <li><code>#favorieten</code> → springt naar de sectie "Mijn favoriete websites"</li>
+                <li><code>#nieuws</code> → springt naar een nieuwe sectie "Nieuws"</li>
+                <li><code>#contact</code> → springt naar een nieuwe sectie "Contact"</li>
+              </ul>
+            </li>
+            <li>Voeg de drie secties toe met de correcte <code>id</code>-attributen en wat inhoud.</li>
+          </ol>
+          <h4>Deel 3 — E-maillink en relatieve link (3 punten)</h4>
+          <ol>
+            <li>Voeg in de sectie "Contact" een <strong>e-maillink</strong> toe: <code>&lt;a href="mailto:jouwnaam@leerling.school.be"&gt;Stuur mij een e-mail&lt;/a&gt;</code></li>
+            <li>Maak een tweede HTML-bestand: <code>over-mij.html</code> (mag leeg zijn, enkel de basisstructuur).</li>
+            <li>Voeg in <code>links.html</code> een <strong>relatieve link</strong> toe naar <code>over-mij.html</code> met de tekst "Over mij".</li>
+          </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H04 — Links</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welk attribuut bepaalt waarnaar een <code>&lt;a&gt;</code>-link verwijst?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="a"> <span><code>src</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="b"> <span><code>href</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="c"> <span><code>link</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="d"> <span><code>url</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk type pad gebruik je voor links naar andere websites?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="a"> <span>Absoluut pad (met <code>https://</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="b"> <span>Relatief pad</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="c"> <span>Ankerlink met <code>#</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="d"> <span>Mailto-link</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welk attribuut gebruik je om een link in een nieuw tabblad te openen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="a"> <span><code>open="_new"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="b"> <span><code>window="new"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="c"> <span><code>target="_blank"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="d"> <span><code>tab="new"</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe maak je een ankerlink naar een sectie met <code>id="contact"</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="a"> <span><code>&lt;a href="contact"&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="b"> <span><code>&lt;a href="id:contact"&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="c"> <span><code>&lt;a href="@contact"&gt;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="d"> <span><code>&lt;a href="#contact"&gt;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke <code>href</code>-waarde gebruik je voor een link die het e-mailprogramma opent?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="a"> <span><code>email:info@school.be</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="b"> <span><code>mailto:info@school.be</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="c"> <span><code>mail:info@school.be</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="d"> <span><code>send:info@school.be</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welk type pad gebruik je voor links naar eigen pagina's op dezelfde website?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="a"> <span>Absoluut pad (met <code>https://</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="b"> <span>Altijd een volledig URL met domeinnaam</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="c"> <span>Relatief pad (zonder protocol of domeinnaam)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="d"> <span>Ankerlinks met <code>#</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H04')" data-progress-key="5adb/app-ontwikkeling/H04">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H03.html" class="btn btn-ghost">← H03</a> <a href="H05.html" class="btn btn-ghost">H05 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

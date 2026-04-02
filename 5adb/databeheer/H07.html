@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H07 &mdash; Relaties en JOIN &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Relaties en JOIN &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H07</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-7-tabellen-koppelen-met-join">Hoofdstuk 7 — Tabellen koppelen met JOIN</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#71-waarom-join">7.1 Waarom JOIN?</a></li><li><a href="#72-inner-join">7.2 INNER JOIN</a></li><li><a href="#73-tabelaliassen">7.3 Tabelaliassen</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h07" style="padding-left:1.25rem">Huistaak H07</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H07 &mdash; Relaties en JOIN</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-7-tabellen-koppelen-met-join">Hoofdstuk 7 — Tabellen koppelen met JOIN</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v2.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB17]</span> Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 4 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>Uitleggen waarom JOIN nodig is in een relationele database.</li>
+<li>Een INNER JOIN schrijven om gegevens uit twee tabellen samen te voegen.</li>
+<li>Tabelaliassen gebruiken om queries leesbaarder te maken.</li>
+</ol>
+<h2 id="71-waarom-join">7.1 Waarom JOIN?</h2>
+<p>In een goed opgebouwde database staan gegevens verspreid over meerdere tabellen. Om een volledig beeld te krijgen, moeten we die tabellen samenvoegen.</p>
+<p><strong>Probleem:</strong> Je hebt een tabel <code>bestelling</code> met een <code>klant_id</code>, maar de naam van de klant staat in de tabel <code>klant</code>.</p>
+<pre data-lang="sql"><code>
+-- Dit toont enkel het klant_id, niet de naam
+SELECT bestelling_id, klant_id, datum
+FROM bestelling;
+</code></pre>
+<p><strong>Resultaat:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>bestelling_id</th><th>klant_id</th><th>datum</th></tr></thead><tbody>
+<tr><td>1</td><td>3</td><td>2026-02-10</td></tr>
+<tr><td>2</td><td>1</td><td>2026-02-11</td></tr>
+</tbody></table></div>
+<p>Met JOIN kunnen we de naam erbij halen:</p>
+<pre data-lang="sql"><code>
+SELECT bestelling_id, voornaam, achternaam, datum
+FROM bestelling
+INNER JOIN klant ON bestelling.klant_id = klant.klant_id;
+</code></pre>
+<p><strong>Resultaat:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>bestelling_id</th><th>voornaam</th><th>achternaam</th><th>datum</th></tr></thead><tbody>
+<tr><td>1</td><td>Sara</td><td>Claes</td><td>2026-02-10</td></tr>
+<tr><td>2</td><td>Jan</td><td>Peeters</td><td>2026-02-11</td></tr>
+</tbody></table></div>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een JOIN combineert rijen uit twee tabellen op basis van een gemeenschappelijk veld. Je verbindt de tabellen via het ID-veld dat ze delen.</p>
+</div>
+<p>!<a href="../../images/H07-join-concept.png" target="_blank" rel="noopener">JOIN concept</a></p>
+<p><em>Figuur 7.1 — JOIN verbindt twee tabellen via een gedeeld veld</em></p>
+<h2 id="72-inner-join">7.2 INNER JOIN</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een INNER JOIN geeft enkel de rijen terug waarvoor er een overeenkomst is in <strong>beide</strong> tabellen.</p>
+</div>
+<p><strong>Basisstructuur:</strong></p>
+<pre data-lang="sql"><code>
+SELECT kolommen
+FROM tabel_A
+INNER JOIN tabel_B ON tabel_A.gedeeld_veld = tabel_B.gedeeld_veld;
+</code></pre>
+<p><strong>Voorbeeld — bibliotheek:</strong></p>
+<pre data-lang="sql"><code>
+-- Leningen met naam van het lid en titel van het boek
+SELECT
+    lening.lening_id,
+    lid.voornaam,
+    lid.achternaam,
+    boek.titel,
+    lening.uitleendatum
+FROM lening
+INNER JOIN lid  ON lening.lid_id  = lid.lid_id
+INNER JOIN boek ON lening.boek_id = boek.boek_id;
+</code></pre>
+<h2 id="73-tabelaliassen">7.3 Tabelaliassen</h2>
+<p>Bij lange queries is het handig om kortere namen te geven aan tabellen:</p>
+<pre data-lang="sql"><code>
+-- Zonder aliassen (lang en herhaling)
+SELECT bestelling.bestelling_id, klant.voornaam, klant.achternaam
+FROM bestelling
+INNER JOIN klant ON bestelling.klant_id = klant.klant_id;
+
+-- Met aliassen (korter en leesbaarder)
+SELECT b.bestelling_id, k.voornaam, k.achternaam
+FROM bestelling AS b
+INNER JOIN klant AS k ON b.klant_id = k.klant_id;
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Gebruik de eerste letter van de tabelnaam als alias: <code>b</code> voor <code>bestelling</code>, <code>k</code> voor <code>klant</code>, <code>l</code> voor <code>lening</code> ...</p>
+</div>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="sql"><code>
+SELECT
+b.bestelling_id,
+k.voornaam,
+k.achternaam,
+b.datum
+FROM bestelling AS b
+INNER JOIN klant AS k ON b.klant_id = k.klant_id
+ORDER BY b.datum DESC;
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="sql"><code>
+SELECT
+l.lening_id,
+lid.voornaam,
+lid.achternaam,
+boek.titel,
+l.uitleendatum
+FROM lening AS l
+INNER JOIN lid  ON l.lid_id  = lid.lid_id
+INNER JOIN boek ON l.boek_id = boek.boek_id
+WHERE l.terugbrengdatum IS NULL;
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h07-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 7.1</span>
+    <span class="oefening__title">INNER JOIN begrijpen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je werkt met de bibliotheek-database: tabellen <code>lid</code>, <code>boek</code> en <code>lening</code>. Een lening heeft een <code>lid_id</code> en een <code>boek_id</code>.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat geeft een INNER JOIN terug?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q1" value="a"><span>Alle rijen van de linker tabel, ook als er geen overeenkomst is in de rechter tabel</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q1" value="b"><span>Enkel rijen waarvoor er een overeenkomst is in beide tabellen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q1" value="c"><span>Alle rijen van beide tabellen, ook zonder overeenkomst</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q1" value="d"><span>Enkel rijen die in beide tabellen hetzelfde ID hebben</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Enkel rijen waarvoor er een overeenkomst is in beide tabellen — een lening zonder geldig lid_id verschijnt dus niet in het resultaat"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke query toont alle leningen met de voornaam van het lid erbij?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q2" value="a"><span><code>SELECT * FROM lening, lid;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q2" value="b"><span><code>SELECT lening_id, voornaam FROM lid WHERE lid_id = lening.lid_id;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q2" value="c"><span><code>SELECT lening.lening_id, lid.voornaam FROM lening INNER JOIN lid ON lening.lid_id = lid.lid_id;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q2" value="d"><span><code>SELECT voornaam FROM lid JOIN lening;</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SELECT lening.lening_id, lid.voornaam FROM lening INNER JOIN lid ON lening.lid_id = lid.lid_id; — de ON-clausule koppelt de twee tabellen via het gedeelde veld"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="on|on clause">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk sleutelwoord gebruik je in een JOIN om het gedeelde veld tussen twee tabellen op te geven?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het sleutelwoord...">
+      <div class="vraag__feedback" data-correct-label="ON — bijv. INNER JOIN klant ON bestelling.klant_id = klant.klant_id. ON geeft aan op welke velden de tabellen gekoppeld worden"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Als je queries schrijft met meerdere JOIN-tabellen, wat is het voordeel van tabelaliassen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q4" value="a"><span>Kortere en leesbaarder queries — bv. <code>l.lening_id</code> i.p.v. <code>lening.lening_id</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q4" value="b"><span>Snellere uitvoering van de query</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q4" value="c"><span>Beveiliging van de tabelnamen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-1-q4" value="d"><span>Aliassen zijn verplicht bij JOIN-queries</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Kortere en leesbaarder queries — bv. l.lening_id i.p.v. lening.lening_id. Gebruik de eerste letter van de tabelnaam als alias: l voor lening, b voor boek"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h07-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 7.2</span>
+    <span class="oefening__title">JOIN-syntax met aliassen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van de correcte JOIN-syntax met tabelaliassen.</p>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke query is correct en gebruikt aliassen om bestellingen met klantnamen op te halen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q1" value="a"><span><code>SELECT b.bestelling_id, k.voornaam FROM bestelling b, klant k;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q1" value="b"><span><code>SELECT bestelling_id, voornaam FROM bestelling AS b JOIN klant;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q1" value="c"><span><code>SELECT b.bestelling_id, k.voornaam FROM bestelling ALIAS b INNER JOIN klant ALIAS k;</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q1" value="d"><span><code>SELECT b.bestelling_id, k.voornaam FROM bestelling AS b INNER JOIN klant AS k ON b.klant_id = k.klant_id;</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="SELECT b.bestelling_id, k.voornaam FROM bestelling AS b INNER JOIN klant AS k ON b.klant_id = k.klant_id; — correcte syntax met AS voor aliassen en ON voor de koppelconditie"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Je wil leningen tonen met zowel de naam van het lid als de titel van het boek. Hoeveel INNER JOINs heb je nodig?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q2" value="a"><span>1 INNER JOIN</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q2" value="b"><span>2 INNER JOINs — één voor lid, één voor boek</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q2" value="c"><span>3 INNER JOINs</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h07-2-q2" value="d"><span>JOIN is niet mogelijk met 3 tabellen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="2 INNER JOINs — één om lening te koppelen aan lid (via lid_id) en één om lening te koppelen aan boek (via boek_id)"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="foreign key|fremdschlüssel|vreemde sleutel|externe sleutel">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke constraint in een tabel verwijst naar de primaire sleutel van een andere tabel en maakt JOINs mogelijk?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de constraintnaam...">
+      <div class="vraag__feedback" data-correct-label="FOREIGN KEY (vreemde sleutel) — een kolom die verwijst naar de primaire sleutel van een andere tabel en de koppeling voor JOIN definieert"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h07">Huistaak H07</h3>
+<p><strong>JOIN-queries schrijven op je eigen database</strong></p>
+<p>Gebruik de database die je hebt opgebouwd in H04 (of de bibliotheek-database).</p>
+<p><strong>Opdracht:</strong></p>
+<ol>
+<li>Schrijf <strong>2 INNER JOIN-queries</strong> die gegevens uit twee tabellen combineren.</li>
+<li>Gebruik tabelaliassen in beide queries.</li>
+<li>Voeg bij elke query een commentaar toe die de "vraag" beschrijft (bv. <code>-- Welke leerling heeft welk boek geleend?</code>).</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H07-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>JOIN</strong> combineert rijen uit twee (of meer) tabellen via een gedeeld veld.</li>
+<li><strong>INNER JOIN</strong> geeft enkel rijen met overeenkomst in beide tabellen.</li>
+<li>Gebruik <strong>tabelaliassen</strong> (<code>AS b</code>, <code>AS k</code>) om queries korter en leesbaarder te maken.</li>
+<li>Meerdere JOINs achter elkaar zijn mogelijk (bv. lening → lid → boek).</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB17]</span> Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H07">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H06.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H06 &mdash; SQL manipulatie: UPDATE en DELETE</span></div></a>
+          <a href="H08.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H08 &mdash; Python, Excel en JSON</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

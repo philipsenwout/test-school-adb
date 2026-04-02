@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operatoren — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H20" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wiskundige-operatoren">20.1 Wiskundige operatoren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.2"><span class="sidebar-check__box"></span></label>
+          <a href="#operator-prioriteit">20.2 Operator-prioriteit</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.3"><span class="sidebar-check__box"></span></label>
+          <a href="#math-object">20.3 Het Math-object</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.4"><span class="sidebar-check__box"></span></label>
+          <a href="#string-concatenatie">20.4 String-concatenatie vs template literals</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.5"><span class="sidebar-check__box"></span></label>
+          <a href="#toewijzingsoperatoren">20.5 Toewijzingsoperatoren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.6"><span class="sidebar-check__box"></span></label>
+          <a href="#increment-decrement">20.6 Increment en decrement</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Operatoren</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H20 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Operatoren</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan alle wiskundige operatoren gebruiken in JavaScript (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code>)</li>
+          <li>Je kan de operator-prioriteit toepassen en haakjes gebruiken</li>
+          <li>Je kan strings samenvoegen via concatenatie én via template literals</li>
+          <li>Je kan toewijzingsoperatoren gebruiken (<code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>)</li>
+          <li>Je kan de increment (<code>++</code>) en decrement (<code>--</code>) operatoren toepassen</li>
+          <li>Je kan de basishelpers van het <code>Math</code>-object gebruiken</li>
+        </ul>
+      </div>
+
+      <h2 id="wiskundige-operatoren">1. Wiskundige operatoren</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let a = 10;
+let b = 3;
+
+console.log(a + b);   // 13 — optelling
+console.log(a - b);   // 7  — aftrekking
+console.log(a * b);   // 30 — vermenigvuldiging
+console.log(a / b);   // 3.3333... — deling
+console.log(a % b);   // 1  — modulo (rest bij deling)
+console.log(a ** b);  // 1000 — machtsverheffing: 10³</code></pre>
+      </div>
+
+      <h3>1.1 Modulo % — de rest</h3>
+
+      <p>Modulo (<code>%</code>) geeft de <strong>rest</strong> bij een gehele deling. Handig voor:</p>
+      <ul>
+        <li>Controleren of een getal even of oneven is: <code>getal % 2 === 0</code> → even</li>
+        <li>Werken met uren of minuten (na 60 minuten → terug naar 0)</li>
+      </ul>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(10 % 3);  // 1   (10 = 3×3 + 1)
+console.log(8 % 2);   // 0   (even getal)
+console.log(7 % 2);   // 1   (oneven getal)</code></pre>
+      </div>
+
+      <h2 id="operator-prioriteit">2. Operator-prioriteit</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(2 + 3 * 4);   // 14 — niet 20! Eerst 3 * 4 = 12, dan 2 + 12
+console.log(10 - 4 / 2);  // 8  — niet 3! Eerst 4 / 2 = 2, dan 10 - 2
+
+// Gebruik haakjes om de volgorde te bepalen:
+console.log((2 + 3) * 4);   // 20
+console.log((10 - 4) / 2);  // 3</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Twijfel je over de volgorde? Zet haakjes. Ze kosten niets en voorkomen fouten.</p>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H20-afb1.svg" alt="Visualisatie van operator-prioriteit met en zonder haakjes" loading="lazy">
+      </figure>
+
+      <h2 id="math-object">3. Het Math-object</h2>
+
+      <h3>3.1 Afronden</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">console.log(Math.round(4.5));   // 5  — standaard afronden
+console.log(Math.round(4.4));   // 4
+console.log(Math.floor(4.9));   // 4  — altijd naar beneden
+console.log(Math.ceil(4.1));    // 5  — altijd naar boven</code></pre>
+      </div>
+
+      <h3>3.2 Willekeurig getal — Math.random()</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// Willekeurig getal van 1 tot en met 6 (dobbelsteen):
+let dobbelsteen = Math.floor(Math.random() * 6) + 1;
+console.log(dobbelsteen);   // 1, 2, 3, 4, 5 of 6
+
+// Algemene formule van min tot en met max:
+let willekeurig = Math.floor(Math.random() * (max - min + 1)) + min;</code></pre>
+      </div>
+
+      <h2 id="string-concatenatie">4. String-concatenatie vs template literals</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let naam = "Lena";
+let leeftijd = 17;
+
+// Oude manier — omslachtig:
+let zin1 = "Hallo, ik ben " + naam + " en ik ben " + leeftijd + " jaar oud.";
+
+// Moderne manier — template literal:
+let zin2 = `Hallo, ik ben ${naam} en ik ben ${leeftijd} jaar oud.`;
+
+// Berekeningen in template literals:
+let a = 5;
+let b = 3;
+console.log(`${a} + ${b} = ${a + b}`);           // 5 + 3 = 8
+console.log(`Afgerond: ${Math.round(3.7)}`);      // Afgerond: 4</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H20-afb2.svg" alt="Vergelijking concatenatie vs template literal" loading="lazy">
+      </figure>
+
+      <h2 id="toewijzingsoperatoren">5. Toewijzingsoperatoren</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let score = 10;
+
+score += 5;   // score = score + 5 → score is nu 15
+score -= 3;   // score = score - 3 → score is nu 12
+score *= 2;   // score = score * 2 → score is nu 24
+score /= 4;   // score = score / 4 → score is nu 6
+score **= 2;  // score = score ** 2 → score is nu 36
+score %= 5;   // score = score % 5 → score is nu 1</code></pre>
+      </div>
+
+      <h2 id="increment-decrement">6. Increment en decrement</h2>
+
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Naam</th><th>Wat het doet</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>++</code></td><td>Increment</td><td>Verhoog de variabele met 1</td></tr>
+          <tr><td><code>--</code></td><td>Decrement</td><td>Verlaag de variabele met 1</td></tr>
+        </tbody>
+      </table>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let teller = 0;
+
+teller++;
+console.log(teller);   // 1
+
+teller++;
+console.log(teller);   // 2
+
+teller--;
+console.log(teller);   // 1</code></pre>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H20-afb3.svg" alt="Console met labels en foutmeldingen — debugging in actie" loading="lazy">
+      </figure>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Eenvoudige rekenmachine</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>rekenmachine.html</code> dat twee getallen van de gebruiker opvraagt en de vier basisbewerkingen toont.</p>
+            <ol>
+              <li>Vraag twee getallen op via <code>prompt()</code> — gebruik <code>parseFloat()</code></li>
+              <li>Controleer of de invoer geldig is met <code>isNaN()</code></li>
+              <li>Toon het resultaat van optelling, aftrekking, vermenigvuldiging en deling</li>
+              <li>Gebruik template literals voor de uitvoer</li>
+              <li>Controleer of de tweede waarde nul is bij deling</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H20-oef1-browser.svg" alt="Browser-mockup: rekenmachine in de console" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Operatoren
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H20-voorbeeld.svg', 'Voorbeeld — Rekenmachine uitvoer')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Uitgebreide rekenmachine</h3>
+            <ol>
+              <li><strong>Deel 1 — Basis (3 punten):</strong> Vraag via <code>prompt()</code> twee getallen. Toon optelling, aftrekking, vermenigvuldiging en deling. Gebruik template literals. Controleer deling door nul.</li>
+              <li><strong>Deel 2 — Uitgebreid (3 punten):</strong> Voeg ook modulo (<code>%</code>) en machtsverheffing (<code>**</code>) toe. Rond alle resultaten af op 2 decimalen met <code>.toFixed(2)</code>.</li>
+              <li><strong>Deel 3 — Math-object (4 punten):</strong> Voeg een sectie toe die <code>Math.round()</code>, <code>Math.floor()</code>, <code>Math.ceil()</code> toont op het eerste getal. Genereer ook een willekeurig geheel getal tussen de twee ingevoerde getallen.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H20 — Operatoren</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het resultaat van 10 % 3?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="a"> <span>3</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="b"> <span>1</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="c"> <span>0</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="d"> <span>3.33</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is het resultaat van 2 + 3 * 4 in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="a"> <span>20</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="b"> <span>24</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="c"> <span>14</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="d"> <span>10</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet score += 5?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="a"> <span>score = score + 5</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="b"> <span>score = 5</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="c"> <span>score + 5 (geeft resultaat terug zonder op te slaan)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="d"> <span>score = score - 5</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke Math-functie rondt altijd naar beneden af?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="a"> <span>Math.round()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="b"> <span>Math.ceil()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="c"> <span>Math.abs()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="d"> <span>Math.floor()</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet de operator ** in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="a"> <span>Modulo (rest bij deling)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="b"> <span>Machtsverheffing</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="c"> <span>Vermenigvuldiging</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="d"> <span>Deling</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat geeft Math.random() terug?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="a"> <span>Een willekeurig geheel getal van 0 tot 100</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="b"> <span>Een willekeurig getal van 1 tot en met 10</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="c"> <span>Een willekeurig kommagetal van 0 (inclusief) tot 1 (exclusief)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="d"> <span>Een willekeurig boolean</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H20')" data-progress-key="5adb/app-ontwikkeling/H20">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H19.html" class="btn btn-ghost">← H19</a>
+          <a href="H21.html" class="btn btn-ghost">H21 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

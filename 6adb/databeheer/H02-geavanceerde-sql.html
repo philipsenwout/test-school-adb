@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 &mdash; Geavanceerde SQL &mdash; Databeheer 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H02</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Testschema</a></li>
+        <li><a href="#s2">2. GROUP BY en HAVING</a></li>
+        <li><a href="#s3">3. Subqueries</a></li>
+        <li><a href="#s4">4. JOINs verdieping</a></li>
+        <li><a href="#s5">5. Aliassen</a></li>
+        <li><a href="#s6">6. Views</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-data">
+      <div class="page-header__vak">&#128202; Databeheer &mdash; H02</div>
+      <h1 class="page-header__title">Geavanceerde SQL</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">4 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-DB-10] Geavanceerde SQL-queries schrijven &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Testschema</h2>
+    <p>We werken in dit hoofdstuk met een e-commerce schema:</p>
+    <pre><code>CREATE TABLE klanten (
+  klant_id INT AUTO_INCREMENT PRIMARY KEY,
+  naam     VARCHAR(100),
+  stad     VARCHAR(50)
+);
+CREATE TABLE producten (
+  product_id INT AUTO_INCREMENT PRIMARY KEY,
+  naam       VARCHAR(100),
+  prijs      DECIMAL(10,2),
+  categorie  VARCHAR(50)
+);
+CREATE TABLE bestellingen (
+  bestelling_id INT AUTO_INCREMENT PRIMARY KEY,
+  klant_id      INT,
+  besteldatum   DATE,
+  FOREIGN KEY (klant_id) REFERENCES klanten(klant_id)
+);
+CREATE TABLE bestelling_regels (
+  regel_id      INT AUTO_INCREMENT PRIMARY KEY,
+  bestelling_id INT,
+  product_id    INT,
+  aantal        INT,
+  FOREIGN KEY (bestelling_id) REFERENCES bestellingen(bestelling_id),
+  FOREIGN KEY (product_id)    REFERENCES producten(product_id)
+);</code></pre>
+
+    <h2 id="s2">2. GROUP BY en HAVING</h2>
+    <p><code>GROUP BY</code> groepeert rijen met dezelfde waarde in een kolom. <code>HAVING</code> filtert <em>na</em> groepering (zoals <code>WHERE</code> maar dan op geaggregeerde waarden).</p>
+    <pre><code>-- Aantal bestellingen per klant
+SELECT k.naam, COUNT(b.bestelling_id) AS aantal_bestellingen
+FROM klanten k
+JOIN bestellingen b ON k.klant_id = b.klant_id
+GROUP BY k.klant_id, k.naam
+ORDER BY aantal_bestellingen DESC;
+
+-- Enkel klanten met meer dan 2 bestellingen (HAVING)
+SELECT k.naam, COUNT(b.bestelling_id) AS aantal
+FROM klanten k
+JOIN bestellingen b ON k.klant_id = b.klant_id
+GROUP BY k.klant_id, k.naam
+HAVING COUNT(b.bestelling_id) > 2;
+
+-- Totale omzet per categorie
+SELECT p.categorie,
+       SUM(br.aantal * p.prijs) AS omzet,
+       AVG(p.prijs)             AS gemiddelde_prijs,
+       COUNT(DISTINCT p.product_id) AS aantal_producten
+FROM producten p
+JOIN bestelling_regels br ON p.product_id = br.product_id
+GROUP BY p.categorie
+HAVING omzet > 1000
+ORDER BY omzet DESC;</code></pre>
+    <div class="callout callout--tip">
+      <div class="callout__title">WHERE vs. HAVING</div>
+      <p><code>WHERE</code> filtert v&oacute;&oacute;r groepering (op individuele rijen). <code>HAVING</code> filtert <em>na</em> groepering (op gegroepeerde resultaten). Je kan beide combineren in dezelfde query.</p>
+    </div>
+
+    <h2 id="s3">3. Subqueries</h2>
+    <p>Een subquery is een SELECT-statement binnenin een ander statement. Ze kan voorkomen in de WHERE, FROM of SELECT clausule.</p>
+    <pre><code>-- Producten duurder dan het gemiddelde (scalar subquery)
+SELECT naam, prijs
+FROM producten
+WHERE prijs > (SELECT AVG(prijs) FROM producten);
+
+-- Klanten die iets besteld hebben (IN met subquery)
+SELECT naam
+FROM klanten
+WHERE klant_id IN (
+  SELECT DISTINCT klant_id FROM bestellingen
+);
+
+-- Klanten die NIETS besteld hebben (NOT IN)
+SELECT naam
+FROM klanten
+WHERE klant_id NOT IN (
+  SELECT DISTINCT klant_id FROM bestellingen
+);
+
+-- EXISTS: effici&euml;nter dan IN voor grote datasets
+SELECT k.naam
+FROM klanten k
+WHERE EXISTS (
+  SELECT 1 FROM bestellingen b
+  WHERE b.klant_id = k.klant_id
+    AND b.besteldatum > '2025-01-01'
+);</code></pre>
+
+    <h2 id="s4">4. JOINs verdieping</h2>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>JOIN type</th><th>Geeft terug</th></tr></thead>
+      <tbody>
+        <tr><td><strong>INNER JOIN</strong></td><td>Enkel rijen die in b&eacute;ide tabellen overeenkomen</td></tr>
+        <tr><td><strong>LEFT JOIN</strong></td><td>Alle rijen uit linker tabel + overeenkomsten rechts (NULL als geen match)</td></tr>
+        <tr><td><strong>RIGHT JOIN</strong></td><td>Alle rijen uit rechter tabel + overeenkomsten links</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <pre><code>-- INNER JOIN: klanten mét bestellingen
+SELECT k.naam, b.besteldatum
+FROM klanten k
+INNER JOIN bestellingen b ON k.klant_id = b.klant_id;
+
+-- LEFT JOIN: ALLE klanten, ook zonder bestelling
+SELECT k.naam, COUNT(b.bestelling_id) AS bestellingen
+FROM klanten k
+LEFT JOIN bestellingen b ON k.klant_id = b.klant_id
+GROUP BY k.klant_id, k.naam;
+
+-- Meervoudige JOIN (3 tabellen)
+SELECT k.naam, p.naam AS product, br.aantal
+FROM klanten k
+JOIN bestellingen b    ON k.klant_id  = b.klant_id
+JOIN bestelling_regels br ON b.bestelling_id = br.bestelling_id
+JOIN producten p       ON br.product_id = p.product_id
+ORDER BY k.naam, p.naam;</code></pre>
+
+    <h2 id="s5">5. Aliassen</h2>
+    <p>Aliassen maken lange kolomnamen korter en maken berekende kolommen leesbaar:</p>
+    <pre><code>-- Kolomalias
+SELECT naam AS productnaam,
+       prijs AS verkoopprijs,
+       prijs * 1.21 AS prijs_incl_btw
+FROM producten;
+
+-- Tabel-alias (verplicht bij self-join)
+SELECT w1.naam AS werknemer, w2.naam AS manager
+FROM werknemers w1
+JOIN werknemers w2 ON w1.manager_id = w2.werknemer_id;</code></pre>
+
+    <h2 id="s6">6. Views</h2>
+    <p>Een <strong>view</strong> is een opgeslagen query die je kan aanspreken als een gewone tabel. Handig voor complexe queries die je vaak hergebruikt.</p>
+    <pre><code>-- View aanmaken
+CREATE VIEW bestellingen_overzicht AS
+SELECT
+  b.bestelling_id,
+  k.naam AS klant_naam,
+  b.besteldatum,
+  SUM(br.aantal * p.prijs) AS totaal_bedrag
+FROM bestellingen b
+JOIN klanten k             ON b.klant_id = k.klant_id
+JOIN bestelling_regels br  ON b.bestelling_id = br.bestelling_id
+JOIN producten p            ON br.product_id = p.product_id
+GROUP BY b.bestelling_id, k.naam, b.besteldatum;
+
+-- View gebruiken alsof het een tabel is
+SELECT * FROM bestellingen_overzicht
+WHERE totaal_bedrag > 100
+ORDER BY besteldatum DESC;
+
+-- View verwijderen
+DROP VIEW IF EXISTS bestellingen_overzicht;</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="db6-h02-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 2.1</span>
+        <span class="oefening__title">GROUP BY, HAVING en aggregatie</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van GROUP BY, HAVING, aggregatiefuncties en het verschil met WHERE.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Wat is het verschil tussen <code>WHERE</code> en <code>HAVING</code>?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>WHERE werkt enkel op tekstvelden, HAVING enkel op getallen</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>WHERE filtert vóór groepering (op individuele rijen), HAVING filtert ná groepering (op geaggregeerde waarden)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>HAVING is de modernere versie van WHERE en vervangt het volledig</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>WHERE en HAVING zijn volledig equivalent en inwisselbaar</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="WHERE filtert individuele rijen vóór de groepering. HAVING filtert de gegroepeerde resultaten ná GROUP BY. Je kan ze combineren in dezelfde query."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="count|count()|count(*)">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welke SQL-aggregatiefunctie telt het aantal rijen (of niet-NULL waarden)?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de functienaam...">
+          <div class="vraag__feedback" data-correct-label="COUNT() — COUNT(*) telt alle rijen, COUNT(kolom) telt enkel de niet-NULL waarden in die kolom."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Je wil enkel de categorieën tonen met een totale omzet groter dan 1000 euro. Welk fragment is correct?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>WHERE SUM(aantal * prijs) &gt; 1000</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>GROUP BY categorie WHERE omzet &gt; 1000</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>GROUP BY categorie HAVING SUM(aantal * prijs) &gt; 1000</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>GROUP BY categorie HAVING categorie &gt; 1000</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="GROUP BY categorie HAVING SUM(aantal * prijs) > 1000 — HAVING filtert de gegroepeerde resultaten op basis van de aggregatiefunctie."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,b,d">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Welke zijn geldige SQL-aggregatiefuncties?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span><code>SUM()</code></span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span><code>AVG()</code></span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span><code>TOTAL()</code></span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span><code>MAX()</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="SUM(), AVG() en MAX() zijn geldige aggregatiefuncties. TOTAL() bestaat niet in standaard SQL."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="db6-h02-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 2.2</span>
+        <span class="oefening__title">Subqueries, JOINs en Views</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van subqueries, de verschillende JOIN-types en views.</p>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welk JOIN-type geeft ALLE rijen uit de linker tabel terug, ook als er geen overeenkomst is in de rechter tabel?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>LEFT JOIN</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>INNER JOIN</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>CROSS JOIN</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>FULL JOIN</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="LEFT JOIN — geeft alle rijen uit de linker tabel, met NULL-waarden voor kolommen uit de rechter tabel als er geen match is. Handig om 'klanten zonder bestellingen' te vinden."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Wat is een VIEW in SQL?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Een tijdelijke tabel die na de query automatisch verwijderd wordt</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>Een kopie van een tabel voor backup-doeleinden</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Een index op een kolom voor snellere zoekopdrachten</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Een opgeslagen SELECT-query die je kan bevragen als een gewone tabel</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Een VIEW is een opgeslagen query die je kan aanspreken als een tabel. De data wordt niet gedupliceerd — elke keer dat je de view bevraagt, wordt de onderliggende query uitgevoerd."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="exists|NOT IN|subquery">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Welk SQL-sleutelwoord gebruik je in een subquery om te controleren of er minstens één overeenkomend record bestaat (efficiënter dan IN voor grote datasets)?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het sleutelwoord...">
+          <div class="vraag__feedback" data-correct-label="EXISTS — controleert of de subquery minstens één rij teruggeeft. Vaak efficiënter dan IN omdat de database stopt zodra een match gevonden is."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li><code>GROUP BY</code> groepeert rijen. Gebruik aggregatiefuncties: <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>.</li>
+        <li><code>HAVING</code> filtert na groepering; <code>WHERE</code> filtert v&oacute;&oacute;r groepering.</li>
+        <li>Subqueries: scalar (geeft &eacute;&eacute;n waarde), <code>IN</code>, <code>EXISTS</code>.</li>
+        <li>INNER JOIN = intersectie; LEFT JOIN = alle rijen links + NULL rechts.</li>
+        <li>Views slaan queries op voor hergebruik: <code>CREATE VIEW naam AS SELECT ...</code>.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H02</h2>
+    <p>Schrijf de volgende queries op het e-commerce schema:</p>
+    <ol>
+      <li>Een query die per maand de totale omzet toont (gebruik <code>MONTH(besteldatum)</code>).</li>
+      <li>Een query die de top-3 best verkopende producten toont.</li>
+      <li>Een view <code>maandrapport</code> die per maand de omzet, het aantal bestellingen en het gemiddelde bedrag toont.</li>
+      <li>Een subquery die klanten toont die uitsluitend producten uit de categorie 'Elektronica' hebben besteld.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/databeheer/H02">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H01-normalisatie.html" class="btn btn-secondary">&larr; H01 &mdash; Normalisatie</a>
+      <a href="H03-stored-procedures-triggers.html" class="btn btn-secondary">H03 &mdash; Stored Procedures &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

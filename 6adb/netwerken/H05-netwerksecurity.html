@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 &mdash; Netwerksecurity &mdash; Netwerken 6ADB &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Veelvoorkomende aanvallen op netwerken (ARP spoofing, VLAN hopping, brute force), beveiligingsmaatregelen en best practices.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">Netwerken</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>H05</span>
+    </nav>
+    <div class="chapter-layout">
+      <aside class="chapter-sidebar">
+        <div class="chapter-sidebar__title">Inhoud</div>
+        <ul class="chapter-sidebar__list">
+          <li><a href="#leerdoelen">Leerdoelen</a></li>
+          <li><a href="#dreigingen">1.1 Netwerkdreigingen</a></li>
+          <li><a href="#aanvallen">1.2 Veelvoorkomende aanvallen</a></li>
+          <li><a href="#maatregelen">1.3 Beveiligingsmaatregelen</a></li>
+          <li><a href="#wachtwoorden">1.4 Wachtwoorden en authenticatie</a></li>
+          <li><a href="#vpn">1.5 VPN</a></li>
+          <li><a href="#oefeningen">2. Oefeningen</a></li>
+          <li><a href="#samenvatting">3. Samenvatting</a></li>
+        </ul>
+      </aside>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 6ADB</div>
+          <h1 class="page-header__title">H05 &mdash; Netwerksecurity</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-verdieping">verdieping</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <section id="leerdoelen">
+          <h2>Leerdoelen</h2>
+          <div class="ld-badges">
+            <span class="badge badge-ld">[LD-NET-07]</span> Netwerksecurity analyseren en toepassen <span class="badge badge-verdieping">verdieping</span>
+          </div>
+          <p>Na dit hoofdstuk kan je:</p>
+          <ul>
+            <li>veelvoorkomende netwerkdreigingen benoemen en uitleggen</li>
+            <li>aanvallen zoals ARP spoofing, VLAN hopping en brute force beschrijven</li>
+            <li>concrete beveiligingsmaatregelen koppelen aan elke dreiging</li>
+            <li>het belang van sterke wachtwoorden en tweestapsverificatie uitleggen</li>
+            <li>het concept van een VPN uitleggen en gebruiksscenario&#8217;s benoemen</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>1. Theorie</h2>
+
+          <h3 id="dreigingen">1.1 Netwerkdreigingen: de CIA-triade</h3>
+          <p>Netwerksecurity draait om drie kernprincipes, de <strong>CIA-triade</strong>:</p>
+
+          <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Principe</th><th>Omschrijving</th><th>Voorbeeld dreiging</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Confidentiality</strong> (Vertrouwelijkheid)</td><td>Data is alleen toegankelijk voor bevoegden</td><td>Afluisteren (sniffing), datalekken</td></tr>
+              <tr><td><strong>Integrity</strong> (Integriteit)</td><td>Data is correct en ongewijzigd</td><td>Man-in-the-middle, ARP spoofing</td></tr>
+              <tr><td><strong>Availability</strong> (Beschikbaarheid)</td><td>Systemen en data zijn bereikbaar wanneer nodig</td><td>DDoS, ransomware</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3 id="aanvallen">1.2 Veelvoorkomende aanvallen</h3>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; ARP Spoofing (ARP Poisoning)</div>
+            <p>Een aanvaller stuurt valse ARP-antwoorden en koppelt zijn MAC-adres aan het IP-adres van een ander apparaat (bv. de gateway). Alle netwerkverkeer loopt dan via de aanvaller (man-in-the-middle). <strong>Tegenmaatregel</strong>: Dynamic ARP Inspection (DAI) op de switch.</p>
+          </div>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; VLAN Hopping</div>
+            <p>Een aanvaller probeert van zijn VLAN naar een ander VLAN te springen zonder toestemming via double tagging of switch spoofing. <strong>Tegenmaatregel</strong>: native VLAN wijzigen, ongebruikte poorten uitschakelen, DTP uitschakelen.</p>
+          </div>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Brute Force</div>
+            <p>Een aanvaller probeert systematisch alle mogelijke wachtwoordcombinaties. <strong>Tegenmaatregel</strong>: sterke wachtwoorden, account lockout, tweestapsverificatie (2FA).</p>
+          </div>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; DDoS (Distributed Denial of Service)</div>
+            <p>Een groot aantal computers overspoelt een server of netwerk met verkeer zodat het overbelast raakt en onbereikbaar wordt voor legitieme gebruikers. <strong>Tegenmaatregel</strong>: rate limiting, DDoS-bescherming via ISP of cloudservice.</p>
+          </div>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Phishing</div>
+            <p>Een aanvaller misleidt gebruikers via valse e-mails of websites om inloggegevens of persoonlijke informatie te stelen. <strong>Tegenmaatregel</strong>: gebruikersopleiding, spamfilters, MFA.</p>
+          </div>
+
+          <h3 id="maatregelen">1.3 Beveiligingsmaatregelen</h3>
+
+          <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Maatregel</th><th>Beschrijving</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Netwerksegmentering</strong></td><td>VLANs scheiden gevoelige systemen van eindgebruikers</td></tr>
+              <tr><td><strong>Port Security</strong></td><td>Switchpoorten beperken tot toegestane MAC-adressen</td></tr>
+              <tr><td><strong>Patch management</strong></td><td>Regelmatig updates installeren op alle apparaten</td></tr>
+              <tr><td><strong>Encryptie</strong></td><td>Versleutel data in transit (HTTPS, SSH, VPN) en at rest</td></tr>
+              <tr><td><strong>Least privilege</strong></td><td>Gebruikers krijgen alleen de rechten die ze echt nodig hebben</td></tr>
+              <tr><td><strong>Logging en monitoring</strong></td><td>Bijhouden wie wat doet, anomalie&#235;n detecteren</td></tr>
+              <tr><td><strong>Fysieke beveiliging</strong></td><td>Serverruimte vergrendeld, onbeheerde apparaten uitschakelen</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3 id="wachtwoorden">1.4 Wachtwoorden en authenticatie</h3>
+          <p>Sterke wachtwoorden zijn de eerste verdedigingslijn:</p>
+          <ul>
+            <li>Minimaal 12 tekens, mix van letters (hoofd/klein), cijfers en speciale tekens</li>
+            <li>Geen hergebruik van wachtwoorden</li>
+            <li>Gebruik een <strong>wachtwoordmanager</strong> (Bitwarden, 1Password)</li>
+          </ul>
+
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Tweestapsverificatie (2FA / MFA)</div>
+            <p>Naast een wachtwoord is een tweede factor vereist (bv. een code op je smartphone). Zelfs als het wachtwoord gestolen is, kan een aanvaller niet inloggen zonder de tweede factor.</p>
+          </div>
+
+          <h3 id="vpn">1.5 VPN</h3>
+          <div class="callout callout--definitie">
+            <div class="callout-header">&#128218; Definitie &mdash; VPN</div>
+            <p>Een VPN (Virtual Private Network) cre&#235;ert een versleutelde tunnel tussen twee eindpunten over een onbetrouwbaar netwerk (bv. internet). Data is niet leesbaar voor derden die het verkeer onderscheppen.</p>
+          </div>
+
+          <p>Gebruiksscenario&#8217;s:</p>
+          <ul>
+            <li><strong>Remote access VPN</strong>: thuiswerker verbindt veilig met het bedrijfsnetwerk</li>
+            <li><strong>Site-to-site VPN</strong>: twee vestigingen verbonden via internet als waren ze op hetzelfde LAN</li>
+            <li><strong>Persoonlijke VPN</strong>: privacy beschermen op openbare wifi (hotel, caf&#233;)</li>
+          </ul>
+
+          <p>Protocollen: <strong>WireGuard</strong> (modern, snel), <strong>OpenVPN</strong> (open source), <strong>IPsec</strong> (enterprise-standaard).</p>
+
+          <div class="callout callout--tip">
+            <div class="callout-header">&#128161; UniFi en VPN</div>
+            <p>De UniFi Express 7 ondersteunt WireGuard VPN via <strong>Settings &rarr; VPN &rarr; VPN Server</strong>. Leerlingen kunnen een VPN-verbinding opzetten naar het schoolnetwerk en zo op afstand beheerwerk uitvoeren.</p>
+          </div>
+        </section>
+
+        <section id="oefeningen">
+          <h2>2. Oefeningen</h2>
+
+          <div class="oefening" data-oef-id="net6-h05-1">
+            <div class="oefening__header">
+              <span class="oefening__badge">Oefening 5.1</span>
+              <span class="oefening__title">Aanvallen herkennen</span>
+            </div>
+            <div class="oefening__body">
+              <p class="oefening__intro">Test je kennis van veelvoorkomende netwerkdreigingen.</p>
+
+              <div class="vraag" data-type="mc" data-correct="c">
+                <div class="vraag__nr">Vraag 1</div>
+                <div class="vraag__tekst">Een student probeert automatisch 10.000 wachtwoorden per minuut uit op de Wi-Fi-toegangscode. Welke aanval is dit?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v1" value="a"><span>ARP Spoofing</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v1" value="b"><span>VLAN Hopping</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v1" value="c"><span>Brute Force</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v1" value="d"><span>Phishing</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Brute Force — systematisch alle mogelijke combinaties uitproberen. Tegenmaatregel: account lockout, sterke wachtwoorden, 2FA."></div>
+              </div>
+
+              <div class="vraag" data-type="mc" data-correct="b">
+                <div class="vraag__nr">Vraag 2</div>
+                <div class="vraag__tekst">Een aanvaller stuurt valse ARP-antwoorden waardoor alle pc's hem als standaardgateway beschouwen. Welke aanval is dit?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v2" value="a"><span>DDoS</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v2" value="b"><span>ARP Spoofing (Man-in-the-middle)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v2" value="c"><span>Phishing</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v2" value="d"><span>Brute Force</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="ARP Spoofing (Man-in-the-middle) — alle verkeer loopt via de aanvaller. Tegenmaatregel: Dynamic ARP Inspection (DAI) op de switch."></div>
+              </div>
+
+              <div class="vraag" data-type="mc" data-correct="a">
+                <div class="vraag__nr">Vraag 3</div>
+                <div class="vraag__tekst">Welk CIA-principe wordt geschonden als een aanvaller leerlingendossiers kopieert maar de server normaal blijft werken?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v3" value="a"><span>Confidentiality (Vertrouwelijkheid)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v3" value="b"><span>Integrity (Integriteit)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v3" value="c"><span>Availability (Beschikbaarheid)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v3" value="d"><span>Geen enkel CIA-principe</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Confidentiality (Vertrouwelijkheid) — data is toegankelijk voor onbevoegden. Integrity wordt later geschonden als de database gewist wordt."></div>
+              </div>
+
+              <div class="vraag" data-type="mc" data-correct="d">
+                <div class="vraag__nr">Vraag 4</div>
+                <div class="vraag__tekst">Een medewerker werkt thuis en moet veilig toegang hebben tot interne bedrijfsbestanden. Wat is de beste beveiligingsmaatregel?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v4" value="a"><span>De bestanden publiek beschikbaar stellen op het internet</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v4" value="b"><span>De bestanden via e-mail sturen</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v4" value="c"><span>Een sterk wachtwoord instellen op de server</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-1-v4" value="d"><span>Een VPN-verbinding opzetten naar het bedrijfsnetwerk</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="VPN — creëert een versleutelde tunnel over het internet. Data is niet leesbaar voor derden die het verkeer onderscheppen."></div>
+              </div>
+
+            </div>
+            <div class="oefening__footer">
+              <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+              <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+              <div class="oefening__score" hidden>
+                <div class="oefening__score-tekst"></div>
+                <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="oefening" data-oef-id="net6-h05-2">
+            <div class="oefening__header">
+              <span class="oefening__badge">Oefening 5.2</span>
+              <span class="oefening__title">Beveiligingsmaatregelen</span>
+            </div>
+            <div class="oefening__body">
+              <p class="oefening__intro">Test je kennis van beveiligingsmaatregelen en authenticatie.</p>
+
+              <div class="vraag" data-type="mc" data-correct="b">
+                <div class="vraag__nr">Vraag 1</div>
+                <div class="vraag__tekst">Wat is tweestapsverificatie (2FA)?</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-2-v1" value="a"><span>Inloggen met twee verschillende wachtwoorden</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-2-v1" value="b"><span>Naast een wachtwoord ook een tweede factor vereist (bv. code op smartphone)</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-2-v1" value="c"><span>Een wachtwoord dat twee keer bevestigd wordt</span></label>
+                  <label class="vraag__keuze"><input type="radio" name="net6-h05-2-v1" value="d"><span>Twee gebruikers die samen inloggen</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Naast een wachtwoord ook een tweede factor — zelfs als het wachtwoord gestolen is, kan een aanvaller niet inloggen zonder de tweede factor"></div>
+              </div>
+
+              <div class="vraag" data-type="check" data-correct="a,b,d">
+                <div class="vraag__nr">Vraag 2</div>
+                <div class="vraag__tekst">Welke maatregelen beschermen tegen VLAN Hopping? (Selecteer alle juiste antwoorden)</div>
+                <div class="vraag__keuzes">
+                  <label class="vraag__keuze"><input type="checkbox" name="net6-h05-2-v2" value="a"><span>Native VLAN wijzigen naar een ongebruikt VLAN</span></label>
+                  <label class="vraag__keuze"><input type="checkbox" name="net6-h05-2-v2" value="b"><span>Ongebruikte poorten uitschakelen (shutdown)</span></label>
+                  <label class="vraag__keuze"><input type="checkbox" name="net6-h05-2-v2" value="c"><span>Sterker wachtwoord instellen op de switch</span></label>
+                  <label class="vraag__keuze"><input type="checkbox" name="net6-h05-2-v2" value="d"><span>DTP (Dynamic Trunking Protocol) uitschakelen</span></label>
+                </div>
+                <div class="vraag__feedback" data-correct-label="Native VLAN wijzigen, ongebruikte poorten uitschakelen en DTP uitschakelen — dit zijn de drie belangrijkste maatregelen tegen VLAN Hopping"></div>
+              </div>
+
+              <div class="vraag" data-type="text" data-correct="wireguard|wire guard">
+                <div class="vraag__nr">Vraag 3</div>
+                <div class="vraag__tekst">Welk modern VPN-protocol ondersteunt de UniFi Express 7? (het snelste, nieuwste protocol)</div>
+                <input type="text" class="vraag__invoer" placeholder="Typ de protocoolnaam...">
+                <div class="vraag__feedback" data-correct-label="WireGuard — modern, snel en eenvoudig VPN-protocol. Ondersteund door UniFi via Settings → VPN → VPN Server."></div>
+              </div>
+
+            </div>
+            <div class="oefening__footer">
+              <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+              <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+              <div class="oefening__score" hidden>
+                <div class="oefening__score-tekst"></div>
+                <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="samenvatting">
+          <h2>3. Samenvatting</h2>
+          <div class="callout callout--samenvatting">
+            <div class="callout-header">&#128203; Samenvatting</div>
+            <ul>
+              <li>CIA-triade: Confidentiality (vertrouwelijkheid), Integrity (integriteit), Availability (beschikbaarheid).</li>
+              <li>Veelvoorkomende aanvallen: ARP Spoofing, VLAN Hopping, Brute Force, DDoS, Phishing.</li>
+              <li>Maatregelen: segmentering, port security, encryptie, patch management, least privilege, logging.</li>
+              <li>Sterke wachtwoorden + MFA zijn essentieel. Gebruik een wachtwoordmanager.</li>
+              <li>VPN versleutelt verbindingen over onbetrouwbare netwerken. WireGuard is de moderne standaard.</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H05">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H04-firewallregels.html" class="chapter-nav__link chapter-nav__link--prev">
+            <span>&#8592;</span>
+            <div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H04 &mdash; Firewallregels</span></div>
+          </a>
+          <a href="H06-monitoring.html" class="chapter-nav__link chapter-nav__link--next">
+            <div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H06 &mdash; Netwerkmonitoring</span></div>
+            <span>&#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

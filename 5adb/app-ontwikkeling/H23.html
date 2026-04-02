@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H23 — Logische Operatoren — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H23" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.1"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-en">23.1 De &amp;&amp; operator — EN</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.2"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-of">23.2 De || operator — OF</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.3"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-niet">23.3 De ! operator — NIET</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.4"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-kortsluiting">23.4 Kortsluiting</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.5"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-combinatie">23.5 Combinatie &amp; haakjes</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.6"><span class="sidebar-check__box"></span></label>
+          <a href="#sectie-nullish">23.6 Nullish coalescing ??</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H23 — Logische Operatoren</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H23 — App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Logische Operatoren</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>De logische operatoren <code>&amp;&amp;</code>, <code>||</code> en <code>!</code> uitleggen en toepassen</li>
+          <li>Waarheidstabellen lezen en opstellen voor <code>&amp;&amp;</code> en <code>||</code></li>
+          <li>Begrijpen wat kortsluiting (short-circuit evaluation) is en hoe JavaScript ermee omgaat</li>
+          <li>Logische operatoren combineren met vergelijkingsoperatoren in <code>if</code>-statements</li>
+          <li>De nullish coalescing operator <code>??</code> herkennen en toepassen voor standaardwaarden</li>
+        </ul>
+      </div>
+
+      <!-- Intro -->
+      <p>In H22 leerde je <code>if</code>-statements met één voorwaarde. Maar in de praktijk wil je vaak <strong>meerdere voorwaarden tegelijk</strong> controleren. Daarvoor gebruik je de drie logische operatoren:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Operator</th><th>Naam</th><th>Betekenis</th></tr></thead>
+          <tbody>
+            <tr><td><code>&amp;&amp;</code></td><td>EN</td><td>Beide zijden moeten <code>true</code> zijn</td></tr>
+            <tr><td><code>||</code></td><td>OF</td><td>Minstens één zijde moet <code>true</code> zijn</td></tr>
+            <tr><td><code>!</code></td><td>NIET</td><td>Keert de waarde om</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 23.1 && -->
+      <section id="sectie-en">
+        <h2>23.1 De &amp;&amp; operator — EN</h2>
+        <p><code>&amp;&amp;</code> geeft <code>true</code> als <strong>beide</strong> zijden <code>true</code> zijn.</p>
+
+        <h3>Waarheidstabel voor &amp;&amp;</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Links</th><th>Rechts</th><th>Resultaat</th></tr></thead>
+            <tbody>
+              <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><td><code>false</code></td><td><code>true</code></td><td><code>false</code></td></tr>
+              <tr><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let leeftijd = 20;
+let heeftTicket = true;
+
+if (leeftijd &gt;= 18 &amp;&amp; heeftTicket) {
+    console.log("Welkom bij het evenement!");
+} else {
+    console.log("Je mag er helaas niet in.");
+}
+// → "Welkom bij het evenement!" (beide voorwaarden zijn true)</code></pre>
+        </div>
+
+        <h3>Meerdere &amp;&amp; aaneenkoppelen</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let leeftijd = 22;
+let heeftTicket = true;
+let staatOpLijst = true;
+
+if (leeftijd &gt;= 18 &amp;&amp; heeftTicket &amp;&amp; staatOpLijst) {
+    console.log("Toegang verleend.");
+}
+// Alle drie de voorwaarden moeten true zijn. Eén false is genoeg!</code></pre>
+        </div>
+      </section>
+
+      <!-- 23.2 || -->
+      <section id="sectie-of">
+        <h2>23.2 De || operator — OF</h2>
+        <p><code>||</code> geeft <code>true</code> als <strong>minstens één</strong> van de zijden <code>true</code> is.</p>
+
+        <h3>Waarheidstabel voor ||</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Links</th><th>Rechts</th><th>Resultaat</th></tr></thead>
+            <tbody>
+              <tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><td><code>true</code></td><td><code>false</code></td><td><code>true</code></td></tr>
+              <tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let isStudent = false;
+let heeftLidkaart = true;
+
+if (isStudent || heeftLidkaart) {
+    console.log("Je krijgt 20% korting.");
+} else {
+    console.log("Geen korting van toepassing.");
+}
+// → "Je krijgt 20% korting." (heeftLidkaart is true)</code></pre>
+        </div>
+      </section>
+
+      <!-- 23.3 ! -->
+      <section id="sectie-niet">
+        <h2>23.3 De ! operator — NIET</h2>
+        <p><code>!</code> keert een booleaanse waarde om: <code>true</code> wordt <code>false</code>, <code>false</code> wordt <code>true</code>.</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let isIngelogd = false;
+
+if (!isIngelogd) {
+    console.log("Gelieve in te loggen.");
+}
+// isIngelogd is false → !isIngelogd is true → boodschap wordt getoond</code></pre>
+        </div>
+
+        <h3>Dubbele negatie !!</h3>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let naam = "Marie";
+console.log(!!naam);  // → true  (naam bestaat en is niet leeg)
+
+let leeg = "";
+console.log(!!leeg);  // → false (lege string is falsy)</code></pre>
+        </div>
+      </section>
+
+      <!-- 23.4 Kortsluiting -->
+      <section id="sectie-kortsluiting">
+        <h2>23.4 Kortsluiting (short-circuit evaluation)</h2>
+        <p>JavaScript evalueert logische uitdrukkingen zo <strong>efficiënt mogelijk</strong>: zodra het resultaat vaststaat, stopt de evaluatie.</p>
+
+        <figure class="chapter-figure">
+          <img src="../../../app-ontwikkeling/images/H23-afb1.svg" alt="Stroomdiagram van kortsluiting bij && en ||" loading="lazy">
+        </figure>
+
+        <h3>Kortsluiting bij &amp;&amp;</h3>
+        <p><code>&amp;&amp;</code> stopt bij de <strong>eerste <code>false</code></strong>.</p>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let gebruiker = null;
+
+// Met kortsluiting is het veilig — tweede deel wordt nooit geëvalueerd:
+if (gebruiker !== null &amp;&amp; gebruiker.naam === "Marie") {
+    console.log("Hallo Marie!");
+}
+// gebruiker !== null is false → JavaScript evalueert gebruiker.naam nooit
+// Zonder kortsluiting zou dit een TypeError geven!</code></pre>
+        </div>
+
+        <h3>Kortsluiting bij ||</h3>
+        <p><code>||</code> stopt bij de <strong>eerste <code>true</code></strong>.</p>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let naam = "";
+let weergaveNaam = naam || "Anoniem";
+console.log(weergaveNaam);  // → "Anoniem"
+// naam is lege string (falsy) → || kijkt naar rechterkant → "Anoniem"</code></pre>
+        </div>
+
+        <h3>Truthy en falsy waarden</h3>
+        <p>In JavaScript gedragen sommige waarden zich als <code>false</code> in een booleaanse context:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Falsy waarden</th></tr></thead>
+            <tbody>
+              <tr><td><code>false</code></td></tr>
+              <tr><td><code>0</code></td></tr>
+              <tr><td><code>""</code> (lege string)</td></tr>
+              <tr><td><code>null</code></td></tr>
+              <tr><td><code>undefined</code></td></tr>
+              <tr><td><code>NaN</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Alles wat <strong>niet</strong> falsy is, is <strong>truthy</strong>: <code>"hallo"</code>, <code>1</code>, <code>[]</code>, <code>{}</code> zijn allemaal truthy.</p>
+      </section>
+
+      <!-- 23.5 Combinatie -->
+      <section id="sectie-combinatie">
+        <h2>23.5 Combinatie met vergelijkingsoperatoren</h2>
+        <p>Vergelijkingen (<code>&gt;</code>, <code>&lt;</code>, <code>===</code>, ...) worden <strong>voor</strong> logische operatoren berekend. Gebruik haakjes om de volgorde duidelijk te maken bij complexe combinaties.</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let leeftijd = 19;
+let isLid = false;
+let heeftVipPas = true;
+
+// Haakjes bepalen dat isLid || heeftVipPas eerst berekend wordt:
+if (leeftijd &gt;= 18 &amp;&amp; (isLid || heeftVipPas)) {
+    console.log("Toegang verleend.");
+} else {
+    console.log("Toegang geweigerd.");
+}
+// → "Toegang verleend." (18+ EN (geen lid maar wél vip))</code></pre>
+        </div>
+
+        <div class="callout callout--warning">
+          <div class="callout-header">⚠️ Haakjes zijn belangrijk</div>
+          <p>Zonder haakjes zou JavaScript dit lezen als <code>(leeftijd &gt;= 18 &amp;&amp; isLid) || heeftVipPas</code> — een heel andere logica!</p>
+        </div>
+      </section>
+
+      <!-- 23.6 Nullish coalescing -->
+      <section id="sectie-nullish">
+        <h2>23.6 Nullish coalescing ?? — voor gevorderde leerlingen</h2>
+        <p>De <code>??</code> operator lijkt op <code>||</code>, maar is specifieker: hij geeft de rechterkant terug <strong>alleen als de linkerkant <code>null</code> of <code>undefined</code> is</strong>. Andere falsy waarden (zoals <code>0</code> of <code>""</code>) worden <strong>niet</strong> als "leeg" beschouwd.</p>
+
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">let aantalPogingen = 0;
+
+// Met || : 0 is falsy, dus resultaat is 5 (waarschijnlijk niet bedoeld!)
+let pogingen1 = aantalPogingen || 5;
+console.log(pogingen1);  // → 5
+
+// Met ?? : 0 is niet null/undefined, dus 0 blijft
+let pogingen2 = aantalPogingen ?? 5;
+console.log(pogingen2);  // → 0</code></pre>
+        </div>
+      </section>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Toegangscontrole</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een JavaScript-programma dat controleert of iemand toegang krijgt tot een evenement.</p>
+            <p><strong>Regels:</strong></p>
+            <ol>
+              <li>De persoon moet minstens 16 jaar oud zijn</li>
+              <li>De persoon moet ofwel een ticket hebben, ofwel lid zijn van de organisatie</li>
+              <li>De persoon mag niet op de zwarte lijst staan</li>
+            </ol>
+            <p>Maak variabelen aan voor: <code>leeftijd</code>, <code>heeftTicket</code>, <code>isLid</code>, <code>staatOpZwarteLijst</code>.</p>
+            <p>Schrijf de logica met <code>&amp;&amp;</code>, <code>||</code> en <code>!</code>. Test met deze scenario's:</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Leeftijd</th><th>Ticket</th><th>Lid</th><th>Zwarte lijst</th><th>Verwacht</th></tr></thead>
+                <tbody>
+                  <tr><td>20</td><td>true</td><td>false</td><td>false</td><td>Toegang</td></tr>
+                  <tr><td>14</td><td>true</td><td>false</td><td>false</td><td>Te jong</td></tr>
+                  <tr><td>20</td><td>false</td><td>false</td><td>false</td><td>Geen ticket of lidmaatschap</td></tr>
+                  <tr><td>20</td><td>true</td><td>false</td><td>true</td><td>Zwarte lijst</td></tr>
+                  <tr><td>17</td><td>false</td><td>true</td><td>false</td><td>Toegang (lid)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H23-oef1-browser.svg" alt="Browser-mockup: console toont de toegangscontrole voor verschillende personen" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Logische Operatoren
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H23-voorbeeld.svg', 'Voorbeeld — Kortingssysteem')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Kortingssysteem</h3>
+            <p>Schrijf een JavaScript-programma dat bepaalt hoeveel korting een klant krijgt.</p>
+
+            <p><strong>Deel 1 — Kortingsregels (5 punten)</strong></p>
+            <p>Maak variabelen voor: <code>isStudent</code>, <code>isLid</code>, <code>isJarig</code>, <code>aankoopBedrag</code></p>
+            <p>Kortingsregels:</p>
+            <ul>
+              <li>Student <strong>EN</strong> lid: 25% korting</li>
+              <li>Student <strong>OF</strong> lid: 15% korting</li>
+              <li>Jarig: 10% extra (bovenop eventuele andere korting)</li>
+              <li>Aankoop meer dan €100: 5% extra (bovenop andere kortingen)</li>
+              <li>Geen van de bovenstaande: geen korting</li>
+            </ul>
+            <p>Bereken het eindbedrag na alle kortingen en toon het in de console.</p>
+
+            <p><strong>Deel 2 — Standaardwaarde met || (3 punten)</strong></p>
+            <ol>
+              <li>Maak een variabele <code>gebruikersnaam</code> die leeg (<code>""</code>) is</li>
+              <li>Gebruik <code>||</code> om de weergavenaam in te stellen op <code>"Gast"</code> als de naam leeg is</li>
+              <li>Toon een begroeting: <code>"Welkom, Gast!"</code></li>
+              <li>Herhaal met <code>??</code> — wat is het verschil als de naam <code>0</code> of <code>null</code> is?</li>
+            </ol>
+
+            <p><strong>Deel 3 — Veilige toegang (2 punten)</strong></p>
+            <ol>
+              <li>Maak een variabele <code>profiel</code> die <code>null</code> is</li>
+              <li>Gebruik kortsluiting (<code>&amp;&amp;</code>) om veilig <code>profiel.naam</code> te lezen zonder TypeError</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H23 — Logische Operatoren</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het resultaat van <code>true &amp;&amp; false</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="a"> <span>true</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="b"> <span>undefined</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="c"> <span>false</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="d"> <span>null</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is het resultaat van <code>false || true</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="a"> <span>true</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="b"> <span>false</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="c"> <span>null</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="d"> <span>undefined</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke van de volgende waarden is <strong>falsy</strong> in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="a"> <span><code>"0"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="b"> <span><code>0</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="c"> <span><code>[]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="d"> <span><code>{}</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is het verschil tussen <code>||</code> en <code>??</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="a"> <span>Er is geen verschil, ze doen hetzelfde</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="b"> <span><code>??</code> werkt alleen met strings</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="c"> <span><code>||</code> geeft de rechterkant terug als de linkerkant null of undefined is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="d"> <span><code>??</code> geeft de rechterkant alleen terug als de linkerkant <code>null</code> of <code>undefined</code> is, niet bij andere falsy waarden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet kortsluiting bij <code>&amp;&amp;</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="a"> <span>JavaScript stopt de evaluatie bij de eerste <code>false</code>, want dan kan het resultaat nooit meer <code>true</code> worden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="b"> <span>JavaScript stopt de evaluatie bij de eerste <code>true</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="c"> <span>JavaScript evalueert altijd beide zijden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="d"> <span>Kortsluiting bestaat niet bij <code>&amp;&amp;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat is de uitvoer van: <code>let x = "" || "standaard"; console.log(x);</code></p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v6" value="a"> <span>""</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v6" value="b"> <span>true</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v6" value="c"> <span>standaard</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v6" value="d"> <span>false</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H23')" data-progress-key="5adb/app-ontwikkeling/H23">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H22.html" class="btn btn-ghost">&#8592; H22</a>
+          <a href="H24.html" class="btn btn-ghost">H24 &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Appschool Munsterbilzen — Data- en Applicatiebeheer</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

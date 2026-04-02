@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 &mdash; Werkomgeving en versiebeheer &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Werkomgeving en versiebeheer &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H02</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-2-werkomgeving-en-versiebeheer-opzetten">Hoofdstuk 2 — Werkomgeving en versiebeheer opzetten</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#21-de-werkomgeving-opzetten">2.1 De werkomgeving opzetten</a></li><li><a href="#211-mysql-installeren" style="padding-left:1.25rem">2.1.1 MySQL installeren</a></li><li><a href="#212-mysql-workbench-als-grafische-client" style="padding-left:1.25rem">2.1.2 MySQL Workbench als grafische client</a></li><li><a href="#213-eerste-verbinding-via-de-command-line" style="padding-left:1.25rem">2.1.3 Eerste verbinding via de command-line</a></li><li><a href="#22-mappenstructuur-voor-een-databeheer-project">2.2 Mappenstructuur voor een databeheer-project</a></li><li><a href="#23-versiebeheer-met-git">2.3 Versiebeheer met Git</a></li><li><a href="#231-wat-is-versiebeheer" style="padding-left:1.25rem">2.3.1 Wat is versiebeheer?</a></li><li><a href="#232-git-basisbegrippen" style="padding-left:1.25rem">2.3.2 Git basisbegrippen</a></li><li><a href="#233-git-installeren-en-configureren" style="padding-left:1.25rem">2.3.3 Git installeren en configureren</a></li><li><a href="#234-een-project-opzetten-met-git" style="padding-left:1.25rem">2.3.4 Een project opzetten met Git</a></li><li><a href="#235-het-gitignore-bestand" style="padding-left:1.25rem">2.3.5 Het .gitignore-bestand</a></li><li><a href="#24-werkplanning-opstellen">2.4 Werkplanning opstellen</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h02" style="padding-left:1.25rem">Huistaak H02</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H02 &mdash; Werkomgeving en versiebeheer</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-2-werkomgeving-en-versiebeheer-opzetten">Hoofdstuk 2 — Werkomgeving en versiebeheer opzetten</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB06]</span> Plannen van werkzaamheden in functie van de opdracht <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB16]</span> Gebruiken van een versiebeheersysteem <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 4 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>MySQL en een databaseclient (MySQL Workbench of phpMyAdmin) installeren en configureren.</li>
+<li>Een nieuwe database aanmaken via de command-line client.</li>
+<li>Uitleggen wat versiebeheer is en waarom het wordt gebruikt.</li>
+<li>Een lokale Git-repository aanmaken en bestanden toevoegen, committen en pushen naar GitHub.</li>
+<li>Een zinvolle mappenstructuur opzetten voor een databeheer-project.</li>
+<li>Een werkplanning opstellen voor een eenvoudige database-opdracht.</li>
+</ol>
+<h2 id="21-de-werkomgeving-opzetten">2.1 De werkomgeving opzetten</h2>
+<h3 id="211-mysql-installeren">2.1.1 MySQL installeren</h3>
+<p>Voor dit vak gebruiken we <strong>MySQL</strong> als databasesysteem. MySQL is gratis, breed ondersteund en eenvoudig te installeren.</p>
+<p><strong>Stap-voor-stap installatie (Windows):</strong></p>
+<pre data-lang="bash"><code>
+# 1. Download MySQL Installer van https://dev.mysql.com/downloads/installer/
+# 2. Kies "MySQL Server" + "MySQL Workbench" tijdens de installatie
+# 3. Stel een root-wachtwoord in (onthoud dit!)
+# 4. Kies "Standard Configuration"
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Noteer je root-wachtwoord direct in je projectdocumentatie (nooit online of in een publieke repository!). Vergeten root-wachtwoord herstellen kost tijd.</p>
+</div>
+<h3 id="212-mysql-workbench-als-grafische-client">2.1.2 MySQL Workbench als grafische client</h3>
+<p>MySQL Workbench is een grafische tool waarmee je:</p>
+<ul>
+<li>Verbinding maakt met je MySQL-server</li>
+<li>SQL-queries schrijft en uitvoert</li>
+<li>Tabellen visueel bekijkt en bewerkt</li>
+<li>ERD-schema's tekent</li>
+</ul>
+<p><strong>Verbinding opzetten in MySQL Workbench:</strong></p>
+<pre data-lang="text"><code>
+Hostname:   127.0.0.1 (of localhost)
+Port:       3306
+Username:   root
+Password:   [jouw root-wachtwoord]
+</code></pre>
+<h3 id="213-eerste-verbinding-via-de-command-line">2.1.3 Eerste verbinding via de command-line</h3>
+<pre data-lang="bash"><code>
+# Start de MySQL command-line client
+mysql -u root -p
+
+# Voer je wachtwoord in wanneer gevraagd
+# Je ziet nu de MySQL-prompt:
+# mysql&gt;
+</code></pre>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Eerste commando's in de MySQL-client:</p>
+<pre data-lang="sql"><code>
+-- Toon alle bestaande databases
+SHOW DATABASES;
+
+-- Maak een nieuwe database aan
+CREATE DATABASE mijn_eerste_db;
+
+-- Activeer de database
+USE mijn_eerste_db;
+
+-- Bevestig welke database actief is
+SELECT DATABASE();
+</code></pre>
+<p><strong>Resultaat van SHOW DATABASES:</strong></p>
+<p>| Database |</p>
+<p>|---|</p>
+<p>| information_schema |</p>
+<p>| mijn_eerste_db |</p>
+<p>| mysql |</p>
+<p>| performance_schema |</p>
+<p>| sys |</p>
+</div>
+<h2 id="22-mappenstructuur-voor-een-databeheer-project">2.2 Mappenstructuur voor een databeheer-project</h2>
+<p>Een goede mappenstructuur is essentieel voor overzicht en samenwerking.</p>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een projectstructuur is de manier waarop bestanden en mappen worden georganiseerd binnen een project. Een consistente structuur maakt samenwerken, back-ups en versiebeheer eenvoudiger.</p>
+</div>
+<p><strong>Aanbevolen structuur voor een databeheer-project:</strong></p>
+<pre data-lang="text"><code>
+mijn_project/
+├── README.md            ← Beschrijving van het project
+├── schema/
+│   ├── create_tables.sql   ← DDL: tabellen aanmaken
+│   └── erd.png             ← ERD-diagram
+├── data/
+│   ├── seed_data.sql    ← Testdata invoegen
+│   └── import/          ← CSV-bestanden voor import
+├── queries/
+│   ├── select_queries.sql
+│   └── rapport_queries.sql
+└── docs/
+    └── werkplanning.md
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Maak altijd een <code>README.md</code> in de root van je project. Beschrijf daarin: wat doet de databank, welke tabellen zijn er, en hoe importeer je de databank?</p>
+</div>
+<h2 id="23-versiebeheer-met-git">2.3 Versiebeheer met Git</h2>
+<h3 id="231-wat-is-versiebeheer">2.3.1 Wat is versiebeheer?</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Versiebeheer (version control) is een systeem dat wijzigingen in bestanden bijhoudt over tijd. Je kan op elk moment teruggaan naar een vorige versie, zien wie wat heeft gewijzigd, en samenwerken zonder elkaars werk te overschrijven.</p>
+</div>
+<p>Stel je voor: je werkt aan een SQL-script en na een uur merk je dat je iets kapot hebt gemaakt. Zonder versiebeheer moet je alles manueel herstellen. Met Git: <code>git checkout</code> en je bent terug naar de werkende versie.</p>
+<h3 id="232-git-basisbegrippen">2.3.2 Git basisbegrippen</h3>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Begrip</th><th>Betekenis</th></tr></thead><tbody>
+<tr><td><strong>Repository (repo)</strong></td><td>Een map met versiebeheer — bevat alle bestanden + hun geschiedenis</td></tr>
+<tr><td><strong>Commit</strong></td><td>Een opgeslagen snapshot van de bestanden op een bepaald moment</td></tr>
+<tr><td><strong>Branch</strong></td><td>Een aparte ontwikkellijn (standaard: <code>main</code>)</td></tr>
+<tr><td><strong>Push</strong></td><td>Lokale commits doorsturen naar GitHub</td></tr>
+<tr><td><strong>Pull</strong></td><td>Wijzigingen van GitHub ophalen naar je lokale machine</td></tr>
+<tr><td><strong>Clone</strong></td><td>Een bestaande GitHub-repository kopiëren naar je computer</td></tr>
+</tbody></table></div>
+<h3 id="233-git-installeren-en-configureren">2.3.3 Git installeren en configureren</h3>
+<pre data-lang="bash"><code>
+# Installeer Git via https://git-scm.com/
+# Configureer je naam en e-mail (eenmalig):
+git config --global user.name "Jouw Naam"
+git config --global user.email "jouw@email.be"
+
+# Controleer de configuratie:
+git config --list
+</code></pre>
+<h3 id="234-een-project-opzetten-met-git">2.3.4 Een project opzetten met Git</h3>
+<pre data-lang="bash"><code>
+# Navigeer naar je projectmap
+cd mijn_project
+
+# Initialiseer een Git-repository
+git init
+
+# Voeg alle bestanden toe aan de staging area
+git add .
+
+# Maak je eerste commit
+git commit -m "Initiële projectstructuur aangemaakt"
+
+# Koppel je lokale repo aan GitHub (maak eerst een repo aan op GitHub.com)
+git remote add origin https://github.com/jouwgebruikersnaam/mijn_project.git
+
+# Stuur je commits naar GitHub
+git push -u origin main
+</code></pre>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Je hebt een SQL-script gewijzigd en wil dit opslaan in Git:</p>
+<pre data-lang="bash"><code>
+# Controleer welke bestanden zijn gewijzigd
+git status
+
+# Voeg het gewijzigde bestand toe
+git add schema/create_tables.sql
+
+# Maak een commit met een beschrijvende boodschap
+git commit -m "Tabel 'klant' uitgebreid met kolom 'stad'"
+
+# Stuur naar GitHub
+git push
+</code></pre>
+<p><strong>Goede commit-boodschappen:</strong></p>
+<ul>
+<li>✅ "Tabel 'bestelling' aangemaakt met foreign key naar klant"</li>
+<li>✅ "Bug opgelost: NOT NULL constraint ontbrak op email-kolom"</li>
+<li>❌ "update" (te vaag)</li>
+<li>❌ "asdfjkl" (totaal nutteloos)</li>
+</ul>
+</div>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Sla <strong>nooit</strong> wachtwoorden, API-sleutels of andere gevoelige informatie op in een Git-repository, ook niet in een privé-repository. Gebruik een <code>.gitignore</code>-bestand om gevoelige bestanden uit te sluiten.</p>
+</div>
+<h3 id="235-het-gitignore-bestand">2.3.5 Het .gitignore-bestand</h3>
+<pre data-lang="text"><code>
+# Inhoud van .gitignore voor een databeheer-project:
+*.log
+*.tmp
+config/database_credentials.env
+data/persoonlijke_data/
+</code></pre>
+<h2 id="24-werkplanning-opstellen">2.4 Werkplanning opstellen</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een werkplanning is een overzicht van de taken die moeten worden uitgevoerd, de volgorde ervan, en de geschatte tijd per taak. Een goede werkplanning helpt je om deadlines te halen en niets te vergeten.</p>
+</div>
+<p>Voor elke database-opdracht stel je een werkplanning op met:</p>
+<ol>
+<li><strong>Analyse</strong> — Wat moet de databank bijhouden? Welke entiteiten zijn er?</li>
+<li><strong>Ontwerp</strong> — ERD tekenen, tabellen definiëren, relaties bepalen.</li>
+<li><strong>Implementatie</strong> — Tabellen aanmaken, data invoegen.</li>
+<li><strong>Testen</strong> — Queries schrijven, resultaten controleren.</li>
+<li><strong>Documentatie</strong> — README, ERD toevoegen aan repo.</li>
+</ol>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Fase</th><th>Taak</th><th>Geschatte tijd</th></tr></thead><tbody>
+<tr><td>Analyse</td><td>Behoeften in kaart brengen</td><td>30 min</td></tr>
+<tr><td>Ontwerp</td><td>ERD tekenen</td><td>45 min</td></tr>
+<tr><td>Implementatie</td><td>CREATE TABLE statements</td><td>30 min</td></tr>
+<tr><td>Implementatie</td><td>Testdata invoegen</td><td>20 min</td></tr>
+<tr><td>Testen</td><td>SELECT-queries schrijven</td><td>45 min</td></tr>
+<tr><td>Documentatie</td><td>README schrijven, Git push</td><td>20 min</td></tr>
+</tbody></table></div>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>We maken een project aan voor een kleine bibliotheek.</p>
+<pre data-lang="bash"><code>
+# Stap 1: Projectmap aanmaken
+mkdir bibliotheek_db
+cd bibliotheek_db
+
+# Stap 2: Submappen aanmaken
+mkdir schema data queries docs
+
+# Stap 3: README aanmaken
+echo "# Bibliotheek Database" &gt; README.md
+
+# Stap 4: Git initialiseren
+git init
+git add .
+git commit -m "Initiële structuur bibliotheek_db"
+</code></pre>
+<pre data-lang="sql"><code>
+-- schema/create_tables.sql
+CREATE DATABASE IF NOT EXISTS bibliotheek;
+USE bibliotheek;
+
+CREATE TABLE boek (
+boek_id    INT          PRIMARY KEY AUTO_INCREMENT,
+titel      VARCHAR(200) NOT NULL,
+auteur     VARCHAR(100) NOT NULL,
+isbn       VARCHAR(20)  UNIQUE,
+jaar       YEAR
+);
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Twee leerlingen werken samen aan één project. Leerling A maakt de <code>klant</code>-tabel, leerling B de <code>bestelling</code>-tabel.</p>
+<pre data-lang="bash"><code>
+# Leerling A:
+git pull origin main          # Haal laatste versie op
+# ... werkt aan schema/klant.sql ...
+git add schema/klant.sql
+git commit -m "Tabel klant aangemaakt"
+git push origin main
+
+# Leerling B (daarna):
+git pull origin main          # Haal commit van A op
+# ... werkt aan schema/bestelling.sql ...
+git add schema/bestelling.sql
+git commit -m "Tabel bestelling aangemaakt met FK naar klant"
+git push origin main
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h02-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.1</span>
+    <span class="oefening__title">MySQL basiscommando's</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van de MySQL command-line client en de basiscommando's om databases te beheren.</p>
+
+    <div class="vraag" data-type="text" data-correct="show databases|show databases;">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk SQL-commando gebruik je om een overzicht te krijgen van alle bestaande databases in MySQL?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="SHOW DATABASES; — toont alle databases op de MySQL-server"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Hoe verbind je via de command-line met de MySQL-server als gebruiker 'root' waarbij om een wachtwoord wordt gevraagd?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q2" value="a"><span><code>mysql root -p</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q2" value="b"><span><code>mysql -u root -p</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q2" value="c"><span><code>connect root -password</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q2" value="d"><span><code>mysql --user root --pass</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="mysql -u root -p — de vlag -u geeft de gebruikersnaam op, -p vraagt het wachtwoord interactief"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="use|use mijn_eerste_db|use mijn_eerste_db;">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Met welk SQL-sleutelwoord activeer (selecteer) je een database voor gebruik?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het sleutelwoord...">
+      <div class="vraag__feedback" data-correct-label="USE — bijv. USE mijn_db; selecteert de database voor alle volgende commando's"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welke poort gebruikt MySQL standaard?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q4" value="a"><span>8080</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q4" value="b"><span>5432</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q4" value="c"><span>3306</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-1-q4" value="d"><span>1433</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="3306 — de standaardpoort van MySQL; je ziet dit ook in de verbindingsinstellingen van MySQL Workbench"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h02-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.2</span>
+    <span class="oefening__title">Git-begrippen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Git is een versiebeheersysteem. Test of je de basisbegrippen en commando's kent.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is een Git-commit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q1" value="a"><span>Een opgeslagen snapshot van de bestanden op een bepaald moment</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q1" value="b"><span>Het doorsturen van bestanden naar GitHub</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q1" value="c"><span>Een kopie van een repository op GitHub</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q1" value="d"><span>Het samenvoegen van twee branches</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Een opgeslagen snapshot van de bestanden op een bepaald moment — je kan altijd terugkeren naar een vorige commit"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="git init">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk commando gebruik je om een nieuwe lokale Git-repository te starten in de huidige map?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="git init — initialiseert een nieuwe Git-repository in de huidige map"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Je hebt een bestand <code>schema/klant.sql</code> aangepast. Welke volgorde van commando's is correct om dit op te slaan in Git en naar GitHub te sturen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q3" value="a"><span>git push → git commit → git add</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q3" value="b"><span>git commit → git add → git push</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q3" value="c"><span>git add → git push → git commit</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q3" value="d"><span>git add → git commit → git push</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="git add → git commit → git push — eerst bestand stagen, dan vastleggen als commit, dan doorsturen naar GitHub"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is het doel van een <code>.gitignore</code>-bestand?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q4" value="a"><span>Om de commit-boodschap op te slaan</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q4" value="b"><span>Om bepaalde bestanden en mappen uit te sluiten van versiebeheer</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q4" value="c"><span>Om Git te versnellen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-2-q4" value="d"><span>Om GitHub-toegang te beveiligen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Om bepaalde bestanden en mappen uit te sluiten van versiebeheer — bv. wachtwoorden, logbestanden en tijdelijke bestanden"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h02-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 2.3</span>
+    <span class="oefening__title">Werkplanning en projectstructuur</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je ontvangt de opdracht: "Ontwerp een database voor een dierenasiel met dieren, medewerkers en verzorgingsrelaties." Test of je de juiste aanpak kent.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is de eerste fase van een database-project?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q1" value="a"><span>Implementatie — tabellen aanmaken met CREATE TABLE</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q1" value="b"><span>Testen — queries schrijven om data te controleren</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q1" value="c"><span>Analyse — bepalen wat de database moet bijhouden</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q1" value="d"><span>Documentatie — README schrijven</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Analyse — je begint altijd met bepalen wat de database moet bijhouden, welke entiteiten er zijn en wat de relaties zijn"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">In het dierenasiel-voorbeeld: welke map in de projectstructuur bewaar je het <code>create_tables.sql</code>-bestand?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q2" value="a"><span><code>schema/</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q2" value="b"><span><code>data/</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q2" value="c"><span><code>queries/</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h02-3-q2" value="d"><span><code>docs/</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="schema/ — in deze map bewaar je DDL-bestanden (de structuur van de database: CREATE TABLE statements en ERD)"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="readme|readme.md">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk bestand maak je altijd aan in de root van je project met een beschrijving van de database?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de bestandsnaam...">
+      <div class="vraag__feedback" data-correct-label="README.md — dit bestand beschrijft het project: doel, tabellen, hoe de database te importeren, etc."></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h02">Huistaak H02</h3>
+<p><strong>Git-dagboek: versiebeheer in de praktijk</strong></p>
+<p>Tijdens de komende week gebruik je Git actief voor al je databeheer-bestanden.</p>
+<p><strong>Opdracht:</strong></p>
+<ol>
+<li>Maak je GitHub-repository klaar (als je dat in de les nog niet deed).</li>
+<li>Voeg minstens <strong>3 commits</strong> toe met zinvolle commit-boodschappen.</li>
+<li>Maak een screenshot van je <code>git log</code> (toon minstens 3 commits).</li>
+<li>Schrijf een korte reflectie (5–8 zinnen): Wat was moeilijk? Wat is het voordeel van versiebeheer dat je nu al merkt?</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H02-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>MySQL</strong> is het databasesysteem dat we gebruiken; verbinding via MySQL Workbench of command-line client.</li>
+<li>Een consistente <strong>mappenstructuur</strong> (<code>schema/</code>, <code>data/</code>, <code>queries/</code>, <code>docs/</code>, <code>README.md</code>) is de basis van elk project.</li>
+<li><strong>Git</strong> is een versiebeheersysteem dat alle wijzigingen bijhoudt; commando's: <code>git init</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>.</li>
+<li>Sla <strong>nooit</strong> wachtwoorden op in een Git-repository; gebruik een <code>.gitignore</code>-bestand.</li>
+<li>Een <strong>werkplanning</strong> verdeelt een opdracht in fases: analyse → ontwerp → implementatie → testen → documentatie.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB06]</span> Plannen van werkzaamheden in functie van de opdracht <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB16]</span> Gebruiken van een versiebeheersysteem <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H02">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H01.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H01 &mdash; Introductie databases en privacy</span></div></a>
+          <a href="H03.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H03 &mdash; Datamodellering: tabellen en relaties</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

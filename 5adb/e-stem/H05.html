@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 &mdash; Python: bestanden en data &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Python: bestanden en data &amp;mdash; E-STEM 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">E-STEM</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H05</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-5-python-bestanden-en-data">Hoofdstuk 5 — Python: bestanden en data</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#51-tekstbestanden-lezen-en-schrijven">5.1 Tekstbestanden lezen en schrijven</a></li><li><a href="#bestand-schrijven" style="padding-left:1.25rem">Bestand schrijven</a></li><li><a href="#bestand-lezen" style="padding-left:1.25rem">Bestand lezen</a></li><li><a href="#52-csv-bestanden-verwerken">5.2 CSV-bestanden verwerken</a></li><li><a href="#csv-inlezen" style="padding-left:1.25rem">CSV inlezen</a></li><li><a href="#csv-lezen-als-woordenboek" style="padding-left:1.25rem">CSV lezen als woordenboek</a></li><li><a href="#csv-schrijven" style="padding-left:1.25rem">CSV schrijven</a></li><li><a href="#53-berekeningen-op-data">5.3 Berekeningen op data</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h05" style="padding-left:1.25rem">Huistaak H05</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-estem" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127827; E-STEM &mdash; 5ADB</div>
+          <h1 class="page-header__title">H05 &mdash; Python: bestanden en data</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <h1 id="e-stem">E-STEM</h1>
+<h2 id="hoofdstuk-5-python-bestanden-en-data">Hoofdstuk 5 — Python: bestanden en data</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht E-STEM</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-05]</span> Een eenvoudig programma schrijven en uitvoeren <span class="badge badge-basis">basis</span></div>
+<p>Na dit hoofdstuk kan de leerling:</p>
+<ul>
+<li>een tekstbestand lezen en schrijven met Python;</li>
+<li>een CSV-bestand inlezen en verwerken;</li>
+<li>berekeningen uitvoeren op data uit een bestand;</li>
+<li>resultaten wegschrijven naar een nieuw bestand.</li>
+</ul>
+<p><strong>Geschatte lesuren:</strong> 4 uur</p>
+<h2 id="51-tekstbestanden-lezen-en-schrijven">5.1 Tekstbestanden lezen en schrijven</h2>
+<h3 id="bestand-schrijven">Bestand schrijven</h3>
+<pre data-lang="python"><code>
+# Bestand aanmaken en schrijven
+with open('notities.txt', 'w') as bestand:
+    bestand.write("Dit is mijn eerste notitie.\n")
+    bestand.write("En dit is de tweede regel.\n")
+
+print("Bestand aangemaakt!")
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Het <code>with</code>-blok sluit het bestand automatisch als het klaar is. Gebruik altijd <code>with open()</code> in plaats van apart <code>open()</code> en <code>close()</code>.</p>
+</div>
+<p><strong>Modi:</strong></p>
+<ul>
+<li><code>'w'</code> — schrijven (overschrijft bestaand bestand)</li>
+<li><code>'a'</code> — aanvullen (voegt toe aan bestaand bestand)</li>
+<li><code>'r'</code> — lezen (standaard)</li>
+</ul>
+<h3 id="bestand-lezen">Bestand lezen</h3>
+<pre data-lang="python"><code>
+# Volledige inhoud lezen
+with open('notities.txt', 'r') as bestand:
+    inhoud = bestand.read()
+    print(inhoud)
+
+# Regel per regel lezen
+with open('notities.txt', 'r') as bestand:
+    for regel in bestand:
+        print(regel.strip())  # .strip() verwijdert spaties en \n
+</code></pre>
+<p>!<a href="../../images/H05-bestanden-python.png" target="_blank" rel="noopener">Bestanden lezen en schrijven</a></p>
+<p><em>Figuur 5.1 — Python leest en schrijft bestanden op de Pi</em></p>
+<h2 id="52-csv-bestanden-verwerken">5.2 CSV-bestanden verwerken</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>CSV (Comma-Separated Values) is een eenvoudig tekstformaat voor data in tabelvorm. Elke rij is een lijn, de kolommen zijn gescheiden door komma's.</p>
+</div>
+<p><strong>Voorbeeld van een CSV-bestand <code>scores.csv</code>:</strong></p>
+<pre data-lang=""><code>
+naam,score1,score2,score3
+Jan,14,12,15
+Sara,17,16,18
+Raf,8,10,9
+</code></pre>
+<h3 id="csv-inlezen">CSV inlezen</h3>
+<pre data-lang="python"><code>
+import csv
+
+with open('scores.csv', 'r') as bestand:
+    lezer = csv.reader(bestand)
+    next(lezer)  # sla de eerste rij (koptekst) over
+
+    for rij in lezer:
+        naam = rij[0]
+        score1 = int(rij[1])
+        score2 = int(rij[2])
+        score3 = int(rij[3])
+        print(f"{naam}: {score1}, {score2}, {score3}")
+</code></pre>
+<h3 id="csv-lezen-als-woordenboek">CSV lezen als woordenboek</h3>
+<pre data-lang="python"><code>
+import csv
+
+with open('scores.csv', 'r') as bestand:
+    lezer = csv.DictReader(bestand)  # gebruikt koptekst als kolomnaam
+
+    for rij in lezer:
+        naam = rij['naam']
+        gemiddelde = (int(rij['score1']) + int(rij['score2']) + int(rij['score3'])) / 3
+        print(f"{naam}: gemiddelde = {gemiddelde:.1f}")
+</code></pre>
+<h3 id="csv-schrijven">CSV schrijven</h3>
+<pre data-lang="python"><code>
+import csv
+
+resultaten = [
+    ['naam', 'gemiddelde', 'geslaagd'],
+    ['Jan', 13.7, 'Ja'],
+    ['Sara', 17.0, 'Ja'],
+    ['Raf', 9.0, 'Nee'],
+]
+
+with open('resultaten.csv', 'w', newline='') as bestand:
+    schrijver = csv.writer(bestand)
+    schrijver.writerows(resultaten)
+
+print("CSV opgeslagen!")
+</code></pre>
+<h2 id="53-berekeningen-op-data">5.3 Berekeningen op data</h2>
+<pre data-lang="python"><code>
+import csv
+
+scores = []
+
+with open('scores.csv', 'r') as bestand:
+    lezer = csv.DictReader(bestand)
+    for rij in lezer:
+        gem = (int(rij['score1']) + int(rij['score2']) + int(rij['score3'])) / 3
+        scores.append({'naam': rij['naam'], 'gemiddelde': gem})
+
+# Statistieken
+gemiddelden = [s['gemiddelde'] for s in scores]
+print(f"Hoogste gemiddelde: {max(gemiddelden):.1f}")
+print(f"Laagste gemiddelde: {min(gemiddelden):.1f}")
+print(f"Klasgemiddelde: {sum(gemiddelden)/len(gemiddelden):.1f}")
+</code></pre>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+from datetime import datetime
+
+bericht = input("Notitie toevoegen: ")
+tijdstip = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+with open('logboek.txt', 'a') as bestand:
+bestand.write(f"[{tijdstip}] {bericht}\n")
+
+print("Notitie opgeslagen!")
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<pre data-lang="python"><code>
+import csv
+
+namen = []
+while True:
+naam = input("Naam (of 'klaar'): ")
+if naam.lower() == 'klaar':
+break
+namen.append(naam)
+
+with open('aanwezig.csv', 'w', newline='') as bestand:
+schrijver = csv.writer(bestand)
+schrijver.writerow(['naam', 'aanwezig'])
+for naam in namen:
+schrijver.writerow([naam, 'Ja'])
+
+print(f"{len(namen)} leerlingen geregistreerd.")
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="estem5-h05-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.1</span>
+    <span class="oefening__title">Bestanden lezen en schrijven</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Test je kennis van het lezen en schrijven van bestanden in Python.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke modus gebruik je om tekst toe te <em>voegen</em> aan een bestaand bestand (zonder het te overschrijven)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v1" value="a"><span><code>'r'</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v1" value="b"><span><code>'w'</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v1" value="c"><span><code>'a'</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v1" value="d"><span><code>'x'</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="'a' (append) — voegt toe aan een bestaand bestand. 'w' (write) overschrijft het bestand."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is het voordeel van het <code>with open()</code>-blok?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v2" value="a"><span>Het bestand wordt automatisch gesloten als het blok eindigt</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v2" value="b"><span>Het bestand wordt sneller geopend</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v2" value="c"><span>Je kunt geen fouten maken bij het schrijven</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v2" value="d"><span>Het bestand wordt automatisch aangemaakt als het niet bestaat</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Het bestand wordt automatisch gesloten als het blok eindigt — dit vermijdt dat bestanden open blijven staan in het geheugen"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="csv|csv-module|import csv">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke Python-module gebruik je om CSV-bestanden te lezen en te schrijven?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de modulenaam...">
+      <div class="vraag__feedback" data-correct-label="csv — de ingebouwde csv-module van Python biedt csv.reader, csv.writer en csv.DictReader"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is het verschil tussen <code>csv.reader</code> en <code>csv.DictReader</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v4" value="a"><span>DictReader is sneller dan reader</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v4" value="b"><span>DictReader gebruikt de koptekstrij als kolomnamen, zodat je kolommen bij naam kan opvragen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v4" value="c"><span>DictReader kan grotere bestanden aan</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-1-v4" value="d"><span>Er is geen verschil, ze doen hetzelfde</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="DictReader gebruikt de koptekstrij als kolomnamen — bv. rij['naam'] is overzichtelijker dan rij[0]"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="estem5-h05-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.2</span>
+    <span class="oefening__title">CSV-verwerking en berekeningen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je hebt een CSV-bestand <code>producten.csv</code> met kolommen: naam, prijs, aantal. Test je begrip van dataverwerking.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Hoe bereken je de totale waarde per product (prijs × aantal) met DictReader?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v1" value="a"><span><code>rij['prijs'] * rij['aantal']</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v1" value="b"><span><code>rij[1] * rij[2]</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v1" value="c"><span><code>float(rij['prijs']) * int(rij['aantal'])</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v1" value="d"><span><code>rij.prijs * rij.aantal</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="float(rij['prijs']) * int(rij['aantal']) — CSV-waarden zijn altijd strings, dus eerst omzetten naar getal voor berekeningen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat staat er bovenaan een CSV-bestand (de eerste rij)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v2" value="a"><span>De eerste datarij</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v2" value="b"><span>De koptekst (header) met kolomnamen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v2" value="c"><span>Het aantal rijen in het bestand</span></label>
+        <label class="vraag__keuze"><input type="radio" name="estem5-h05-2-v2" value="d"><span>Een commentaarregel</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="De koptekst (header) met kolomnamen — bv. naam,prijs,aantal. Met csv.reader sla je deze over via next(lezer)."></div>
+    </div>
+
+    <div class="vraag" data-type="check" data-correct="a,c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke Python-functies gebruik je om het hoogste en laagste getal uit een lijst te halen? (Selecteer beide)</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h05-2-v3" value="a"><span><code>max()</code> — het hoogste getal</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h05-2-v3" value="b"><span><code>high()</code> — het hoogste getal</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h05-2-v3" value="c"><span><code>min()</code> — het laagste getal</span></label>
+        <label class="vraag__keuze"><input type="checkbox" name="estem5-h05-2-v3" value="d"><span><code>low()</code> — het laagste getal</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="max() en min() — ingebouwde Python-functies voor het hoogste en laagste getal in een lijst"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h05">Huistaak H05</h3>
+<p>Maak een Python-script <code>cijferlijst.py</code> dat:</p>
+<ol>
+<li>Vraagt naar de namen en scores (0–20) van 5 leerlingen via <code>input()</code>.</li>
+<li>De ingevoerde data opslaat in een CSV-bestand <code>klas.csv</code>.</li>
+<li>Het CSV-bestand terugleest en de volgende informatie toont:</li>
+</ol>
+<p>   - Alle namen en scores</p>
+<p>   - Wie geslaagd is (score >= 10)</p>
+<p>   - Het klasgemiddelde</p>
+<p><strong>Verbetersleutel:</strong> zie <code>output/e-stem/huistaken/H05-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong><code>with open(bestand, modus)</code></strong>: bestand openen en automatisch sluiten. Modi: <code>'r'</code> (lezen), <code>'w'</code> (schrijven), <code>'a'</code> (aanvullen).</li>
+<li><strong>CSV</strong>: data in tabelvorm als platte tekst. Python leest/schrijft CSV via de <code>csv</code>-module.</li>
+<li><strong><code>csv.DictReader</code></strong>: leest CSV met kolomnamen als sleutels — overzichtelijker dan index.</li>
+<li><strong><code>csv.writer</code></strong>: schrijft rijen naar een CSV-bestand.</li>
+<li>Combineer bestanden lezen/schrijven met berekeningen voor nuttige dataverwerkingsscripts.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-EST-05]</span> Een eenvoudig programma schrijven en uitvoeren <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/e-stem/H05">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H04.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H04 &mdash; SSH en netwerkconfiguratie</span></div></a>
+          <a href="H06.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H06 &mdash; Individueel project</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

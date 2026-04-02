@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 &mdash; Databank aanmaken en vullen &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Databank aanmaken en vullen &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H04</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-4-databank-aanmaken-en-vullen">Hoofdstuk 4 — Databank aanmaken en vullen</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#41-ddl-data-definition-language">4.1 DDL — Data Definition Language</a></li><li><a href="#411-database-aanmaken-en-selecteren" style="padding-left:1.25rem">4.1.1 Database aanmaken en selecteren</a></li><li><a href="#42-tabellen-aanmaken-create-table">4.2 Tabellen aanmaken — CREATE TABLE</a></li><li><a href="#421-basisstructuur" style="padding-left:1.25rem">4.2.1 Basisstructuur</a></li><li><a href="#422-sql-datatypes" style="padding-left:1.25rem">4.2.2 SQL-datatypes</a></li><li><a href="#423-constraints" style="padding-left:1.25rem">4.2.3 Constraints</a></li><li><a href="#424-tabel-wijzigen-alter-table" style="padding-left:1.25rem">4.2.4 Tabel wijzigen — ALTER TABLE</a></li><li><a href="#425-tabel-verwijderen" style="padding-left:1.25rem">4.2.5 Tabel verwijderen</a></li><li><a href="#43-dml-data-invoegen-met-insert-into">4.3 DML — Data invoegen met INSERT INTO</a></li><li><a href="#431-insert-into-één-rij" style="padding-left:1.25rem">4.3.1 INSERT INTO — één rij</a></li><li><a href="#432-insert-into-meerdere-rijen-tegelijk" style="padding-left:1.25rem">4.3.2 INSERT INTO — meerdere rijen tegelijk</a></li><li><a href="#433-waarden-voor-speciale-datatypes" style="padding-left:1.25rem">4.3.3 Waarden voor speciale datatypes</a></li><li><a href="#44-data-importeren-uit-csv">4.4 Data importeren uit CSV</a></li><li><a href="#441-wat-is-een-csv-bestand" style="padding-left:1.25rem">4.4.1 Wat is een CSV-bestand?</a></li><li><a href="#442-importeren-via-mysql-workbench" style="padding-left:1.25rem">4.4.2 Importeren via MySQL Workbench</a></li><li><a href="#443-importeren-via-load-data-infile" style="padding-left:1.25rem">4.4.3 Importeren via LOAD DATA INFILE</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h04" style="padding-left:1.25rem">Huistaak H04</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H04 &mdash; Databank aanmaken en vullen</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-4-databank-aanmaken-en-vullen">Hoofdstuk 4 — Databank aanmaken en vullen</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Implementeren van een databank op basis van een datamodel <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB21]</span> Gebruiken van een querytaal voor het manipuleren van gegevens <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 6 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>Een database aanmaken en verwijderen met DDL-commando's (<code>CREATE DATABASE</code>, <code>DROP DATABASE</code>).</li>
+<li>Tabellen aanmaken met correcte datatypes en constraints.</li>
+<li>De meest gebruikte SQL-datatypes correct inzetten.</li>
+<li>Constraints toepassen: <code>PRIMARY KEY</code>, <code>NOT NULL</code>, <code>UNIQUE</code>, <code>DEFAULT</code>, <code>CHECK</code>.</li>
+<li>Gegevens invoegen met <code>INSERT INTO</code>.</li>
+<li>Data importeren vanuit een CSV-bestand via MySQL Workbench of <code>LOAD DATA INFILE</code>.</li>
+</ol>
+<h2 id="41-ddl-data-definition-language">4.1 DDL — Data Definition Language</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>DDL (Data Definition Language) is de categorie van SQL-commando's waarmee je de structuur van een database beheert: databases en tabellen aanmaken, wijzigen en verwijderen.</p>
+</div>
+<p>De drie hoofdcommando's van DDL zijn:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Commando</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><code>CREATE</code></td><td>Database of tabel aanmaken</td></tr>
+<tr><td><code>ALTER</code></td><td>Structuur van een tabel wijzigen</td></tr>
+<tr><td><code>DROP</code></td><td>Database of tabel verwijderen</td></tr>
+</tbody></table></div>
+<h3 id="411-database-aanmaken-en-selecteren">4.1.1 Database aanmaken en selecteren</h3>
+<pre data-lang="sql"><code>
+-- Maak een nieuwe database aan
+CREATE DATABASE IF NOT EXISTS webshop;
+
+-- Activeer de database voor gebruik
+USE webshop;
+
+-- Controleer welke database actief is
+SELECT DATABASE();
+
+-- Toon alle databases
+SHOW DATABASES;
+
+-- Verwijder een database (voorzichtig!)
+DROP DATABASE IF EXISTS webshop;
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>DROP DATABASE</code> verwijdert de database én <strong>alle gegevens</strong> erin, permanent en zonder bevestigingsvraag. Gebruik dit commando nooit zonder een recente back-up.</p>
+</div>
+<h2 id="42-tabellen-aanmaken-create-table">4.2 Tabellen aanmaken — CREATE TABLE</h2>
+<h3 id="421-basisstructuur">4.2.1 Basisstructuur</h3>
+<pre data-lang="sql"><code>
+CREATE TABLE tabelnaam (
+    kolomnaam1  DATATYPE    [constraints],
+    kolomnaam2  DATATYPE    [constraints],
+    ...
+);
+</code></pre>
+<h3 id="422-sql-datatypes">4.2.2 SQL-datatypes</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een datatype bepaalt welk soort waarde een kolom kan bevatten: een getal, een tekst, een datum, ... Het kiezen van het juiste datatype zorgt voor efficiënte opslag en voorkomt ongeldige gegevens.</p>
+</div>
+<p><strong>Tekst:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Datatype</th><th>Beschrijving</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><code>VARCHAR(n)</code></td><td>Variabele tekst, max. n tekens</td><td>namen, e-mail, beschrijvingen</td></tr>
+<tr><td><code>CHAR(n)</code></td><td>Vaste lengte, altijd n tekens</td><td>postcodes, landcodes</td></tr>
+<tr><td><code>TEXT</code></td><td>Lange tekst (max. 65.535 tekens)</td><td>beschrijvingen, opmerkingen</td></tr>
+<tr><td><code>ENUM(...)</code></td><td>Vaste lijst van toegestane waarden</td><td>status, type, geslacht</td></tr>
+</tbody></table></div>
+<p><strong>Getallen:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Datatype</th><th>Beschrijving</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td><code>INT</code></td><td>Geheel getal (-2,1 miljard tot +2,1 miljard)</td><td>id's, aantallen</td></tr>
+<tr><td><code>TINYINT</code></td><td>Klein getal (0–255 of -128–127)</td><td>booleaanse waarden, kleine codes</td></tr>
+<tr><td><code>BIGINT</code></td><td>Groot geheel getal</td><td>transactie-id's, grote aantallen</td></tr>
+<tr><td><code>DECIMAL(p,s)</code></td><td>Exact decimaal getal</td><td>geldbedragen (bv. DECIMAL(8,2))</td></tr>
+<tr><td><code>FLOAT</code> / <code>DOUBLE</code></td><td>Benaderend decimaal</td><td>wetenschappelijke waarden</td></tr>
+</tbody></table></div>
+<p><strong>Datum en tijd:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Datatype</th><th>Beschrijving</th><th>Formaat</th></tr></thead><tbody>
+<tr><td><code>DATE</code></td><td>Alleen datum</td><td><code>YYYY-MM-DD</code></td></tr>
+<tr><td><code>TIME</code></td><td>Alleen tijd</td><td><code>HH:MM:SS</code></td></tr>
+<tr><td><code>DATETIME</code></td><td>Datum + tijd</td><td><code>YYYY-MM-DD HH:MM:SS</code></td></tr>
+<tr><td><code>TIMESTAMP</code></td><td>Datum + tijd (auto-update mogelijk)</td><td><code>YYYY-MM-DD HH:MM:SS</code></td></tr>
+<tr><td><code>YEAR</code></td><td>Alleen jaar</td><td><code>YYYY</code></td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Gebruik voor geldbedragen altijd <code>DECIMAL(8,2)</code>, nooit <code>FLOAT</code>. Floating-point getallen hebben afrondingsfouten die bij financiële berekeningen tot grote problemen leiden.</p>
+</div>
+<h3 id="423-constraints">4.2.3 Constraints</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een constraint is een regel die MySQL afdwingt op de gegevens in een kolom. Constraints voorkomen ongeldige of inconsistente data.</p>
+</div>
+<p><strong>Overzicht constraints:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Constraint</th><th>Betekenis</th></tr></thead><tbody>
+<tr><td><code>PRIMARY KEY</code></td><td>Uniek en niet NULL; identificeert elke rij</td></tr>
+<tr><td><code>NOT NULL</code></td><td>Waarde mag niet leeg zijn</td></tr>
+<tr><td><code>UNIQUE</code></td><td>Waarde moet uniek zijn in de kolom</td></tr>
+<tr><td><code>DEFAULT waarde</code></td><td>Standaardwaarde als geen waarde wordt opgegeven</td></tr>
+<tr><td><code>CHECK (conditie)</code></td><td>Waarde moet aan een conditie voldoen</td></tr>
+<tr><td><code>FOREIGN KEY</code></td><td>Verwijzing naar primaire sleutel van andere tabel</td></tr>
+<tr><td><code>AUTO_INCREMENT</code></td><td>Waarde wordt automatisch verhoogd (voor id-kolommen)</td></tr>
+</tbody></table></div>
+<pre data-lang="sql"><code>
+CREATE TABLE product (
+    product_id    INT            PRIMARY KEY AUTO_INCREMENT,
+    naam          VARCHAR(200)   NOT NULL,
+    prijs         DECIMAL(8,2)   NOT NULL CHECK (prijs &gt;= 0),
+    voorraad      INT            NOT NULL DEFAULT 0 CHECK (voorraad &gt;= 0),
+    categorie     VARCHAR(50),
+    actief        TINYINT(1)     NOT NULL DEFAULT 1,
+    aangemaakt_op TIMESTAMP      DEFAULT CURRENT_TIMESTAMP
+);
+</code></pre>
+<h3 id="424-tabel-wijzigen-alter-table">4.2.4 Tabel wijzigen — ALTER TABLE</h3>
+<pre data-lang="sql"><code>
+-- Kolom toevoegen
+ALTER TABLE product ADD COLUMN gewicht DECIMAL(5,2);
+
+-- Kolom verwijderen
+ALTER TABLE product DROP COLUMN gewicht;
+
+-- Kolom hernoemen/wijzigen
+ALTER TABLE product MODIFY COLUMN naam VARCHAR(300) NOT NULL;
+
+-- Constraint toevoegen
+ALTER TABLE product ADD CONSTRAINT chk_prijs CHECK (prijs &gt;= 0);
+</code></pre>
+<h3 id="425-tabel-verwijderen">4.2.5 Tabel verwijderen</h3>
+<pre data-lang="sql"><code>
+-- Tabel verwijderen (inclusief alle data)
+DROP TABLE IF EXISTS product;
+
+-- Tabel leegmaken maar structuur behouden
+TRUNCATE TABLE product;
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>TRUNCATE</code> kan niet worden teruggedraaid en omzeilt triggers. Gebruik het enkel in een testomgeving.</p>
+</div>
+<h2 id="43-dml-data-invoegen-met-insert-into">4.3 DML — Data invoegen met INSERT INTO</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>DML (Data Manipulation Language) bevat SQL-commando's voor het invoegen, wijzigen en verwijderen van data in tabellen: <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>.</p>
+</div>
+<h3 id="431-insert-into-één-rij">4.3.1 INSERT INTO — één rij</h3>
+<pre data-lang="sql"><code>
+-- Syntaxis met kolomnamen (aanbevolen)
+INSERT INTO tabelnaam (kolom1, kolom2, kolom3)
+VALUES (waarde1, waarde2, waarde3);
+
+-- Voorbeeld:
+INSERT INTO product (naam, prijs, voorraad, categorie)
+VALUES ('Laptop', 799.99, 15, 'Elektronica');
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Vermeld altijd de kolomnamen bij INSERT INTO. Als je dit weglaat, is de volgorde van waarden afhankelijk van de tabelstructuur — dit breekt als je later een kolom toevoegt.</p>
+</div>
+<h3 id="432-insert-into-meerdere-rijen-tegelijk">4.3.2 INSERT INTO — meerdere rijen tegelijk</h3>
+<pre data-lang="sql"><code>
+INSERT INTO product (naam, prijs, voorraad, categorie)
+VALUES
+    ('Smartphone',    599.00, 25, 'Elektronica'),
+    ('Koptelefoon',    89.99, 50, 'Elektronica'),
+    ('Bureau',        249.00,  8, 'Meubelen'),
+    ('Bureaulamp',     34.99, 30, 'Meubelen');
+</code></pre>
+<h3 id="433-waarden-voor-speciale-datatypes">4.3.3 Waarden voor speciale datatypes</h3>
+<pre data-lang="sql"><code>
+-- DATUM: gebruik altijd 'YYYY-MM-DD'
+INSERT INTO bestelling (klant_id, datum, totaal)
+VALUES (1, '2026-01-15', 89.99);
+
+-- NULL invoegen (als de kolom dit toelaat)
+INSERT INTO klant (voornaam, achternaam, email, geboortedatum)
+VALUES ('Lena', 'Claes', 'lena@mail.be', NULL);
+
+-- DEFAULT gebruiken (kolom weglaten of expliciet DEFAULT meegeven)
+INSERT INTO product (naam, prijs)
+VALUES ('Muis', 29.99);
+-- voorraad krijgt standaard 0, actief krijgt standaard 1
+</code></pre>
+<h2 id="44-data-importeren-uit-csv">4.4 Data importeren uit CSV</h2>
+<h3 id="441-wat-is-een-csv-bestand">4.4.1 Wat is een CSV-bestand?</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een CSV-bestand (Comma-Separated Values) is een tekstbestand waarbij gegevens worden gescheiden door komma's (of puntkomma's). CSV is een veelgebruikt uitwisselingsformaat voor tabellaire data.</p>
+</div>
+<pre data-lang="text"><code>
+product_id,naam,prijs,voorraad,categorie
+1,Laptop,799.99,15,Elektronica
+2,Smartphone,599.00,25,Elektronica
+3,Bureau,249.00,8,Meubelen
+</code></pre>
+<h3 id="442-importeren-via-mysql-workbench">4.4.2 Importeren via MySQL Workbench</h3>
+<ol>
+<li>Klik met rechtermuisknop op de tabel in de navigator.</li>
+<li>Kies "Table Data Import Wizard".</li>
+<li>Selecteer het CSV-bestand.</li>
+<li>Wijs de CSV-kolommen toe aan de tabelkolommen.</li>
+<li>Voer de import uit.</li>
+</ol>
+<h3 id="443-importeren-via-load-data-infile">4.4.3 Importeren via LOAD DATA INFILE</h3>
+<pre data-lang="sql"><code>
+-- CSV-bestand importeren via SQL-commando
+LOAD DATA INFILE '/pad/naar/producten.csv'
+INTO TABLE product
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS   -- sla de koptekstrij over
+(naam, prijs, voorraad, categorie);
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p><code>LOAD DATA INFILE</code> vereist specifieke serverrechten. In schoolomgevingen gebruik je vaak de Import Wizard van MySQL Workbench, die geen extra rechten nodig heeft.</p>
+</div>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>We bouwen de databank voor een kleine webshop met klanten, producten en bestellingen.</p>
+<pre data-lang="sql"><code>
+CREATE DATABASE IF NOT EXISTS webshop;
+USE webshop;
+
+CREATE TABLE klant (
+klant_id    INT          PRIMARY KEY AUTO_INCREMENT,
+voornaam    VARCHAR(50)  NOT NULL,
+achternaam  VARCHAR(50)  NOT NULL,
+email       VARCHAR(150) NOT NULL UNIQUE,
+stad        VARCHAR(100),
+aangemaakt  TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE categorie (
+categorie_id  INT         PRIMARY KEY AUTO_INCREMENT,
+naam          VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE product (
+product_id    INT            PRIMARY KEY AUTO_INCREMENT,
+naam          VARCHAR(200)   NOT NULL,
+prijs         DECIMAL(8,2)   NOT NULL CHECK (prijs &gt;= 0),
+voorraad      INT            NOT NULL DEFAULT 0,
+categorie_id  INT,
+FOREIGN KEY (categorie_id) REFERENCES categorie(categorie_id)
+);
+
+CREATE TABLE bestelling (
+bestelling_id  INT          PRIMARY KEY AUTO_INCREMENT,
+klant_id       INT          NOT NULL,
+datum          DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+status         ENUM('nieuw', 'verwerkt', 'verzonden', 'geleverd') DEFAULT 'nieuw',
+FOREIGN KEY (klant_id) REFERENCES klant(klant_id)
+);
+
+CREATE TABLE bestelregel (
+regel_id       INT          PRIMARY KEY AUTO_INCREMENT,
+bestelling_id  INT          NOT NULL,
+product_id     INT          NOT NULL,
+aantal         INT          NOT NULL CHECK (aantal &gt; 0),
+eenheidsprijs  DECIMAL(8,2) NOT NULL,
+FOREIGN KEY (bestelling_id) REFERENCES bestelling(bestelling_id),
+FOREIGN KEY (product_id)    REFERENCES product(product_id)
+);
+</code></pre>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>We vullen de webshop-database met testdata.</p>
+<pre data-lang="sql"><code>
+-- Categorieën
+INSERT INTO categorie (naam) VALUES
+('Elektronica'),
+('Meubelen'),
+('Kledij');
+
+-- Klanten
+INSERT INTO klant (voornaam, achternaam, email, stad) VALUES
+('Lena',  'Claes',     'lena@mail.be',  'Gent'),
+('Raf',   'Dubois',    'raf@mail.be',   'Brussel'),
+('Sara',  'Vermeersch','sara@mail.be',  'Antwerpen');
+
+-- Producten
+INSERT INTO product (naam, prijs, voorraad, categorie_id) VALUES
+('Laptop Pro 15',   999.00, 10, 1),
+('Smartphone X12',  599.00, 25, 1),
+('Koptelefoon BT',   89.99, 40, 1),
+('Bureau 120cm',    199.00,  5, 2),
+('T-shirt blauw',    24.99, 100, 3);
+
+-- Bestelling
+INSERT INTO bestelling (klant_id, datum) VALUES
+(1, '2026-02-10 14:30:00'),
+(2, '2026-02-11 09:15:00');
+
+-- Bestelregels
+INSERT INTO bestelregel (bestelling_id, product_id, aantal, eenheidsprijs) VALUES
+(1, 1, 1, 999.00),  -- Lena koopt 1 Laptop
+(1, 3, 2,  89.99),  -- Lena koopt 2 Koptelefoons
+(2, 2, 1, 599.00);  -- Raf koopt 1 Smartphone
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h04-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.1</span>
+    <span class="oefening__title">SQL-datatypes kiezen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Het kiezen van het juiste datatype is essentieel voor efficiënte opslag en correcte data. Test je kennis van de meest gebruikte SQL-datatypes.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk datatype gebruik je voor de prijs van een product (bv. €9,99 of €1.299,99)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q1" value="a"><span><code>FLOAT</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q1" value="b"><span><code>DECIMAL(8,2)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q1" value="c"><span><code>INT</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q1" value="d"><span><code>VARCHAR(10)</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="DECIMAL(8,2) — voor geldbedragen gebruik je altijd DECIMAL, nooit FLOAT. FLOAT heeft afrondingsfouten die bij financiële berekeningen tot fouten leiden"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="varchar|varchar(n)|varchar(50)|varchar(100)">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk datatype gebruik je voor de naam van een persoon (variabele lengte, max. 100 tekens)?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het datatype...">
+      <div class="vraag__feedback" data-correct-label="VARCHAR(n) — variabele tekst met maximale lengte n. Voor namen gebruik je bv. VARCHAR(100)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Je wil een "actief/inactief" vlag opslaan (0 of 1). Welk datatype is het meest geschikt?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q3" value="a"><span><code>VARCHAR(3)</code> — slaat 'ja' of 'nee' op</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q3" value="b"><span><code>INT</code> — geheel getal</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q3" value="c"><span><code>TINYINT(1)</code> — klein getal, perfect voor booleaanse waarden</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q3" value="d"><span><code>TEXT</code> — vrije tekst</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="TINYINT(1) — klein getal (0 of 1) dat als booleaanse waarde wordt gebruikt. MySQL heeft geen apart BOOLEAN-type"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welk datatype gebruik je voor een aanmaaktijdstip dat automatisch moet worden ingevuld bij het aanmaken van een rij?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q4" value="a"><span><code>TIMESTAMP DEFAULT CURRENT_TIMESTAMP</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q4" value="b"><span><code>DATE DEFAULT NOW()</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q4" value="c"><span><code>VARCHAR(20)</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-1-q4" value="d"><span><code>INT AUTO_INCREMENT</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="TIMESTAMP DEFAULT CURRENT_TIMESTAMP — wordt automatisch ingevuld met de huidige datum en tijd bij het invoegen van een rij"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h04-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.2</span>
+    <span class="oefening__title">Constraints en CREATE TABLE</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Constraints zorgen voor data-integriteit. Test je kennis van PRIMARY KEY, NOT NULL, UNIQUE, DEFAULT en CHECK.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welke constraint zorgt ervoor dat geen twee rijen dezelfde waarde in de kolom <code>email</code> mogen hebben?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q1" value="a"><span><code>NOT NULL</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q1" value="b"><span><code>PRIMARY KEY</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q1" value="c"><span><code>UNIQUE</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q1" value="d"><span><code>DEFAULT</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="UNIQUE — garandeert dat alle waarden in de kolom uniek zijn. Verschil met PRIMARY KEY: een UNIQUE-kolom mag NULL bevatten (meerdere NULL-waarden zijn toegestaan)"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="auto_increment|auto increment">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke MySQL-eigenschap zorg je ervoor dat de waarde van de primaire sleutel automatisch wordt verhoogd bij elke nieuwe rij?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het keyword...">
+      <div class="vraag__feedback" data-correct-label="AUTO_INCREMENT — de database vult het ID automatisch in: 1, 2, 3, ... Je hoeft dit zelf niet op te geven bij INSERT"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welke constraint gebruik je om te valideren dat de prijs van een product niet negatief mag zijn?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q3" value="a"><span><code>NOT NULL</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q3" value="b"><span><code>UNIQUE</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q3" value="c"><span><code>DEFAULT 0</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q3" value="d"><span><code>CHECK (prijs &gt;= 0)</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="CHECK (prijs >= 0) — een CHECK-constraint valideert of de ingevoerde waarde aan een conditie voldoet"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Wat is het verschil tussen <code>DROP TABLE</code> en <code>TRUNCATE TABLE</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q4" value="a"><span>Geen verschil — beide doen hetzelfde</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q4" value="b"><span>DROP verwijdert de tabel volledig; TRUNCATE verwijdert enkel de data maar behoudt de structuur</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q4" value="c"><span>TRUNCATE verwijdert de tabel; DROP verwijdert enkel de data</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-2-q4" value="d"><span>DROP is veiliger dan TRUNCATE</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="DROP verwijdert de tabel volledig inclusief structuur; TRUNCATE verwijdert enkel alle data maar de tabelstructuur blijft bestaan"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h04-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 4.3</span>
+    <span class="oefening__title">INSERT INTO en DML</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">DML-commando's zoals INSERT INTO worden gebruikt om data in tabellen te plaatsen. Test je kennis van de correcte syntax.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is de aanbevolen syntax voor INSERT INTO?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q1" value="a"><span><code>INSERT INTO product (naam, prijs) VALUES ('Laptop', 999.00);</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q1" value="b"><span><code>INSERT product VALUES ('Laptop', 999.00);</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q1" value="c"><span><code>ADD INTO product ('Laptop', 999.00);</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q1" value="d"><span><code>INSERT INTO product VALUES ('Laptop', 999.00);</code> (zonder kolomnamen)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="INSERT INTO product (naam, prijs) VALUES ('Laptop', 999.00); — altijd kolomnamen vermelden, zodat de query blijft werken als de tabelstructuur later wijzigt"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="insert|insert into">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk DML-sleutelwoord gebruik je om nieuwe rijen toe te voegen aan een tabel?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het sleutelwoord...">
+      <div class="vraag__feedback" data-correct-label="INSERT (INTO) — het commando om nieuwe rijen in een tabel in te voegen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoe voeg je een datum in zoals "15 januari 2026" via SQL?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q3" value="a"><span><code>'15-01-2026'</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q3" value="b"><span><code>'15/01/2026'</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q3" value="c"><span><code>'2026-01-15'</code></span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h04-3-q3" value="d"><span><code>15012026</code></span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="'2026-01-15' — SQL-datumformaat is altijd YYYY-MM-DD (jaar-maand-dag). Vergeet de aanhalingstekens niet"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h04">Huistaak H04</h3>
+<p><strong>Database bouwen voor je miniproject</strong></p>
+<p>In H09 (miniproject) bouw je een volledige database over een zelfgekozen thema. Start nu met de implementatie van je eigen datamodel (uit Huistaak H03 of een nieuw thema).</p>
+<p><strong>Opdracht:</strong></p>
+<ol>
+<li>Maak een nieuwe database aan met een betekenisvolle naam.</li>
+<li>Implementeer minstens <strong>3 tabellen</strong> met correcte datatypes, PRIMARY KEY, FOREIGN KEY en minstens 3 constraints.</li>
+<li>Voeg testdata in: minstens <strong>5 rijen per tabel</strong>.</li>
+<li>Exporteer je database als een <code>.sql</code>-bestand (<code>schema + data</code>).</li>
+<li>Voeg het bestand toe aan je GitHub-repository met een zinvolle commit-boodschap.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H04-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li><strong>DDL</strong> = structuurcommando's: <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code> voor databases en tabellen.</li>
+<li><strong>Datatypes</strong>: gebruik <code>VARCHAR</code> voor tekst, <code>DECIMAL(p,s)</code> voor geldbedragen, <code>DATE</code>/<code>DATETIME</code> voor datum/tijd, <code>INT</code> voor gehele getallen.</li>
+<li><strong>Constraints</strong>: <code>PRIMARY KEY</code>, <code>NOT NULL</code>, <code>UNIQUE</code>, <code>DEFAULT</code>, <code>CHECK</code>, <code>FOREIGN KEY</code> zorgen voor data-integriteit.</li>
+<li><strong>DML</strong> voor invoegen: <code>INSERT INTO tabelnaam (kolommen) VALUES (waarden);</code> — vermeld altijd de kolomnamen.</li>
+<li>CSV-data importeer je via de Import Wizard van MySQL Workbench of <code>LOAD DATA INFILE</code>.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Implementeren van een databank op basis van een datamodel <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB21]</span> Gebruiken van een querytaal voor het manipuleren van gegevens <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H04">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H03.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H03 &mdash; Datamodellering: tabellen en relaties</span></div></a>
+          <a href="H05.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H05 &mdash; SQL bevraging: SELECT</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

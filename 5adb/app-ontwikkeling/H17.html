@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variabelen — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H17" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-variabele">17.1 Wat is een variabele?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.2"><span class="sidebar-check__box"></span></label>
+          <a href="#let-en-const">17.2 let en const</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.3"><span class="sidebar-check__box"></span></label>
+          <a href="#declareren">17.3 Declareren en initialiseren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.4"><span class="sidebar-check__box"></span></label>
+          <a href="#naamgeving">17.4 Naamgevingsregels</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.5"><span class="sidebar-check__box"></span></label>
+          <a href="#console-log">17.5 console.log()</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.6"><span class="sidebar-check__box"></span></label>
+          <a href="#use-strict">17.6 use strict</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.7"><span class="sidebar-check__box"></span></label>
+          <a href="#js-koppelen">17.7 JavaScript koppelen aan HTML</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Variabelen</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H17 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Variabelen</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen wat een variabele is en waarvoor je het gebruikt</li>
+          <li>Je kent het verschil tussen <code>let</code> en <code>const</code></li>
+          <li>Je kan variabelen correct declareren, initialiseren en een nieuwe waarde geven</li>
+          <li>Je kan de naamgevingsregels voor variabelen toepassen (camelCase)</li>
+          <li>Je kan <code>console.log()</code> gebruiken om waarden te tonen in de browser-console</li>
+          <li>Je kan <code>"use strict"</code> begrijpen en toepassen</li>
+        </ul>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🚀 Welkom bij JavaScript!</div>
+        <p>Vanaf dit hoofdstuk starten we met <strong>JavaScript</strong> — de programmeertaal van het web. Met JavaScript maak je je pagina's interactief: knoppen die reageren, berekeningen uitvoeren, data opslaan. CSS maakt het mooi, JavaScript maakt het slim.</p>
+      </div>
+
+      <h2 id="wat-is-variabele">1. Wat is een variabele?</h2>
+
+      <p>Een variabele is een <strong>benoemd opslagplaatsje</strong> in het geheugen van de computer. Je kan er een waarde in bewaren, die waarde opvragen en (soms) later aanpassen.</p>
+
+      <p>Stel je voor: een variabele is een doosje met een label op.</p>
+      <ul>
+        <li>Het <strong>label</strong> = de naam van de variabele</li>
+        <li>De <strong>inhoud</strong> = de waarde</li>
+      </ul>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let leeftijd = 16;</code></pre>
+      </div>
+
+      <p>Dit maakt een doosje met label <code>leeftijd</code> en stopt er de waarde <code>16</code> in.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H17-afb1.svg" alt="Variabele als doosje — label = naam, inhoud = waarde" loading="lazy">
+      </figure>
+
+      <h2 id="let-en-const">2. let en const</h2>
+
+      <h3>2.1 let — een aanpasbare variabele</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let score = 0;
+score = 10;  // de waarde aanpassen mag
+score = 25;  // opnieuw aanpassen mag ook</code></pre>
+      </div>
+
+      <p>Gebruik <code>let</code> als de waarde later in je programma kan veranderen (bijv. een teller, een score, een gebruikersinvoer).</p>
+
+      <h3>2.2 const — een constante waarde</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">const maxPunten = 100;
+// maxPunten = 200; // FOUT — dit mag niet!</code></pre>
+      </div>
+
+      <p>Gebruik <code>const</code> als de waarde <strong>nooit</strong> mag veranderen (bijv. een maximumscore, een kleurcode, een vaste tekst).</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Vuistregel</div>
+        <p>Gebruik altijd <code>const</code> tenzij je weet dat je de waarde later moet aanpassen — gebruik dan <code>let</code>.</p>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H17-afb2.svg" alt="Vergelijking let (aanpasbaar) vs const (niet aanpasbaar)" loading="lazy">
+      </figure>
+
+      <h3>2.3 var — de oude manier (vermijden)</h3>
+
+      <p>Je ziet in oudere code ook <code>var</code>. Dat werkt nog, maar heeft verwarrende regels rond scope. Gebruik <strong>nooit</strong> <code>var</code> in nieuwe code — kies altijd <code>let</code> of <code>const</code>.</p>
+
+      <h2 id="declareren">3. Een variabele declareren en initialiseren</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// Declareren én initialiseren in één stap
+let naam = "Jana";
+
+// Declareren zonder waarde (waarde = undefined)
+let resultaat;
+
+// Later een waarde toekennen
+resultaat = 42;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let x = 10;
+x = 11;     // correct — geen let
+// let x = 12; // fout — let mag maar één keer per variabele</code></pre>
+      </div>
+
+      <h2 id="naamgeving">4. Naamgevingsregels</h2>
+
+      <h3>4.1 Wat mag?</h3>
+      <ul>
+        <li>Letters, cijfers, <code>_</code> en <code>$</code></li>
+        <li>Mag <strong>niet</strong> beginnen met een cijfer</li>
+        <li>Hoofdlettergevoelig: <code>naam</code> en <code>Naam</code> zijn twee verschillende variabelen</li>
+      </ul>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let leeftijd = 16;     // correct
+let maxPunten = 100;   // correct — camelCase
+// let 1ste = "eerste"; // FOUT — begint met cijfer
+// let mijn naam = "x"; // FOUT — spatie in naam</code></pre>
+      </div>
+
+      <h3>4.2 camelCase</h3>
+
+      <p>JavaScript-ontwikkelaars gebruiken standaard <strong>camelCase</strong>: het eerste woord in kleine letters, elk volgend woord begint met een hoofdletter.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let voornaam = "Jana";
+let achternaam = "Peeters";
+let geboortejaar = 2009;
+let isAangemeld = false;
+let maximaleSnelheid = 120;</code></pre>
+      </div>
+
+      <h3>4.3 Betekenisvolle namen</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// niet duidelijk
+let x = 16;
+let y = "Jana";
+
+// duidelijk
+let leeftijd = 16;
+let naam = "Jana";</code></pre>
+      </div>
+
+      <h2 id="console-log">5. console.log() — jouw beste vriend</h2>
+
+      <p><code>console.log()</code> toont een waarde in de <strong>developer console</strong> van de browser. Dit is de manier om te controleren of je code correct werkt.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let naam = "Jana";
+let leeftijd = 16;
+
+console.log(naam);              // toont: Jana
+console.log(leeftijd);          // toont: 16
+console.log("Naam:", naam);     // toont: Naam: Jana
+console.log(naam, leeftijd);    // toont: Jana 16</code></pre>
+      </div>
+
+      <p><strong>Console openen in de browser:</strong> druk op <code>F12</code> (of <code>Ctrl+Shift+I</code>) → tabblad "Console".</p>
+
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H17-afb3.svg" alt="Browser met DevTools open — console-tabblad zichtbaar met console.log()-output" loading="lazy">
+      </figure>
+
+      <h2 id="use-strict">6. "use strict"</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">"use strict";
+
+let x = 10;</code></pre>
+      </div>
+
+      <p><code>"use strict"</code> zet JavaScript in de <strong>strikte modus</strong>. Dit:</p>
+      <ul>
+        <li>Voorkomt stilzwijgende fouten (bv. een variabele gebruiken zonder <code>let</code>/<code>const</code> geeft een fout)</li>
+        <li>Maakt je code veiliger en voorspelbaarder</li>
+      </ul>
+
+      <p>Zet <code>"use strict"</code> altijd <strong>bovenaan</strong> je JavaScript-bestand.</p>
+
+      <h2 id="js-koppelen">7. JavaScript koppelen aan HTML</h2>
+
+      <h3>7.1 Extern bestand (aanbevolen)</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- index.html --&gt;
+&lt;body&gt;
+  &lt;h1&gt;Mijn pagina&lt;/h1&gt;
+
+  &lt;!-- Script altijd onderaan body, net voor &lt;/body&gt; --&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">// script.js
+"use strict";
+let naam = "Jana";
+console.log("Hallo,", naam);</code></pre>
+      </div>
+
+      <h3>7.2 Inline in HTML (alleen voor kleine tests)</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;script&gt;
+  let naam = "Jana";
+  console.log(naam);
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Waarom script onderaan body?</div>
+        <p>De browser leest HTML van boven naar beneden. Als het script bovenaan staat, probeert het al elementen te manipuleren die nog niet bestaan. Onderaan <code>&lt;body&gt;</code> staat de hele HTML al klaar.</p>
+      </div>
+
+      <!-- OEFENINGEN -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Variabelenpagina</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een bestand <code>variabelen.html</code> met een <code>&lt;script&gt;</code>-tag (of extern <code>script.js</code>):</p>
+            <ol>
+              <li>Declareer met <code>const</code>: je naam, je geboortejaar, je favoriete kleur</li>
+              <li>Declareer met <code>let</code>: een teller die begint op 0, een score die begint op 0</li>
+              <li>Pas de teller aan naar 1, daarna naar 2</li>
+              <li>Pas de score aan naar 50, daarna naar 75</li>
+              <li>Gebruik <code>console.log()</code> om alle variabelen te tonen</li>
+              <li>Probeer een <code>const</code>-variabele te wijzigen — wat zegt de console?</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H17-oef1-browser.svg" alt="Browser met DevTools-console open met output van de variabelencode" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUISTAAK -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Variabelen
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H17-voorbeeld.svg', 'Voorbeeld — Variabelenpagina met console output')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Mijn profiel in variabelen</h3>
+            <ol>
+              <li><strong>Deel 1 — const-variabelen (4 punten):</strong> Declareer minstens 5 constante variabelen over jezelf: naam, geboortejaar, favoriete vak, woonplaats en één extra naar keuze. Gebruik beschrijvende camelCase namen.</li>
+              <li><strong>Deel 2 — let-variabelen (3 punten):</strong> Declareer 3 variabelen met <code>let</code> die je daarna aanpast: een teller (verhoog 3 keer), een score (verander 2 keer), een status (stel in op "aangemeld").</li>
+              <li><strong>Deel 3 — console.log (3 punten):</strong> Toon alle variabelen via <code>console.log()</code> met een duidelijk label voor elke waarde. Voeg <code>"use strict"</code> toe bovenaan je script.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- VRAGENLIJST -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H17 — Variabelen</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welk sleutelwoord gebruik je als de waarde van een variabele later kan veranderen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="a"> <span>const</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="b"> <span>let</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="c"> <span>var</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="d"> <span>set</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is de correcte schrijfwijze voor een variabelenaam in JavaScript (meerdere woorden)?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="a"> <span>mijn_variabele (snake_case)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="b"> <span>MijnVariabele (PascalCase)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="c"> <span>mijnVariabele (camelCase)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="d"> <span>MIJN-VARIABELE (SCREAMING-KEBAB)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet "use strict" bovenaan een JavaScript-bestand?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="a"> <span>Het activeert de strikte modus waardoor stilzwijgende fouten als fouten worden gemeld</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="b"> <span>Het verbiedt het gebruik van console.log()</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="c"> <span>Het maakt de code sneller uitvoeren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="d"> <span>Het verplicht het gebruik van var</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Waar zet je een &lt;script src="..."&gt; tag bij voorkeur?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="a"> <span>Bovenaan de &lt;head&gt;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="b"> <span>In het midden van de &lt;body&gt;</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="c"> <span>Na de &lt;/html&gt; tag</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="d"> <span>Onderaan de &lt;body&gt;, net voor &lt;/body&gt;</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk sleutelwoord is verouderd en moet je vermijden in moderne JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="a"> <span>var</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="b"> <span>let</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="c"> <span>const</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="d"> <span>set</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat is de waarde van een variabele die gedeclareerd is maar nog geen waarde gekregen heeft?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="a"> <span>null</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="b"> <span>0</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="c"> <span>undefined</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="d"> <span>false</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H17')" data-progress-key="5adb/app-ontwikkeling/H17">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H16.html" class="btn btn-ghost">← H16</a>
+          <a href="H18.html" class="btn btn-ghost">H18 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

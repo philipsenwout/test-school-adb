@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kleur en Achtergrond — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H09" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.1"><span class="sidebar-check__box"></span></label>
+          <a href="#kleuren-specificeren-in-css">9.1 Kleuren specificeren in CSS</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.2"><span class="sidebar-check__box"></span></label>
+          <a href="#kleur-en-toegankelijkheid">9.2 Kleur en toegankelijkheid</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.3"><span class="sidebar-check__box"></span></label>
+          <a href="#achtergrondafbeeldingen">9.3 Achtergrondafbeeldingen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.4"><span class="sidebar-check__box"></span></label>
+          <a href="#gradienten">9.4 Gradiënten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.5"><span class="sidebar-check__box"></span></label>
+          <a href="#css-custom-properties">9.5 CSS custom properties</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.6"><span class="sidebar-check__box"></span></label>
+          <a href="#kleurenschema-met-mate">9.6 Kleurenschema met mate</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Kleur en Achtergrond</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H09 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Kleur en Achtergrond</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Kleuren specificeren op vier manieren: namen, hex, RGB en HSL</li>
+          <li>Het belang van contrastverhouding uitleggen en een kleurcombinatie controleren</li>
+          <li>Kleurenblindheid begrijpen en de ontwerpimplicaties beschrijven</li>
+          <li>Achtergrondafbeeldingen correct en voorzichtig gebruiken</li>
+          <li>Een eenvoudige gradiënt maken met CSS</li>
+          <li>CSS custom properties (variabelen) gebruiken voor een consistent kleurenpalet</li>
+        </ul>
+      </div>
+
+      <h2 id="kleuren-specificeren-in-css">9.1 Kleuren specificeren in CSS</h2>
+      <p>Er zijn meerdere manieren om een kleur aan te geven in CSS. We bespreken de vier meest gebruikte.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H09-afb1.svg" alt="Overzicht van de vier kleurnotaties naast elkaar" loading="lazy">
+      </figure>
+      <h3>Methode 1 — Kleurnamen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">h1 { color: navy; }
+p { color: darkgray; }
+button { background-color: tomato; }</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>Gebruik kleurnamen zo weinig mogelijk in een echt project. Ze zijn handig voor snelle experimenten, maar je hebt veel minder controle dan met hex of RGB.</p>
+      </div>
+      <h3>Methode 2 — Hexadecimale notatie</h3>
+      <p>Dit is de meest gebruikte methode. Een hex-kleur begint met <code>#</code> gevolgd door zes hexadecimale cijfers (0–9 en a–f):</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">h1 { color: #003087; }        /* donkerblauw */
+p { color: #333333; }         /* donkergrijs */
+nav { background-color: #1a1a2e; } /* bijna zwart */</code></pre>
+      </div>
+      <p>De zes cijfers zijn drie paren: <strong>RR GG BB</strong> (rood, groen, blauw).</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Kleur</th><th>Hex</th><th>Uitleg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zwart</td><td><code>#000000</code></td><td>Geen rood, groen of blauw</td></tr>
+          <tr><td>Wit</td><td><code>#ffffff</code></td><td>Maximaal rood, groen en blauw</td></tr>
+          <tr><td>Rood</td><td><code>#ff0000</code></td><td>Maximaal rood, geen groen, geen blauw</td></tr>
+        </tbody>
+      </table>
+      <h3>Methode 3 — RGB-decimalen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">h1 { color: rgb(0, 48, 135); }       /* donkerblauw */
+p { color: rgb(51, 51, 51); }        /* donkergrijs */
+.overlay { background-color: rgba(0, 0, 0, 0.5); } /* 50% transparant zwart */</code></pre>
+      </div>
+      <h3>Methode 4 — HSL (Hue, Saturation, Lightness)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">h1 { color: hsl(220, 95%, 26%); }   /* donkerblauw */
+.success { color: hsl(120, 60%, 35%); } /* donkergroen */
+.warning { color: hsl(40, 100%, 50%); } /* oranje */</code></pre>
+      </div>
+      <p>HSL is handig als je variaties van dezelfde kleur wil maken — je verhoogt of verlaagt gewoon de Lightness.</p>
+
+      <h2 id="kleur-en-toegankelijkheid">9.2 Kleur en toegankelijkheid</h2>
+      <h3>Contrastverhouding</h3>
+      <p>Tekst moet voldoende contrasteren met de achtergrond. De <strong>WCAG-norm</strong> stelt:</p>
+      <ul>
+        <li>Gewone tekst: minimale contrastverhouding van <strong>4,5:1</strong></li>
+        <li>Grote tekst (18pt of 14pt vet): minimale verhouding van <strong>3:1</strong></li>
+      </ul>
+      <p>Gebruik de gratis tool <strong>Colour Contrast Analyser</strong> (tpgi.com) of de online tool op <strong>webaim.org/resources/contrastchecker</strong>.</p>
+      <h3>Kleurenblindheid</h3>
+      <p>Wist je dat ongeveer <strong>8% van de mannelijke bevolking</strong> last heeft van een verstoord kleurenzicht? Groen-rood kleurenblindheid is de meest voorkomende vorm.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H09-afb2.svg" alt="Simulatie van rood-groen kleurenblindheid op een webformulier" loading="lazy">
+      </figure>
+      <p><strong>Praktisch gevolg:</strong> Gebruik <strong>nooit alleen kleur</strong> om informatie over te brengen.</p>
+      <ul>
+        <li>Foutieve velden: rode rand <strong>én</strong> een foutpictogram <strong>én</strong> een foutboodschap in tekst</li>
+        <li>Grafiek: verschillende kleuren <strong>én</strong> verschillende lijnpatronen</li>
+        <li>Links in tekst: onderstreept (niet alleen een andere kleur)</li>
+      </ul>
+
+      <h2 id="achtergrondafbeeldingen">9.3 Achtergrondafbeeldingen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">body {
+    background-image: url('../../images/achtergrond.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Eigenschap</th><th>Waarden</th><th>Uitleg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>background-image</code></td><td><code>url('pad')</code></td><td>Welke afbeelding?</td></tr>
+          <tr><td><code>background-repeat</code></td><td><code>no-repeat</code>, <code>repeat</code>, ...</td><td>Herhalen?</td></tr>
+          <tr><td><code>background-size</code></td><td><code>cover</code>, <code>contain</code>, pixels, %</td><td>Hoe groot?</td></tr>
+          <tr><td><code>background-position</code></td><td><code>center</code>, <code>top left</code>, ...</td><td>Waar positioneren?</td></tr>
+        </tbody>
+      </table>
+      <h3>Gevaar: tekst op achtergrondafbeelding</h3>
+      <p>Achtergrondafbeeldingen achter tekst zijn <strong>heel moeilijk leesbaar</strong> als de foto zowel lichte als donkere delen heeft.</p>
+      <figure class="chapter-figure">
+        <img src="../../../app-ontwikkeling/images/H09-afb3.svg" alt="Voorbeeld van slecht leesbare tekst op een achtergrondafbeelding" loading="lazy">
+      </figure>
+      <p>Gebruik een semi-transparante overlay:</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* donkere overlay */
+}</code></pre>
+      </div>
+
+      <h2 id="gradienten">9.4 Gradiënten</h2>
+      <p>Een gradiënt is een vloeiende overgang tussen twee of meer kleuren. Je maakt ze puur in CSS.</p>
+      <h3>Lineaire gradiënt</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">/* Van links naar rechts */
+.hero {
+    background: linear-gradient(to right, #003087, #0057b8);
+}
+
+/* Met richting in graden */
+.banner {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+}
+
+/* Met transparantie — handig over een foto */
+.overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.7)
+    );
+}</code></pre>
+      </div>
+      <h3>Radiale gradiënt</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">.knop {
+    background: radial-gradient(circle, #0057b8, #003087);
+}</code></pre>
+      </div>
+
+      <h2 id="css-custom-properties">9.5 CSS custom properties (variabelen)</h2>
+      <p><strong>CSS custom properties</strong> (ook "variabelen" genoemd) laten je toe waarden op één centrale plek te definiëren:</p>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">:root {
+    --kleur-primair: #003087;
+    --kleur-secundair: #0057b8;
+    --kleur-accent: #ff6b35;
+    --kleur-tekst: #333333;
+    --kleur-achtergrond: #f8f9fa;
+    --lettertype-hoofd: 'Arial', sans-serif;
+    --afronding: 8px;
+}</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">body {
+    font-family: var(--lettertype-hoofd);
+    color: var(--kleur-tekst);
+    background-color: var(--kleur-achtergrond);
+}
+
+h1 {
+    color: var(--kleur-primair);
+}
+
+.knop {
+    background-color: var(--kleur-accent);
+    border-radius: var(--afronding);
+}</code></pre>
+      </div>
+      <p><strong>Voordelen:</strong></p>
+      <ul>
+        <li>Verander een kleur op <strong>één plek</strong> → de hele site past mee aan</li>
+        <li>Je stijlblad is <strong>leesbaarder</strong> (<code>--kleur-primair</code> is duidelijker dan <code>#003087</code>)</li>
+        <li>Makkelijker om een <strong>dark mode</strong> te implementeren</li>
+      </ul>
+      <h3>Dark mode met custom properties</h3>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">:root {
+    --kleur-tekst: #333333;
+    --kleur-achtergrond: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --kleur-tekst: #eeeeee;
+        --kleur-achtergrond: #1a1a2e;
+    }
+}
+
+body {
+    color: var(--kleur-tekst);
+    background-color: var(--kleur-achtergrond);
+}</code></pre>
+      </div>
+
+      <h2 id="kleurenschema-met-mate">9.6 Kleurenschema baseren op een logo — met mate!</h2>
+      <p>De meest voorkomende fout: beginners gebruiken de logokleuren <strong>overal</strong>, met een overdonderend resultaat.</p>
+      <p><strong>Praktisch advies:</strong></p>
+      <ul>
+        <li>Kies <strong>één accentkleur</strong> uit het logo</li>
+        <li>Gebruik die voor knoppen, actieve navigatielinks, highlights</li>
+        <li>De rest van je pagina is neutraal (wit, lichtgrijs, donkergrijs, zwart)</li>
+      </ul>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">:root {
+    --kleur-accent: #e63946;   /* sparingzaam gebruiken */
+    --kleur-tekst: #1d3557;    /* donkerblauw voor tekst */
+    --kleur-achtergrond: #f1faee; /* bijna wit */
+}</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 1 — Kleurenpalet</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een HTML-pagina met CSS custom properties. Definieer minstens 4 kleurvariabelen in <code>:root</code>. Gebruik ze voor:</p>
+            <ul>
+              <li>Achtergrondkleur van de pagina</li>
+              <li>Tekstkleur</li>
+              <li>Kleur van titels</li>
+              <li>Achtergrond van de navigatie</li>
+            </ul>
+            <p>Controleer met een contrastchecker of je tekst voldoende contrast heeft.</p>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H09-oef1-browser.svg" alt="Browser-mockup: pagina met donkere navigatiebalk, witte tekst, donkerblauwe titels en een oranje accent-knop" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 2 — Gradiënt hero-sectie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een <code>&lt;header&gt;</code> met de klasse <code>hero</code>. Geef deze:</p>
+            <ul>
+              <li>Een donkere achtergrondgradiënt (van donkerblauw naar paars, van links naar rechts)</li>
+              <li>Witte tekst</li>
+              <li>Een minimumhoogte van 40vh</li>
+              <li>Gecentreerde tekst</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H09-oef2-browser.svg" alt="Browser-mockup: hero-sectie met donkerblauw-naar-paarse gradiënt, witte gecentreerde tekst" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H09 Kleur en Achtergrond<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H09-oef2-browser.svg', 'Voorbeeld — Kleur en achtergrond')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+                      <h3>Opdracht: Persoonlijke kleurenpagina</h3>
+          <p>Maak een HTML-pagina <code>kleuren.html</code> met een bijhorend CSS-bestand <code>kleuren.css</code> over een onderwerp naar keuze (muziek, sport, natuur, …). De pagina toont jouw kleurenpalet op een creatieve manier.</p>
+          <h4>Deel 1 — Kleurenpalet (4 punten)</h4>
+          <ul>
+            <li>Gebruik minstens <strong>4 verschillende kleuren</strong> op de pagina</li>
+            <li>Gebruik elke kleurnotatie minstens één keer: een <strong>kleurnaam</strong>, een <strong>hex-waarde</strong>, <strong>rgb()</strong> en <strong>hsl()</strong></li>
+            <li>Zorg dat tekst en achtergrond voldoende contrast hebben (controleer met de DevTools)</li>
+          </ul>
+          <h4>Deel 2 — Achtergrond en gradient (3 punten)</h4>
+          <ul>
+            <li>Maak een <strong>hero-sectie</strong> (een brede banner bovenaan) met een <code>linear-gradient</code> als achtergrond</li>
+            <li>De gradient bevat minstens twee kleuren en de tekst erop is goed leesbaar</li>
+            <li>Voeg ergens een subtiele <code>background-color</code> toe met <strong>rgba()</strong> (bv. voor een overlay of kaartje)</li>
+          </ul>
+          <h4>Deel 3 — CSS custom properties (3 punten)</h4>
+          <ul>
+            <li>Definieer je hoofdkleuren als CSS-variabelen bovenaan je CSS: <code>:root { --kleur-primair: …; }</code></li>
+            <li>Gebruik die variabelen consequent door je volledige CSS-bestand</li>
+            <li>Bewijs dat het werkt: wijzig één variabele en controleer dat meerdere elementen meteen van kleur veranderen</li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H09 — Kleur en Achtergrond</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke kleurnotatie is de meest gebruikte in CSS?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="a"> <span>Kleurnamen (bv. <code>navy</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="b"> <span>Hexadecimale notatie (bv. <code>#003087</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="c"> <span>RGB-decimalen (bv. <code>rgb(0,48,135)</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="d"> <span>HSL (bv. <code>hsl(220,95%,26%)</code>)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is de minimale contrastverhouding voor gewone tekst volgens WCAG?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="a"> <span>2:1</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="b"> <span>3:1</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="c"> <span>4,5:1</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="d"> <span>7:1</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Hoe definieer je een CSS custom property met de naam "kleur-primair"?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="a"> <span><code>--kleur-primair: #003087;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="b"> <span><code>var(kleur-primair): #003087;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="c"> <span><code>$kleur-primair: #003087;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="d"> <span><code>@kleur-primair: #003087;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe gebruik je een CSS custom property met de naam "kleur-accent" in een CSS-regel?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="a"> <span><code>color: kleur-accent;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="b"> <span><code>color: $kleur-accent;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="c"> <span><code>color: @kleur-accent;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="d"> <span><code>color: var(--kleur-accent);</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Hoeveel procent van de mannelijke bevolking heeft een verstoord kleurenzicht?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="a"> <span>1%</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="b"> <span>8%</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="c"> <span>15%</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="d"> <span>25%</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welke CSS-eigenschap gebruik je om een vloeiende overgang van donkerblauw naar paars te maken als achtergrond?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="a"> <span><code>background-transition</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="b"> <span><code>background-blend</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="c"> <span><code>background: linear-gradient(...)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="d"> <span><code>background-color: gradient(...)</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H09')" data-progress-key="5adb/app-ontwikkeling/H09">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav"><a href="H08.html" class="btn btn-ghost">← H08</a> <a href="H10.html" class="btn btn-ghost">H10 →</a></div>
+    </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

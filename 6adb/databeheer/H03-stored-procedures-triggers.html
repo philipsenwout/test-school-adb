@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 &mdash; Stored Procedures en Triggers &mdash; Databeheer 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H03</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Stored Procedures</a>
+          <ul>
+            <li><a href="#s1-1">1.1 Aanmaken</a></li>
+            <li><a href="#s1-2">1.2 Parameters</a></li>
+            <li><a href="#s1-3">1.3 Aanroepen</a></li>
+          </ul>
+        </li>
+        <li><a href="#s2">2. Triggers</a>
+          <ul>
+            <li><a href="#s2-1">2.1 AFTER INSERT</a></li>
+            <li><a href="#s2-2">2.2 BEFORE UPDATE</a></li>
+          </ul>
+        </li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-data">
+      <div class="page-header__vak">&#128202; Databeheer &mdash; H03</div>
+      <h1 class="page-header__title">Stored Procedures en Triggers</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">4 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-DB-11] Stored procedures en triggers schrijven en gebruiken &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Stored Procedures</h2>
+    <p>Een <strong>stored procedure</strong> is een benoemde reeks SQL-statements die je kunt opslaan in de database en later aanroepen via <code>CALL</code>. Voordelen:</p>
+    <ul>
+      <li>Complexe logica eenmalig schrijven en hergebruiken</li>
+      <li>Minder netwerkcommunicatie (minder round-trips)</li>
+      <li>Beveiliging: gebruikers kunnen een procedure aanroepen zonder directe tabelrechten</li>
+    </ul>
+
+    <h3 id="s1-1">1.1 Aanmaken</h3>
+    <pre><code>-- DELIMITER wijzigen zodat MySQL ; binnenin de procedure niet als einde ziet
+DELIMITER $$
+
+CREATE PROCEDURE haal_bestellingen_op_per_klant(
+  IN p_klant_id INT
+)
+BEGIN
+  SELECT
+    b.bestelling_id,
+    b.besteldatum,
+    SUM(br.aantal * p.prijs) AS totaal
+  FROM bestellingen b
+  JOIN bestelling_regels br ON b.bestelling_id = br.bestelling_id
+  JOIN producten p           ON br.product_id   = p.product_id
+  WHERE b.klant_id = p_klant_id
+  GROUP BY b.bestelling_id, b.besteldatum
+  ORDER BY b.besteldatum DESC;
+END$$
+
+DELIMITER ;</code></pre>
+
+    <h3 id="s1-2">1.2 Parameters: IN, OUT en INOUT</h3>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Type</th><th>Richting</th><th>Gebruik</th></tr></thead>
+      <tbody>
+        <tr><td><strong>IN</strong></td><td>Input</td><td>Waarde doorgeven aan de procedure (kan niet gewijzigd worden)</td></tr>
+        <tr><td><strong>OUT</strong></td><td>Output</td><td>Variabele vullen vanuit de procedure</td></tr>
+        <tr><td><strong>INOUT</strong></td><td>Beide</td><td>Zowel invoer als uitvoer</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <pre><code>-- Procedure met OUT parameter
+DELIMITER $$
+
+CREATE PROCEDURE tel_bestellingen(
+  IN  p_klant_id INT,
+  OUT p_aantal   INT
+)
+BEGIN
+  SELECT COUNT(*) INTO p_aantal
+  FROM bestellingen
+  WHERE klant_id = p_klant_id;
+END$$
+
+DELIMITER ;</code></pre>
+
+    <h3 id="s1-3">1.3 Aanroepen en beheren</h3>
+    <pre><code>-- Procedure aanroepen (IN parameter)
+CALL haal_bestellingen_op_per_klant(3);
+
+-- Procedure aanroepen met OUT parameter
+CALL tel_bestellingen(3, @resultaat);
+SELECT @resultaat AS aantal_bestellingen;
+
+-- Alle procedures bekijken
+SHOW PROCEDURE STATUS WHERE Db = 'winkel_db';
+
+-- Procedure verwijderen
+DROP PROCEDURE IF EXISTS haal_bestellingen_op_per_klant;</code></pre>
+
+    <h2 id="s2">2. Triggers</h2>
+    <p>Een <strong>trigger</strong> is SQL-code die automatisch uitgevoerd wordt bij een INSERT, UPDATE of DELETE. Je gebruikt triggers voor:</p>
+    <ul>
+      <li>Auditlogs bijhouden (wie heeft wat gewijzigd?)</li>
+      <li>Automatisch berekende kolommen bijwerken</li>
+      <li>Businessregels afdwingen</li>
+      <li>Voorraad automatisch bijwerken bij bestellingen</li>
+    </ul>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Timing</th><th>Event</th><th>Wanneer?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>BEFORE</strong></td><td>INSERT / UPDATE / DELETE</td><td>V&oacute;&oacute;r de actie — kan de waarden nog wijzigen of actie annuleren</td></tr>
+        <tr><td><strong>AFTER</strong></td><td>INSERT / UPDATE / DELETE</td><td>Na de actie — voor logging of gevolgen</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 id="s2-1">2.1 AFTER INSERT — auditlog</h3>
+    <pre><code>-- Auditlog-tabel
+CREATE TABLE audit_log (
+  log_id      INT AUTO_INCREMENT PRIMARY KEY,
+  tabel_naam  VARCHAR(50),
+  actie       VARCHAR(20),
+  record_id   INT,
+  tijdstip    DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Trigger: log elke nieuwe bestelling
+DELIMITER $$
+
+CREATE TRIGGER na_bestelling_insert
+AFTER INSERT ON bestellingen
+FOR EACH ROW
+BEGIN
+  INSERT INTO audit_log (tabel_naam, actie, record_id)
+  VALUES ('bestellingen', 'INSERT', NEW.bestelling_id);
+END$$
+
+DELIMITER ;
+
+-- Test de trigger
+INSERT INTO bestellingen (klant_id, besteldatum) VALUES (1, CURDATE());
+SELECT * FROM audit_log;</code></pre>
+    <div class="callout callout--definitie">
+      <div class="callout__title">NEW en OLD</div>
+      <p>Binnen een trigger kan je de waarden v&oacute;&oacute;r en na de actie raadplegen:</p>
+      <ul>
+        <li><code>NEW.kolom</code> — de nieuwe waarde (beschikbaar bij INSERT en UPDATE)</li>
+        <li><code>OLD.kolom</code> — de oude waarde (beschikbaar bij UPDATE en DELETE)</li>
+      </ul>
+    </div>
+
+    <h3 id="s2-2">2.2 BEFORE UPDATE — validatie en logging</h3>
+    <pre><code>-- Log prijswijzigingen van producten
+CREATE TABLE prijs_log (
+  log_id         INT AUTO_INCREMENT PRIMARY KEY,
+  product_id     INT,
+  oude_prijs     DECIMAL(10,2),
+  nieuwe_prijs   DECIMAL(10,2),
+  gewijzigd_op   DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+DELIMITER $$
+
+CREATE TRIGGER voor_prijs_update
+BEFORE UPDATE ON producten
+FOR EACH ROW
+BEGIN
+  -- Enkel loggen als prijs verandert
+  IF OLD.prijs != NEW.prijs THEN
+    INSERT INTO prijs_log (product_id, oude_prijs, nieuwe_prijs)
+    VALUES (OLD.product_id, OLD.prijs, NEW.prijs);
+  END IF;
+
+  -- Validatie: prijs mag niet negatief zijn
+  IF NEW.prijs &lt; 0 THEN
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'Prijs mag niet negatief zijn';
+  END IF;
+END$$
+
+DELIMITER ;</code></pre>
+    <pre><code>-- Trigger testen
+UPDATE producten SET prijs = 1099 WHERE product_id = 1;
+SELECT * FROM prijs_log;
+
+-- Trigger beheren
+SHOW TRIGGERS FROM winkel_db;
+DROP TRIGGER IF EXISTS na_bestelling_insert;</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="db6-h03-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 3.1</span>
+        <span class="oefening__title">Stored Procedures</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van stored procedures, parameters en het aanroepen van procedures in MySQL.</p>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Hoe roep je een stored procedure aan in MySQL?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>EXECUTE procedure_naam(params)</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>RUN procedure_naam(params)</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>CALL procedure_naam(params)</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>START procedure_naam(params)</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="CALL procedure_naam(params) — het SQL-sleutelwoord om een stored procedure aan te roepen."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Welk parametertype gebruik je als je een waarde vanuit de procedure wil teruggeven aan de aanroeper?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>IN</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>OUT</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>RETURN</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>EXPORT</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="OUT — de procedure schrijft een waarde naar de OUT-parameter die de aanroeper daarna kan uitlezen via SELECT @variabele."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="delimiter|$$|delimiter $$">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Bij het aanmaken van stored procedures in MySQL verander je tijdelijk het scheidingsteken met het commando _______, zodat de puntkomma's binnenin de procedure niet als einde worden gezien.</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het commando of het nieuwe scheidingsteken...">
+          <div class="vraag__feedback" data-correct-label="DELIMITER — je verandert het scheidingsteken naar bijv. $$ met 'DELIMITER $$'. Na de procedure zet je het terug met 'DELIMITER ;'."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,b,c">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Wat zijn voordelen van stored procedures?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" value="a"><span>Complexe logica eenmalig schrijven en hergebruiken</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="b"><span>Minder netwerkcommunicatie (de logica draait op de server)</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="c"><span>Beveiliging: gebruikers kunnen procedures aanroepen zonder directe tabelrechten</span></label>
+            <label class="vraag__keuze"><input type="checkbox" value="d"><span>Stored procedures worden automatisch geback-upt bij elke SELECT</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="A, B en C zijn correcte voordelen van stored procedures. Automatische backup bij SELECT is niet van toepassing."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="db6-h03-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 3.2</span>
+        <span class="oefening__title">Triggers</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van triggers, de timing (BEFORE/AFTER) en de NEW/OLD pseudovariabelen.</p>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welke trigger-timing gebruik je als je de nieuwe waarden nog wil aanpassen of de actie wil annuleren vóór ze uitgevoerd wordt?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>BEFORE</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>AFTER</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>DURING</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>PRE</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="BEFORE — de trigger wordt uitgevoerd vóór de eigenlijke actie. Kan waarden aanpassen of de actie annuleren via SIGNAL SQLSTATE."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">In een BEFORE UPDATE trigger op de tabel <code>producten</code>: hoe raadpleeg je de <strong>nieuwe</strong> prijs die ingesteld wordt?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>OLD.prijs</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>UPDATED.prijs</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>NEW.prijs</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>CURRENT.prijs</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="NEW.prijs — de nieuwe waarde die ingesteld wordt. OLD.prijs bevat de huidige (voor de update) waarde."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="signal sqlstate|SIGNAL SQLSTATE '45000'|signal">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Welk MySQL-commando gebruik je in een BEFORE-trigger om een actie te stoppen en een foutmelding te geven (validatie)?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+          <div class="vraag__feedback" data-correct-label="SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'bericht' — stopt de trigger-actie en gooit een fout. 45000 is de gebruikersgedefinieerde foutcode."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Stored procedures worden opgeslagen in de DB en aangeroepen via <code>CALL</code>.</li>
+        <li>Parameters: <code>IN</code> (invoer), <code>OUT</code> (uitvoer), <code>INOUT</code> (beide).</li>
+        <li>Gebruik <code>DELIMITER $$</code> bij het aanmaken van procedures en triggers.</li>
+        <li>Triggers draaien automatisch bij INSERT/UPDATE/DELETE op een tabel.</li>
+        <li><code>NEW.kolom</code> = nieuwe waarde; <code>OLD.kolom</code> = oude waarde.</li>
+        <li><code>SIGNAL SQLSTATE '45000'</code> stopt een actie en gooit een fout (validatie).</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H03</h2>
+    <p>Bouw een compleet auditsysteem voor de producten-tabel:</p>
+    <ol>
+      <li>Maak een tabel <code>product_audit</code>: log_id, product_id, actie (INSERT/UPDATE/DELETE), oud_record (JSON of aparte kolommen), tijdstip, gebruiker (<code>CURRENT_USER()</code>).</li>
+      <li>Schrijf drie triggers: AFTER INSERT, AFTER UPDATE en BEFORE DELETE.</li>
+      <li>Test elke trigger door producten aan te maken, te wijzigen en te verwijderen.</li>
+      <li>Schrijf een stored procedure <code>product_history</code> die alle auditrecords voor een bepaald product_id ophaalt.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/databeheer/H03">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H02-geavanceerde-sql.html" class="btn btn-secondary">&larr; H02 &mdash; Geavanceerde SQL</a>
+      <a href="H04-python-database-koppeling.html" class="btn btn-secondary">H04 &mdash; Python + Database &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

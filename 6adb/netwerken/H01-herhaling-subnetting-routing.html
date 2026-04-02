@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 &mdash; Herhaling &amp; verdieping: subnetting en routing &mdash; Netwerken 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H01</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. Theorie</a>
+          <ul>
+            <li><a href="#s1-1">1.1 VLSM op grotere schaal</a></li>
+            <li><a href="#s1-2">1.2 Routing verdiept</a></li>
+            <li><a href="#s1-3">1.3 Administratieve distance</a></li>
+            <li><a href="#s1-4">1.4 Dynamische routeringprotocollen</a></li>
+            <li><a href="#s1-5">1.5 Routeringstabel diagnostiek</a></li>
+          </ul>
+        </li>
+        <li><a href="#voorbeelden">Voorbeelden</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-netwerken">
+      <div class="page-header__vak">&#127760; Netwerken &mdash; H01</div>
+      <h1 class="page-header__title">Herhaling &amp; verdieping: subnetting en routing</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">6 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-NET-03] Datacommunicatie &amp; computernetwerk — basis</span>
+      <span class="ld-badge">[LD-NET-04] Netwerksysteem configuratie ontwerpen — verdieping</span>
+    </div>
+
+    <h2 id="s1">1. Theorie</h2>
+
+    <h3 id="s1-1">1.1 Herhaling: VLSM op grotere schaal</h3>
+    <p>In het 5e jaar leerden we subnetting en VLSM op één /24-blok. In professionele omgevingen werk je met grotere adresblokken en complexere scenario's.</p>
+
+    <div class="callout callout--tip">
+      <div class="callout__title">Tip &mdash; VLSM-vuistregel</div>
+      <p>Werk altijd van <strong>groot naar klein</strong>. Begin met het grootste subnet en werk naar beneden. Sla dit als mentale standaardprocedure op &mdash; het vermijdt adresverspilling en overlapping.</p>
+    </div>
+
+    <p><strong>Herhaling stappenplan:</strong></p>
+    <ol>
+      <li>Sorteer de subnetten van groot naar klein (op basis van benodigde hosts)</li>
+      <li>Bepaal per subnet het kleinste <code>/x</code> dat genoeg hosts biedt (2<sup>y</sup> - 2 &ge; hosts)</li>
+      <li>Wijs subnetten toe zonder overlap, beginnend bij het basisadres</li>
+    </ol>
+
+    <h3 id="s1-2">1.2 Routing verdiept: hoe routers beslissen</h3>
+    <p>Een router bekijkt elk inkomend pakket en zoekt de <strong>best matching route</strong> via het principe van <strong>longest prefix match</strong>:</p>
+
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; Longest prefix match</div>
+      <p>Wanneer meerdere routes in de routeringstabel overeenkomen met de bestemming, kiest de router de route met het <strong>langste (meest specifieke) prefix</strong>. <code>/28</code> wint van <code>/24</code> wint van <code>/0</code>.</p>
+    </div>
+
+    <p>Voorbeeld:</p>
+    <pre><code>Routeringstabel:
+  S    10.0.0.0/8 via 192.168.1.1
+  S    10.5.0.0/16 via 192.168.2.1
+  S    10.5.10.0/24 via 192.168.3.1
+  S*   0.0.0.0/0 via 10.255.255.1
+
+Pakket naar 10.5.10.50:
+- Matcht /8  → kandidaat
+- Matcht /16 → betere kandidaat
+- Matcht /24 → beste match (langste prefix) ✓
+
+Pakket naar 172.20.5.1:
+- Geen specifieke match → default route 0.0.0.0/0 ✓</code></pre>
+
+    <h3 id="s1-3">1.3 Administratieve distance</h3>
+    <p>Wanneer een router meerdere bronnen heeft voor dezelfde route (bv. statisch EN via OSPF), gebruikt hij de <strong>administrative distance</strong> om te kiezen:</p>
+
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Routebron</th><th>Administrative Distance</th></tr></thead>
+      <tbody>
+        <tr><td>Connected (direct verbonden)</td><td>0</td></tr>
+        <tr><td>Static route</td><td>1</td></tr>
+        <tr><td>OSPF</td><td>110</td></tr>
+        <tr><td>RIP</td><td>120</td></tr>
+        <tr><td>External OSPF</td><td>170</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Lagere waarde = meer vertrouwen.</p>
+
+    <h3 id="s1-4">1.4 Dynamische routeringprotocollen &mdash; concept</h3>
+    <p>Bij statische routing configureer je elke route handmatig. Bij grote netwerken met tientallen routers is dit onhaalbaar. <strong>Dynamische routeringprotocollen</strong> laten routers hun routes automatisch uitwisselen.</p>
+
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; Routeringprotocol</div>
+      <p>Een routeringprotocol is een set regels waarmee routers informatie uitwisselen over bereikbare netwerken, zodat ze hun routeringstabellen automatisch opbouwen en aanpassen.</p>
+    </div>
+
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Categorie</th><th>Voorbeelden</th><th>Gebruik</th></tr></thead>
+      <tbody>
+        <tr><td><strong>IGP</strong> (Interior Gateway Protocol)</td><td>OSPF, EIGRP, RIP</td><td>Routing binnen één organisatie (autonomous system)</td></tr>
+        <tr><td><strong>EGP</strong> (Exterior Gateway Protocol)</td><td>BGP</td><td>Routing tussen organisaties / op het internet</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4>1.4.1 OSPF &mdash; Open Shortest Path First</h4>
+
+    <div class="callout callout--definitie">
+      <div class="callout__title">Definitie &mdash; OSPF</div>
+      <p>OSPF (Open Shortest Path First) is een link-state routeringprotocol. Elke router bouwt een volledige topologiekaart van het netwerk en berekent de kortste paden via het Dijkstra-algoritme.</p>
+    </div>
+
+    <p>OSPF-kenmerken:</p>
+    <ul>
+      <li>Open standaard (geen vendor lock-in)</li>
+      <li>Snel convergerend (reageert snel op topologiewijzigingen)</li>
+      <li>Gebruikt <strong>cost</strong> als metriek (gebaseerd op bandbreedte: cost = 10<sup>8</sup> / bandbreedte in bps)</li>
+      <li>Werkt met <strong>areas</strong> voor schaalbaarheid (Area 0 = backbone)</li>
+    </ul>
+
+    <div class="callout callout--tip">
+      <div class="callout__title">Tip</div>
+      <p>OSPF is de industriestandaard voor enterprise-netwerken. In de praktijk als beheerder kom je OSPF bijna zeker tegen. Je hoeft het niet volledig te configureren in het 6e jaar, maar de concepten (neighbor, LSA, SPF, area) zijn essentieel.</p>
+    </div>
+
+    <p>OSPF-states (vereenvoudigd):</p>
+    <pre><code>Down → Init → Two-way → Exstart → Exchange → Loading → Full</code></pre>
+
+    <p><strong>OSPF minimale configuratie:</strong></p>
+    <pre><code>R1(config)# router ospf 1
+R1(config-router)# network 192.168.1.0 0.0.0.255 area 0
+R1(config-router)# network 192.168.2.0 0.0.0.255 area 0</code></pre>
+    <p>(Wildcard mask = inverse van subnetmasker: <code>255.255.255.0</code> &rarr; wildcard = <code>0.0.0.255</code>)</p>
+
+    <h3 id="s1-5">1.5 Routeringstabel diagnostiek</h3>
+    <pre><code>R1# show ip route
+! Codes: C = Connected, S = Static, O = OSPF, R = RIP
+
+R1# show ip ospf neighbor
+! Toont OSPF-buren en hun status
+
+R1# debug ip routing
+! Toont real-time routeringswijzigingen (voorzichtig gebruiken — veel output!)</code></pre>
+
+    <h2 id="voorbeelden">Voorbeelden</h2>
+
+    <div class="callout callout--voorbeeld">
+      <div class="callout__title">Voorbeeld 1 &mdash; Routeringstabel met OSPF</div>
+      <p>Routeringstabel van R1 in een netwerk met drie routers (R1, R2, R3) die OSPF gebruiken:</p>
+      <pre><code>C    192.168.1.0/24 is directly connected, Gi0/0
+C    192.168.2.0/24 is directly connected, Gi0/1
+O    192.168.3.0/24 [110/2] via 192.168.2.2, 00:01:05, Gi0/1
+O    192.168.4.0/24 [110/3] via 192.168.2.2, 00:01:05, Gi0/1
+S*   0.0.0.0/0 [1/0] via 10.0.0.1</code></pre>
+      <p>Interpretatie: <code>[110/2]</code>: administrative distance 110 (OSPF), cost 2. OSPF heeft automatisch de routes naar <code>192.168.3.0</code> en <code>192.168.4.0</code> geleerd via R2.</p>
+    </div>
+
+    <div class="callout callout--voorbeeld">
+      <div class="callout__title">Voorbeeld 2 &mdash; Longest prefix match in de praktijk</div>
+      <p>Router ontvangt pakket naar <code>10.5.10.200</code>: kandidaten: <code>/8</code>, <code>/16</code>, <code>/24</code> &rarr; <code>/24</code> wint (meest specifiek).</p>
+      <p>Pakket naar <code>10.8.0.1</code>: kandidaten: <code>/8</code> &rarr; enige match.</p>
+    </div>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="net6-h01-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 1.1</span>
+        <span class="oefening__title">VLSM en longest prefix match</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van VLSM-subnetting en hoe routers de juiste route kiezen.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Je hebt 500 hosts nodig in één subnet. Wat is het kleinste prefix dat hiervoor voldoende is?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v1" value="a"><span>/22 (1022 hosts)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v1" value="b"><span>/23 (510 hosts)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v1" value="c"><span>/24 (254 hosts)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v1" value="d"><span>/21 (2046 hosts)</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="/23 geeft 2^9 - 2 = 510 bruikbare hostadressen — voldoende voor 500 hosts met minimale verspilling"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Routeringstabel bevat /8, /16 en /24 voor het netwerk 10.x. Een pakket gaat naar <code>10.10.5.50</code>. Welke route wint?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v2" value="a"><span>/8 — de breedste route</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v2" value="b"><span>/16 — de gemiddelde route</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v2" value="c"><span>/24 — de meest specifieke (langste prefix)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v2" value="d"><span>Default route /0</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="/24 wint — longest prefix match: de meest specifieke (langste) route heeft altijd voorrang"></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="110">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Wat is de administrative distance van OSPF?</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ het getal...">
+          <div class="vraag__feedback" data-correct-label="110 — OSPF heeft administrative distance 110. Static = 1, Connected = 0, RIP = 120."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">In welke volgorde wijs je subnetten toe bij VLSM?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v4" value="a"><span>Van het grootste subnet naar het kleinste</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v4" value="b"><span>Van het kleinste subnet naar het grootste</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v4" value="c"><span>Willekeurige volgorde</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-1-v4" value="d"><span>Alphabetisch op afdelingsnaam</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Van het grootste subnet naar het kleinste — dit vermijdt adresverspilling en overlapping (VLSM-vuistregel)"></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="net6-h01-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 1.2</span>
+        <span class="oefening__title">OSPF vs statische routing</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Een bedrijfsnetwerk heeft 15 routers en 30 subnetten. Analyseer de keuze tussen OSPF en statische routing.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Wat is het voornaamste voordeel van OSPF in een groot netwerk?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v1" value="a"><span>OSPF verbruikt minder bandbreedte dan statische routes</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v1" value="b"><span>OSPF bouwt routeringstabellen automatisch op en past ze aan bij wijzigingen</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v1" value="c"><span>OSPF is eenvoudiger te configureren dan statische routes</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v1" value="d"><span>OSPF is veiliger dan statische routes</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="OSPF bouwt routeringstabellen automatisch op en past ze aan bij wijzigingen — essentieel bij grote netwerken met tientallen routers"></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">OSPF gebruikt welke metriek om de beste route te berekenen?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v2" value="a"><span>Hop count (aantal routers)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v2" value="b"><span>Latency (vertraging)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v2" value="c"><span>Cost (gebaseerd op bandbreedte: 10^8 / bandbreedte)</span></label>
+            <label class="vraag__keuze"><input type="radio" name="net6-h01-2-v2" value="d"><span>Betrouwbaarheid van de link</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Cost (gebaseerd op bandbreedte) — cost = 10^8 / bandbreedte in bps. Hogere bandbreedte = lagere cost = betere route."></div>
+        </div>
+
+        <div class="vraag" data-type="check" data-correct="a,c">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Wanneer gebruik je toch statische routes, zelfs in grote netwerken? (Selecteer alle juiste antwoorden)</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="checkbox" name="net6-h01-2-v3" value="a"><span>Voor de default route (0.0.0.0/0) naar het internet</span></label>
+            <label class="vraag__keuze"><input type="checkbox" name="net6-h01-2-v3" value="b"><span>Voor alle interne routes om OSPF te vervangen</span></label>
+            <label class="vraag__keuze"><input type="checkbox" name="net6-h01-2-v3" value="c"><span>Voor stub-netwerken met slechts één route naar buiten</span></label>
+            <label class="vraag__keuze"><input type="checkbox" name="net6-h01-2-v3" value="d"><span>Voor elke verbinding tussen routers</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="Default route en stub-netwerken — statische routes zijn efficiënt voor eenvoudige, vaste verbindingen zonder alternatieve paden"></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li>Longest prefix match: de router kiest altijd de meest specifieke (langste) route.</li>
+        <li>Administrative distance bepaalt welke routebron betrouwbaarder is: connected (0) &gt; static (1) &gt; OSPF (110) &gt; RIP (120).</li>
+        <li>Dynamische routeringprotocollen (OSPF, EIGRP, BGP) bouwen automatisch routeringstabellen op &mdash; essentieel bij grote netwerken.</li>
+        <li>OSPF is een open-standaard link-state protocol dat de kortste paden berekent via Dijkstra. Gebruikt cost als metriek.</li>
+        <li>In productie-omgevingen is OSPF de standaard voor enterprise-routering.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H01</h2>
+    <p>Onderzoek de basisprincipes van BGP (Border Gateway Protocol).</p>
+    <ol>
+      <li>Waarvoor wordt BGP gebruikt (verschil met OSPF)?</li>
+      <li>Wat is een "Autonomous System (AS)" in BGP-context?</li>
+      <li>Zoek op welk AS-nummer je ISP (Proximus, Telenet, ...) heeft (gebruik <a href="https://bgp.he.net" target="_blank" rel="noopener">bgp.he.net</a>).</li>
+      <li>Schrijf een korte vergelijkingstabel: OSPF vs BGP (gebruik: bereik, metriek, schaalbaarheid, complexiteit).</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H01">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <span></span>
+      <a href="H02-vlans.html" class="btn btn-secondary">H02 &mdash; VLANs &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

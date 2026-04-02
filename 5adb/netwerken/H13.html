@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H13 &mdash; Netwerkontwerp met Packet Tracer &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Netwerkontwerp met Packet Tracer &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H13</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-13-netwerkontwerp-met-cisco-packet-tracer">Hoofdstuk 13 — Netwerkontwerp met Cisco Packet Tracer</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#13-theorie-en-aanpak">13. Theorie en aanpak</a></li><li><a href="#131-het-ontwerpproces" style="padding-left:1.25rem">13.1 Het ontwerpproces</a></li><li><a href="#132-stap-1-analyse-van-de-eisen" style="padding-left:1.25rem">13.2 Stap 1: Analyse van de eisen</a></li><li><a href="#133-stap-2-logisch-ontwerp" style="padding-left:1.25rem">13.3 Stap 2: Logisch ontwerp</a></li><li><a href="#134-cisco-packet-tracer-werkwijze" style="padding-left:1.25rem">13.4 Cisco Packet Tracer — werkwijze</a></li><li><a href="#135-documentatiestandaarden" style="padding-left:1.25rem">13.5 Documentatiestandaarden</a></li><li><a href="#13-simulatieproject">13. Simulatieproject</a></li><li><a href="#projectopdracht-kantoornetwerk-databrussels" style="padding-left:1.25rem">Projectopdracht: Kantoornetwerk "DataBrussels"</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h13" style="padding-left:1.25rem">Huistaak H13</a></li><li><a href="#6-toets">6. Toets</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H13 &mdash; Netwerkontwerp met Packet Tracer</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-13-netwerkontwerp-met-cisco-packet-tracer">Hoofdstuk 13 — Netwerkontwerp met Cisco Packet Tracer</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>8 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>een klein kantoornetwerk ontwerpen op basis van een probleemstelling</li>
+<li>het ontwerp documenteren (adresseringsschema, topologieschema)</li>
+<li>het netwerk simuleren in Cisco Packet Tracer en configureren</li>
+<li>het ontwerp testen en probleemoplossing uitvoeren</li>
+<li>planmatig werken en resultaten presenteren</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen — basis → verdieping  &nbsp; <span class="badge badge-ld">[LD-NET-09]</span> De leerlingen plannen de werkzaamheden in functie van de opdracht — beide  &nbsp; <span class="badge badge-ld">[LD-NET-11]</span> De leerlingen werken in teamverband met aandacht voor organisatiecultuur, communicatie en procedures — beide  &nbsp; <span class="badge badge-ld">[LD-NET-12]</span> De leerlingen handelen kwaliteitsbewust — beide  &nbsp; <span class="badge badge-ld">[LD-NET-15]</span> De leerlingen houden het werkoppervlak ordelijk en net — beide </div>
+<h2 id="13-theorie-en-aanpak">13. Theorie en aanpak</h2>
+<h3 id="131-het-ontwerpproces">13.1 Het ontwerpproces</h3>
+<p>Een goed netwerkontwerp volgt een gestructureerd proces:</p>
+<pre data-lang=""><code>
+1. Analyse van de eisen
+        ↓
+2. Logisch ontwerp (IP-schema, topologie)
+        ↓
+3. Fysiek ontwerp (apparatuur, bekabeling)
+        ↓
+4. Implementatie (configuratie)
+        ↓
+5. Testen en verificatie
+        ↓
+6. Documentatie
+</code></pre>
+<h3 id="132-stap-1-analyse-van-de-eisen">13.2 Stap 1: Analyse van de eisen</h3>
+<p>Stel jezelf de volgende vragen:</p>
+<ul>
+<li>Hoeveel apparaten worden verbonden?</li>
+<li>Zijn er afzonderlijke afdelingen die netwerk-isolatie vereisen?</li>
+<li>Is draadloze toegang nodig?</li>
+<li>Wat is de verwachte groei (toekomstige schaalbaarheid)?</li>
+<li>Welke diensten zijn nodig (DHCP, DNS, file sharing, internet)?</li>
+<li>Zijn er beveiligingseisen (firewallregels, VLAN's)?</li>
+</ul>
+<h3 id="133-stap-2-logisch-ontwerp">13.3 Stap 2: Logisch ontwerp</h3>
+<p>Het logisch ontwerp beschrijft:</p>
+<ol>
+<li><strong>Adresseringsschema:</strong> welke IP-adressen gebruik je, hoe verdeel je de subnetten?</li>
+<li><strong>Topologieschema:</strong> hoe zijn de apparaten logisch verbonden?</li>
+<li><strong>Protocol- en dienstenoverzicht:</strong> welke protocollen/diensten (DHCP, DNS, statische routing) gebruik je?</li>
+</ol>
+<h4 id="1331-adresseringsschema-voorbeeld-template">13.3.1 Adresseringsschema (voorbeeld-template)</h4>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Apparaat</th><th>Interface</th><th>IP-adres</th><th>Subnetmasker</th><th>Gateway</th></tr></thead><tbody>
+<tr><td>Router R1</td><td>Gi0/0</td><td>192.168.1.1</td><td>255.255.255.0</td><td>—</td></tr>
+<tr><td>Router R1</td><td>Gi0/1</td><td>192.168.2.1</td><td>255.255.255.0</td><td>—</td></tr>
+<tr><td>Switch SW1</td><td>VLAN 1</td><td>192.168.1.2</td><td>255.255.255.0</td><td>192.168.1.1</td></tr>
+<tr><td>PC-Admin</td><td>NIC</td><td>192.168.1.10</td><td>255.255.255.0</td><td>192.168.1.1</td></tr>
+<tr><td>PC-Medewerker1</td><td>NIC</td><td>192.168.1.11</td><td>255.255.255.0</td><td>192.168.1.1</td></tr>
+<tr><td>Server DNS/DHCP</td><td>NIC</td><td>192.168.2.5</td><td>255.255.255.0</td><td>192.168.2.1</td></tr>
+</tbody></table></div>
+<h3 id="134-cisco-packet-tracer-werkwijze">13.4 Cisco Packet Tracer — werkwijze</h3>
+<p>Cisco Packet Tracer is een gratis netwerksimulator van Cisco. Je kunt er routers, switches, pc's, servers en wireless access points in toevoegen en configureren.</p>
+<h4 id="1341-apparaten-toevoegen">13.4.1 Apparaten toevoegen</h4>
+<ol>
+<li>Open Packet Tracer.</li>
+<li>Kies in het onderpaneel: <strong>Routers</strong> → sleep een Cisco 2911 naar het canvas.</li>
+<li>Kies <strong>Switches</strong> → sleep een Cisco 2960.</li>
+<li>Kies <strong>End Devices</strong> → sleep PC's.</li>
+<li>Kies het juiste kabeltype (let op!):</li>
+</ol>
+<p>   - <strong>Straight-through (zwart):</strong> PC/server → switch</p>
+<p>   - <strong>Cross-over (blauw):</strong> switch → switch, router → router (of gebruik Auto voor moderne apparaten)</p>
+<p>   - <strong>Serieel (rood):</strong> WAN-verbindingen tussen routers (DCE/DTE)</p>
+<p>   - <strong>Console (lichtblauw):</strong> beheerconnectie van PC naar router/switch</p>
+<h4 id="1342-configuratie-via-cli">13.4.2 Configuratie via CLI</h4>
+<p>Dubbelklik op een router of switch → tabblad CLI.</p>
+<pre data-lang="cisco-ios"><code>
+! Router configureren
+Router&gt; enable
+Router# configure terminal
+Router(config)# hostname R1
+R1(config)# interface GigabitEthernet0/0
+R1(config-if)# ip address 192.168.1.1 255.255.255.0
+R1(config-if)# no shutdown
+R1(config-if)# exit
+</code></pre>
+<h4 id="1343-pc-configureren">13.4.3 PC configureren</h4>
+<p>Dubbelklik op PC → Desktop → IP Configuration:</p>
+<ul>
+<li>IP Address: <code>192.168.1.10</code></li>
+<li>Subnet Mask: <code>255.255.255.0</code></li>
+<li>Default Gateway: <code>192.168.1.1</code></li>
+<li>DNS Server: <code>192.168.2.5</code> (als je een DNS-server hebt)</li>
+</ul>
+<h4 id="1344-testen">13.4.4 Testen</h4>
+<ul>
+<li>Desktop → Command Prompt → <code>ping 192.168.1.1</code> (router testen)</li>
+<li>Desktop → Command Prompt → <code>ping 192.168.2.5</code> (cross-network testen)</li>
+</ul>
+<h3 id="135-documentatiestandaarden">13.5 Documentatiestandaarden</h3>
+<p>Professionele documentatie bevat:</p>
+<ol>
+<li><strong>Netwerkdiagram</strong> (fysiek + logisch)</li>
+<li><strong>Adresseringstabel</strong> (alle apparaten, interfaces, IP's)</li>
+<li><strong>Apparatuuroplijsting</strong> (wat, hoeveel, merk/model)</li>
+<li><strong>Configuratiebestanden</strong> (IOS-configs van routers/switches)</li>
+<li><strong>Testresultaten</strong> (screenshots van pings, show-commando's)</li>
+</ol>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Gebruik een naamconventie voor je apparaten: <code>R[nummer]</code> voor routers, <code>SW[nummer]</code> voor switches, <code>SRV[naam]</code> voor servers. Consistentie maakt documentatie leesbaar.</p>
+</div>
+<h2 id="13-simulatieproject">13. Simulatieproject</h2>
+<h3 id="projectopdracht-kantoornetwerk-databrussels">Projectopdracht: Kantoornetwerk "DataBrussels"</h3>
+<p><strong>Scenario:</strong></p>
+<p>Het bedrijf DataBrussels heeft twee afdelingen: <strong>Administratie</strong> (10 pc's) en <strong>Ontwikkeling</strong> (8 pc's). Er is ook een <strong>serverruimte</strong> (2 servers: DNS/DHCP en fileserver).</p>
+<p>Je hebt het adresblok <code>172.16.0.0/24</code> ter beschikking. Ontwerp en implementeer dit netwerk in Cisco Packet Tracer.</p>
+<p><strong>Eisen:</strong></p>
+<ul>
+<li>Eén router verbindt de drie subnetten.</li>
+<li>Elke afdeling heeft een eigen subnet (VLSM).</li>
+<li>De DHCP-server deelt automatisch IP-adressen uit aan de pc's.</li>
+<li>De servers hebben vaste (statische) IP-adressen.</li>
+<li>Communicatie tussen alle afdelingen moet mogelijk zijn via de router.</li>
+<li>Elk apparaat heeft een correcte default gateway.</li>
+</ul>
+<p><strong>Deliverables:</strong></p>
+<ol>
+<li>Adresseringsschema (tabel)</li>
+<li>Netwerkdiagram (Packet Tracer screenshot)</li>
+<li>Configuratie-excerpts van de router (show running-config)</li>
+<li>Testrapport: screenshots van pings tussen alle drie subnetten</li>
+</ol>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h13-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 13.1</span>
+    <span class="oefening__title">Adresseringsschema voor DataBrussels</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Het bedrijf DataBrussels heeft het adresblok 172.16.0.0/24. Je moet drie subnetten ontwerpen voor Administratie (10 hosts), Ontwikkeling (8 hosts) en Servers (2 hosts).</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk subnetmasker gebruik je voor het subnet Administratie met 10 hosts (VLSM — kleinst mogelijk)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v1" value="a"><span>/25 — 126 bruikbare hosts</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v1" value="b"><span>/28 — 14 bruikbare hosts</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v1" value="c"><span>/30 — 2 bruikbare hosts</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v1" value="d"><span>/24 — 254 bruikbare hosts</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="/28 geeft 14 bruikbare hostadressen (2^4 - 2 = 14), wat voldoende is voor 10 hosts maar zo weinig mogelijk adresruimte verspilt (VLSM)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is het eerste adres dat je gebruikt als router-interface-IP in subnet 172.16.0.0/28?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v2" value="a"><span>172.16.0.0 — dit is het networkadres zelf</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v2" value="b"><span>172.16.0.15 — dit is het broadcastadres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v2" value="c"><span>172.16.0.1 — eerste bruikbaar hostadres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v2" value="d"><span>172.16.0.255 — broadcastadres van het /24 blok</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="172.16.0.1 — het eerste bruikbare hostadres in subnet 172.16.0.0/28. Het networkadres (172.16.0.0) en broadcastadres (172.16.0.15) zijn gereserveerd"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk subnetmasker is het meest efficiënt voor de serverruimte met slechts 2 servers?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v3" value="a"><span>/30 — exact 2 bruikbare hostadressen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v3" value="b"><span>/28 — 14 bruikbare hosts, meer dan nodig</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-1-v3" value="c"><span>/24 — veel te groot, 254 hostadressen verspild</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="/30 geeft precies 2 bruikbare hostadressen (2^2 - 2 = 2) — ideaal voor een serversubnet met 2 servers, minste adresverspilling"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h13-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 13.2</span>
+    <span class="oefening__title">Packet Tracer — configuratie en kabels</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Je bouwt het DataBrussels-netwerk in Cisco Packet Tracer. Controleer je kennis van de Packet Tracer werkwijze en kabelkeuze.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk kabeltype gebruik je om een PC te verbinden met een switch in Packet Tracer?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v1" value="a"><span>Cross-over (blauw)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v1" value="b"><span>Straight-through (zwart)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v1" value="c"><span>Serieel (rood)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v1" value="d"><span>Console (lichtblauw)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Straight-through (zwart) — gebruik dit voor verbindingen tussen ongelijksoortige apparaten: PC/server naar switch, switch naar router"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk CLI-commando gebruik je in Packet Tracer om een IP-adres in te stellen op een router-interface?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v2" value="a"><span>set ip address 192.168.1.1 255.255.255.0</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v2" value="b"><span>ipconfig 192.168.1.1/24</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v2" value="c"><span>ip address 192.168.1.1 255.255.255.0</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v2" value="d"><span>network 192.168.1.1 255.255.255.0</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="ip address 192.168.1.1 255.255.255.0 — dit is het Cisco IOS-commando dat je intypt in interface configuratiemodus (config-if)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Na het instellen van een IP-adres op een router-interface, welk commando moet je nog ingeven zodat de interface actief wordt?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v3" value="a"><span>no shutdown</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v3" value="b"><span>interface enable</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v3" value="c"><span>start interface</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-2-v3" value="d"><span>activate</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="no shutdown — router-interfaces zijn standaard uitgeschakeld (shutdown) in Cisco IOS. Je moet expliciet 'no shutdown' ingeven om ze te activeren"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="ping">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welk commando gebruik je in de Command Prompt van een PC (in Packet Tracer) om te testen of een ander apparaat bereikbaar is?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het commando...">
+      <div class="vraag__feedback" data-correct-label="ping — bv. 'ping 192.168.1.1' stuurt ICMP-pakketjes naar het doeladres en toont of de verbinding werkt"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h13-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 13.3</span>
+    <span class="oefening__title">Netwerkdocumentatie</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Professionele netwerkdocumentatie is essentieel. Test je kennis van de documentatiestandaarden uit sectie 13.5.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat bevat een adresseringstabel in een netwerkdocumentatie?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v1" value="a"><span>Alleen de IP-adressen van de router-interfaces</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v1" value="b"><span>Alle apparaten met hun interface, IP-adres, subnetmasker en gateway</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v1" value="c"><span>Enkel de servers en hun diensten</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Een volledige adresseringstabel bevat voor elk apparaat: naam, interface, IP-adres, subnetmasker en default gateway — zodat iedereen snel de netwerkconfiguratie kan begrijpen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Wat is een correcte naamconventie voor routers in een netwerkontwerp?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v2" value="a"><span>router1, router2, router3</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v2" value="b"><span>aparaat1, apparaat2</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v2" value="c"><span>R1, R2, R3 — duidelijk en consistent</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="R1, R2, R3 voor routers, SW1, SW2 voor switches, SRV-naam voor servers — korte, consistente namen maken documentatie leesbaar en professioneel"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk Cisco IOS-commando gebruik je om de volledige configuratie van een router te bekijken (voor in het testrapport)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v3" value="a"><span>show running-config</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v3" value="b"><span>display config</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v3" value="c"><span>print configuration</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h13-3-v3" value="d"><span>list interfaces</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="show running-config — dit Cisco IOS-commando toont de volledige actieve configuratie van de router, inclusief alle interfaces, IP-adressen en routes"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Netwerkontwerp volgt een proces: analyse → logisch ontwerp → fysiek ontwerp → implementatie → test → documentatie.</li>
+<li>Een adresseringsschema legt vast welke IP-adressen en subnetten gebruikt worden voor elk apparaat.</li>
+<li>Cisco Packet Tracer simuleert netwerken zonder echte hardware — ideaal om te oefenen.</li>
+<li>Documentatie is essentieel in professionele netwerkomgevingen: adresseringstabel, diagrammen, configs, testresultaten.</li>
+<li>Teamwerk en planning zijn sleutelcompetenties voor een netwerkbeheerder.</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h13">Huistaak H13</h3>
+<p>Ontwerp een netwerk voor jouw thuis- of schoolsituatie:</p>
+<ol>
+<li>Beschrijf de situatie: hoeveel apparaten, welke diensten (internet, printer, ...), heeft het draadloze verbindingen?</li>
+<li>Kies een geschikte IP-adresruimte en deel op in subnetten indien nodig.</li>
+<li>Maak een eenvoudig logisch diagram (met de hand of digitaal — bv. draw.io).</li>
+<li>Beschrijf welke apparaten nodig zijn (router, switch, access point, ...).</li>
+<li>Optioneel: bouw het na in Cisco Packet Tracer.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H13-huistaak-verbetersleutel.md</code></p>
+<h2 id="6-toets">6. Toets</h2>
+<blockquote><p>Het eindproject DataBrussels wordt gebruikt als <strong>Eindtoets 5ADB</strong> (praktijkgedeelte).</p>
+<p>Raadpleeg <code>output/netwerken/toetsen/eindtoets-5adb-opgave.md</code> voor de volledige opgave en evaluatierubriek.</p></blockquote>
+<p><em>🌐 Netwerken — Hoofdstuk 13 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H13">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H12.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H12 &mdash; Cyberveiligheid: basisprincipes</span></div></a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

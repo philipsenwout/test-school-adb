@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 &mdash; Datalinklaag &amp; Ethernet &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Datalinklaag &amp; Ethernet &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H05</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-5-datalinklaag-ethernet">Hoofdstuk 5 — Datalinklaag & Ethernet</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#5-theorie">5. Theorie</a></li><li><a href="#51-de-datalinklaag-osi-laag-2" style="padding-left:1.25rem">5.1 De datalinklaag (OSI Laag 2)</a></li><li><a href="#52-mac-adressen" style="padding-left:1.25rem">5.2 MAC-adressen</a></li><li><a href="#53-ethernet-frames" style="padding-left:1.25rem">5.3 Ethernet-frames</a></li><li><a href="#54-hub-vs-switch" style="padding-left:1.25rem">5.4 Hub vs switch</a></li><li><a href="#55-arp-address-resolution-protocol" style="padding-left:1.25rem">5.5 ARP — Address Resolution Protocol</a></li><li><a href="#5-voorbeelden">5. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h05" style="padding-left:1.25rem">Huistaak H05</a></li><li><a href="#6-toets">6. Toets</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H05 &mdash; Datalinklaag &amp; Ethernet</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">6 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-5-datalinklaag-ethernet">Hoofdstuk 5 — Datalinklaag & Ethernet</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>6 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>uitleggen wat een MAC-adres is en hoe het opgebouwd is</li>
+<li>de structuur van een Ethernet-frame beschrijven</li>
+<li>het verschil uitleggen tussen een hub en een switch</li>
+<li>beschrijven hoe een switch werkt (MAC-adrestabel)</li>
+<li>het ARP-protocol uitleggen (hoe MAC- en IP-adressen aan elkaar gekoppeld worden)</li>
+<li>CSMA/CD uitleggen als toegangsmethode voor gedeelde media</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span></div>
+<h2 id="5-theorie">5. Theorie</h2>
+<h3 id="51-de-datalinklaag-osi-laag-2">5.1 De datalinklaag (OSI Laag 2)</h3>
+<p>De datalinklaag is verantwoordelijk voor de <strong>betrouwbare overdracht van data tussen twee rechtstreeks verbonden apparaten</strong> op hetzelfde netwerksegment. Ze werkt op het niveau van <strong>frames</strong> en gebruikt <strong>MAC-adressen</strong> voor adressering.</p>
+<p>De datalinklaag is verdeeld in twee sublagen:</p>
+<ul>
+<li><strong>MAC</strong> (Media Access Control): adressering en toegangscontrole</li>
+<li><strong>LLC</strong> (Logical Link Control): interface met de netwerklaag (laag 3)</li>
+</ul>
+<h3 id="52-mac-adressen">5.2 MAC-adressen</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een MAC-adres (Media Access Control-adres) is een 48-bit hardwareadres dat uniek is per netwerkinterface (NIC). Het wordt door de fabrikant in de hardware ingebrand en is (normaal gezien) wereldwijd uniek.</p>
+</div>
+<p>Notatie: <code>AA:BB:CC:DD:EE:FF</code> (6 bytes, hexadecimaal, gescheiden door dubbele punten of koppeltekens)</p>
+<p>Opbouw van een MAC-adres:</p>
+<pre data-lang=""><code>
+AA:BB:CC | DD:EE:FF
+   OUI   |  NIC-specific
+(Fabrikant) (Apparaatspecifiek)
+</code></pre>
+<ul>
+<li><strong>OUI</strong> (Organizationally Unique Identifier): de eerste 3 bytes — identificeert de fabrikant</li>
+</ul>
+<p>  - <code>00:50:56</code> → VMware</p>
+<p>  - <code>00:1A:2B</code> → Cisco</p>
+<p>  - <code>DC:A6:32</code> → Raspberry Pi Foundation</p>
+<ul>
+<li><strong>NIC-specifiek deel</strong>: de laatste 3 bytes — uniek per apparaat van die fabrikant</li>
+</ul>
+<p>Speciale MAC-adressen:</p>
+<ul>
+<li><code>FF:FF:FF:FF:FF:FF</code> — broadcastadres (stuur naar alle apparaten op het segment)</li>
+<li><code>01:00:5E:xx:xx:xx</code> — multicast-prefix</li>
+</ul>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Je eigen MAC-adressen opvragen:</p>
+<pre data-lang="bash"><code>
+# Windows
+ipconfig /all
+# Linux/Mac
+ip link show
+ifconfig -a
+</code></pre>
+</div>
+<h3 id="53-ethernet-frames">5.3 Ethernet-frames</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een frame is de PDU (Protocol Data Unit) van de datalinklaag. Het omvat de eigenlijke data (payload) van de bovenliggende lagen, aangevuld met een header en trailer met adresseringsinfo en foutdetectie.</p>
+</div>
+<p>Structuur van een Ethernet II frame (meest gebruikt):</p>
+<pre data-lang=""><code>
++----------+----------+------+------+----------+----------+-----+
+| Preamble | SFD      | Doel | Bron | EtherType| Payload  | FCS |
+| 7 bytes  | 1 byte   | MAC  | MAC  | 2 bytes  | 46-1500B |4 B  |
+|          |          | 6 B  | 6 B  |          |          |     |
++----------+----------+------+------+----------+----------+-----+
+</code></pre>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Veld</th><th>Grootte</th><th>Functie</th></tr></thead><tbody>
+<tr><td><strong>Preamble</strong></td><td>7 bytes</td><td>Synchronisatie (10101010 patroon)</td></tr>
+<tr><td><strong>SFD</strong> (Start Frame Delimiter)</td><td>1 byte</td><td>Geeft begin van frame aan (10101011)</td></tr>
+<tr><td><strong>Doel-MAC</strong></td><td>6 bytes</td><td>MAC-adres van de ontvanger</td></tr>
+<tr><td><strong>Bron-MAC</strong></td><td>6 bytes</td><td>MAC-adres van de zender</td></tr>
+<tr><td><strong>EtherType</strong></td><td>2 bytes</td><td>Protocol van de payload (0x0800 = IPv4, 0x86DD = IPv6, 0x0806 = ARP)</td></tr>
+<tr><td><strong>Payload</strong></td><td>46–1500 bytes</td><td>De eigenlijke data (IP-pakket)</td></tr>
+<tr><td><strong>FCS</strong> (Frame Check Sequence)</td><td>4 bytes</td><td>CRC-foutdetectie</td></tr>
+</tbody></table></div>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>De maximale payload van een standaard Ethernet-frame is <strong>1500 bytes</strong> (MTU = Maximum Transmission Unit). Grotere pakketten moeten gefragmenteerd worden.</p>
+</div>
+<h3 id="54-hub-vs-switch">5.4 Hub vs switch</h3>
+<h4 id="541-hub-verouderd">5.4.1 Hub (verouderd)</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een hub is een laag-1-apparaat dat een binnenkomend signaal naar alle poorten doorstuurt. Er is geen intelligentie — de hub "weet" niets over MAC-adressen.</p>
+</div>
+<p>Problemen met hubs:</p>
+<ul>
+<li><strong>Collisions (botsingen):</strong> als twee apparaten tegelijk zenden, botsing → data verloren</li>
+<li><strong>Alle data zichtbaar voor alle apparaten</strong> → beveiligingsrisico</li>
+<li>Laag efficiënt bij meer apparaten</li>
+<li>Hubs zijn <strong>verouderd</strong> en worden niet meer geïnstalleerd</li>
+</ul>
+<p><strong>CSMA/CD</strong> (Carrier Sense Multiple Access with Collision Detection) is het protocol dat Ethernet-apparaten gebruikten om botsingen te detecteren en op te lossen op gedeelde media (hubs):</p>
+<ol>
+<li><strong>Carrier Sense:</strong> luister eerst of het medium vrij is</li>
+<li><strong>Multiple Access:</strong> meerdere apparaten mogen het medium gebruiken</li>
+<li><strong>Collision Detection:</strong> detecteer botsing → stop zenden → wacht willekeurige tijd → probeer opnieuw</li>
+</ol>
+<p>Moderne switches maken CSMA/CD overbodig (full-duplex).</p>
+<h4 id="542-switch">5.4.2 Switch</h4>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een switch is een laag-2-apparaat dat frames doorsturen op basis van MAC-adressen. De switch leert welk MAC-adres op welke poort zit (MAC-adrestabel) en stuurt frames enkel door naar de juiste poort.</p>
+</div>
+<p>Hoe een switch leert (MAC-adrestabel):</p>
+<ol>
+<li><strong>Leren:</strong> wanneer een frame binnenkomt op poort X met bron-MAC <code>AA:BB:CC:DD:EE:FF</code>, wordt het adres geregistreerd als "op poort X te bereiken".</li>
+<li><strong>Doorsturen (Unicast):</strong> als het doel-MAC bekend is → stuur enkel naar de juiste poort.</li>
+<li><strong>Flooding (Unknown Unicast):</strong> als het doel-MAC onbekend is → stuur naar alle poorten behalve de bronpoort (net als een hub, maar tijdelijk).</li>
+<li><strong>Filtering:</strong> als bron- en doel-MAC op dezelfde poort zitten → frame niet doorsturen.</li>
+</ol>
+<p>Voordelen van een switch ten opzichte van een hub:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>Hub</th><th>Switch</th></tr></thead><tbody>
+<tr><td>OSI-laag</td><td>Laag 1</td><td>Laag 2</td></tr>
+<tr><td>Intelligentie</td><td>Geen</td><td>MAC-adrestabel</td></tr>
+<tr><td>Botsingen</td><td>Ja (collision domain)</td><td>Nee (full-duplex, elk poort eigen collision domain)</td></tr>
+<tr><td>Beveiliging</td><td>Geen</td><td>Betere isolatie per poort</td></tr>
+<tr><td>Bandbreedte</td><td>Gedeeld</td><td>Dedicated per poort</td></tr>
+</tbody></table></div>
+<h3 id="55-arp-address-resolution-protocol">5.5 ARP — Address Resolution Protocol</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>ARP (Address Resolution Protocol) is een protocol op de grens van laag 2 en laag 3. Het vertaalt een IP-adres naar het corresponderende MAC-adres op hetzelfde netwerksegment.</p>
+</div>
+<p>Waarom is ARP nodig?</p>
+<p>Een IP-pakket weet het doel-IP, maar om het via Ethernet te versturen, heeft het apparaat het doel-MAC nodig. ARP vraagt dit op.</p>
+<p>ARP-werkwijze:</p>
+<ol>
+<li>PC-A wil communiceren met PC-B (<code>192.168.1.20</code>), maar kent het MAC-adres niet.</li>
+<li>PC-A stuurt een <strong>ARP Request</strong> (broadcast <code>FF:FF:FF:FF:FF:FF</code>): "Wie heeft IP <code>192.168.1.20</code>? Geef me je MAC-adres."</li>
+<li>PC-B ontvangt de broadcast, herkent zijn eigen IP en antwoordt met een <strong>ARP Reply</strong> (unicast): "IP <code>192.168.1.20</code> heeft MAC <code>BB:CC:DD:EE:FF:AA</code>."</li>
+<li>PC-A slaat dit op in zijn <strong>ARP-cache</strong> (tijdelijk geheugen).</li>
+</ol>
+<pre data-lang="bash"><code>
+# ARP-cache bekijken
+arp -a          # Windows en Linux
+</code></pre>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op — ARP Spoofing</strong></p>
+<p>ARP heeft geen authenticatie. Een aanvaller kan valse ARP Reply-berichten sturen om het verkeer van andere apparaten om te leiden naar zijn eigen machine. Dit noemen we een <strong>ARP Spoofing</strong> of <strong>ARP Poisoning-aanval</strong> — een veelgebruikte techniek voor man-in-the-middle-aanvallen. We bespreken dit verder in het cyberveiligheidshoofdstuk.</p>
+</div>
+<h2 id="5-voorbeelden">5. Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>In een netwerk met een switch zijn drie pc's verbonden:</p>
+<ul>
+<li>PC-A (MAC: <code>AA:AA:AA:AA:AA:AA</code>) op poort 1</li>
+<li>PC-B (MAC: <code>BB:BB:BB:BB:BB:BB</code>) op poort 2</li>
+<li>PC-C (MAC: <code>CC:CC:CC:CC:CC:CC</code>) op poort 3</li>
+</ul>
+<p>Scenario: PC-A verstuurt een frame naar PC-B.</p>
+<ol>
+<li>Switch ontvangt frame op poort 1 met bron-MAC <code>AA:AA:AA:AA:AA:AA</code> → leert: poort 1 = AA:AA:AA:AA:AA:AA</li>
+<li>Doel-MAC is <code>BB:BB:BB:BB:BB:BB</code> → bekend (poort 2) → stuur frame enkel naar poort 2</li>
+<li>PC-C ontvangt niets → efficiënt en veilig</li>
+</ol>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>In Packet Tracer:</p>
+<ol>
+<li>Voeg twee pc's en een switch toe.</li>
+<li>Configureer IP-adressen: PC0 = <code>192.168.1.1/24</code>, PC1 = <code>192.168.1.2/24</code>.</li>
+<li>Open de command prompt van PC0 en voer <code>arp -a</code> in → leeg (nog geen communicatie).</li>
+<li>Ping PC1 (<code>ping 192.168.1.2</code>).</li>
+<li>Voer opnieuw <code>arp -a</code> in → je ziet nu het MAC-adres van PC1 in de ARP-cache.</li>
+</ol>
+</div>
+<h2 id="3-oefeningen">3. Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h05-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.1</span>
+    <span class="oefening__title">MAC-adressen herkennen en interpreteren</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Bekijk de volgende MAC-adressen en beantwoord de vragen: <code>00:1A:2B:3C:4D:5E</code> | <code>FF:FF:FF:FF:FF:FF</code> | <code>01:00:5E:7F:00:01</code> | <code>DC:A6:32:A1:B2:C3</code></p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk adres uit de lijst hierboven is het broadcastadres?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>00:1A:2B:3C:4D:5E</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>FF:FF:FF:FF:FF:FF</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>01:00:5E:7F:00:01</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>DC:A6:32:A1:B2:C3</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="FF:FF:FF:FF:FF:FF — alle bits zijn 1. Een broadcastframe met dit doeladres wordt door de switch naar alle poorten gestuurd (behalve de bronpoort)."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welk adres is een multicast-adres?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>00:1A:2B:3C:4D:5E</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>FF:FF:FF:FF:FF:FF</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>01:00:5E:7F:00:01</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>DC:A6:32:A1:B2:C3</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="01:00:5E:7F:00:01 — multicast-adressen beginnen met het OUI-prefix 01:00:5E. Het laagste bit van het eerste byte is 1 bij multicast-adressen."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="dc:a6:32|dca632|raspberry pi|raspberry">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Het adres DC:A6:32:A1:B2:C3 heeft OUI DC:A6:32. Van welke fabrikant is dit?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de fabrikantsnaam...">
+      <div class="vraag__feedback" data-correct-label="Raspberry Pi Foundation — DC:A6:32 is de OUI van de Raspberry Pi Foundation. Dit is de fabrikant van de Raspberry Pi, die we ook gebruiken in E-STEM."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Een MAC-adres bestaat uit 6 bytes. Wat stellen de eerste 3 bytes voor?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>OUI — Organizationally Unique Identifier (fabrikant)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Het IP-adres van het apparaat</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Het poortnummer van de switch</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Het subnetmasker</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="OUI (Organizationally Unique Identifier) — de eerste 3 bytes identificeren de fabrikant. De laatste 3 bytes zijn het apparaatspecifieke deel."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h05-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.2</span>
+    <span class="oefening__title">Hoe een switch werkt met de MAC-adrestabel</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een switch met vier poorten. PC-A (poort 1), PC-B (poort 2), PC-C (poort 3), PC-D (poort 4). De MAC-adrestabel is leeg bij de start.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">PC-A stuurt een frame naar PC-B. De switch kent het MAC-adres van PC-B nog niet. Wat doet de switch?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Het frame wordt weggegooid (switch weet het adres niet)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Het frame wordt naar alle poorten gestuurd behalve poort 1 (flooding)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Het frame wordt enkel naar poort 2 gestuurd</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>De switch vraagt via ARP het MAC-adres op</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Flooding (Unknown Unicast) — als het doel-MAC onbekend is, stuurt de switch het frame naar alle poorten behalve de bronpoort. Tegelijk leert de switch het bron-MAC van PC-A op poort 1."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Nadat PC-A → PC-B en PC-B → PC-C gecommuniceerd hebben, kent de switch de MAC-adressen van A en B. Nu stuurt PC-C een frame naar PC-A. Wat doet de switch?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Flood naar alle poorten</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Frame weggooien</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Frame direct doorsturen naar poort 1 (waar PC-A zit)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Frame doorsturen naar alle poorten behalve poort 3</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Direct doorsturen — de switch kent het MAC-adres van PC-A al (geleerd uit stap 1). Het frame gaat enkel naar poort 1. PC-B en PC-D ontvangen niets."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Wat is het grootste voordeel van een switch ten opzichte van een hub?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>Een switch is goedkoper dan een hub</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>Een switch stuurt frames gericht door op basis van MAC-adressen — geen botsingen, efficiënter</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>Een switch werkt draadloos, een hub niet</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>Een switch heeft meer poorten dan een hub</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Switches sturen frames gericht door via de MAC-adrestabel — geen collisions, efficiënter gebruik van bandbreedte en betere beveiliging dan een hub."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h05-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 5.3</span>
+    <span class="oefening__title">ARP — Address Resolution Protocol</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">PC-X (IP: 192.168.10.5, MAC: AA:11:22:33:44:55) wil communiceren met PC-Y (IP: 192.168.10.10). De ARP-cache van PC-X is leeg.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">PC-X weet het IP-adres van PC-Y maar niet het MAC-adres. Welk protocol gebruikt PC-X om het MAC-adres op te vragen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>ARP (Address Resolution Protocol)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>DNS (Domain Name System)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>DHCP (Dynamic Host Configuration Protocol)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>ICMP (Internet Control Message Protocol)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="ARP — Address Resolution Protocol vertaalt een IP-adres naar het corresponderende MAC-adres op hetzelfde netwerksegment."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">PC-X stuurt een ARP Request. Naar welk MAC-adres wordt dit gestuurd?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>AA:11:22:33:44:55 (eigen MAC)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>FF:FF:FF:FF:FF:FF (broadcast)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>BB:66:77:88:99:AA (MAC van PC-Y)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>00:00:00:00:00:00 (leeg adres)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="FF:FF:FF:FF:FF:FF (broadcast) — het ARP Request wordt naar alle apparaten op het segment gestuurd, omdat PC-X het MAC-adres van PC-Y nog niet kent."></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Nadat PC-Y heeft geantwoord, slaat PC-X het MAC-adres op. Waar wordt dit opgeslagen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" value="a"><span>In de MAC-adrestabel van de switch</span></label>
+        <label class="vraag__keuze"><input type="radio" value="b"><span>In het DNS-register</span></label>
+        <label class="vraag__keuze"><input type="radio" value="c"><span>In de ARP-cache van PC-X (tijdelijk)</span></label>
+        <label class="vraag__keuze"><input type="radio" value="d"><span>In een permanente databasetabel</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="ARP-cache — PC-X slaat de IP→MAC-koppeling tijdelijk op in zijn ARP-cache. Na een bepaalde tijd vervalt dit (aging), en het ARP-proces herhaalt zich."></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="arp spoofing|arp poisoning|man-in-the-middle">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">ARP heeft geen authenticatie. Een aanvaller stuurt valse ARP Reply-berichten om verkeer om te leiden. Hoe heet deze aanval? (ook wel "ARP ___" genoemd)</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ de aanvalsnaam...">
+      <div class="vraag__feedback" data-correct-label="ARP Spoofing (of ARP Poisoning) — een aanvaller stuurt valse ARP Replies om zijn eigen MAC te koppelen aan het IP van een andere host. Zo kan hij verkeer onderscheppen (man-in-the-middle)."></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="4-samenvatting">4. Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>MAC-adressen zijn 48-bit hardwareadressen (6 bytes, hexadecimaal). De eerste 3 bytes = OUI (fabrikant).</li>
+<li>Een Ethernet-frame bevat: preamble, doel-MAC, bron-MAC, EtherType, payload (max. 1500 bytes) en FCS.</li>
+<li>Een hub stuurt alles naar alle poorten (laag 1) — inefficiënt en onveilig. Verouderd.</li>
+<li>Een switch leert MAC-adressen per poort (MAC-adrestabel) en stuurt frames gericht door (laag 2).</li>
+<li>ARP vertaalt IP-adressen naar MAC-adressen via een broadcastvraag en unicast-antwoord.</li>
+<li>ARP heeft geen authenticatie → kwetsbaar voor ARP Spoofing (man-in-the-middle-aanval).</li>
+</ul>
+</div>
+<h2 id="5-huistaak">5. Huistaak</h2>
+<h3 id="huistaak-h05">Huistaak H05</h3>
+<p>Gebruik Cisco Packet Tracer (gratis te downloaden op de Cisco Netacad-website).</p>
+<ol>
+<li>Maak een eenvoudig netwerk: 3 pc's aangesloten op een switch.</li>
+<li>Wijs IP-adressen toe: <code>192.168.1.1</code>, <code>192.168.1.2</code>, <code>192.168.1.3</code> (subnetmasker <code>255.255.255.0</code>).</li>
+<li>Ping van PC0 naar PC1 en naar PC2.</li>
+<li>Bekijk in Packet Tracer de MAC-adrestabel van de switch (via CLI: <code>show mac address-table</code>).</li>
+<li>Maak een screenshot en breng mee naar de les. Leg uit welke MAC-adressen je ziet en op welke poorten.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H05-huistaak-verbetersleutel.md</code></p>
+<h2 id="6-toets">6. Toets</h2>
+<blockquote><p>Deze leerstof (H01–H05) maakt deel uit van <strong>Toets 1</strong> (semester 1).</p>
+<p>Raadpleeg <code>output/netwerken/toetsen/toets1-5adb-opgave.md</code> voor de opgave.</p></blockquote>
+<p><em>🌐 Netwerken — Hoofdstuk 5 — 5e jaar DAB — v1.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H05">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H04.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H04 &mdash; Fysieke laag &amp; bekabeling</span></div></a>
+          <a href="H06.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H06 &mdash; IPv4-adressering</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

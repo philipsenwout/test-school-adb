@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 &mdash; Introductie databases en privacy &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Introductie databases en privacy &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H01</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-1-introductie-databases-en-privacywetgeving">Hoofdstuk 1 — Introductie databases en privacywetgeving</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#11-wat-is-een-database">1.1 Wat is een database?</a></li><li><a href="#111-waarom-een-database-en-geen-spreadsheet" style="padding-left:1.25rem">1.1.1 Waarom een database en geen spreadsheet?</a></li><li><a href="#112-databasebeheersysteem-dbms" style="padding-left:1.25rem">1.1.2 Databasebeheersysteem (DBMS)</a></li><li><a href="#12-soorten-databases">1.2 Soorten databases</a></li><li><a href="#121-relationele-databases-rdbms" style="padding-left:1.25rem">1.2.1 Relationele databases (RDBMS)</a></li><li><a href="#122-niet-relationele-databases-nosql" style="padding-left:1.25rem">1.2.2 Niet-relationele databases (NoSQL)</a></li><li><a href="#13-databases-in-de-praktijk">1.3 Databases in de praktijk</a></li><li><a href="#14-privacywetgeving-en-gdpr">1.4 Privacywetgeving en GDPR</a></li><li><a href="#141-wat-is-de-gdpr" style="padding-left:1.25rem">1.4.1 Wat is de GDPR?</a></li><li><a href="#142-kernbegrippen" style="padding-left:1.25rem">1.4.2 Kernbegrippen</a></li><li><a href="#143-basisprincipes-van-de-gdpr" style="padding-left:1.25rem">1.4.3 Basisprincipes van de GDPR</a></li><li><a href="#144-gdpr-in-de-praktijk-voor-de-databeheerder" style="padding-left:1.25rem">1.4.4 GDPR in de praktijk voor de databeheerder</a></li><li><a href="#15-evoluties-en-trends-in-het-vakgebied">1.5 Evoluties en trends in het vakgebied</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h01" style="padding-left:1.25rem">Huistaak H01</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H01 &mdash; Introductie databases en privacy</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">4 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-1-introductie-databases-en-privacywetgeving">Hoofdstuk 1 — Introductie databases en privacywetgeving</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v1.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Definitief</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB01]</span> Werken volgens de privacywetgeving <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB04]</span> Informeren over stand van zaken, evoluties en vernieuwingen in het vakgebied <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-VAT01]</span> Respectvol omgaan met anderen <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 4 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>Uitleggen wat een database is en waarom databases worden gebruikt.</li>
+<li>Het verschil beschrijven tussen een relationele en een niet-relationele database.</li>
+<li>Concrete toepassingen van databases in de praktijk herkennen.</li>
+<li>De basisprincipes van de GDPR-wetgeving toepassen op een gegeven scenario.</li>
+<li>Ethisch omgaan met persoonsgegevens in je werk als databeheerder.</li>
+</ol>
+<h2 id="11-wat-is-een-database">1.1 Wat is een database?</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een database is een georganiseerde verzameling van gegevens die elektronisch worden opgeslagen en beheerd. Een database maakt het mogelijk om gegevens efficiënt op te slaan, op te zoeken, bij te werken en te verwijderen.</p>
+</div>
+<p>Zonder databases zou het internet zoals we het kennen niet bestaan. Telkens je op een webshop een product zoekt, je sociale media tijdlijn laadt of je online bankiert, praat een applicatie met een database op de achtergrond.</p>
+<h3 id="111-waarom-een-database-en-geen-spreadsheet">1.1.1 Waarom een database en geen spreadsheet?</h3>
+<p>Een spreadsheet (zoals Excel) werkt prima voor kleine hoeveelheden gegevens. Maar spreadsheets hebben beperkingen:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>Spreadsheet</th><th>Database</th></tr></thead><tbody>
+<tr><td>Meerdere gebruikers tegelijk</td><td>Beperkt</td><td>Ja, ontworpen voor</td></tr>
+<tr><td>Relaties tussen gegevens</td><td>Geen native ondersteuning</td><td>Kernfunctionaliteit</td></tr>
+<tr><td>Grote hoeveelheden data</td><td>Traag boven ~1 miljoen rijen</td><td>Schaalbaar naar miljarden</td></tr>
+<tr><td>Integriteitsregels</td><td>Manueel afdwingen</td><td>Automatisch via constraints</td></tr>
+<tr><td>Veiligheid en rechten</td><td>Beperkt</td><td>Gebruikersbeheer en rollen</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Als je meer dan één werkblad nodig hebt om gegevens te organiseren, of als meerdere mensen tegelijk aan dezelfde gegevens werken, is het tijd om een database te overwegen.</p>
+</div>
+<h3 id="112-databasebeheersysteem-dbms">1.1.2 Databasebeheersysteem (DBMS)</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een Database Management System (DBMS) is de software die een database beheert. Het DBMS staat in voor opslag, beveiliging, toegangsbeheer en het uitvoeren van query's. Voorbeelden: MySQL, PostgreSQL, Microsoft SQL Server, SQLite.</p>
+</div>
+<p>In dit vak werken we hoofdzakelijk met <strong>MySQL</strong>. Dit is een open-source DBMS dat breed wordt gebruikt in Belgische KMO's en webapplicaties.</p>
+<h2 id="12-soorten-databases">1.2 Soorten databases</h2>
+<h3 id="121-relationele-databases-rdbms">1.2.1 Relationele databases (RDBMS)</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een relationele database organiseert gegevens in <strong>tabellen</strong> (rijen en kolommen). Tabellen kunnen aan elkaar gekoppeld worden via relaties. De query-taal voor relationele databases is <strong>SQL</strong> (Structured Query Language).</p>
+</div>
+<p>Een tabel lijkt visueel op een spreadsheet, maar heeft strikte regels:</p>
+<ul>
+<li>Elke kolom heeft een vaste naam en een datatype.</li>
+<li>Elke rij vertegenwoordigt één record (bv. één klant, één bestelling).</li>
+<li>Elke tabel heeft een <strong>primaire sleutel</strong> die elke rij uniek identificeert.</li>
+</ul>
+<p>Voorbeeld van een tabel <code>klant</code>:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>klant_id</th><th>voornaam</th><th>achternaam</th><th>email</th><th>stad</th></tr></thead><tbody>
+<tr><td>1</td><td>Lena</td><td>Claes</td><td>lena@mail.be</td><td>Gent</td></tr>
+<tr><td>2</td><td>Raf</td><td>Dubois</td><td>raf@mail.be</td><td>Brussel</td></tr>
+<tr><td>3</td><td>Sara</td><td>Vermeersch</td><td>sara@mail.be</td><td>Antwerpen</td></tr>
+</tbody></table></div>
+<h3 id="122-niet-relationele-databases-nosql">1.2.2 Niet-relationele databases (NoSQL)</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>NoSQL-databases slaan gegevens op in andere formaten dan tabellen: documenten (JSON/BSON), sleutel-waardeparen, grafen of kolomfamilies. Ze zijn flexibeler in structuur maar missen de rijke relatie-mechanismen van RDBMS.</p>
+</div>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Type</th><th>Voorbeelden</th><th>Gebruik</th></tr></thead><tbody>
+<tr><td>Document</td><td>MongoDB, CouchDB</td><td>Webapplicaties, content</td></tr>
+<tr><td>Sleutel-waarde</td><td>Redis, DynamoDB</td><td>Caching, sessies</td></tr>
+<tr><td>Grafendatabase</td><td>Neo4j</td><td>Sociale netwerken, aanbevelingen</td></tr>
+<tr><td>Kolomfamilie</td><td>Cassandra</td><td>Big data, tijdreeksen</td></tr>
+</tbody></table></div>
+<p>In dit vak focussen we op <strong>relationele databases</strong> omdat de meeste bedrijfsapplicaties in België hierop draaien.</p>
+<h2 id="13-databases-in-de-praktijk">1.3 Databases in de praktijk</h2>
+<p>Databases zijn overal aanwezig:</p>
+<ul>
+<li><strong>Webshop</strong> (bv. Coolblue): tabel met producten, klanten, bestellingen, adressen.</li>
+<li><strong>School</strong> (bv. Smartschool): tabel met leerlingen, klassen, vakken, punten.</li>
+<li><strong>Ziekenhuis</strong>: patiëntendossiers, afspraken, medicatie.</li>
+<li><strong>Bank</strong>: rekeningnummers, transacties, klantprofielen.</li>
+<li><strong>Sociale media</strong>: gebruikers, berichten, likes, vrienden.</li>
+</ul>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een sportclub beheert haar leden in een database. De tabel <code>lid</code> bevat: <code>lid_id</code>, <code>voornaam</code>, <code>achternaam</code>, <code>geboortedatum</code>, <code>email</code>, <code>lidmaatschap_type</code>. Wanneer een lid zich aanmeldt op de website, zoekt de applicatie het bijhorende record op via het e-mailadres.</p>
+</div>
+<h2 id="14-privacywetgeving-en-gdpr">1.4 Privacywetgeving en GDPR</h2>
+<h3 id="141-wat-is-de-gdpr">1.4.1 Wat is de GDPR?</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De General Data Protection Regulation (GDPR), in het Nederlands ook AVG (Algemene Verordening Gegevensbescherming), is een Europese wet die in werking trad op 25 mei 2018. Ze regelt hoe organisaties persoonsgegevens mogen verzamelen, opslaan, verwerken en verwijderen.</p>
+</div>
+<p>Als databeheerder werk je dagelijks met persoonsgegevens. De GDPR is voor jou dan ook geen abstracte wet, maar een concrete beroepsverplichting.</p>
+<h3 id="142-kernbegrippen">1.4.2 Kernbegrippen</h3>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Begrip</th><th>Definitie</th></tr></thead><tbody>
+<tr><td><strong>Persoonsgegeven</strong></td><td>Alle informatie over een geïdentificeerde of identificeerbare natuurlijke persoon (naam, e-mail, IP-adres, foto, ...)</td></tr>
+<tr><td><strong>Verwerking</strong></td><td>Elke bewerking op persoonsgegevens: opslaan, raadplegen, wijzigen, verwijderen, ...</td></tr>
+<tr><td><strong>Verwerkingsverantwoordelijke</strong></td><td>De organisatie die het doel en de middelen van de verwerking bepaalt</td></tr>
+<tr><td><strong>Verwerker</strong></td><td>Een partij die gegevens verwerkt in opdracht van de verwerkingsverantwoordelijke (bv. een cloud-provider)</td></tr>
+<tr><td><strong>Betrokkene</strong></td><td>De persoon wiens gegevens worden verwerkt</td></tr>
+</tbody></table></div>
+<h3 id="143-basisprincipes-van-de-gdpr">1.4.3 Basisprincipes van de GDPR</h3>
+<p>De GDPR rust op zes principes. Als databeheerder moet je deze kennen:</p>
+<ol>
+<li><strong>Rechtmatigheid, behoorlijkheid en transparantie</strong> — Je verwerkt gegevens alleen als je een wettelijke basis hebt (toestemming, contract, wettelijke verplichting, ...).</li>
+<li><strong>Doelbinding</strong> — Gegevens worden enkel verzameld voor een welomschreven doel. Je mag ze niet hergebruiken voor een ander doel.</li>
+<li><strong>Minimale gegevensverwerking</strong> — Je verzamelt alleen de gegevens die je écht nodig hebt.</li>
+<li><strong>Juistheid</strong> — Gegevens moeten correct en up-to-date zijn.</li>
+<li><strong>Opslagbeperking</strong> — Je bewaart gegevens niet langer dan nodig.</li>
+<li><strong>Integriteit en vertrouwelijkheid</strong> — Je beveiligt gegevens technisch en organisatorisch.</li>
+</ol>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Let op</strong></p>
+<p>Inbreuken op de GDPR kunnen leiden tot boetes tot <strong>20 miljoen euro</strong> of <strong>4% van de wereldwijde jaaromzet</strong>. Als databeheerder draag je een directe verantwoordelijkheid voor de beveiliging van de data.</p>
+</div>
+<h3 id="144-gdpr-in-de-praktijk-voor-de-databeheerder">1.4.4 GDPR in de praktijk voor de databeheerder</h3>
+<p>Als databeheerder pas je de GDPR concreet toe:</p>
+<ul>
+<li><strong>Geen echte persoonsgegevens in testomgevingen.</strong> Gebruik anonieme of fictieve testdata.</li>
+<li><strong>Toegangsbeheer.</strong> Geef gebruikers alleen toegang tot de gegevens die ze nodig hebben (principe van minimale rechten).</li>
+<li><strong>Encryptie.</strong> Sla gevoelige gegevens versleuteld op (wachtwoorden altijd gehasht, nooit in plaintext).</li>
+<li><strong>Verwijderrecht.</strong> Implementeer een procedure om persoonsgegevens op verzoek te verwijderen.</li>
+<li><strong>Datalekprocedure.</strong> Weet hoe je een datalek moet melden (binnen 72 uur aan de Gegevensbeschermingsautoriteit in België).</li>
+</ul>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een leerling werkt aan een project waarbij klantgegevens worden opgeslagen. In de tabel <code>klant</code> staan naam, e-mail en adres.</p>
+<p><strong>Wat doe je als databeheerder?</strong></p>
+<ul>
+<li>Gebruik fictieve namen en e-mailadressen in de testdatabank.</li>
+<li>Sla wachtwoorden niet op als platte tekst maar als hash.</li>
+<li>Voeg een kolom <code>verwijderd_op</code> toe zodat je een "soft delete" kan implementeren (GDPR-verwijderrecht).</li>
+</ul>
+<pre data-lang="sql"><code>
+CREATE TABLE klant (
+klant_id       INT          PRIMARY KEY AUTO_INCREMENT,
+voornaam       VARCHAR(50)  NOT NULL,
+achternaam     VARCHAR(50)  NOT NULL,
+email          VARCHAR(150) UNIQUE NOT NULL,
+wachtwoord_hash VARCHAR(255) NOT NULL,
+verwijderd_op  DATETIME     DEFAULT NULL
+);
+</code></pre>
+</div>
+<h2 id="15-evoluties-en-trends-in-het-vakgebied">1.5 Evoluties en trends in het vakgebied</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een cloud database is een database die wordt gehost op een cloudplatform (bv. AWS, Azure, Google Cloud) in plaats van op een lokale server. De infrastructuur wordt beheerd door de cloudprovider.</p>
+</div>
+<p>Als databeheerder is het belangrijk om de vakevoluties te volgen:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Trend</th><th>Beschrijving</th></tr></thead><tbody>
+<tr><td><strong>Cloud databases</strong></td><td>Steeds meer databases draaien op AWS RDS, Azure SQL, Google Cloud SQL</td></tr>
+<tr><td><strong>Database-as-a-Service (DBaaS)</strong></td><td>Je beheert de data, de cloudprovider de infrastructuur</td></tr>
+<tr><td><strong>AI-gegenereerde queries</strong></td><td>Tools zoals GitHub Copilot helpen SQL schrijven</td></tr>
+<tr><td><strong>Data governance</strong></td><td>Toenemende focus op datakwaliteit, lineage en catalogisering</td></tr>
+<tr><td><strong>NewSQL</strong></td><td>Nieuwe systemen die schaalbaarheid van NoSQL combineren met ACID van RDBMS</td></tr>
+</tbody></table></div>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een sportclub wil een app bouwen waarbij leden hun trainingssessies bijhouden. De app slaat op: naam, e-mail, geboortedatum, gewicht, lengte, hartslagdata per training.</p>
+<p><strong>GDPR-analyse:</strong></p>
+<ul>
+<li>Naam en e-mail: persoonsgegevens → rechtmatige basis nodig (toestemming lid).</li>
+<li>Geboortedatum, gewicht, lengte, hartslagdata: <strong>gevoelige gezondheidsgegevens</strong> → extra bescherming nodig.</li>
+<li>Principe minimale gegevensverwerking: zijn gewicht en lengte écht nodig voor het bijhouden van trainingssessies?</li>
+<li>Bewaartermijn: hoelang bewaar je hartslagdata van leden die hun lidmaatschap opzeggen?</li>
+</ul>
+<p><strong>Conclusie:</strong> De app moet een privacyverklaring hebben, expliciete toestemming vragen voor gezondheidsdata, en een procedure voorzien voor verwijdering van data na opzegging.</p>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Een klein bedrijf heeft twee opties:</p>
+<p><strong>Optie A:</strong> Alles in één Excel-bestand met tabbladen voor klanten, producten en bestellingen.</p>
+<p><strong>Optie B:</strong> Een MySQL-database met drie tabellen: <code>klant</code>, <code>product</code>, <code>bestelling</code>.</p>
+<p>| Scenario | Excel | MySQL |</p>
+<p>|---|---|---|</p>
+<p>| 5 klanten, 10 producten | Voldoende | Overkill |</p>
+<p>| 500 klanten, tegelijk bestellingen invoeren | Problemen | Ideaal |</p>
+<p>| Automatische koppeling bestelling → klant | Manueel | Native |</p>
+<p>| Backup en beveiliging | Manueel | Ingebouwd |</p>
+<p><strong>Conclusie:</strong> Voor een groeiend bedrijf is een database de betere keuze, zelfs al is de opstartdrempel hoger.</p>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h01-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 1.1</span>
+    <span class="oefening__title">Soorten databases herkennen</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Verschillende toepassingen gebruiken verschillende soorten databases. Test of je het verschil kent tussen relationele en NoSQL databases.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk type database gebruik je het best voor een webshop met producten, klanten en bestellingen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q1" value="a"><span>Relationele database — gegevens hebben duidelijke relaties (klant → bestelling → product)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q1" value="b"><span>Grafendatabase — ideaal voor netwerken en verbindingen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q1" value="c"><span>Sleutel-waarde database — snel maar zonder relaties</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q1" value="d"><span>Documentdatabase — flexibel maar geen JOIN-mogelijkheid</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Relationele database — gegevens hebben duidelijke relaties (klant → bestelling → product)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Een sociaal netwerk wil "vrienden van vrienden" aanbevelen. Welk type NoSQL-database is hiervoor het meest geschikt?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q2" value="a"><span>Documentdatabase (bv. MongoDB)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q2" value="b"><span>Kolomfamilie-database (bv. Cassandra)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q2" value="c"><span>Grafendatabase (bv. Neo4j)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q2" value="d"><span>Sleutel-waarde database (bv. Redis)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Grafendatabase (bv. Neo4j) — perfect voor relaties tussen personen zoals vriendschappen en aanbevelingen"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="sql|structured query language">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoe heet de query-taal die gebruikt wordt voor relationele databases? (afkorting)</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+      <div class="vraag__feedback" data-correct-label="SQL (Structured Query Language) — de standaardtaal voor relationele databases"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Een website wil snel inlogsessies bijhouden (tijdelijk, niet-permanent). Welk NoSQL-type past hier het best?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q4" value="a"><span>Grafendatabase</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q4" value="b"><span>Sleutel-waarde database (bv. Redis)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q4" value="c"><span>Documentdatabase</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-1-q4" value="d"><span>Relationele database</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Sleutel-waarde database (bv. Redis) — ideaal voor caching en tijdelijke sessiedata door de hoge snelheid"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h01-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 1.2</span>
+    <span class="oefening__title">GDPR en minimale gegevensverwerking</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een online kledingwinkel vraagt bij registratie: voornaam, achternaam, e-mail, wachtwoord, geboortedatum, telefoonnummer, kledingmaat en favoriete kleur.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk GDPR-principe wordt geschonden als een webshop geboortedatum en favoriete kleur verplicht opvraagt terwijl die niet nodig zijn voor de bestelling?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q1" value="a"><span>Doelbinding</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q1" value="b"><span>Opslagbeperking</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q1" value="c"><span>Minimale gegevensverwerking</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q1" value="d"><span>Juistheid</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Minimale gegevensverwerking — je mag enkel gegevens verzamelen die écht nodig zijn voor het opgegeven doel"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke gegevens zijn strikt noodzakelijk voor een online kledingwinkel om een bestelling te verwerken?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q2" value="a"><span>Naam, e-mail, geboortedatum, telefoonnummer, kledingmaat</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q2" value="b"><span>Naam, e-mail, wachtwoord, leveringsadres</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q2" value="c"><span>Naam, e-mail, geboortedatum, favoriete kleur</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q2" value="d"><span>Alle gevraagde gegevens zijn noodzakelijk</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Naam, e-mail, wachtwoord, leveringsadres — dit zijn de minimaal vereiste gegevens; geboortedatum en favoriete kleur zijn niet nodig"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="72|72 uur|72 hours">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Binnen hoeveel uur moet een datalek gemeld worden aan de Gegevensbeschermingsautoriteit?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ het getal...">
+      <div class="vraag__feedback" data-correct-label="72 uur — dit is de wettelijke meldingstermijn voor datalekken onder de GDPR"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Hoe bewaar je wachtwoorden correct in een database?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q4" value="a"><span>In plaintext — makkelijk te lezen voor de beheerder</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q4" value="b"><span>Versleuteld met een omkeerbaar algoritme</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q4" value="c"><span>Onleesbaar via base64-codering</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-2-q4" value="d"><span>Als hash — een niet-omkeerbare versleuteling</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Als hash — een niet-omkeerbare versleuteling. Wachtwoorden mogen nooit als plaintext opgeslagen worden"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h01-3">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 1.3</span>
+    <span class="oefening__title">GDPR-scenario: ziekenhuisdossiers</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een ziekenhuis gebruikt een verouderd systeem waarbij patiëntendossiers worden opgeslagen in tekstbestanden op een gedeelde netwerkschijf. Iedereen met netwerktoegang kan de bestanden lezen. Er is geen toegangslog.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Welk GDPR-principe wordt geschonden doordat iedereen met netwerktoegang de patiëntendossiers kan lezen?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q1" value="a"><span>Integriteit en vertrouwelijkheid — er is geen technische beveiliging van de gegevens</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q1" value="b"><span>Doelbinding — gegevens worden voor een ander doel gebruikt</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q1" value="c"><span>Juistheid — gegevens zijn niet correct</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q1" value="d"><span>Opslagbeperking — gegevens worden te lang bewaard</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Integriteit en vertrouwelijkheid — er is geen technische beveiliging van de gegevens. Toegangsbeheer en encryptie ontbreken volledig"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Welke technische maatregel is het meest prioritair voor de databeheerder in dit ziekenhuis?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q2" value="a"><span>Een nieuw logo ontwerpen voor de website</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q2" value="b"><span>Toegangsbeheer instellen zodat enkel bevoegde medewerkers dossiers kunnen lezen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q2" value="c"><span>De bestanden verplaatsen naar een USB-stick</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h01-3-q2" value="d"><span>De gegevens printen en in een kast bewaren</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Toegangsbeheer instellen zodat enkel bevoegde medewerkers dossiers kunnen lezen — principe van minimale rechten"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="gegevensbeschermingsautoriteit|gba|autoriteit">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Aan welke Belgische instantie moet een datalek gemeld worden? (naam of afkorting)</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+      <div class="vraag__feedback" data-correct-label="De Gegevensbeschermingsautoriteit (GBA) — de Belgische toezichthoudende instantie voor gegevensbescherming"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h01">Huistaak H01</h3>
+<p><strong>Observatie-opdracht: Databases in jouw dagelijks leven</strong></p>
+<p>Hou gedurende één dag een logboek bij van alle momenten waarop je (bewust of onbewust) met een database interageert. Denk aan: inloggen op een website, online shoppen, een app openen, muziek streamen, bankieren, ...</p>
+<p>Voor elk moment noteer je:</p>
+<ol>
+<li>De toepassing of website</li>
+<li>Welke gegevens er waarschijnlijk worden opgezocht of opgeslagen</li>
+<li>Of er persoonsgegevens bij betrokken zijn (en welke)</li>
+<li>Of de GDPR van toepassing is</li>
+</ol>
+<p>Maak een overzichtstabel met minimaal <strong>8 verschillende interacties</strong>.</p>
+<p>Schrijf ook een kort besluit (4-6 zinnen): wat verbaasde je, wat leerde je over de alomtegenwoordigheid van databases?</p>
+<p><strong>Indienformaat:</strong> Markdown-bestand (<code>.md</code>) of PDF, ingeleverd via Smartschool.</p>
+<p><strong>Deadline:</strong> Volgende les.</p>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H01-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Een <strong>database</strong> is een georganiseerde, elektronische gegevensverzameling beheerd door een DBMS.</li>
+<li><strong>Relationele databases</strong> organiseren data in tabellen met rijen en kolommen; <strong>NoSQL-databases</strong> gebruiken andere structuren (documenten, grafen, ...).</li>
+<li>Een <strong>DBMS</strong> (bv. MySQL) beheert de database: opslag, beveiliging, toegang en query's.</li>
+<li>De <strong>GDPR</strong> verplicht organisaties om persoonsgegevens rechtmatig, transparant en veilig te verwerken.</li>
+<li>Als databeheerder ben je verantwoordelijk voor: minimale dataverzameling, toegangsbeheer, encryptie en het melden van datalekken.</li>
+<li>Databases evolueren naar de cloud (DBaaS) en worden steeds groter en complexer.</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB01]</span> Werken volgens de privacywetgeving <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB04]</span> Informeren over stand van zaken, evoluties en vernieuwingen in het vakgebied <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-VAT01]</span> Respectvol omgaan met anderen <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H01">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          
+          <a href="H02.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H02 &mdash; Werkomgeving en versiebeheer</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

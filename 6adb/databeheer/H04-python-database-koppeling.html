@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 &mdash; Python + Database koppeling &mdash; Databeheer 6ADB</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../6adb/index.html">6ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H04</span>
+</nav>
+<div class="chapter-layout">
+  <aside class="chapter-sidebar">
+    <div class="chapter-sidebar__inner">
+      <div class="chapter-sidebar__title">Inhoudstafel</div>
+      <ul class="chapter-toc">
+        <li><a href="#leerdoelen">Leerdoelen</a></li>
+        <li><a href="#s1">1. mysql-connector-python</a></li>
+        <li><a href="#s2">2. Verbinding en cursor</a></li>
+        <li><a href="#s3">3. SELECT-queries</a></li>
+        <li><a href="#s4">4. INSERT, UPDATE, DELETE</a></li>
+        <li><a href="#s5">5. Geparametriseerde queries</a></li>
+        <li><a href="#s6">6. Transactions</a></li>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#samenvatting">Samenvatting</a></li>
+        <li><a href="#huistaak">Huistaak</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div class="chapter-content">
+    <div class="page-header vak-data">
+      <div class="page-header__vak">&#128202; Databeheer &mdash; H04</div>
+      <h1 class="page-header__title">Python + Database koppeling</h1>
+      <div class="page-header__meta">
+        <span class="badge badge-verdieping">verdieping</span>
+        <span class="badge">4 u</span>
+      </div>
+    </div>
+
+    <div class="ld-badges" id="leerdoelen">
+      <span class="ld-badge">[LD-DB-12] Python koppelen aan een MySQL-database &mdash; verdieping</span>
+    </div>
+
+    <h2 id="s1">1. mysql-connector-python</h2>
+    <p>De officiële MySQL-bibliotheek voor Python heet <code>mysql-connector-python</code>. We installeren ze eenmalig:</p>
+    <pre><code># Installeren via pip
+pip install mysql-connector-python</code></pre>
+
+    <h2 id="s2">2. Verbinding en cursor</h2>
+    <pre><code>import mysql.connector
+
+# Verbinding maken
+verbinding = mysql.connector.connect(
+    host     = "localhost",
+    user     = "root",
+    password = "jouw_wachtwoord",
+    database = "winkel_db"
+)
+
+# Cursor aanmaken (voert queries uit)
+cursor = verbinding.cursor()
+
+# ... queries uitvoeren ...
+
+# Altijd afsluiten!
+cursor.close()
+verbinding.close()</code></pre>
+    <div class="callout callout--tip">
+      <div class="callout__title">Tip &mdash; with-statement voor de verbinding</div>
+      <p>Je kan ook een context manager gebruiken, maar mysql-connector ondersteunt dit niet standaard. Gebruik liever een <code>try/finally</code>-blok of maak een aparte functie die de verbinding beheert. Sluit altijd de cursor en verbinding af in het <code>finally</code>-blok.</p>
+    </div>
+    <pre><code># Betere aanpak: try/finally
+verbinding = None
+cursor = None
+try:
+    verbinding = mysql.connector.connect(
+        host="localhost", user="root",
+        password="geheim", database="winkel_db"
+    )
+    cursor = verbinding.cursor(dictionary=True)  # geeft dicts terug
+    # ... code hier ...
+except mysql.connector.Error as fout:
+    print(f"Databasefout: {fout}")
+finally:
+    if cursor:    cursor.close()
+    if verbinding: verbinding.close()</code></pre>
+
+    <h2 id="s3">3. SELECT-queries uitvoeren</h2>
+    <pre><code>cursor = verbinding.cursor(dictionary=True)
+
+# Alle producten ophalen
+cursor.execute("SELECT * FROM producten")
+producten = cursor.fetchall()  # lijst van dicts
+
+for p in producten:
+    print(f"{p['naam']}: &euro;{p['prijs']}")
+
+# &Eacute;&eacute;n rij ophalen
+cursor.execute("SELECT * FROM producten WHERE product_id = 1")
+product = cursor.fetchone()   # dict of None
+if product:
+    print(product['naam'])
+
+# Aantal rijen ophalen
+cursor.execute("SELECT COUNT(*) AS totaal FROM producten")
+resultaat = cursor.fetchone()
+print(f"Aantal producten: {resultaat['totaal']}")</code></pre>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Methode</th><th>Teruggeeft</th><th>Gebruik</th></tr></thead>
+      <tbody>
+        <tr><td><code>fetchone()</code></td><td>&Eacute;&eacute;n rij (of None)</td><td>Als je max. 1 resultaat verwacht</td></tr>
+        <tr><td><code>fetchall()</code></td><td>Lijst van alle rijen</td><td>Voor meerdere resultaten</td></tr>
+        <tr><td><code>fetchmany(n)</code></td><td>Lijst van n rijen</td><td>Voor paginering</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 id="s4">4. INSERT, UPDATE en DELETE</h2>
+    <pre><code># INSERT
+cursor.execute(
+    "INSERT INTO producten (naam, prijs, categorie) VALUES (%s, %s, %s)",
+    ("Toetsenbord", 89.99, "Accessoires")
+)
+verbinding.commit()  # verplicht voor wijzigingen!
+print(f"Ingevoegd met ID: {cursor.lastrowid}")
+
+# UPDATE
+cursor.execute(
+    "UPDATE producten SET prijs = %s WHERE product_id = %s",
+    (79.99, cursor.lastrowid)
+)
+verbinding.commit()
+print(f"Gewijzigde rijen: {cursor.rowcount}")
+
+# DELETE
+cursor.execute(
+    "DELETE FROM producten WHERE product_id = %s",
+    (cursor.lastrowid,)
+)
+verbinding.commit()</code></pre>
+
+    <h2 id="s5">5. Geparametriseerde queries en SQL-injectie</h2>
+    <div class="callout callout--definitie">
+      <div class="callout__title">Wat is SQL-injectie?</div>
+      <p>SQL-injectie is een aanval waarbij kwaadaardige SQL-code in een invoerveld wordt geplaatst om ongeautoriseerde toegang te krijgen tot de database. Voorbeeld: als je <code>WHERE naam = '" + invoer + "'"</code> schrijft en de gebruiker geeft <code>' OR '1'='1</code> in, geeft de query alle records terug!</p>
+    </div>
+    <pre><code># FOUT: string-concatenatie (kwetsbaar voor SQL-injectie!)
+naam = input("Productnaam: ")
+cursor.execute("SELECT * FROM producten WHERE naam = '" + naam + "'")
+
+# GOED: geparametriseerde query (veilig)
+naam = input("Productnaam: ")
+cursor.execute("SELECT * FROM producten WHERE naam = %s", (naam,))
+# MySQL vervangt %s door de veilig-gesanitiseerde waarde
+
+# Meerdere parameters
+cursor.execute(
+    "SELECT * FROM producten WHERE categorie = %s AND prijs &lt; %s",
+    ("Elektronica", 500)
+)</code></pre>
+    <p>Let op: gebruik altijd <code>%s</code> als placeholder, ook voor getallen. De connector zorgt voor de juiste escaping.</p>
+
+    <h2 id="s6">6. Transactions</h2>
+    <p>Een transactie groepeert meerdere queries zodat ze samen slagen of samen mislukken (alles of niets). Dit is cruciaal voor data-integriteit.</p>
+    <pre><code>try:
+    # Zet auto-commit uit (standaard al uit in mysql-connector)
+    verbinding.start_transaction()
+
+    # Stap 1: bestelling aanmaken
+    cursor.execute(
+        "INSERT INTO bestellingen (klant_id, besteldatum) VALUES (%s, CURDATE())",
+        (klant_id,)
+    )
+    nieuwe_bestelling_id = cursor.lastrowid
+
+    # Stap 2: bestellingsregels toevoegen
+    for product_id, aantal in winkelwagen:
+        cursor.execute(
+            "INSERT INTO bestelling_regels (bestelling_id, product_id, aantal) VALUES (%s, %s, %s)",
+            (nieuwe_bestelling_id, product_id, aantal)
+        )
+
+        # Stap 3: voorraad verminderen
+        cursor.execute(
+            "UPDATE producten SET voorraad = voorraad - %s WHERE product_id = %s",
+            (aantal, product_id)
+        )
+
+    verbinding.commit()  # alles gelukt, definitief opslaan
+    print("Bestelling succesvol geplaatst!")
+
+except mysql.connector.Error as fout:
+    verbinding.rollback()  # ongedaan maken bij fout
+    print(f"Fout: {fout} — bestelling ongedaan gemaakt")</code></pre>
+
+    <h2 id="oefeningen">Oefeningen</h2>
+
+    <div class="oefening" data-oef-id="db6-h04-1">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 4.1</span>
+        <span class="oefening__title">Python + MySQL verbinding en queries</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je kennis van de mysql-connector-python bibliotheek en het correct uitvoeren van queries.</p>
+
+        <div class="vraag" data-type="mc" data-correct="d">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Welke methode van het cursor-object haalt <strong>alle</strong> resultaatrijen van een SELECT-query op?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>cursor.getall()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>cursor.results()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>cursor.fetchone()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>cursor.fetchall()</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="cursor.fetchall() — haalt alle resultaatrijen op als een lijst. cursor.fetchone() haalt slechts één rij op."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="commit|verbinding.commit()|connection.commit()">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Na een INSERT, UPDATE of DELETE in Python met mysql-connector moet je _______ aanroepen om de wijzigingen definitief op te slaan.</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de methode-aanroep...">
+          <div class="vraag__feedback" data-correct-label="verbinding.commit() — zonder commit() worden de wijzigingen niet permanent opgeslagen en gaan ze verloren bij het sluiten van de verbinding."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Welke placeholder gebruik je in Python's mysql-connector voor geparametriseerde queries?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>?</code> (vraagteken)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>%s</code> (procentteken-s)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>$1, $2</code> (dollarteken met getal)</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>{}</code> (accolades)</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="%s — mysql-connector-python gebruikt %s als placeholder, ook voor getallen. De connector zorgt voor de juiste escaping en SQL-injectie-preventie."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="c">
+          <div class="vraag__nr">Vraag 4</div>
+          <div class="vraag__tekst">Je maakt een cursor aan met <code>cursor = verbinding.cursor(dictionary=True)</code>. Wat is het effect?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Resultaten worden gesorteerd als een dictionary op kolomnaam</span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>De cursor gebruikt automatisch geparametriseerde queries</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>Elke resultaatrij wordt teruggegeven als een Python-dictionary met kolomnamen als sleutels</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>De resultaten worden opgeslagen in een bestand in JSON-formaat</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="dictionary=True geeft elke rij als een dict terug: {'naam': 'Laptop', 'prijs': 999}. Zonder dictionary=True krijg je tuples: ('Laptop', 999)."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="oefening" data-oef-id="db6-h04-2">
+      <div class="oefening__header">
+        <span class="oefening__badge">Oefening 4.2</span>
+        <span class="oefening__title">Transacties en SQL-injectie</span>
+      </div>
+      <div class="oefening__body">
+        <p class="oefening__intro">Test je begrip van transacties, rollback en de beveiliging tegen SQL-injectie in Python.</p>
+
+        <div class="vraag" data-type="mc" data-correct="b">
+          <div class="vraag__nr">Vraag 1</div>
+          <div class="vraag__tekst">Bij een transactie die mislukt (fout in een van de stappen), roep je _______ aan om alle wijzigingen ongedaan te maken.</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span><code>verbinding.undo()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span><code>verbinding.rollback()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span><code>verbinding.revert()</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span><code>verbinding.cancel()</code></span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="verbinding.rollback() — maakt alle wijzigingen van de lopende transactie ongedaan. Gebruik in het except-blok na een fout."></div>
+        </div>
+
+        <div class="vraag" data-type="mc" data-correct="a">
+          <div class="vraag__nr">Vraag 2</div>
+          <div class="vraag__tekst">Waarom is <code>cursor.execute("SELECT * FROM producten WHERE naam = '" + naam + "'")</code> gevaarlijk?</div>
+          <div class="vraag__keuzes">
+            <label class="vraag__keuze"><input type="radio" value="a"><span>Een kwaadaardige gebruiker kan SQL-code injecteren via de variabele <code>naam</code></span></label>
+            <label class="vraag__keuze"><input type="radio" value="b"><span>String-concatenatie werkt niet met de cursor.execute() methode</span></label>
+            <label class="vraag__keuze"><input type="radio" value="c"><span>De query is te lang voor de database</span></label>
+            <label class="vraag__keuze"><input type="radio" value="d"><span>Single quotes mogen niet in SQL-strings voorkomen</span></label>
+          </div>
+          <div class="vraag__feedback" data-correct-label="SQL-injectie — als naam de waarde \"'; DROP TABLE producten; --\" bevat, kan de aanvaller de tabel verwijderen. Gebruik altijd %s-placeholders."></div>
+        </div>
+
+        <div class="vraag" data-type="text" data-correct="lastrowid|cursor.lastrowid">
+          <div class="vraag__nr">Vraag 3</div>
+          <div class="vraag__tekst">Na een INSERT-query in Python via mysql-connector, haal je het automatisch gegenereerde ID op via de property _______ van het cursor-object.</div>
+          <input type="text" class="vraag__invoer" placeholder="Typ de property-naam...">
+          <div class="vraag__feedback" data-correct-label="cursor.lastrowid — geeft het AUTO_INCREMENT ID terug van de net ingevoegde rij."></div>
+        </div>
+
+      </div>
+      <div class="oefening__footer">
+        <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+        <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+        <div class="oefening__score" hidden>
+          <div class="oefening__score-tekst"></div>
+          <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="samenvatting">Samenvatting</h2>
+    <div class="callout callout--samenvatting">
+      <div class="callout__title">Samenvatting</div>
+      <ul>
+        <li><code>mysql.connector.connect()</code> maakt verbinding. Altijd afsluiten in <code>finally</code>.</li>
+        <li><code>cursor(dictionary=True)</code> geeft resultaten als dictionaries terug.</li>
+        <li><code>fetchone()</code> = &eacute;&eacute;n rij; <code>fetchall()</code> = alle rijen.</li>
+        <li>Gebruik altijd <code>%s</code>-placeholders (NOOIT string-concatenatie) om SQL-injectie te vermijden.</li>
+        <li>Na INSERT/UPDATE/DELETE: <code>verbinding.commit()</code> is verplicht.</li>
+        <li>Transactions: <code>start_transaction()</code> + <code>commit()</code> of <code>rollback()</code> bij fout.</li>
+      </ul>
+    </div>
+
+    <h2 id="huistaak">Huistaak H04</h2>
+    <p>Maak een Python-script dat een rapport genereert:</p>
+    <ol>
+      <li>Haal de top-5 klanten op (meeste bestellingen) via een SQL-query.</li>
+      <li>Haal per klant het totale bestede bedrag op.</li>
+      <li>Exporteer alles naar een overzichtelijk CSV-rapport.</li>
+      <li>Gebruik altijd geparametriseerde queries en sluit de verbinding correct af.</li>
+    </ol>
+
+    <div class="chapter-complete-wrap">
+      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/databeheer/H04">
+        Markeer als voltooid
+      </button>
+    </div>
+
+    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
+      <a href="H03-stored-procedures-triggers.html" class="btn btn-secondary">&larr; H03 &mdash; Stored Procedures</a>
+      <a href="H05-dashboarding-python.html" class="btn btn-secondary">H05 &mdash; Dashboarding &rarr;</a>
+    </nav>
+  </div>
+</div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

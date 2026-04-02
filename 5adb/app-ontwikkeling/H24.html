@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lussen — App-ontwikkeling 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/app-ontwikkeling/H24" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="24.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom-lussen">24.1 Waarom lussen?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="24.2"><span class="sidebar-check__box"></span></label>
+          <a href="#while">24.2 De while-lus</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="24.3"><span class="sidebar-check__box"></span></label>
+          <a href="#for">24.3 De for-lus</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="24.4"><span class="sidebar-check__box"></span></label>
+          <a href="#keuze">24.4 While vs for</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="24.5"><span class="sidebar-check__box"></span></label>
+          <a href="#break-continue">24.5 break en continue</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="24.6"><span class="sidebar-check__box"></span></label>
+          <a href="#for-of">24.6 for...of</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Lussen</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H24 &mdash; App-ontwikkeling 5ADB</div>
+        <h1 class="page-header__title">Lussen</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een <code>while</code>-lus schrijven en het gevaar van een oneindige lus vermijden</li>
+          <li>Een <code>for</code>-lus schrijven met initialisatie, voorwaarde en update</li>
+          <li>Kiezen tussen <code>while</code> en <code>for</code> op basis van de situatie</li>
+          <li><code>break</code> gebruiken om een lus vroegtijdig te stoppen</li>
+          <li><code>continue</code> gebruiken om een iteratie over te slaan</li>
+          <li>Een <code>for...of</code>-lus toepassen om over een reeks te herhalen</li>
+        </ul>
+      </div>
+
+      <h2 id="waarom-lussen">24.1 Waarom lussen?</h2>
+      <p>Stel je voor: je wil de getallen 1 tot 100 in de console tonen. Zonder lussen zou je 100 keer <code>console.log(...)</code> moeten schrijven. Dat is niet alleen veel werk — als de grens verandert naar 1000 moet je alles herschrijven.</p>
+      <p>Lussen (ook wel <strong>iteraties</strong> of <strong>loops</strong> genoemd) laten je een stuk code <strong>meerdere keren herhalen</strong> zolang een bepaalde voorwaarde geldt. Dat is een van de meest fundamentele concepten in programmeren.</p>
+
+      <h2 id="while">24.2 De <code>while</code>-lus</h2>
+      <h3>Structuur</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">while (voorwaarde) {
+    // code die herhaald wordt zolang voorwaarde TRUE is
+}</code></pre>
+      </div>
+      <p>Hoe werkt dit?</p>
+      <ol>
+        <li>JavaScript controleert de voorwaarde</li>
+        <li>Als de voorwaarde <code>true</code> is → voer de code in de accolades uit</li>
+        <li>Ga terug naar stap 1</li>
+        <li>Als de voorwaarde <code>false</code> is → stop de lus</li>
+      </ol>
+      <h3>Voorbeeld: tellen tot 5</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let teller = 1;
+
+while (teller &lt;= 5) {
+    console.log(teller);
+    teller++;   // teller verhogen — zonder dit: oneindige lus!
+}
+
+// Uitvoer: 1  2  3  4  5</code></pre>
+      </div>
+      <div class="callout callout--danger">
+        <div class="callout-header">⚠️ Oneindige lus</div>
+        <p>Als je vergeet de teller te verhogen, wordt de voorwaarde nooit <code>false</code> en loopt de lus voor altijd. Dit blokkeert de browser.</p>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-js">// GEVAARLIJK — teller++ ontbreekt
+let teller = 1;
+while (teller &lt;= 5) {
+    console.log(teller);
+    // teller blijft altijd 1 → oneindige lus!
+}</code></pre>
+        </div>
+      </div>
+      <h3>Wanneer gebruik je <code>while</code>?</h3>
+      <p><code>while</code> gebruik je als je <strong>niet op voorhand weet hoe vaak</strong> de lus moet herhalen. Bijvoorbeeld: blijf vragen tot de gebruiker een geldig antwoord geeft.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let antwoord = "";
+
+while (antwoord !== "stop") {
+    antwoord = prompt("Type iets (of 'stop' om te stoppen):");
+    console.log("Je typte:", antwoord);
+}
+
+console.log("Klaar!");</code></pre>
+      </div>
+
+      <h2 id="for">24.3 De <code>for</code>-lus</h2>
+      <h3>Structuur</h3>
+      <p>De <code>for</code>-lus bundelt alles op één lijn: de startwaarde, de voorwaarde en de update.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">for (initialisatie; voorwaarde; update) {
+    // code die herhaald wordt
+}</code></pre>
+      </div>
+      <h3>Voorbeeld: tellen tot 5</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">for (let i = 1; i &lt;= 5; i++) {
+    console.log(i);
+}
+
+// Uitvoer: 1  2  3  4  5</code></pre>
+      </div>
+      <p>De variabele <code>i</code> bestaat <strong>alleen binnen de lus</strong>. Buiten de lus bestaat <code>i</code> niet meer.</p>
+      <h3>Aftellen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">for (let i = 5; i &gt;= 1; i--) {
+    console.log(i);
+}
+
+// Uitvoer: 5  4  3  2  1</code></pre>
+      </div>
+      <h3>Stappen van twee</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">for (let i = 0; i &lt;= 10; i += 2) {
+    console.log(i);
+}
+
+// Uitvoer: 0  2  4  6  8  10</code></pre>
+      </div>
+      <h3>Telvariabele gebruiken in berekeningen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">for (let i = 1; i &lt;= 5; i++) {
+    let kwadraat = i * i;
+    console.log(`${i} kwadraat = ${kwadraat}`);
+}
+
+// Uitvoer:
+// 1 kwadraat = 1
+// 2 kwadraat = 4
+// 3 kwadraat = 9
+// 4 kwadraat = 16
+// 5 kwadraat = 25</code></pre>
+      </div>
+
+      <h2 id="keuze">24.4 Wanneer <code>while</code>, wanneer <code>for</code>?</h2>
+      <table>
+        <thead><tr><th>Situatie</th><th>Gebruik</th></tr></thead>
+        <tbody>
+          <tr><td>Je weet op voorhand hoe vaak je herhaalt</td><td><code>for</code></td></tr>
+          <tr><td>Je telt op of af van een getal naar een ander</td><td><code>for</code></td></tr>
+          <tr><td>Je weet niet op voorhand wanneer je stopt</td><td><code>while</code></td></tr>
+          <tr><td>Je herhaalt tot een conditie verandert</td><td><code>while</code></td></tr>
+        </tbody>
+      </table>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Ezelsbruggetje</div>
+        <p>Als je een <strong>teller</strong> nodig hebt → <code>for</code>. Als je <strong>wacht op iets</strong> → <code>while</code>.</p>
+      </div>
+
+      <h2 id="break-continue">24.5 <code>break</code> en <code>continue</code></h2>
+      <h3><code>break</code> — de lus vroegtijdig stoppen</h3>
+      <p>Met <code>break</code> verlaat je de lus onmiddellijk, ook als de voorwaarde nog <code>true</code> is.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">for (let i = 1; i &lt;= 10; i++) {
+    if (i === 6) {
+        break;   // stop de lus zodra i gelijk is aan 6
+    }
+    console.log(i);
+}
+
+// Uitvoer: 1  2  3  4  5</code></pre>
+      </div>
+      <h3><code>continue</code> — huidige iteratie overslaan</h3>
+      <p>Met <code>continue</code> sla je de rest van de huidige iteratie over en ga je meteen naar de volgende.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">for (let i = 1; i &lt;= 10; i++) {
+    if (i % 2 === 0) {
+        continue;   // sla even getallen over
+    }
+    console.log(i);
+}
+
+// Uitvoer: 1  3  5  7  9</code></pre>
+      </div>
+      <table>
+        <thead><tr><th></th><th><code>break</code></th><th><code>continue</code></th></tr></thead>
+        <tbody>
+          <tr><td>Wat stopt het?</td><td>De hele lus</td><td>Alleen de huidige iteratie</td></tr>
+          <tr><td>Wat volgt daarna?</td><td>Code na de lus</td><td>Volgende iteratie van de lus</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="for-of">24.6 <code>for...of</code> — herhalen over een reeks</h2>
+      <p><code>for...of</code> is de modernste manier om over een reeks te herhalen. Je krijgt automatisch elk element, zonder dat je een teller bijhoudt.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-js">let vakken = ["Netwerken", "App-ontwikkeling", "Databeheer", "E-STEM"];
+
+for (let vak of vakken) {
+    console.log(`Vak: ${vak}`);
+}
+
+// Uitvoer:
+// Vak: Netwerken
+// Vak: App-ontwikkeling
+// Vak: Databeheer
+// Vak: E-STEM</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — FizzBuzz</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">FizzBuzz is een klassieke programmeeroefening die wereldwijd gebruikt wordt om basiskennis van lussen en voorwaarden te testen.</p>
+            <p><strong>De regels:</strong></p>
+            <ul>
+              <li>Toon de getallen van 1 tot en met 100</li>
+              <li>Als het getal deelbaar is door 3 → toon <code>"Fizz"</code></li>
+              <li>Als het getal deelbaar is door 5 → toon <code>"Buzz"</code></li>
+              <li>Als het getal deelbaar is door <strong>zowel 3 als 5</strong> → toon <code>"FizzBuzz"</code></li>
+              <li>In alle andere gevallen → toon gewoon het getal</li>
+            </ul>
+            <div class="callout callout--warning">
+              <div class="callout-header">⚠️ Volgorde is cruciaal</div>
+              <p>Controleer <strong>eerst</strong> de combinatie (deelbaar door 15) — anders wordt die nooit bereikt!</p>
+            </div>
+            <figure class="chapter-figure">
+              <img src="../../../app-ontwikkeling/images/H24-oef1-browser.svg" alt="Browser-mockup met FizzBuzz output van 1 tot 20 in de console" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Optelling van 1 tot n</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een programma dat de <strong>som berekent van alle gehele getallen van 1 tot en met n</strong>.</p>
+            <p>Voorbeeld: als <code>n = 5</code>, dan is de som <code>1 + 2 + 3 + 4 + 5 = 15</code>.</p>
+            <p><strong>Stappenplan:</strong></p>
+            <ol>
+              <li>Maak een variabele <code>n</code> en geef die een waarde (bv. 10)</li>
+              <li>Maak een variabele <code>som</code> en zet die op 0</li>
+              <li>Gebruik een <code>for</code>-lus om alle getallen van 1 tot <code>n</code> op te tellen</li>
+              <li>Toon de som na de lus</li>
+            </ol>
+            <p><strong>Uitbreiding:</strong> Probeer hetzelfde met een <code>while</code>-lus.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            📋 Huistaak — Lussen
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H24-voorbeeld.svg', 'Voorbeeld — Lussen huistaak')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maaltafelgenerator</h3>
+            <h4>Deel 1 — Maaltafel van één getal (4 punten)</h4>
+            <ol>
+              <li>Maak een variabele <code>getal</code> met een waarde naar keuze (bv. 7)</li>
+              <li>Gebruik een <code>for</code>-lus om de maaltafel van <code>getal</code> te tonen van 1 tot 10</li>
+              <li>Elke lijn toont: <code>7 × 1 = 7</code>, <code>7 × 2 = 14</code>, enz.</li>
+              <li>Gebruik template literals voor de output</li>
+            </ol>
+            <h4>Deel 2 — Priemgetallen (6 punten)</h4>
+            <ol>
+              <li>Schrijf een programma dat alle priemgetallen van 2 tot 50 toont</li>
+              <li>Een priemgetal is enkel deelbaar door 1 en zichzelf</li>
+              <li>Gebruik een geneste lus: de buitenste itereert over kandidaatgetallen, de binnenste controleert of het een priemgetal is</li>
+              <li>Gebruik <code>break</code> zodra je een deler vindt</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H24 — Lussen</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het gevaar van een oneindige lus?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h24-v1" value="a"> <span>De lus geeft een syntaxfout</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v1" value="b"> <span>Het programma blokkeert en de browser reageert niet meer</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v1" value="c"> <span>De lus wordt automatisch na 100 keer gestopt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v1" value="d"> <span>De variabelen worden gewist</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke lus gebruik je als je <em>niet op voorhand weet hoe vaak</em> je moet herhalen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h24-v2" value="a"> <span><code>for</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v2" value="b"> <span><code>for...of</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v2" value="c"> <span><code>while</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v2" value="d"> <span><code>do...while</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>break</code> in een lus?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h24-v3" value="a"> <span>Stopt de hele lus onmiddellijk</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v3" value="b"> <span>Slaat de huidige iteratie over en gaat door naar de volgende</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v3" value="c"> <span>Gooit een fout</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v3" value="d"> <span>Pauzeert de lus tijdelijk</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is de uitvoer van: <code>for (let i = 0; i &lt; 3; i++) { console.log(i); }</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h24-v4" value="a"> <span>1 2 3</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v4" value="b"> <span>0 1 2 3</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v4" value="c"> <span>1 2</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v4" value="d"> <span>0 1 2</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet <code>continue</code> in een lus?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h24-v5" value="a"> <span>Stopt de hele lus</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v5" value="b"> <span>Slaat de rest van de huidige iteratie over en gaat naar de volgende</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v5" value="c"> <span>Hervat een gestopte lus</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v5" value="d"> <span>Herstart de lus van het begin</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welke lus gebruik je om automatisch over elk element van een array te gaan zonder een teller bij te houden?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h24-v6" value="a"> <span><code>for</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v6" value="b"> <span><code>while</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v6" value="c"> <span><code>for...of</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h24-v6" value="d"> <span><code>foreach</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/app-ontwikkeling/H24')" data-progress-key="5adb/app-ontwikkeling/H24">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H23.html" class="btn btn-ghost">← H23</a>
+          <a href="H25.html" class="btn btn-ghost">H25 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

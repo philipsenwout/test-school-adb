@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 &mdash; Datamodellering: tabellen en relaties &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Datamodellering: tabellen en relaties &amp;mdash; Databeheer 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Databeheer</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H03</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-3-datamodellering-tabellen-en-relaties">Hoofdstuk 3 — Datamodellering: tabellen en relaties</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#31-bouwstenen-van-een-datamodel">3.1 Bouwstenen van een datamodel</a></li><li><a href="#311-entiteit" style="padding-left:1.25rem">3.1.1 Entiteit</a></li><li><a href="#312-attribuut" style="padding-left:1.25rem">3.1.2 Attribuut</a></li><li><a href="#313-primaire-sleutel" style="padding-left:1.25rem">3.1.3 Primaire sleutel</a></li><li><a href="#32-waarom-meerdere-tabellen">3.2 Waarom meerdere tabellen?</a></li><li><a href="#33-types-relaties">3.3 Types relaties</a></li><li><a href="#331-één-op-één-11" style="padding-left:1.25rem">3.3.1 Één-op-één (1:1)</a></li><li><a href="#332-één-op-veel-1n" style="padding-left:1.25rem">3.3.2 Één-op-veel (1:N)</a></li><li><a href="#333-veel-op-veel-mn" style="padding-left:1.25rem">3.3.3 Veel-op-veel (M:N)</a></li><li><a href="#34-een-datamodel-tekenen">3.4 Een datamodel tekenen</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h03" style="padding-left:1.25rem">Huistaak H03</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
+          <h1 class="page-header__title">H03 &mdash; Datamodellering: tabellen en relaties</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="databeheer">️ Databeheer</h1>
+<h2 id="hoofdstuk-3-datamodellering-tabellen-en-relaties">Hoofdstuk 3 — Datamodellering: tabellen en relaties</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>3e graad — 5ADB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v2.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Databeheer</td></tr>
+<tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
+</tbody></table></div>
+<h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB17]</span> Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB18]</span> Ontwerpen van een datamodel op basis van een gegeven opdracht <span class="badge badge-basis">basis</span></div>
+<p><strong>Geschatte lesuren:</strong> 4 u</p>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ol>
+<li>De begrippen entiteit, attribuut en primaire sleutel correct uitleggen.</li>
+<li>Uitleggen waarom een database verdeeld wordt over meerdere tabellen.</li>
+<li>De drie types relaties beschrijven: 1-op-1, 1-op-veel en veel-op-veel.</li>
+<li>Een eenvoudig datamodel tekenen voor een gegeven situatie.</li>
+</ol>
+<h2 id="31-bouwstenen-van-een-datamodel">3.1 Bouwstenen van een datamodel</h2>
+<h3 id="311-entiteit">3.1.1 Entiteit</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een entiteit is een "ding" of "persoon" waarover je gegevens wil bijhouden. In een database wordt een entiteit een tabel. Voorbeelden: <code>Klant</code>, <code>Product</code>, <code>Leerling</code>, <code>Boek</code>.</p>
+</div>
+<p>Entiteiten zijn altijd zelfstandige naamwoorden.</p>
+<h3 id="312-attribuut">3.1.2 Attribuut</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een attribuut is een eigenschap van een entiteit. In een tabel is elk attribuut een kolom.</p>
+</div>
+<p><strong>Voorbeeld — entiteit <code>Leerling</code>:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Attribuut</th><th>Uitleg</th></tr></thead><tbody>
+<tr><td>leerling_id</td><td>uniek nummer</td></tr>
+<tr><td>voornaam</td><td>voornaam van de leerling</td></tr>
+<tr><td>achternaam</td><td>achternaam</td></tr>
+<tr><td>geboortedatum</td><td>wanneer geboren</td></tr>
+<tr><td>email</td><td>e-mailadres</td></tr>
+</tbody></table></div>
+<p>!<a href="../../images/H03-entiteit-attributen.png" target="_blank" rel="noopener">Entiteit en attributen</a></p>
+<p><em>Figuur 3.1 — Een entiteit met haar attributen</em></p>
+<h3 id="313-primaire-sleutel">3.1.3 Primaire sleutel</h3>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De primaire sleutel (PRIMARY KEY) is een kolom die elke rij in een tabel <strong>uniek</strong> identificeert. Geen twee rijen mogen dezelfde primaire sleutel hebben.</p>
+</div>
+<p>Meestal gebruik je een automatisch oplopend getal als primaire sleutel: <code>id</code>, <code>klant_id</code>, <code>leerling_id</code> ...</p>
+<pre data-lang="sql"><code>
+CREATE TABLE leerling (
+    leerling_id  INT         PRIMARY KEY AUTO_INCREMENT,
+    voornaam     VARCHAR(50) NOT NULL,
+    achternaam   VARCHAR(50) NOT NULL,
+    email        VARCHAR(150)
+);
+</code></pre>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Gebruik altijd <code>AUTO_INCREMENT</code> voor je primaire sleutel. Dan hoef je zelf nooit een nummer in te vullen — de database doet dat automatisch.</p>
+</div>
+<h2 id="32-waarom-meerdere-tabellen">3.2 Waarom meerdere tabellen?</h2>
+<p>Stel je voor dat je een database maakt voor bestellingen. Je zou alles in één tabel kunnen stoppen:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>bestelling_id</th><th>klant_naam</th><th>klant_email</th><th>product</th><th>prijs</th></tr></thead><tbody>
+<tr><td>1</td><td>Jan Peeters</td><td>jan@email.be</td><td>Laptop</td><td>999</td></tr>
+<tr><td>2</td><td>Jan Peeters</td><td>jan@email.be</td><td>Muis</td><td>25</td></tr>
+<tr><td>3</td><td>Sara Claes</td><td>sara@email.be</td><td>Toetsenbord</td><td>45</td></tr>
+</tbody></table></div>
+<p><strong>Problemen:</strong></p>
+<ul>
+<li><code>jan@email.be</code> staat twee keer → als Jan zijn e-mail verandert, moet je meerdere rijen aanpassen</li>
+<li>Je kan een klant niet opslaan zonder bestelling</li>
+<li>Als je een bestelling verwijdert, verdwijnt ook de klantinfo</li>
+</ul>
+<p><strong>Oplossing:</strong> verdeel over twee tabellen:</p>
+<pre data-lang=""><code>
+Tabel klant:       klant_id | naam | email
+Tabel bestelling:  bestelling_id | klant_id | product | prijs
+</code></pre>
+<p>Door <code>klant_id</code> in de bestelling-tabel te bewaren, koppel je de twee tabellen aan elkaar.</p>
+<p>!<a href="../../images/H03-tabellen-relatie.png" target="_blank" rel="noopener">Tabellen koppelen</a></p>
+<p><em>Figuur 3.2 — Klant en bestelling als aparte tabellen, gekoppeld via klant_id</em></p>
+<h2 id="33-types-relaties">3.3 Types relaties</h2>
+<h3 id="331-één-op-één-11">3.3.1 Één-op-één (1:1)</h3>
+<p>Eén record in tabel A hoort bij precies één record in tabel B.</p>
+<p><strong>Voorbeeld:</strong> Een leerling heeft precies één leerlingenkaart.</p>
+<pre data-lang=""><code>
+LEERLING  ←———→  LEERLINGENKAART
+   1                    1
+</code></pre>
+<p>Dit type is zeldzaam.</p>
+<h3 id="332-één-op-veel-1n">3.3.2 Één-op-veel (1:N)</h3>
+<p>Eén record in tabel A hoort bij <strong>meerdere</strong> records in tabel B.</p>
+<p><strong>Voorbeeld:</strong> Eén klant kan meerdere bestellingen plaatsen, maar elke bestelling hoort bij slechts één klant.</p>
+<pre data-lang=""><code>
+KLANT  ←———→  BESTELLING
+  1             meerdere
+</code></pre>
+<p>Dit is het <strong>meest voorkomende</strong> type relatie.</p>
+<h3 id="333-veel-op-veel-mn">3.3.3 Veel-op-veel (M:N)</h3>
+<p>Records in tabel A kunnen bij meerdere records in tabel B horen, en omgekeerd.</p>
+<p><strong>Voorbeeld:</strong> Een leerling kan meerdere vakken volgen. Een vak kan meerdere leerlingen hebben.</p>
+<pre data-lang=""><code>
+LEERLING  ←———→  VAK
+meerdere        meerdere
+</code></pre>
+<p><strong>Probleem:</strong> Een database kan dit niet rechtstreeks opslaan. Oplossing: een <strong>tussentabel</strong>.</p>
+<pre data-lang=""><code>
+LEERLING ←→ INSCHRIJVING ←→ VAK
+</code></pre>
+<h2 id="34-een-datamodel-tekenen">3.4 Een datamodel tekenen</h2>
+<p>Gebruik een eenvoudig schema met dozen en pijlen:</p>
+<pre data-lang=""><code>
+┌─────────────┐         ┌──────────────────┐
+│   KLANT     │         │   BESTELLING     │
+├─────────────┤         ├──────────────────┤
+│ klant_id PK │ ———————&gt;│ bestelling_id PK │
+│ voornaam    │    1:N  │ klant_id         │
+│ achternaam  │         │ datum            │
+│ email       │         │ totaal           │
+└─────────────┘         └──────────────────┘
+</code></pre>
+<p>De pijl loopt van de kant "1" naar de kant "veel".</p>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p><strong>Situatie:</strong> een bibliotheek wil bijhouden welke boeken er zijn en welk lid welk boek leent.</p>
+<p><strong>Entiteiten:</strong> <code>lid</code>, <code>boek</code>, <code>lening</code></p>
+<p><strong>Relaties:</strong></p>
+<ul>
+<li>Een lid kan meerdere boeken lenen (1:N tussen lid en lening)</li>
+<li>Een boek kan meerdere keren uitgeleend worden (1:N tussen boek en lening)</li>
+</ul>
+<pre data-lang=""><code>
+LID ←→ LENING ←→ BOEK
+</code></pre>
+<pre data-lang="sql"><code>
+CREATE TABLE lid (
+lid_id       INT         PRIMARY KEY AUTO_INCREMENT,
+voornaam     VARCHAR(50) NOT NULL,
+achternaam   VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE boek (
+boek_id  INT          PRIMARY KEY AUTO_INCREMENT,
+titel    VARCHAR(200) NOT NULL,
+auteur   VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE lening (
+lening_id    INT  PRIMARY KEY AUTO_INCREMENT,
+lid_id       INT  NOT NULL,
+boek_id      INT  NOT NULL,
+uitleendatum DATE NOT NULL
+);
+</code></pre>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="db5-h03-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.1</span>
+    <span class="oefening__title">Entiteiten en relaties herkennen — sportclub</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een sportclub wil haar leden bijhouden. Elk lid heeft een naam, e-mail en lidmaatschapstype. Er zijn trainingen met een datum en een trainer.</p>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Wat is een entiteit in databasemodellering?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q1" value="a"><span>Een kolom in een tabel</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q1" value="b"><span>Een rij in een tabel</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q1" value="c"><span>Een "ding" waarover je gegevens wil bijhouden — wordt een tabel</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q1" value="d"><span>De primaire sleutel van een tabel</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Een 'ding' waarover je gegevens wil bijhouden — wordt een tabel. Entiteiten zijn altijd zelfstandige naamwoorden zoals Klant, Product, Leerling"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Een lid kan aan meerdere trainingen deelnemen en een training kan meerdere leden hebben. Welk type relatie is dit?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q2" value="a"><span>Één-op-één (1:1)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q2" value="b"><span>Veel-op-veel (M:N)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q2" value="c"><span>Één-op-veel (1:N)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q2" value="d"><span>Geen relatie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Veel-op-veel (M:N) — een lid kan meerdere trainingen bijwonen en omgekeerd. Dit vereist een tussentabel"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="tussentabel|koppeltabel|associatietabel">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Hoe heet de extra tabel die je nodig hebt om een veel-op-veel relatie op te slaan in een relationele database?</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ je antwoord...">
+      <div class="vraag__feedback" data-correct-label="Tussentabel (ook koppeltabel of associatietabel) — bevat de primaire sleutels van beide gekoppelde tabellen als foreign keys"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 4</div>
+      <div class="vraag__tekst">Welk attribuut gebruik je als primaire sleutel in de tabel <code>lid</code>?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q4" value="a"><span><code>lid_id</code> — automatisch oplopend getal (AUTO_INCREMENT)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q4" value="b"><span><code>email</code> — is uniek per lid</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q4" value="c"><span><code>naam</code> — naam van het lid</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-1-q4" value="d"><span><code>lidmaatschapstype</code> — type lidmaatschap</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="lid_id — automatisch oplopend getal (AUTO_INCREMENT). Hoewel e-mail ook uniek is, gebruik je bij voorkeur een numeriek ID als primaire sleutel"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="db5-h03-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 3.2</span>
+    <span class="oefening__title">Datamodel: school met leerlingen en vakken</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Een school heeft leerlingen en vakken. Een leerling kan meerdere vakken volgen en een vak kan meerdere leerlingen hebben.</p>
+
+    <div class="vraag" data-type="mc" data-correct="d">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Hoeveel tabellen zijn minimaal nodig voor dit model?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q1" value="a"><span>1 tabel — alles in één</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q1" value="b"><span>2 tabellen — leerling en vak</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q1" value="c"><span>4 tabellen — leerling, vak, klas en school</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q1" value="d"><span>3 tabellen — leerling, vak en een tussentabel</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="3 tabellen — leerling, vak en een tussentabel (bv. inschrijving). De tussentabel is nodig voor de M:N-relatie"></div>
+    </div>
+
+    <div class="vraag" data-type="text" data-correct="inschrijving|leerling_vak|inschrijvingen">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Hoe zou je de tussentabel tussen leerling en vak kunnen noemen? (geef een logische naam)</div>
+      <input type="text" class="vraag__invoer" placeholder="Typ een tabelnaam...">
+      <div class="vraag__feedback" data-correct-label="inschrijving (of leerling_vak) — een beschrijvende naam die de relatie aangeeft tussen de twee tabellen"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Welk type relatie bestaat er tussen één klant en zijn bestellingen (één klant kan meerdere bestellingen plaatsen)?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q3" value="a"><span>Één-op-één (1:1)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q3" value="b"><span>Één-op-veel (1:N)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q3" value="c"><span>Veel-op-veel (M:N)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="db5-h03-2-q3" value="d"><span>Geen relatie</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Één-op-veel (1:N) — één klant kan meerdere bestellingen plaatsen, maar elke bestelling hoort bij slechts één klant. Dit is het meest voorkomende type relatie"></div>
+    </div>
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h3 id="huistaak-h03">Huistaak H03</h3>
+<p><strong>Eigen datamodel ontwerpen</strong></p>
+<p>Kies een situatie uit je dagelijks leven waarvoor een database nuttig zou zijn (bv. een gamecollectie, een receptenboek, een sportuitslagensite).</p>
+<p><strong>Opdracht:</strong></p>
+<ol>
+<li>Beschrijf de situatie in 3–5 zinnen.</li>
+<li>Identificeer minstens <strong>2 entiteiten</strong> met elk minstens <strong>3 attributen</strong>.</li>
+<li>Geef voor elke entiteit aan welke kolom de primaire sleutel is.</li>
+<li>Beschrijf de relatie(s) tussen de entiteiten.</li>
+<li>Teken het datamodel (met de hand of via draw.io).</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/databeheer/huistaken/H03-huistaak-verbetersleutel.md</code></p>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Een <strong>entiteit</strong> is een "ding" waarover je data bijhoudt (= tabel). Een <strong>attribuut</strong> is een eigenschap van de entiteit (= kolom).</li>
+<li>De <strong>primaire sleutel</strong> (PRIMARY KEY) identificeert elke rij uniek. Gebruik <code>AUTO_INCREMENT</code>.</li>
+<li>Een goede database heeft <strong>meerdere tabellen</strong> die via een gedeeld ID-veld aan elkaar gekoppeld zijn.</li>
+<li>Drie types relaties: <strong>1:1</strong> (zeldzaam), <strong>1:N</strong> (meest voorkomend), <strong>M:N</strong> (vereist een tussentabel).</li>
+</ul>
+</div>
+<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
+<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB17]</span> Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB18]</span> Ontwerpen van een datamodel op basis van een gegeven opdracht <span class="badge badge-basis">basis</span></div>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/databeheer/H03">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H02.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H02 &mdash; Werkomgeving en versiebeheer</span></div></a>
+          <a href="H04.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H04 &mdash; Databank aanmaken en vullen</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

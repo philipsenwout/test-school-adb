@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H10 &mdash; Basisroutering &amp; switches instellen &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Basisroutering &amp; switches instellen &amp;mdash; Netwerken 5ADB">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+<nav class="breadcrumb" aria-label="Paginapad">
+<a href="../../index.html">Home</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="../../5adb/index.html">5ADB</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<a href="index.html">Netwerken</a>
+<span class="breadcrumb-sep">&#8250;</span>
+<span>H10</span>
+</nav>
+
+    <div class="chapter-layout">
+      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-10-basisroutering">Hoofdstuk 10 — Basisroutering</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#101-wat-doet-een-router">10.1 Wat doet een router?</a></li><li><a href="#102-default-gateway">10.2 Default gateway</a></li><li><a href="#103-de-routeringstabel">10.3 De routeringstabel</a></li><li><a href="#104-windows-server-vs-linux-als-server">10.4 Windows Server vs Linux als server</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h10" style="padding-left:1.25rem">Huistaak H10</a></li></ul></div>
+      <div class="chapter-content">
+        <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
+          <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
+          <h1 class="page-header__title">H10 &mdash; Basisroutering &amp; switches instellen</h1>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center;margin-top:var(--space-3);">
+            <span class="badge badge-basis">basis</span>
+            <span style="color:var(--color-text-muted);font-size:var(--text-sm);">8 u</span>
+          </div>
+        </div>
+
+        <h1 id="netwerken">Netwerken</h1>
+<h2 id="hoofdstuk-10-basisroutering">Hoofdstuk 10 — Basisroutering</h2>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><strong>Leerjaar</strong></td><td>5e jaar — 3e graad DAB</td></tr>
+<tr><td><strong>Versie</strong></td><td>v2.0</td></tr>
+<tr><td><strong>Datum</strong></td><td>2026-03-22</td></tr>
+<tr><td><strong>Auteur</strong></td><td>Leerkracht Netwerken</td></tr>
+<tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
+<tr><td><strong>Lesuren</strong></td><td>4 u</td></tr>
+</tbody></table></div>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na dit hoofdstuk kan je:</p>
+<ul>
+<li>uitleggen wat een router doet en hoe het verschilt van een switch</li>
+<li>het begrip "default gateway" verklaren en instellen</li>
+<li>beschrijven hoe een routeringstabel werkt</li>
+<li>het verschil uitleggen tussen Windows Server en Linux als serverplatform</li>
+</ul>
+<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span></div>
+<h2 id="101-wat-doet-een-router">10.1 Wat doet een router?</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een router is een netwerkapparaat dat pakketten doorstuurt <strong>tussen verschillende netwerken</strong>. Hij werkt op basis van IP-adressen.</p>
+</div>
+<p><strong>Vergelijking switch vs router:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th></th><th>Switch</th><th>Router</th></tr></thead><tbody>
+<tr><td>Verbindt</td><td>Apparaten in <strong>hetzelfde</strong> netwerk</td><td><strong>Verschillende</strong> netwerken</td></tr>
+<tr><td>Werkt op</td><td>MAC-adres (laag 2)</td><td>IP-adres (laag 3)</td></tr>
+<tr><td>Voorbeeld</td><td>Computers in één klas verbinden</td><td>Schoolnetwerk verbinden met het internet</td></tr>
+</tbody></table></div>
+<p>!<a href="../../images/H10-router-vs-switch.png" target="_blank" rel="noopener">Router vs Switch</a></p>
+<p><em>Figuur 10.1 — Een router verbindt twee verschillende netwerken</em></p>
+<p><strong>Voorbeeld:</strong></p>
+<pre data-lang=""><code>
+Netwerk A: 192.168.1.0/24          Netwerk B: 192.168.2.0/24
+     |                                   |
+PC-A (192.168.1.10)               PC-B (192.168.2.10)
+     |                                   |
+     +------ Switch A --- ROUTER --- Switch B -----+
+                       192.168.1.1   192.168.2.1
+</code></pre>
+<p>PC-A en PC-B zitten in <strong>verschillende netwerken</strong>. Alleen de router kan pakketten van het ene naar het andere netwerk sturen.</p>
+<h2 id="102-default-gateway">10.2 Default gateway</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>De default gateway is het IP-adres van de router op jouw lokale netwerk. Als je iets wil bereiken buiten jouw subnet, stuur je het naar de default gateway.</p>
+</div>
+<p><strong>Voorbeeld:</strong></p>
+<ul>
+<li>Jouw PC: <code>192.168.1.10/24</code>, gateway: <code>192.168.1.1</code></li>
+<li>Je wil <code>8.8.8.8</code> (Google DNS) bereiken</li>
+<li><code>8.8.8.8</code> zit niet in <code>192.168.1.0/24</code> → stuur naar gateway <code>192.168.1.1</code></li>
+<li>De router stuurt het pakket verder naar het internet</li>
+</ul>
+<div class="callout callout--waarschuwing">
+<div class="callout-header">⚠️ Let op</div>
+<p>️ <strong>Veelgemaakte fout</strong></p>
+<p>Als de default gateway verkeerd is ingesteld, kan je lokale apparaten bereiken maar niets buiten je netwerk (geen internet, geen andere subnetten). Controleer de gateway altijd als eerste bij verbindingsproblemen.</p>
+</div>
+<h2 id="103-de-routeringstabel">10.3 De routeringstabel</h2>
+<div class="callout callout--definitie">
+<div class="callout-header">📘 Definitie</div>
+<p>Een routeringstabel is een lijst in de router met alle bekende bestemmingen en hoe je er komt (via welke interface of next-hop).</p>
+</div>
+<p><strong>Hoe werkt het?</strong></p>
+<p>Wanneer een pakket aankomt, kijkt de router in zijn tabel:</p>
+<ol>
+<li>Zit de bestemming in een rechtstreeks verbonden netwerk? → stuur er naartoe</li>
+<li>Is er een specifieke route? → volg die route</li>
+<li>Geen match? → gebruik de <strong>default route</strong> (richting internet)</li>
+</ol>
+<p>!<a href="../../images/H10-router-werking.png" target="_blank" rel="noopener">Routeringstabel werking</a></p>
+<p><em>Figuur 10.2 — De router kijkt in zijn tabel om te beslissen waar een pakket naartoe gaat</em></p>
+<p><strong>Eenvoudig voorbeeld van een routeringstabel:</strong></p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Bestemming</th><th>Via</th></tr></thead><tbody>
+<tr><td>192.168.1.0/24</td><td>Directe verbinding (interface links)</td></tr>
+<tr><td>192.168.2.0/24</td><td>Directe verbinding (interface rechts)</td></tr>
+<tr><td>Alles andere (0.0.0.0/0)</td><td>10.0.0.1 (internet-router van ISP)</td></tr>
+</tbody></table></div>
+<p>De laatste regel (<code>0.0.0.0/0</code>) is de <strong>default route</strong> — alles waarvoor de router geen specifieke route heeft, stuur je daarheen.</p>
+<h2 id="104-windows-server-vs-linux-als-server">10.4 Windows Server vs Linux als server</h2>
+<p>In bedrijven draaien netwerkdiensten (DNS, DHCP, webserver) op een serverbesturingssysteem. De twee meest gebruikte zijn:</p>
+<div style="overflow-x:auto"><table>
+<thead><tr><th>Eigenschap</th><th>Windows Server</th><th>Linux (Ubuntu, Debian …)</th></tr></thead><tbody>
+<tr><td><strong>Kost</strong></td><td>Betaalde licentie</td><td>Gratis</td></tr>
+<tr><td><strong>Beheer</strong></td><td>Grafische interface + PowerShell</td><td>Vooral via terminal</td></tr>
+<tr><td><strong>Gebruik</strong></td><td>Bedrijfsomgevingen, Active Directory</td><td>Webservers, cloud, databases</td></tr>
+<tr><td><strong>CLI</strong></td><td>PowerShell</td><td>Bash</td></tr>
+</tbody></table></div>
+<div class="callout callout--tip">
+<div class="callout-header">💡 Tip</div>
+<p>Als data- en applicatiebeheerder zal je beide tegenkomen. Windows Server in kantooromgevingen; Linux op webservers en in de cloud.</p>
+</div>
+<h2 id="voorbeelden">Voorbeelden</h2>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>Op een Windows-pc kan je de default gateway instellen via:</p>
+<ul>
+<li>Configuratiescherm → Netwerkverbindingen → Eigenschappen → IPv4</li>
+<li>Of via de opdrachtprompt: <code>ipconfig</code> toont de huidige gateway</li>
+</ul>
+<p>Als de gateway verkeerd is ingesteld, zie je: ping naar lokale IP werkt, ping naar <code>8.8.8.8</code> mislukt.</p>
+</div>
+<div class="callout callout--voorbeeld">
+<div class="callout-header">🟢 Voorbeeld</div>
+<p>PC-A (<code>192.168.1.10</code>) kan het internet niet bereiken.</p>
+<p>Stap 1: <code>ping 192.168.1.1</code> → is de gateway bereikbaar?</p>
+<ul>
+<li>OK → probleem zit verder in het netwerk (bij de ISP of de router zelf)</li>
+<li>Mislukt → probleem is lokaal (verkeerde gateway, kabel, switch)</li>
+</ul>
+</div>
+<h2 id="oefeningen">Oefeningen</h2>
+<div class="oefening" data-oef-id="net5-h10-1">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 10.1</span>
+    <span class="oefening__title">Router of switch?</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">Kies voor elk scenario het juiste netwerkapparaat: een router of een switch. Denk aan het verschil: een switch verbindt apparaten in hetzelfde netwerk, een router verbindt verschillende netwerken.</p>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">Je wil 5 computers in hetzelfde klaslokaal met elkaar verbinden. Wat heb je nodig?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v1" value="a"><span>Router — om de computers met het internet te verbinden</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v1" value="b"><span>Switch — om apparaten in hetzelfde netwerk te verbinden</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v1" value="c"><span>Beide altijd tegelijk</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Switch — een switch verbindt apparaten in hetzelfde netwerk op basis van MAC-adressen (laag 2)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">Je wil het schoolnetwerk (192.168.1.x) verbinden met het internet. Wat heb je nodig?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v2" value="a"><span>Router — om twee verschillende netwerken te verbinden</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v2" value="b"><span>Switch — om extra poorten toe te voegen</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v2" value="c"><span>Een extra netwerkkaart (NIC)</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Router — de router verbindt het lokale netwerk met het internet en werkt op basis van IP-adressen (laag 3)"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">Op welke laag van het OSI-model werkt een switch?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v3" value="a"><span>Laag 3 — Netwerklaag (IP-adressen)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v3" value="b"><span>Laag 2 — Datalinklaag (MAC-adressen)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-1-v3" value="c"><span>Laag 4 — Transportlaag</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Laag 2 (Datalinklaag) — een switch gebruikt MAC-adressen om pakketten binnen hetzelfde netwerk door te sturen"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="oefening" data-oef-id="net5-h10-2">
+  <div class="oefening__header">
+    <span class="oefening__badge">Oefening 10.2</span>
+    <span class="oefening__title">Default gateway en routering</span>
+  </div>
+  <div class="oefening__body">
+    <p class="oefening__intro">PC-A heeft IP-adres 10.5.20.15 met subnetmasker /24 en default gateway 10.5.20.1. Beantwoord de vragen over hoe het verkeer wordt gerouteerd.</p>
+
+    <div class="vraag" data-type="mc" data-correct="a">
+      <div class="vraag__nr">Vraag 1</div>
+      <div class="vraag__tekst">PC-A wil 10.5.20.30 bereiken. Gaat dit via de default gateway?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v1" value="a"><span>Nee — 10.5.20.30 zit in hetzelfde subnet (10.5.20.0/24)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v1" value="b"><span>Ja — al het verkeer gaat altijd via de gateway</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v1" value="c"><span>Nee — PC-A heeft geen gateway nodig</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Nee — 10.5.20.30 zit in hetzelfde /24 subnet (10.5.20.0/24), dus kan PC-A direct communiceren zonder de router"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="b">
+      <div class="vraag__nr">Vraag 2</div>
+      <div class="vraag__tekst">PC-A wil 10.5.30.5 bereiken. Gaat dit via de default gateway?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v2" value="a"><span>Nee — het begint met 10.5 dus het is hetzelfde netwerk</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v2" value="b"><span>Ja — 10.5.30.5 zit in een ander subnet (10.5.30.0/24)</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v2" value="c"><span>Nee — routers werken niet met deze adressen</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="Ja — 10.5.30.5 zit in subnet 10.5.30.0/24, dat is een ander netwerk dan 10.5.20.0/24 van PC-A, dus het pakket gaat via gateway 10.5.20.1"></div>
+    </div>
+
+    <div class="vraag" data-type="mc" data-correct="c">
+      <div class="vraag__nr">Vraag 3</div>
+      <div class="vraag__tekst">PC-A kan 10.5.20.30 pingen maar niet 8.8.8.8. Wat is de meest waarschijnlijke oorzaak?</div>
+      <div class="vraag__keuzes">
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v3" value="a"><span>De DNS-server werkt niet</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v3" value="b"><span>Het IP-adres van PC-A is verkeerd</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v3" value="c"><span>De default gateway is verkeerd of de router heeft geen internettoegang</span></label>
+        <label class="vraag__keuze"><input type="radio" name="net5-h10-2-v3" value="d"><span>Het subnetmasker van 10.5.20.30 klopt niet</span></label>
+      </div>
+      <div class="vraag__feedback" data-correct-label="De default gateway is het probleem — lokaal verkeer werkt (zelfde subnet), maar extern verkeer (8.8.8.8) gaat via de gateway. Als die niet bereikbaar of verkeerd is, faalt de verbinding met het internet"></div>
+    </div>
+
+  </div>
+  <div class="oefening__footer">
+    <button class="btn btn-primary oefening__controleer">Controleer antwoorden</button>
+    <button class="btn btn-ghost oefening__reset" hidden>Opnieuw proberen</button>
+    <div class="oefening__score" hidden>
+      <div class="oefening__score-tekst"></div>
+      <div class="oefening__score-balk"><div class="oefening__score-vulling"></div></div>
+    </div>
+  </div>
+</div>
+<h2 id="samenvatting">Samenvatting</h2>
+<div class="callout callout--samenvatting">
+<div class="callout-header">📋 Samenvatting</div>
+<ul>
+<li>Een <strong>router</strong> verbindt verschillende netwerken op basis van IP-adressen. Een <strong>switch</strong> verbindt apparaten in hetzelfde netwerk.</li>
+<li>De <strong>default gateway</strong> is de router op jouw subnet. Verkeer buiten jouw netwerk gaat altijd via de gateway.</li>
+<li>De <strong>routeringstabel</strong> bevat alle bekende routes. De default route (<code>0.0.0.0/0</code>) is de vangnet voor al het andere verkeer.</li>
+<li><strong>Windows Server</strong> is sterk in bedrijfsomgevingen met Active Directory. <strong>Linux</strong> domineert op webservers en in de cloud.</li>
+</ul>
+</div>
+<h2 id="huistaak">Huistaak</h2>
+<h3 id="huistaak-h10">Huistaak H10</h3>
+<p>Controleer de netwerkconfiguratie van je eigen toestel thuis.</p>
+<ol>
+<li>Open een opdrachtprompt (Windows) of terminal (Mac/Linux) en typ <code>ipconfig</code> (Windows) of <code>ip addr</code> (Linux/Mac).</li>
+<li>Noteer: jouw IP-adres, subnetmasker en default gateway.</li>
+<li>Ping de default gateway: <code>ping [gateway-adres]</code>. Werkt dit?</li>
+<li>Ping <code>8.8.8.8</code>. Werkt dit ook?</li>
+<li>Leg in eigen woorden uit wat het verschil is tussen de twee pings.</li>
+</ol>
+<p><strong>Verbetersleutel:</strong> zie <code>output/netwerken/huistaken/H10-huistaak-verbetersleutel.md</code></p>
+<p><em>🌐 Netwerken — Hoofdstuk 10 — 5e jaar DAB — v2.0 — 2026-03-22</em></p>
+
+        <div class="complete-btn-wrap">
+          <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
+          <button class="btn btn-primary" id="complete-btn" data-chapter-key="5adb/netwerken/H10">Markeer als voltooid</button>
+        </div>
+        <div class="chapter-nav">
+          <a href="H09.html" class="chapter-nav__link"><span>&#8592;</span><div><span class="chapter-nav__link-label">Vorig</span><span class="chapter-nav__link-title">H09 &mdash; Toepassingslaag: protocollen</span></div></a>
+          <a href="H11.html" class="chapter-nav__link chapter-nav__link--next"><div><span class="chapter-nav__link-label">Volgend</span><span class="chapter-nav__link-title">H11 &mdash; IPv6 introductie</span></div><span>&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+
+</body>
+</html>

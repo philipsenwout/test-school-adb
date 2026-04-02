@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5ADB — Data- en Applicatiebeheer</title>
+  <meta name="description" content="Overzicht van alle vakken voor het 5e jaar Data- en Applicatiebeheer.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>(function(){ var t=localStorage.getItem('ai-school-theme'); if(t==='light') document.documentElement.setAttribute('data-theme','light'); })();</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../index.html" class="site-nav__logo">
+        <img src="../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>  
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">☀️</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu openen">☰</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../index.html" class="site-nav__link">Home</a>
+    <a href="../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>5ADB</span>
+    </nav>
+
+    <!-- Paginaheader -->
+    <div class="page-header page-header--with-widget">
+      <div>
+        <div class="page-header__vak">📘 Vijfde jaar — Introductieniveau</div>
+        <h1 class="page-header__title">5ADB — Vijfde jaar</h1>
+        <p class="page-header__desc">
+          Welkom in het vijfde jaar Data- en Applicatiebeheer. Je leert hier de fundamenten van netwerken,
+          webontwikkeling, databases en Raspberry Pi. Kies een vak om te beginnen.
+        </p>
+      </div>
+      <a href="software.html" class="software-widget" style="text-decoration:none">
+        <img src="../../app-ontwikkeling/images/software-banner.svg"
+             alt="Software installatie" class="software-widget__logo">
+        <h3 class="software-widget__title">Software</h3>
+        <p class="software-widget__desc">Installeer VS Code en de benodigde extensions.</p>
+        <span class="software-widget__btn">&#8681; Installeer software</span>
+      </a>
+    </div>
+
+    <!-- Totale voortgang -->
+    <div class="card" style="margin-bottom:var(--space-8);">
+      <h2 style="font-size:var(--text-xl);margin-bottom:var(--space-4);">Jouw totale voortgang 5ADB</h2>
+      <div class="progress-label">
+        <span data-progress-label="5adb/totaal">Bezig met berekenen...</span>
+        <span id="pct-totaal">0%</span>
+      </div>
+      <div class="progress-bar-wrap" style="height:10px;">
+        <div class="progress-bar" id="bar-totaal" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- Vakoverzicht -->
+    <div class="vak-grid">
+
+      <!-- Netwerken -->
+      <a href="netwerken/index.html" class="card-vak card-vak--netwerken animate-fade-in-up animate-delay-1">
+        <span class="card-vak__icon">🌐</span>
+        <div class="card-vak__title">Netwerken</div>
+        <p class="card-vak__subtitle">Van basisnetwerken tot IPv6 en netwerkontwerp. Je sluit af met een project in Packet Tracer.</p>
+        <div class="card-vak__progress-label">
+          <span data-progress-label="5adb/netwerken">0 / 13 voltooid</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" data-progress-bar="5adb/netwerken" data-total="13" style="width:0%"></div>
+        </div>
+        <div class="card-vak__meta">
+          <span>13 H.</span>
+          <span>~88 u</span>
+          <span>2 u/week</span>
+        </div>
+      </a>
+
+      <!-- App-ontwikkeling -->
+      <a href="app-ontwikkeling/index.html" class="card-vak card-vak--appdev animate-fade-in-up animate-delay-2">
+        <span class="card-vak__icon">💻</span>
+        <div class="card-vak__title">App-ontwikkeling</div>
+        <p class="card-vak__subtitle">HTML, CSS en JavaScript van nul. Je bouwt je eerste interactieve webpagina's en leert Git gebruiken.</p>
+        <div class="card-vak__progress-label">
+          <span data-progress-label="5adb/app-ontwikkeling">0 / 25 voltooid</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" data-progress-bar="5adb/app-ontwikkeling" data-total="25" style="width:0%"></div>
+        </div>
+        <div class="card-vak__meta">
+          <span>25 H.</span>
+          <span>~150 u</span>
+          <span>6 u/week</span>
+        </div>
+      </a>
+
+      <!-- Databeheer -->
+      <a href="databeheer/index.html" class="card-vak card-vak--data animate-fade-in-up animate-delay-3">
+        <span class="card-vak__icon">🗄️</span>
+        <div class="card-vak__title">Databeheer</div>
+        <p class="card-vak__subtitle">Databases ontwerpen met ERD, SQL schrijven en data visualiseren met Python. Afsluiter: miniproject.</p>
+        <div class="card-vak__progress-label">
+          <span data-progress-label="5adb/databeheer">0 / 10 voltooid</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" data-progress-bar="5adb/databeheer" data-total="10" style="width:0%"></div>
+        </div>
+        <div class="card-vak__meta">
+          <span>10 H.</span>
+          <span>~60 u</span>
+          <span>4 u/week</span>
+        </div>
+      </a>
+
+      <!-- E-STEM -->
+      <a href="e-stem/index.html" class="card-vak card-vak--estem animate-fade-in-up animate-delay-4">
+        <span class="card-vak__icon">🍓</span>
+        <div class="card-vak__title">E-STEM</div>
+        <p class="card-vak__subtitle">Raspberry Pi, Linux terminal, Python scripts en een individueel en groepsproject om het jaar af te sluiten.</p>
+        <div class="card-vak__progress-label">
+          <span data-progress-label="5adb/e-stem">0 / 7 voltooid</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" data-progress-bar="5adb/e-stem" data-total="7" style="width:0%"></div>
+        </div>
+        <div class="card-vak__meta">
+          <span>7 H.</span>
+          <span>~60 u</span>
+          <span>2 u/week</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Info sectie -->
+    <div class="callout callout--info" style="margin-top:var(--space-8);">
+      <div class="callout-header">ℹ️ Hoe werkt deze website?</div>
+      <p>Klik op een vak om de hoofdstukkenlijst te zien. Elke cursuspagina bevat theorie, voorbeelden en oefeningen.
+      Klik op <strong>"Markeer als voltooid"</strong> onderaan elke pagina om je voortgang bij te houden.
+      Je voortgang wordt opgeslagen in je browser — er is geen account nodig.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen — Data- en Applicatiebeheer &mdash; 5ADB &mdash; Schooljaar 2025–2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../assets/js/app.js"></script>
+<script>
+  // Bereken totale voortgang (som van alle 4 vakken = 40 hoofdstukken)
+  document.addEventListener('DOMContentLoaded', function() {
+    var totaal = 55;
+    var prefixes = ['5adb/netwerken','5adb/app-ontwikkeling','5adb/databeheer','5adb/e-stem'];
+    var totals   = [13, 25, 10, 7];
+    var completed = 0;
+    try {
+      var prog = JSON.parse(localStorage.getItem('ai-school-progress')) || {};
+      prefixes.forEach(function(p, i) {
+        for (var k in prog) {
+          if (k.startsWith(p + '/') && prog[k] === 'completed') completed++;
+        }
+      });
+    } catch(e) {}
+    var pct = Math.round((completed / totaal) * 100);
+    document.getElementById('bar-totaal').style.width = pct + '%';
+    document.getElementById('pct-totaal').textContent = pct + '%';
+    var lbl = document.querySelector('[data-progress-label="5adb/totaal"]');
+    if (lbl) lbl.textContent = completed + ' / ' + totaal + ' hoofdstukken voltooid';
+  });
+</script>
+</body>
+</html>
