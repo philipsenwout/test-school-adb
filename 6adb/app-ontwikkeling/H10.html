@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptenapp — Recepten Weergeven — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H10" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.1"><span class="sidebar-check__box"></span></label>
+          <a href="#script-starten">10.1 script.js starten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.2"><span class="sidebar-check__box"></span></label>
+          <a href="#voeg-recept-toe">10.2 voegReceptToe() functie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.3"><span class="sidebar-check__box"></span></label>
+          <a href="#toon-recepten">10.3 Alle recepten tonen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.4"><span class="sidebar-check__box"></span></label>
+          <a href="#leegtoestand">10.4 Leegtoestand</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.5"><span class="sidebar-check__box"></span></label>
+          <a href="#statistieken">10.5 Statistieken tonen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.6"><span class="sidebar-check__box"></span></label>
+          <a href="#luisteraars">10.6 Luisteraars</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Receptenapp — Recepten Weergeven</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H10 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Receptenapp — Recepten Weergeven</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Data laden vanuit localStorage met <code>JSON.parse</code></li>
+          <li>Dynamisch HTML-elementen aanmaken met <code>createElement</code> en <code>innerHTML</code></li>
+          <li>Een CSS-klasse koppelen aan een objecteigenschap voor kleurcodering</li>
+          <li>Een SVG-element aanmaken met <code>createElementNS</code></li>
+          <li>Een leegtoestand tonen als er geen resultaten zijn</li>
+          <li>De DOM manipuleren bij het laden van de pagina</li>
+        </ul>
+      </div>
+
+      <h2 id="script-starten">10.1 <code>script.js</code> starten — data laden vanuit localStorage</h2>
+      <p>Open het bestand <code>script.js</code> en begin met de volgende code. We importeren de hulpfunctie, selecteren de benodigde DOM-elementen en laden de recepten uit localStorage.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// script.js
+// [ADB09] Logica voor de overzichtspagina — verdieping
+
+import { updateLS } from "./hulpfuncties.js";
+
+// Selecteer de DOM-elementen die we nodig hebben
+const receptenSectie = document.querySelector('#recepten-sectie');
+const geenReceptenBericht = document.querySelector('#geenrecepten');
+const appTitel = document.querySelector('#app-titel');
+const statsList = document.querySelector('#stats-lijst');
+
+// Laad de recepten vanuit localStorage
+// Als er nog niets is, beginnen we met een lege array
+let alleRecepten = JSON.parse(localStorage.getItem('opgeslagenRecepten')) || [];
+
+// Pas de h1 aan via DOM (oefening DOM-manipulatie)
+appTitel.textContent = `Mijn Recepten (${alleRecepten.length})`;</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Lijn</th><th>Uitleg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>import { updateLS }</code></td><td>Importeer de hulpfunctie uit het andere module-bestand</td></tr>
+          <tr><td><code>document.querySelector(...)</code></td><td>Selecteer DOM-elementen via CSS-selector</td></tr>
+          <tr><td><code>localStorage.getItem(...)</code></td><td>Lees de opgeslagen JSON-string</td></tr>
+          <tr><td><code>JSON.parse(...)</code></td><td>Zet de JSON-string om naar een JavaScript-array</td></tr>
+          <tr><td><code>|| []</code></td><td>Als er niets is (null), gebruik dan een lege array</td></tr>
+          <tr><td><code>appTitel.textContent = ...</code></td><td>Pas de tekst van de h1 aan via DOM</td></tr>
+        </tbody>
+      </table>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Let op de <code>|| []</code></div>
+        <p><code>localStorage.getItem()</code> geeft <code>null</code> terug als de sleutel niet bestaat. <code>JSON.parse(null)</code> geeft ook <code>null</code> — wat een fout zou veroorzaken als we er iets mee proberen te doen. De <code>|| []</code> vangt dit op en zorgt dat we altijd met een array werken.</p>
+      </div>
+
+      <h2 id="voeg-recept-toe">10.2 De <code>voegReceptToe(recept)</code> functie — DOM-element aanmaken</h2>
+      <p>Dit is de belangrijkste functie van <code>script.js</code>. Ze maakt voor <strong>één recept</strong> een volledig HTML-element aan en voegt het toe aan de pagina.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H10-afb1.svg" alt="Schema van de voegReceptToe functie: invoer = receptobject, uitvoer = article-element in het DOM" loading="lazy">
+      </figure>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function voegReceptToe(recept) {
+    // 1. Maak een article-element aan
+    const kaart = document.createElement('article');
+    kaart.classList.add('recept-kaart');
+    kaart.classList.add(recept.categorie); // bv. 'hoofdgerecht' → blauwe rand
+
+    // 2. Vul de inhoud in via innerHTML
+    kaart.innerHTML = `
+        &lt;h2&gt;${recept.naam}&lt;/h2&gt;
+        &lt;p&gt;${recept.beschrijving}&lt;/p&gt;
+        &lt;div class="recept-meta"&gt;
+            &lt;span&gt;${recept.categorie} &amp;bull; ${recept.bereidingstijd} min&lt;/span&gt;
+        &lt;/div&gt;
+    `;
+
+    // 3. Maak de verwijder-knop aan via createElementNS (SVG)
+    const verwijderKnop = document.createElement('button');
+    verwijderKnop.classList.add('verwijder-knop');
+    verwijderKnop.title = `${recept.naam} verwijderen`;
+    verwijderKnop.setAttribute('aria-label', `${recept.naam} verwijderen`);
+
+    // SVG prullenbak-icoon
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '18');
+    svg.setAttribute('height', '18');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2');
+
+    const pad = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pad.setAttribute('d', 'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6');
+    svg.appendChild(pad);
+    verwijderKnop.appendChild(svg);
+
+    // 4. Voeg de verwijder-knop toe aan de kaart
+    kaart.querySelector('.recept-meta').appendChild(verwijderKnop);
+
+    // 5. Voeg de kaart toe aan de sectie in de DOM
+    receptenSectie.appendChild(kaart);
+}</code></pre>
+      </div>
+
+      <h3>Twee manieren om HTML-elementen aan te maken</h3>
+      <p>In dit project gebruiken we <strong>twee technieken</strong> naast elkaar:</p>
+      <p><strong>Techniek 1: <code>innerHTML</code></strong> — snel en leesbaar voor grotere blokken HTML. Let op: gebruik dit nooit met onbetrouwbare gebruikersinput zonder sanitatie (XSS-risico).</p>
+      <p><strong>Techniek 2: <code>createElement</code> + <code>createElementNS</code></strong> — meer controle, veiliger. <code>createElementNS</code> is verplicht voor SVG-elementen (SVG heeft een eigen XML-namespace).</p>
+
+      <h3>Waarom <code>recept.categorie</code> als CSS-klasse?</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">kaart.classList.add(recept.categorie);</code></pre>
+      </div>
+      <p>De categorie (<code>"hoofdgerecht"</code>, <code>"dessert"</code>, ...) wordt rechtstreeks als CSS-klasse toegevoegd. Dit is een elegant patroon: de categorienaam in het object en de CSS-klassenaam zijn <strong>identiek</strong>, waardoor we geen extra vertaling nodig hebben.</p>
+
+      <h2 id="toon-recepten">10.3 Alle recepten tonen bij paginaladen</h2>
+      <p>Nu we de functie hebben, kunnen we ze oproepen voor <strong>elk recept</strong> in de array. De <code>toonRecepten()</code> functie leegt eerst de sectie, filtert op actieve categorieën en zoekterm, en roept dan <code>voegReceptToe()</code> op voor elk gevonden recept.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonRecepten() {
+    // Leeg de sectie eerst (belangrijk bij herladen!)
+    receptenSectie.innerHTML = '';
+
+    // Filter op actieve categorieën en zoekterm
+    const actieveCategorieen = [...document.querySelectorAll('.filter-knoppen input:checked')]
+        .map(cb => cb.value);
+
+    const zoekterm = document.querySelector('#zoekbalk').value.toLowerCase().trim();
+
+    const gefilterd = alleRecepten.filter(r => {
+        const categorieOk = actieveCategorieen.includes(r.categorie);
+        const naamOk = r.naam.toLowerCase().includes(zoekterm);
+        return categorieOk && naamOk;
+    });
+
+    // Toon elk recept via de functie
+    gefilterd.forEach(r => voegReceptToe(r));
+
+    // Toon of verberg het "geen recepten"-bericht
+    geenReceptenBericht.style.display = gefilterd.length === 0 ? 'block' : 'none';
+
+    // Update de h1 met het totaal aantal
+    appTitel.textContent = `Mijn Recepten (${alleRecepten.length})`;
+
+    // Update statistieken
+    toonStatistieken();
+}
+
+// Roep de functie op bij het laden van de pagina
+toonRecepten();</code></pre>
+      </div>
+
+      <h3>De filterketen uitgelegd</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const actieveCategorieen = [...document.querySelectorAll('.filter-knoppen input:checked')]
+    .map(cb => cb.value);</code></pre>
+      </div>
+      <ol>
+        <li><code>querySelectorAll(...)</code> → NodeList van alle <strong>aangevinkte</strong> checkboxes</li>
+        <li><code>[...]</code> → spreid de NodeList uit naar een echte array</li>
+        <li><code>.map(cb => cb.value)</code> → maak een array van de waarden: <code>["voorgerecht", "hoofdgerecht", ...]</code></li>
+      </ol>
+
+      <h2 id="leegtoestand">10.4 Leegtoestand tonen</h2>
+      <p>Wat als er geen recepten zijn of geen resultaten overeenkomen? We tonen een bericht:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">geenReceptenBericht.style.display = gefilterd.length === 0 ? 'block' : 'none';</code></pre>
+      </div>
+      <p>Dit is een <strong>ternaire operator</strong>: als <code>gefilterd.length === 0</code> → toon het bericht (<code>display: block</code>), anders → verberg het (<code>display: none</code>). Het element staat standaard verborgen in de HTML (<code>style="display: none;"</code>).</p>
+
+      <h2 id="statistieken">10.5 Statistieken tonen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonStatistieken() {
+    const categorieen = ['voorgerecht', 'hoofdgerecht', 'dessert', 'snack'];
+    statsList.innerHTML = '';
+
+    categorieen.forEach(cat => {
+        const aantal = alleRecepten.filter(r => r.categorie === cat).length;
+        const li = document.createElement('li');
+        li.textContent = `${cat}: ${aantal}`;
+        statsList.appendChild(li);
+    });
+}</code></pre>
+      </div>
+
+      <h2 id="luisteraars">10.6 Luisteraars toevoegen voor zoeken en filteren</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Live zoeken bij elke toetsaanslag
+document.querySelector('#zoekbalk').addEventListener('input', toonRecepten);
+
+// Herlaad bij elke wijziging van een checkbox
+document.querySelectorAll('.filter-knoppen input').forEach(cb => {
+    cb.addEventListener('change', toonRecepten);
+});</code></pre>
+      </div>
+      <p><code>addEventListener('input', ...)</code> op het zoekveld zorgt ervoor dat de lijst <strong>live</strong> filtert bij elke toetsaanslag — zonder dat je op Enter hoeft te drukken.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Eerste recepten zichtbaar</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Op dit moment zijn er nog geen recepten in localStorage. Voeg tijdelijk testcode toe onderaan <code>script.js</code> om te controleren of de weergave werkt:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">// TIJDELIJKE TESTCODE — verwijder dit nadien!
+if (alleRecepten.length === 0) {
+    alleRecepten = [
+        { naam: "Testrecept 1", beschrijving: "Beschrijving.", categorie: "hoofdgerecht", bereidingstijd: 30 },
+        { naam: "Testrecept 2", beschrijving: "Voorgerecht test.", categorie: "voorgerecht", bereidingstijd: 15 },
+        { naam: "Testdessert", beschrijving: "Zoet dessert.", categorie: "dessert", bereidingstijd: 20 }
+    ];
+    toonRecepten();
+}</code></pre>
+            </div>
+            <p>Controleer: verschijnen de 3 kaarten? Hebben ze elk een andere kleur linkerrand? Verwijder de testcode zodra alles werkt.</p>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H10-oef1-browser.svg" alt="Browser met 3 receptkaarten in een grid, mooi opgemaakt met gekleurde linkerranden" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Tijdsindicator toevoegen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Pas de <code>voegReceptToe()</code> functie aan zodat de bereidingstijd ook een <strong>label</strong> krijgt op basis van de duur:</p>
+            <table class="data-table">
+              <thead><tr><th>Tijd</th><th>Label</th></tr></thead>
+              <tbody>
+                <tr><td>Minder dan 20 minuten</td><td>"Snel"</td></tr>
+                <tr><td>Tussen 20 en 45 minuten</td><td>"Normaal"</td></tr>
+                <tr><td>Meer dan 45 minuten</td><td>"Lang"</td></tr>
+              </tbody>
+            </table>
+            <p>Schrijf een hulpfunctie <code>tijdsLabel(minuten)</code> die het label teruggeeft, en gebruik die in de <code>innerHTML</code> van de kaart.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 3 — createElementNS begrijpen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Leg in eigen woorden uit waarom we <code>document.createElementNS(...)</code> gebruiken voor de SVG-icoon en niet gewoon <code>document.createElement(...)</code>. Wat is het verschil? Wat is een "namespace" in de context van HTML en SVG?</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H10 Recepten Weergeven
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H10-oef1-browser.svg', 'Voorbeeld — Recepten weergeven in grid')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: script.js volledig uitwerken</h3>
+            <p>Bouw de volledige <code>script.js</code> na op basis van wat je in dit hoofdstuk geleerd hebt.</p>
+            <h4>Deel 1 — Basisweergave (4 punten)</h4>
+            <ol>
+              <li>Implementeer <code>voegReceptToe(recept)</code> volledig (article, classList, innerHTML, SVG-knop).</li>
+              <li>Implementeer <code>toonRecepten()</code> met filtering op checkboxes en zoekterm.</li>
+              <li>Roep <code>toonRecepten()</code> op bij het laden van de pagina.</li>
+            </ol>
+            <h4>Deel 2 — Statistieken (3 punten)</h4>
+            <ol>
+              <li>Implementeer <code>toonStatistieken()</code> die per categorie het aantal toont.</li>
+              <li>Roep deze functie op na elke update van de receptenlijst.</li>
+            </ol>
+            <h4>Deel 3 — Luisteraars en leegtoestand (3 punten)</h4>
+            <ol>
+              <li>Voeg een <code>input</code>-listener toe aan het zoekveld.</li>
+              <li>Voeg <code>change</code>-listeners toe aan alle checkboxes.</li>
+              <li>Toon de leegtoestand correct als er geen recepten gevonden worden.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H10 — Recepten Weergeven</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat geeft <code>localStorage.getItem('sleutel')</code> terug als de sleutel niet bestaat?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h10-v1" value="a"> <span><code>undefined</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v1" value="b"> <span><code>false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v1" value="c"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v1" value="d"> <span>Een lege string</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Waarvoor dient <code>kaart.classList.add(recept.categorie)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h10-v2" value="a"> <span>Om de categorie als tekst in de kaart te tonen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v2" value="b"> <span>Om de juiste CSS-kleur via de bijbehorende CSS-klasse toe te passen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v2" value="c"> <span>Om de kaart in localStorage op te slaan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v2" value="d"> <span>Om de kaart zichtbaar te maken</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Waarom gebruiken we <code>document.createElementNS</code> voor SVG-elementen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h10-v3" value="a"> <span>SVG heeft een eigen XML-namespace en werkt niet correct met gewoon <code>createElement</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v3" value="b"> <span>Omdat <code>createElement</code> niet bestaat voor SVG</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v3" value="c"> <span>Om de SVG sneller te renderen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v3" value="d"> <span>Omdat SVG geen CSS ondersteunt</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat doet de ternaire operator <code>gefilterd.length === 0 ? 'block' : 'none'</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h10-v4" value="a"> <span>Telt alle recepten op</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v4" value="b"> <span>Maakt de array leeg</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v4" value="c"> <span>Filtert de lege recepten uit de lijst</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v4" value="d"> <span>Geeft 'block' als er geen resultaten zijn, anders 'none'</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk event gebruik je voor live zoeken bij elke toetsaanslag?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h10-v5" value="a"> <span><code>keydown</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v5" value="b"> <span><code>input</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v5" value="c"> <span><code>change</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v5" value="d"> <span><code>submit</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat doet <code>[...document.querySelectorAll('input:checked')]</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h10-v6" value="a"> <span>Controleert of alle inputs aangevinkt zijn</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v6" value="b"> <span>Verwijdert alle aangevinkte elementen uit de DOM</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v6" value="c"> <span>Zet de NodeList van aangevinkte checkboxes om naar een echte array</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h10-v6" value="d"> <span>Maakt een kopie van alle input-elementen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H10')" data-progress-key="6adb/app-ontwikkeling/H10">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H09.html" class="btn btn-ghost">← H09</a>
+          <a href="H11.html" class="btn btn-ghost">H11 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

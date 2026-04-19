@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="a1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7c85ff"/>
+    </marker>
+    <marker id="a2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28c840"/>
+    </marker>
+    <marker id="a3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff5f57"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="500" fill="#1a1a2e"/>
+  <text x="410" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#e0e0f0">GIP — Authenticatiesysteem</text>
+
+  <!-- Two flows side by side: Register + Login -->
+  <!-- REGISTER flow (left) -->
+  <text x="200" y="62" text-anchor="middle" font-size="14" fill="#7c85ff" font-weight="700">Registreren</text>
+  <line x1="200" y1="68" x2="200" y2="78" stroke="#2a2a4a" stroke-width="1"/>
+
+  <rect x="80" y="80" width="240" height="36" rx="6" fill="#252550" stroke="#7c85ff" stroke-width="1.5"/>
+  <text x="200" y="102" text-anchor="middle" font-size="12" fill="#c8c8d4">Formulier: naam + email + wachtwoord</text>
+
+  <line x1="200" y1="116" x2="200" y2="136" stroke="#7c85ff" stroke-width="2" marker-end="url(#a1)"/>
+  <text x="216" y="130" font-size="10" fill="#888">POST /api/register</text>
+
+  <rect x="80" y="138" width="240" height="36" rx="6" fill="#252540"/>
+  <text x="200" y="160" text-anchor="middle" font-size="12" fill="#f78c6c">bcrypt.hash(wachtwoord, 10)</text>
+
+  <line x1="200" y1="174" x2="200" y2="194" stroke="#7c85ff" stroke-width="2" marker-end="url(#a1)"/>
+
+  <rect x="80" y="196" width="240" height="36" rx="6" fill="#252540"/>
+  <text x="200" y="218" text-anchor="middle" font-size="12" fill="#a8e6a3">INSERT INTO users</text>
+
+  <line x1="200" y1="232" x2="200" y2="252" stroke="#28c840" stroke-width="2" marker-end="url(#a2)"/>
+
+  <rect x="80" y="254" width="240" height="36" rx="6" fill="#1a3020" stroke="#28c840" stroke-width="1.5"/>
+  <text x="200" y="276" text-anchor="middle" font-size="13" fill="#28c840" font-weight="700">201 → redirect login.html</text>
+
+  <!-- LOGIN flow (right) -->
+  <text x="620" y="62" text-anchor="middle" font-size="14" fill="#c792ea" font-weight="700">Inloggen</text>
+
+  <rect x="500" y="80" width="240" height="36" rx="6" fill="#252550" stroke="#c792ea" stroke-width="1.5"/>
+  <text x="620" y="102" text-anchor="middle" font-size="12" fill="#c8c8d4">Formulier: email + wachtwoord</text>
+
+  <line x1="620" y1="116" x2="620" y2="136" stroke="#c792ea" stroke-width="2" marker-end="url(#a1)"/>
+  <text x="638" y="130" font-size="10" fill="#888">POST /api/login</text>
+
+  <rect x="500" y="138" width="240" height="36" rx="6" fill="#252540"/>
+  <text x="620" y="160" text-anchor="middle" font-size="12" fill="#a8e6a3">SELECT WHERE email = ?</text>
+
+  <line x1="620" y1="174" x2="620" y2="194" stroke="#c792ea" stroke-width="2" marker-end="url(#a1)"/>
+
+  <rect x="500" y="196" width="240" height="36" rx="6" fill="#252540"/>
+  <text x="620" y="218" text-anchor="middle" font-size="12" fill="#f78c6c">bcrypt.compare(pw, hash)</text>
+
+  <!-- Decision: match? -->
+  <line x1="620" y1="232" x2="620" y2="252" stroke="#c792ea" stroke-width="2" marker-end="url(#a1)"/>
+  <polygon points="620,254 680,274 620,294 560,274" fill="#252540" stroke="#febc2e" stroke-width="1.5"/>
+  <text x="620" y="272" text-anchor="middle" font-size="11" fill="#febc2e">klopt?</text>
+  <text x="620" y="286" text-anchor="middle" font-size="11" fill="#febc2e">wacht</text>
+
+  <!-- YES -->
+  <line x1="680" y1="274" x2="730" y2="274" stroke="#28c840" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="706" y="268" font-size="10" fill="#28c840">JA</text>
+  <rect x="730" y="256" width="68" height="36" rx="5" fill="#1a3020" stroke="#28c840" stroke-width="1.5"/>
+  <text x="764" y="278" text-anchor="middle" font-size="11" fill="#28c840" font-weight="700">200 OK</text>
+  <text x="764" y="310" text-anchor="middle" font-size="10" fill="#888">sessie</text>
+  <text x="764" y="322" text-anchor="middle" font-size="10" fill="#888">bewaard</text>
+
+  <!-- NO -->
+  <line x1="620" y1="294" x2="620" y2="318" stroke="#ff5f57" stroke-width="2" marker-end="url(#a3)"/>
+  <text x="632" y="310" font-size="10" fill="#ff5f57">NEE</text>
+  <rect x="500" y="320" width="240" height="36" rx="6" fill="#2a1010" stroke="#ff5f57" stroke-width="1.5"/>
+  <text x="620" y="342" text-anchor="middle" font-size="12" fill="#ff5f57" font-weight="700">401 — Ongeldig wachtwoord</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="60" x2="400" y2="400" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- Session info box bottom -->
+  <rect x="30" y="320" width="340" height="160" rx="8" fill="#0d0d1a" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="200" y="344" text-anchor="middle" font-size="12" fill="#888" font-weight="700">Wat zit er in de sessie na login?</text>
+  <text x="50" y="366" font-size="12" fill="#7c85ff" font-family="'Courier New', monospace">req.session.gebruikerId</text>
+  <text x="50" y="385" font-size="12" fill="#c792ea" font-family="'Courier New', monospace">req.session.naam</text>
+  <text x="50" y="404" font-size="12" fill="#c792ea" font-family="'Courier New', monospace">req.session.rol</text>
+  <text x="50" y="426" font-size="11" fill="#555">→ "lid" of "admin"</text>
+  <text x="50" y="446" font-size="11" fill="#555">→ Via cookie opgeslagen in browser</text>
+  <text x="50" y="462" font-size="11" fill="#555">→ Geldig voor 2 uur (maxAge)</text>
+
+  <!-- Session check at GET /api/mij -->
+  <rect x="430" y="380" width="360" height="100" rx="8" fill="#0d0d1a" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="610" y="402" text-anchor="middle" font-size="12" fill="#888" font-weight="700">GET /api/mij — wie ben ik?</text>
+  <text x="450" y="424" font-size="11" fill="#888" font-family="'Courier New', monospace">→ Geeft de ingelogde gebruiker terug</text>
+  <text x="450" y="444" font-size="11" fill="#888" font-family="'Courier New', monospace">→ Controleert req.session.gebruikerId</text>
+  <text x="450" y="464" font-size="11" fill="#888" font-family="'Courier New', monospace">→ Retourneert naam + rol (geen wachtwoord!)</text>
+</svg>

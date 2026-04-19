@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login &amp; Register — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H22" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom-hashen">22.1 Waarom wachtwoorden hashen?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.2"><span class="sidebar-check__box"></span></label>
+          <a href="#packages">22.2 Packages installeren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.3"><span class="sidebar-check__box"></span></label>
+          <a href="#users-tabel">22.3 Users-tabel aanmaken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.4"><span class="sidebar-check__box"></span></label>
+          <a href="#server-uitbreiden">22.4 server.js uitbreiden</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.5"><span class="sidebar-check__box"></span></label>
+          <a href="#register">22.5 Registratie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.6"><span class="sidebar-check__box"></span></label>
+          <a href="#login">22.6 Login</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.7"><span class="sidebar-check__box"></span></label>
+          <a href="#logout">22.7 Uitloggen &amp; /api/mij</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.8"><span class="sidebar-check__box"></span></label>
+          <a href="#route-beveiligen">22.8 Route beveiligen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="22.9"><span class="sidebar-check__box"></span></label>
+          <a href="#frontend">22.9 Login-formulier in de front-end</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Login &amp; Register</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H22 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Login &amp; Register</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB01</span><span class="ld-tag__title">De leerlingen beveiligen een applicatie tegen ongeautoriseerde toegang.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een databank aan een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen waarom wachtwoorden altijd gehashed worden opgeslagen</li>
+          <li><code>bcrypt</code> gebruiken om een wachtwoord te hashen en te vergelijken</li>
+          <li>Een <code>users</code>-tabel aanmaken in MySQL</li>
+          <li>Een <code>/api/register</code>-route schrijven die een gebruiker opslaat</li>
+          <li>Een <code>/api/login</code>-route schrijven die het wachtwoord controleert</li>
+          <li><code>express-session</code> gebruiken om bij te houden wie ingelogd is</li>
+          <li>Een route beveiligen zodat alleen ingelogde gebruikers die kunnen bereiken</li>
+        </ul>
+      </div>
+
+      <h2 id="waarom-hashen">22.1 Waarom wachtwoorden hashen?</h2>
+      <p>Als je het wachtwoord <code>"geheim123"</code> gewoon opslaat in de database en die database wordt gehackt, kan iedereen direct alle wachtwoorden lezen.</p>
+      <p><strong>Hashing</strong> zet een wachtwoord om naar een onleesbare reeks tekens:</p>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>"geheim123"  →  bcrypt  →  "$2b$10$K8JepbwUKlV..."</code></pre>
+      </div>
+      <p>Je kan nooit terugrekenen van de hash naar het origineel. Bij inloggen hash je het ingegeven wachtwoord opnieuw en vergelijk je de twee hashes.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H22-afb1.svg" alt="Registratiestroom: browser POST register → bcrypt hash → INSERT MySQL → 201" loading="lazy">
+      </figure>
+
+      <h2 id="packages">22.2 Packages installeren</h2>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">cd Server
+npm install bcrypt express-session</code></pre>
+      </div>
+
+      <h2 id="users-tabel">22.3 Users-tabel aanmaken</h2>
+      <p>Voer dit script uit in MySQL Workbench:</p>
+      <div class="code-block">
+        <div class="code-block__lang">SQL</div>
+        <pre><code class="language-sql">CREATE DATABASE IF NOT EXISTS sportclub_db;
+USE sportclub_db;
+
+CREATE TABLE IF NOT EXISTS users (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  naam       VARCHAR(100) NOT NULL,
+  email      VARCHAR(150) NOT NULL UNIQUE,
+  wachtwoord VARCHAR(255) NOT NULL,
+  rol        VARCHAR(20)  NOT NULL DEFAULT 'lid'
+);</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Waarom VARCHAR(255) voor wachtwoord?</div>
+        <p>Een bcrypt-hash is altijd 60 tekens &mdash; maar met 255 heb je ruimte voor de toekomst.</p>
+      </div>
+
+      <h2 id="server-uitbreiden">22.4 server.js uitbreiden</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Server/server.js
+import express  from 'express';
+import mysql    from 'mysql2/promise';
+import bcrypt   from 'bcrypt';
+import session  from 'express-session';
+
+const app  = express();
+const port = 3000;
+
+app.use(express.static('../Client'));
+app.use(express.json());
+
+// Sessies bijhouden
+app.use(session({
+    secret:            'geheimesleutel123',  // kies een eigen lange string
+    resave:            false,
+    saveUninitialized: false,
+    cookie: { maxAge: 1000 * 60 * 60 * 2 }  // 2 uur
+}));
+
+const pool = mysql.createPool({
+    host:     'localhost',
+    port:     3306,
+    user:     'root',
+    password: 'jouwwachtwoord',
+    database: 'sportclub_db',
+});
+
+// ... routes komen hieronder ...
+
+app.listen(port, () => console.log('Server: http://localhost:' + port));</code></pre>
+      </div>
+
+      <h2 id="register">22.5 Registratie &mdash; <code>/api/register</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// POST /api/register — nieuwe gebruiker aanmaken
+app.post('/api/register', async (req, res) => {
+    const { naam, email, wachtwoord } = req.body;
+
+    if (!naam || !email || !wachtwoord) {
+        return res.status(400).json({ fout: 'Alle velden zijn verplicht' });
+    }
+    if (wachtwoord.length &lt; 8) {
+        return res.status(400).json({ fout: 'Wachtwoord moet minstens 8 tekens zijn' });
+    }
+
+    // Controleer of e-mailadres al bestaat
+    const [bestaande] = await pool.execute(
+        'SELECT id FROM users WHERE email = ?', [email]
+    );
+    if (bestaande.length > 0) {
+        return res.status(409).json({ fout: 'E-mailadres is al in gebruik' });
+    }
+
+    // Wachtwoord hashen
+    const hash = await bcrypt.hash(wachtwoord, 10);
+
+    // Gebruiker opslaan
+    const [resultaat] = await pool.execute(
+        'INSERT INTO users (naam, email, wachtwoord) VALUES (?, ?, ?)',
+        [naam, email, hash]
+    );
+
+    res.status(201).json({ id: resultaat.insertId, bericht: 'Account aangemaakt' });
+});</code></pre>
+      </div>
+
+      <h2 id="login">22.6 Login &mdash; <code>/api/login</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// POST /api/login — inloggen
+app.post('/api/login', async (req, res) => {
+    const { email, wachtwoord } = req.body;
+
+    const [rijen] = await pool.execute(
+        'SELECT * FROM users WHERE email = ?', [email]
+    );
+    if (rijen.length === 0) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    const gebruiker = rijen[0];
+    const klopt = await bcrypt.compare(wachtwoord, gebruiker.wachtwoord);
+
+    if (!klopt) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    // Sessie aanmaken
+    req.session.gebruikerId = gebruiker.id;
+    req.session.naam        = gebruiker.naam;
+    req.session.rol         = gebruiker.rol;
+
+    res.json({ bericht: 'Ingelogd', naam: gebruiker.naam, rol: gebruiker.rol });
+});</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Zelfde foutmelding voor onbekend e-mail én fout wachtwoord</div>
+        <p>Zo weet een aanvaller niet welk deel klopt &mdash; e-mailadres of wachtwoord.</p>
+      </div>
+
+      <h2 id="logout">22.7 Uitloggen &amp; <code>/api/mij</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// POST /api/logout — uitloggen
+app.post('/api/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.json({ bericht: 'Uitgelogd' });
+    });
+});
+
+// GET /api/mij — wie ben ik?
+app.get('/api/mij', (req, res) => {
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Niet ingelogd' });
+    }
+    res.json({ naam: req.session.naam, rol: req.session.rol });
+});</code></pre>
+      </div>
+
+      <h2 id="route-beveiligen">22.8 Een route beveiligen</h2>
+      <p>Voeg bovenaan elke beveiligde route een sessiecontrole toe &mdash; inline, geen aparte functie:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// GET /api/profiel — enkel voor ingelogde gebruikers
+app.get('/api/profiel', async (req, res) => {
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Inloggen vereist' });
+    }
+
+    const [rijen] = await pool.execute(
+        'SELECT id, naam, email, rol FROM users WHERE id = ?',
+        [req.session.gebruikerId]
+    );
+    res.json(rijen[0]);
+});</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H22-afb2.svg" alt="Beveiligde route: sessiecontrole inline vóór de databasequery" loading="lazy">
+      </figure>
+
+      <h2 id="frontend">22.9 Login-formulier in de front-end</h2>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- Client/login.html --&gt;
+&lt;form id="login-form"&gt;
+    &lt;label&gt;E-mail&lt;input type="email" id="email" required&gt;&lt;/label&gt;
+    &lt;label&gt;Wachtwoord&lt;input type="password" id="wachtwoord" required&gt;&lt;/label&gt;
+    &lt;button type="submit"&gt;Inloggen&lt;/button&gt;
+&lt;/form&gt;
+&lt;p id="foutmelding"&gt;&lt;/p&gt;</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Client/login.js
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email      = document.getElementById('email').value;
+    const wachtwoord = document.getElementById('wachtwoord').value;
+
+    const response = await fetch('/api/login', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ email, wachtwoord })
+    });
+    const data = await response.json();
+
+    if (response.ok) {
+        window.location.href = '/dashboard.html';
+    } else {
+        document.getElementById('foutmelding').textContent = data.fout;
+    }
+});</code></pre>
+      </div>
+      <p>Dashboard beveiligen bij het laden:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Client/dashboard.js
+async function checkLogin() {
+    const response = await fetch('/api/mij');
+    if (!response.ok) {
+        window.location.href = '/login.html';
+        return;
+    }
+    const gebruiker = await response.json();
+    document.getElementById('welkom').textContent = 'Welkom, ' + gebruiker.naam + '!';
+}
+
+checkLogin();</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB01 / ADB25</span>
+            <span class="oefening__title">Oefening 1 &mdash; Registratieformulier</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een <code>register.html</code> met velden voor naam, e-mail en wachtwoord. Koppel het formulier aan <code>POST /api/register</code>.</p>
+            <ul>
+              <li>Toon een foutmelding als het e-mailadres al in gebruik is</li>
+              <li>Stuur na succesvolle registratie door naar <code>login.html</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB25</span>
+            <span class="oefening__title">Oefening 2 &mdash; Beschermde pagina</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg een <code>dashboard.html</code> toe met een logout-knop.</p>
+            <ul>
+              <li>Bij het laden: controleer via <code>GET /api/mij</code> of de gebruiker ingelogd is</li>
+              <li>Zo niet &rarr; doorsturen naar <code>login.html</code></li>
+              <li>De logout-knop roept <code>POST /api/logout</code> aan en stuurt daarna ook door naar <code>login.html</code></li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H22-oef1-browser.svg" alt="Loginpagina links, dashboard rechts na succesvolle login" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#x1F4CB; Huistaak &mdash; Login-systeem
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H22-oef1-browser.svg', 'Voorbeeld — Login + Dashboard')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: volledige registratie &amp; login</h3>
+            <h4>Deel 1 &mdash; Server (5 punten)</h4>
+            <ol>
+              <li><strong>POST <code>/api/register</code></strong> &mdash; gebruiker aanmaken met gehashed wachtwoord</li>
+              <li><strong>POST <code>/api/login</code></strong> &mdash; inloggen, sessie aanmaken</li>
+              <li><strong>POST <code>/api/logout</code></strong> &mdash; sessie vernietigen</li>
+              <li><strong>GET <code>/api/mij</code></strong> &mdash; naam en rol van ingelogde gebruiker</li>
+              <li><strong>GET <code>/api/profiel</code></strong> &mdash; beveiligde route: geeft naam + e-mail terug (status 401 als niet ingelogd)</li>
+            </ol>
+            <h4>Deel 2 &mdash; Front-end (3 punten)</h4>
+            <ol>
+              <li><code>register.html</code> &mdash; registratieformulier met foutmelding</li>
+              <li><code>login.html</code> &mdash; loginformulier met foutmelding</li>
+              <li><code>dashboard.html</code> &mdash; toont naam van ingelogde gebruiker + logout-knop</li>
+            </ol>
+            <h4>Deel 3 &mdash; Indiening (2 punten)</h4>
+            <ol>
+              <li>Lever de <code>Server/</code>-map in zonder <code>node_modules/</code></li>
+              <li>Voeg het <code>.sql</code>-bestand toe</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H22 &mdash; Login &amp; Register</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Waarom sla je wachtwoorden nooit als platte tekst op in de database?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="a"> <span>Omdat MySQL geen tekst accepteert in wachtwoordvelden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="b"> <span>Omdat één datalek alle wachtwoorden meteen leesbaar maakt voor de aanvaller</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="c"> <span>Omdat platte tekst te veel opslagruimte inneemt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v1" value="d"> <span>Omdat Node.js wachtwoorden automatisch omzet naar NULL</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat doet <code>bcrypt.compare(ingegeven, hashUitDb)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="a"> <span>Het decodeert de hash terug naar het origineel</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="b"> <span>Het hasht het ingegeven wachtwoord opnieuw met dezelfde salt en vergelijkt het resultaat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="c"> <span>Het stuurt een verzoek naar een externe beveiligingsserver</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v2" value="d"> <span>Het vergelijkt de twee strings karakter per karakter</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Hoe bewaar je de ingelogde gebruiker na een succesvolle login?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="a"> <span>Je stuurt het id mee als URL-parameter bij elk volgend verzoek</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="b"> <span>Je slaat het op in <code>req.session</code> &mdash; express-session bewaart dat via een cookie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="c"> <span>Je slaat het op in een globale variabele bovenaan server.js</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v3" value="d"> <span>Je stuurt het id terug en laat de browser het opslaan in een cookie</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe controleer je inline in een route of iemand ingelogd is?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="a"> <span><code>if (bcrypt.check(req))</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="b"> <span><code>if (!req.session.gebruikerId)</code> &rarr; status 401 sturen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="c"> <span><code>if (!req.body.email)</code> &rarr; status 401 sturen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v4" value="d"> <span><code>if (!req.headers.token)</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke HTTP-statuscode stuur je terug als iemand probeert in te loggen met een fout wachtwoord?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="a"> <span>400 Bad Request</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="b"> <span>403 Forbidden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="c"> <span>401 Unauthorized</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h22-v5" value="d"> <span>404 Not Found</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H22')" data-progress-key="6adb/app-ontwikkeling/H22">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H21.html" class="btn btn-ghost">&larr; H21</a>
+          <a href="H23.html" class="btn btn-ghost">H23 &rarr;</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet juist. Probeer opnieuw.';
+    }
+    feedback.style.display = 'block';
+  });
+}
+</script>
+</body>
+</html>

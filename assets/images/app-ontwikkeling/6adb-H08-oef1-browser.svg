@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Browser chrome -->
+  <rect x="10" y="10" width="780" height="480" rx="12" fill="#f5f6fa" stroke="#ccc" stroke-width="1.5"/>
+  <rect x="10" y="10" width="780" height="44" rx="12" fill="#e8e8ed"/>
+  <rect x="10" y="44" width="780" height="10" fill="#e8e8ed"/>
+  <!-- Knoppen -->
+  <circle cx="36" cy="32" r="7" fill="#ff6b6b"/>
+  <circle cx="58" cy="32" r="7" fill="#f9a825"/>
+  <circle cx="80" cy="32" r="7" fill="#43e97b"/>
+  <!-- Adresbalk -->
+  <rect x="110" y="20" width="500" height="24" rx="6" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <text x="360" y="36" text-anchor="middle" font-size="12" fill="#888">localhost:5173/favorieten.html</text>
+
+  <!-- Pagina-inhoud -->
+  <rect x="10" y="54" width="780" height="436" rx="0" fill="#f8f9ff"/>
+
+  <!-- Paginatitel -->
+  <text x="400" y="102" text-anchor="middle" font-size="28" font-weight="700" fill="#2d2d4e">⭐ Mijn Favorieten</text>
+
+  <!-- Input rij -->
+  <rect x="100" y="120" width="480" height="44" rx="8" fill="#fff" stroke="#d0d0e0" stroke-width="1.5"/>
+  <text x="120" y="147" font-size="14" fill="#aaa">Typ een favoriet...</text>
+  <rect x="596" y="120" width="120" height="44" rx="8" fill="#43e97b"/>
+  <text x="656" y="147" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">Opslaan</text>
+
+  <!-- Favorieten lijst -->
+  <rect x="100" y="186" width="600" height="56" rx="8" fill="#fff" stroke="#e0e8ff" stroke-width="1.5"/>
+  <text x="130" y="220" font-size="18">⭐</text>
+  <text x="165" y="220" font-size="14" fill="#2d2d4e">Programmeren</text>
+  <rect x="660" y="200" width="24" height="24" rx="4" fill="#ff6b6b" opacity="0.8"/>
+  <text x="672" y="217" text-anchor="middle" font-size="14" fill="#fff">×</text>
+
+  <rect x="100" y="252" width="600" height="56" rx="8" fill="#fff" stroke="#e0e8ff" stroke-width="1.5"/>
+  <text x="130" y="286" font-size="18">⭐</text>
+  <text x="165" y="286" font-size="14" fill="#2d2d4e">Fotograferen</text>
+  <rect x="660" y="266" width="24" height="24" rx="4" fill="#ff6b6b" opacity="0.8"/>
+  <text x="672" y="283" text-anchor="middle" font-size="14" fill="#fff">×</text>
+
+  <rect x="100" y="318" width="600" height="56" rx="8" fill="#fff" stroke="#e0e8ff" stroke-width="1.5"/>
+  <text x="130" y="352" font-size="18">⭐</text>
+  <text x="165" y="352" font-size="14" fill="#2d2d4e">Mountainbiken</text>
+  <rect x="660" y="332" width="24" height="24" rx="4" fill="#ff6b6b" opacity="0.8"/>
+  <text x="672" y="349" text-anchor="middle" font-size="14" fill="#fff">×</text>
+
+  <!-- Wis alles knop -->
+  <rect x="280" y="396" width="240" height="44" rx="8" fill="#ff6b6b"/>
+  <text x="400" y="423" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">🗑 Wis alles</text>
+
+  <!-- Info tekst -->
+  <text x="400" y="466" text-anchor="middle" font-size="12" fill="#aaa">3 favorieten opgeslagen (localStorage)</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="800" height="500" fill="#0d1117" rx="10"/>
+  <rect width="800" height="56" fill="#161b22" rx="10"/>
+  <rect y="34" width="800" height="22" fill="#161b22"/>
+  <rect x="20" y="14" width="28" height="28" rx="4" fill="#2DBA4E"/>
+  <text x="400" y="34" font-size="13" fill="#8b949e" text-anchor="middle">github.com / lena-peeters / gip-project / issues</text>
+
+  <text x="40" y="82" font-size="17" fill="#c9d1d9" font-weight="bold">Issues <tspan fill="#484f58" font-size="14">2 open · 1 closed</tspan></text>
+  <rect x="40" y="92" width="700" height="1" fill="#30363d"/>
+
+  <!-- Issue 1 — open -->
+  <rect x="40" y="108" width="720" height="64" fill="#161b22" rx="6"/>
+  <text x="60" y="132" font-size="14" fill="#c9d1d9" font-weight="bold">#3 Admin-dashboard stijlen</text>
+  <rect x="60" y="140" width="70" height="18" fill="#238636" rx="9"/>
+  <text x="95" y="153" font-size="10" fill="#fff" text-anchor="middle">feature</text>
+  <rect x="138" y="140" width="50" height="18" fill="#1f3d6e" rx="9"/>
+  <text x="163" y="153" font-size="10" fill="#58a6ff" text-anchor="middle">GIP</text>
+  <text x="60" y="166" font-size="11" fill="#8b949e">opened 2 days ago by lena-peeters</text>
+
+  <!-- Issue 2 — open -->
+  <rect x="40" y="180" width="720" height="64" fill="#0d1117" rx="6"/>
+  <text x="60" y="204" font-size="14" fill="#c9d1d9" font-weight="bold">#4 Bug: sessie verloopt te snel</text>
+  <rect x="60" y="212" width="40" height="18" fill="#b91c1c" rx="9"/>
+  <text x="80" y="225" font-size="10" fill="#fff" text-anchor="middle">bug</text>
+  <text x="60" y="238" font-size="11" fill="#8b949e">opened yesterday by lena-peeters</text>
+
+  <!-- Issue 3 — closed -->
+  <rect x="40" y="252" width="720" height="64" fill="#161b22" rx="6"/>
+  <rect x="40" y="252" width="720" height="64" fill="#0d1117" rx="6" opacity="0.5"/>
+  <text x="60" y="276" font-size="14" fill="#8b949e">#1 Login-pagina ontwerpen</text>
+  <rect x="60" y="284" width="70" height="18" fill="#21262d" rx="9"/>
+  <text x="95" y="297" font-size="10" fill="#8b949e" text-anchor="middle">feature</text>
+  <text x="60" y="310" font-size="11" fill="#484f58">closed 1 day ago by lena-peeters · closes via feat: login HTML #1</text>
+
+  <!-- Commit koppeling -->
+  <rect x="40" y="334" width="720" height="80" fill="#161b22" rx="6"/>
+  <text x="60" y="358" font-size="12" fill="#8b949e" font-weight="bold">↳ Gekoppeld aan issue #4:</text>
+  <text x="60" y="380" font-size="12" fill="#c9d1d9" font-family="'Courier New', monospace">fix: sessie-duur verlengd naar 24h — zie #4</text>
+  <text x="60" y="400" font-size="11" fill="#8b949e">lena-peeters · b2e7f3a · 3 hours ago</text>
+
+  <rect x="40" y="430" width="720" height="36" fill="#0d1117" rx="4"/>
+  <text x="60" y="452" font-size="11" fill="#484f58">Tip: "closes #4" in je commit sluit het issue automatisch bij mergen naar main.</text>
+</svg>

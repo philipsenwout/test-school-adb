@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="800" height="500" fill="#0d1117" rx="10"/>
+  <rect width="800" height="56" fill="#161b22" rx="10"/>
+  <rect y="34" width="800" height="22" fill="#161b22"/>
+  <rect x="20" y="14" width="28" height="28" rx="4" fill="#2DBA4E"/>
+  <text x="34" y="33" font-size="16" fill="#fff" text-anchor="middle">⌥</text>
+  <text x="400" y="34" font-size="13" fill="#8b949e" text-anchor="middle">github.com / lena-peeters / cursus-5adb</text>
+
+  <!-- Repo stats -->
+  <text x="40" y="86" font-size="18" fill="#58a6ff" font-weight="bold">lena-peeters / cursus-5adb</text>
+  <rect x="40" y="98" width="700" height="1" fill="#30363d"/>
+
+  <!-- Tabbladen -->
+  <text x="40" y="124" font-size="13" fill="#8b949e">Code</text>
+  <text x="100" y="124" font-size="13" fill="#8b949e">Issues</text>
+  <text x="166" y="124" font-size="13" fill="#c9d1d9" font-weight="bold">Commits</text>
+  <line x1="166" y1="130" x2="222" y2="130" stroke="#f78166" stroke-width="2"/>
+  <rect x="40" y="134" width="700" height="1" fill="#30363d"/>
+
+  <!-- Commit list -->
+  <rect x="40" y="150" width="720" height="52" fill="#161b22" rx="4"/>
+  <text x="60" y="171" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">feat: stijlen en kleuren toegevoegd</text>
+  <text x="60" y="191" font-size="11" fill="#8b949e">lena-peeters committed 2 minutes ago · <tspan fill="#f7c948">e4a1c2f</tspan></text>
+
+  <rect x="40" y="210" width="720" height="52" fill="#0d1117" rx="4"/>
+  <text x="60" y="231" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">feat: navigatiebalk aangemaakt</text>
+  <text x="60" y="251" font-size="11" fill="#8b949e">lena-peeters committed 5 minutes ago · <tspan fill="#f7c948">b9d3e11</tspan></text>
+
+  <rect x="40" y="270" width="720" height="52" fill="#161b22" rx="4"/>
+  <text x="60" y="291" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">feat: h1-heading en body aangemaakt</text>
+  <text x="60" y="311" font-size="11" fill="#8b949e">lena-peeters committed 8 minutes ago · <tspan fill="#f7c948">c12e84a</tspan></text>
+
+  <!-- Terminal push bevestiging -->
+  <rect x="40" y="340" width="720" height="120" fill="#0d1117" rx="6"/>
+  <text x="60" y="366" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">$ git push origin main</text>
+  <text x="60" y="390" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">Enumerating objects: 8, done.</text>
+  <text x="60" y="410" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">Counting objects: 100% (8/8), done.</text>
+  <text x="60" y="430" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">To https://github.com/lena-peeters/cursus-5adb.git</text>
+  <text x="60" y="450" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">  main → main  ✔</text>
+</svg>

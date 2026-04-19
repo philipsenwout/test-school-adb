@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overerving &amp; Polymorfisme — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H18" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.1"><span class="sidebar-check__box"></span></label>
+          <a href="#het-probleem-van-herhaling">18.1 Het probleem van herhaling</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.2"><span class="sidebar-check__box"></span></label>
+          <a href="#extends">18.2 extends — basisovererving</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.3"><span class="sidebar-check__box"></span></label>
+          <a href="#super">18.3 super — parent-constructor</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.4"><span class="sidebar-check__box"></span></label>
+          <a href="#methode-overschrijving">18.4 Methode-overschrijving</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="18.5"><span class="sidebar-check__box"></span></label>
+          <a href="#polymorfisme">18.5 Polymorfisme</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Overerving &amp; Polymorfisme</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H18 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Overerving &amp; Polymorfisme</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen waarom overerving code-herhaling vermijdt</li>
+          <li>Een child class aanmaken met <code>extends</code></li>
+          <li>De parent-constructor aanroepen via <code>super(param)</code></li>
+          <li>Een methode van de parent overschrijven (override) in de child class</li>
+          <li><code>super.methode()</code> gebruiken om de parent-versie te bewaren en uit te breiden</li>
+          <li>Polymorfisme toepassen: objecten van verschillende klassen via dezelfde interface aanspreken</li>
+          <li><code>instanceof</code> gebruiken om het type van een object te controleren</li>
+        </ul>
+      </div>
+
+      <h2 id="het-probleem-van-herhaling">18.1 Het probleem van herhaling</h2>
+      <p>Stel: je programmeert een dierentuin-app. Je hebt een klasse <code>Kat</code> en een klasse <code>Hond</code>. Beide dieren hebben een naam, een leeftijd en een methode <code>slaap()</code>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Kat {
+  #naam;
+  #leeftijd;
+
+  constructor(naam, leeftijd) {
+    this.#naam = naam;
+    this.#leeftijd = leeftijd;
+  }
+
+  get naam() { return this.#naam; }
+  get leeftijd() { return this.#leeftijd; }
+
+  slaap() {
+    console.log(`${this.#naam} slaapt... Zzz.`);
+  }
+
+  geluid() { console.log("Miauw!"); }
+}
+
+class Hond {
+  #naam;
+  #leeftijd;
+  // ... identieke code als Kat!
+  slaap() {
+    console.log(`${this.#naam} slaapt... Zzz.`);
+  }
+  geluid() { console.log("Woef!"); }
+}</code></pre>
+      </div>
+      <p>De constructor, de private fields <code>#naam</code> en <code>#leeftijd</code>, de getters en de methode <code>slaap()</code> zijn identiek in beide klassen. Dat is <strong>copy-paste programmeren</strong> — en dus slecht: als je iets wil wijzigen, moet je dat in elke klasse apart doen.</p>
+      <p>De oplossing: <strong>overerving</strong>.</p>
+
+      <h2 id="extends">18.2 <code>extends</code> — de basisovererving</h2>
+      <p>Met het <code>extends</code>-keyword maak je een <strong>child class</strong> (ook wel subklasse of afgeleide klasse) die alle publieke en protected leden van de <strong>parent class</strong> (superklasse) erft.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Dier {
+  #naam;
+  #leeftijd;
+
+  constructor(naam, leeftijd) {
+    this.#naam = naam;
+    this.#leeftijd = leeftijd;
+  }
+
+  get naam() { return this.#naam; }
+  get leeftijd() { return this.#leeftijd; }
+
+  slaap() {
+    console.log(`${this.#naam} slaapt... Zzz.`);
+  }
+}
+
+// Kat erft alles van Dier
+class Kat extends Dier {
+  geluid() {
+    console.log("Miauw!");
+  }
+}
+
+// Hond erft alles van Dier
+class Hond extends Dier {
+  geluid() {
+    console.log("Woef!");
+  }
+}
+
+let kat = new Kat("Mochi", 3);
+let hond = new Hond("Rex", 5);
+
+console.log(kat.naam); // "Mochi" — geërfd van Dier
+kat.slaap();           // Mochi slaapt... Zzz. — geërfd van Dier
+kat.geluid();          // Miauw! — eigen methode van Kat
+hond.geluid();         // Woef! — eigen methode van Hond</code></pre>
+      </div>
+
+      <h3><code>instanceof</code> — type controleren</h3>
+      <p>Met <code>instanceof</code> controleer je of een object een instantie is van een bepaalde klasse — of van een parent-klasse:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">console.log(kat instanceof Kat);  // true
+console.log(kat instanceof Dier); // true — Kat erft van Dier
+console.log(kat instanceof Hond); // false</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H18-afb1.svg" alt="Klassehiërarchie: Dier als parent, Kat en Hond als child classes" loading="lazy">
+      </figure>
+
+      <h2 id="super">18.3 <code>super</code> — de parent-constructor aanroepen</h2>
+      <p>Wanneer een child class een eigen <code>constructor</code> heeft, <strong>moet</strong> je als eerste instructie <code>super(...)</code> aanroepen. Dat roept de constructor van de parent-class aan en initialiseert de geërfde private fields.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Kat extends Dier {
+  #kleur; // eigen private field van Kat
+
+  constructor(naam, leeftijd, kleur) {
+    super(naam, leeftijd); // VERPLICHT als eerste — roept Dier-constructor aan
+    this.#kleur = kleur;   // daarna pas eigen fields initialiseren
+  }
+
+  get kleur() { return this.#kleur; }
+
+  geluid() {
+    console.log(`${this.naam} (${this.#kleur}) zegt: Miauw!`);
+  }
+}
+
+let mochi = new Kat("Mochi", 3, "grijs");
+console.log(mochi.naam);     // "Mochi"
+console.log(mochi.leeftijd); // 3
+console.log(mochi.kleur);    // "grijs"
+mochi.geluid();              // Mochi (grijs) zegt: Miauw!</code></pre>
+      </div>
+      <div class="callout callout--danger">
+        <div class="callout-header">Let op: super() is verplicht</div>
+        <p>Als je <code>super()</code> vergeet, of het niet als <strong>eerste instructie</strong> plaatst, gooit JavaScript een <code>ReferenceError</code>. Dit is een strenge regel zonder uitzonderingen.</p>
+      </div>
+
+      <h3>Uit de praktijk: <code>AutomaticCar extends Car</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class AutomaticCar extends Car {
+  #gearMode; // eigen veld: P, R, N of D
+
+  constructor(brand, color, maxSpeed) {
+    super(brand, color, maxSpeed); // verplicht: roept Car-constructor aan
+    this.#gearMode = "P";          // standaard: Park
+  }
+
+  get gearMode() {
+    return this.#gearMode;
+  }
+
+  set gearMode(newValue) {
+    if (newValue !== "P" &amp;&amp; newValue !== "N" &amp;&amp; newValue !== "R" &amp;&amp; newValue !== "D")
+      throw "Je moet kiezen voor P, N, R of D.";
+    this.#gearMode = newValue;
+    console.log(`Gear mode set to ${this.#gearMode}.`);
+  }
+}</code></pre>
+      </div>
+
+      <h2 id="methode-overschrijving">18.4 Methode-overschrijving (override)</h2>
+      <p>Een child class kan een methode van de parent <strong>opnieuw definiëren</strong>. De child-versie vervangt de parent-versie voor instanties van die child class.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Dier {
+  #naam;
+  constructor(naam) { this.#naam = naam; }
+  get naam() { return this.#naam; }
+
+  slaap() {
+    console.log(`${this.#naam} slaapt.`);
+  }
+}
+
+class Hond extends Dier {
+  // Override: eigen versie van slaap()
+  slaap() {
+    console.log(`${this.naam} snurkt luid terwijl hij slaapt!`);
+  }
+}
+
+let dier = new Dier("Generiek dier");
+let rex = new Hond("Rex");
+
+dier.slaap(); // Generiek dier slaapt.
+rex.slaap();  // Rex snurkt luid terwijl hij slaapt!</code></pre>
+      </div>
+
+      <h3><code>super.methode()</code> — parent-versie uitbreiden</h3>
+      <p>Soms wil je de parent-versie <strong>uitbreiden</strong> in plaats van volledig vervangen. Gebruik dan <code>super.methode()</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class AutomaticCar extends Car {
+  move() {
+    // Eerst eigen logica uitvoeren
+    console.log(`Calculating recommended gear for automatic ${this.brand}...`);
+    if (this.gear &lt; 5) {
+      this.gearUp(); // methode geërfd van Car
+    }
+    // Dan de parent-versie aanroepen
+    super.move();
+  }
+}</code></pre>
+      </div>
+
+      <h2 id="polymorfisme">18.5 Polymorfisme</h2>
+      <p><strong>Polymorfisme</strong> (van het Grieks: "veelvormigheid") betekent dat objecten van verschillende klassen via dezelfde methode-naam aangesproken kunnen worden, maar elk hun eigen versie uitvoeren.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Dier {
+  #naam;
+  constructor(naam) { this.#naam = naam; }
+  get naam() { return this.#naam; }
+  geluid() { console.log(`${this.#naam} maakt een geluid.`); }
+}
+
+class Kat extends Dier {
+  geluid() { console.log(`${this.naam} zegt: Miauw!`); }
+}
+
+class Hond extends Dier {
+  geluid() { console.log(`${this.naam} zegt: Woef!`); }
+}
+
+class Vogel extends Dier {
+  geluid() { console.log(`${this.naam} zegt: Tjilp!`); }
+}
+
+// Array met gemengde dieren
+let dieren = [
+  new Kat("Mochi"),
+  new Hond("Rex"),
+  new Vogel("Tweety"),
+  new Kat("Luna")
+];
+
+// forEach roept .geluid() aan op elk — elk object doet zijn eigen versie
+dieren.forEach(dier => dier.geluid());
+
+// Output:
+// Mochi zegt: Miauw!
+// Rex zegt: Woef!
+// Tweety zegt: Tjilp!
+// Luna zegt: Miauw!</code></pre>
+      </div>
+      <p>Dit is de kracht van polymorfisme: de <code>forEach</code>-lus hoeft niet te weten of het een <code>Kat</code>, <code>Hond</code> of <code>Vogel</code> is — hij roept gewoon <code>geluid()</code> aan en elk object doet het juiste.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 1 — Dierenhiërarchie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak de volgende klassenstructuur:</p>
+            <p><strong>Base class <code>Dier</code>:</strong></p>
+            <ul>
+              <li>Private fields: <code>#naam</code>, <code>#leeftijd</code></li>
+              <li>Constructor: <code>constructor(naam, leeftijd)</code></li>
+              <li>Getters: <code>get naam()</code>, <code>get leeftijd()</code></li>
+              <li>Methode <code>slaap()</code>: logt <code>"[naam] slaapt... Zzz."</code></li>
+              <li>Methode <code>geluid()</code>: logt <code>"[naam] maakt een onbekend geluid."</code></li>
+              <li>Methode <code>toonInfo()</code>: logt <code>"[naam] is [leeftijd] jaar oud."</code></li>
+            </ul>
+            <p><strong>Child class <code>Kat extends Dier</code>:</strong> Override <code>geluid()</code>: logt <code>"[naam] zegt: Miauw!"</code></p>
+            <p><strong>Child class <code>Hond extends Dier</code>:</strong></p>
+            <ul>
+              <li>Extra private field <code>#ras</code></li>
+              <li>Constructor: <code>constructor(naam, leeftijd, ras)</code> — roept <code>super(naam, leeftijd)</code> aan</li>
+              <li>Getter <code>get ras()</code></li>
+              <li>Override <code>geluid()</code>: logt <code>"[naam] (ras: [ras]) zegt: Woef!"</code></li>
+            </ul>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">let dieren = [
+  new Kat("Mochi", 3),
+  new Hond("Rex", 5, "Labrador"),
+  new Kat("Luna", 1),
+  new Hond("Bella", 4, "Beagle")
+];
+
+dieren.forEach(dier => {
+  dier.toonInfo();
+  dier.geluid();
+  dier.slaap();
+  console.log("---");
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 2 — Dieren in een HTML-lijst</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Breid oefening 1 uit met DOM-manipulatie. Toon de dieren in een HTML-pagina:</p>
+            <ol>
+              <li>Maak een HTML-bestand met een lege <code>&lt;ul id="dierenlijst"&gt;&lt;/ul&gt;</code></li>
+              <li>Maak in JavaScript dezelfde array van dieren aan</li>
+              <li>Gebruik <code>forEach</code> en <code>document.createElement</code> om voor elk dier een <code>&lt;li&gt;</code> aan te maken</li>
+              <li>De tekst in elk <code>&lt;li&gt;</code> is: <code>"[naam] — [type] — [leeftijd] jaar oud"</code></li>
+              <li>Gebruik <code>instanceof</code> om het type (Kat/Hond) te bepalen voor de weergave</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H18-oef1-browser.svg" alt="Browser output van dieren-app — lijst van dieren" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB11</span>
+            <span class="oefening__title">Oefening 3 — Voertuig-hiërarchie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een klassenstructuur voor voertuigen:</p>
+            <ul>
+              <li>Base class <code>Voertuig</code> met <code>#merk</code>, <code>#aantalWielen</code> en methode <code>rijd()</code></li>
+              <li>Child class <code>Auto extends Voertuig</code> met extra field <code>#aantalDeuren</code></li>
+              <li>Child class <code>Motor extends Voertuig</code> met extra field <code>#heeftZijspan</code></li>
+              <li>Elke child-klasse overschrijft <code>rijd()</code> om een specifieke boodschap te loggen</li>
+            </ul>
+            <p>Maak een array van gemengde voertuigen en doorloop ze met <code>forEach</code>. Gebruik <code>instanceof</code> om het type te herkennen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#x1F4CB; Huistaak &mdash; Overerving &amp; Polymorfisme
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H18-oef1-browser.svg', 'Voorbeeld — Schoolapp met personen')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Schoolapp met overerving</h3>
+            <p>Maak een klassenstructuur voor een schoolapplicatie:</p>
+            <h4>Deel 1 — Klassen (4 punten)</h4>
+            <ol>
+              <li>Base class <code>Persoon</code> met <code>#naam</code> en <code>#email</code>, inclusief getters en methode <code>toonProfiel()</code></li>
+              <li>Child class <code>Leerling extends Persoon</code> met extra veld <code>#klas</code> en override van <code>toonProfiel()</code></li>
+              <li>Child class <code>Leerkracht extends Persoon</code> met extra veld <code>#vak</code> en override van <code>toonProfiel()</code></li>
+            </ol>
+            <h4>Deel 2 — Gebruik (3 punten)</h4>
+            <ol>
+              <li>Maak minstens 2 leerlingen en 1 leerkracht aan</li>
+              <li>Zet ze samen in één array</li>
+              <li>Doorloop de array met <code>forEach</code> en roep <code>toonProfiel()</code> aan op elk object</li>
+            </ol>
+            <h4>Deel 3 — DOM (3 punten)</h4>
+            <ol>
+              <li>Toon de profielen in een HTML-pagina</li>
+              <li>Gebruik <code>instanceof</code> om leerlingen en leerkrachten visueel te onderscheiden (bv. een andere klasse of badge)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H18 — Overerving &amp; Polymorfisme</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Met welk keyword laat je een klasse overerven van een andere?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="a"> <span><code>inherits</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="b"> <span><code>extends</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="c"> <span><code>super</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v1" value="d"> <span><code>prototype</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is de <strong>verplichting</strong> bij het gebruik van <code>super()</code> in een child-constructor?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="a"> <span><code>super()</code> moet na alle <code>this</code>-toewijzingen staan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="b"> <span><code>super()</code> is optioneel als de parent geen constructor heeft</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="c"> <span><code>super()</code> moet de <strong>eerste instructie</strong> zijn in de child-constructor</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v2" value="d"> <span><code>super()</code> mag slechts één argument ontvangen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat is polymorfisme?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="a"> <span>Een klasse die van meerdere parents tegelijk erft</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="b"> <span>Een methode die verschillende namen heeft in dezelfde klasse</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="c"> <span>Objecten van verschillende klassen aanspreken via dezelfde methode-naam, waarbij elk zijn eigen versie uitvoert</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v3" value="d"> <span>Een static methode die in zowel parent als child bestaat</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat geeft <code>new Hond("Rex", 5) instanceof Dier</code> terug als <code>Hond extends Dier</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="a"> <span><code>false</code> — Rex is geen Dier, hij is een Hond</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="b"> <span><code>true</code> — Hond erft van Dier, dus is ook een Dier</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="c"> <span><code>undefined</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v4" value="d"> <span>Een foutmelding</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Hoe roep je de methode <code>slaap()</code> van de parent-class aan vanuit een override in de child-class?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="a"> <span><code>parent.slaap()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="b"> <span><code>this.slaap()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="c"> <span><code>Dier.slaap()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v5" value="d"> <span><code>super.slaap()</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat is het voordeel van overerving tegenover copy-paste van code?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="a"> <span>Copy-paste is sneller en overerving maakt de code trager</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="b"> <span>Overerving centraliseert gedeelde logica — wijzigingen in de parent gelden automatisch voor alle child classes</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="c"> <span>Overerving laat toe om meer dan 10 velden te gebruiken per klasse</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h18-v6" value="d"> <span>Er is geen praktisch voordeel — het is louter een stijlkeuze</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H18')" data-progress-key="6adb/app-ontwikkeling/H18">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H17.html" class="btn btn-ghost">&larr; H17</a>
+          <a href="H19.html" class="btn btn-ghost">H19 &rarr;</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

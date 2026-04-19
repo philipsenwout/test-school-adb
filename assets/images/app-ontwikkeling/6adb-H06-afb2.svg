@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowRight" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#6a6a8a"/>
+    </marker>
+    <marker id="arrowRightPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#6c63ff"/>
+    </marker>
+    <marker id="arrowRightGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#43e97b"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#e8e8f0">Method Chaining — stap voor stap</text>
+  <text x="400" y="56" text-anchor="middle" font-size="13" fill="#a0a0c0">Meerdere array-methodes na elkaar koppelen</text>
+
+  <!-- Step 1: Input array -->
+  <text x="30" y="95" font-size="13" fill="#a0a0c0" font-weight="600">Stap 0 — Invoer:</text>
+  <g transform="translate(30, 104)">
+    <rect x="0" y="0" width="36" height="30" rx="5" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="18" y="20" text-anchor="middle" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">1</text>
+    <rect x="40" y="0" width="36" height="30" rx="5" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="58" y="20" text-anchor="middle" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">2</text>
+    <rect x="80" y="0" width="36" height="30" rx="5" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="98" y="20" text-anchor="middle" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">3</text>
+    <rect x="120" y="0" width="36" height="30" rx="5" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="138" y="20" text-anchor="middle" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">4</text>
+    <rect x="160" y="0" width="36" height="30" rx="5" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="178" y="20" text-anchor="middle" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">5</text>
+    <rect x="200" y="0" width="36" height="30" rx="5" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="218" y="20" text-anchor="middle" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">6</text>
+  </g>
+
+  <!-- Arrow 0 -> step 1 -->
+  <line x1="274" y1="119" x2="320" y2="119" stroke="#6a6a8a" stroke-width="2" marker-end="url(#arrowRight)"/>
+
+  <!-- Step 1: filter block -->
+  <rect x="324" y="88" width="200" height="62" rx="8" fill="#1a0a3e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="424" y="110" text-anchor="middle" font-size="13" font-weight="600" fill="#c0b0ff">.filter(n =&gt; n &gt; 2)</text>
+  <text x="424" y="128" text-anchor="middle" font-size="11" fill="#7060b0">Behoud enkel n &gt; 2</text>
+  <text x="424" y="144" text-anchor="middle" font-size="11" fill="#9080d0" font-family="'Courier New', monospace">→ [3, 4, 5, 6]</text>
+
+  <!-- Arrow step 1 -> step 2 -->
+  <line x1="524" y1="119" x2="576" y2="119" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrowRightPurple)"/>
+
+  <!-- Step 2: result of filter -->
+  <text x="584" y="95" font-size="11" fill="#8080a0">Na filter:</text>
+  <g transform="translate(580, 104)">
+    <rect x="0" y="0" width="36" height="30" rx="5" fill="#4a40a0" stroke="#6c63ff" stroke-width="1.5"/>
+    <text x="18" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">3</text>
+    <rect x="40" y="0" width="36" height="30" rx="5" fill="#4a40a0" stroke="#6c63ff" stroke-width="1.5"/>
+    <text x="58" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">4</text>
+    <rect x="80" y="0" width="36" height="30" rx="5" fill="#4a40a0" stroke="#6c63ff" stroke-width="1.5"/>
+    <text x="98" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">5</text>
+    <rect x="120" y="0" width="36" height="30" rx="5" fill="#4a40a0" stroke="#6c63ff" stroke-width="1.5"/>
+    <text x="138" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">6</text>
+  </g>
+
+  <!-- Vertical arrow going down to map step -->
+  <line x1="700" y1="140" x2="700" y2="190" stroke="#6c63ff" stroke-width="2"/>
+  <line x1="700" y1="190" x2="524" y2="230" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrowRightGreen)"/>
+
+  <!-- Step 2: map block -->
+  <rect x="324" y="200" width="200" height="62" rx="8" fill="#0a2010" stroke="#43e97b" stroke-width="2"/>
+  <text x="424" y="222" text-anchor="middle" font-size="13" font-weight="600" fill="#70e890">.map(n =&gt; n * 10)</text>
+  <text x="424" y="240" text-anchor="middle" font-size="11" fill="#306040">Vermenigvuldig met 10</text>
+  <text x="424" y="256" text-anchor="middle" font-size="11" fill="#50a070" font-family="'Courier New', monospace">→ [30, 40, 50, 60]</text>
+
+  <!-- Arrow map -> result -->
+  <line x1="324" y1="231" x2="280" y2="231" stroke="#43e97b" stroke-width="2" marker-end="url(#arrowRightGreen)"/>
+
+  <!-- Step 3: final result -->
+  <text x="30" y="208" font-size="13" fill="#a0a0c0" font-weight="600">Eindresultaat:</text>
+  <g transform="translate(30, 216)">
+    <rect x="0" y="0" width="44" height="30" rx="5" fill="#206040" stroke="#43e97b" stroke-width="1.5"/>
+    <text x="22" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">30</text>
+    <rect x="48" y="0" width="44" height="30" rx="5" fill="#206040" stroke="#43e97b" stroke-width="1.5"/>
+    <text x="70" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">40</text>
+    <rect x="96" y="0" width="44" height="30" rx="5" fill="#206040" stroke="#43e97b" stroke-width="1.5"/>
+    <text x="118" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">50</text>
+    <rect x="144" y="0" width="44" height="30" rx="5" fill="#206040" stroke="#43e97b" stroke-width="1.5"/>
+    <text x="166" y="20" text-anchor="middle" font-size="13" fill="white" font-family="'Courier New', monospace">60</text>
+  </g>
+
+  <!-- Summary label -->
+  <text x="30" y="278" font-size="12" fill="#43e97b" font-weight="600">✓ [1,2,3,4,5,6] → filter(&gt;2) → [3,4,5,6] → map(*10) → [30,40,50,60]</text>
+
+  <!-- Full code block -->
+  <rect x="30" y="300" width="740" height="130" rx="10" fill="#0d0d1a" stroke="#6c63ff" stroke-width="1.5"/>
+  <text x="50" y="322" font-size="12" fill="#8080a0" font-family="'Courier New', monospace">// Volledig in één expressie (method chaining):</text>
+  <text x="50" y="346" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace"><tspan fill="#a0a0ff">const</tspan> resultaat = [<tspan fill="#e8a000">1</tspan>,<tspan fill="#e8a000">2</tspan>,<tspan fill="#e8a000">3</tspan>,<tspan fill="#e8a000">4</tspan>,<tspan fill="#e8a000">5</tspan>,<tspan fill="#e8a000">6</tspan>]</text>
+  <text x="50" y="370" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace">  .filter(<tspan fill="#f9a825">n</tspan> =&gt; <tspan fill="#f9a825">n</tspan> &gt; <tspan fill="#e8a000">2</tspan>)       <tspan fill="#606080">// stap 1 — geeft [3,4,5,6]</tspan></text>
+  <text x="50" y="394" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace">  .map(<tspan fill="#f9a825">n</tspan> =&gt; <tspan fill="#f9a825">n</tspan> * <tspan fill="#e8a000">10</tspan>);       <tspan fill="#606080">// stap 2 — geeft [30,40,50,60]</tspan></text>
+  <text x="50" y="418" font-size="13" fill="#8080a0" font-family="'Courier New', monospace">// resultaat: <tspan fill="#43e97b">[30, 40, 50, 60]</tspan></text>
+
+  <!-- Key insight -->
+  <rect x="30" y="446" width="740" height="40" rx="8" fill="#1a1a2e" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="400" y="470" text-anchor="middle" font-size="13" fill="#e8e8f0">Elke methode geeft een <tspan fill="#43e97b">nieuwe array</tspan> terug — zo kan je ze <tspan fill="#f9a825">aan elkaar koppelen</tspan></text>
+</svg>

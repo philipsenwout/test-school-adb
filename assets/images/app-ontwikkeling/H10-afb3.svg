@@ -1,0 +1,69 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="380" fill="#1a1c28"/>
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#f0f0f0">CSS Eenheden — Overzicht</text>
+
+  <!-- Absolute eenheden -->
+  <rect x="30" y="55" width="225" height="150" rx="8" fill="#7B3FE4" opacity="0.1"/>
+  <rect x="30" y="55" width="225" height="150" rx="8" fill="none" stroke="#7B3FE4" stroke-width="2"/>
+  <text x="142" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="#7B3FE4">Absoluut</text>
+
+  <text x="50" y="100" font-size="13" fill="#f0f0f0" font-family="Courier New">px</text>
+  <text x="85" y="100" font-size="12" fill="#aaa">pixel (scherm)</text>
+  <text x="50" y="120" font-size="13" fill="#555" font-family="Courier New">cm / mm</text>
+  <text x="130" y="120" font-size="12" fill="#555">print</text>
+  <text x="50" y="140" font-size="13" fill="#555" font-family="Courier New">pt</text>
+  <text x="85" y="140" font-size="12" fill="#555">punten (print)</text>
+
+  <text x="142" y="185" text-anchor="middle" font-size="11" fill="#aaa">Vast formaat</text>
+  <text x="142" y="200" text-anchor="middle" font-size="11" fill="#aaa">Niet flexibel bij zoom</text>
+
+  <!-- Relatief tov parent -->
+  <rect x="285" y="55" width="225" height="150" rx="8" fill="#2D9CDB" opacity="0.1"/>
+  <rect x="285" y="55" width="225" height="150" rx="8" fill="none" stroke="#2D9CDB" stroke-width="2"/>
+  <text x="397" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="#2D9CDB">Relatief (parent)</text>
+
+  <text x="305" y="100" font-size="13" fill="#f0f0f0" font-family="Courier New">%</text>
+  <text x="330" y="100" font-size="12" fill="#aaa">% van parent-breedte</text>
+  <text x="305" y="120" font-size="13" fill="#f0f0f0" font-family="Courier New">em</text>
+  <text x="340" y="120" font-size="12" fill="#aaa">× parent font-size</text>
+
+  <text x="397" y="185" text-anchor="middle" font-size="11" fill="#aaa">Afhankelijk van ouder</text>
+  <text x="397" y="200" text-anchor="middle" font-size="11" fill="#aaa">Kan complex worden bij nesting</text>
+
+  <!-- Relatief tov root -->
+  <rect x="540" y="55" width="230" height="150" rx="8" fill="#22C55E" opacity="0.1"/>
+  <rect x="540" y="55" width="230" height="150" rx="8" fill="none" stroke="#22C55E" stroke-width="2"/>
+  <text x="655" y="76" text-anchor="middle" font-size="14" font-weight="bold" fill="#22C55E">Relatief (root/viewport)</text>
+
+  <text x="560" y="100" font-size="13" fill="#f0f0f0" font-family="Courier New">rem</text>
+  <text x="600" y="100" font-size="12" fill="#aaa">× root font-size (16px)</text>
+  <text x="560" y="120" font-size="13" fill="#f0f0f0" font-family="Courier New">vw</text>
+  <text x="595" y="120" font-size="12" fill="#aaa">% van viewport-breedte</text>
+  <text x="560" y="140" font-size="13" fill="#f0f0f0" font-family="Courier New">vh</text>
+  <text x="595" y="140" font-size="12" fill="#aaa">% van viewport-hoogte</text>
+
+  <text x="655" y="185" text-anchor="middle" font-size="11" fill="#aaa">Consistent over hele pagina</text>
+  <text x="655" y="200" text-anchor="middle" font-size="11" fill="#aaa">rem = beste keuze voor tekst</text>
+
+  <!-- Praktijktips tabel -->
+  <rect x="30" y="225" width="740" height="145" rx="8" fill="#2a2d3e"/>
+  <text x="400" y="248" text-anchor="middle" font-size="14" font-weight="bold" fill="#f0f0f0">Wanneer gebruik je wat?</text>
+  <!-- Header -->
+  <rect x="30" y="255" width="740" height="28" rx="0" fill="#7B3FE4" opacity="0.4"/>
+  <text x="120" y="273" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Gebruik</text>
+  <text x="370" y="273" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Eenheid</text>
+  <text x="620" y="273" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Reden</text>
+  <!-- Rijen -->
+  <text x="80" y="298" font-size="11" fill="#f0f0f0">Font-grootte</text>
+  <text x="340" y="298" font-size="11" font-family="Courier New" fill="#22C55E">rem</text>
+  <text x="500" y="298" font-size="11" fill="#aaa">Consistent, respecteert browser-instelling</text>
+  <text x="80" y="318" font-size="11" fill="#f0f0f0">Breedte container</text>
+  <text x="340" y="318" font-size="11" font-family="Courier New" fill="#22C55E">% of px</text>
+  <text x="500" y="318" font-size="11" fill="#aaa">Flexibel of vast</text>
+  <text x="80" y="338" font-size="11" fill="#f0f0f0">Volledige schermhoogte</text>
+  <text x="340" y="338" font-size="11" font-family="Courier New" fill="#22C55E">100vh</text>
+  <text x="500" y="338" font-size="11" fill="#aaa">Viewport-hoogte ongeacht inhoud</text>
+  <text x="80" y="358" font-size="11" fill="#f0f0f0">Padding/margin</text>
+  <text x="340" y="358" font-size="11" font-family="Courier New" fill="#22C55E">rem of px</text>
+  <text x="500" y="358" font-size="11" fill="#aaa">Afhankelijk van gebruik</text>
+</svg>

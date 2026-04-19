@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <text x="600" y="50" fill="#ffffff" font-size="28" font-weight="700" text-anchor="middle">JavaScript Datatypes — Overzicht</text>
+  <text x="600" y="76" fill="#aaaaaa" font-size="15" text-anchor="middle">Elk stukje data heeft een type — JavaScript detecteert dit automatisch</text>
+
+  <!-- number card -->
+  <g transform="translate(60, 110)">
+    <rect width="340" height="160" rx="16" fill="#0d1a2a" stroke="#00d4ff" stroke-width="2.5"/>
+    <rect width="340" height="48" rx="16" fill="#00d4ff" opacity="0.18"/>
+    <rect x="0" y="32" width="340" height="16" fill="#00d4ff" opacity="0.18"/>
+    <text x="56" y="34" fill="#00d4ff" font-size="24">🔢</text>
+    <text x="90" y="36" fill="#00d4ff" font-size="20" font-weight="700">number</text>
+    <text x="20" y="76" fill="#aaaaaa" font-size="13">Gehele getallen en decimalen</text>
+    <text x="20" y="104" fill="#39ff14" font-size="18" font-family="'Courier New', monospace">42</text>
+    <text x="20" y="128" fill="#39ff14" font-size="18" font-family="'Courier New', monospace">3.14</text>
+    <text x="20" y="152" fill="#39ff14" font-size="18" font-family="'Courier New', monospace">-7</text>
+    <text x="200" y="104" fill="#666" font-size="13" font-family="'Courier New', monospace">// integer</text>
+    <text x="200" y="128" fill="#666" font-size="13" font-family="'Courier New', monospace">// float</text>
+    <text x="200" y="152" fill="#666" font-size="13" font-family="'Courier New', monospace">// negatief</text>
+  </g>
+
+  <!-- string card -->
+  <g transform="translate(420, 110)">
+    <rect width="340" height="160" rx="16" fill="#0d2a0d" stroke="#39ff14" stroke-width="2.5"/>
+    <rect width="340" height="48" rx="16" fill="#39ff14" opacity="0.12"/>
+    <rect x="0" y="32" width="340" height="16" fill="#39ff14" opacity="0.12"/>
+    <text x="56" y="34" fill="#39ff14" font-size="24">📝</text>
+    <text x="90" y="36" fill="#39ff14" font-size="20" font-weight="700">string</text>
+    <text x="20" y="76" fill="#aaaaaa" font-size="13">Tekst tussen aanhalingstekens</text>
+    <text x="20" y="104" fill="#ff6b35" font-size="18" font-family="'Courier New', monospace">"Hallo wereld"</text>
+    <text x="20" y="128" fill="#ff6b35" font-size="18" font-family="'Courier New', monospace">'Jana'</text>
+    <text x="20" y="152" fill="#ff6b35" font-size="18" font-family="'Courier New', monospace">`Hoi ${naam}`</text>
+  </g>
+
+  <!-- boolean card -->
+  <g transform="translate(780, 110)">
+    <rect width="360" height="160" rx="16" fill="#1a0a2a" stroke="#7c3aed" stroke-width="2.5"/>
+    <rect width="360" height="48" rx="16" fill="#7c3aed" opacity="0.18"/>
+    <rect x="0" y="32" width="360" height="16" fill="#7c3aed" opacity="0.18"/>
+    <text x="56" y="34" fill="#7c3aed" font-size="24">✓/✗</text>
+    <text x="100" y="36" fill="#7c3aed" font-size="20" font-weight="700">boolean</text>
+    <text x="20" y="76" fill="#aaaaaa" font-size="13">Enkel true of false — ja of nee</text>
+    <rect x="20" y="88" width="100" height="36" rx="8" fill="#1a2a1a" stroke="#39ff14" stroke-width="1.5"/>
+    <text x="70" y="112" fill="#39ff14" font-size="18" font-family="'Courier New', monospace" text-anchor="middle">true</text>
+    <rect x="140" y="88" width="100" height="36" rx="8" fill="#2a1a1a" stroke="#ff6b35" stroke-width="1.5"/>
+    <text x="190" y="112" fill="#ff6b35" font-size="18" font-family="'Courier New', monospace" text-anchor="middle">false</text>
+    <text x="20" y="148" fill="#aaaaaa" font-size="13">Gebruikt bij vergelijkingen en voorwaarden</text>
+  </g>
+
+  <!-- null card -->
+  <g transform="translate(60, 300)">
+    <rect width="340" height="160" rx="16" fill="#1a1a0d" stroke="#ff6b35" stroke-width="2.5"/>
+    <rect width="340" height="48" rx="16" fill="#ff6b35" opacity="0.12"/>
+    <rect x="0" y="32" width="340" height="16" fill="#ff6b35" opacity="0.12"/>
+    <text x="56" y="34" fill="#ff6b35" font-size="24">∅</text>
+    <text x="82" y="36" fill="#ff6b35" font-size="20" font-weight="700">null</text>
+    <text x="20" y="76" fill="#aaaaaa" font-size="13">Bewust lege waarde</text>
+    <text x="20" y="110" fill="#ff6b35" font-size="22" font-family="'Courier New', monospace">null</text>
+    <text x="20" y="140" fill="#aaaaaa" font-size="13">"Er is niets — met opzet leeggemaakt"</text>
+    <text x="20" y="158" fill="#666" font-size="12">typeof null === "object" ← historische bug!</text>
+  </g>
+
+  <!-- undefined card -->
+  <g transform="translate(420, 300)">
+    <rect width="340" height="160" rx="16" fill="#0d0d2a" stroke="#00d4ff" stroke-width="2.5" stroke-dasharray="8,4"/>
+    <rect width="340" height="48" rx="16" fill="#00d4ff" opacity="0.08"/>
+    <rect x="0" y="32" width="340" height="16" fill="#00d4ff" opacity="0.08"/>
+    <text x="56" y="34" fill="#00d4ff" font-size="22">❓</text>
+    <text x="82" y="36" fill="#00d4ff" font-size="20" font-weight="700">undefined</text>
+    <text x="20" y="76" fill="#aaaaaa" font-size="13">Waarde nog niet toegewezen</text>
+    <text x="20" y="110" fill="#00d4ff" font-size="22" font-family="'Courier New', monospace">undefined</text>
+    <text x="20" y="140" fill="#aaaaaa" font-size="13">"Variabele bestaat maar heeft geen waarde"</text>
+    <text x="20" y="158" fill="#666" font-size="12">let x; → x is undefined</text>
+  </g>
+
+  <!-- object card -->
+  <g transform="translate(780, 300)">
+    <rect width="360" height="160" rx="16" fill="#1a0d0d" stroke="#ff6b35" stroke-width="2.5"/>
+    <rect width="360" height="48" rx="16" fill="#ff6b35" opacity="0.15"/>
+    <rect x="0" y="32" width="360" height="16" fill="#ff6b35" opacity="0.15"/>
+    <text x="56" y="34" fill="#ff6b35" font-size="22">📦</text>
+    <text x="82" y="36" fill="#ff6b35" font-size="20" font-weight="700">object</text>
+    <text x="20" y="76" fill="#aaaaaa" font-size="13">Meerdere waarden samen (later uitgewerkt)</text>
+    <text x="20" y="104" fill="#ff6b35" font-size="15" font-family="'Courier New', monospace">{ naam: "Jana", leeftijd: 17 }</text>
+    <text x="20" y="130" fill="#ff6b35" font-size="15" font-family="'Courier New', monospace">[ 1, 2, 3, 4, 5 ]</text>
+    <text x="20" y="154" fill="#aaaaaa" font-size="12">Inclusief arrays — ook type "object"</text>
+  </g>
+
+  <!-- typeof row -->
+  <rect x="60" y="490" width="1080" height="50" rx="10" fill="#161b27" stroke="#333" stroke-width="1.5"/>
+  <text x="600" y="520" fill="#00d4ff" font-size="16" text-anchor="middle" font-weight="600">De  <tspan font-family="'Courier New', monospace" fill="#ff6b35">typeof</tspan>  operator geeft het type terug als tekst → zie H18-afb2</text>
+
+  <!-- Bottom code examples -->
+  <rect x="60" y="558" width="520" height="200" rx="12" fill="#0a0d14" stroke="#333" stroke-width="1.5"/>
+  <text x="90" y="582" fill="#666" font-size="12">JavaScript — aanmaken</text>
+  <g font-family="'Courier New', monospace" font-size="14">
+    <text x="90" y="608" fill="#7c3aed">let</text>
+    <text x="116" y="608" fill="#00d4ff"> getal</text>
+    <text x="164" y="608" fill="#ffffff"> = </text>
+    <text x="188" y="608" fill="#39ff14">42</text>
+    <text x="210" y="608" fill="#ffffff">;</text>
+    <text x="230" y="608" fill="#666">// number</text>
+
+    <text x="90" y="632" fill="#7c3aed">let</text>
+    <text x="116" y="632" fill="#00d4ff"> naam</text>
+    <text x="156" y="632" fill="#ffffff"> = </text>
+    <text x="180" y="632" fill="#ff6b35">"Jana"</text>
+    <text x="232" y="632" fill="#ffffff">;</text>
+    <text x="252" y="632" fill="#666">// string</text>
+
+    <text x="90" y="656" fill="#7c3aed">let</text>
+    <text x="116" y="656" fill="#00d4ff"> actief</text>
+    <text x="166" y="656" fill="#ffffff"> = </text>
+    <text x="190" y="656" fill="#39ff14">true</text>
+    <text x="222" y="656" fill="#ffffff">;</text>
+    <text x="242" y="656" fill="#666">// boolean</text>
+
+    <text x="90" y="680" fill="#7c3aed">let</text>
+    <text x="116" y="680" fill="#00d4ff"> resultaat</text>
+    <text x="186" y="680" fill="#ffffff"> = </text>
+    <text x="210" y="680" fill="#ff6b35">null</text>
+    <text x="238" y="680" fill="#ffffff">;</text>
+    <text x="258" y="680" fill="#666">// null</text>
+
+    <text x="90" y="704" fill="#7c3aed">let</text>
+    <text x="116" y="704" fill="#00d4ff"> x</text>
+    <text x="130" y="704" fill="#ffffff">;</text>
+    <text x="150" y="704" fill="#666">// undefined (geen waarde)</text>
+
+    <text x="90" y="728" fill="#7c3aed">const</text>
+    <text x="132" y="728" fill="#ff6b35"> leerling</text>
+    <text x="196" y="728" fill="#ffffff"> = </text>
+    <text x="214" y="728" fill="#ff6b35">{ naam: "Jana" }</text>
+    <text x="334" y="728" fill="#ffffff">;</text>
+    <text x="354" y="728" fill="#666">// object</text>
+  </g>
+
+  <!-- Primitives vs Reference tip -->
+  <rect x="600" y="558" width="540" height="200" rx="12" fill="#0d1a0d" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="870" y="582" fill="#39ff14" font-size="15" font-weight="700" text-anchor="middle">Primitief vs Object</text>
+  <line x1="620" y1="592" x2="1130" y2="592" stroke="#39ff14" stroke-width="1" opacity="0.3"/>
+  <text x="620" y="618" fill="#aaaaaa" font-size="13">Primitieve types (enkelvoudig):</text>
+  <text x="620" y="642" fill="#ffffff" font-size="13">number, string, boolean, null, undefined</text>
+  <text x="620" y="668" fill="#aaaaaa" font-size="13">Referentie-types (complex):</text>
+  <text x="620" y="692" fill="#ffffff" font-size="13">object, array, function</text>
+  <line x1="620" y1="708" x2="1130" y2="708" stroke="#39ff14" stroke-width="1" opacity="0.3"/>
+  <text x="620" y="732" fill="#aaaaaa" font-size="12">→ In 5ADB focussen we op de primitieve types</text>
+  <text x="620" y="750" fill="#aaaaaa" font-size="12">→ Objecten en arrays komen later uitgebreid aan bod</text>
+</svg>

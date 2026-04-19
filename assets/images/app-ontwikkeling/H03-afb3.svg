@@ -1,0 +1,66 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Screenreader &amp; semantische landmarks</text>
+
+  <!-- Divider line -->
+  <line x1="390" y1="50" x2="390" y2="390" stroke="#444466" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="195" y="50" text-anchor="middle" font-size="12" fill="#888899">Visuele pagina</text>
+  <text x="595" y="50" text-anchor="middle" font-size="12" fill="#888899">Screenreader hoort</text>
+
+  <!-- LEFT: visual page wireframe -->
+  <rect x="30" y="60" width="330" height="320" rx="4" fill="#1e1e2e" stroke="#444466" stroke-width="1"/>
+
+  <rect x="40" y="68" width="310" height="36" rx="3" fill="#3b5bdb"/>
+  <text x="195" y="91" text-anchor="middle" font-size="12" fill="#ffffff">header — Logo + Nav</text>
+
+  <rect x="40" y="112" width="200" height="180" rx="3" fill="#1e3a5f" stroke="#4dabf7" stroke-width="1"/>
+  <text x="140" y="130" text-anchor="middle" font-size="11" fill="#74c0fc">main</text>
+  <rect x="50" y="136" width="180" height="50" rx="2" fill="#1c4070" stroke="#339af0" stroke-width="1"/>
+  <text x="140" y="165" text-anchor="middle" font-size="11" fill="#a5d8ff">article 1</text>
+  <rect x="50" y="194" width="180" height="50" rx="2" fill="#1c4070" stroke="#339af0" stroke-width="1"/>
+  <text x="140" y="223" text-anchor="middle" font-size="11" fill="#a5d8ff">article 2</text>
+
+  <rect x="248" y="112" width="102" height="180" rx="3" fill="#3d2b00" stroke="#fd7e14" stroke-width="1"/>
+  <text x="299" y="207" text-anchor="middle" font-size="11" fill="#ffa94d">aside</text>
+
+  <rect x="40" y="300" width="310" height="36" rx="3" fill="#862e2e"/>
+  <text x="195" y="323" text-anchor="middle" font-size="12" fill="#ffa8a8">footer — © 2025</text>
+
+  <!-- RIGHT: screenreader output -->
+  <!-- Screenreader device icon -->
+  <rect x="410" y="60" width="360" height="320" rx="4" fill="#1e1e2e" stroke="#444466" stroke-width="1"/>
+
+  <!-- Voice lines / audio waves -->
+  <circle cx="500" cy="110" r="22" fill="#2d2d44" stroke="#7c9eff" stroke-width="1.5"/>
+  <text x="500" y="116" text-anchor="middle" font-size="18" fill="#7c9eff">♪</text>
+  <path d="M530 96 Q545 110 530 124" stroke="#7c9eff" stroke-width="2" fill="none"/>
+  <path d="M538 88 Q560 110 538 132" stroke="#7c9eff" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+  <!-- Screenreader announcements -->
+  <rect x="425" y="148" width="330" height="34" rx="4" fill="#2a2a44"/>
+  <text x="436" y="163" font-size="11" fill="#748ffc">LANDMARK:</text>
+  <text x="436" y="178" font-size="12" font-weight="bold" fill="#ffffff">"Banner — Logo, navigatie met 4 items"</text>
+
+  <rect x="425" y="190" width="330" height="34" rx="4" fill="#2a2a44"/>
+  <text x="436" y="205" font-size="11" fill="#748ffc">LANDMARK:</text>
+  <text x="436" y="220" font-size="12" font-weight="bold" fill="#ffffff">"Hoofdinhoud — 2 artikels gevonden"</text>
+
+  <rect x="425" y="232" width="330" height="34" rx="4" fill="#2a2a44"/>
+  <text x="436" y="247" font-size="11" fill="#748ffc">ARTIKEL 1:</text>
+  <text x="436" y="262" font-size="12" font-weight="bold" fill="#ffffff">"HTML5 voor beginners — Jan Peeters"</text>
+
+  <rect x="425" y="274" width="330" height="34" rx="4" fill="#2a2a44"/>
+  <text x="436" y="289" font-size="11" fill="#748ffc">AANVULLEND:</text>
+  <text x="436" y="304" font-size="12" font-weight="bold" fill="#ffffff">"Zijbalk — Populaire tags"</text>
+
+  <rect x="425" y="316" width="330" height="34" rx="4" fill="#2a2a44"/>
+  <text x="436" y="331" font-size="11" fill="#748ffc">LANDMARK:</text>
+  <text x="436" y="346" font-size="12" font-weight="bold" fill="#ffffff">"Inhoudsinfo — © 2025 TechBlog"</text>
+
+  <!-- Arrow from left to right -->
+  <polygon points="380,205 400,195 400,215" fill="#7c9eff"/>
+  <line x1="358" y1="205" x2="400" y2="205" stroke="#7c9eff" stroke-width="2"/>
+
+  <!-- Bottom note -->
+  <text x="400" y="388" text-anchor="middle" font-size="11" fill="#666688">Zonder semantische HTML: screenreader leest alleen tekst, zonder structuur of navigatiemogelijkheden.</text>
+</svg>

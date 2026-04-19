@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Titel -->
+  <text x="400" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#2d2d4e">Twee manieren om te exporteren</text>
+
+  <!-- === LINKS: Named export === -->
+  <rect x="30" y="60" width="355" height="410" rx="10" fill="#f0f4ff" stroke="#3498db" stroke-width="2"/>
+  <rect x="30" y="60" width="355" height="42" rx="10" fill="#3498db"/>
+  <rect x="30" y="92" width="355" height="10" fill="#3498db"/>
+  <text x="207" y="88" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Named export</text>
+
+  <!-- Export code blok links -->
+  <rect x="48" y="116" width="319" height="108" rx="8" fill="#1a1a2e"/>
+  <text x="62" y="136" font-size="12" font-family="'Courier New', monospace" fill="#43e97b">// wiskunde.js</text>
+  <text x="62" y="156" font-size="12" font-family="'Courier New', monospace" fill="#ff6b6b">export</text>
+  <text x="107" y="156" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0"> const PI = 3.14;</text>
+  <text x="62" y="176" font-size="12" font-family="'Courier New', monospace" fill="#ff6b6b">export</text>
+  <text x="107" y="176" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0"> function optellen(a, b) {</text>
+  <text x="62" y="196" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0">  return a + b;</text>
+  <text x="62" y="212" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0">}</text>
+
+  <!-- Import code blok links -->
+  <rect x="48" y="238" width="319" height="72" rx="8" fill="#1a1a2e"/>
+  <text x="62" y="258" font-size="12" font-family="'Courier New', monospace" fill="#ff6b6b">import</text>
+  <text x="110" y="258" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0"> {</text>
+  <!-- Gele markering voor accolades -->
+  <rect x="108" y="245" width="15" height="18" rx="2" fill="#f9a825" opacity="0.35"/>
+  <text x="62" y="278" font-size="12" font-family="'Courier New', monospace" fill="#6c63ff">  PI, optellen</text>
+  <text x="62" y="298" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0">} from './wiskunde.js';</text>
+  <!-- Gele markering sluitende accolade -->
+  <rect x="62" y="285" width="11" height="18" rx="2" fill="#f9a825" opacity="0.35"/>
+
+  <!-- Accolade-uitleg -->
+  <rect x="48" y="320" width="319" height="34" rx="6" fill="#fff3cd" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="207" y="341" text-anchor="middle" font-size="12" fill="#856404" font-weight="600">⚠ Accolades { } zijn verplicht!</text>
+
+  <!-- Label links -->
+  <text x="207" y="390" text-anchor="middle" font-size="13" fill="#1565c0" font-weight="600">Meerdere per bestand</text>
+  <text x="207" y="410" text-anchor="middle" font-size="12" fill="#555">Naam moet exact overeenkomen</text>
+  <text x="207" y="430" text-anchor="middle" font-size="12" fill="#555">met de geëxporteerde naam</text>
+  <text x="207" y="455" text-anchor="middle" font-size="22">📦📦📦</text>
+
+  <!-- === RECHTS: Default export === -->
+  <rect x="415" y="60" width="355" height="410" rx="10" fill="#f5f0ff" stroke="#6c63ff" stroke-width="2"/>
+  <rect x="415" y="60" width="355" height="42" rx="10" fill="#6c63ff"/>
+  <rect x="415" y="92" width="355" height="10" fill="#6c63ff"/>
+  <text x="592" y="88" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Default export</text>
+
+  <!-- Export code blok rechts -->
+  <rect x="433" y="116" width="319" height="108" rx="8" fill="#1a1a2e"/>
+  <text x="447" y="136" font-size="12" font-family="'Courier New', monospace" fill="#43e97b">// groeter.js</text>
+  <text x="447" y="156" font-size="12" font-family="'Courier New', monospace" fill="#ff6b6b">export default</text>
+  <text x="567" y="156" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0"> function begroet(naam) {</text>
+  <text x="447" y="176" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0">  return `Hallo, </text>
+  <text x="587" y="176" font-size="12" font-family="'Courier New', monospace" fill="#6c63ff">${naam}</text>
+  <text x="633" y="176" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0">!`;</text>
+  <text x="447" y="196" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0">}</text>
+
+  <!-- Import code blok rechts -->
+  <rect x="433" y="238" width="319" height="54" rx="8" fill="#1a1a2e"/>
+  <text x="447" y="258" font-size="12" font-family="'Courier New', monospace" fill="#ff6b6b">import</text>
+  <text x="497" y="258" font-size="12" font-family="'Courier New', monospace" fill="#6c63ff"> begroet</text>
+  <text x="560" y="258" font-size="12" font-family="'Courier New', monospace" fill="#e8e8f0"> from './groeter.js';</text>
+  <text x="447" y="278" font-size="12" font-family="'Courier New', monospace" fill="#888">// Geen { } nodig!</text>
+
+  <!-- Geen accolades highlight -->
+  <rect x="433" y="300" width="319" height="34" rx="6" fill="#d4edda" stroke="#43e97b" stroke-width="1.5"/>
+  <text x="592" y="321" text-anchor="middle" font-size="12" fill="#155724" font-weight="600">✓ Geen accolades nodig!</text>
+
+  <!-- Label rechts -->
+  <text x="592" y="390" text-anchor="middle" font-size="13" fill="#5e35b1" font-weight="600">Één per bestand</text>
+  <text x="592" y="410" text-anchor="middle" font-size="12" fill="#555">Naam kies je zelf bij importeren</text>
+  <text x="592" y="430" text-anchor="middle" font-size="12" fill="#555">import <tspan font-style="italic">mijnNaam</tspan> from '...'</text>
+  <text x="592" y="455" text-anchor="middle" font-size="22">📦</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="1200" height="800" fill="#0f1117"/>
+  <!-- Browser chrome -->
+  <rect x="20" y="20" width="1160" height="760" rx="10" fill="#1e1e2e" stroke="#333" stroke-width="1"/>
+  <rect x="20" y="20" width="1160" height="40" rx="10" fill="#2d2d3d"/>
+  <rect x="20" y="48" width="1160" height="12" fill="#2d2d3d"/>
+  <circle cx="50" cy="40" r="7" fill="#ff5f57"/>
+  <circle cx="74" cy="40" r="7" fill="#febc2e"/>
+  <circle cx="98" cy="40" r="7" fill="#28c840"/>
+  <rect x="200" y="28" width="600" height="24" rx="4" fill="#1a1a2e"/>
+  <text x="500" y="45" text-anchor="middle" font-size="13" fill="#94a3b8">blog-typografie.html</text>
+
+  <!-- Page content - light bg to simulate styled page -->
+  <rect x="20" y="60" width="1160" height="720" fill="#f8f9fa"/>
+
+  <!-- Blog page layout -->
+  <rect x="80" y="90" width="800" height="660" rx="0" fill="#ffffff"/>
+
+  <!-- Google Font indicator -->
+  <rect x="900" y="90" width="260" height="100" rx="8" fill="#1a1a2e"/>
+  <text x="1030" y="115" text-anchor="middle" font-size="11" font-weight="bold" fill="#00d4ff">Google Fonts geladen</text>
+  <text x="1030" y="135" text-anchor="middle" font-size="13" font-family="serif" fill="#ffffff">Lato (body)</text>
+  <text x="1030" y="158" text-anchor="middle" font-size="16" font-weight="bold" fill="#7c3aed">Playfair Display (H)</text>
+
+  <!-- Blog content -->
+  <text x="480" y="130" text-anchor="middle" font-size="28" font-weight="bold" font-family="serif" fill="#1a1a2e">Mijn eerste blogpost</text>
+  <text x="480" y="160" text-anchor="middle" font-size="13" fill="#6c757d">Geschreven door Jana Peeters · 2 april 2026</text>
+  <line x1="100" y1="175" x2="860" y2="175" stroke="#dee2e6" stroke-width="1"/>
+
+  <text x="100" y="210" font-size="20" font-weight="bold" font-family="serif" fill="#1a1a2e">Introductie</text>
+  <rect x="100" y="220" width="740" height="8" rx="4" fill="#e9ecef"/>
+  <rect x="100" y="236" width="700" height="8" rx="4" fill="#e9ecef"/>
+  <rect x="100" y="252" width="620" height="8" rx="4" fill="#e9ecef"/>
+  <rect x="100" y="268" width="680" height="8" rx="4" fill="#e9ecef"/>
+
+  <text x="100" y="305" font-size="20" font-weight="bold" font-family="serif" fill="#1a1a2e">Hoofdstuk 1</text>
+  <rect x="100" y="315" width="740" height="8" rx="4" fill="#e9ecef"/>
+  <rect x="100" y="331" width="660" height="8" rx="4" fill="#e9ecef"/>
+  <rect x="100" y="347" width="700" height="8" rx="4" fill="#e9ecef"/>
+
+  <!-- Callout box -->
+  <rect x="100" y="380" width="740" height="60" rx="6" fill="#f0f4ff" stroke="#7c3aed" stroke-width="1"/>
+  <text x="120" y="400" font-size="13" font-style="italic" fill="#7c3aed">"Typografie is de kunst om tekst te laten leven."</text>
+  <text x="120" y="430" font-size="12" fill="#6c757d">— Jan Tschichold</text>
+
+  <!-- Typography annotations -->
+  <rect x="900" y="210" width="260" height="300" rx="8" fill="#1a1a2e"/>
+  <text x="1030" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="#39ff14">CSS Typografie</text>
+  <text x="920" y="270" font-size="11" fill="#94a3b8">font-size:</text>
+  <text x="1050" y="270" font-size="11" fill="#00d4ff">1rem (body)</text>
+  <text x="920" y="292" font-size="11" fill="#94a3b8">line-height:</text>
+  <text x="1050" y="292" font-size="11" fill="#00d4ff">1.7</text>
+  <text x="920" y="314" font-size="11" fill="#94a3b8">h1 font-size:</text>
+  <text x="1050" y="314" font-size="11" fill="#ff6b35">2.5rem</text>
+  <text x="920" y="336" font-size="11" fill="#94a3b8">h2 font-size:</text>
+  <text x="1050" y="336" font-size="11" fill="#ff6b35">1.75rem</text>
+  <text x="920" y="358" font-size="11" fill="#94a3b8">letter-spacing:</text>
+  <text x="1050" y="358" font-size="11" fill="#00d4ff">0.02em (h)</text>
+  <text x="920" y="380" font-size="11" fill="#94a3b8">max-width:</text>
+  <text x="1050" y="380" font-size="11" fill="#39ff14">65ch</text>
+  <text x="920" y="402" font-size="11" fill="#94a3b8">color:</text>
+  <text x="1050" y="402" font-size="11" fill="#39ff14">#1a1a2e / #6c757d</text>
+  <text x="920" y="430" font-size="11" fill="#94a3b8">@import Google:</text>
+  <text x="1030" y="450" text-anchor="middle" font-size="10" fill="#7c3aed">Lato + Playfair</text>
+  <text x="920" y="475" font-size="11" fill="#94a3b8">margin-bottom:</text>
+  <text x="1050" y="475" font-size="11" fill="#00d4ff">1.5rem (p)</text>
+
+  <!-- Vereisten -->
+  <rect x="40" y="660" width="1120" height="110" rx="8" fill="#1a1a2e" stroke="#00d4ff" stroke-width="1"/>
+  <text x="600" y="685" text-anchor="middle" font-size="14" font-weight="bold" fill="#00d4ff">Vereisten</text>
+  <text x="120" y="710" font-size="13" fill="#39ff14">✓ </text><text x="135" y="710" font-size="13" fill="#ffffff">Google Fonts geladen via @import</text>
+  <text x="420" y="710" font-size="13" fill="#39ff14">✓ </text><text x="435" y="710" font-size="13" fill="#ffffff">Lettertypepaar: serif titels + sans-serif body</text>
+  <text x="800" y="710" font-size="13" fill="#39ff14">✓ </text><text x="815" y="710" font-size="13" fill="#ffffff">max-width: 65ch op tekst</text>
+  <text x="120" y="740" font-size="13" fill="#39ff14">✓ </text><text x="135" y="740" font-size="13" fill="#ffffff">line-height: 1.6–1.8 op body</text>
+  <text x="420" y="740" font-size="13" fill="#39ff14">✓ </text><text x="435" y="740" font-size="13" fill="#ffffff">rem-eenheden voor alle font-sizes</text>
+  <text x="800" y="740" font-size="13" fill="#39ff14">✓ </text><text x="815" y="740" font-size="13" fill="#ffffff">h1, h2 hiërarchie zichtbaar</text>
+</svg>

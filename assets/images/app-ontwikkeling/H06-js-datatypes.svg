@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">JAVASCRIPT — DATATYPES</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">PRIMITIEVE EN COMPLEXE WAARDEN IN JS</text>
+  <line x1="60" y1="64" x2="740" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Tabelheader -->
+  <rect x="60" y="72" width="680" height="28" rx="4" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <text x="130" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">TYPE</text>
+  <text x="270" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">VOORBEELD</text>
+  <text x="450" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">TYPEOF RESULTAAT</text>
+  <text x="620" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">OMSCHRIJVING</text>
+
+  <!-- Rij 1: string -->
+  <rect x="60" y="100" width="680" height="52" rx="0" fill="#1A1C28" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="60" y="100" width="4" height="52" fill="#F97316"/>
+  <rect x="64" y="100" width="130" height="52" fill="#F9731608"/>
+  <text x="130" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#F97316">string</text>
+  <text x="130" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Tekst</text>
+  <text x="270" y="118" text-anchor="middle" font-family="monospace, system-ui" font-size="12" fill="#86EFAC">"Hallo wereld"</text>
+  <text x="270" y="136" text-anchor="middle" font-family="monospace, system-ui" font-size="12" fill="#86EFAC">'DAB', `Naam: ${naam}`</text>
+  <text x="450" y="128" text-anchor="middle" font-family="monospace, system-ui" font-size="13" font-weight="600" fill="#F59E0B">"string"</text>
+  <text x="620" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Reeks tekens, tussen</text>
+  <text x="620" y="136" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">' ', " " of backtick</text>
+
+  <!-- Rij 2: number -->
+  <rect x="60" y="152" width="680" height="52" rx="0" fill="#13141D" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="60" y="152" width="4" height="52" fill="#3B82F6"/>
+  <rect x="64" y="152" width="130" height="52" fill="#3B82F608"/>
+  <text x="130" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#3B82F6">number</text>
+  <text x="130" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Getal</text>
+  <text x="270" y="170" text-anchor="middle" font-family="monospace, system-ui" font-size="12" fill="#86EFAC">42</text>
+  <text x="270" y="188" text-anchor="middle" font-family="monospace, system-ui" font-size="12" fill="#86EFAC">3.14   -7   Infinity</text>
+  <text x="450" y="180" text-anchor="middle" font-family="monospace, system-ui" font-size="13" font-weight="600" fill="#F59E0B">"number"</text>
+  <text x="620" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Gehele getallen en</text>
+  <text x="620" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">kommagetallen (float)</text>
+
+  <!-- Rij 3: boolean -->
+  <rect x="60" y="204" width="680" height="52" rx="0" fill="#1A1C28" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="60" y="204" width="4" height="52" fill="#22C55E"/>
+  <rect x="64" y="204" width="130" height="52" fill="#22C55E08"/>
+  <text x="130" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#22C55E">boolean</text>
+  <text x="130" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Ja/Nee waarde</text>
+  <text x="270" y="222" text-anchor="middle" font-family="monospace, system-ui" font-size="12" fill="#86EFAC">true</text>
+  <text x="270" y="240" text-anchor="middle" font-family="monospace, system-ui" font-size="12" fill="#86EFAC">false</text>
+  <text x="450" y="232" text-anchor="middle" font-family="monospace, system-ui" font-size="13" font-weight="600" fill="#F59E0B">"boolean"</text>
+  <text x="620" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Slechts 2 waarden:</text>
+  <text x="620" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">true of false</text>
+
+  <!-- Rij 4: array -->
+  <rect x="60" y="256" width="680" height="60" rx="0" fill="#13141D" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="60" y="256" width="4" height="60" fill="#A855F7"/>
+  <rect x="64" y="256" width="130" height="60" fill="#A855F708"/>
+  <text x="130" y="276" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#A855F7">array</text>
+  <text x="130" y="294" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Geordende lijst</text>
+  <text x="270" y="272" text-anchor="middle" font-family="monospace, system-ui" font-size="11" fill="#86EFAC">[1, 2, 3]</text>
+  <text x="270" y="288" text-anchor="middle" font-family="monospace, system-ui" font-size="11" fill="#86EFAC">["jan","feb","mrt"]</text>
+  <text x="270" y="304" text-anchor="middle" font-family="monospace, system-ui" font-size="11" fill="#86EFAC">namen[0] → "jan"</text>
+  <text x="450" y="284" text-anchor="middle" font-family="monospace, system-ui" font-size="13" font-weight="600" fill="#F59E0B">"object"</text>
+  <text x="620" y="274" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Lijst met index-nummers</text>
+  <text x="620" y="290" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Begint bij 0</text>
+  <text x="620" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">.length, .push(), .pop()</text>
+
+  <!-- Rij 5: object -->
+  <rect x="60" y="316" width="680" height="68" rx="0" fill="#1A1C28" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="60" y="316" width="4" height="68" fill="#00C2A8"/>
+  <rect x="64" y="316" width="130" height="68" fill="#00C2A808"/>
+  <text x="130" y="336" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#00C2A8">object</text>
+  <text x="130" y="354" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Sleutel-waardeparen</text>
+  <text x="270" y="330" text-anchor="middle" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">{ naam: "Ali",</text>
+  <text x="270" y="346" text-anchor="middle" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">  leeftijd: 17,</text>
+  <text x="270" y="362" text-anchor="middle" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">  actief: true }</text>
+  <text x="270" y="376" text-anchor="middle" font-family="monospace, system-ui" font-size="10" fill="#A8AACB">leerling.naam → "Ali"</text>
+  <text x="450" y="348" text-anchor="middle" font-family="monospace, system-ui" font-size="13" font-weight="600" fill="#F59E0B">"object"</text>
+  <text x="620" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Eigenschappen via key</text>
+  <text x="620" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">object.key of object["key"]</text>
+  <text x="620" y="366" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Geneste objecten mogelijk</text>
+
+  <!-- Rand tabel -->
+  <rect x="60" y="100" width="680" height="284" rx="0" fill="none" stroke="#2A2C45" stroke-width="1"/>
+
+  <!-- Onderste notities -->
+  <rect x="60" y="398" width="680" height="40" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <text x="400" y="413" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">typeof null → "object"  (historische bug in JS)   |   undefined: variabele gedeclareerd maar geen waarde</text>
+  <text x="400" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Primitieve types (string, number, boolean) worden doorgegeven als waarde — objecten en arrays als referentie</text>
+</svg>

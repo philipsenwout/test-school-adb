@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptenapp — Statistieken &amp; Live Klok — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H16" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.1"><span class="sidebar-check__box"></span></label>
+          <a href="#statistieken">16.1 Statistieken berekenen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.2"><span class="sidebar-check__box"></span></label>
+          <a href="#recept-van-dag">16.2 Recept van de dag</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.3"><span class="sidebar-check__box"></span></label>
+          <a href="#date-object">16.3 Het Date-object</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.4"><span class="sidebar-check__box"></span></label>
+          <a href="#live-klok">16.4 Live klok met setInterval</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.5"><span class="sidebar-check__box"></span></label>
+          <a href="#klik-kleur">16.5 H1 klik-event</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="16.6"><span class="sidebar-check__box"></span></label>
+          <a href="#volledig-overzicht">16.6 Volledig overzicht</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Receptenapp — Statistieken &amp; Live Klok</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H16 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Receptenapp — Statistieken &amp; Live Klok</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Statistieken berekenen uit een array van objecten met <code>forEach</code> en <code>reduce</code></li>
+          <li>Het <code>Date</code>-object gebruiken om datum en tijd op te vragen</li>
+          <li>Een live klok bouwen met <code>setInterval()</code></li>
+          <li>Een footer dynamisch aanmaken en live bijwerken via JavaScript</li>
+          <li>Een click-event gebruiken voor een visueel effect (willekeurige kleur)</li>
+          <li>Een "willekeurig recept van de dag" implementeren</li>
+          <li>De complete Receptenapp evalueren en afwerken</li>
+        </ul>
+      </div>
+
+      <h2 id="statistieken">16.1 Statistieken berekenen</h2>
+      <p>We voegen een statistieken-sectie toe aan <code>index.html</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;h2&gt;Statistieken&lt;/h2&gt;
+&lt;ul class="statistieken"&gt;
+    &lt;li id="aantalRecepten"&gt;Totaal aantal recepten:&nbsp;&lt;/li&gt;
+    &lt;li id="snelsteRecept"&gt;Snelste recept:&nbsp;&lt;/li&gt;
+    &lt;li id="gemiddeldeTijd"&gt;Gemiddelde bereidingstijd:&nbsp;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+
+      <h3>Aantal recepten</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonAantalRecepten() {
+    document.querySelector('#aantalRecepten').textContent =
+        `Totaal aantal recepten: ${alleRecepten.length}`;
+}</code></pre>
+      </div>
+
+      <h3>Snelste recept (kortste bereidingstijd)</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function vindSnelsteRecept() {
+    if (alleRecepten.length === 0) return null;
+    let snelste = alleRecepten[0];
+    alleRecepten.forEach(r => {
+        if (r.bereidingstijd &lt; snelste.bereidingstijd) {
+            snelste = r;
+        }
+    });
+    return snelste;
+}
+
+function toonSnelsteRecept() {
+    const snelste = vindSnelsteRecept();
+    if (snelste) {
+        document.querySelector('#snelsteRecept').textContent =
+            `Snelste recept: "${snelste.naam}" (${snelste.bereidingstijd} min)`;
+    }
+}</code></pre>
+      </div>
+
+      <h3>Gemiddelde bereidingstijd</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function berekenGemiddeldeTijd() {
+    if (alleRecepten.length === 0) return 0;
+    const totaal = alleRecepten.reduce((som, r) => som + r.bereidingstijd, 0);
+    return Math.round(totaal / alleRecepten.length);
+}
+
+function toonGemiddeldeTijd() {
+    document.querySelector('#gemiddeldeTijd').textContent =
+        `Gemiddelde bereidingstijd: ${berekenGemiddeldeTijd()} min`;
+}</code></pre>
+      </div>
+      <p>Voeg de statistieken-functies toe aan <code>toonRecepten()</code> zodat ze live bijwerken:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonRecepten() {
+    document.querySelector('.recepten').innerHTML = '';
+    // ... filter + forEach ...
+    toonAantalRecepten();
+    toonSnelsteRecept();
+    toonGemiddeldeTijd();
+}</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H16-afb1.svg" alt="Mockup van de statistieken-sectie: drie lijstitems met live data, bijgewerkt bij elke wijziging" loading="lazy">
+      </figure>
+
+      <h2 id="recept-van-dag">16.2 Willekeurig recept van de dag</h2>
+      <p>Bij elke paginalading tonen we een willekeurig "recept van de dag":</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonReceptVanDeDag() {
+    if (alleRecepten.length === 0) return;
+
+    const index = Math.floor(Math.random() * alleRecepten.length);
+    const recept = alleRecepten[index];
+
+    document.querySelector('#recept-van-de-dag').innerHTML = `
+        &lt;h3&gt;Recept van de dag: ${recept.naam}&lt;/h3&gt;
+        &lt;p&gt;${recept.beschrijving}&lt;/p&gt;
+        &lt;p class="meta"&gt;${recept.categorie} — ${recept.bereidingstijd} min&lt;/p&gt;
+    `;
+}
+
+toonReceptVanDeDag();</code></pre>
+      </div>
+
+      <h2 id="date-object">16.3 Het <code>Date</code>-object</h2>
+      <p>Het <code>Date</code>-object geeft toegang tot de huidige datum en tijd:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const nu = new Date();
+nu.getFullYear();  // 2025
+nu.getMonth();     // 3 (let op: 0 = januari, 3 = april!)
+nu.getDate();      // dag van de maand (1-31)
+nu.getHours();     // uren (0-23)
+nu.getMinutes();   // minuten (0-59)
+nu.getSeconds();   // seconden (0-59)</code></pre>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Opgelet: <code>getMonth()</code> begint bij 0</div>
+        <p><code>getMonth()</code> geeft een waarde van 0 tot 11 terug. Januari is 0, december is 11. Als je de maandnaam wil tonen, gebruik dan <code>toLocaleDateString()</code> — dat doet de omzetting automatisch.</p>
+      </div>
+      <p>Om een mooie datum te tonen, gebruik je <code>toLocaleDateString()</code> met een opties-object:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const nu = new Date();
+const opties = {
+    weekday: 'long',   // 'maandag'
+    year: 'numeric',   // '2025'
+    month: 'long',     // 'april'
+    day: 'numeric',    // '3'
+};
+const dag = nu.toLocaleDateString('nl-NL', opties);
+// → "donderdag 3 april 2025"</code></pre>
+      </div>
+
+      <h2 id="live-klok">16.4 Live klok in de footer met <code>setInterval()</code></h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const toonTijd = () => {
+    const nu = new Date();
+
+    const opties = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
+    const dag = nu.toLocaleDateString('nl-NL', opties);
+
+    const uur = String(nu.getHours()).padStart(2, '0');
+    const min = String(nu.getMinutes()).padStart(2, '0');
+    const sec = String(nu.getSeconds()).padStart(2, '0');
+
+    document.querySelector('footer').innerHTML = `
+        &lt;p&gt;&amp;copy; 2025 — Receptenapp&lt;/p&gt;
+        &lt;p&gt;${dag} — ${uur}:${min}:${sec}&lt;/p&gt;
+    `;
+};
+
+// Start de klok
+toonTijd();
+setInterval(toonTijd, 1000); // Herhaal elke seconde</code></pre>
+      </div>
+      <p><code>padStart(2, '0')</code> zorgt dat uren/minuten/seconden altijd 2 cijfers hebben: <code>08:05:03</code> in plaats van <code>8:5:3</code>.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Concept</th><th>Code</th><th>Gebruik</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Huidig jaar</td><td><code>new Date().getFullYear()</code></td><td>Copyright in footer</td></tr>
+          <tr><td>Datum opmaken</td><td><code>new Date().toLocaleDateString('nl-NL', opties)</code></td><td>Leesbare datum</td></tr>
+          <tr><td>Uren/min/sec</td><td><code>.getHours()</code>, <code>.getMinutes()</code>, <code>.getSeconds()</code></td><td>Tijdweergave</td></tr>
+          <tr><td>Nullen toevoegen</td><td><code>String(n).padStart(2, '0')</code></td><td><code>08</code> ipv <code>8</code></td></tr>
+          <tr><td>Live herhaling</td><td><code>setInterval(functie, 1000)</code></td><td>Elke seconde updaten</td></tr>
+        </tbody>
+      </table>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H16-afb1.svg" alt="Afgewerkte footer met copyright, datum en live klok" loading="lazy">
+      </figure>
+
+      <h2 id="klik-kleur">16.5 H1 klik-event: willekeurige kleur</h2>
+      <p>Een leuk detail: klik op de h1 en de kleur verandert willekeurig:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const h1Titel = document.querySelector('h1');
+h1Titel.addEventListener('click', () => {
+    const r = Math.round(Math.random() * 255);
+    const g = Math.round(Math.random() * 255);
+    const b = Math.round(Math.random() * 255);
+    h1Titel.style.color = `rgb(${r}, ${g}, ${b})`;
+});</code></pre>
+      </div>
+      <p><code>Math.random()</code> geeft een willekeurig getal van 0 (inclusief) tot 1 (exclusief). Door te vermenigvuldigen met 255 en af te ronden met <code>Math.round()</code>, krijgen we een willekeurig geheel getal van 0 tot 255 — exact het bereik van een kleurkanaal in RGB.</p>
+
+      <h2 id="volledig-overzicht">16.6 Volledig overzicht van de Receptenapp</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Hoofdstuk</th><th>Concept</th><th>Bestand</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>H09</td><td>Projectopzet, data, ES-modules</td><td>recepten.js, hulpfuncties.js</td></tr>
+          <tr><td>H10</td><td>DOM-manipulatie, recepten weergeven</td><td>script.js</td></tr>
+          <tr><td>H11</td><td>Formulier, validatie, toevoegen</td><td>add.js</td></tr>
+          <tr><td>H12</td><td>localStorage, verwijderen, Custom Event</td><td>script.js + add.js</td></tr>
+          <tr><td>H13</td><td>Filteren op categorie</td><td>script.js</td></tr>
+          <tr><td>H14</td><td>Zoekfunctie + tekenteller</td><td>script.js</td></tr>
+          <tr><td>H15</td><td>Verwijderen uitdieping, undo</td><td>script.js</td></tr>
+          <tr><td><strong>H16</strong></td><td><strong>Statistieken, Date, setInterval</strong></td><td><strong>script.js</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Concepten gebruikt in de volledige app:</strong></p>
+      <ul>
+        <li>ES Modules (import/export)</li>
+        <li>Arrays van objecten</li>
+        <li>DOM manipulatie (createElement, innerHTML, classList)</li>
+        <li>Event listeners (click, change, input, submit)</li>
+        <li>Custom Events (new CustomEvent, dispatchEvent)</li>
+        <li>localStorage + JSON (getItem, setItem, removeItem)</li>
+        <li>Array methodes (forEach, filter, findIndex, map, reduce)</li>
+        <li>Template literals</li>
+        <li>Date object + setInterval</li>
+        <li>Math.random() + Math.floor()</li>
+        <li>padStart() voor tijdsopmaak</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Gefeliciteerd!</div>
+        <p>Je hebt de volledige Receptenapp gebouwd — van datastructuur tot live klok. Je beheerst nu: ES Modules, DOM manipulatie, Events, Custom Events, localStorage, Array methodes, filters en de Date API. Dit zijn de fundamenten van elke moderne JavaScript-webapplicatie.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Statistieken implementeren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Implementeer de volledige statistieken-sectie:</p>
+            <ol>
+              <li>Voeg de HTML-structuur toe aan <code>index.html</code>.</li>
+              <li>Implementeer <code>toonAantalRecepten()</code>, <code>vindSnelsteRecept()</code> en <code>toonGemiddeldeTijd()</code>.</li>
+              <li>Roep deze functies aan vanuit <code>toonRecepten()</code> zodat ze live bijwerken.</li>
+              <li>Test: voeg recepten toe en verwijder ze — de statistieken moeten live mee veranderen.</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H16-oef1-browser.svg" alt="Volledige afgewerkte receptenapp: statistieken, recept van de dag en live footer" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Live klok in de footer</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw de live klok in de footer:</p>
+            <ol>
+              <li>Voeg de footer dynamisch toe via <code>document.body.insertAdjacentHTML('beforeend', '&lt;footer&gt;&lt;/footer&gt;')</code>.</li>
+              <li>Implementeer de <code>toonTijd()</code> functie met <code>toLocaleDateString()</code> en <code>padStart()</code>.</li>
+              <li>Start de klok met <code>setInterval(toonTijd, 1000)</code>.</li>
+              <li>Verificeer dat de klok elke seconde correct bijwerkt.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 3 — Volledige app testen en uitbreiden</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Test de complete app grondig en voeg een extra statistiek toe:</p>
+            <ol>
+              <li>Voeg 6 recepten toe (minstens 2 per categorie), filter, zoek, verwijder — alles moet werken na een paginaverversing.</li>
+              <li>Voeg een statistiek toe: toon hoeveel recepten er per categorie zijn (bijv. "Voorgerecht: 2, Hoofdgerecht: 3, Dessert: 1, Snack: 0").</li>
+              <li>Implementeer het H1 klik-event voor willekeurige kleur.</li>
+              <li><strong>Uitdaging:</strong> Implementeer het "Recept van de dag" in een aparte sectie bovenaan de pagina.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H16 Statistieken &amp; Live Klok
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H16-oef1-browser.svg', 'Voorbeeld — Volledige afgewerkte Receptenapp')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Eindopdracht: Volledige Receptenapp afwerken</h3>
+            <p>Dit is de afsluiting van het receptenapp-project. Zorg dat alle onderdelen (H09–H16) geïntegreerd en getest zijn.</p>
+            <h4>Deel 1 — Statistieken (3 punten)</h4>
+            <ol>
+              <li>Implementeer de drie basisstatistieken (totaal, snelste, gemiddelde).</li>
+              <li>Voeg een per-categorie statistiek toe.</li>
+            </ol>
+            <h4>Deel 2 — Live klok en datum (3 punten)</h4>
+            <ol>
+              <li>Bouw de live klok in de footer met <code>setInterval()</code>.</li>
+              <li>Gebruik <code>toLocaleDateString('nl-NL', ...)</code> voor een leesbare datum.</li>
+            </ol>
+            <h4>Deel 3 — Afwerking en test (4 punten)</h4>
+            <ol>
+              <li>Implementeer het "Recept van de dag".</li>
+              <li>Voeg het H1 klik-event toe.</li>
+              <li>Test de volledige app: voeg toe, filter, zoek, verwijder, ververs — alles moet werken.</li>
+              <li>Maak een video-demo (max. 2 minuten) of screenshots van alle functies.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H16 — Statistieken &amp; Live Klok</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat doet <code>alleRecepten.reduce((som, r) => som + r.bereidingstijd, 0)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="a"> <span>Zoekt het recept met de grootste bereidingstijd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="b"> <span>Berekent de som van alle bereidingstijden, startend bij 0</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="c"> <span>Verwijdert recepten met een bereidingstijd van 0</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v1" value="d"> <span>Telt het aantal recepten in de array</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat geeft <code>new Date().getMonth()</code> terug voor april?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="a"> <span><code>4</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="b"> <span><code>"april"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="c"> <span><code>3</code> (maanden beginnen bij 0)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v2" value="d"> <span><code>04</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>setInterval(toonTijd, 1000)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="a"> <span>Roept <code>toonTijd()</code> elke 1000 milliseconden (1 seconde) opnieuw aan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="b"> <span>Roept <code>toonTijd()</code> eenmalig na 1 seconde aan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="c"> <span>Wacht 1000 seconden voor de pagina laadt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v3" value="d"> <span>Stopt de klok na 1000 milliseconden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Waarvoor dient <code>String(nu.getHours()).padStart(2, '0')</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="a"> <span>Om het uur op te slaan als string in localStorage</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="b"> <span>Om het getal te vermenigvuldigen met 2</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="c"> <span>Om het uur af te ronden naar boven</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v4" value="d"> <span>Om altijd 2 cijfers te tonen: "08" in plaats van "8"</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Hoe kies je een willekeurig element uit een array?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="a"> <span><code>array.random()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="b"> <span><code>array[Math.floor(Math.random() * array.length)]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="c"> <span><code>array.shuffle()[0]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v5" value="d"> <span><code>Math.random(array)</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat is het verschil tussen <code>setInterval()</code> en <code>setTimeout()</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="a"> <span>Er is geen verschil</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="b"> <span><code>setInterval()</code> voert eenmalig uit, <code>setTimeout()</code> herhaalt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="c"> <span><code>setInterval()</code> herhaalt op interval, <code>setTimeout()</code> voert eenmalig uit na vertraging</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h16-v6" value="d"> <span><code>setTimeout()</code> werkt alleen voor animaties</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H16')" data-progress-key="6adb/app-ontwikkeling/H16">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H15.html" class="btn btn-ghost">← H15</a>
+          <a href="H17.html" class="btn btn-ghost">H17 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

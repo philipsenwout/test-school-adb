@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Browser chrome -->
+  <rect x="0" y="0" width="800" height="40" rx="8" fill="#2d2d2d"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="20" r="6" fill="#28c840"/>
+  <rect x="100" y="8" width="500" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="350" y="24" text-anchor="middle" fill="#888" font-size="12">localhost/receptenapp/</text>
+
+  <!-- Page -->
+  <rect x="0" y="40" width="800" height="440" fill="#f8f9ff"/>
+
+  <!-- Header -->
+  <rect x="0" y="40" width="800" height="55" fill="#1a1a2e"/>
+  <text x="30" y="73" fill="white" font-size="18" font-weight="bold">🍽 Mijn Recepten</text>
+  <text x="650" y="65" fill="#aaa" font-size="13">Overzicht</text>
+  <text x="720" y="65" fill="#6c63ff" font-size="13">Toevoegen</text>
+
+  <!-- Search bar -->
+  <rect x="20" y="108" width="760" height="44" rx="8" fill="white" stroke="#6c63ff" stroke-width="2"/>
+  <text x="38" y="130" fill="#888" font-size="14">🔍</text>
+  <text x="62" y="133" fill="#2d2d4e" font-size="14">pasta</text>
+  <rect x="84" y="121" width="2" height="16" fill="#6c63ff"/>
+  <text x="660" y="130" fill="#6c63ff" font-size="12">5 tekens</text>
+  <rect x="700" y="118" width="65" height="22" rx="11" fill="#ff6b6b" fill-opacity="0.15" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="732" y="133" text-anchor="middle" fill="#ff6b6b" font-size="12">✕ Wis</text>
+
+  <!-- Filter bar -->
+  <rect x="20" y="162" width="760" height="40" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="35" y="186" fill="#2d2d4e" font-size="12" font-weight="bold">Filter:</text>
+  <rect x="85" y="172" width="14" height="14" rx="3" fill="#3498db"/>
+  <text x="85" y="184" fill="white" font-size="10" font-weight="bold">✓</text>
+  <text x="105" y="184" fill="#3498db" font-size="12" font-weight="bold">Hoofdgerecht</text>
+  <rect x="235" y="172" width="14" height="14" rx="3" fill="#9b59b6"/>
+  <text x="235" y="184" fill="white" font-size="10" font-weight="bold">✓</text>
+  <text x="255" y="184" fill="#9b59b6" font-size="12" font-weight="bold">Dessert</text>
+  <rect x="345" y="172" width="14" height="14" rx="3" fill="#e74c3c"/>
+  <text x="345" y="184" fill="white" font-size="10" font-weight="bold">✓</text>
+  <text x="365" y="184" fill="#e74c3c" font-size="12" font-weight="bold">Voorgerecht</text>
+  <rect x="480" y="172" width="14" height="14" rx="3" fill="#f39c12"/>
+  <text x="480" y="184" fill="white" font-size="10" font-weight="bold">✓</text>
+  <text x="500" y="184" fill="#f39c12" font-size="12" font-weight="bold">Snack</text>
+
+  <!-- Card 1 -->
+  <rect x="100" y="218" width="260" height="130" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="100" y="218" width="5" height="130" rx="2" fill="#3498db"/>
+  <text x="120" y="243" fill="#2d2d4e" font-size="13" font-weight="bold">Spaghetti carbonara</text>
+  <!-- Highlight pasta -->
+  <rect x="120" y="245" width="87" height="12" rx="3" fill="#6c63ff" fill-opacity="0.2"/>
+  <text x="120" y="263" fill="#888" font-size="11">Klassieke pasta met ei en spek.</text>
+  <rect x="120" y="286" width="76" height="16" rx="8" fill="#3498db" fill-opacity="0.15"/>
+  <text x="158" y="298" text-anchor="middle" fill="#3498db" font-size="10" font-weight="bold">hoofdgerecht</text>
+  <text x="245" y="298" fill="#888" font-size="11">⏱ 25 min</text>
+
+  <!-- Card 2 -->
+  <rect x="440" y="218" width="260" height="130" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="440" y="218" width="5" height="130" rx="2" fill="#3498db"/>
+  <text x="460" y="243" fill="#2d2d4e" font-size="13" font-weight="bold">Pasta pesto</text>
+  <!-- Highlight pasta -->
+  <rect x="460" y="245" width="48" height="12" rx="3" fill="#6c63ff" fill-opacity="0.2"/>
+  <text x="460" y="263" fill="#888" font-size="11">Groene pesto met verse basilicum.</text>
+  <rect x="460" y="286" width="76" height="16" rx="8" fill="#3498db" fill-opacity="0.15"/>
+  <text x="498" y="298" text-anchor="middle" fill="#3498db" font-size="10" font-weight="bold">hoofdgerecht</text>
+  <text x="585" y="298" fill="#888" font-size="11">⏱ 15 min</text>
+
+  <!-- Info bar -->
+  <rect x="20" y="368" width="760" height="36" rx="8" fill="#6c63ff" fill-opacity="0.1" stroke="#6c63ff" stroke-width="1"/>
+  <text x="400" y="390" text-anchor="middle" fill="#6c63ff" font-size="13">2 recepten gevonden voor "pasta" — alle categorieën actief</text>
+
+  <!-- Statistics -->
+  <rect x="20" y="415" width="760" height="45" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="40" y="435" fill="#888" font-size="12" font-weight="bold">Statistieken:</text>
+  <text x="40" y="451" fill="#2d2d4e" font-size="11">🍽 Totaal: 5 recepten</text>
+  <text x="240" y="451" fill="#2d2d4e" font-size="11">⚡ Snelste: Nachos (10 min)</text>
+  <text x="500" y="451" fill="#2d2d4e" font-size="11">⏱ Gemiddeld: 21 min</text>
+</svg>

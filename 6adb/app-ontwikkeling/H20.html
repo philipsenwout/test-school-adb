@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js &amp; npm — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H20" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-nodejs">20.1 Wat is Node.js?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.2"><span class="sidebar-check__box"></span></label>
+          <a href="#npm">20.2 npm — Node Package Manager</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.3"><span class="sidebar-check__box"></span></label>
+          <a href="#express">20.3 Express — webserver</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="20.4"><span class="sidebar-check__box"></span></label>
+          <a href="#rest-api">20.4 Een minimale REST API</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Node.js &amp; npm</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H20 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Node.js &amp; npm</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB12</span><span class="ld-tag__title">De leerlingen documenteren een applicatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB04</span><span class="ld-tag__title">De leerlingen volgen evoluties binnen het vakgebied op.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.08</span><span class="ld-tag__title">De leerlingen gebruiken gerichte hulpbronnen om informatie op te zoeken.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat Node.js is en waarom het bestaat</li>
+          <li>Node.js en npm controleren via de terminal (<code>node -v</code>, <code>npm -v</code>)</li>
+          <li>Een nieuw project initialiseren met <code>npm init</code></li>
+          <li>Een pakket installeren met <code>npm install</code> en begrijpen wat <code>node_modules</code> en <code>package.json</code> doen</li>
+          <li>Uitleggen waarom <code>node_modules</code> niet in git gecommit wordt</li>
+          <li>Een minimale webserver bouwen met Express</li>
+          <li>Statische bestanden aanbieden via <code>express.static</code></li>
+          <li>GET- en POST-routes schrijven met Express</li>
+          <li>Een eenvoudige REST API bouwen met een in-memory array</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-nodejs">20.1 Wat is Node.js?</h2>
+      <p>Tot nu toe draaide alle JavaScript die je schreef in de <strong>browser</strong>. <strong>Node.js</strong> is een runtime die de V8-engine van Chrome <strong>buiten de browser</strong> laat draaien — op je eigen computer of op een server. Hierdoor kan je JavaScript gebruiken voor webservers, REST API's, scripts en tooling.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H20-afb1.svg" alt="Client-server diagram: browser stuurt HTTP-verzoek naar Express server" loading="lazy">
+      </figure>
+
+      <h3>JavaScript in de browser vs Node.js</h3>
+      <table class="data-table">
+        <thead><tr><th></th><th>Browser</th><th>Node.js</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Omgeving</strong></td><td>Browservenster</td><td>Terminal / server</td></tr>
+          <tr><td><strong>Toegang tot DOM</strong></td><td>Ja (<code>document</code>, <code>window</code>)</td><td>Nee</td></tr>
+          <tr><td><strong>Toegang tot bestandssysteem</strong></td><td>Nee</td><td>Ja (<code>fs</code>-module)</td></tr>
+          <tr><td><strong>Gebruik</strong></td><td>Front-end, UI, interactie</td><td>Back-end, API's, scripts</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Installeren en controleren</h3>
+      <p>Download Node.js via <strong>nodejs.org</strong> (kies de LTS-versie). Na de installatie controleer je de versie in de terminal:</p>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">node -v
+# v22.14.0  (of een recentere versie)
+
+npm -v
+# 10.9.2</code></pre>
+      </div>
+
+      <h2 id="npm">20.2 npm — Node Package Manager</h2>
+      <p>npm staat voor <strong>Node Package Manager</strong>. Het is de pakketbeheerder die automatisch meegeïnstalleerd wordt met Node.js. Via npm installeer je externe bibliotheken die anderen hebben geschreven.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H20-afb2.svg" alt="npm-workflow: init → package.json → install → node_modules → node server.js" loading="lazy">
+      </figure>
+
+      <h3>Een nieuw project starten: <code>npm init</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">mkdir mijn-server
+cd mijn-server
+npm init -y</code></pre>
+      </div>
+      <p>De vlag <code>-y</code> antwoordt automatisch "ja" op alle vragen. Het resultaat is een <code>package.json</code>-bestand. Voeg <code>"type": "module"</code> toe zodat je de moderne <code>import</code>/<code>export</code>-syntax kan gebruiken:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">{
+  "name": "mijn-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  }
+}</code></pre>
+      </div>
+
+      <h3>Een pakket installeren: <code>npm install</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">npm install express</code></pre>
+      </div>
+      <p>Dit doet drie dingen: downloadt Express naar <code>node_modules/</code>, voegt het toe aan <code>"dependencies"</code> in <code>package.json</code>, en maakt <code>package-lock.json</code> aan.</p>
+
+      <h3><code>node_modules</code> en <code>.gitignore</code></h3>
+      <p>De <code>node_modules/</code>-map bevat alle gedownloade pakketbestanden — dat kunnen duizenden bestanden zijn. Je commit deze map <strong>nooit</strong> in git:</p>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Inhoud van .gitignore
+node_modules/</code></pre>
+      </div>
+      <p>Iemand anders die jouw project kloont, installeert alles opnieuw met <code>npm install</code>.</p>
+
+      <h2 id="express">20.3 Express — een eenvoudige webserver</h2>
+      <p><strong>Express</strong> is het meest gebruikte Node.js-framework voor webservers en API's. Het maakt het eenvoudig om HTTP-routes te definiëren, JSON te verwerken en statische bestanden aan te bieden.</p>
+
+      <h3>De basis: een Express-app opzetten</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// server.js
+import express from 'express';
+
+const app = express();
+const port = 3000;
+
+app.listen(port, () => {
+    console.log('Server gestart op poort: ' + port);
+});</code></pre>
+      </div>
+
+      <h3>Middleware: <code>express.static</code> en <code>express.json</code></h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Statische bestanden aanbieden vanuit de map 'Client'
+app.use(express.static('../Client'));
+
+// JSON-body's parsen — nodig voor POST-verzoeken
+app.use(express.json());</code></pre>
+      </div>
+
+      <h3>Mapstructuur met aparte Client-map</h3>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">mijn-project/
+├── Server/
+│   ├── server.js
+│   ├── package.json
+│   └── node_modules/
+└── Client/
+    ├── index.html
+    ├── style.css
+    └── app.js</code></pre>
+      </div>
+
+      <h3>Routes: GET en POST</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// GET /api/begroeting
+app.get('/api/begroeting', (req, res) => {
+    res.json({ bericht: 'Hallo van de server!' });
+});
+
+// POST /api/begroeting
+app.post('/api/begroeting', (req, res) => {
+    const naam = req.body.naam; // data uit de request-body
+    console.log('Ontvangen naam:', naam);
+    res.status(204).end();      // 204 = No Content
+});</code></pre>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Methode</th><th>Wat het doet</th></tr></thead>
+        <tbody>
+          <tr><td><code>res.json(data)</code></td><td>Stuur JSON terug (status 200)</td></tr>
+          <tr><td><code>res.send('tekst')</code></td><td>Stuur tekst terug</td></tr>
+          <tr><td><code>res.status(404).end()</code></td><td>Stuur status 404 zonder body</td></tr>
+          <tr><td><code>res.status(204).end()</code></td><td>Stuur status 204 (verwerkt, geen content)</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="rest-api">20.4 Een minimale REST API bouwen</h2>
+      <p>We bouwen stap voor stap een API die berichten bijhoudt in een in-memory array — gebaseerd op de chat-servercode uit de cursus.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Server/server.js — volledige versie
+import express from 'express';
+
+const app = express();
+const port = 3006;
+
+app.use(express.static('../Client'));
+app.use(express.json());
+
+let berichten = [
+    { nickname: 'systeem', message: 'Server is gestart!' }
+];
+
+// GET: alle berichten ophalen
+app.get('/api/chat', (req, res) => {
+    res.json(berichten);
+});
+
+// POST: een bericht toevoegen
+app.post('/api/chat', (req, res) => {
+    berichten.push({
+        nickname: req.body.nickname,
+        message: req.body.message
+    });
+    res.status(204).end();
+});
+
+app.listen(port, () => {
+    console.log('Server gestart op poort: ' + port);
+});</code></pre>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout-header">In-memory vs database</div>
+        <p>De array <code>berichten</code> leeft in het geheugen van het Node.js-process. Dat betekent dat alle data verdwijnt als de server herstart. In een echte applicatie gebruik je een database voor persistente opslag — dat behandelen we bij Databeheer.</p>
+      </div>
+
+      <h3>De API testen vanuit de front-end</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Client/app.js
+
+// GET: alle berichten ophalen
+async function haalBerichtenOp() {
+    const response = await fetch('/api/chat');
+    const berichten = await response.json();
+    console.log(berichten);
+}
+
+// POST: een bericht sturen
+async function stuurBericht(nickname, message) {
+    await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nickname, message })
+    });
+}</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">📚 Bronnen &amp; documentatie</div>
+        <ul>
+          <li><a href="https://nodejs.org/docs" target="_blank" rel="noopener">Node.js officiële docs</a> — API-documentatie van Node.js</li>
+          <li><a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a> — zoek npm-packages en lees hun README en changelog</li>
+          <li><a href="https://expressjs.com" target="_blank" rel="noopener">Express.js docs</a> — officiële documentatie van Express</li>
+          <li><a href="https://github.com/nodejs/release" target="_blank" rel="noopener">Node.js release schedule</a> — volg nieuwe versies</li>
+        </ul>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Recepten-API</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een mini-project met de volgende structuur:</p>
+            <div class="code-block">
+              <div class="code-block__lang">Bash</div>
+              <pre><code class="language-bash">recepten-app/
+├── Server/
+│   ├── server.js
+│   └── package.json
+└── Client/
+    ├── index.html
+    └── app.js</code></pre>
+            </div>
+            <p>De server moet:</p>
+            <ul>
+              <li><strong>GET <code>/api/recepten</code></strong> — stuurt een hardgecodeerde array van 3 recepten terug als JSON. Elk recept heeft een <code>naam</code> en <code>bereidingstijd</code> (in minuten).</li>
+              <li><strong>POST <code>/api/recepten</code></strong> — voegt een recept toe vanuit <code>req.body</code>, retourneert status 204</li>
+              <li>Statische bestanden aanbieden vanuit de <code>Client/</code>-map</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H20-oef1-browser.svg" alt="Browser met JSON-response van /api/recepten als lijst" loading="lazy">
+            </figure>
+            <p><strong>Testprocedure:</strong></p>
+            <ol>
+              <li>Open een terminal, ga naar de <code>Server/</code>-map: <code>cd Server</code></li>
+              <li>Installeer dependencies: <code>npm install</code></li>
+              <li>Start de server: <code>node server.js</code></li>
+              <li>Open <code>http://localhost:3000</code> in de browser</li>
+              <li>Controleer <code>http://localhost:3000/api/recepten</code></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 2 — API documenteren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf voor de Recepten-API een korte <strong>API-documentatie</strong> in een <code>README.md</code>-bestand. Beschrijf voor elke route:</p>
+            <ul>
+              <li>De HTTP-methode en URL</li>
+              <li>Wat de route doet</li>
+              <li>De verwachte body (voor POST)</li>
+              <li>De verwachte response (statuscode en formaat)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 3 — DELETE-route toevoegen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Breid de Recepten-API uit met een DELETE-route:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">app.delete('/api/recepten/:naam', (req, res) => {
+    const naam = req.params.naam;
+    recepten = recepten.filter(r => r.naam !== naam);
+    res.status(204).end();
+});</code></pre>
+            </div>
+            <p>Voeg aan de front-end een verwijderknop toe naast elk recept. De knop roept de DELETE-route aan en ververst daarna de lijst.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#x1F4CB; Huistaak &mdash; Takenlijst-API
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H20-oef1-browser.svg', 'Voorbeeld — Takenlijst-app')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledige takenlijst-applicatie</h3>
+            <p>Bouw een takenlijst-app met een Node.js-server en een HTML-front-end.</p>
+            <h4>Deel 1 — Server (4 punten)</h4>
+            <ol>
+              <li><strong>GET <code>/api/taken</code></strong> — stuurt alle taken terug als JSON (elke taak: <code>id</code>, <code>titel</code>, <code>voltooid</code>)</li>
+              <li><strong>POST <code>/api/taken</code></strong> — voegt een nieuwe taak toe (<code>titel</code> komt uit <code>req.body</code>), geeft een uniek <code>id</code> via <code>Date.now()</code></li>
+              <li><strong>DELETE <code>/api/taken/:id</code></strong> — verwijdert de taak met het opgegeven id</li>
+              <li>Statische bestanden aanbieden vanuit de <code>Client/</code>-map</li>
+            </ol>
+            <h4>Deel 2 — Front-end (3 punten)</h4>
+            <ol>
+              <li>Toon alle taken in een lijst bij het laden van de pagina</li>
+              <li>Een formulier om een nieuwe taak in te geven</li>
+              <li>Een verwijderknop naast elke taak</li>
+            </ol>
+            <h4>Deel 3 — Indiening (3 punten)</h4>
+            <ol>
+              <li>Lever de volledige map in zonder <code>node_modules/</code></li>
+              <li>Voeg een <code>README.md</code> toe met instructies om de server te starten</li>
+            </ol>
+            <h4>Deel 4 — npm changelogs lezen (2 punten)</h4>
+            <p>Elke npm-package heeft een changelog of release-history. Zoek op <a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>:</p>
+            <ol>
+              <li>Zoek de package <code>express</code>. Welke versie is momenteel de laatste stabiele versie?</li>
+              <li>Klik op "Versions" of de GitHub-link. Beschrijf in 2 zinnen wat er nieuw was in de laatste major versie (bv. Express 5.x vs 4.x).</li>
+              <li><strong>Bonus:</strong> Zoek 1 alternatieve web framework voor Node.js (bv. Fastify, Koa, Hapi). Wat is het verschil met Express?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H20 — Node.js &amp; npm</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het verschil tussen JavaScript in de browser en Node.js?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="a"> <span>Node.js kan geen JavaScript, enkel TypeScript</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="b"> <span>Node.js laat JavaScript draaien buiten de browser, op een server of computer</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="c"> <span>Node.js is sneller omdat het een andere taal gebruikt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v1" value="d"> <span>Node.js heeft toegang tot de DOM, de browser niet</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk commando gebruik je aan het begin van elk nieuw Node.js-project?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="a"> <span><code>npm start</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="b"> <span><code>node init</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="c"> <span><code>npm init -y</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v2" value="d"> <span><code>npm install</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Waarom zet je <code>node_modules/</code> in <code>.gitignore</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="a"> <span>Omdat de map geheime sleutels bevat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="b"> <span>Omdat de map enkel op Windows werkt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="c"> <span>Omdat de map duizenden bestanden bevat die via <code>npm install</code> opnieuw aangemaakt kunnen worden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v3" value="d"> <span>Omdat git die map automatisch negeert</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke statuscode stuur je terug bij een POST-verzoek dat succesvol verwerkt is maar geen data teruggeeft?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="a"> <span>200</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="b"> <span>201</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="c"> <span>204</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v4" value="d"> <span>404</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet <code>app.use(express.json())</code> in een Express-server?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="a"> <span>Het converteert alle responses automatisch naar JSON</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="b"> <span>Het laat de server toe JSON-bestanden te serveren als statische bestanden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="c"> <span>Het parseert de JSON-body van inkomende POST-verzoeken zodat je <code>req.body</code> kan uitlezen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v5" value="d"> <span>Het importeert de JSON-module van Node.js</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welke regel is nodig in <code>package.json</code> om de moderne <code>import</code>/<code>export</code>-syntax te kunnen gebruiken?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="a"> <span><code>"type": "module"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="b"> <span><code>"syntax": "esm"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="c"> <span><code>"module": true</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h20-v6" value="d"> <span>Geen extra regel nodig — Node.js ondersteunt <code>import</code> standaard</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H20')" data-progress-key="6adb/app-ontwikkeling/H20">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H19.html" class="btn btn-ghost">&larr; H19</a>
+          <a href="H21.html" class="btn btn-ghost">H21 &rarr;</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

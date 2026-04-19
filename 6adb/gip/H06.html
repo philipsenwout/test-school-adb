@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H06 — Adminpanel &amp; afwerking — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/gip/H06" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#routes-beschermen">1. Server routes</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#admin-html">2. admin.html + admin.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#add-html">3. add.html + add.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#edit-html">4. edit.html + edit.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5"><span class="sidebar-check__box"></span></label>
+          <a href="#readme">5. README.md schrijven</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="demo"><span class="sidebar-check__box"></span></label>
+          <a href="#demo-voorbereiden">Demo voorbereiden</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6"><span class="sidebar-check__box"></span></label>
+          <a href="#checklist">6. Eindchecklist</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="index.html">GIP</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>H06 — Adminpanel &amp; afwerking</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H06 &mdash; GIP 6ADB</div>
+        <h1 class="page-header__title">Adminpanel &amp; afwerking</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen documenteren een applicatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">De leerlingen bevragen en bewerken een database.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een database aan een applicatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB26</span><span class="ld-tag__title">De leerlingen stellen een gebruikershandleiding op.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB27</span><span class="ld-tag__title">De leerlingen lichten het gebruik van een applicatie mondeling toe.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#127919; Leerdoelen</div>
+        <ul>
+          <li>Admin-routes schrijven die alle activiteiten van alle gebruikers kunnen beheren</li>
+          <li>Rolcontrole toepassen zodat alleen admins de pagina's bereiken</li>
+          <li>Data doorgeven van de ene pagina naar de andere via een URL-parameter (<code>?id=5</code>)</li>
+          <li>URL-parameters uitlezen met <code>URLSearchParams</code> en de bijhorende data ophalen van de server</li>
+          <li>Een formulier automatisch invullen met bestaande data</li>
+          <li>De README.md schrijven voor je GIP-indiening</li>
+          <li>Een professionele gebruikershandleiding schrijven als onderdeel van de README</li>
+          <li>Een demo van je GIP voorbereiden en presenteren</li>
+        </ul>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128260; Drie aparte pagina's voor de admin</div>
+        <p>In dit hoofdstuk splitsen we het adminpanel op in drie pagina's. Elke pagina heeft één verantwoordelijkheid:</p>
+        <ul>
+          <li><code>admin.html</code> — overzichtstabel van alle activiteiten + Verwijder-knop</li>
+          <li><code>add.html</code> — formulier om een nieuwe activiteit aan te maken</li>
+          <li><code>edit.html?id=5</code> — formulier om een bestaande activiteit te bewerken; het <code>id</code> staat in de URL</li>
+        </ul>
+        <p style="margin-top: var(--space-3);">Zo leer je meteen hoe je data meestuurt van de ene pagina naar de andere: via een <strong>query parameter</strong> in de URL. Dat is een veelgebruikt patroon in webapplicaties.</p>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-H06-afb1.svg" alt="Adminpanel opgesplitst in admin.html, add.html en edit.html" loading="lazy">
+      </figure>
+
+      <h2 id="routes-beschermen">1. Server routes in server.js</h2>
+
+      <p>De admin werkt op <strong>alle</strong> activiteiten, ongeacht wie ze heeft aangemaakt. Voeg een <code>isAdmin</code>-middleware toe. Je hebt ook een nieuwe GET-route nodig die <strong>één activiteit</strong> ophaalt — <code>edit.html</code> heeft die nodig om het formulier in te vullen.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Verschil met H05</div>
+        <p>In H05 controleerden PUT en DELETE of <code>user_id = req.session.gebruikerId</code>. De admin-routes doen dit <strong>niet</strong>: de admin mag elke activiteit bewerken of verwijderen, ongeacht de eigenaar.</p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">// ── isAdmin-middleware ────────────────────────────────────────────────────────
+// Combineert twee controles:
+//   1. Is de gebruiker ingelogd?         → anders 401 Unauthorized
+//   2. Heeft de gebruiker de admin-rol?  → anders 403 Forbidden
+function isAdmin(req, res, next) {
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Inloggen vereist' });
+    }
+    if (req.session.rol !== 'admin') {
+        return res.status(403).json({ fout: 'Geen toegang' });
+    }
+    next();
+}
+
+// ── GET /api-admin/activiteiten — alle activiteiten met aanmakernaam ────────────────
+// Geen middleware: iedereen mag de lijst ophalen (ook gewone gebruikers).
+// Vervang de GET-route uit H03 door deze versie met LEFT JOIN.
+app.get('/api-admin/activiteiten', async (req, res) => {
+    const [rijen] = await pool.execute(`
+        SELECT
+            a.*,
+            u.naam AS aangemaakt_door
+        FROM activiteiten a
+        LEFT JOIN users u ON u.id = a.user_id
+        ORDER BY a.datum ASC
+    `);
+    res.json(rijen);
+});
+
+// ── GET /api-admin/activiteiten/:id — één activiteit ophalen ────────────────────────
+// Nieuw in H06: edit.html vraagt deze route op om het formulier in te vullen.
+// De browser stuurt: GET /api-admin/activiteiten/5
+// De server zoekt activiteit met id=5 en stuurt het terug als JSON.
+app.get('/api-admin/activiteiten/:id', isAdmin, async (req, res) => {
+    const [rijen] = await pool.execute(
+        'SELECT * FROM activiteiten WHERE id = ?',
+        [req.params.id]
+    );
+    if (rijen.length === 0) {
+        return res.status(404).json({ fout: 'Niet gevonden' });
+    }
+    res.json(rijen[0]);
+});
+
+// ── POST /api-admin/activiteiten — enkel admin ──────────────────────────────────────
+app.post('/api-admin/activiteiten', isAdmin, async (req, res) => {
+    const { naam, beschrijving, datum, starttijd, locatie, max_deelnemers } = req.body;
+    if (!naam || !datum || !starttijd) {
+        return res.status(400).json({ fout: 'Naam, datum en starttijd zijn verplicht' });
+    }
+    const [r] = await pool.execute(
+        `INSERT INTO activiteiten
+         (naam, beschrijving, datum, starttijd, locatie, max_deelnemers, user_id)
+         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        [naam, beschrijving || null, datum, starttijd,
+         locatie || null, max_deelnemers || 20, req.session.gebruikerId]
+    );
+    res.status(201).json({ id: r.insertId, bericht: 'Activiteit aangemaakt' });
+});
+
+// ── PUT /api-admin/activiteiten/:id — enkel admin, GEEN eigendomscontrole ───────────
+app.put('/api-admin/activiteiten/:id', isAdmin, async (req, res) => {
+    const { naam, beschrijving, datum, starttijd, locatie, max_deelnemers } = req.body;
+    await pool.execute(
+        `UPDATE activiteiten
+         SET naam=?, beschrijving=?, datum=?, starttijd=?, locatie=?, max_deelnemers=?
+         WHERE id=?`,
+        [naam, beschrijving || null, datum, starttijd,
+         locatie || null, max_deelnemers || 20, req.params.id]
+    );
+    res.json({ bericht: 'Activiteit bijgewerkt' });
+});
+
+// ── DELETE /api-admin/activiteiten/:id — enkel admin, GEEN eigendomscontrole ────────
+app.delete('/api-admin/activiteiten/:id', isAdmin, async (req, res) => {
+    await pool.execute('DELETE FROM activiteiten WHERE id=?', [req.params.id]);
+    res.status(204).end();
+});</code></pre>
+      </div>
+
+      <h2 id="admin-html">2. admin.html + admin.js — overzichtstabel</h2>
+
+      <p><code>admin.html</code> toont enkel de tabel. De knoppen <strong>Bewerk</strong> en <strong>Nieuw</strong> navigeren naar aparte pagina's — ze sturen geen data via JavaScript maar via de URL.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML — Client/admin.html</div>
+        <pre><code class="language-html">&lt;!-- Client/admin.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Adminpanel — Sportclub&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;&#9917; Sportclub — Adminpanel&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a href="admin.html" class="actief"&gt;Activiteiten&lt;/a&gt;
+      &lt;button id="logout-btn"&gt;Uitloggen&lt;/button&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;div class="container"&gt;
+      &lt;div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;"&gt;
+        &lt;h2&gt;Alle activiteiten&lt;/h2&gt;
+        &lt;!-- Navigeer gewoon naar add.html — geen JavaScript nodig --&gt;
+        &lt;a href="add.html"&gt;+ Nieuwe activiteit&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div id="activiteiten-tabel"&gt;Laden...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+  &lt;script type="module" src="js/admin.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Client/js/admin.js</div>
+        <pre><code class="language-javascript">// Client/js/admin.js
+
+async function init() {
+    const res = await fetch('/api/mij');
+    if (!res.ok) { window.location.href = '/login.html'; return; }
+    const gebruiker = await res.json();
+    if (gebruiker.rol !== 'admin') { window.location.href = '/dashboard.html'; return; }
+    laadActiviteiten();
+}
+
+async function laadActiviteiten() {
+    const res           = await fetch('/api-admin/activiteiten');
+    const activiteiten  = await res.json();
+    const container     = document.getElementById('activiteiten-tabel');
+
+    if (activiteiten.length === 0) {
+        container.innerHTML = '&lt;p&gt;Nog geen activiteiten.&lt;/p&gt;';
+        return;
+    }
+
+    container.innerHTML = `
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Naam&lt;/th&gt;&lt;th&gt;Datum&lt;/th&gt;&lt;th&gt;Aanvang&lt;/th&gt;
+                    &lt;th&gt;Locatie&lt;/th&gt;&lt;th&gt;Max.&lt;/th&gt;
+                    &lt;th&gt;Aangemaakt door&lt;/th&gt;&lt;th&gt;Acties&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                ${activiteiten.map(act => `
+                    &lt;tr&gt;
+                        &lt;td&gt;${act.naam}&lt;/td&gt;
+                        &lt;td&gt;${new Date(act.datum).toLocaleDateString('nl-BE')}&lt;/td&gt;
+                        &lt;td&gt;${act.starttijd.slice(0,5)}&lt;/td&gt;
+                        &lt;td&gt;${act.locatie || '—'}&lt;/td&gt;
+                        &lt;td&gt;${act.max_deelnemers}&lt;/td&gt;
+                        &lt;td&gt;${act.aangemaakt_door || '—'}&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;!-- Bewerk: navigeer naar edit.html en geef het id mee via ?id= --&gt;
+                            &lt;!-- edit.html leest dit id uit de URL en laadt de juiste data  --&gt;
+                            &lt;a href="edit.html?id=${act.id}"&gt;Bewerk&lt;/a&gt;
+                            &lt;button data-actie="verwijderen" data-id="${act.id}"&gt;Verwijder&lt;/button&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                `).join('')}
+            &lt;/tbody&gt;
+        &lt;/table&gt;`;
+}
+
+// Event delegation — voorkomt conflicten met ES-modules
+// onclick in template literals is niet toegankelijk vanuit een module-scope
+document.getElementById('activiteiten-tabel').addEventListener('click', async function(e) {
+    const btn = e.target.closest('[data-actie="verwijderen"]');
+    if (!btn) return;
+    if (!confirm('Activiteit verwijderen?')) return;
+    await fetch('/api-admin/activiteiten/' + btn.dataset.id, { method: 'DELETE' });
+    laadActiviteiten();
+});
+
+document.getElementById('logout-btn').addEventListener('click', async () => {
+    await fetch('/api/logout', { method: 'POST' });
+    window.location.href = '/login.html';
+});
+
+init();</code></pre>
+      </div>
+
+      <h2 id="add-html">3. add.html + add.js — nieuwe activiteit aanmaken</h2>
+
+      <p>Een eenvoudige formulierpagina. Na een geslaagde POST stuurt <code>add.js</code> de admin terug naar <code>admin.html</code>.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML — Client/add.html</div>
+        <pre><code class="language-html">&lt;!-- Client/add.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Nieuwe activiteit — Sportclub&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;&#9917; Sportclub — Adminpanel&lt;/h1&gt;
+    &lt;nav&gt;&lt;a href="admin.html"&gt;&#8592; Terug naar overzicht&lt;/a&gt;&lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;div class="container"&gt;
+      &lt;h2&gt;Nieuwe activiteit&lt;/h2&gt;
+      &lt;p id="foutmelding" hidden&gt;&lt;/p&gt;
+      &lt;form id="activiteit-form"&gt;
+        &lt;label&gt;Naam *&lt;input type="text"   id="naam"           required&gt;&lt;/label&gt;
+        &lt;label&gt;Beschrijving&lt;textarea     id="beschrijving"&gt;&lt;/textarea&gt;&lt;/label&gt;
+        &lt;label&gt;Datum *&lt;input type="date"  id="datum"          required&gt;&lt;/label&gt;
+        &lt;label&gt;Starttijd *&lt;input type="time" id="starttijd"   required&gt;&lt;/label&gt;
+        &lt;label&gt;Locatie&lt;input type="text"  id="locatie"&gt;&lt;/label&gt;
+        &lt;label&gt;Max. deelnemers&lt;input type="number" id="max_deelnemers" value="20" min="1"&gt;&lt;/label&gt;
+        &lt;div style="display:flex; gap:0.5rem; margin-top:1rem;"&gt;
+          &lt;button type="submit"&gt;Aanmaken&lt;/button&gt;
+          &lt;a href="admin.html"&gt;Annuleren&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+  &lt;script type="module" src="js/add.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Client/js/add.js</div>
+        <pre><code class="language-javascript">// Client/js/add.js
+
+// ── Toegangscontrole ──────────────────────────────────────────────────────────
+async function init() {
+    const res = await fetch('/api/mij');
+    if (!res.ok) { window.location.href = '/login.html'; return; }
+    const gebruiker = await res.json();
+    if (gebruiker.rol !== 'admin') { window.location.href = '/dashboard.html'; return; }
+}
+
+// ── Formulier verzenden ───────────────────────────────────────────────────────
+document.getElementById('activiteit-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const body = {
+        naam:           document.getElementById('naam').value,
+        beschrijving:   document.getElementById('beschrijving').value,
+        datum:          document.getElementById('datum').value,
+        starttijd:      document.getElementById('starttijd').value,
+        locatie:        document.getElementById('locatie').value,
+        max_deelnemers: document.getElementById('max_deelnemers').value,
+    };
+
+    const res = await fetch('/api-admin/activiteiten', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(body),
+    });
+
+    if (res.ok) {
+        // Geslaagd → terug naar het overzicht
+        window.location.href = '/admin.html';
+    } else {
+        const data = await res.json();
+        const fout = document.getElementById('foutmelding');
+        fout.textContent = data.fout;
+        fout.hidden = false;
+    }
+});
+
+init();</code></pre>
+      </div>
+
+      <h2 id="edit-html">4. edit.html + edit.js — activiteit bewerken</h2>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Data doorgeven via de URL</div>
+        <p>Wanneer de admin op <strong>Bewerk</strong> klikt in de tabel, navigeert de browser naar <code>edit.html?id=5</code>. De <code>?id=5</code> is een <strong>query parameter</strong>: een stukje data dat aan de URL is vastgeplakt.</p>
+        <p style="margin-top: var(--space-3);"><code>edit.js</code> leest dit id uit de URL, haalt de activiteit op van de server en vult het formulier in. Zo hoeft er geen extra informatie via JavaScript van pagina naar pagina te reizen — de URL doet het werk.</p>
+        <div class="code-block" style="margin-top: var(--space-3);">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">// window.location.search bevat alles na het vraagteken in de URL
+// Voorbeeld: als de URL 'edit.html?id=5' is, is search gelijk aan '?id=5'
+const params = new URLSearchParams(window.location.search);
+
+// params.get('id') geeft de waarde van de parameter 'id' terug — hier: '5'
+const id = params.get('id');
+
+// Als er geen id in de URL staat, is er iets mis → terug naar overzicht
+if (!id) { window.location.href = '/admin.html'; return; }</code></pre>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML — Client/edit.html</div>
+        <pre><code class="language-html">&lt;!-- Client/edit.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Activiteit bewerken — Sportclub&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;&#9917; Sportclub — Adminpanel&lt;/h1&gt;
+    &lt;nav&gt;&lt;a href="admin.html"&gt;&#8592; Terug naar overzicht&lt;/a&gt;&lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;div class="container"&gt;
+      &lt;h2&gt;Activiteit bewerken&lt;/h2&gt;
+      &lt;p id="foutmelding" hidden&gt;&lt;/p&gt;
+      &lt;form id="activiteit-form"&gt;
+        &lt;label&gt;Naam *&lt;input type="text"   id="naam"           required&gt;&lt;/label&gt;
+        &lt;label&gt;Beschrijving&lt;textarea     id="beschrijving"&gt;&lt;/textarea&gt;&lt;/label&gt;
+        &lt;label&gt;Datum *&lt;input type="date"  id="datum"          required&gt;&lt;/label&gt;
+        &lt;label&gt;Starttijd *&lt;input type="time" id="starttijd"   required&gt;&lt;/label&gt;
+        &lt;label&gt;Locatie&lt;input type="text"  id="locatie"&gt;&lt;/label&gt;
+        &lt;label&gt;Max. deelnemers&lt;input type="number" id="max_deelnemers" min="1"&gt;&lt;/label&gt;
+        &lt;div style="display:flex; gap:0.5rem; margin-top:1rem;"&gt;
+          &lt;button type="submit"&gt;Opslaan&lt;/button&gt;
+          &lt;a href="admin.html"&gt;Annuleren&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+  &lt;script type="module" src="js/edit.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Client/js/edit.js</div>
+        <pre><code class="language-javascript">// Client/js/edit.js
+
+// ── Stap 1: id uit de URL lezen ───────────────────────────────────────────────
+// De URL ziet er zo uit: edit.html?id=5
+// window.location.search geeft '?id=5' terug
+const params = new URLSearchParams(window.location.search);
+const id     = params.get('id'); // '5' (altijd een string)
+
+// Geen id in de URL → ongeldige toegang, terug naar overzicht
+if (!id) { window.location.href = '/admin.html'; }
+
+// ── Stap 2: toegangscontrole + data laden ─────────────────────────────────────
+async function init() {
+    // Controleer of de gebruiker ingelogd is als admin
+    const checkRes = await fetch('/api/mij');
+    if (!checkRes.ok) { window.location.href = '/login.html'; return; }
+    const gebruiker = await checkRes.json();
+    if (gebruiker.rol !== 'admin') { window.location.href = '/dashboard.html'; return; }
+
+    // Haal de activiteit op via GET /api-admin/activiteiten/:id
+    // De server geeft één JSON-object terug met alle velden van die activiteit
+    const actRes = await fetch('/api-admin/activiteiten/' + id);
+    if (!actRes.ok) {
+        // Activiteit bestaat niet (of geen rechten) → terug naar overzicht
+        window.location.href = '/admin.html';
+        return;
+    }
+
+    const act = await actRes.json();
+
+    // ── Stap 3: formulier invullen met de ontvangen data ─────────────────────
+    // Elk veld krijgt de waarde die van de server komt
+    document.getElementById('naam').value          = act.naam;
+    document.getElementById('beschrijving').value  = act.beschrijving || '';
+    // datum komt als '2026-05-15T00:00:00.000Z' → slice(0,10) geeft '2026-05-15'
+    document.getElementById('datum').value         = act.datum.slice(0, 10);
+    // starttijd komt als '14:30:00' → slice(0,5) geeft '14:30'
+    document.getElementById('starttijd').value     = act.starttijd.slice(0, 5);
+    document.getElementById('locatie').value       = act.locatie || '';
+    document.getElementById('max_deelnemers').value = act.max_deelnemers;
+}
+
+// ── Stap 4: formulier opslaan via PUT ─────────────────────────────────────────
+document.getElementById('activiteit-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const body = {
+        naam:           document.getElementById('naam').value,
+        beschrijving:   document.getElementById('beschrijving').value,
+        datum:          document.getElementById('datum').value,
+        starttijd:      document.getElementById('starttijd').value,
+        locatie:        document.getElementById('locatie').value,
+        max_deelnemers: document.getElementById('max_deelnemers').value,
+    };
+
+    // PUT /api-admin/activiteiten/5 — id zit al vast in de variabele 'id' bovenaan
+    const res = await fetch('/api-admin/activiteiten/' + id, {
+        method:  'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(body),
+    });
+
+    if (res.ok) {
+        // Geslaagd → terug naar overzicht
+        window.location.href = '/admin.html';
+    } else {
+        const data = await res.json();
+        const fout = document.getElementById('foutmelding');
+        fout.textContent = data.fout;
+        fout.hidden = false;
+    }
+});
+
+init();</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128260; Overzicht: welke pagina doet wat?</div>
+        <table>
+          <thead><tr><th>Pagina</th><th>URL</th><th>Wat gebeurt er?</th></tr></thead>
+          <tbody>
+            <tr><td><code>admin.html</code></td><td><code>/admin.html</code></td><td>Tabel laden, Verwijder-knop, link naar add/edit</td></tr>
+            <tr><td><code>add.html</code></td><td><code>/add.html</code></td><td>Leeg formulier, POST naar server, redirect</td></tr>
+            <tr><td><code>edit.html</code></td><td><code>/edit.html?id=5</code></td><td>id uit URL lezen, data ophalen, formulier invullen, PUT naar server, redirect</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="readme">5. README.md schrijven</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">Markdown — README.md</div>
+        <pre><code class="language-markdown"># Sportclub Ledenportaal
+
+Webapplicatie voor het beheren van sportclubactiviteiten en ledeninschrijvingen.
+
+## Installatie
+
+1. **Database aanmaken:** Voer `sportclub_db.sql` uit in MySQL Workbench
+2. **Wachtwoord instellen:** Pas `password` aan in `Server/server.js`
+3. **Packages installeren:** `cd Server && npm install`
+4. **Server starten:** `npm start`
+5. Open `http://localhost:3000`
+
+## Testaccounts
+
+| E-mail | Wachtwoord | Rol |
+|--------|------------|-----|
+| admin@sportclub.be | Admin1234! | Admin |
+| jana@leden.be | Lid12345! | Lid |</code></pre>
+      </div>
+
+      <h3>Gebruikershandleiding</h3>
+
+      <p>De README heeft twee publieken &mdash; de developer (installatie-instructies) en de eindgebruiker (hoe gebruik ik de app?). Het gebruikersgedeelte noemen we de Gebruikershandleiding.</p>
+
+      <p><strong>Verplichte onderdelen van de Gebruikershandleiding in de README:</strong></p>
+      <ol>
+        <li><strong>Screenshot van de startpagina</strong> met een korte uitleg van de onderdelen</li>
+        <li><strong>Stap-voor-stap: een account aanmaken</strong> (genummerde stappen)</li>
+        <li><strong>Stap-voor-stap: een activiteit toevoegen</strong> (genummerde stappen)</li>
+        <li><strong>Admin-functies</strong>: beschrijving van wat de admin kan doen (activiteiten toevoegen, bewerken, verwijderen)</li>
+        <li><strong>FAQ</strong>: minimaal 3 veelgestelde vragen met antwoord</li>
+      </ol>
+
+      <div class="code-block">
+        <div class="code-block__lang">Markdown — README.md (Gebruikershandleiding)</div>
+        <pre><code class="language-markdown">## Gebruikershandleiding
+
+### Startpagina
+&lt;!-- screenshot: startpagina --&gt;
+De startpagina toont alle openbare activiteiten. Bovenaan vind je de navigatiebalk met Login en Registreren.
+
+### Een account aanmaken
+1. Klik op **Registreren** in de navigatiebalk
+2. Vul je gebruikersnaam en wachtwoord in
+3. Klik op **Maak account aan**
+4. Je wordt automatisch ingelogd en doorgestuurd naar je dashboard
+
+### Een activiteit toevoegen
+1. Log in met je account
+2. Ga naar **Mijn dashboard**
+3. Klik op **Nieuwe activiteit**
+4. Vul de naam, datum en tijden in
+5. Klik op **Opslaan**
+
+### Admin-functies
+Als admin zie je een extra knop **Adminpanel** in de navigatie.
+Het adminpanel toont alle activiteiten van alle gebruikers.
+Gebruik **Bewerk** om een activiteit aan te passen of **Verwijder** om ze te wissen.
+
+### FAQ
+**Ik ben mijn wachtwoord vergeten — wat nu?**
+Neem contact op met de beheerder.
+
+**Kan ik activiteiten van andere gebruikers zien?**
+Alleen admins kunnen alle activiteiten zien. Als gewone gebruiker zie je enkel je eigen activiteiten.
+
+**Hoe weet ik of ik admin ben?**
+Als je de knop "Adminpanel" ziet in de navigatiebalk, ben je admin.</code></pre>
+      </div>
+
+      <h2 id="demo-voorbereiden">Demo voorbereiden</h2>
+
+      <p>Je GIP eindigt met een mondelinge verdediging. Je toont je applicatie live en legt uit welke technische keuzes je gemaakt hebt.</p>
+
+      <p><strong>Checklist voor de demo:</strong></p>
+      <ul>
+        <li>Zorg dat je lokale server draait (<code>node server.js</code>)</li>
+        <li>Zorg dat je database verbonden is en testdata heeft</li>
+        <li>Bereid een scenario voor: "Ik log in als Jan, voeg een activiteit toe, log uit, log in als admin, pas de activiteit aan"</li>
+        <li>Weet welke packages je gebruikt en WAAROM (bv. "bcrypt gebruik ik voor het hashen van wachtwoorden")</li>
+        <li>Bereid antwoorden voor op: "Waarom heb je voor Node.js gekozen?" en "Wat zou je anders doen als je opnieuw begon?"</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128336; Tijdslimiet</div>
+        <p>De verdediging duurt <strong>10 minuten demo + 5 minuten vragen</strong> van de leerkracht.</p>
+      </div>
+
+      <h2 id="checklist">6. Eindchecklist voor indiening</h2>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#9989; Checklist vóór indiening</div>
+        <ul>
+          <li>Alle features werken (register, login, eigen activiteiten beheren, adminpanel)</li>
+          <li><code>README.md</code> aanwezig met installatie-instructies en testaccounts</li>
+          <li>README bevat een Gebruikershandleiding met screenshots, stap-voor-stap en FAQ</li>
+          <li>Werklog is bijgewerkt tot de inleverdatum</li>
+          <li><code>sportclub_db.sql</code> aanwezig in de root</li>
+          <li><code>node_modules/</code> staat in <code>.gitignore</code></li>
+          <li>Code netjes en leesbaar (duidelijke variabelenamen, geen commentaar-rommel)</li>
+          <li>Alles gecommit en gepusht naar GitHub</li>
+        </ul>
+      </div>
+
+      <table>
+        <thead><tr><th>H</th><th>Inhoud</th></tr></thead>
+        <tbody>
+          <tr><td>H01</td><td>Project opzetten</td></tr>
+          <tr><td>H02</td><td>Database aanmaken</td></tr>
+          <tr><td>H03</td><td>Activiteiten API</td></tr>
+          <tr><td>H04</td><td>Register &amp; login</td></tr>
+          <tr><td>H05</td><td>Gebruikersdashboard &mdash; eigen activiteiten beheren</td></tr>
+          <tr><td>H06</td><td>Adminpanel &amp; afwerking</td></tr>
+        </tbody>
+      </table>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10 / ADB20 / ADB25</span>
+            <span class="oefening__title">Oefening 1 &mdash; Drie admin-pagina's bouwen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Zet de nieuwe adminstructuur op met aparte pagina's voor aanmaken en bewerken.</p>
+            <ol>
+              <li>Voeg de <code>isAdmin</code>-middleware en de nieuwe <code>GET /api-admin/activiteiten/:id</code>-route toe aan <code>server.js</code></li>
+              <li>Maak <code>admin.html</code> + <code>admin.js</code> aan — tabel met Bewerk-link (<code>edit.html?id=X</code>) en Verwijder-knop</li>
+              <li>Maak <code>add.html</code> + <code>add.js</code> aan — leeg formulier dat POST stuurt en redirect naar <code>admin.html</code></li>
+              <li>Maak <code>edit.html</code> + <code>edit.js</code> aan — leest het id uit de URL, haalt data op, vult formulier in</li>
+              <li>Log in als admin, klik op <strong>Bewerk</strong> bij een activiteit en controleer dat de velden gevuld zijn</li>
+              <li>Sla de wijziging op &rarr; je ziet de bijgewerkte activiteit in de tabel</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 2 &mdash; URLSearchParams verkennen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Verdiep je in hoe data via de URL wordt doorgegeven.</p>
+            <ol>
+              <li>Open de browser-console op <code>edit.html?id=3</code> en typ: <code>new URLSearchParams(window.location.search).get('id')</code> — wat krijg je terug?</li>
+              <li>Navigeer manueel naar <code>edit.html</code> (zonder <code>?id=</code>) — wat doet <code>edit.js</code> en waarom?</li>
+              <li>Navigeer als ingelogd <em>lid</em> (niet admin) naar <code>add.html</code> en open de browser-netwerktab. Welke API-call blokkeert de toegang?</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB01 / ADB11</span>
+            <span class="oefening__title">Oefening 3 &mdash; Beveiliging testen &amp; afwerking</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Test de beveiliging en rond het project af.</p>
+            <ol>
+              <li>Probeer als lid een activiteit te verwijderen via de browser-console: <code>fetch('/api-admin/activiteiten/1', {method:'DELETE'})</code> &rarr; 403 verwacht</li>
+              <li>Schrijf de README.md</li>
+              <li>Zorg dat <code>sportclub_db.sql</code> aanwezig is</li>
+              <li>Maak een finale commit op GitHub</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak &mdash; GIP finale indiening
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/gip/gip-H06-afb1.svg', 'Voorbeeld — Adminpanel')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledig GIP indienen</h3>
+            <p><strong>Deel 1 &mdash; 4 punten:</strong> Adminpanel</p>
+            <ol>
+              <li>Rolcontrole op POST, PUT, DELETE routes</li>
+              <li>admin.html met formulier en overzichtstabel</li>
+              <li>admin.js: aanmaken, bewerken, verwijderen, toegangscontrole</li>
+            </ol>
+            <p><strong>Deel 2 &mdash; 3 punten:</strong> Documentatie</p>
+            <ol>
+              <li>README.md met installatie-instructies en testaccounts</li>
+              <li>sportclub_db.sql aanwezig</li>
+            </ol>
+            <p><strong>Deel 3 &mdash; 3 punten:</strong> GitHub</p>
+            <ol>
+              <li>Alle code op GitHub gepusht</li>
+              <li>node_modules/ niet in de repository</li>
+              <li>Duidelijke commit-messages</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H06 &mdash; Adminpanel &amp; afwerking</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">De admin klikt op Bewerk bij activiteit 7. Naar welke URL navigeert de browser?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v1" value="a"> <span>edit.html</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v1" value="b"> <span>admin.html?bewerk=7</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v1" value="c"> <span>edit.html?id=7</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v1" value="d"> <span>edit.html/7</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Hoe leest <code>edit.js</code> het id uit de URL <code>edit.html?id=7</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v2" value="a"> <span>window.location.id</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v2" value="b"> <span>new URLSearchParams(window.location.search).get('id')</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v2" value="c"> <span>document.URL.split('id=')[1]</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v2" value="d"> <span>fetch('/id').then(...)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke server-route heeft <code>edit.js</code> nodig om het formulier in te vullen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v3" value="a"> <span>GET /api-admin/activiteiten/:id</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v3" value="b"> <span>POST /api-admin/activiteiten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v3" value="c"> <span>GET /api/mij</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v3" value="d"> <span>PUT /api-admin/activiteiten</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke HTTP-methode gebruik je om een bestaande activiteit op te slaan?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v4" value="a"> <span>POST</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v4" value="b"> <span>PUT</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v4" value="c"> <span>GET</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v4" value="d"> <span>PATCH</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">De admin navigeert naar <code>edit.html</code> zonder <code>?id=</code>. Wat doet <code>edit.js</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v5" value="a"> <span>Het formulier leeg tonen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v5" value="b"> <span>Een foutmelding tonen in de pagina</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v5" value="c"> <span>De eerste activiteit uit de database laden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h06-v5" value="d"> <span>Redirect naar <code>admin.html</code> omdat id ontbreekt</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/gip/H06')" data-progress-key="6adb/gip/H06">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H05.html" class="btn btn-ghost">&#8592; H05</a>
+          <a href="opdracht.html" class="btn btn-ghost">Opdracht &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

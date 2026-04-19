@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Browser chrome -->
+  <rect x="20" y="20" width="760" height="460" rx="12" fill="#2b2b3d" stroke="#444" stroke-width="1.5"/>
+  <!-- Browser topbar -->
+  <rect x="20" y="20" width="760" height="44" rx="12" fill="#3a3a50"/>
+  <rect x="20" y="52" width="760" height="12" fill="#3a3a50"/>
+  <!-- Vensterknopjes -->
+  <circle cx="50" cy="42" r="7" fill="#ff6b6b"/>
+  <circle cx="72" cy="42" r="7" fill="#f9a825"/>
+  <circle cx="94" cy="42" r="7" fill="#43e97b"/>
+  <!-- Adresbalk -->
+  <rect x="120" y="30" width="480" height="24" rx="6" fill="#1a1a2e"/>
+  <text x="360" y="46" text-anchor="middle" font-size="12" fill="#888">localhost:5173/rekenmachine.html</text>
+
+  <!-- DevTools tabbar -->
+  <rect x="20" y="64" width="760" height="32" rx="0" fill="#252535"/>
+  <text x="50" y="84" font-size="12" fill="#888">Elements</text>
+  <text x="130" y="84" font-size="12" fill="#888">Sources</text>
+  <text x="205" y="84" font-size="12" fill="#6c63ff" font-weight="700">Console</text>
+  <rect x="198" y="92" width="52" height="3" rx="1.5" fill="#6c63ff"/>
+  <text x="270" y="84" font-size="12" fill="#888">Network</text>
+
+  <!-- Console inhoud -->
+  <rect x="20" y="96" width="760" height="384" rx="0" fill="#1a1a2e"/>
+
+  <!-- Commentaarregel -->
+  <rect x="20" y="96" width="760" height="30" fill="#1e1e30"/>
+  <text x="44" y="116" font-size="13" font-family="'Courier New', monospace" fill="#6a9955">// bewerkingen.js geïmporteerd ✓</text>
+
+  <!-- Interactieregel 1 -->
+  <rect x="20" y="126" width="760" height="26" fill="#1a1a2e"/>
+  <text x="44" y="144" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff">&#x25B6;</text>
+  <text x="62" y="144" font-size="13" font-family="'Courier New', monospace" fill="#e8e8f0"> optellen(12, 4)</text>
+
+  <rect x="20" y="152" width="760" height="26" fill="#1e2535"/>
+  <text x="44" y="170" font-size="13" font-family="'Courier New', monospace" fill="#888">&#x2190;</text>
+  <text x="62" y="170" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff"> 16</text>
+
+  <!-- Interactieregel 2 -->
+  <rect x="20" y="178" width="760" height="26" fill="#1a1a2e"/>
+  <text x="44" y="196" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff">&#x25B6;</text>
+  <text x="62" y="196" font-size="13" font-family="'Courier New', monospace" fill="#e8e8f0"> aftrekken(12, 4)</text>
+
+  <rect x="20" y="204" width="760" height="26" fill="#1e2535"/>
+  <text x="44" y="222" font-size="13" font-family="'Courier New', monospace" fill="#888">&#x2190;</text>
+  <text x="62" y="222" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff"> 8</text>
+
+  <!-- Interactieregel 3 -->
+  <rect x="20" y="230" width="760" height="26" fill="#1a1a2e"/>
+  <text x="44" y="248" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff">&#x25B6;</text>
+  <text x="62" y="248" font-size="13" font-family="'Courier New', monospace" fill="#e8e8f0"> vermenigvuldigen(12, 4)</text>
+
+  <rect x="20" y="256" width="760" height="26" fill="#1e2535"/>
+  <text x="44" y="274" font-size="13" font-family="'Courier New', monospace" fill="#888">&#x2190;</text>
+  <text x="62" y="274" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff"> 48</text>
+
+  <!-- Interactieregel 4 -->
+  <rect x="20" y="282" width="760" height="26" fill="#1a1a2e"/>
+  <text x="44" y="300" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff">&#x25B6;</text>
+  <text x="62" y="300" font-size="13" font-family="'Courier New', monospace" fill="#e8e8f0"> delen(12, 4)</text>
+
+  <rect x="20" y="308" width="760" height="26" fill="#1e2535"/>
+  <text x="44" y="326" font-size="13" font-family="'Courier New', monospace" fill="#888">&#x2190;</text>
+  <text x="62" y="326" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff"> 3</text>
+
+  <!-- Interactieregel 5 -->
+  <rect x="20" y="334" width="760" height="26" fill="#1a1a2e"/>
+  <text x="44" y="352" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff">&#x25B6;</text>
+  <text x="62" y="352" font-size="13" font-family="'Courier New', monospace" fill="#e8e8f0"> gemiddelde(12, 4)</text>
+
+  <rect x="20" y="360" width="760" height="26" fill="#1e2535"/>
+  <text x="44" y="378" font-size="13" font-family="'Courier New', monospace" fill="#888">&#x2190;</text>
+  <text x="62" y="378" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff"> 8</text>
+
+  <!-- Interactieregel 6 -->
+  <rect x="20" y="386" width="760" height="26" fill="#1a1a2e"/>
+  <text x="44" y="404" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff">&#x25B6;</text>
+  <text x="62" y="404" font-size="13" font-family="'Courier New', monospace" fill="#e8e8f0"> isGeldigGetal('abc')</text>
+
+  <rect x="20" y="412" width="760" height="26" fill="#1e2535"/>
+  <text x="44" y="430" font-size="13" font-family="'Courier New', monospace" fill="#888">&#x2190;</text>
+  <text x="62" y="430" font-size="13" font-family="'Courier New', monospace" fill="#f9a825"> false</text>
+
+  <!-- Input prompt -->
+  <rect x="20" y="438" width="760" height="42" rx="0" fill="#252535" stroke-top="1px solid #333"/>
+  <text x="44" y="464" font-size="13" font-family="'Courier New', monospace" fill="#6c63ff">&#x25B6;</text>
+  <text x="62" y="464" font-size="13" font-family="'Courier New', monospace" fill="#666">|</text>
+</svg>

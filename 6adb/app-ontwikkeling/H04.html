@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulatie — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H04" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-dom">4.1 Wat is het DOM?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.2"><span class="sidebar-check__box"></span></label>
+          <a href="#selecteren">4.2 Elementen selecteren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.3"><span class="sidebar-check__box"></span></label>
+          <a href="#inhoud-aanpassen">4.3 Inhoud aanpassen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.4"><span class="sidebar-check__box"></span></label>
+          <a href="#stijl-klassen">4.4 Stijl en klassen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.5"><span class="sidebar-check__box"></span></label>
+          <a href="#aanmaken-toevoegen">4.5 Elementen aanmaken en toevoegen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.6"><span class="sidebar-check__box"></span></label>
+          <a href="#verwijderen">4.6 Elementen verwijderen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.7"><span class="sidebar-check__box"></span></label>
+          <a href="#attributen">4.7 Attributen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="debug"><span class="sidebar-check__box"></span></label>
+          <a href="#debuggen-devtools">4.8 Debuggen met DevTools</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>DOM Manipulatie</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H04 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">DOM Manipulatie</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.09</span><span class="ld-tag__title">De leerlingen testen en debuggen eigen implementaties.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat het DOM is en hoe het is opgebouwd als een boomstructuur</li>
+          <li>HTML-elementen selecteren met <code>querySelector</code>, <code>querySelectorAll</code>, <code>getElementById</code></li>
+          <li>De inhoud van elementen aanpassen met <code>textContent</code> en <code>innerHTML</code> en het verschil uitleggen</li>
+          <li>Stijlen en klassen dynamisch aanpassen via <code>element.style</code> en <code>classList</code></li>
+          <li>Nieuwe HTML-elementen aanmaken en op de correcte positie invoegen</li>
+          <li>Elementen verwijderen uit het DOM</li>
+          <li>Attributen lezen, instellen en verwijderen</li>
+          <li>Een dynamische to-do-lijst bouwen met enkel JavaScript DOM-methodes</li>
+          <li>De browser DevTools gebruiken om JavaScript-fouten te vinden en op te lossen</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-dom">4.1 Wat is het DOM?</h2>
+      <p>Wanneer een browser een HTML-bestand laadt, analyseert hij de code en zet die om naar een <strong>boomstructuur in het geheugen</strong>. Die boomstructuur heet het <strong>Document Object Model</strong>, kortweg <strong>DOM</strong>.</p>
+      <p>Het DOM is de brug tussen je HTML en JavaScript. Via het DOM kan JavaScript de pagina lezen én aanpassen — zonder dat je de pagina opnieuw moet laden.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- HTML wordt door de browser omgezet naar een boom --&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welkom&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;</code></pre>
+      </div>
+      <p>Elke node heeft: een <strong>parent</strong> (de node erboven), nul of meer <strong>children</strong> (de nodes eronder) en eventueel <strong>siblings</strong> (broers/zussen op hetzelfde niveau). Het globale object <code>document</code> is het startpunt.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H04-afb1.svg" alt="Boomdiagram van het DOM — html > head/body > div/p/ul etc, met pijlen die parent-child relatie tonen" loading="lazy">
+      </figure>
+
+      <h2 id="selecteren">4.2 Elementen selecteren</h2>
+      <h3>querySelector — één element</h3>
+      <p><code>querySelector</code> geeft het <strong>eerste</strong> element dat overeenkomt met een CSS-selector.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Selecteer het eerste &lt;h1&gt;-element
+const titel = document.querySelector('h1');
+
+// Selecteer op id
+const bericht = document.querySelector('#welkomstbericht');
+
+// Selecteer op klasse
+const actief = document.querySelector('.actief');
+
+// Selecteer eerste &lt;li&gt; binnen een ul.menu
+const eersteMenuItem = document.querySelector('ul.menu li');
+
+// Als het niet bestaat → null
+const knop = document.querySelector('#bewaar-knop');
+if (knop !== null) {
+  // doe iets met knop
+}</code></pre>
+      </div>
+      <h3>querySelectorAll — meerdere elementen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const items = document.querySelectorAll('li');
+
+items.forEach(function(item) {
+  console.log(item.textContent);
+});</code></pre>
+      </div>
+      <h3>getElementById en getElementsByClassName</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Selecteer één element op basis van id (zonder #)
+const container = document.getElementById('hoofd-container');
+
+// Selecteer alle elementen met een bepaalde klasse (zonder .)
+const kaarten = document.getElementsByClassName('kaart');</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip</div>
+        <p>In nieuwe code gebruik je bij voorkeur <code>querySelector</code> en <code>querySelectorAll</code> — ze zijn flexibeler en consistenter.</p>
+      </div>
+
+      <h2 id="inhoud-aanpassen">4.3 Inhoud aanpassen</h2>
+      <h3>textContent — veilige tekst</h3>
+      <p><code>textContent</code> leest of schrijft <strong>pure tekst</strong>, zonder HTML-opmaak.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const paragraaf = document.querySelector('p');
+
+// Inhoud lezen
+console.log(paragraaf.textContent);
+
+// Inhoud overschrijven
+paragraaf.textContent = 'Nieuwe tekst!';
+
+// HTML-tags worden als gewone tekst getoond
+paragraaf.textContent = '&lt;strong&gt;Vet&lt;/strong&gt;'; // toont letterlijk: &lt;strong&gt;Vet&lt;/strong&gt;</code></pre>
+      </div>
+      <h3>innerHTML — HTML-opmaak</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const box = document.querySelector('.box');
+
+// HTML invoegen — de browser parseert en maakt elementen aan
+box.innerHTML = '&lt;strong&gt;Vet&lt;/strong&gt; en &lt;em&gt;cursief&lt;/em&gt;';</code></pre>
+      </div>
+      <div class="callout callout--danger">
+        <div class="callout-header">&#x26A0;&#xFE0F; Beveiligingsrisico — XSS</div>
+        <p><strong>Zet nooit gebruikersinput rechtstreeks in <code>innerHTML</code></strong>. Dit opent de deur voor XSS-aanvallen (Cross-Site Scripting). Gebruik <code>textContent</code> voor gebruikersinput — dit behandelt alles als pure tekst en is veilig.</p>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H04-afb1.svg" alt="Vergelijking textContent (veilig) vs innerHTML (gevaarlijk met gebruikersinput)" loading="lazy">
+      </figure>
+
+      <h2 id="stijl-klassen">4.4 Stijl en klassen</h2>
+      <h3>element.style — inline stijlen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const box = document.querySelector('.box');
+
+// CSS: background-color → JS: backgroundColor
+box.style.backgroundColor = 'tomato';
+box.style.fontSize = '24px';
+box.style.borderTopWidth = '2px';
+
+// Stijl verwijderen: instellen op lege string
+box.style.backgroundColor = '';</code></pre>
+      </div>
+      <h3>classList — klassen toevoegen en verwijderen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const knop = document.querySelector('.knop');
+
+knop.classList.add('actief');
+knop.classList.remove('actief');
+knop.classList.toggle('actief'); // voeg toe als niet aanwezig, verwijder als aanwezig
+
+if (knop.classList.contains('actief')) {
+  console.log('De knop is actief');
+}
+
+// Meerdere klassen tegelijk
+knop.classList.add('groot', 'gemarkeerd', 'zichtbaar');</code></pre>
+      </div>
+
+      <h2 id="aanmaken-toevoegen">4.5 Elementen aanmaken en toevoegen</h2>
+      <h3>createElement en appendChild</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Stap 1: nieuw element aanmaken
+const nieuwLi = document.createElement('li');
+
+// Stap 2: inhoud geven
+nieuwLi.textContent = 'Nieuw item';
+
+// Stap 3: toevoegen aan bestaand element (aan het einde)
+const lijst = document.querySelector('ul');
+lijst.appendChild(nieuwLi);</code></pre>
+      </div>
+      <h3>prepend — toevoegen aan het begin</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const lijst = document.querySelector('ul');
+const eersteItem = document.createElement('li');
+eersteItem.textContent = 'Ik kom eerst!';
+lijst.prepend(eersteItem);</code></pre>
+      </div>
+      <h3>insertAdjacentHTML</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const element = document.querySelector('.referentie');
+
+element.insertAdjacentHTML('beforebegin', '&lt;p&gt;Voor het element&lt;/p&gt;');
+element.insertAdjacentHTML('afterbegin',  '&lt;p&gt;Begin van element&lt;/p&gt;');
+element.insertAdjacentHTML('beforeend',   '&lt;p&gt;Einde van element&lt;/p&gt;');
+element.insertAdjacentHTML('afterend',    '&lt;p&gt;Na het element&lt;/p&gt;');</code></pre>
+      </div>
+
+      <h2 id="verwijderen">4.6 Elementen verwijderen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Eenvoudigste manier
+const teVerwijderen = document.querySelector('.oud-bericht');
+teVerwijderen.remove();
+
+// Oudere methode via parent
+const lijst = document.querySelector('ul');
+const eersteItem = lijst.querySelector('li');
+lijst.removeChild(eersteItem);
+
+// Verwijder het element dat je aanklikt
+const items = document.querySelectorAll('.item');
+items.forEach(function(item) {
+  item.addEventListener('click', function() {
+    item.remove();
+  });
+});</code></pre>
+      </div>
+
+      <h2 id="attributen">4.7 Attributen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const afbeelding = document.querySelector('img');
+
+// Attribuut lezen
+const bron = afbeelding.getAttribute('src');
+
+// Attribuut instellen
+afbeelding.setAttribute('src', 'nieuwe-foto.jpg');
+afbeelding.setAttribute('alt', 'Een nieuwe foto');
+
+// Controleren of een attribuut bestaat
+if (afbeelding.hasAttribute('alt')) {
+  console.log('De afbeelding heeft een alt-tekst');
+}
+
+// Attribuut verwijderen
+afbeelding.removeAttribute('disabled');
+
+// Directe properties (handiger voor veelgebruikte attributen)
+const invoer = document.querySelector('input');
+invoer.value = 'Nieuwe waarde';
+invoer.disabled = true;
+invoer.placeholder = 'Typ hier...';</code></pre>
+      </div>
+
+      <section id="debuggen-devtools">
+        <h2>4.8 Debuggen met DevTools</h2>
+        <p>Fouten in JavaScript zijn normaal. Een professionele developer zoekt niet willekeurig — die gebruikt de ingebouwde DevTools van de browser. Open ze met <strong>F12</strong> of rechtsklik op de pagina → <strong>Inspecteren</strong>.</p>
+
+        <h3>De Console-tab</h3>
+        <p>De console is je belangrijkste debugtool. Gebruik console-methodes om waarden te inspecteren:</p>
+        <div class="code-block">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">console.log('Waarde van naam:', naam);       // toon een waarde
+console.error('Fout:', error.message);       // rode foutmelding
+console.warn('Opgelet:', 'deprecated');      // gele waarschuwing
+console.table(gebruikers);                   // toon een array als tabel</code></pre>
+        </div>
+        <p>Veelgemaakte foutmeldingen en wat ze betekenen:</p>
+        <ul>
+          <li><code>ReferenceError: naam is not defined</code> — de variabele bestaat niet of is verkeerd gespeld</li>
+          <li><code>TypeError: null is not an object</code> — je probeert een property te lezen van iets dat <code>null</code> is</li>
+          <li><code>TypeError: voegToe is not a function</code> — de naam klopt niet of de functie is niet geladen</li>
+        </ul>
+        <div class="callout callout--info">
+          <div class="callout-header">💡 Tip</div>
+          <p>Als je een fout ziet in de console, klik dan op de bestandsnaam rechts van de fout (bv. <code>app.js:42</code>). De browser springt direct naar die lijn.</p>
+        </div>
+
+        <h3>De Elements-tab</h3>
+        <p>Na DOM-manipulatie kun je in de Elements-tab <strong>live zien wat er veranderd is</strong>. Hover over een element om de bijhorende CSS te zien. Dubbelklik om tijdelijk tekst te wijzigen. Dit is ideaal om te controleren of je <code>createElement</code>- en <code>appendChild</code>-code het gewenste resultaat oplevert.</p>
+
+        <h3>Breakpoints in de Sources-tab</h3>
+        <p>Een breakpoint pauzeert je code op een bepaalde lijn zodat je de waarden van variabelen kunt inspecteren:</p>
+        <ol>
+          <li>Open de <strong>Sources-tab</strong> in DevTools</li>
+          <li>Klik op het lijnnummer naast je code → een blauwe stip verschijnt</li>
+          <li>Voer de actie uit in de browser die de code triggert</li>
+          <li>De code pauzeert — bekijk variabelenwaarden in het linker- of rechterpaneel</li>
+          <li>Klik <strong>Resume</strong> (&#9654;) om verder te gaan</li>
+        </ol>
+
+        <h3>De Network-tab (vooruitblik)</h3>
+        <p>Later in het jaar gebruik je <code>fetch()</code> om data op te halen van een API. In de Network-tab zie je elke request: de URL, de status-code (200 = OK, 404 = niet gevonden, 500 = serverfout) en de volledige response. Handig om te controleren of je API-call effectief werkt.</p>
+
+        <div class="callout callout--warning">
+          <div class="callout-header">&#x26A0;&#xFE0F; Vergeet je console.log niet te verwijderen</div>
+          <p>Vergeet nooit je <code>console.log</code>-statements te verwijderen voor je code inlevert. Ze zijn tijdelijke hulpmiddelen, geen permanente code.</p>
+        </div>
+      </section>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — To-do lijst</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw een dynamische to-do lijst. De gebruiker typt een taak in een inputveld en klikt op "Toevoegen". De taak verschijnt in de lijst en kan worden aangevinkt of verwijderd.</p>
+            <p>Maak een HTML-bestand <code>todo.html</code> en een JavaScript-bestand <code>todo.js</code>. De pagina heeft een invoerveld, een "Toevoegen"-knop, een lege <code>&lt;ul&gt;</code> en een teller die het aantal taken toont.</p>
+            <p>In <code>todo.js</code> implementeer je:</p>
+            <ol>
+              <li>Selecteer de benodigde elementen met <code>querySelector</code></li>
+              <li>Een functie <code>voegTaakToe()</code> die:
+                <ul>
+                  <li>De invoer ophaalt en controleert (lege invoer negeren)</li>
+                  <li>Een <code>&lt;li&gt;</code> aanmaakt met <code>createElement</code></li>
+                  <li>Een checkbox, tekst (met <code>textContent</code>) en verwijderknop toevoegt via <code>appendChild</code></li>
+                  <li>De checkbox toggled de klasse <code>voltooid</code> op het item</li>
+                  <li>De verwijderknop verwijdert het item met <code>item.remove()</code></li>
+                </ul>
+              </li>
+              <li>Luister naar klik op de knop en naar Enter-toets in het invoerveld</li>
+              <li>Update een teller na elke wijziging</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H04-oef1-browser.svg" alt="Browser mockup van de to-do app" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — DOM-inspector</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een pagina met een titel, drie paragrafen en een lijst van 4 items. Schrijf daarna JavaScript dat via de console de volgende bewerkingen uitvoert:</p>
+            <ol>
+              <li>Verander de tekst van de titel via <code>textContent</code></li>
+              <li>Voeg een klasse <code>uitgelicht</code> toe aan de tweede paragraaf</li>
+              <li>Verander de achtergrondkleur van het derde lijstitem via <code>style</code></li>
+              <li>Voeg een nieuw lijstitem toe aan het begin van de lijst</li>
+              <li>Verwijder het vierde (oorspronkelijke) lijstitem</li>
+              <li>Log de <code>textContent</code> van elk lijstitem na alle wijzigingen</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 3 — Thema-wissel</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw een pagina met een knop "Wissel thema". Wanneer de gebruiker op de knop klikt, wissel je tussen een licht en een donker thema.</p>
+            <ol>
+              <li>Maak CSS-klassen <code>.thema-licht</code> en <code>.thema-donker</code> met verschillende achtergrond- en tekstkleuren</li>
+              <li>Gebruik <code>classList.toggle()</code> op <code>document.body</code> om te wisselen</li>
+              <li>Gebruik <code>classList.contains()</code> om de tekst op de knop bij te werken: "Naar donker" of "Naar licht"</li>
+              <li><strong>Bonus:</strong> Sla de huidige keuze op in <code>localStorage</code> zodat die bewaard blijft na pagina-vernieuwing</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H04 DOM Manipulatie<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H04-oef1-browser.svg', 'Voorbeeld — Dynamische productlijst')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+            <h3>Opdracht: Dynamische productlijst</h3>
+            <p>Je bouwt een interactieve productlijst. Gebruikers kunnen producten toevoegen, aanvinken als "gekocht" en verwijderen.</p>
+            <h4>Deel 1 — Basisstructuur (4 punten)</h4>
+            <ol>
+              <li>Maak een HTML-bestand met een invoerveld, een "Voeg toe"-knop, een lege <code>&lt;ul id="productlijst"&gt;</code> en een teller <code>&lt;p id="teller"&gt;</code></li>
+              <li>Maak een JavaScript-bestand en selecteer alle benodigde elementen</li>
+              <li>Schrijf een functie <code>voegProductToe()</code> die een nieuw <code>&lt;li&gt;</code> aanmaakt via <code>createElement</code> met de ingevoerde productnaam als <code>textContent</code></li>
+              <li>Voeg de knop-listener toe zodat de functie opgeroepen wordt bij klik</li>
+            </ol>
+            <h4>Deel 2 — Interactiviteit (3 punten)</h4>
+            <ol>
+              <li>Voeg een "Verwijder"-knop toe aan elk product-item</li>
+              <li>Voeg een checkbox toe — bij aanvinken krijgt het item de klasse <code>gekocht</code> (met stijl: doorstreepte tekst)</li>
+              <li>Update de teller na elke toevoeging of verwijdering</li>
+            </ol>
+            <h4>Deel 3 — Verfijning (3 punten)</h4>
+            <ol>
+              <li>Voeg een "Wis alles"-knop toe die alle items verwijdert via <code>innerHTML = ""</code> op de <code>&lt;ul&gt;</code></li>
+              <li>Verhinder dat lege productnamen worden toegevoegd</li>
+              <li>Voeg Enter-toets-ondersteuning toe in het invoerveld</li>
+            </ol>
+            <p><strong>Dien de bestanden <code>productlijst.html</code> en <code>productlijst.js</code> in. Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-debug">
+          <div class="oefening__header">
+            <span class="oefening__badge">SV07.09</span>
+            <span class="oefening__title">Oefening 4 — Zoek de bugs</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">De volgende code bevat <strong>3 bugs</strong>. Gebruik de DevTools console om ze te vinden en op te lossen. Kopieer de code naar een nieuw HTML-bestand en open het in de browser.</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">// Buggy code — vind de 3 fouten
+const namen = ['Ali', 'Bea', 'Carlos'];
+
+function toonNamen(lijts) {
+  lijts.forEach(function(naam) {
+    const li = document.createElement('li');
+    li.textcontent = naam;
+    document.querySelector('#lijst').appendChild(li);
+  });
+}
+
+document.querySelector('#knop').addEventListener('clik', function() {
+  toonNamen(namen);
+});</code></pre>
+            </div>
+            <p><strong>Verwachte output:</strong> Een <code>&lt;ul id="lijst"&gt;</code> gevuld met 3 <code>&lt;li&gt;</code>-elementen na een klik op <code>&lt;button id="knop"&gt;</code>.</p>
+            <p><em>Hint: gebruik de console en de Elements-tab. Let op spelling van methodes, parameternamen en event-types.</em></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H04 — DOM Manipulatie</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het DOM?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="a"> <span>Een JavaScript-bibliotheek om websites te bouwen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="b"> <span>Een boomstructuur die de browser maakt van HTML, waarmee JavaScript de pagina kan lezen en aanpassen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="c"> <span>Een CSS-framework voor animaties</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="d"> <span>Een database in de browser</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke methode selecteert het <strong>eerste</strong> element dat overeenkomt met een CSS-selector?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="a"> <span><code>document.getElement('.klasse')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="b"> <span><code>document.querySelectorAll('.klasse')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="c"> <span><code>document.querySelector('.klasse')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="d"> <span><code>document.find('.klasse')</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Waarom is <code>textContent</code> veiliger dan <code>innerHTML</code> voor gebruikersinput?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="a"> <span><code>textContent</code> behandelt alles als pure tekst — HTML-tags worden niet geparseerd en kunnen geen XSS veroorzaken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="b"> <span><code>textContent</code> is sneller</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="c"> <span><code>innerHTML</code> werkt niet met gebruikersinput</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="d"> <span>Er is geen verschil in veiligheid</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat doet <code>element.classList.toggle('actief')</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="a"> <span>Voegt altijd de klasse 'actief' toe</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="b"> <span>Verwijdert altijd de klasse 'actief'</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="c"> <span>Controleert of de klasse aanwezig is en geeft true/false terug</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="d"> <span>Voegt 'actief' toe als die niet aanwezig is, verwijdert hem als die er wel is</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Met welke methode maak je een nieuw HTML-element aan via JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="a"> <span><code>document.newElement('li')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="b"> <span><code>document.createElement('li')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="c"> <span><code>document.addElement('li')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="d"> <span><code>document.makeElement('li')</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe verwijder je een element uit het DOM?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="a"> <span><code>element.delete()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="b"> <span><code>document.removeElement(element)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="c"> <span><code>element.remove()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v6" value="d"> <span><code>element.destroy()</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H04')" data-progress-key="6adb/app-ontwikkeling/H04">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H03.html" class="btn btn-ghost">← H03</a>
+          <a href="H05.html" class="btn btn-ghost">H05 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

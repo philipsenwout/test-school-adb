@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySQL koppelen aan Node.js — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H21" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.1"><span class="sidebar-check__box"></span></label>
+          <a href="#mysql-workbench">21.1 MySQL Workbench installeren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.2"><span class="sidebar-check__box"></span></label>
+          <a href="#database-aanmaken">21.2 Database en tabel aanmaken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.3"><span class="sidebar-check__box"></span></label>
+          <a href="#mysql2-installeren">21.3 mysql2 installeren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.4"><span class="sidebar-check__box"></span></label>
+          <a href="#verbinding-maken">21.4 Verbinding maken in server.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.5"><span class="sidebar-check__box"></span></label>
+          <a href="#get-route">21.5 GET-route: taken ophalen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.6"><span class="sidebar-check__box"></span></label>
+          <a href="#post-route">21.6 POST-route: taak toevoegen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="21.7"><span class="sidebar-check__box"></span></label>
+          <a href="#testen">21.7 Testen vanuit de front-end</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>MySQL koppelen aan Node.js</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H21 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">MySQL koppelen aan Node.js</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een databank aan een applicatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.08</span><span class="ld-tag__title">De leerlingen gebruiken gerichte hulpbronnen om informatie op te zoeken.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>MySQL Workbench installeren en een eenvoudige database aanmaken</li>
+          <li>Een tabel aanmaken met <code>CREATE TABLE</code> en testdata invoegen</li>
+          <li>Het <code>mysql2</code>-pakket installeren in een bestaand Node.js-project</li>
+          <li>Een databaseverbinding aanmaken via <code>mysql.createPool()</code></li>
+          <li>Een GET-route schrijven die alle rijen uit een tabel teruggeeft</li>
+          <li>Een POST-route schrijven die een nieuwe rij invoegt met een <code>?</code>-placeholder</li>
+        </ul>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Waarom een database?</div>
+        <p>Data opslaan in een array werkt zolang de server draait. Een database onthoudt alles &mdash; ook na een herstart.</p>
+      </div>
+
+      <h2 id="mysql-workbench">21.1 MySQL Workbench installeren</h2>
+      <p><strong>MySQL Workbench</strong> is een programma waarmee je databases visueel kan beheren en SQL-queries kan schrijven.</p>
+      <p><strong>Installatiestappen:</strong></p>
+      <ol>
+        <li>Ga naar <code>dev.mysql.com/downloads/workbench</code></li>
+        <li>Download de versie voor jouw besturingssysteem</li>
+        <li>Installeer ook <strong>MySQL Server</strong> als je dat nog niet hebt (kies de standaardinstellingen)</li>
+        <li>Start MySQL Workbench en klik op de verbinding met <code>localhost</code></li>
+      </ol>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠ Onthoud het root-wachtwoord</div>
+        <p>Het wachtwoord dat je kiest tijdens de installatie heb je later nodig in <code>server.js</code>. Schrijf het op of bewaar het veilig.</p>
+      </div>
+
+      <h2 id="database-aanmaken">21.2 Database en tabel aanmaken</h2>
+      <p>Open MySQL Workbench, klik op het <strong>bliksembol (⚡)</strong> en voer dit script uit:</p>
+      <div class="code-block">
+        <div class="code-block__lang">SQL</div>
+        <pre><code class="language-sql">-- Maak de database aan
+CREATE DATABASE IF NOT EXISTS takenlijst_db;
+
+-- Gebruik deze database
+USE takenlijst_db;
+
+-- Maak de tabel aan
+CREATE TABLE IF NOT EXISTS taken (
+  id        INT AUTO_INCREMENT PRIMARY KEY,
+  titel     VARCHAR(200) NOT NULL,
+  voltooid  TINYINT(1)   NOT NULL DEFAULT 0
+);
+
+-- Voeg testdata in
+INSERT INTO taken (titel) VALUES
+  ('HTML-pagina bouwen'),
+  ('CSS styling toevoegen'),
+  ('API-route testen');</code></pre>
+      </div>
+      <p>Na het uitvoeren zie je <code>takenlijst_db</code> verschijnen in de navigator links.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H21-afb1.svg" alt="MySQL Workbench met de tabel taken en drie rijen zichtbaar" loading="lazy">
+      </figure>
+
+      <h2 id="mysql2-installeren">21.3 mysql2 installeren</h2>
+      <p>Stop de server als die draait. Ga naar de <code>Server/</code>-map en installeer het pakket:</p>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">cd Server
+npm install mysql2</code></pre>
+      </div>
+
+      <h2 id="verbinding-maken">21.4 Verbinding maken in server.js</h2>
+      <p>Voeg bovenaan <code>server.js</code> de databaseverbinding toe:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Server/server.js
+import express from 'express';
+import mysql   from 'mysql2/promise';
+
+const app  = express();
+const port = 3000;
+
+app.use(express.static('../Client'));
+app.use(express.json());
+
+// Maak een pool aan — dit beheert de verbinding met MySQL
+const pool = mysql.createPool({
+    host:     'localhost',
+    port:     3306,
+    user:     'root',
+    password: 'jouwwachtwoord',  // ← jouw MySQL-wachtwoord
+    database: 'takenlijst_db',
+});
+
+app.listen(port, () => {
+    console.log('Server gestart op poort: ' + port);
+});</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Wat is een pool?</div>
+        <p>Een pool houdt een aantal verbindingen klaar zodat je ze snel kan hergebruiken. Je hoeft hier niet dieper op in te gaan &mdash; gebruik het gewoon zo.</p>
+      </div>
+
+      <h2 id="get-route">21.5 GET-route: alle taken ophalen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// GET /api/taken — geeft alle taken terug uit de database
+app.get('/api/taken', async (req, res) => {
+    const [rijen] = await pool.execute('SELECT * FROM taken');
+    res.json(rijen);
+});</code></pre>
+      </div>
+      <p>Start de server en open <code>http://localhost:3000/api/taken</code> in de browser. Je ziet de JSON-array met alle taken.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H21-afb2.svg" alt="Browser toont de JSON-array van GET /api/taken" loading="lazy">
+      </figure>
+      <p>Uitleg van <code>pool.execute()</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const [rijen] = await pool.execute('SELECT * FROM taken');
+//      ↑ rijen = array van objecten, één per rij in de tabel
+//             ↑ pool.execute() geeft altijd [rijen, velden] terug
+//                              ↑ jouw SQL-query</code></pre>
+      </div>
+
+      <h2 id="post-route">21.6 POST-route: een taak toevoegen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// POST /api/taken — voegt een nieuwe taak toe
+app.post('/api/taken', async (req, res) => {
+    const titel = req.body.titel;
+
+    if (!titel) {
+        return res.status(400).json({ fout: 'Titel is verplicht' });
+    }
+
+    // Gebruik altijd ? als placeholder — nooit tekst rechtstreeks in de query!
+    const [resultaat] = await pool.execute(
+        'INSERT INTO taken (titel) VALUES (?)',
+        [titel]
+    );
+
+    res.status(201).json({ id: resultaat.insertId, bericht: 'Taak toegevoegd' });
+});</code></pre>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠ Altijd <code>?</code> gebruiken — nooit tekst rechtstreeks in de query</div>
+        <p>Als je de tekst rechtstreeks in de SQL-query zou zetten, kan iemand kwaadaardige SQL injecteren (SQL-injectie). Door <code>?</code> te gebruiken, doet mysql2 dat automatisch veilig.</p>
+      </div>
+
+      <h2 id="testen">21.7 Testen vanuit de front-end</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Client/app.js
+
+// Alle taken ophalen
+async function toonTaken() {
+    const response = await fetch('/api/taken');
+    const taken    = await response.json();
+    console.log(taken); // array van taken
+}
+
+// Een taak toevoegen
+async function voegTaakToe(titel) {
+    await fetch('/api/taken', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ titel })
+    });
+    toonTaken(); // lijst opnieuw laden
+}
+
+toonTaken();</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">📚 Bronnen &amp; documentatie</div>
+        <ul>
+          <li><a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener">MySQL 8.0 Reference Manual</a> — officiële MySQL-documentatie</li>
+          <li><a href="https://www.npmjs.com/package/mysql2" target="_blank" rel="noopener">mysql2 op npmjs.com</a> — de package die je gebruikt, met voorbeelden</li>
+          <li><a href="https://www.mysql.com/products/workbench/" target="_blank" rel="noopener">MySQL Workbench download</a> — officiële downloadpagina</li>
+        </ul>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB17 / ADB25</span>
+            <span class="oefening__title">Oefening 1 — Notities-database</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak in MySQL Workbench een database <code>notities_db</code> met een tabel <code>notities</code>:</p>
+            <div class="code-block">
+              <div class="code-block__lang">SQL</div>
+              <pre><code class="language-sql">CREATE DATABASE IF NOT EXISTS notities_db;
+USE notities_db;
+
+CREATE TABLE IF NOT EXISTS notities (
+  id     INT AUTO_INCREMENT PRIMARY KEY,
+  inhoud TEXT NOT NULL,
+  aangemaakt_op DATETIME DEFAULT NOW()
+);
+
+INSERT INTO notities (inhoud) VALUES
+  ('Les 1 samenvatting'),
+  ('Huiswerk Node.js');</code></pre>
+            </div>
+            <p>Maak daarna een Node.js-server die:</p>
+            <ul>
+              <li><strong>GET <code>/api/notities</code></strong> — alle notities teruggeeft als JSON</li>
+              <li><strong>POST <code>/api/notities</code></strong> — een nieuwe notitie toevoegt (<code>inhoud</code> uit <code>req.body</code>)</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H21-oef1-browser.svg" alt="Browser toont JSON-array van notities uit de MySQL-database" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#x1F4CB; Huistaak &mdash; Recepten-database
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H21-oef1-browser.svg', 'Voorbeeld — Recepten-API in browser')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Recepten koppelen aan MySQL</h3>
+            <h4>Deel 1 — Database (3 punten)</h4>
+            <ol>
+              <li>Maak een database <code>recepten_db</code> met een tabel <code>recepten</code>:</li>
+            </ol>
+            <div class="code-block">
+              <div class="code-block__lang">SQL</div>
+              <pre><code class="language-sql">CREATE TABLE recepten (
+  id              INT AUTO_INCREMENT PRIMARY KEY,
+  naam            VARCHAR(150) NOT NULL,
+  bereidingstijd  INT NOT NULL  -- in minuten
+);</code></pre>
+            </div>
+            <ol start="2">
+              <li>Voeg minstens 3 recepten toe als testdata</li>
+              <li>Controleer in Workbench dat de rijen correct zichtbaar zijn</li>
+            </ol>
+            <h4>Deel 2 — Server (4 punten)</h4>
+            <ol>
+              <li><strong>GET <code>/api/recepten</code></strong> — alle recepten ophalen uit de database</li>
+              <li><strong>POST <code>/api/recepten</code></strong> — recept toevoegen (<code>naam</code> + <code>bereidingstijd</code> uit <code>req.body</code>), status 201 teruggeven</li>
+              <li>Gebruik altijd <code>?</code>-placeholders in de SQL-query</li>
+            </ol>
+            <h4>Deel 3 — Indiening (3 punten)</h4>
+            <ol>
+              <li>Lever de <code>Server/</code>-map in zonder <code>node_modules/</code></li>
+              <li>Voeg het <code>.sql</code>-bestand toe zodat de database opnieuw aangemaakt kan worden</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H21 — MySQL koppelen aan Node.js</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welk npm-pakket gebruik je om vanuit Node.js verbinding te maken met MySQL?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="a"> <span><code>mysql-connector</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="b"> <span><code>mysql2</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="c"> <span><code>express-mysql</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v1" value="d"> <span><code>node-database</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Waarom gebruik je <code>?</code> in een SQL-query in plaats van de variabele rechtstreeks in te vullen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="a"> <span>Omdat mysql2 anders trager werkt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="b"> <span>Om SQL-injectie te voorkomen &mdash; gebruikersinput wordt nooit als SQL uitgevoerd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="c"> <span>Omdat MySQL geen tekst accepteert in queries</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v2" value="d"> <span>Omdat <code>?</code> de enige manier is om variabelen door te geven</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst"><code>pool.execute()</code> geeft een array terug. Hoe lees je de rijen correct uit?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="a"> <span><code>const rows = await pool.execute(...)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="b"> <span><code>const { rows } = await pool.execute(...)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="c"> <span><code>const [rijen] = await pool.execute(...)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v3" value="d"> <span><code>const rijen = pool.execute(...).rows</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is <code>resultaat.insertId</code> na een INSERT-query?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="a"> <span>Het aantal rijen dat de query heeft gewijzigd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="b"> <span>Het AUTO_INCREMENT-id van de nieuw ingevoegde rij</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="c"> <span>Een bevestiging dat de INSERT gelukt is (true/false)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v4" value="d"> <span>De naam van de kolom die je hebt ingevoegd</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is het voordeel van een <code>createPool()</code> tegenover een gewone verbinding?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="a"> <span>Een pool is goedkoper om te installeren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="b"> <span>Een pool hergebruikt bestaande verbindingen zodat meerdere verzoeken snel verwerkt worden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="c"> <span>Een pool slaat de database-inhoud op in het geheugen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h21-v5" value="d"> <span>Een pool vereist geen wachtwoord</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H21')" data-progress-key="6adb/app-ontwikkeling/H21">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H20.html" class="btn btn-ghost">&larr; H20</a>
+          <a href="H22.html" class="btn btn-ghost">H22 &rarr;</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet juist. Probeer opnieuw.';
+    }
+    feedback.style.display = 'block';
+  });
+}
+</script>
+</body>
+</html>

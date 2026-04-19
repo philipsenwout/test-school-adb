@@ -1,0 +1,96 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arrB" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#89b4fa"/>
+    </marker>
+  </defs>
+
+  <!-- Browser chrome -->
+  <rect width="900" height="540" rx="8" fill="#1e1e2e"/>
+  <rect x="0" y="0" width="900" height="44" rx="8" fill="#2a2a3e"/>
+  <rect x="0" y="32" width="900" height="12" fill="#2a2a3e"/>
+  <circle cx="22" cy="22" r="7" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="7" fill="#ffbd2e"/>
+  <circle cx="66" cy="22" r="7" fill="#27c93f"/>
+  <rect x="90" y="10" width="700" height="24" rx="12" fill="#1a1a2e"/>
+  <text x="440" y="26" text-anchor="middle" font-size="12" fill="#7c9eff">profielkaart.html</text>
+
+  <!-- Page background -->
+  <rect x="0" y="44" width="900" height="496" fill="#f0f2f5"/>
+
+  <!-- Title -->
+  <text x="450" y="82" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a1a2e">Badge gepositioneerd op een kaart</text>
+  <text x="450" y="100" text-anchor="middle" font-size="12" fill="#6c757d">position: relative op de kaart — position: absolute op de badge</text>
+
+  <!-- ── CARD: with badge ── -->
+  <!-- Card container (position: relative) — dashed border annotation -->
+  <rect x="70" y="118" width="220" height="280" rx="12" fill="#ffffff" stroke="#dee2e6" stroke-width="1.5"/>
+  <rect x="70" y="118" width="220" height="280" rx="12" fill="none" stroke="#3b5bdb" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="180" y="113" text-anchor="middle" font-size="10" fill="#3b5bdb" font-weight="bold">position: relative  ← ankerpunt</text>
+
+  <!-- Card header -->
+  <rect x="70" y="118" width="220" height="80" rx="12" fill="#3b5bdb"/>
+  <rect x="70" y="166" width="220" height="32" fill="#3b5bdb"/>
+  <!-- Avatar -->
+  <circle cx="180" cy="158" r="30" fill="#fff" stroke="#3b5bdb" stroke-width="2"/>
+  <text x="180" y="164" text-anchor="middle" font-size="22" fill="#3b5bdb">👤</text>
+
+  <!-- Card content -->
+  <text x="180" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="#212529">Lisa De Smedt</text>
+  <text x="180" y="241" text-anchor="middle" font-size="12" fill="#6c757d">Front-end developer</text>
+  <line x1="100" y1="255" x2="260" y2="255" stroke="#dee2e6" stroke-width="1"/>
+  <text x="180" y="275" text-anchor="middle" font-size="12" fill="#495057">📍 Hasselt, België</text>
+  <text x="180" y="294" text-anchor="middle" font-size="12" fill="#495057">💼 2 jaar ervaring</text>
+  <rect x="120" y="316" width="120" height="34" rx="17" fill="#3b5bdb"/>
+  <text x="180" y="337" text-anchor="middle" font-size="12" fill="#fff">Bekijk profiel</text>
+
+  <!-- BADGE: position absolute top-right corner of card -->
+  <rect x="262" y="108" width="52" height="24" rx="12" fill="#22c55e" stroke="#fff" stroke-width="2.5"/>
+  <text x="288" y="124" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">NIEUW</text>
+
+  <!-- Badge annotation -->
+  <text x="320" y="105" font-size="10" fill="#22c55e" font-weight="bold">position: absolute</text>
+  <text x="320" y="119" font-size="10" fill="#6c757d">top: -8px</text>
+  <text x="320" y="133" font-size="10" fill="#6c757d">right: -8px</text>
+  <!-- annotation line -->
+  <line x1="316" y1="116" x2="296" y2="120" stroke="#22c55e" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <!-- ── CSS CODE PANEL ── -->
+  <rect x="360" y="118" width="290" height="215" rx="8" fill="#1e1e2e"/>
+  <text x="376" y="140" font-size="12" fill="#cdd6f4" font-family="Courier New">.kaart {</text>
+  <text x="376" y="158" font-size="12" fill="#89b4fa" font-family="Courier New">  position: relative;</text>
+  <text x="376" y="176" font-size="12" fill="#cba6f7" font-family="Courier New">  width: 220px;</text>
+  <text x="376" y="194" font-size="12" fill="#a6e3a1" font-family="Courier New">  border-radius: 12px;</text>
+  <text x="376" y="212" font-size="12" fill="#cdd6f4" font-family="Courier New">}</text>
+  <text x="376" y="234" font-size="12" fill="#cdd6f4" font-family="Courier New">.badge {</text>
+  <text x="376" y="252" font-size="12" fill="#89b4fa" font-family="Courier New">  position: absolute;</text>
+  <text x="376" y="270" font-size="12" fill="#f38ba8" font-family="Courier New">  top: -8px;</text>
+  <text x="376" y="288" font-size="12" fill="#f38ba8" font-family="Courier New">  right: -8px;</text>
+  <text x="376" y="306" font-size="12" fill="#cdd6f4" font-family="Courier New">}</text>
+
+  <!-- ── EXPLANATION BOX ── -->
+  <rect x="360" y="346" width="500" height="78" rx="8" fill="#dbeafe" stroke="#3b5bdb" stroke-width="1.5"/>
+  <text x="376" y="366" font-size="12" font-weight="bold" fill="#1e40af">Waarom werkt dit?</text>
+  <text x="376" y="384" font-size="11" fill="#1e3a8a">position: relative op de kaart maakt de kaart het ankerpunt voor absolute kinderen.</text>
+  <text x="376" y="400" font-size="11" fill="#1e3a8a">position: absolute op de badge positioneert t.o.v. de kaart, niet de volledige pagina.</text>
+
+  <!-- ── CONTRAST CARD: without position relative ── -->
+  <rect x="670" y="118" width="190" height="200" rx="12" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+  <rect x="670" y="118" width="190" height="200" rx="12" fill="none" stroke="#adb5bd" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="765" y="113" text-anchor="middle" font-size="10" fill="#adb5bd">zonder position: relative</text>
+  <rect x="670" y="118" width="190" height="60" rx="12" fill="#adb5bd"/>
+  <rect x="670" y="148" width="190" height="30" fill="#adb5bd"/>
+  <text x="765" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Zonder badge-anker</text>
+  <text x="765" y="213" text-anchor="middle" font-size="11" fill="#6c757d">position: relative</text>
+  <text x="765" y="229" text-anchor="middle" font-size="11" fill="#6c757d">ontbreekt op de kaart</text>
+  <text x="765" y="253" text-anchor="middle" font-size="11" fill="#dc2626">→ badge landt elders</text>
+  <text x="765" y="269" text-anchor="middle" font-size="11" fill="#dc2626">op de pagina!</text>
+
+  <!-- Stray badge (wrong position) -->
+  <rect x="690" y="456" width="52" height="24" rx="12" fill="#dc2626" opacity="0.7" stroke="#fff" stroke-width="1.5"/>
+  <text x="716" y="472" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">NIEUW</text>
+  <text x="716" y="495" text-anchor="middle" font-size="10" fill="#dc2626">badge staat verkeerd!</text>
+</svg>

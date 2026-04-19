@@ -43,22 +43,51 @@
 <span class="breadcrumb-sep">&#8250;</span>
 <span>H05</span>
 </nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. pandas van query-resultaat</a></li>
-        <li><a href="#s2">2. groupby en aggregatie</a></li>
-        <li><a href="#s3">3. matplotlib subplots</a></li>
-        <li><a href="#s4">4. Grafiekentypen</a></li>
-        <li><a href="#s5">5. Volledig dashboard</a></li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/databeheer/H05" style="--sidebar-accent: var(--color-vak-data)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1">1. pandas van query-resultaat</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s2">2. groupby en aggregatie</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s3">3. matplotlib subplots</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s4">4. Grafiekentypen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s5">5. Volledig dashboard</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+        <a href="#vragenlijst">Vragenlijst</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
     <div class="page-header vak-data">
@@ -70,8 +99,19 @@
       </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-DB-13] Datavisualisatie en dashboarding met pandas en matplotlib &mdash; verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">DB13</span><span class="ld-tag__title">Datavisualisatie en dashboarding met pandas en matplotlib — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>De leerling kan pd.read_sql() gebruiken om queryresultaten direct in een DataFrame te laden.</li>
+        <li>De leerling kan groupby().agg() toepassen voor meerdere aggregaties tegelijk.</li>
+        <li>De leerling kan plt.subplots() gebruiken om een grid van grafieken op te bouwen.</li>
+        <li>De leerling kan lijn-, staaf-, horizontale staaf- en taartgrafieken maken met matplotlib.</li>
+        <li>De leerling kan een volledig dashboard exporteren als PNG-bestand.</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. pandas DataFrame van een query-resultaat</h2>

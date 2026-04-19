@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Browser chrome -->
+  <rect x="10" y="10" width="780" height="500" rx="12" fill="#f5f5f5" stroke="#ccc" stroke-width="1.5"/>
+  <!-- Topbar -->
+  <rect x="10" y="10" width="780" height="42" rx="12" fill="#e0e0e0"/>
+  <rect x="10" y="42" width="780" height="10" fill="#e0e0e0"/>
+  <circle cx="36" cy="31" r="7" fill="#ff6b6b"/>
+  <circle cx="58" cy="31" r="7" fill="#f9a825"/>
+  <circle cx="80" cy="31" r="7" fill="#43e97b"/>
+  <rect x="110" y="20" width="500" height="22" rx="6" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <text x="360" y="35" text-anchor="middle" font-size="12" fill="#888">localhost:5173</text>
+
+  <!-- DevTools tab bar -->
+  <rect x="10" y="52" width="780" height="30" fill="#fff" stroke-bottom="1px solid #e0e0e0"/>
+  <line x1="10" y1="82" x2="790" y2="82" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="45" y="71" font-size="12" fill="#888">Elements</text>
+  <text x="120" y="71" font-size="12" fill="#888">Console</text>
+  <text x="190" y="71" font-size="12" fill="#888">Sources</text>
+  <text x="262" y="71" font-size="12" fill="#888">Network</text>
+  <text x="335" y="71" font-size="12" fill="#3498db" font-weight="700">Application</text>
+  <rect x="330" y="78" width="74" height="3" rx="1.5" fill="#3498db"/>
+
+  <!-- DevTools body -->
+  <rect x="10" y="82" width="780" height="428" rx="0" fill="#fff"/>
+
+  <!-- === Linker navigatie === -->
+  <rect x="10" y="82" width="200" height="428" fill="#f8f8f8" stroke-right="1px"/>
+  <line x1="210" y1="82" x2="210" y2="510" stroke="#e0e0e0" stroke-width="1"/>
+
+  <text x="25" y="108" font-size="12" fill="#333" font-weight="600">Application</text>
+  <line x1="10" y1="116" x2="210" y2="116" stroke="#e8e8e8" stroke-width="1"/>
+
+  <text x="25" y="136" font-size="11" fill="#555" font-weight="600">▶ Storage</text>
+  <text x="34" y="158" font-size="11" fill="#555">▼ Local Storage</text>
+  <!-- Geselecteerde item -->
+  <rect x="10" y="163" width="200" height="22" fill="#dbeafe"/>
+  <text x="52" y="178" font-size="11" fill="#1e40af" font-weight="600">  localhost</text>
+  <text x="188" y="178" font-size="10" fill="#1e40af">✓</text>
+
+  <text x="34" y="202" font-size="11" fill="#777">  Session Storage</text>
+  <text x="34" y="222" font-size="11" fill="#777">  Cookies</text>
+
+  <line x1="10" y1="234" x2="210" y2="234" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="25" y="254" font-size="11" fill="#777">▶ Cache</text>
+  <text x="25" y="274" font-size="11" fill="#777">▶ IndexedDB</text>
+
+  <!-- === Rechter tabel === -->
+  <!-- Header -->
+  <rect x="210" y="82" width="580" height="30" fill="#f3f4f6"/>
+  <line x1="210" y1="112" x2="790" y2="112" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="230" y="101" font-size="12" fill="#374151" font-weight="600">Key</text>
+  <line x1="440" y1="82" x2="440" y2="510" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="460" y="101" font-size="12" fill="#374151" font-weight="600">Value</text>
+
+  <!-- Rij 1 — opgeslagenRecepten -->
+  <rect x="210" y="112" width="580" height="34" fill="#fff"/>
+  <line x1="210" y1="146" x2="790" y2="146" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="230" y="133" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">opgeslagenRecepten</text>
+  <text x="460" y="133" font-size="11" font-family="'Courier New', monospace" fill="#555">[{"naam":"Spaghetti carbonara","beschrijving":"Klassiek...</text>
+
+  <!-- Rij 2 — thema -->
+  <rect x="210" y="146" width="580" height="34" fill="#f9f9f9"/>
+  <line x1="210" y1="180" x2="790" y2="180" stroke="#f0f0f0" stroke-width="1"/>
+  <text x="230" y="167" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">thema</text>
+  <text x="460" y="167" font-size="12" font-family="'Courier New', monospace" fill="#555">donker</text>
+
+  <!-- Lege rijen -->
+  <rect x="210" y="180" width="580" height="290" fill="#fff"/>
+
+  <!-- Tabel footer -->
+  <rect x="210" y="490" width="580" height="20" fill="#f3f4f6"/>
+  <line x1="210" y1="490" x2="790" y2="490" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="450" y="504" font-size="11" fill="#6b7280">2 items</text>
+
+  <!-- Toolbar boven tabel -->
+  <rect x="210" y="112" width="580" height="0"/>
+
+  <!-- Plus/min knoppen -->
+  <rect x="215" y="486" width="20" height="20" rx="4" fill="#e5e7eb"/>
+  <text x="225" y="499" text-anchor="middle" font-size="14" fill="#555">+</text>
+  <rect x="238" y="486" width="20" height="20" rx="4" fill="#e5e7eb"/>
+  <text x="248" y="499" text-anchor="middle" font-size="14" fill="#555">−</text>
+
+  <!-- Info label -->
+  <text x="400" y="320" text-anchor="middle" font-size="24" fill="#e0e0e0">Klik op een rij om de volledige waarde te zien</text>
+</svg>

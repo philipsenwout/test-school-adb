@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-end koppelen aan de API — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H23" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.1"><span class="sidebar-check__box"></span></label>
+          <a href="#volledige-flow">23.1 De volledige flow</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.2"><span class="sidebar-check__box"></span></label>
+          <a href="#data-ophalen">23.2 Data ophalen en tonen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.3"><span class="sidebar-check__box"></span></label>
+          <a href="#formulier-versturen">23.3 Data versturen via een formulier</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.4"><span class="sidebar-check__box"></span></label>
+          <a href="#foutmeldingen">23.4 Foutmeldingen afhandelen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="23.5"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-gaat-waar">23.5 Wat gaat waar?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Front-end koppelen aan de API</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H23 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Front-end koppelen aan de API</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB15</span><span class="ld-tag__title">De leerlingen integreren front-end en back-end tot een volledige webapplicatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een databank aan een applicatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB04</span><span class="ld-tag__title">De leerlingen volgen evoluties binnen het vakgebied op.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.08</span><span class="ld-tag__title">De leerlingen gebruiken gerichte hulpbronnen om informatie op te zoeken.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen hoe front-end en back-end samenwerken in een full-stack applicatie</li>
+          <li>Data uit de database tonen op een HTML-pagina via <code>fetch()</code></li>
+          <li>Een formulier in de browser verbinden met een POST-route in Node.js</li>
+          <li>Omgaan met foutmeldingen die van de server terugkomen</li>
+          <li>Het verschil tussen front-end code en back-end code duidelijk kunnen uitleggen</li>
+        </ul>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">💡 De frontend en de backend praten met elkaar via fetch(). Jij schrijft beide kanten.</div>
+      </div>
+
+      <h2 id="volledige-flow">23.1 De volledige flow</h2>
+      <p>In de vorige hoofdstukken heb je geleerd:</p>
+      <ul>
+        <li>H20: Een Node.js-server bouwen met Express</li>
+        <li>H21: MySQL koppelen aan Node.js</li>
+        <li>H22: Login en register ingebouwd</li>
+      </ul>
+      <p>Nu combineer je alles: je schrijft de <strong>front-end JavaScript</strong> die de API aanroept en de resultaten toont op de pagina.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H23-afb1.svg" alt="Volledige full-stack flow: browser → fetch → Node.js → MySQL → JSON → DOM" loading="lazy">
+      </figure>
+
+      <h2 id="data-ophalen">23.2 Data ophalen en tonen</h2>
+      <h3>Stap 1 &mdash; Route in server.js</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// GET /api/taken — alle taken ophalen
+app.get('/api/taken', async (req, res) => {
+    const [rijen] = await pool.execute('SELECT * FROM taken');
+    res.json(rijen);
+});</code></pre>
+      </div>
+      <h3>Stap 2 &mdash; Front-end JavaScript</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Client/js/app.js
+
+async function laadTaken() {
+    const response = await fetch('/api/taken');
+    const taken    = await response.json();
+
+    const lijst = document.getElementById('taken-lijst');
+
+    if (taken.length === 0) {
+        lijst.innerHTML = '&lt;p&gt;Geen taken gevonden.&lt;/p&gt;';
+        return;
+    }
+
+    lijst.innerHTML = taken.map(taak =&gt; `
+        &lt;div class="taak-kaart"&gt;
+            &lt;h3&gt;${taak.titel}&lt;/h3&gt;
+            &lt;p&gt;${taak.voltooid ? '✓ Voltooid' : 'Nog te doen'}&lt;/p&gt;
+        &lt;/div&gt;
+    `).join('');
+}
+
+laadTaken();</code></pre>
+      </div>
+      <h3>Stap 3 &mdash; HTML-pagina</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;main&gt;
+    &lt;h2&gt;Mijn taken&lt;/h2&gt;
+    &lt;div id="taken-lijst"&gt;Laden...&lt;/div&gt;
+&lt;/main&gt;
+&lt;script type="module" src="js/app.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Wat er precies gebeurt</div>
+        <ol>
+          <li>Browser laadt de pagina &rarr; <code>laadTaken()</code> wordt uitgevoerd</li>
+          <li><code>fetch('/api/taken')</code> stuurt een GET-verzoek naar Node.js</li>
+          <li>Node.js haalt de rijen op uit MySQL en stuurt ze terug als JSON</li>
+          <li>JavaScript zet de JSON om naar HTML-kaartjes via <code>innerHTML</code></li>
+        </ol>
+      </div>
+
+      <h2 id="formulier-versturen">23.3 Data versturen via een formulier</h2>
+      <h3>Stap 1 &mdash; Route in server.js</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// POST /api/taken — nieuwe taak toevoegen
+app.post('/api/taken', async (req, res) => {
+    const { titel } = req.body;
+
+    if (!titel) {
+        return res.status(400).json({ fout: 'Titel is verplicht' });
+    }
+
+    const [resultaat] = await pool.execute(
+        'INSERT INTO taken (titel) VALUES (?)',
+        [titel]
+    );
+    res.status(201).json({ id: resultaat.insertId });
+});</code></pre>
+      </div>
+      <h3>Stap 2 &mdash; Formulier in HTML</h3>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;form id="taak-form"&gt;
+    &lt;input type="text" id="taak-titel" placeholder="Nieuwe taak..." required&gt;
+    &lt;button type="submit"&gt;Toevoegen&lt;/button&gt;
+    &lt;p id="foutmelding" hidden style="color: red;"&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+      <h3>Stap 3 &mdash; Formulier afhandelen in JavaScript</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">document.getElementById('taak-form').addEventListener('submit', async (e) => {
+    e.preventDefault();   // pagina NIET herladen
+
+    const titel = document.getElementById('taak-titel').value;
+
+    const response = await fetch('/api/taken', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ titel })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        document.getElementById('taak-titel').value = '';  // formulier leegmaken
+        laadTaken();   // lijst vernieuwen
+    } else {
+        const fout = document.getElementById('foutmelding');
+        fout.textContent = data.fout;
+        fout.hidden = false;
+    }
+});</code></pre>
+      </div>
+
+      <h2 id="foutmeldingen">23.4 Foutmeldingen van de server afhandelen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const response = await fetch('/api/taken', { /* ... */ });
+const data     = await response.json();
+
+if (response.ok) {
+    // statuscode 200–299 → succes
+    console.log('Gelukt!');
+} else {
+    // statuscode 400, 401, 403, 500 → fout
+    alert(data.fout);
+}</code></pre>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>Statuscode</th><th>Betekenis</th><th>Wanneer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>200 OK</td><td>Alles gelukt</td><td>GET geslaagd</td></tr>
+          <tr><td>201 Created</td><td>Aangemaakt</td><td>POST geslaagd</td></tr>
+          <tr><td>400 Bad Request</td><td>Verkeerde invoer</td><td>Verplicht veld ontbreekt</td></tr>
+          <tr><td>401 Unauthorized</td><td>Niet ingelogd</td><td>Sessiecontrole mislukt</td></tr>
+          <tr><td>403 Forbidden</td><td>Geen rechten</td><td>Geen admin-rol</td></tr>
+          <tr><td>500 Server Error</td><td>Serverfout</td><td>Database-crash</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="wat-gaat-waar">23.5 Wat gaat waar?</h2>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H23-afb2.svg" alt="Schema: welke code staat in de browser en welke in Node.js" loading="lazy">
+      </figure>
+
+      <table>
+        <thead>
+          <tr><th></th><th>Front-end (browser)</th><th>Back-end (Node.js)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Bestand</strong></td><td><code>Client/js/*.js</code></td><td><code>Server/server.js</code></td></tr>
+          <tr><td><strong>Taak</strong></td><td>Tonen, klikken, invoeren</td><td>Ontvangen, verwerken, opslaan</td></tr>
+          <tr><td><strong>Praat met</strong></td><td>Node.js via <code>fetch()</code></td><td>MySQL via <code>pool.execute()</code></td></tr>
+          <tr><td><strong>Data-formaat</strong></td><td>JSON ontvangen</td><td>JSON terugsturen</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠ Klaar voor het GIP</div>
+        <p>Je beheerst nu de volledige full-stack cyclus. In de GIP-cursus pas je alles toe op het Sportclub Ledenportaal. Start via het menu met de <strong>GIP-cursus</strong>.</p>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">📚 Bronnen &amp; documentatie</div>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" rel="noopener">MDN Fetch API</a> — officiële fetch() documentatie</li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">MDN async/await</a> — async functies in JavaScript</li>
+          <li><a href="https://public-apis.io" target="_blank" rel="noopener">public-apis.io</a> — overzicht van gratis publieke API's voor experimenten</li>
+          <li><a href="https://httpstatuses.com" target="_blank" rel="noopener">httpstatuses.com</a> — overzicht van alle HTTP-statuscodes en hun betekenis</li>
+        </ul>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB15</span>
+            <span class="oefening__title">Oefening 1 &mdash; Notities GET</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Je hebt al een <code>notities_db</code> database uit H21. Maak nu ook een <strong>HTML-pagina</strong> die alle notities toont.</p>
+            <ol>
+              <li>Maak <code>Client/notities.html</code> aan met een <code>&lt;div id="notities-lijst"&gt;</code></li>
+              <li>Maak <code>Client/js/notities.js</code> aan met een <code>laadNotities()</code> functie</li>
+              <li>Roep <code>fetch('/api/notities')</code> aan en toon de <code>inhoud</code> van elke notitie als <code>&lt;p&gt;</code></li>
+            </ol>
+            <p><strong>Verwacht resultaat:</strong> Browser toont alle notities uit de database op de pagina.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB15</span>
+            <span class="oefening__title">Oefening 2 &mdash; Notities POST</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg een formulier toe aan <code>notities.html</code> waarmee je een nieuwe notitie kan toevoegen.</p>
+            <ol>
+              <li>Voeg een <code>&lt;form&gt;</code> toe met een <code>&lt;textarea&gt;</code> voor de inhoud</li>
+              <li>Bij submit: stuur een POST naar <code>/api/notities</code> met <code>&#123; inhoud: ... &#125;</code> in de body</li>
+              <li>Na succes: formulier leegmaken + <code>laadNotities()</code> opnieuw aanroepen</li>
+            </ol>
+            <p><strong>Verwacht resultaat:</strong> Nieuwe notitie verschijnt direct in de lijst na indienen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#x1F4CB; Huistaak &mdash; Recepten full-stack
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H23-afb1.svg', 'Voorbeeld — Full-stack flow')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: recepten-app afwerken</h3>
+            <p>Bouw verder op de recepten-database uit H21 en voeg een volledige HTML-front-end toe.</p>
+            <h4>Deel 1 &mdash; Data tonen (4 punten)</h4>
+            <ol>
+              <li>Maak <code>Client/index.html</code> met een sectie voor recepten</li>
+              <li>Bij het laden: haal alle recepten op via <code>GET /api/recepten</code></li>
+              <li>Toon elk recept als een kaartje met naam en bereidingstijd</li>
+              <li>Als er geen recepten zijn: toon een melding &ldquo;Nog geen recepten.&rdquo;</li>
+            </ol>
+            <h4>Deel 2 &mdash; Formulier (4 punten)</h4>
+            <ol>
+              <li>Voeg een formulier toe met velden voor naam en bereidingstijd</li>
+              <li>Bij submit: stuur een POST naar <code>/api/recepten</code></li>
+              <li>Na succes: formulier leegmaken en de lijst vernieuwen</li>
+              <li>Bij fout: toon de foutmelding van de server</li>
+            </ol>
+            <h4>Deel 3 &mdash; Indiening (2 punten)</h4>
+            <ol>
+              <li>Lever <code>Server/</code> (zonder <code>node_modules/</code>) + <code>Client/</code> in</li>
+              <li>Voeg het <code>.sql</code>-bestand toe</li>
+            </ol>
+            <h4>Deel 4 &mdash; Alternatieven voor fetch() (2 punten)</h4>
+            <p><code>fetch()</code> is de ingebouwde manier om HTTP-verzoeken te doen in de browser. Er zijn ook externe libraries die hetzelfde doen maar met extra functies. Zoek op:</p>
+            <ol>
+              <li>Wat is <strong>Axios</strong>? Zoek het op <a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a>. Wat zijn 2 voordelen van Axios tegenover de ingebouwde <code>fetch()</code>?</li>
+              <li>Schrijf dezelfde GET-request naar <code>/api/recepten</code> zowel met <code>fetch()</code> als met Axios (gebruik de Axios-documentatie). Toon beide versies naast elkaar als code-block in een <code>.js</code>-bestand.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H23 &mdash; Front-end koppelen aan de API</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke JavaScript-functie gebruik je in de browser om een API-route aan te roepen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="a"> <span><code>axios()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="b"> <span><code>fetch()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="c"> <span><code>request()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v1" value="d"> <span><code>http.get()</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Waarom roep je <code>e.preventDefault()</code> aan bij het submit-event van een formulier?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="a"> <span>Om het formulier leeg te maken na het indienen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="b"> <span>Om te voorkomen dat andere event listeners worden aangesproken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="c"> <span>Om te voorkomen dat de pagina herlaadt bij het indienen van het formulier</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v2" value="d"> <span>Om de formulierdata te versleutelen voor verzending</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke header moet je meesturen bij een POST-verzoek met JSON-data?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="a"> <span><code>'Content-Type': 'application/json'</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="b"> <span><code>'Accept': 'application/json'</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="c"> <span><code>'Data-Type': 'json'</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v3" value="d"> <span>Geen header nodig, fetch doet dit automatisch</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe controleer je in de front-end of een fetch-verzoek gelukt is?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="a"> <span><code>if (response.status === 'ok')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="b"> <span><code>if (response.ok)</code> &mdash; dit is true voor statuscodes 200&ndash;299</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="c"> <span><code>if (!response.error)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v4" value="d"> <span><code>try/catch</code> is de enige manier om fouten op te vangen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is de rol van <code>pool.execute()</code> in de full-stack flow?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="a"> <span>Het stuurt data vanuit Node.js naar de browser</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="b"> <span>Het converteert JavaScript-objecten naar JSON</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="c"> <span>Het voert een SQL-query uit op de MySQL-database en geeft de rijen terug</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h23-v5" value="d"> <span>Het verwerkt het <code>req.body</code>-object uit de browser</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H23')" data-progress-key="6adb/app-ontwikkeling/H23">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H22.html" class="btn btn-ghost">&larr; H22</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet juist. Probeer opnieuw.';
+    }
+    feedback.style.display = 'block';
+  });
+}
+</script>
+</body>
+</html>

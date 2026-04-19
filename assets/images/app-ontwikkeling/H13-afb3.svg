@@ -1,0 +1,75 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Foto-galerij met CSS Grid</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">auto-fill + minmax() maakt een responsieve galerij zonder media queries</text>
+
+  <!-- Code links -->
+  <rect x="20" y="58" width="330" height="320" rx="8" fill="#2a2d3e"/>
+
+  <text x="35" y="78" font-size="11" font-family="Courier New" fill="#888">/* HTML structuur */</text>
+  <text x="35" y="94" font-size="11" font-family="Courier New" fill="#79c0ff">&lt;div</text>
+  <text x="78" y="94" font-size="11" font-family="Courier New" fill="#a8ff7a"> class=</text>
+  <text x="132" y="94" font-size="11" font-family="Courier New" fill="#f0f0f0">"gallery"</text>
+  <text x="198" y="94" font-size="11" font-family="Courier New" fill="#79c0ff">&gt;</text>
+  <text x="35" y="110" font-size="11" font-family="Courier New" fill="#79c0ff">  &lt;img</text>
+  <text x="83" y="110" font-size="11" font-family="Courier New" fill="#a8ff7a"> src=</text>
+  <text x="117" y="110" font-size="11" font-family="Courier New" fill="#f0f0f0">"foto1.jpg"</text>
+  <text x="205" y="110" font-size="11" font-family="Courier New" fill="#79c0ff">/&gt;</text>
+  <text x="35" y="124" font-size="11" font-family="Courier New" fill="#555">  ... meer &lt;img&gt; tags ...</text>
+  <text x="35" y="138" font-size="11" font-family="Courier New" fill="#79c0ff">&lt;/div&gt;</text>
+
+  <text x="35" y="162" font-size="11" font-family="Courier New" fill="#888">/* CSS */</text>
+  <rect x="35" y="168" width="300" height="122" rx="4" fill="#0d1117"/>
+  <text x="48" y="184" font-size="11" font-family="Courier New" fill="#c4b5fd">.gallery {</text>
+  <text x="60" y="200" font-size="11" font-family="Courier New" fill="#a8ff7a">  display: grid;</text>
+  <text x="60" y="216" font-size="11" font-family="Courier New" fill="#a8ff7a">  grid-template-columns:</text>
+  <text x="72" y="231" font-size="11" font-family="Courier New" fill="#74c0fc">    repeat(auto-fill,</text>
+  <text x="72" y="246" font-size="11" font-family="Courier New" fill="#74c0fc">      minmax(200px, 1fr));</text>
+  <text x="60" y="262" font-size="11" font-family="Courier New" fill="#a8ff7a">  gap: 1rem;</text>
+  <text x="48" y="278" font-size="11" font-family="Courier New" fill="#c4b5fd">}</text>
+
+  <text x="35" y="304" font-size="11" font-family="Courier New" fill="#888">/* Afbeeldingen passend maken */</text>
+  <rect x="35" y="310" width="300" height="54" rx="4" fill="#0d1117"/>
+  <text x="48" y="326" font-size="11" font-family="Courier New" fill="#c4b5fd">.gallery img {</text>
+  <text x="60" y="342" font-size="11" font-family="Courier New" fill="#a8ff7a">  width: 100%;  aspect-ratio: 1;</text>
+  <text x="60" y="357" font-size="11" font-family="Courier New" fill="#a8ff7a">  object-fit: cover;</text>
+  <text x="48" y="373" font-size="11" font-family="Courier New" fill="#c4b5fd">}</text>
+
+  <!-- Galerij visueel rechts -->
+  <text x="595" y="76" text-anchor="middle" font-size="11" fill="#888" font-weight="bold">Breed scherm (3 kolommen)</text>
+  <rect x="370" y="84" width="410" height="140" rx="6" fill="#2a2d3e" stroke="#22C55E" stroke-width="1"/>
+  <!-- Foto rij 1 -->
+  <rect x="378" y="92" width="122" height="58" rx="3" fill="#4a7c59"/>
+  <text x="439" y="125" text-anchor="middle" font-size="9" fill="#d4e6c3">foto 1</text>
+  <rect x="508" y="92" width="122" height="58" rx="3" fill="#2D4A7C"/>
+  <text x="569" y="125" text-anchor="middle" font-size="9" fill="#aac4ff">foto 2</text>
+  <rect x="638" y="92" width="133" height="58" rx="3" fill="#7C2D2D"/>
+  <text x="705" y="125" text-anchor="middle" font-size="9" fill="#ffaaaa">foto 3</text>
+  <!-- Foto rij 2 -->
+  <rect x="378" y="158" width="122" height="58" rx="3" fill="#7C5A2D"/>
+  <text x="439" y="191" text-anchor="middle" font-size="9" fill="#ffd6aa">foto 4</text>
+  <rect x="508" y="158" width="122" height="58" rx="3" fill="#2D6B7C"/>
+  <text x="569" y="191" text-anchor="middle" font-size="9" fill="#aae6f0">foto 5</text>
+  <rect x="638" y="158" width="133" height="58" rx="3" fill="#5A2D7C"/>
+  <text x="705" y="191" text-anchor="middle" font-size="9" fill="#d4aaff">foto 6</text>
+  <!-- gap aanduiding -->
+  <line x1="501" y1="92" x2="501" y2="216" stroke="#22C55E" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <line x1="631" y1="92" x2="631" y2="216" stroke="#22C55E" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <line x1="378" y1="151" x2="780" y2="151" stroke="#22C55E" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="490" y="233" text-anchor="middle" font-size="9" fill="#4ade80">gap: 1rem</text>
+  <line x1="502" y1="228" x2="502" y2="220" stroke="#4ade80" stroke-width="0.8"/>
+  <line x1="630" y1="228" x2="630" y2="220" stroke="#4ade80" stroke-width="0.8"/>
+
+  <!-- Smal scherm -->
+  <text x="595" y="268" text-anchor="middle" font-size="11" fill="#888" font-weight="bold">Smal scherm (2 kolommen — automatisch!)</text>
+  <rect x="456" y="278" width="280" height="108" rx="6" fill="#2a2d3e" stroke="#F97316" stroke-width="1"/>
+  <rect x="463" y="286" width="124" height="42" rx="3" fill="#4a7c59"/>
+  <text x="525" y="311" text-anchor="middle" font-size="9" fill="#d4e6c3">foto 1</text>
+  <rect x="596" y="286" width="132" height="42" rx="3" fill="#2D4A7C"/>
+  <text x="662" y="311" text-anchor="middle" font-size="9" fill="#aac4ff">foto 2</text>
+  <rect x="463" y="336" width="124" height="42" rx="3" fill="#7C2D2D"/>
+  <text x="525" y="361" text-anchor="middle" font-size="9" fill="#ffaaaa">foto 3</text>
+  <rect x="596" y="336" width="132" height="42" rx="3" fill="#7C5A2D"/>
+  <text x="662" y="361" text-anchor="middle" font-size="9" fill="#ffd6aa">foto 4</text>
+  <text x="595" y="398" text-anchor="middle" font-size="10" fill="#F97316">Geen media queries nodig — auto-fill past kolommen automatisch aan</text>
+</svg>

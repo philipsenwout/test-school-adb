@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 350" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 18px; font-weight: 700; fill: #F0F0FA; }
+      .label { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 13px; font-weight: 600; }
+      .code { font-family: 'JetBrains Mono', monospace; font-size: 15px; }
+      .sub { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 11px; fill: #A8AACB; }
+      .value { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Achtergrond -->
+  <rect width="800" height="350" fill="#13141D" rx="12"/>
+
+  <!-- Titel -->
+  <text x="400" y="38" text-anchor="middle" class="title">Variabelen = dozen met een naam en een waarde</text>
+
+  <!-- === Doos 1: let score (oranje) === -->
+  <rect x="60" y="80" width="180" height="160" rx="10" fill="#1A1C28" stroke="#F97316" stroke-width="2.5"/>
+  <!-- label tag -->
+  <rect x="100" y="68" width="100" height="26" rx="6" fill="#F97316"/>
+  <text x="150" y="86" text-anchor="middle" class="code" font-size="13" fill="#13141D" font-weight="700">let score</text>
+  <!-- Waarde -->
+  <text x="150" y="180" text-anchor="middle" class="value" fill="#F97316">42</text>
+  <!-- Sub -->
+  <text x="150" y="272" text-anchor="middle" class="sub">Mag later wijzigen</text>
+  <!-- Pijl down -->
+  <line x1="150" y1="242" x2="150" y2="260" stroke="#A8AACB" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+
+  <!-- === Doos 2: const MAX (paars) === -->
+  <rect x="310" y="80" width="180" height="160" rx="10" fill="#1A1C28" stroke="#9B6FFA" stroke-width="2.5"/>
+  <!-- label tag -->
+  <rect x="340" y="68" width="120" height="26" rx="6" fill="#9B6FFA"/>
+  <text x="400" y="86" text-anchor="middle" class="code" font-size="13" fill="#F0F0FA" font-weight="700">const MAX</text>
+  <!-- Waarde -->
+  <text x="400" y="172" text-anchor="middle" class="value" fill="#9B6FFA">100</text>
+  <!-- Hangslot icoon -->
+  <rect x="383" y="188" width="34" height="24" rx="4" fill="#9B6FFA" opacity="0.25" stroke="#9B6FFA" stroke-width="1.5"/>
+  <path d="M392 188 Q392 178 400 178 Q408 178 408 188" fill="none" stroke="#9B6FFA" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="400" cy="200" r="3" fill="#9B6FFA"/>
+  <!-- Sub -->
+  <text x="400" y="272" text-anchor="middle" class="sub">Mag niet wijzigen</text>
+  <line x1="400" y1="242" x2="400" y2="260" stroke="#A8AACB" stroke-width="1.5"/>
+
+  <!-- === Doos 3: let naam (blauw) === -->
+  <rect x="560" y="80" width="180" height="160" rx="10" fill="#1A1C28" stroke="#60BFFF" stroke-width="2.5"/>
+  <!-- label tag -->
+  <rect x="593" y="68" width="114" height="26" rx="6" fill="#60BFFF"/>
+  <text x="650" y="86" text-anchor="middle" class="code" font-size="13" fill="#13141D" font-weight="700">let naam</text>
+  <!-- Waarde -->
+  <text x="650" y="180" text-anchor="middle" class="value" font-size="18" fill="#60BFFF">"Lena"</text>
+  <!-- Sub -->
+  <text x="650" y="272" text-anchor="middle" class="sub">Mag later wijzigen</text>
+  <line x1="650" y1="242" x2="650" y2="260" stroke="#A8AACB" stroke-width="1.5"/>
+
+  <!-- Onderste legenda-balk -->
+  <rect x="60" y="300" width="680" height="34" rx="8" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <circle cx="100" cy="317" r="7" fill="#F97316" opacity="0.3" stroke="#F97316" stroke-width="1.5"/>
+  <text x="115" y="322" class="sub" font-size="12" fill="#F97316">let</text>
+  <text x="135" y="322" class="sub" font-size="12">= herbruikbare variabele</text>
+  <circle cx="310" cy="317" r="7" fill="#9B6FFA" opacity="0.3" stroke="#9B6FFA" stroke-width="1.5"/>
+  <text x="325" y="322" class="sub" font-size="12" fill="#9B6FFA">const</text>
+  <text x="360" y="322" class="sub" font-size="12">= constante (waarde vastgezet)</text>
+  <circle cx="570" cy="317" r="7" fill="#60BFFF" opacity="0.3" stroke="#60BFFF" stroke-width="1.5"/>
+  <text x="585" y="322" class="sub" font-size="12" fill="#60BFFF">string</text>
+  <text x="618" y="322" class="sub" font-size="12">= tekst tussen aanhalingstekens</text>
+</svg>

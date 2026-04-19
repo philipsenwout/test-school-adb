@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L10,3.5 Z" fill="#6c63ff"/>
+    </marker>
+  </defs>
+
+  <!-- Titel -->
+  <text x="400" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#2d2d4e">Modulair project — elk bestand heeft één verantwoordelijkheid</text>
+
+  <!-- data.js blok -->
+  <rect x="30" y="60" width="220" height="150" rx="10" fill="#eaf4fb" stroke="#3498db" stroke-width="2"/>
+  <rect x="30" y="60" width="220" height="38" rx="10" fill="#3498db"/>
+  <rect x="30" y="88" width="220" height="10" rx="0" fill="#3498db"/>
+  <text x="58" y="83" font-size="15" font-weight="700" fill="#fff">📄 data.js</text>
+  <text x="42" y="122" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">export const</text>
+  <text x="42" y="140" font-size="12" font-family="'Courier New', monospace" fill="#3498db">  basisRecepten = [</text>
+  <text x="42" y="158" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">    { naam: 'Pasta' },</text>
+  <text x="42" y="176" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">    ...</text>
+  <text x="42" y="194" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">  ]</text>
+
+  <!-- hulpfuncties.js blok -->
+  <rect x="30" y="260" width="220" height="150" rx="10" fill="#eafaf1" stroke="#43e97b" stroke-width="2"/>
+  <rect x="30" y="260" width="220" height="38" rx="10" fill="#43e97b"/>
+  <rect x="30" y="288" width="220" height="10" rx="0" fill="#43e97b"/>
+  <text x="50" y="283" font-size="15" font-weight="700" fill="#fff">📄 hulpfuncties.js</text>
+  <text x="42" y="322" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">export const</text>
+  <text x="42" y="340" font-size="12" font-family="'Courier New', monospace" fill="#27ae60">  updateLS = (sleutel,</text>
+  <text x="42" y="358" font-size="12" font-family="'Courier New', monospace" fill="#27ae60">    waarde) =&gt; {</text>
+  <text x="42" y="376" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">    ...</text>
+  <text x="42" y="394" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">  }</text>
+
+  <!-- script.js blok -->
+  <rect x="520" y="140" width="250" height="210" rx="10" fill="#f0eeff" stroke="#6c63ff" stroke-width="2"/>
+  <rect x="520" y="140" width="250" height="38" rx="10" fill="#6c63ff"/>
+  <rect x="520" y="168" width="250" height="10" rx="0" fill="#6c63ff"/>
+  <text x="548" y="163" font-size="15" font-weight="700" fill="#fff">📄 script.js</text>
+  <text x="532" y="202" font-size="12" font-family="'Courier New', monospace" fill="#6c63ff">import { basisRecepten }</text>
+  <text x="532" y="220" font-size="12" font-family="'Courier New', monospace" fill="#6c63ff">  from './data.js';</text>
+  <text x="532" y="245" font-size="12" font-family="'Courier New', monospace" fill="#6c63ff">import { updateLS }</text>
+  <text x="532" y="263" font-size="12" font-family="'Courier New', monospace" fill="#6c63ff">  from './hulpfuncties.js';</text>
+  <line x1="532" y1="278" x2="758" y2="278" stroke="#ccc" stroke-width="1"/>
+  <text x="532" y="300" font-size="12" font-family="'Courier New', monospace" fill="#888">// app-logica...</text>
+  <text x="532" y="320" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">toonRecepten();</text>
+  <text x="532" y="338" font-size="12" font-family="'Courier New', monospace" fill="#1a1a2e">slaOp(recept);</text>
+
+  <!-- Pijlen data.js → script.js -->
+  <line x1="252" y1="135" x2="516" y2="210" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="6,3"/>
+  <rect x="310" y="145" width="150" height="24" rx="6" fill="#fff" stroke="#6c63ff" stroke-width="1" opacity="0.9"/>
+  <text x="385" y="161" text-anchor="middle" font-size="12" fill="#6c63ff" font-weight="600">export → import</text>
+
+  <!-- Pijlen hulpfuncties.js → script.js -->
+  <line x1="252" y1="335" x2="516" y2="280" stroke="#43e97b" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="6,3"/>
+  <rect x="310" y="290" width="150" height="24" rx="6" fill="#fff" stroke="#43e97b" stroke-width="1" opacity="0.9"/>
+  <text x="385" y="306" text-anchor="middle" font-size="12" fill="#27ae60" font-weight="600">export → import</text>
+
+  <!-- Legende -->
+  <rect x="30" y="445" width="740" height="45" rx="8" fill="#f0f4ff" stroke="#ddd" stroke-width="1"/>
+  <text x="50" y="462" font-size="12" fill="#666">Principe:</text>
+  <rect x="110" y="451" width="14" height="14" rx="3" fill="#3498db"/>
+  <text x="130" y="462" font-size="12" fill="#2d2d4e">data.js = enkel data</text>
+  <rect x="260" y="451" width="14" height="14" rx="3" fill="#43e97b"/>
+  <text x="280" y="462" font-size="12" fill="#2d2d4e">hulpfuncties.js = herbruikbare functies</text>
+  <rect x="490" y="451" width="14" height="14" rx="3" fill="#6c63ff"/>
+  <text x="510" y="462" font-size="12" fill="#2d2d4e">script.js = hoofdlogica van de app</text>
+  <text x="50" y="482" font-size="11" fill="#888">Elke module heeft één verantwoordelijkheid (Single Responsibility Principle)</text>
+</svg>

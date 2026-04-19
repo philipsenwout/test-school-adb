@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">RASPBERRY PI 4 MODEL B — HARDWARE OVERZICHT</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">SCHEMATISCHE WEERGAVE MET GELABELDE AANSLUITINGEN</text>
+  <line x1="80" y1="64" x2="720" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Board body -->
+  <rect x="220" y="90" width="360" height="250" rx="10" fill="#13141D" stroke="#A855F7" stroke-width="2"/>
+  <!-- PCB kleur hint -->
+  <rect x="226" y="96" width="348" height="238" rx="8" fill="#0D1F14" opacity="0.5"/>
+
+  <!-- GPIO Header (rechts boven) -->
+  <rect x="510" y="100" width="64" height="20" rx="3" fill="#2A2C45" stroke="#A855F7" stroke-width="1"/>
+  <text x="542" y="113" text-anchor="middle" font-family="monospace" font-size="8" fill="#A855F7">GPIO 40-pin</text>
+  <!-- GPIO pinnen -->
+  <rect x="512" y="103" width="60" height="5" rx="1" fill="#A855F730"/>
+  <text x="542" y="112" text-anchor="middle" font-family="monospace" font-size="7" fill="#6B6E8E">· · · · · · · · · · · · · · · · · · · ·</text>
+
+  <!-- USB-C Power -->
+  <rect x="220" y="116" width="20" height="18" rx="2" fill="#F59E0B" stroke="#F59E0B" stroke-width="1" opacity="0.8"/>
+  <text x="230" y="128" text-anchor="middle" font-family="monospace" font-size="7" fill="#0D0E14" font-weight="700">PWR</text>
+
+  <!-- HDMI 0 -->
+  <rect x="220" y="142" width="16" height="22" rx="2" fill="#3B82F6" stroke="#3B82F6" stroke-width="1" opacity="0.8"/>
+  <text x="228" y="156" text-anchor="middle" font-family="monospace" font-size="6" fill="#E8E9F3">H0</text>
+
+  <!-- HDMI 1 -->
+  <rect x="220" y="170" width="16" height="22" rx="2" fill="#3B82F6" stroke="#3B82F6" stroke-width="1" opacity="0.7"/>
+  <text x="228" y="184" text-anchor="middle" font-family="monospace" font-size="6" fill="#E8E9F3">H1</text>
+
+  <!-- Audio jack -->
+  <circle cx="230" cy="210" r="10" fill="#2A2C45" stroke="#6B6E8E" stroke-width="1"/>
+  <circle cx="230" cy="210" r="5" fill="#1A1C28"/>
+
+  <!-- USB 2.0 x2 -->
+  <rect x="568" y="130" width="12" height="40" rx="2" fill="#2D9CDB" stroke="#2D9CDB" stroke-width="1" opacity="0.8"/>
+  <rect x="570" y="133" width="8" height="16" rx="1" fill="#0D0E14"/>
+  <rect x="570" y="151" width="8" height="16" rx="1" fill="#0D0E14"/>
+  <text x="574" y="180" text-anchor="middle" font-family="monospace" font-size="7" fill="#2D9CDB">USB2</text>
+
+  <!-- USB 3.0 x2 -->
+  <rect x="556" y="130" width="12" height="40" rx="2" fill="#60BFFF" stroke="#60BFFF" stroke-width="1" opacity="0.9"/>
+  <rect x="558" y="133" width="8" height="16" rx="1" fill="#0D0E14"/>
+  <rect x="558" y="151" width="8" height="16" rx="1" fill="#0D0E14"/>
+  <text x="562" y="180" text-anchor="middle" font-family="monospace" font-size="7" fill="#60BFFF">USB3</text>
+
+  <!-- Ethernet -->
+  <rect x="551" y="195" width="29" height="24" rx="2" fill="#00C2A8" stroke="#00C2A8" stroke-width="1" opacity="0.8"/>
+  <text x="565" y="210" text-anchor="middle" font-family="monospace" font-size="7" fill="#0D0E14" font-weight="700">ETH</text>
+
+  <!-- microSD slot (onder) -->
+  <rect x="310" y="332" width="60" height="8" rx="2" fill="#F59E0B" stroke="#F59E0B" stroke-width="1" opacity="0.7"/>
+  <text x="340" y="339" text-anchor="middle" font-family="monospace" font-size="7" fill="#0D0E14">microSD</text>
+
+  <!-- CPU SoC -->
+  <rect x="330" y="190" width="80" height="70" rx="4" fill="#1A1C28" stroke="#A855F7" stroke-width="1.5"/>
+  <text x="370" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#A855F7">BCM2711</text>
+  <text x="370" y="236" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#6B6E8E">ARM Cortex-A72</text>
+  <text x="370" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#6B6E8E">1.8 GHz Quad-core</text>
+
+  <!-- RAM chip -->
+  <rect x="260" y="190" width="60" height="40" rx="3" fill="#1A1C28" stroke="#6B6E8E" stroke-width="1"/>
+  <text x="290" y="207" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#A8AACB">LPDDR4</text>
+  <text x="290" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#E8E9F3">4 GB RAM</text>
+
+  <!-- Status LEDs -->
+  <circle cx="540" cy="310" r="5" fill="#22C55E" opacity="0.9"/>
+  <circle cx="553" cy="310" r="5" fill="#EF4444" opacity="0.9"/>
+  <text x="546" y="326" text-anchor="middle" font-family="monospace" font-size="7" fill="#6B6E8E">LEDs</text>
+
+  <!-- LABELS met pijlen -->
+  <!-- GPIO label -->
+  <line x1="542" y1="120" x2="580" y2="80" stroke="#A855F7" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="568" y="67" width="140" height="20" rx="4" fill="#1A1C28" stroke="#A855F740" stroke-width="1"/>
+  <text x="638" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A855F7">GPIO — 40-pins connector</text>
+
+  <!-- Power label -->
+  <line x1="220" y1="125" x2="180" y2="100" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="30" y="87" width="148" height="20" rx="4" fill="#1A1C28" stroke="#F59E0B40" stroke-width="1"/>
+  <text x="104" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#F59E0B">USB-C 5V / 3A voeding</text>
+
+  <!-- HDMI label -->
+  <line x1="218" y1="160" x2="170" y2="150" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="30" y="137" width="138" height="20" rx="4" fill="#1A1C28" stroke="#3B82F640" stroke-width="1"/>
+  <text x="99" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#3B82F6">Micro-HDMI (2x, 4K)</text>
+
+  <!-- Audio label -->
+  <line x1="220" y1="210" x2="180" y2="200" stroke="#6B6E8E" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="30" y="187" width="148" height="20" rx="4" fill="#1A1C28" stroke="#6B6E8E40" stroke-width="1"/>
+  <text x="104" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">3.5mm audio / composiet</text>
+
+  <!-- USB 3.0 label -->
+  <line x1="580" y1="150" x2="640" y2="140" stroke="#60BFFF" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="632" y="127" width="148" height="20" rx="4" fill="#1A1C28" stroke="#60BFFF40" stroke-width="1"/>
+  <text x="706" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#60BFFF">USB 3.0 (2x, 5 Gbps)</text>
+
+  <!-- USB 2.0 label -->
+  <line x1="580" y1="160" x2="640" y2="170" stroke="#2D9CDB" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="632" y="157" width="148" height="20" rx="4" fill="#1A1C28" stroke="#2D9CDB40" stroke-width="1"/>
+  <text x="706" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#2D9CDB">USB 2.0 (2x)</text>
+
+  <!-- Ethernet label -->
+  <line x1="580" y1="207" x2="640" y2="207" stroke="#00C2A8" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="632" y="194" width="148" height="20" rx="4" fill="#1A1C28" stroke="#00C2A840" stroke-width="1"/>
+  <text x="706" y="207" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#00C2A8">Gigabit Ethernet</text>
+
+  <!-- microSD label -->
+  <line x1="340" y1="340" x2="310" y2="370" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="190" y="358" width="118" height="20" rx="4" fill="#1A1C28" stroke="#F59E0B40" stroke-width="1"/>
+  <text x="249" y="371" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#F59E0B">microSD — OS opslag</text>
+
+  <!-- Specs onderaan -->
+  <rect x="30" y="400" width="740" height="38" rx="6" fill="#A855F710" stroke="#A855F730" stroke-width="1"/>
+  <text x="400" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#A855F7">Raspberry Pi 4 Model B — Specificaties</text>
+  <text x="400" y="431" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">BCM2711 SoC  |  4 GB LPDDR4  |  Wi-Fi 802.11ac  |  Bluetooth 5.0  |  Gigabit Ethernet  |  40 GPIO-pinnen</text>
+</svg>

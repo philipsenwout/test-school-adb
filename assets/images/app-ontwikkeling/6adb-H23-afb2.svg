@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="820" height="480" fill="#1a1a2e"/>
+  <text x="410" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#e0e0f0">Wat staat waar? — Front-end vs Back-end</text>
+
+  <!-- Left column: Front-end -->
+  <rect x="20" y="55" width="375" height="400" rx="10" fill="#16162a" stroke="#7c85ff" stroke-width="2"/>
+  <rect x="20" y="55" width="375" height="36" rx="10" fill="#252560"/>
+  <text x="207" y="79" text-anchor="middle" font-size="14" fill="#7c85ff" font-weight="700">Front-end — Browser</text>
+
+  <!-- Files -->
+  <text x="40" y="115" font-size="12" fill="#888" font-weight="700">Bestanden:</text>
+  <text x="44" y="136" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">Client/index.html</text>
+  <text x="44" y="154" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">Client/style.css</text>
+  <text x="44" y="172" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">Client/js/app.js</text>
+
+  <line x1="30" y1="184" x2="385" y2="184" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="40" y="202" font-size="12" fill="#888" font-weight="700">Verantwoordelijkheden:</text>
+  <text x="44" y="222" font-size="12" fill="#c8c8d4">• HTML-pagina opbouwen en tonen</text>
+  <text x="44" y="242" font-size="12" fill="#c8c8d4">• Gebruikersinteractie (klik, formulier)</text>
+  <text x="44" y="262" font-size="12" fill="#c8c8d4">• API aanroepen via fetch()</text>
+  <text x="44" y="282" font-size="12" fill="#c8c8d4">• JSON ontvangen en omzetten naar HTML</text>
+  <text x="44" y="302" font-size="12" fill="#c8c8d4">• Foutmeldingen tonen aan de gebruiker</text>
+
+  <line x1="30" y1="316" x2="385" y2="316" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="40" y="334" font-size="12" fill="#888" font-weight="700">Praat met:</text>
+  <rect x="44" y="342" width="210" height="24" rx="4" fill="#252550"/>
+  <text x="149" y="357" text-anchor="middle" font-size="11" fill="#7c85ff" font-family="'Courier New', monospace">fetch('/api/...')  →  Node.js</text>
+
+  <text x="40" y="394" font-size="11" fill="#555">Werkt in de browser van de gebruiker.</text>
+  <text x="40" y="410" font-size="11" fill="#555">Nooit rechtstreeks verbinding met MySQL.</text>
+
+  <!-- Right column: Back-end -->
+  <rect x="425" y="55" width="375" height="400" rx="10" fill="#16162a" stroke="#c792ea" stroke-width="2"/>
+  <rect x="425" y="55" width="375" height="36" rx="10" fill="#3a1e50"/>
+  <text x="612" y="79" text-anchor="middle" font-size="14" fill="#c792ea" font-weight="700">Back-end — Node.js server</text>
+
+  <!-- Files -->
+  <text x="445" y="115" font-size="12" fill="#888" font-weight="700">Bestanden:</text>
+  <text x="449" y="136" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">Server/server.js</text>
+  <text x="449" y="154" font-size="12" fill="#888" font-family="'Courier New', monospace">Server/package.json</text>
+  <text x="449" y="172" font-size="12" fill="#febc2e" font-family="'Courier New', monospace">sportclub_db.sql</text>
+
+  <line x1="435" y1="184" x2="790" y2="184" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="445" y="202" font-size="12" fill="#888" font-weight="700">Verantwoordelijkheden:</text>
+  <text x="449" y="222" font-size="12" fill="#c8c8d4">• API-routes afhandelen (GET, POST, PUT, DELETE)</text>
+  <text x="449" y="242" font-size="12" fill="#c8c8d4">• Invoer valideren</text>
+  <text x="449" y="262" font-size="12" fill="#c8c8d4">• SQL-queries uitvoeren via pool.execute()</text>
+  <text x="449" y="282" font-size="12" fill="#c8c8d4">• Sessies beheren (login/logout)</text>
+  <text x="449" y="302" font-size="12" fill="#c8c8d4">• JSON terugsturen + correcte statuscode</text>
+
+  <line x1="435" y1="316" x2="790" y2="316" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="445" y="334" font-size="12" fill="#888" font-weight="700">Praat met:</text>
+  <rect x="449" y="342" width="210" height="24" rx="4" fill="#252540"/>
+  <text x="554" y="357" text-anchor="middle" font-size="11" fill="#f78c6c" font-family="'Courier New', monospace">pool.execute()  →  MySQL</text>
+
+  <text x="445" y="394" font-size="11" fill="#555">Draait op de server (niet in de browser).</text>
+  <text x="445" y="410" font-size="11" fill="#555">Heeft direct toegang tot de database.</text>
+
+  <!-- Bridge arrow -->
+  <line x1="395" y1="255" x2="425" y2="255" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="410" y="248" text-anchor="middle" font-size="10" fill="#888">HTTP</text>
+  <text x="410" y="262" text-anchor="middle" font-size="10" fill="#888">JSON</text>
+
+  <!-- Caption -->
+  <rect x="20" y="465" width="780" height="1" fill="#2a2a4a"/>
+</svg>

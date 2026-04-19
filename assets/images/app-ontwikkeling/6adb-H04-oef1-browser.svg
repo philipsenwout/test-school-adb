@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Browser chrome -->
+  <rect x="60" y="20" width="680" height="460" rx="12" fill="#2a2a3e" stroke="#4a4a6a" stroke-width="2"/>
+
+  <!-- Browser top bar -->
+  <rect x="60" y="20" width="680" height="48" rx="12" fill="#1a1a2e"/>
+  <rect x="60" y="52" width="680" height="16" fill="#1a1a2e"/>
+
+  <!-- Traffic lights -->
+  <circle cx="92" cy="44" r="7" fill="#ff6b6b"/>
+  <circle cx="116" cy="44" r="7" fill="#f9a825"/>
+  <circle cx="140" cy="44" r="7" fill="#43e97b"/>
+
+  <!-- Address bar -->
+  <rect x="162" y="32" width="420" height="24" rx="6" fill="#2d2d4e"/>
+  <text x="372" y="49" text-anchor="middle" font-size="13" fill="#a0a0c0" font-family="'Courier New', monospace">to-do.html</text>
+
+  <!-- Page content area -->
+  <rect x="80" y="80" width="640" height="380" rx="0" fill="#f8f9ff"/>
+
+  <!-- Card container -->
+  <rect x="120" y="100" width="560" height="340" rx="10" fill="white" stroke="#e0e4f0" stroke-width="1.5"/>
+  <!-- Card shadow effect -->
+  <rect x="124" y="104" width="560" height="340" rx="10" fill="none" stroke="#e0e4f0" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- App title -->
+  <text x="400" y="136" text-anchor="middle" font-size="22" font-weight="700" fill="#2d2d4e">📝 Mijn Taken</text>
+
+  <!-- Input row -->
+  <rect x="145" y="152" width="380" height="38" rx="8" fill="#f0f4ff" stroke="#c0c8e8" stroke-width="1.5"/>
+  <text x="165" y="176" font-size="13" fill="#a0a0c0">Nieuwe taak...</text>
+  <rect x="535" y="152" width="120" height="38" rx="8" fill="#6c63ff"/>
+  <text x="595" y="176" text-anchor="middle" font-size="14" font-weight="600" fill="white">Voeg toe</text>
+
+  <!-- Divider -->
+  <line x1="145" y1="204" x2="655" y2="204" stroke="#e8e8f8" stroke-width="1"/>
+
+  <!-- Task 1: completed (strikethrough) -->
+  <rect x="145" y="212" width="510" height="44" rx="6" fill="#f8f8ff"/>
+  <!-- Checkbox checked -->
+  <rect x="158" y="225" width="20" height="20" rx="4" fill="#6c63ff"/>
+  <text x="168" y="239" text-anchor="middle" font-size="13" fill="white" font-weight="700">✓</text>
+  <!-- Strikethrough text -->
+  <text x="192" y="238" font-size="14" fill="#b0b0c0" text-decoration="line-through">HTML bestuderen</text>
+  <line x1="192" y1="236" x2="360" y2="236" stroke="#b0b0c0" stroke-width="1.5"/>
+  <!-- Delete icon -->
+  <circle cx="628" cy="234" r="14" fill="#fff0f0"/>
+  <text x="628" y="239" text-anchor="middle" font-size="14" fill="#ff6b6b">🗑</text>
+
+  <!-- Task 2: active -->
+  <rect x="145" y="264" width="510" height="44" rx="6" fill="white" stroke="#e8e8f8" stroke-width="1"/>
+  <rect x="158" y="277" width="20" height="20" rx="4" fill="white" stroke="#c0c8e8" stroke-width="1.5"/>
+  <text x="192" y="292" font-size="14" fill="#2d2d4e">CSS oefenen</text>
+  <circle cx="628" cy="286" r="14" fill="#fff0f0"/>
+  <text x="628" y="291" text-anchor="middle" font-size="14" fill="#ff6b6b">🗑</text>
+
+  <!-- Task 3: active -->
+  <rect x="145" y="316" width="510" height="44" rx="6" fill="white" stroke="#e8e8f8" stroke-width="1"/>
+  <rect x="158" y="329" width="20" height="20" rx="4" fill="white" stroke="#c0c8e8" stroke-width="1.5"/>
+  <text x="192" y="344" font-size="14" fill="#2d2d4e">JavaScript schrijven</text>
+  <circle cx="628" cy="338" r="14" fill="#fff0f0"/>
+  <text x="628" y="343" text-anchor="middle" font-size="14" fill="#ff6b6b">🗑</text>
+
+  <!-- Divider -->
+  <line x1="145" y1="374" x2="655" y2="374" stroke="#e8e8f8" stroke-width="1"/>
+
+  <!-- Counter -->
+  <text x="165" y="400" font-size="13" fill="#8080a0">2 taken resterend</text>
+
+  <!-- Clear completed button -->
+  <text x="630" y="400" text-anchor="end" font-size="13" fill="#6c63ff" text-decoration="underline">Wis voltooide</text>
+</svg>

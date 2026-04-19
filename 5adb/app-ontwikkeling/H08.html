@@ -110,6 +110,8 @@
 
       <div class="ld-badges">
         <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB04</span><span class="ld-tag__title">De leerlingen volgen evoluties binnen het vakgebied op.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.08</span><span class="ld-tag__title">De leerlingen gebruiken gerichte hulpbronnen om informatie op te zoeken.</span></div>
       </div>
 
       <div class="callout callout--info">
@@ -136,7 +138,7 @@
         <li>Of iets in een <strong>raster</strong> staat</li>
       </ul>
       <figure class="chapter-figure">
-        <img src="../../../app-ontwikkeling/images/H08-afb1.svg" alt="Vergelijking: dezelfde HTML-pagina zonder CSS en met CSS" loading="lazy">
+        <img src="../../assets/images/app-ontwikkeling/H08-afb1.svg" alt="Vergelijking: dezelfde HTML-pagina zonder CSS en met CSS" loading="lazy">
       </figure>
       <p><strong>Belangrijk verschil met HTML:</strong></p>
       <ul>
@@ -158,7 +160,7 @@
 }</code></pre>
       </div>
       <figure class="chapter-figure">
-        <img src="../../../app-ontwikkeling/images/H08-afb2.svg" alt="Anatomie van een CSS-regel: selector, declaratieblok, eigenschap, waarde" loading="lazy">
+        <img src="../../assets/images/app-ontwikkeling/H08-afb2.svg" alt="Anatomie van een CSS-regel: selector, declaratieblok, eigenschap, waarde" loading="lazy">
       </figure>
       <h3>De onderdelen</h3>
       <table class="data-table">
@@ -237,7 +239,7 @@
         </tbody>
       </table>
       <figure class="chapter-figure">
-        <img src="../../../app-ontwikkeling/images/H08-afb3.svg" alt="Visueel schema van HTML-ouder-kind relaties en overerving" loading="lazy">
+        <img src="../../assets/images/app-ontwikkeling/H08-afb3.svg" alt="Visueel schema van HTML-ouder-kind relaties en overerving" loading="lazy">
       </figure>
 
       <h2 id="selectoren">8.5 Selectoren</h2>
@@ -317,6 +319,15 @@ p {
         <li>CSS tijdelijk aanpassen om te experimenteren</li>
       </ul>
 
+      <div class="callout callout--info">
+        <div class="callout-header">📚 Bronnen &amp; documentatie</div>
+        <ul>
+          <li><a href="https://developer.mozilla.org/nl/docs/Web/CSS" target="_blank" rel="noopener">MDN CSS Reference</a> — volledige CSS-documentatie</li>
+          <li><a href="https://caniuse.com" target="_blank" rel="noopener">Can I Use</a> — controleer welke browsers een CSS-eigenschap ondersteunen</li>
+          <li><a href="https://css-tricks.com" target="_blank" rel="noopener">CSS-Tricks</a> — praktische tutorials en gidsen</li>
+        </ul>
+      </div>
+
       <section id="oefeningen">
         <h2>Oefeningen</h2>
 
@@ -336,7 +347,7 @@ p {
             </ul>
             <p>Maak een HTML-pagina met twee alinea's, waarvan de eerste de klasse <code>uitgelicht</code> heeft.</p>
             <figure class="chapter-figure">
-              <img src="../../../app-ontwikkeling/images/H08-oef1-browser.svg" alt="Browser-mockup: pagina met lichtgrijze achtergrond, blauwe h1, eerste alinea met gele achtergrond en oranje rand" loading="lazy">
+              <img src="../../assets/images/app-ontwikkeling/H08-oef1-browser.svg" alt="Browser-mockup: pagina met lichtgrijze achtergrond, blauwe h1, eerste alinea met gele achtergrond en oranje rand" loading="lazy">
             </figure>
           </div>
         </div>
@@ -371,7 +382,7 @@ p {
       <section id="huistaak">
         <h2>Huistaak</h2>
         <div class="callout callout--huistaak">
-          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H08 Introductie CSS<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../../app-ontwikkeling/images/H08-oef1-browser.svg', 'Voorbeeld — Webpagina met CSS opmaak')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H08 Introductie CSS<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/H08-oef1-browser.svg', 'Voorbeeld — Webpagina met CSS opmaak')">&#128065; Bekijk voorbeeld</button></div>
           <div class="callout-body">
           <h3>Opdracht: Stijl geven aan de receptenpagina</h3>
           <p>Je koppelt voor het eerst een extern CSS-bestand aan je <code>recept.html</code> van H02 (of een soortgelijke pagina) en schrijft je eerste CSS-regels.</p>
@@ -406,6 +417,14 @@ p {
           <ol>
             <li>Verwijder de inline stijl daarna weer — je pagina moet er netjes uitzien.</li>
           </ol>
+          <h4>Deel 4 — Evoluties in CSS (2 punten)</h4>
+          <p>CSS evolueert constant. Zoek op MDN of een andere bron één van de volgende recente CSS-functies op en maak een kleine demopagina (minimaal 5 regels CSS, 1 HTML-element):</p>
+          <ul>
+            <li>CSS Nesting (<code>a { &amp;:hover { color: red; } }</code>)</li>
+            <li>De <code>:has()</code> selector</li>
+            <li>Container Queries (<code>@container</code>)</li>
+          </ul>
+          <p>Toon in je demopagina: de nieuwe CSS-eigenschap in actie + een HTML-commentaar <code>&lt;!-- Bron: [URL die je gebruikt hebt] --&gt;</code>.</p>
           </div>
         </div>
       </section>

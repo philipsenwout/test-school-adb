@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="820" height="500" fill="#1a1a2e"/>
+  <text x="410" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#e0e0f0">GIP — Mappenstructuur</text>
+
+  <!-- Main folder box -->
+  <rect x="60" y="55" width="700" height="420" rx="10" fill="#16162a" stroke="#2a2a4a" stroke-width="1.5"/>
+
+  <!-- Root folder -->
+  <rect x="80" y="70" width="240" height="30" rx="5" fill="#252550"/>
+  <text x="100" y="89" font-size="14" fill="#7c85ff" font-family="'Courier New', monospace">📁 sportclub-portaal/</text>
+
+  <!-- Tree lines -->
+  <line x1="110" y1="100" x2="110" y2="440" stroke="#2a2a4a" stroke-width="1.5"/>
+
+  <!-- Server folder -->
+  <line x1="110" y1="120" x2="145" y2="120" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="145" y="108" width="200" height="26" rx="4" fill="#1f1f38"/>
+  <text x="160" y="125" font-size="13" fill="#c792ea" font-family="'Courier New', monospace">📁 Server/</text>
+
+  <line x1="175" y1="134" x2="175" y2="200" stroke="#2a2a4a" stroke-width="1.5"/>
+
+  <line x1="175" y1="150" x2="210" y2="150" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="138" width="300" height="24" rx="3" fill="#252540"/>
+  <text x="225" y="154" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">server.js</text>
+  <text x="370" y="154" font-size="11" fill="#555" font-family="'Courier New', monospace">← ALLE back-end code</text>
+
+  <line x1="175" y1="175" x2="210" y2="175" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="163" width="300" height="24" rx="3" fill="#252540"/>
+  <text x="225" y="179" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">package.json</text>
+  <text x="370" y="179" font-size="11" fill="#555" font-family="'Courier New', monospace">← npm-configuratie</text>
+
+  <!-- Client folder -->
+  <line x1="110" y1="220" x2="145" y2="220" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="145" y="208" width="200" height="26" rx="4" fill="#1f1f38"/>
+  <text x="160" y="225" font-size="13" fill="#c792ea" font-family="'Courier New', monospace">📁 Client/</text>
+
+  <line x1="175" y1="234" x2="175" y2="410" stroke="#2a2a4a" stroke-width="1.5"/>
+
+  <!-- HTML files -->
+  <line x1="175" y1="250" x2="210" y2="250" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="238" width="300" height="24" rx="3" fill="#252540"/>
+  <text x="225" y="254" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">index.html</text>
+  <text x="370" y="254" font-size="11" fill="#555" font-family="'Courier New', monospace">← startpagina</text>
+
+  <line x1="175" y1="275" x2="210" y2="275" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="263" width="300" height="24" rx="3" fill="#252540"/>
+  <text x="225" y="279" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">login.html</text>
+  <text x="370" y="279" font-size="11" fill="#555" font-family="'Courier New', monospace">← loginpagina</text>
+
+  <line x1="175" y1="300" x2="210" y2="300" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="288" width="300" height="24" rx="3" fill="#252540"/>
+  <text x="225" y="304" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">register.html</text>
+  <text x="370" y="304" font-size="11" fill="#555" font-family="'Courier New', monospace">← registratiepagina</text>
+
+  <line x1="175" y1="325" x2="210" y2="325" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="313" width="300" height="24" rx="3" fill="#252540"/>
+  <text x="225" y="329" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">dashboard.html</text>
+  <text x="370" y="329" font-size="11" fill="#555" font-family="'Courier New', monospace">← ledenpagina</text>
+
+  <line x1="175" y1="350" x2="210" y2="350" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="338" width="300" height="24" rx="3" fill="#252540"/>
+  <text x="225" y="354" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">admin.html</text>
+  <text x="370" y="354" font-size="11" fill="#555" font-family="'Courier New', monospace">← adminpanel</text>
+
+  <!-- js subfolder -->
+  <line x1="175" y1="380" x2="210" y2="380" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="210" y="368" width="160" height="24" rx="3" fill="#1f1f38"/>
+  <text x="225" y="384" font-size="12" fill="#c792ea" font-family="'Courier New', monospace">📁 js/</text>
+
+  <line x1="240" y1="392" x2="275" y2="392" stroke="#2a2a4a" stroke-width="1.5"/>
+  <text x="280" y="396" font-size="11" fill="#888" font-family="'Courier New', monospace">auth.js  dashboard.js  admin.js</text>
+
+  <!-- SQL file -->
+  <line x1="110" y1="430" x2="145" y2="430" stroke="#2a2a4a" stroke-width="1.5"/>
+  <rect x="145" y="418" width="300" height="26" rx="4" fill="#1f1f38"/>
+  <text x="160" y="435" font-size="13" fill="#febc2e" font-family="'Courier New', monospace">sportclub_db.sql</text>
+  <text x="380" y="435" font-size="11" fill="#555">← database-script</text>
+
+  <!-- Legend -->
+  <rect x="530" y="80" width="220" height="130" rx="8" fill="#0d0d1a" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="640" y="100" text-anchor="middle" font-size="12" fill="#888" font-weight="700">Legende</text>
+  <rect x="545" y="110" width="12" height="12" rx="2" fill="#c792ea"/>
+  <text x="565" y="121" font-size="11" fill="#c8c8d4">Map (folder)</text>
+  <rect x="545" y="130" width="12" height="12" rx="2" fill="#a8e6a3"/>
+  <text x="565" y="141" font-size="11" fill="#c8c8d4">JavaScript bestand (.js)</text>
+  <rect x="545" y="150" width="12" height="12" rx="2" fill="#f78c6c"/>
+  <text x="565" y="161" font-size="11" fill="#c8c8d4">HTML bestand</text>
+  <rect x="545" y="170" width="12" height="12" rx="2" fill="#febc2e"/>
+  <text x="565" y="181" font-size="11" fill="#c8c8d4">SQL script</text>
+  <text x="545" y="200" font-size="11" fill="#555">⚠ Alles in Server/ staat</text>
+  <text x="545" y="215" font-size="11" fill="#555">in één server.js bestand</text>
+</svg>

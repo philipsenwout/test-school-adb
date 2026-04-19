@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="'Segoe UI', system-ui, sans-serif">
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">Live klok — Date object + setInterval</text>
+
+  <!-- Footer mockup -->
+  <rect x="20" y="45" width="760" height="60" rx="10" fill="#1a1a2e" stroke="#6c63ff" stroke-width="1"/>
+  <text x="40" y="75" fill="#6c63ff" font-size="13" font-weight="bold">🍽 Mijn Recepten App</text>
+  <text x="400" y="75" text-anchor="middle" fill="#888" font-size="12">Gebouwd met vanilla JavaScript · ES Modules · localStorage</text>
+  <text x="750" y="68" text-anchor="end" fill="#43e97b" font-size="12">📅 donderdag 2 april 2026</text>
+  <text x="750" y="88" text-anchor="end" fill="#43e97b" font-size="16" font-weight="bold">14:35:22</text>
+
+  <!-- Date object breakdown -->
+  <rect x="20" y="125" width="470" height="150" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="148" fill="#888" font-size="11" font-family="'Courier New', monospace">const nu = new Date();</text>
+  <text x="40" y="165" fill="#888" font-size="10" font-family="'Courier New', monospace">// Datum</text>
+  <text x="40" y="182" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">nu.<tspan fill="#f9a825">getFullYear</tspan>()    <tspan fill="#43e97b">// 2026</tspan></text>
+  <text x="40" y="199" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">nu.<tspan fill="#f9a825">getMonth</tspan>()      <tspan fill="#43e97b">// 3  (0=jan → +1 voor weergave)</tspan></text>
+  <text x="40" y="216" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">nu.<tspan fill="#f9a825">getDate</tspan>()       <tspan fill="#43e97b">// 2</tspan></text>
+  <text x="40" y="233" fill="#888" font-size="10" font-family="'Courier New', monospace">// Tijd</text>
+  <text x="40" y="250" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">nu.<tspan fill="#f9a825">getHours</tspan>()      <tspan fill="#43e97b">// 14</tspan></text>
+  <text x="40" y="266" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">nu.<tspan fill="#f9a825">getMinutes</tspan>()    <tspan fill="#43e97b">// 35</tspan></text>
+  <text x="40" y="272" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">nu.<tspan fill="#f9a825">getSeconds</tspan>()    <tspan fill="#43e97b">// 22</tspan></text>
+
+  <!-- setInterval diagram -->
+  <rect x="510" y="125" width="270" height="150" rx="8" fill="#f0f4ff" stroke="#6c63ff" stroke-width="1"/>
+  <text x="645" y="150" text-anchor="middle" fill="#6c63ff" font-size="12" font-weight="bold">setInterval() — elke seconde</text>
+  <text x="645" y="175" text-anchor="middle" fill="#888" font-size="11">t = 0s → updateKlok()</text>
+  <text x="645" y="193" text-anchor="middle" fill="#888" font-size="11">t = 1s → updateKlok()</text>
+  <text x="645" y="211" text-anchor="middle" fill="#888" font-size="11">t = 2s → updateKlok()</text>
+  <text x="645" y="229" text-anchor="middle" fill="#888" font-size="11">t = 3s → updateKlok()</text>
+  <text x="645" y="247" text-anchor="middle" fill="#888" font-size="11">…</text>
+  <text x="645" y="265" text-anchor="middle" fill="#43e97b" font-size="11">→ klokEl bijgewerkt in DOM</text>
+
+  <!-- Full code -->
+  <rect x="20" y="290" width="760" height="130" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="313" fill="#888" font-size="11" font-family="'Courier New', monospace">const DAGEN = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];</text>
+  <text x="40" y="331" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">function <tspan fill="#6c63ff">updateKlok</tspan>() &#123;</text>
+  <text x="40" y="349" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  const nu = new <tspan fill="#f9a825">Date</tspan>();</text>
+  <text x="40" y="366" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  const datum = <tspan fill="#43e97b">`${DAGEN[nu.getDay()]} ${nu.getDate()}/${nu.getMonth()+1}/${nu.getFullYear()}`</tspan>;</text>
+  <text x="40" y="383" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  const tijd = <tspan fill="#43e97b">`${String(nu.getHours()).padStart(2,'0')}:${String(nu.getMinutes()).padStart(2,'0')}:${String(nu.getSeconds()).padStart(2,'0')}`</tspan>;</text>
+  <text x="40" y="400" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  klokEl.<tspan fill="#6c63ff">textContent</tspan> = <tspan fill="#43e97b">`${datum} — ${tijd}`</tspan>;</text>
+  <text x="40" y="411" fill="#888" font-size="11" font-family="'Courier New', monospace">&#125;</text>
+  <text x="40" y="416" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace"><tspan fill="#6c63ff">updateKlok</tspan>();  <tspan fill="#f9a825">setInterval</tspan>(<tspan fill="#6c63ff">updateKlok</tspan>, <tspan fill="#43e97b">1000</tspan>);</text>
+</svg>

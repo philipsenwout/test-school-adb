@@ -34,17 +34,26 @@
   </div>
 </nav>
 <main id="main">
-  <div class="container">
+  <div class="container container--wide">
 <nav class="breadcrumb" aria-label="Paginapad">
 <a href="../index.html">Home</a>
 <span class="breadcrumb-sep">&#8250;</span>
 <span>6ADB</span>
 </nav>
 
-    <div class="page-header">
-      <div class="page-header__vak">&#128215; Zesde jaar &mdash; Verdiepingsniveau</div>
-      <h1 class="page-header__title">6ADB &mdash; Zesde jaar</h1>
-      <p class="page-header__desc">Het zesde jaar bouwt verder op de fundamenten van 5ADB. Kies een vak om de cursusinhoud te bekijken.</p>
+    <div class="page-header page-header--with-widget">
+      <div>
+        <div class="page-header__vak">&#128215; Zesde jaar &mdash; Verdiepingsniveau</div>
+        <h1 class="page-header__title">6ADB &mdash; Zesde jaar</h1>
+        <p class="page-header__desc">Het zesde jaar bouwt verder op de fundamenten van 5ADB. Je verdiept JavaScript, leert Node.js en bereidt je voor op het GIP. Kies een vak om te beginnen.</p>
+      </div>
+      <a href="software.html" class="software-widget" style="text-decoration:none">
+        <img src="../assets/images/app-ontwikkeling/software-banner.svg"
+             alt="Software installatie" class="software-widget__logo">
+        <h3 class="software-widget__title">Software</h3>
+        <p class="software-widget__desc">Installeer VS Code, Node.js en de benodigde extensions.</p>
+        <span class="software-widget__btn">&#8681; Installeer software</span>
+      </a>
     </div>
     <div class="vak-grid" style="margin-top:var(--space-8);">
       <a href="netwerken/index.html" class="card-vak card-vak--netwerken animate-fade-in-up animate-delay-1">
@@ -95,7 +104,134 @@
         </div>
         <div class="card-vak__meta"><span>4 hoofdstukken</span><span>~60 u</span><span>1 u/week</span></div>
       </a>
+
+      <!-- GitHub Advanced -->
+      <a href="github-version-control/index.html" class="card-vak card-vak--github animate-fade-in-up animate-delay-5">
+        <img src="../assets/images/github-version-control/github-icon.svg" alt="" class="card-vak__icon-img" aria-hidden="true">
+        <div class="card-vak__title">GitHub Advanced</div>
+        <p class="card-vak__subtitle">Branching, pull requests, merge conflicten en geavanceerde Git-workflows voor samenwerking.</p>
+        <div class="card-vak__progress-label">
+          <span data-progress-label="6adb/github-version-control">0 / 5 hoofdstukken voltooid</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" data-progress-bar="6adb/github-version-control" data-total="5" style="width:0%"></div>
+        </div>
+        <div class="card-vak__meta"><span>5 hoofdstukken</span><span>~10 u</span><span>doorheen jaar</span></div>
+      </a>
     </div>
+
+    <!-- GIP — Geïntegreerd Informaticaproject -->
+    <section class="gip-section" aria-labelledby="gip-title">
+
+      <!-- Top rainbow border -->
+      <div class="gip-section__rainbow" aria-hidden="true">
+        <span style="background:var(--color-vak-netwerken)"></span>
+        <span style="background:var(--color-vak-appdev)"></span>
+        <span style="background:var(--color-vak-data)"></span>
+        <span style="background:var(--color-vak-estem)"></span>
+        <span style="background:var(--color-vak-github)"></span>
+      </div>
+
+      <div class="gip-section__inner">
+
+        <!-- Header row -->
+        <div class="gip-section__header">
+          <div class="gip-section__header-text">
+            <div class="gip-section__label">6ADB &mdash; Schooljaar 2025&ndash;2026</div>
+            <h2 id="gip-title" class="gip-section__title">GIP &mdash; Geïntegreerd Informaticaproject</h2>
+            <p class="gip-section__desc">
+              Het GIP is het sluitstuk van je opleiding. Je combineert alles wat je dit jaar geleerd hebt in één zelfstandig project:
+              een volledige webapplicatie met front-end, back-end en een verzorgde oplevering via GitHub.
+            </p>
+          </div>
+          <a href="gip/index.html" class="gip-section__cta">
+            <span class="gip-section__cta-label">Naar het GIP</span>
+            <span class="gip-section__cta-sub">Functionele analyse, mijlpalen &amp; evaluatie</span>
+            <span class="gip-section__cta-arrow">&#8594;</span>
+          </a>
+        </div>
+
+        <!-- Voortgang GIP -->
+        <div class="gip-section__progress-row">
+          <span class="gip-section__progress-label" data-progress-label="6adb/gip">0 / 7 hoofdstukken voltooid</span>
+          <div class="gip-section__progress-track">
+            <div class="gip-section__progress-fill" data-progress-bar="6adb/gip" data-total="7" style="width:0%"></div>
+          </div>
+          <span class="gip-section__progress-pct" id="gip-pct">0%</span>
+        </div>
+
+        <!-- 5 vakbijdragen -->
+        <div class="gip-vakken">
+
+          <div class="gip-vak" style="--gip-vak-color: var(--color-vak-netwerken)">
+            <div class="gip-vak__dot"></div>
+            <div class="gip-vak__naam">Netwerken</div>
+            <div class="gip-vak__bijdrage">Je deployt je GIP op een lokale server of via GitHub Pages. Je configureert de hostingomgeving en zorgt dat de applicatie bereikbaar is.</div>
+          </div>
+
+          <div class="gip-vak" style="--gip-vak-color: var(--color-vak-appdev)">
+            <div class="gip-vak__dot"></div>
+            <div class="gip-vak__naam">App-ontwikkeling</div>
+            <div class="gip-vak__bijdrage">De volledige front-end: HTML, CSS en JavaScript. Je bouwt een responsieve, interactieve gebruikersinterface die data ophaalt uit de back-end.</div>
+          </div>
+
+          <div class="gip-vak" style="--gip-vak-color: var(--color-vak-data)">
+            <div class="gip-vak__dot"></div>
+            <div class="gip-vak__naam">Databeheer</div>
+            <div class="gip-vak__bijdrage">De back-end en database. Je ontwerpt een ERD, schrijft SQL-queries en koppelt je database aan de front-end via een API of Node.js.</div>
+          </div>
+
+          <div class="gip-vak" style="--gip-vak-color: var(--color-vak-estem)">
+            <div class="gip-vak__dot"></div>
+            <div class="gip-vak__naam">E-STEM</div>
+            <div class="gip-vak__bijdrage">Optioneel: koppel een Raspberry Pi aan je applicatie als IoT-component, of gebruik Python-scripts als gegevensverwerker in de back-end pipeline.</div>
+          </div>
+
+          <div class="gip-vak" style="--gip-vak-color: var(--color-vak-github)">
+            <div class="gip-vak__dot"></div>
+            <div class="gip-vak__naam">GitHub</div>
+            <div class="gip-vak__bijdrage">Het GIP leeft volledig in Git. Je werkt met branches, dient elke mijlpaal in als Pull Request en ontvangt feedback via code review van je leerkracht.</div>
+          </div>
+
+        </div>
+
+        <!-- Mijlpalenbalk -->
+        <div class="gip-mijlpalen">
+          <div class="gip-mijlpaal" data-key="6adb/gip/analyse">
+            <div class="gip-mijlpaal__nr">1</div>
+            <div class="gip-mijlpaal__info">
+              <div class="gip-mijlpaal__naam">Functionele analyse</div>
+              <div class="gip-mijlpaal__datum">oktober</div>
+            </div>
+          </div>
+          <div class="gip-mijlpaal__lijn"></div>
+          <div class="gip-mijlpaal" data-key="6adb/gip/frontend">
+            <div class="gip-mijlpaal__nr">2</div>
+            <div class="gip-mijlpaal__info">
+              <div class="gip-mijlpaal__naam">Front-end v1</div>
+              <div class="gip-mijlpaal__datum">december</div>
+            </div>
+          </div>
+          <div class="gip-mijlpaal__lijn"></div>
+          <div class="gip-mijlpaal" data-key="6adb/gip/backend">
+            <div class="gip-mijlpaal__nr">3</div>
+            <div class="gip-mijlpaal__info">
+              <div class="gip-mijlpaal__naam">Back-end + koppeling</div>
+              <div class="gip-mijlpaal__datum">maart</div>
+            </div>
+          </div>
+          <div class="gip-mijlpaal__lijn"></div>
+          <div class="gip-mijlpaal" data-key="6adb/gip/finale">
+            <div class="gip-mijlpaal__nr">4</div>
+            <div class="gip-mijlpaal__info">
+              <div class="gip-mijlpaal__naam">Finale indiening</div>
+              <div class="gip-mijlpaal__datum">juni</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
   </div>
 </main>

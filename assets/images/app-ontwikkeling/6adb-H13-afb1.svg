@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">Filteren op categorie — checkboxes</text>
+
+  <!-- Filter zone -->
+  <rect x="20" y="45" width="760" height="70" rx="10" fill="#f0f4ff" stroke="#6c63ff" stroke-width="1"/>
+  <text x="40" y="68" fill="#2d2d4e" font-size="13" font-weight="bold">Filter op categorie:</text>
+
+  <!-- Checkbox 1: voorgerecht CHECKED -->
+  <rect x="40" y="78" width="16" height="16" rx="3" fill="#e74c3c"/>
+  <text x="40" y="91" fill="white" font-size="12" font-weight="bold">✓</text>
+  <text x="62" y="91" fill="#e74c3c" font-size="13" font-weight="bold">Voorgerecht</text>
+
+  <!-- Checkbox 2: hoofdgerecht CHECKED -->
+  <rect x="185" y="78" width="16" height="16" rx="3" fill="#3498db"/>
+  <text x="185" y="91" fill="white" font-size="12" font-weight="bold">✓</text>
+  <text x="207" y="91" fill="#3498db" font-size="13" font-weight="bold">Hoofdgerecht</text>
+
+  <!-- Checkbox 3: dessert UNCHECKED -->
+  <rect x="340" y="78" width="16" height="16" rx="3" fill="white" stroke="#ccc" stroke-width="2"/>
+  <text x="362" y="91" fill="#999" font-size="13">Dessert</text>
+  <text x="340" y="70" fill="#9b59b6" font-size="10">(uitgevinkt)</text>
+
+  <!-- Checkbox 4: snack CHECKED -->
+  <rect x="460" y="78" width="16" height="16" rx="3" fill="#f39c12"/>
+  <text x="460" y="91" fill="white" font-size="12" font-weight="bold">✓</text>
+  <text x="482" y="91" fill="#f39c12" font-size="13" font-weight="bold">Snack</text>
+
+  <!-- Grid of cards -->
+  <!-- Card 1: voorgerecht VISIBLE -->
+  <rect x="20" y="135" width="170" height="140" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="20" y="135" width="5" height="140" rx="2" fill="#e74c3c"/>
+  <text x="36" y="158" fill="#2d2d4e" font-size="12" font-weight="bold">Tomatensoep</text>
+  <text x="36" y="175" fill="#888" font-size="10">Romige soep met verse</text>
+  <text x="36" y="189" fill="#888" font-size="10">tomaten en basilicum.</text>
+  <rect x="36" y="200" width="70" height="18" rx="9" fill="#e74c3c" fill-opacity="0.15"/>
+  <text x="71" y="213" text-anchor="middle" fill="#e74c3c" font-size="9" font-weight="bold">voorgerecht</text>
+  <text x="130" y="213" fill="#888" font-size="10">⏱ 15 min</text>
+  <text x="175" y="150" text-anchor="end" fill="#43e97b" font-size="14">✓</text>
+
+  <!-- Card 2: hoofdgerecht VISIBLE -->
+  <rect x="205" y="135" width="170" height="140" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="205" y="135" width="5" height="140" rx="2" fill="#3498db"/>
+  <text x="221" y="158" fill="#2d2d4e" font-size="12" font-weight="bold">Spaghetti carb.</text>
+  <text x="221" y="175" fill="#888" font-size="10">Klassieke Italiaanse</text>
+  <text x="221" y="189" fill="#888" font-size="10">pasta met ei en spek.</text>
+  <rect x="221" y="200" width="74" height="18" rx="9" fill="#3498db" fill-opacity="0.15"/>
+  <text x="258" y="213" text-anchor="middle" fill="#3498db" font-size="9" font-weight="bold">hoofdgerecht</text>
+  <text x="315" y="213" fill="#888" font-size="10">⏱ 25 min</text>
+  <text x="360" y="150" text-anchor="end" fill="#43e97b" font-size="14">✓</text>
+
+  <!-- Card 3: dessert HIDDEN -->
+  <rect x="390" y="135" width="170" height="140" rx="10" fill="#f5f5f5" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+  <rect x="390" y="135" width="5" height="140" rx="2" fill="#9b59b6" opacity="0.3"/>
+  <text x="406" y="158" fill="#bbb" font-size="12" font-weight="bold">Tiramisu</text>
+  <text x="406" y="175" fill="#ccc" font-size="10">Italiaans dessert met</text>
+  <text x="406" y="189" fill="#ccc" font-size="10">mascarpone.</text>
+  <rect x="406" y="200" width="50" height="18" rx="9" fill="#9b59b6" fill-opacity="0.1"/>
+  <text x="431" y="213" text-anchor="middle" fill="#bbb" font-size="9">dessert</text>
+  <!-- Hidden indicator -->
+  <text x="550" y="205" text-anchor="end" fill="#ff6b6b" font-size="20" opacity="0.7">✗</text>
+  <text x="475" y="252" text-anchor="middle" fill="#999" font-size="10">(verborgen — categorie uitgevinkt)</text>
+
+  <!-- Card 4: snack VISIBLE -->
+  <rect x="575" y="135" width="170" height="140" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="575" y="135" width="5" height="140" rx="2" fill="#f39c12"/>
+  <text x="591" y="158" fill="#2d2d4e" font-size="12" font-weight="bold">Nachos met guac</text>
+  <text x="591" y="175" fill="#888" font-size="10">Krokante chips met</text>
+  <text x="591" y="189" fill="#888" font-size="10">avocadodip.</text>
+  <rect x="591" y="200" width="40" height="18" rx="9" fill="#f39c12" fill-opacity="0.15"/>
+  <text x="611" y="213" text-anchor="middle" fill="#f39c12" font-size="9" font-weight="bold">snack</text>
+  <text x="660" y="213" fill="#888" font-size="10">⏱ 10 min</text>
+  <text x="735" y="150" text-anchor="end" fill="#43e97b" font-size="14">✓</text>
+
+  <!-- Status bar -->
+  <rect x="20" y="295" width="760" height="40" rx="8" fill="#f0f4ff" stroke="#6c63ff" stroke-width="1"/>
+  <text x="400" y="320" text-anchor="middle" fill="#6c63ff" font-size="13">3 recepten gevonden — 1 recept verborgen (dessert uitgevinkt)</text>
+
+  <!-- Code snippet -->
+  <rect x="20" y="350" width="760" height="110" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="375" fill="#888" font-size="11" font-family="'Courier New', monospace">// Change listener op elke checkbox</text>
+  <text x="40" y="393" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">checkboxes.<tspan fill="#f9a825">forEach</tspan>(cb =&gt; cb.<tspan fill="#6c63ff">addEventListener</tspan>(<tspan fill="#43e97b">'change'</tspan>, () =&gt; {</text>
+  <text x="40" y="411" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  receptenSectie.<tspan fill="#6c63ff">dispatchEvent</tspan>(update);  <tspan fill="#888">// herlaad de kaarten</tspan></text>
+  <text x="40" y="429" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">}));</text>
+  <text x="40" y="452" fill="#888" font-size="11" font-family="'Courier New', monospace">// toonRecepten() filtert dan op de aangevinkte categorieën</text>
+</svg>

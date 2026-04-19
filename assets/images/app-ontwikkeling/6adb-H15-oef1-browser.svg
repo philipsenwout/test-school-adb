@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Browser chrome -->
+  <rect x="0" y="0" width="800" height="40" rx="8" fill="#2d2d2d"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="20" r="6" fill="#28c840"/>
+  <rect x="100" y="8" width="500" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="350" y="24" text-anchor="middle" fill="#888" font-size="12">localhost/receptenapp/</text>
+
+  <!-- Page -->
+  <rect x="0" y="40" width="800" height="440" fill="#f8f9ff"/>
+
+  <!-- Header -->
+  <rect x="0" y="40" width="800" height="55" fill="#1a1a2e"/>
+  <text x="30" y="73" fill="white" font-size="18" font-weight="bold">🍽 Mijn Recepten</text>
+
+  <!-- Undo banner -->
+  <rect x="0" y="95" width="800" height="48" fill="#f9a825"/>
+  <text x="30" y="118" fill="#1a1a2e" font-size="13" font-weight="bold">🗑 'Spaghetti carbonara' verwijderd.</text>
+  <rect x="620" y="103" width="80" height="28" rx="8" fill="#1a1a2e"/>
+  <text x="660" y="121" text-anchor="middle" fill="white" font-size="13" font-weight="bold">↩ Ongedaan</text>
+  <text x="720" y="118" fill="#1a1a2e" font-size="18" font-weight="bold">×</text>
+  <!-- Countdown -->
+  <text x="530" y="118" fill="#1a1a2e" font-size="12">Verdwijnt over 5s…</text>
+
+  <!-- Remaining cards -->
+  <rect x="30" y="158" width="220" height="130" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="30" y="158" width="5" height="130" rx="2" fill="#9b59b6"/>
+  <text x="50" y="183" fill="#2d2d4e" font-size="13" font-weight="bold">Tiramisu</text>
+  <text x="50" y="200" fill="#888" font-size="11">Italiaans dessert met mascarpone.</text>
+  <rect x="50" y="222" width="50" height="16" rx="8" fill="#9b59b6" fill-opacity="0.15"/>
+  <text x="75" y="234" text-anchor="middle" fill="#9b59b6" font-size="10" font-weight="bold">dessert</text>
+  <text x="140" y="234" fill="#888" font-size="11">⏱ 40 min</text>
+  <text x="240" y="175" text-anchor="end" fill="#999" font-size="18">🗑</text>
+
+  <rect x="270" y="158" width="220" height="130" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="270" y="158" width="5" height="130" rx="2" fill="#e74c3c"/>
+  <text x="290" y="183" fill="#2d2d4e" font-size="13" font-weight="bold">Tomatensoep</text>
+  <text x="290" y="200" fill="#888" font-size="11">Romige soep met verse tomaten.</text>
+  <rect x="290" y="222" width="72" height="16" rx="8" fill="#e74c3c" fill-opacity="0.15"/>
+  <text x="326" y="234" text-anchor="middle" fill="#e74c3c" font-size="10" font-weight="bold">voorgerecht</text>
+  <text x="380" y="234" fill="#888" font-size="11">⏱ 15 min</text>
+  <text x="480" y="175" text-anchor="end" fill="#999" font-size="18">🗑</text>
+
+  <rect x="510" y="158" width="220" height="130" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="510" y="158" width="5" height="130" rx="2" fill="#f39c12"/>
+  <text x="530" y="183" fill="#2d2d4e" font-size="13" font-weight="bold">Nachos met guac</text>
+  <text x="530" y="200" fill="#888" font-size="11">Krokante chips met avocadodip.</text>
+  <rect x="530" y="222" width="40" height="16" rx="8" fill="#f39c12" fill-opacity="0.15"/>
+  <text x="550" y="234" text-anchor="middle" fill="#f39c12" font-size="10" font-weight="bold">snack</text>
+  <text x="610" y="234" fill="#888" font-size="11">⏱ 10 min</text>
+  <text x="720" y="175" text-anchor="end" fill="#999" font-size="18">🗑</text>
+
+  <!-- Info bar -->
+  <rect x="20" y="308" width="760" height="36" rx="8" fill="#6c63ff" fill-opacity="0.1" stroke="#6c63ff" stroke-width="1"/>
+  <text x="400" y="330" text-anchor="middle" fill="#6c63ff" font-size="13">3 recepten — 1 verwijderd (herstel mogelijk)</text>
+
+  <!-- Code hint -->
+  <rect x="20" y="360" width="760" height="100" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="382" fill="#888" font-size="11" font-family="'Courier New', monospace">// Undo-patroon: sla verwijderd recept op, toon herstelknop</text>
+  <text x="40" y="400" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">let <tspan fill="#6c63ff">verwijderdRecept</tspan> = null;</text>
+  <text x="40" y="418" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">verwijderdRecept = alleRecepten.<tspan fill="#f9a825">splice</tspan>(index, 1)[0];  <tspan fill="#888">// splice geeft array terug → [0]</tspan></text>
+  <text x="40" y="436" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">herstelKnop.<tspan fill="#6c63ff">onclick</tspan> = () =&gt; &#123; alleRecepten.<tspan fill="#f9a825">push</tspan>(verwijderdRecept); <tspan fill="#6c63ff">updateLS</tspan>(alleRecepten); receptenSectie.<tspan fill="#6c63ff">dispatchEvent</tspan>(update); &#125;;</text>
+  <text x="40" y="451" fill="#888" font-size="11" font-family="'Courier New', monospace">setTimeout(() =&gt; banner.remove(), 5000);  // verwijder banner na 5s</text>
+</svg>

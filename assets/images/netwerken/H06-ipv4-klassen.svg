@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Achtergrond -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">IPv4 ADRESKLASSEN</text>
+  <text x="400" y="56" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">CLASSFUL ADRESSERING — OVERZICHT KLASSE A T/M E</text>
+  <line x1="80" y1="66" x2="720" y2="66" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Horizontale adresbalk: 0.0.0.0 → 255.255.255.255 -->
+  <!-- Totale balk: x=80 tot x=720, breedte=640 -->
+  <!-- Klasse A: 0–127 = 128/256 = 50% → 320px -->
+  <!-- Klasse B: 128–191 = 64/256 = 25% → 160px -->
+  <!-- Klasse C: 192–223 = 32/256 = 12.5% → 80px -->
+  <!-- Klasse D: 224–239 = 16/256 = 6.25% → 40px -->
+  <!-- Klasse E: 240–255 = 16/256 = 6.25% → 40px -->
+
+  <!-- Adresbalk achtergrond -->
+  <rect x="80" y="80" width="640" height="40" rx="6" fill="#13141D" stroke="#2A2C45" stroke-width="1"/>
+
+  <!-- Klasse A — groen/teal -->
+  <rect x="80" y="80" width="320" height="40" rx="4" fill="#00C2A820" stroke="#00C2A840" stroke-width="0"/>
+  <rect x="80" y="80" width="320" height="3" rx="0" fill="#00C2A8"/>
+  <text x="240" y="97" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#00C2A8">Klasse A</text>
+  <text x="240" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">0.0.0.0 – 127.255.255.255</text>
+
+  <!-- Klasse B — blauw -->
+  <rect x="400" y="80" width="160" height="40" fill="#3B82F620" stroke="#3B82F640" stroke-width="0"/>
+  <rect x="400" y="80" width="160" height="3" fill="#3B82F6"/>
+  <rect x="400" y="80" width="1" height="40" fill="#2A2C45"/>
+  <text x="480" y="97" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#3B82F6">Klasse B</text>
+  <text x="480" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">128.0.0.0 – 191.255.255.255</text>
+
+  <!-- Klasse C — oranje -->
+  <rect x="560" y="80" width="80" height="40" fill="#F9731620" stroke="#F9731640" stroke-width="0"/>
+  <rect x="560" y="80" width="80" height="3" fill="#F97316"/>
+  <rect x="560" y="80" width="1" height="40" fill="#2A2C45"/>
+  <text x="600" y="97" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#F97316">Klasse C</text>
+  <text x="600" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">192.0.0.0 – 223.255.255.255</text>
+
+  <!-- Klasse D — paars -->
+  <rect x="640" y="80" width="40" height="40" fill="#A855F720"/>
+  <rect x="640" y="80" width="40" height="3" fill="#A855F7"/>
+  <rect x="640" y="80" width="1" height="40" fill="#2A2C45"/>
+  <text x="660" y="97" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#A855F7">D</text>
+
+  <!-- Klasse E — grijs -->
+  <rect x="680" y="80" width="40" height="40" rx="0" fill="#6B6E8E20"/>
+  <rect x="680" y="80" width="40" height="3" rx="0" fill="#6B6E8E"/>
+  <rect x="680" y="80" width="1" height="40" fill="#2A2C45"/>
+  <text x="700" y="97" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#6B6E8E">E</text>
+
+  <!-- Rand afsluiten -->
+  <rect x="80" y="80" width="640" height="40" rx="6" fill="none" stroke="#2A2C45" stroke-width="1"/>
+
+  <!-- Aantekeningen 0 en 255 -->
+  <text x="80" y="133" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">0.0.0.0</text>
+  <text x="720" y="133" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">255.255.255.255</text>
+
+  <!-- Detailtabel -->
+  <!-- Header -->
+  <rect x="80" y="152" width="640" height="30" rx="4" fill="#13141D" stroke="#2A2C45" stroke-width="1"/>
+  <text x="120" y="171" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">KLASSE</text>
+  <text x="230" y="171" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">EERSTE OCTET</text>
+  <text x="370" y="171" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">STANDAARD MASKER</text>
+  <text x="530" y="171" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">MAX. NETWERKEN</text>
+  <text x="680" y="171" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">HOSTS/NETWERK</text>
+
+  <!-- Rij A -->
+  <rect x="80" y="182" width="640" height="40" rx="0" fill="#1A1C28" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="80" y="182" width="4" height="40" fill="#00C2A8"/>
+  <text x="120" y="198" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#00C2A8">A</text>
+  <text x="120" y="213" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Unicast — Groot</text>
+  <text x="230" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">0 – 127</text>
+  <text x="370" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#E8E9F3">/8   255.0.0.0</text>
+  <text x="530" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">128</text>
+  <text x="680" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">16.777.214</text>
+
+  <!-- Rij B -->
+  <rect x="80" y="222" width="640" height="40" rx="0" fill="#13141D" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="80" y="222" width="4" height="40" fill="#3B82F6"/>
+  <text x="120" y="238" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#3B82F6">B</text>
+  <text x="120" y="253" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Unicast — Middelgroot</text>
+  <text x="230" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">128 – 191</text>
+  <text x="370" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#E8E9F3">/16   255.255.0.0</text>
+  <text x="530" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">16.384</text>
+  <text x="680" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">65.534</text>
+
+  <!-- Rij C -->
+  <rect x="80" y="262" width="640" height="40" rx="0" fill="#1A1C28" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="80" y="262" width="4" height="40" fill="#F97316"/>
+  <text x="120" y="278" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F97316">C</text>
+  <text x="120" y="293" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Unicast — Klein</text>
+  <text x="230" y="285" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">192 – 223</text>
+  <text x="370" y="285" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#E8E9F3">/24   255.255.255.0</text>
+  <text x="530" y="285" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">2.097.152</text>
+  <text x="680" y="285" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">254</text>
+
+  <!-- Rij D -->
+  <rect x="80" y="302" width="640" height="40" rx="0" fill="#13141D" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="80" y="302" width="4" height="40" fill="#A855F7"/>
+  <text x="120" y="318" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#A855F7">D</text>
+  <text x="120" y="333" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Multicast</text>
+  <text x="230" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">224 – 239</text>
+  <text x="370" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6E8E">—</text>
+  <text x="530" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6E8E">—</text>
+  <text x="680" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6E8E">Multicast groepen</text>
+
+  <!-- Rij E -->
+  <rect x="80" y="342" width="640" height="40" rx="0" fill="#1A1C28" stroke="#2A2C45" stroke-width="0.5"/>
+  <rect x="80" y="342" width="4" height="40" fill="#6B6E8E"/>
+  <text x="120" y="358" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#6B6E8E">E</text>
+  <text x="120" y="373" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Gereserveerd</text>
+  <text x="230" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#E8E9F3">240 – 255</text>
+  <text x="370" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6E8E">—</text>
+  <text x="530" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6E8E">—</text>
+  <text x="680" y="365" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6E8E">Experimenteel gebruik</text>
+
+  <!-- Tafelrand -->
+  <rect x="80" y="182" width="640" height="200" rx="0" fill="none" stroke="#2A2C45" stroke-width="1"/>
+
+  <!-- Opmerking onderaan -->
+  <rect x="80" y="398" width="640" height="36" rx="6" fill="#00C2A810" stroke="#00C2A830" stroke-width="1"/>
+  <text x="400" y="413" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Privé-ranges: A → 10.x.x.x  |  B → 172.16–31.x.x  |  C → 192.168.x.x</text>
+  <text x="400" y="428" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Loopback: 127.0.0.1 (localhost)   |   Classless adressering: CIDR (bv. /26) vervangt classful indeling</text>
+</svg>

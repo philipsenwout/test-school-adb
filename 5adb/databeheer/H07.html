@@ -45,8 +45,44 @@
 <span>H07</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-7-tabellen-koppelen-met-join">Hoofdstuk 7 — Tabellen koppelen met JOIN</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#71-waarom-join">7.1 Waarom JOIN?</a></li><li><a href="#72-inner-join">7.2 INNER JOIN</a></li><li><a href="#73-tabelaliassen">7.3 Tabelaliassen</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h07" style="padding-left:1.25rem">Huistaak H07</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/databeheer/H07" style="--sidebar-accent: var(--color-vak-data)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.1"><span class="sidebar-check__box"></span></label>
+      <a href="#71-waarom-join">7.1 Waarom JOIN?</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.2"><span class="sidebar-check__box"></span></label>
+      <a href="#72-inner-join">7.2 INNER JOIN</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.3"><span class="sidebar-check__box"></span></label>
+      <a href="#73-tabelaliassen">7.3 Tabelaliassen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak-h07">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside>
       <div class="chapter-content">
         <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
@@ -68,15 +104,19 @@
 <tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
 </tbody></table></div>
 <h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB17]</span> Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">Gebruiken van een querytaal voor de bevraging van gegevens</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB17</span><span class="ld-tag__title">Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit</span></div>
+</div>
 <p><strong>Geschatte lesuren:</strong> 4 u</p>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ol>
-<li>Uitleggen waarom JOIN nodig is in een relationele database.</li>
-<li>Een INNER JOIN schrijven om gegevens uit twee tabellen samen te voegen.</li>
-<li>Tabelaliassen gebruiken om queries leesbaarder te maken.</li>
-</ol>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>Uitleggen waarom JOIN nodig is in een relationele database.</li>
+    <li>Een INNER JOIN schrijven om gegevens uit twee tabellen samen te voegen.</li>
+    <li>Tabelaliassen gebruiken om queries leesbaarder te maken.</li>
+  </ul>
+</div>
 <h2 id="71-waarom-join">7.1 Waarom JOIN?</h2>
 <p>In een goed opgebouwde database staan gegevens verspreid over meerdere tabellen. Om een volledig beeld te krijgen, moeten we die tabellen samenvoegen.</p>
 <p><strong>Probleem:</strong> Je hebt een tabel <code>bestelling</code> met een <code>klant_id</code>, maar de naam van de klant staat in de tabel <code>klant</code>.</p>
@@ -310,7 +350,10 @@ WHERE l.terugbrengdatum IS NULL;
 </ul>
 </div>
 <h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB17]</span> Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">Gebruiken van een querytaal voor de bevraging van gegevens</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB17</span><span class="ld-tag__title">Werken op basis van een analyse functionele oplossingen m.b.t. een databank uit</span></div>
+</div>
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>

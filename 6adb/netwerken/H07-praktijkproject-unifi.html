@@ -44,19 +44,62 @@
       <span class="breadcrumb-sep">&#8250;</span>
       <span>H07</span>
     </nav>
-    <div class="chapter-layout">
-      <aside class="chapter-sidebar">
-        <div class="chapter-sidebar__title">Inhoud</div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="6adb/netwerken/H07" style="--sidebar-accent: var(--color-vak-netwerken)">
+        <div class="chapter-sidebar__header">
+          <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+          <div class="chapter-sidebar__progress-wrap">
+            <div class="chapter-sidebar__progress-bar">
+              <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+            </div>
+            <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+          </div>
+        </div>
         <ul class="chapter-sidebar__list">
-          <li><a href="#leerdoelen">Leerdoelen</a></li>
-          <li><a href="#hardware">1. Hardware</a></li>
-          <li><a href="#opzet">2. Projectomschrijving</a></li>
-          <li><a href="#fase1">Fase 1: Installatie</a></li>
-          <li><a href="#fase2">Fase 2: VLANs</a></li>
-          <li><a href="#fase3">Fase 3: Firewall</a></li>
-          <li><a href="#fase4">Fase 4: Wi-Fi</a></li>
-          <li><a href="#fase5">Fase 5: Monitoring</a></li>
-          <li><a href="#evaluatie">Evaluatierubriek</a></li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+            <a href="#hardware">1.1 Beschikbare hardware</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+            <a href="#opzet">1.2 Projectomschrijving</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+            <a href="#fase1">1.3 Fase 1: Installatie</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+            <a href="#fase2">1.4 Fase 2: VLANs</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+            <a href="#fase3">1.5 Fase 3: Firewall</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.6"><span class="sidebar-check__box"></span></label>
+            <a href="#fase4">1.6 Fase 4: Wi-Fi</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.7"><span class="sidebar-check__box"></span></label>
+            <a href="#fase5">1.7 Fase 5: Monitoring</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.8"><span class="sidebar-check__box"></span></label>
+            <a href="#evaluatie">1.8 Evaluatierubriek</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+            <a href="#oefeningen">Oefeningen</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+            <a href="#huistaak">Huistaak</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+            <a href="#vragenlijst">Vragenlijst</a>
+          </li>
         </ul>
       </aside>
       <div class="chapter-content">
@@ -74,18 +117,14 @@
           <p>Dit is het sluitstuk van de cursus Netwerken 6ADB. Je werkt in groep en zet samen een volledig functioneel en beveiligd netwerk op met de beschikbare schoolhardware. Alle theorie uit H01 t/m H06 komt hier samen.</p>
         </div>
 
-        <section id="leerdoelen">
-          <h2>Leerdoelen</h2>
-          <div class="ld-badges">
-            <span class="badge badge-ld">[LD-NET-04]</span> Netwerksysteem configureren <span class="badge badge-verdieping">verdieping</span>
-            &nbsp;
-            <span class="badge badge-ld">[LD-NET-06]</span> Netwerksysteem beveiligen <span class="badge badge-verdieping">verdieping</span>
-            &nbsp;
-            <span class="badge badge-ld">[LD-NET-08]</span> Netwerk monitoren en beheren <span class="badge badge-verdieping">verdieping</span>
-            &nbsp;
-            <span class="badge badge-ld">[LD-NET-09]</span> Werkzaamheden plannen en documenteren <span class="badge badge-verdieping">verdieping</span>
-          </div>
-          <p>Na dit project kan je:</p>
+        <div class="ld-badges">
+          <div class="ld-tag"><span class="ld-tag__code">NET04</span><span class="ld-tag__title">Netwerksysteem configureren — verdieping</span></div>
+          <div class="ld-tag"><span class="ld-tag__code">NET06</span><span class="ld-tag__title">Netwerksysteem beveiligen — verdieping</span></div>
+          <div class="ld-tag"><span class="ld-tag__code">NET08</span><span class="ld-tag__title">Netwerk monitoren en beheren — verdieping</span></div>
+          <div class="ld-tag"><span class="ld-tag__code">NET09</span><span class="ld-tag__title">Werkzaamheden plannen en documenteren — verdieping</span></div>
+        </div>
+        <div class="callout callout--info">
+          <div class="callout-header">🎯 Leerdoelen</div>
           <ul>
             <li>een UniFi-apparaat adopteren en basisconfiguratie uitvoeren</li>
             <li>meerdere VLANs aanmaken en juist toewijzen aan switchpoorten</li>
@@ -94,7 +133,7 @@
             <li>het netwerk monitoren via het UniFi-dashboard</li>
             <li>je configuratie documenteren in een netwerktopologieschema</li>
           </ul>
-        </section>
+        </div>
 
         <section id="hardware">
           <h2>1. Beschikbare hardware</h2>
@@ -206,7 +245,7 @@
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit project? Markeer het als voltooid om je voortgang bij te houden.</p>
-          <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H07">Markeer als voltooid</button>
+          <button class="btn btn-primary" onclick="markComplete('6adb/netwerken/H07')" data-progress-key="6adb/netwerken/H07">&#10003; Markeer als voltooid</button>
         </div>
         <div class="chapter-nav">
           <a href="H06-monitoring.html" class="chapter-nav__link chapter-nav__link--prev">

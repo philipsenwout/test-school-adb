@@ -45,8 +45,48 @@
 <span>H09</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-9-toepassingslaag-protocollen">Hoofdstuk 9 — Toepassingslaag: protocollen</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#91-dns-domeinnamen-vertalen">9.1 DNS — domeinnamen vertalen</a></li><li><a href="#92-dhcp-automatisch-ip-adres-toewijzen">9.2 DHCP — automatisch IP-adres toewijzen</a></li><li><a href="#93-http-en-https-websites-bezoeken">9.3 HTTP en HTTPS — websites bezoeken</a></li><li><a href="#94-andere-protocollen-kort-overzicht">9.4 Andere protocollen — kort overzicht</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h09" style="padding-left:1.25rem">Huistaak H09</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/netwerken/H09" style="--sidebar-accent: var(--color-vak-netwerken)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.1"><span class="sidebar-check__box"></span></label>
+      <a href="#91-dns-domeinnamen-vertalen">9.1 DNS — domeinnamen vertalen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.2"><span class="sidebar-check__box"></span></label>
+      <a href="#92-dhcp-automatisch-ip-adres-toewijzen">9.2 DHCP — automatisch IP-adres toewijzen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.3"><span class="sidebar-check__box"></span></label>
+      <a href="#93-http-en-https-websites-bezoeken">9.3 HTTP en HTTPS — websites bezoeken</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.4"><span class="sidebar-check__box"></span></label>
+      <a href="#94-andere-protocollen-kort-overzicht">9.4 Andere protocollen — kort overzicht</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-9-toepassingslaag-protocollen">Hoofdstuk 9 — Toepassingslaag: protocollen</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#91-dns-domeinnamen-vertalen">9.1 DNS — domeinnamen vertalen</a></li><li><a href="#92-dhcp-automatisch-ip-adres-toewijzen">9.2 DHCP — automatisch IP-adres toewijzen</a></li><li><a href="#93-http-en-https-websites-bezoeken">9.3 HTTP en HTTPS — websites bezoeken</a></li><li><a href="#94-andere-protocollen-kort-overzicht">9.4 Andere protocollen — kort overzicht</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h09" style="padding-left:1.25rem">Huistaak H09</a></li></ul></div>
       <div class="chapter-content">
         <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
@@ -68,15 +108,18 @@
 <tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
 <tr><td><strong>Lesuren</strong></td><td>4 u</td></tr>
 </tbody></table></div>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ul>
-<li>uitleggen wat DNS doet en waarom het nodig is</li>
-<li>beschrijven hoe DHCP een IP-adres uitdeelt (DORA-proces)</li>
-<li>het verschil uitleggen tussen HTTP en HTTPS</li>
-<li>de meest gebruikte toepassingsprotocollen en hun poorten benoemen</li>
-</ul>
-<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span></div>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>uitleggen wat DNS doet en waarom het nodig is</li>
+    <li>beschrijven hoe DHCP een IP-adres uitdeelt (DORA-proces)</li>
+    <li>het verschil uitleggen tussen HTTP en HTTPS</li>
+    <li>de meest gebruikte toepassingsprotocollen en hun poorten benoemen</li>
+  </ul>
+</div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-03</span><span class="ld-tag__title">De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe.</span></div>
+</div>
 <h2 id="91-dns-domeinnamen-vertalen">9.1 DNS — domeinnamen vertalen</h2>
 <div class="callout callout--definitie">
 <div class="callout-header">📘 Definitie</div>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Browser chrome -->
+  <rect x="60" y="20" width="680" height="460" rx="12" fill="#2a2a3e" stroke="#4a4a6a" stroke-width="2"/>
+
+  <!-- Browser top bar -->
+  <rect x="60" y="20" width="680" height="48" rx="12" fill="#1a1a2e"/>
+  <rect x="60" y="52" width="680" height="16" fill="#1a1a2e"/>
+
+  <!-- Traffic lights -->
+  <circle cx="92" cy="44" r="7" fill="#ff6b6b"/>
+  <circle cx="116" cy="44" r="7" fill="#f9a825"/>
+  <circle cx="140" cy="44" r="7" fill="#43e97b"/>
+
+  <!-- Address bar -->
+  <rect x="162" y="32" width="420" height="24" rx="6" fill="#2d2d4e"/>
+  <text x="372" y="49" text-anchor="middle" font-size="13" fill="#a0a0c0" font-family="'Courier New', monospace">kleurkiezer.html</text>
+
+  <!-- Page content -->
+  <rect x="80" y="80" width="640" height="380" rx="0" fill="#f8f9ff"/>
+
+  <!-- Card -->
+  <rect x="130" y="96" width="540" height="350" rx="10" fill="white" stroke="#e0e4f0" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="400" y="132" text-anchor="middle" font-size="22" font-weight="700" fill="#2d2d4e">🎨 Kleurkiezer</text>
+
+  <!-- Color buttons row -->
+  <!-- Red -->
+  <circle cx="180" cy="182" r="26" fill="#e74c3c"/>
+  <circle cx="180" cy="182" r="26" fill="none" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- Blue (selected, has ring) -->
+  <circle cx="240" cy="182" r="26" fill="#3498db"/>
+  <circle cx="240" cy="182" r="30" fill="none" stroke="#3498db" stroke-width="2.5"/>
+
+  <!-- Green -->
+  <circle cx="300" cy="182" r="26" fill="#2ecc71"/>
+  <circle cx="300" cy="182" r="26" fill="none" stroke="#27ae60" stroke-width="2"/>
+
+  <!-- Yellow -->
+  <circle cx="360" cy="182" r="26" fill="#f1c40f"/>
+  <circle cx="360" cy="182" r="26" fill="none" stroke="#d4ac0d" stroke-width="2"/>
+
+  <!-- Purple -->
+  <circle cx="420" cy="182" r="26" fill="#9b59b6"/>
+  <circle cx="420" cy="182" r="26" fill="none" stroke="#8e44ad" stroke-width="2"/>
+
+  <!-- Orange -->
+  <circle cx="480" cy="182" r="26" fill="#e67e22"/>
+  <circle cx="480" cy="182" r="26" fill="none" stroke="#ca6f1e" stroke-width="2"/>
+
+  <!-- Color names below buttons -->
+  <text x="180" y="222" text-anchor="middle" font-size="10" fill="#888">#e74c3c</text>
+  <text x="240" y="222" text-anchor="middle" font-size="10" fill="#3498db" font-weight="700">#3498db</text>
+  <text x="300" y="222" text-anchor="middle" font-size="10" fill="#888">#2ecc71</text>
+  <text x="360" y="222" text-anchor="middle" font-size="10" fill="#888">#f1c40f</text>
+  <text x="420" y="222" text-anchor="middle" font-size="10" fill="#888">#9b59b6</text>
+  <text x="480" y="222" text-anchor="middle" font-size="10" fill="#888">#e67e22</text>
+
+  <!-- Color display rectangle -->
+  <rect x="155" y="240" width="390" height="120" rx="10" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+
+  <!-- Label below color rectangle -->
+  <text x="350" y="380" text-anchor="middle" font-size="14" fill="#2d2d4e">Huidige kleur: <tspan font-family="'Courier New', monospace" font-weight="700" fill="#3498db">#3498db</tspan></text>
+
+  <!-- Separator -->
+  <line x1="155" y1="398" x2="645" y2="398" stroke="#e8e8f0" stroke-width="1.5"/>
+
+  <!-- Keyboard section -->
+  <text x="185" y="422" font-size="13" fill="#2d2d4e">Ingedrukte toets:</text>
+  <rect x="330" y="406" width="50" height="28" rx="6" fill="#1a1a2e"/>
+  <text x="355" y="425" text-anchor="middle" font-size="14" fill="#f9a825" font-weight="700" font-family="'Courier New', monospace">A</text>
+  <text x="395" y="422" font-size="12" fill="#8080a0">(druk een toets in)</text>
+</svg>

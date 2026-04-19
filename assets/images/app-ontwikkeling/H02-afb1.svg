@@ -1,0 +1,74 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="420" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Heading-hiërarchie — h1 t/m h6</text>
+  <text x="400" y="46" text-anchor="middle" font-size="12" fill="#888899">Niet voor opmaak — voor betekenis en structuur</text>
+
+  <!-- Left: visual hierarchy bars -->
+  <!-- h1 -->
+  <rect x="40" y="62" width="460" height="44" rx="3" fill="#1e3a5f"/>
+  <text x="56" y="79" font-size="11" fill="#74c0fc" font-family="monospace">&lt;h1&gt;</text>
+  <text x="105" y="92" font-size="30" font-weight="bold" fill="#e7f5ff">Webontwikkeling</text>
+
+  <!-- h2 -->
+  <rect x="40" y="114" width="390" height="36" rx="3" fill="#1a3350"/>
+  <text x="56" y="128" font-size="11" fill="#74c0fc" font-family="monospace">&lt;h2&gt;</text>
+  <text x="105" y="140" font-size="22" font-weight="bold" fill="#d0ebff">HTML Basis</text>
+
+  <!-- h3 -->
+  <rect x="60" y="158" width="330" height="32" rx="3" fill="#172d45"/>
+  <text x="72" y="170" font-size="11" fill="#74c0fc" font-family="monospace">&lt;h3&gt;</text>
+  <text x="116" y="182" font-size="18" font-weight="bold" fill="#bac8ff">Structuur van een document</text>
+
+  <!-- h4 -->
+  <rect x="80" y="198" width="280" height="28" rx="3" fill="#142540"/>
+  <text x="92" y="208" font-size="11" fill="#74c0fc" font-family="monospace">&lt;h4&gt;</text>
+  <text x="132" y="220" font-size="15" font-weight="bold" fill="#a5d8ff">De head-sectie</text>
+
+  <!-- h5 -->
+  <rect x="100" y="234" width="230" height="26" rx="3" fill="#111d30"/>
+  <text x="112" y="244" font-size="11" fill="#74c0fc" font-family="monospace">&lt;h5&gt;</text>
+  <text x="152" y="256" font-size="13" font-weight="bold" fill="#91caff">Meta-informatie</text>
+
+  <!-- h6 -->
+  <rect x="120" y="268" width="185" height="24" rx="3" fill="#0e1726"/>
+  <text x="132" y="277" font-size="11" fill="#74c0fc" font-family="monospace">&lt;h6&gt;</text>
+  <text x="170" y="288" font-size="12" font-weight="bold" fill="#74c0fc">Voorbeeld meta-tag</text>
+
+  <!-- Right: tree / outline view -->
+  <rect x="520" y="58" width="250" height="244" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="645" y="78" text-anchor="middle" font-size="12" fill="#7c9eff" font-weight="bold">Inhoudstafel</text>
+
+  <text x="536" y="100" font-size="13" font-weight="bold" fill="#e7f5ff">Webontwikkeling</text>
+  <line x1="536" y1="106" x2="556" y2="106" stroke="#334466" stroke-width="1"/>
+
+  <text x="550" y="124" font-size="12" font-weight="bold" fill="#d0ebff">HTML Basis</text>
+  <line x1="550" y1="130" x2="566" y2="130" stroke="#334466" stroke-width="1"/>
+
+  <text x="564" y="148" font-size="11" fill="#bac8ff">Structuur van een document</text>
+  <line x1="564" y1="154" x2="578" y2="154" stroke="#334466" stroke-width="1"/>
+
+  <text x="578" y="170" font-size="11" fill="#a5d8ff">De head-sectie</text>
+  <text x="578" y="188" font-size="11" fill="#91caff">Meta-informatie</text>
+  <text x="592" y="204" font-size="10" fill="#74c0fc">Voorbeeld meta-tag</text>
+
+  <line x1="536" y1="216" x2="556" y2="216" stroke="#334466" stroke-width="1"/>
+  <text x="550" y="230" font-size="12" font-weight="bold" fill="#d0ebff">CSS Opmaak</text>
+  <text x="564" y="248" font-size="11" fill="#bac8ff">Kleuren en fonts</text>
+  <text x="760" y="296" text-anchor="end" font-size="10" fill="#555577">...</text>
+
+  <!-- Warning note -->
+  <rect x="40" y="308" width="730" height="42" rx="4" fill="#1a1a00" stroke="#ffd43b" stroke-width="1"/>
+  <text x="56" y="325" font-size="12" font-weight="bold" fill="#ffd43b">⚠  Heading ≠ opmaak</text>
+  <text x="56" y="343" font-size="12" fill="#ffe066">Gebruik geen h3 omdat je een kleine tekst wilt. Kies het niveau op basis van de</text>
+
+  <rect x="40" y="358" width="730" height="22" rx="0" fill="#1a1a00"/>
+  <text x="56" y="373" font-size="12" fill="#ffe066">structuur van je inhoud. Opmaak regel je later met CSS.</text>
+
+  <!-- Size labels -->
+  <text x="510" y="88" text-anchor="end" font-size="10" fill="#555577">30px bold</text>
+  <text x="510" y="136" text-anchor="end" font-size="10" fill="#555577">22px bold</text>
+  <text x="510" y="178" text-anchor="end" font-size="10" fill="#555577">18px bold</text>
+  <text x="510" y="214" text-anchor="end" font-size="10" fill="#555577">15px bold</text>
+  <text x="510" y="248" text-anchor="end" font-size="10" fill="#555577">13px bold</text>
+  <text x="510" y="280" text-anchor="end" font-size="10" fill="#555577">12px bold</text>
+</svg>

@@ -4,6 +4,7 @@
  *
  * Functies:
  *  1. Dark/light mode toggle + localStorage
+ *  1b. Dyslexie-modus toggle + localStorage
  *  2. Voortgang per hoofdstuk via localStorage
  *  3. Voortgangsindicatoren bijwerken op overzichtspagina's
  *  4. "Markeer als voltooid" knop op cursuspagina's
@@ -11,6 +12,13 @@
  *  6. Toast notificaties
  *  7. Actieve navigatielink markeren
  */
+
+// Anti-FOUC: dyslexie-voorkeur zo vroeg mogelijk toepassen (vóór eerste render)
+(function () {
+  if (localStorage.getItem('ai-school-dyslexia') === 'on') {
+    document.documentElement.setAttribute('data-dyslexia', 'true');
+  }
+}());
 
 /* ============================================================
    1. THEMA (DARK / LIGHT MODE)
@@ -65,6 +73,52 @@ function toggleTheme() {
   const next = current === 'dark' ? 'light' : 'dark';
   localStorage.setItem(THEME_KEY, next);
   applyTheme(next);
+}
+
+/* ============================================================
+   1b. DYSLEXIE-MODUS
+   ============================================================ */
+
+const DYSLEXIA_KEY = 'ai-school-dyslexia';
+
+/** Pas dyslexie-modus toe of verwijder hem van het <html>-element. */
+function applyDyslexia(on) {
+  if (on) {
+    document.documentElement.setAttribute('data-dyslexia', 'true');
+  } else {
+    document.documentElement.removeAttribute('data-dyslexia');
+  }
+  updateDyslexiaToggle(on);
+}
+
+/** Update de weergave van de dyslexie-knop. */
+function updateDyslexiaToggle(on) {
+  const btn = document.getElementById('dyslexia-toggle');
+  if (!btn) return;
+  btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  if (on) {
+    btn.classList.add('is-active');
+    btn.setAttribute('title', 'Dyslexie-modus uitschakelen');
+    btn.setAttribute('aria-label', 'Dyslexie-modus uitschakelen');
+  } else {
+    btn.classList.remove('is-active');
+    btn.setAttribute('title', 'Dyslexie-modus inschakelen');
+    btn.setAttribute('aria-label', 'Dyslexie-modus inschakelen');
+  }
+}
+
+/** Is dyslexie-modus momenteel actief? */
+function isDyslexiaOn() {
+  return localStorage.getItem(DYSLEXIA_KEY) === 'on';
+}
+
+/** Wissel dyslexie-modus aan/uit. */
+function toggleDyslexia() {
+  const next = !isDyslexiaOn();
+  localStorage.setItem(DYSLEXIA_KEY, next ? 'on' : 'off');
+  applyDyslexia(next);
+  // Herlaad syntax highlighting zodat nieuwe kleuren direct zichtbaar zijn
+  initSyntaxHighlighting();
 }
 
 /* ============================================================
@@ -465,6 +519,20 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.addEventListener('click', toggleTheme);
   }
 
+  // 2b. Dyslexie-modus: toestand herstellen + knop injecteren naast de theme toggle
+  applyDyslexia(isDyslexiaOn());
+  if (toggleBtn && !document.getElementById('dyslexia-toggle')) {
+    const dBtn = document.createElement('button');
+    dBtn.id = 'dyslexia-toggle';
+    dBtn.className = 'dyslexia-toggle';
+    dBtn.textContent = 'Aa';
+    dBtn.setAttribute('aria-pressed', isDyslexiaOn() ? 'true' : 'false');
+    // Verschijnt vóór de theme toggle: Aa | ☀️ | ☰
+    toggleBtn.insertAdjacentElement('beforebegin', dBtn);
+    dBtn.addEventListener('click', toggleDyslexia);
+    updateDyslexiaToggle(isDyslexiaOn());
+  }
+
   // 3. Voortgang bijwerken op alle pagina's
   updateProgressBadges();
   updateProgressBars();
@@ -703,13 +771,17 @@ function initSyntaxHighlighting() {
     // HTML
     if (/^<!DOCTYPE|^<html/i.test(t)) return 'html';
     if (/<[a-zA-Z][^>]*>/.test(t) && !(/def |const |SELECT /i.test(t))) return 'html';
-    // SQL
-    if (/\b(SELECT|INSERT INTO|CREATE TABLE|DROP TABLE|ALTER TABLE|GRANT|REVOKE|SHOW DATABASES|SHOW TABLES)\b/i.test(t)) return 'sql';
+    // CSS — unieke indicatoren: @-regels, ::pseudo-elementen, :root of CSS-variabelen
+    if (/@media\b|@keyframes\b|@import\b|@font-face\b/.test(t)) return 'css';
+    if (/::before|::after|:root\s*\{/.test(t)) return 'css';
+    if (/--[\w-]+\s*:/.test(t) && !/function |const /.test(t)) return 'css';
+    // JavaScript — controleer vóór SQL zodat JS-code met embedded SQL-strings correct wordt herkend
+    if (/function |const |let |var |document\.|window\.|addEventListener|fetch\(|async function|=>/.test(t)) return 'javascript';
     // Python
     if (/def |from .+ import|if __name__|@app\.|import (random|datetime|sqlite3|os|json|flask|pandas|matplotlib|mysql)/.test(t)) return 'python';
     if (/print\(|\.py\b/.test(t) && !/function |const /.test(t)) return 'python';
-    // JavaScript
-    if (/function |const |let |var |document\.|window\.|addEventListener|fetch\(|async function|=>/.test(t)) return 'javascript';
+    // SQL — enkel als er geen JS-patronen zijn
+    if (/\b(SELECT|INSERT INTO|CREATE TABLE|DROP TABLE|ALTER TABLE|GRANT|REVOKE|SHOW DATABASES|SHOW TABLES)\b/i.test(t)) return 'sql';
     // JSON
     if (/^\s*[\[{]/.test(t) && /^\s*"[^"]+"\s*:/m.test(t) && !/def |import /.test(t)) return 'json';
     // systemd / INI config
@@ -722,10 +794,25 @@ function initSyntaxHighlighting() {
     python:     'Python',
     javascript: 'JavaScript',
     html:       'HTML',
-    sql:        'SQL',
+    css:        'CSS',
+    sql:        'MySQL',
     bash:       'Shell',
     json:       'JSON',
     ini:        'Config'
+  };
+
+  // Mapping van language-* class-namen naar interne taalsleutels.
+  // Om een nieuwe taal toe te voegen: voeg een entry toe aan CLASS_MAP,
+  // maak een bijhorende rules-array en voeg het geval toe in highlight().
+  var CLASS_MAP = {
+    'css': 'css', 'scss': 'css', 'less': 'css',
+    'javascript': 'javascript', 'js': 'javascript', 'jsx': 'javascript', 'ts': 'javascript', 'typescript': 'javascript',
+    'html': 'html', 'htm': 'html',
+    'sql': 'sql', 'mysql': 'sql',
+    'python': 'python', 'py': 'python',
+    'bash': 'bash', 'shell': 'bash', 'sh': 'bash', 'zsh': 'bash',
+    'json': 'json',
+    'ini': 'ini', 'config': 'ini', 'conf': 'ini'
   };
 
   /* ---- taalregels ---- */
@@ -761,14 +848,27 @@ function initSyntaxHighlighting() {
     [/\b\d+\.?\d*(?:[eE][+-]?\d+)?\b/,                 'syn-num'],
   ];
 
-  var SQL_KW = /\b(SELECT|FROM|WHERE|AND|OR|NOT|IN|LIKE|BETWEEN|IS|NULL|INSERT|INTO|VALUES|UPDATE|SET|DELETE|CREATE|TABLE|DROP|ALTER|ADD|COLUMN|PRIMARY|KEY|FOREIGN|REFERENCES|UNIQUE|DEFAULT|AUTO_INCREMENT|AUTOINCREMENT|INT|INTEGER|VARCHAR|TEXT|REAL|FLOAT|DECIMAL|BOOLEAN|DATE|DATETIME|SHOW|DATABASES|TABLES|USE|GRANT|ALL|PRIVILEGES|ON|TO|IDENTIFIED|BY|FLUSH|WITH|ORDER|GROUP|HAVING|LIMIT|OFFSET|JOIN|INNER|LEFT|RIGHT|OUTER|AS|DISTINCT|COUNT|SUM|AVG|MIN|MAX|IF NOT EXISTS|IF EXISTS)\b/i;
+  // MySQL datatypes — aparte kleur (syn-blt / cyan) zodat ze opvallen naast keywords
+  var SQL_TYPE = /\b(TINYINT|SMALLINT|MEDIUMINT|INT|INTEGER|BIGINT|FLOAT|DOUBLE|DECIMAL|NUMERIC|REAL|BIT|BOOLEAN|BOOL|CHAR|VARCHAR|TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|BINARY|VARBINARY|TINYBLOB|BLOB|MEDIUMBLOB|LONGBLOB|ENUM|SET|DATE|DATETIME|TIMESTAMP|TIME|YEAR|JSON|GEOMETRY|POINT|LINESTRING|POLYGON|UNSIGNED|SIGNED|ZEROFILL|NOT\s+NULL|NULL)\b/i;
+
+  // MySQL DDL/DML/TCL keywords
+  var SQL_KW = /\b(SELECT|FROM|WHERE|AND|OR|NOT|IN|LIKE|ILIKE|BETWEEN|IS|INSERT|INTO|VALUES|UPDATE|SET|DELETE|CREATE|TABLE|DATABASE|SCHEMA|DROP|ALTER|ADD|COLUMN|MODIFY|CHANGE|RENAME|TRUNCATE|PRIMARY|KEY|FOREIGN|REFERENCES|CONSTRAINT|INDEX|UNIQUE|DEFAULT|AUTO_INCREMENT|AUTOINCREMENT|ENGINE|CHARSET|CHARACTER\s+SET|COLLATE|SHOW|DATABASES|TABLES|COLUMNS|DESCRIBE|DESC|EXPLAIN|USE|GRANT|REVOKE|ALL|PRIVILEGES|ON|TO|BY|IDENTIFIED|WITH|FLUSH|ORDER|GROUP|HAVING|LIMIT|OFFSET|JOIN|INNER|LEFT|RIGHT|OUTER|FULL|CROSS|NATURAL|USING|AS|DISTINCT|UNION|INTERSECT|EXCEPT|EXISTS|CASE|WHEN|THEN|ELSE|END|IF|BEGIN|START|TRANSACTION|COMMIT|ROLLBACK|SAVEPOINT|RELEASE|LOCK|UNLOCK|PROCEDURE|FUNCTION|TRIGGER|VIEW|EVENT|DELIMITER|CALL|RETURNS|RETURN|DECLARE|CURSOR|HANDLER|SIGNAL|SQLSTATE|CONTAINS|READS|MODIFIES|SQL|DATA|FOR|EACH|ROW|BEFORE|AFTER|INSTEAD|OF|REPLACE|CASCADE|RESTRICT|NO\s+ACTION|SET\s+NULL|IF\s+NOT\s+EXISTS|IF\s+EXISTS)\b/i;
+
+  // MySQL ingebouwde functies
+  var SQL_FN = /\b(NOW|CURDATE|CURTIME|DATE|TIME|YEAR|MONTH|DAY|HOUR|MINUTE|SECOND|DATE_FORMAT|STR_TO_DATE|DATEDIFF|TIMESTAMPDIFF|DATE_ADD|DATE_SUB|UNIX_TIMESTAMP|FROM_UNIXTIME|EXTRACT|LAST_INSERT_ID|ROW_COUNT|FOUND_ROWS|VERSION|DATABASE|USER|CURRENT_USER|CONNECTION_ID|CONCAT|CONCAT_WS|LENGTH|CHAR_LENGTH|SUBSTR|SUBSTRING|TRIM|LTRIM|RTRIM|UPPER|LOWER|LPAD|RPAD|REPEAT|REPLACE|REVERSE|LEFT|RIGHT|MID|INSTR|LOCATE|FIND_IN_SET|FORMAT|CAST|CONVERT|COALESCE|IFNULL|NULLIF|IF|IIF|GREATEST|LEAST|COUNT|SUM|AVG|MIN|MAX|GROUP_CONCAT|BIT_AND|BIT_OR|BIT_XOR|STD|STDDEV|VARIANCE|ABS|CEIL|CEILING|FLOOR|ROUND|TRUNCATE|MOD|POWER|SQRT|RAND|SIGN|MD5|SHA1|SHA2|AES_ENCRYPT|AES_DECRYPT|UUID|BENCHMARK|SLEEP|GET_LOCK|RELEASE_LOCK|JSON_OBJECT|JSON_ARRAY|JSON_EXTRACT|JSON_SET|JSON_REMOVE|JSON_CONTAINS|JSON_LENGTH|MATCH|AGAINST)\b(?=\s*\()/i;
 
   var SQL = [
-    [/--[^\n]*/,                                         'syn-cm'],
-    [/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'/,            'syn-str'],
-    [SQL_KW,                                             'syn-kw'],
-    [/\b[A-Za-z_]\w*(?=\s*\()/,                        'syn-fn'],
-    [/\b\d+\.?\d*\b/,                                   'syn-num'],
+    [/--[^\n]*/,                                         'syn-cm'],   // -- lijncommentaar
+    [/#[^\n]*/,                                          'syn-cm'],   // # lijncommentaar (MySQL-specifiek)
+    [/\/\*[\s\S]*?\*\//,                                'syn-cm'],   // /* blokcommentaar */
+    [/`[^`]*`/,                                          'syn-cls'],  // `tabel` of `kolom` (backtick-identifiers)
+    [/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'/,            'syn-str'],  // strings
+    [SQL_FN,                                             'syn-fn'],   // ingebouwde functies (vóór SQL_KW)
+    [SQL_TYPE,                                           'syn-blt'],  // datatypes (vóór SQL_KW)
+    [SQL_KW,                                             'syn-kw'],   // DDL/DML/TCL keywords
+    [/\b[A-Za-z_]\w*(?=\s*\()/,                        'syn-fn'],   // andere functies (fallback)
+    [/\b\d+\.?\d*\b/,                                   'syn-num'],  // getallen
+    [/[=<>!]+|[+\-*/%]/,                                'syn-op'],   // operatoren
   ];
 
   var BASH_KW = /\b(if|then|else|elif|fi|for|while|do|done|case|esac|in|function|return|exit|echo|read|source|export|local|declare|set|unset|alias|cd|ls|pwd|mkdir|rm|cp|mv|cat|grep|awk|sed|find|chmod|chown|sudo|apt|apt-get|pip|pip3|python|python3|systemctl|service|crontab|ssh|scp|curl|wget|tar|touch|head|tail|sort|uniq|wc|ps|kill|df|du|free|hostname|uname|whoami|which|nano|vim|mysql|deactivate)\b/;
@@ -794,6 +894,29 @@ function initSyntaxHighlighting() {
     [/"(?:[^"\\]|\\.)*"/,                               'syn-str'],
     [/\b(true|false|null)\b/,                            'syn-kw'],
     [/\b\d+\.?\d*\b/,                                   'syn-num'],
+  ];
+
+  // CSS / SCSS
+  // Regels staan op volgorde: langste/meest specifieke patroon eerst zodat
+  // de tokenizer niet te vroeg matcht. Voeg toekomstige CSS-patronen gewoon
+  // toe aan dit array — geen wijzigingen elders nodig.
+  var CSS = [
+    [/\/\*[\s\S]*?\*\//,                                                     'syn-cm'],  // /* commentaar */
+    [/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'/,                                  'syn-str'], // strings
+    [/!important\b/i,                                                         'syn-kw'],  // !important
+    [/@[\w-]+/,                                                               'syn-kw'],  // @media @keyframes
+    [/var\(--[\w-]+(?:\s*,\s*[^)]+)?\)/,                                    'syn-cls'], // var(--naam)
+    [/--[\w-]+/,                                                              'syn-cls'], // --variabele-naam
+    [/#(?:[0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{4}|[0-9a-fA-F]{3})\b/, 'syn-num'], // #fff #ff6188
+    [/\b[\w-]+(?=\s*\()/,                                                    'syn-fn'],  // rgb() calc() url()
+    [/:{1,2}[\w-]+(?:\([^)]*\))?/,                                          'syn-kw'],  // :hover ::before :nth-child(2)
+    [/\*(?=\s*[{,]|\s*$)/,                                                   'syn-tag'], // universele selector *
+    [/[.#]?[a-zA-Z][\w-]*(?=\s*[,{>~+]|\s*$)/,                            'syn-tag'], // element/klasse/ID-selectors
+    [/\.[\w-]+/,                                                              'syn-cls'], // .klasse-naam (overig)
+    [/\b[\w-]+(?=\s*:(?!:))/,                                               'syn-atr'], // eigenschap: waarde
+    [/\b\d+\.?\d*(?:px|em|rem|%|vw|vh|vmin|vmax|fr|deg|turn|s|ms|ch|ex|cm|mm|in|pt|pc)\b/, 'syn-num'], // met eenheden
+    [/\b\d+\.?\d*\b/,                                                        'syn-num'], // pure getallen
+    [/[{}();,]/,                                                              'syn-op'],  // leestekens
   ];
 
   /* ---- HTML tokenizer (eigen implementatie) ---- */
@@ -860,6 +983,7 @@ function initSyntaxHighlighting() {
     switch (lang) {
       case 'python':     return tokenize(code, PYTHON);
       case 'javascript': return tokenize(code, JAVASCRIPT);
+      case 'css':        return tokenize(code, CSS);
       case 'sql':        return tokenize(code, SQL);
       case 'bash':       return tokenize(code, BASH);
       case 'html':       return highlightHTML(code);
@@ -876,9 +1000,20 @@ function initSyntaxHighlighting() {
     var rawCode = codeEl.textContent;
     if (!rawCode.trim()) return;
 
-    var lang = detectLang(rawCode);
+    // Stap 1: class-gebaseerde detectie (language-xxx op het <code>-element)
+    // Om een taal te koppelen: voeg class="language-xxx" toe aan <code>.
+    var lang = null;
+    var classes = codeEl.className.split(/\s+/);
+    for (var ci = 0; ci < classes.length; ci++) {
+      var cm = classes[ci].match(/^language-(\w+)$/);
+      if (cm) { lang = CLASS_MAP[cm[1].toLowerCase()] || null; break; }
+    }
+
+    // Stap 2: inhoudgebaseerde detectie als er geen herkenbare class is
+    if (!lang) lang = detectLang(rawCode);
+
     codeEl.innerHTML = highlight(rawCode, lang);
-    pre.setAttribute('data-lang', LANG_LABEL[lang] || lang);
+    pre.setAttribute('data-lang', LANG_LABEL[lang] || lang.toUpperCase());
   });
 }
 
@@ -907,26 +1042,7 @@ function initOefeningen() {
     var scoreEl       = oef.querySelector('.oefening__score');
     var scoreTekst    = oef.querySelector('.oefening__score-tekst');
     var scoreVulling  = oef.querySelector('.oefening__score-vulling');
-
-    if (!controleerBtn) return;
-
-    // Hernoem knop naar "Verbetersleutel" en zet initieel op disabled
-    controleerBtn.textContent = 'Verbetersleutel';
-    controleerBtn.disabled = true;
-
-    // Voeg voortgangsindicator toe vóór de knop
-    var footerEl = oef.querySelector('.oefening__footer');
-    var voortgangEl = document.createElement('div');
-    voortgangEl.className = 'oefening__voortgang';
-    if (footerEl) footerEl.insertBefore(voortgangEl, controleerBtn);
-
-    // Unieke groepnaam per MC-vraag zodat radio-knoppen correct werken
-    var oefId = oef.dataset.oefId || ('oef-' + Math.random().toString(36).slice(2, 8));
-    oef.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag, qi) {
-      vraag.querySelectorAll('input[type="radio"]').forEach(function(r) {
-        r.name = oefId + '-q' + qi;
-      });
-    });
+    var voortgangEl;  // wordt later aangemaakt als er een controleerBtn is
 
     var vragen = Array.from(oef.querySelectorAll('.vraag'));
 
@@ -942,8 +1058,9 @@ function initOefeningen() {
       return false;
     }
 
-    /* --- Update voortgangstekst + activeer/deactiveer knop --- */
+    /* --- Update voortgangstekst — no-op als er geen controleerBtn of voortgangEl is --- */
     function updateVoortgang() {
+      if (!controleerBtn || !voortgangEl) return;
       var beantwoord = vragen.filter(isBeantwoord).length;
       var totaal = vragen.length;
       var klaar = beantwoord === totaal;
@@ -956,7 +1073,9 @@ function initOefeningen() {
       }
     }
 
-    /* --- Klik-handlers op keuzekaartjes --- */
+    /* --- Klik-handlers op keuzekaartjes (altijd, ook zonder controleerBtn)
+           Zorgt dat .is-selected en inp.checked correct gezet worden op
+           zowel nieuwe (.oefening__controleer) als oudere (checkQuiz) pagina's --- */
     vragen.forEach(function(vraag) {
       var type = vraag.dataset.type || 'mc';
 
@@ -989,6 +1108,27 @@ function initOefeningen() {
         var invoer = vraag.querySelector('.vraag__invoer');
         if (invoer) invoer.addEventListener('input', updateVoortgang);
       }
+    });
+
+    // Hiervandaan: enkel voor blokken MET .oefening__controleer knop
+    if (!controleerBtn) return;
+
+    // Hernoem knop naar "Verbetersleutel" en zet initieel op disabled
+    controleerBtn.textContent = 'Verbetersleutel';
+    controleerBtn.disabled = true;
+
+    // Voeg voortgangsindicator toe vóór de knop
+    var footerEl = oef.querySelector('.oefening__footer');
+    voortgangEl = document.createElement('div');
+    voortgangEl.className = 'oefening__voortgang';
+    if (footerEl) footerEl.insertBefore(voortgangEl, controleerBtn);
+
+    // Unieke groepnaam per MC-vraag zodat radio-knoppen correct werken
+    var oefId = oef.dataset.oefId || ('oef-' + Math.random().toString(36).slice(2, 8));
+    oef.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag, qi) {
+      vraag.querySelectorAll('input[type="radio"]').forEach(function(r) {
+        r.name = oefId + '-q' + qi;
+      });
     });
 
     updateVoortgang();
@@ -1093,6 +1233,76 @@ function initOefeningen() {
 }
 
 /* ============================================================
+   CHECKQUIZ — vervangt inline checkQuiz() in alle HTML-pagina's.
+   app.js wordt na de inline scripts geladen, dus deze definitie
+   overschrijft de inline versies en voegt de CSS-klassen toe die
+   de groene/rode kleurmarkering op de keuzekaartjes activeren.
+   ============================================================ */
+
+function checkQuiz(btn) {
+  var body = btn.closest('.oefening__body');
+  var vragen = Array.from(body.querySelectorAll('.vraag[data-type="mc"]'));
+
+  vragen.forEach(function(vraag) {
+    var correct  = (vraag.dataset.correct || '').trim();
+    var selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    var feedback = vraag.querySelector('.vraag__feedback');
+
+    vraag.classList.add('is-checked');
+
+    // Markeer de correcte en foutief geselecteerde keuzes
+    vraag.querySelectorAll('.vraag__keuze').forEach(function(keuze) {
+      var inp = keuze.querySelector('input');
+      if (!inp) return;
+      if (inp.value === correct) {
+        keuze.classList.add('is-correct-choice');
+      } else if (keuze.classList.contains('is-selected')) {
+        keuze.classList.add('is-wrong-choice');
+      }
+    });
+
+    // Haal de tekst van het correcte antwoord op voor de feedback
+    var correctEl = vraag.querySelector('input[value="' + correct + '"]');
+    var correctText = correctEl
+      ? (correctEl.closest('.vraag__keuze').querySelector('span') || correctEl.closest('.vraag__keuze')).textContent.trim()
+      : correct;
+
+    if (!selected) {
+      if (feedback) feedback.textContent = '';
+      return;
+    }
+
+    if (selected.value === correct) {
+      vraag.classList.add('is-correct');
+      if (feedback) feedback.textContent = correctText;
+    } else {
+      vraag.classList.add('is-incorrect');
+      if (feedback) feedback.textContent = correctText;
+    }
+  });
+
+  // Vergrendel keuzes
+  body.querySelectorAll('.vraag__keuze').forEach(function(k) {
+    k.style.pointerEvents = 'none';
+  });
+
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    vragen.forEach(function(vraag) {
+      vraag.classList.remove('is-checked', 'is-correct', 'is-incorrect');
+      vraag.querySelectorAll('.vraag__keuze').forEach(function(k) {
+        k.classList.remove('is-correct-choice', 'is-wrong-choice', 'is-selected');
+        k.style.pointerEvents = '';
+      });
+      var fb = vraag.querySelector('.vraag__feedback');
+      if (fb) fb.textContent = '';
+    });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function() { checkQuiz(btn); };
+  };
+}
+
+/* ============================================================
    VOORBEELD MODAL
    ============================================================ */
 
@@ -1125,3 +1335,53 @@ function closeVoorbeeldModal() {
   if (modal) modal.classList.remove('is-open');
   document.body.classList.remove('modal-open');
 }
+
+/* ============================================================
+   COMMENT HIGHLIGHTING IN CODE BLOCKS
+   Wraps comment patterns in <span class="syn-cm"> so they
+   render in grey instead of the default white code colour.
+   Patterns handled: // … (JS), -- … (SQL), # … (Bash/Python)
+   ============================================================ */
+
+(function highlightComments() {
+  document.querySelectorAll('pre code').forEach(function(block) {
+    // Verwerk regel per regel zodat commentaar nooit over meerdere regels loopt
+    var lines = block.innerHTML.split('\n');
+
+    lines = lines.map(function(line) {
+      // Sla lege regels over
+      if (!line.trim()) return line;
+
+      // ── // commentaar (JavaScript, CSS) ────────────────────────────────────
+      // Zoek naar // maar niet als onderdeel van een URL (http://, https://)
+      var jsIdx = line.indexOf('//');
+      while (jsIdx !== -1 && jsIdx > 0 && line[jsIdx - 1] === ':') {
+        jsIdx = line.indexOf('//', jsIdx + 2); // sla http:// over
+      }
+      if (jsIdx !== -1) {
+        return line.slice(0, jsIdx) +
+               '<span class="syn-cm">' + line.slice(jsIdx) + '</span>';
+      }
+
+      // ── -- commentaar (SQL) ────────────────────────────────────────────────
+      var sqlIdx = line.indexOf('--');
+      if (sqlIdx !== -1) {
+        return line.slice(0, sqlIdx) +
+               '<span class="syn-cm">' + line.slice(sqlIdx) + '</span>';
+      }
+
+      // ── # commentaar (Bash, Python) ────────────────────────────────────────
+      // Alleen als # het eerste niet-spatie teken is of na een spatie staat,
+      // én niet onderdeel van een HTML-entiteit (&#...)
+      var hashIdx = line.search(/(?<![&\w])#/);
+      if (hashIdx !== -1) {
+        return line.slice(0, hashIdx) +
+               '<span class="syn-cm">' + line.slice(hashIdx) + '</span>';
+      }
+
+      return line;
+    });
+
+    block.innerHTML = lines.join('\n');
+  });
+})();

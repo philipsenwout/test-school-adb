@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 — Wat is versiebeheer? — GitHub Version Control 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/github-version-control/H01" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom">1.1 Waarom versiebeheer?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+          <a href="#git-vs-github">1.2 Git vs GitHub</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+          <a href="#begrippen">1.3 Begrippen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+          <a href="#workflow">1.4 Jouw jaarworkflow</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Version Control</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H01 — Wat is versiebeheer?</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H01 — GitHub Version Control 5ADB</div>
+        <h1 class="page-header__title">Wat is versiebeheer?</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB12</span><span class="ld-tag__title">De leerlingen documenteren een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen waarom versiebeheer nuttig is aan de hand van een concreet voorbeeld</li>
+          <li>Je kan het verschil uitleggen tussen Git (lokale software) en GitHub (online platform)</li>
+          <li>Je kan de begrippen <em>repository</em>, <em>commit</em> en <em>versiegeschiedenis</em> definiëren</li>
+          <li>Je begrijpt hoe je jouw schoolwerk dit jaar organiseert via Git</li>
+        </ul>
+      </div>
+
+      <h2 id="waarom">1.1 Waarom versiebeheer?</h2>
+
+      <p>Stel je voor: je bent een uur bezig met je HTML-pagina. Je beslist om het navigatiemenu helemaal te herwerken. Na een uur merk je dat je nieuwe versie er slechter uitziet dan de vorige. Wat doe je?</p>
+      <p>Als je geen versiebeheer gebruikt, is de originele versie weg. Tenzij je een kopie hebt gemaakt — maar dan heb je misschien <code>index-v1.html</code>, <code>index-v2.html</code>, <code>index-nieuw.html</code>, <code>index-definitief.html</code>, <code>index-DEFINIITEF2.html</code> staan. Herkenbaar?</p>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Het klassieke probleem zonder versiebeheer</div>
+        <p>Bestanden met namen als <code>opdracht-v3-definitief-ECHT-finaal.html</code> zijn een teken dat je dringend versiebeheer nodig hebt.</p>
+      </div>
+
+      <p>Met <strong>versiebeheer</strong> bewaar je de volledige geschiedenis van je project. Elk moment waarop je een versie vastlegt heet een <strong>commit</strong>. Je kan altijd terugkeren naar een vroegere versie — zonder kopiebestanden.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/github-version-control/H01-versietijdlijn.svg" alt="Tijdlijn met meerdere versies van een project, elk aangeduid als een commit" loading="lazy">
+      </figure>
+
+      <p>Versiebeheer biedt nog meer voordelen:</p>
+      <ul>
+        <li><strong>Historiek:</strong> je ziet precies wat je wanneer hebt gewijzigd en waarom</li>
+        <li><strong>Backup:</strong> je code staat online op GitHub — ook als je laptop crasht</li>
+        <li><strong>Samenwerking:</strong> meerdere mensen kunnen aan hetzelfde project werken (6e jaar)</li>
+        <li><strong>Feedback:</strong> je leerkracht kan commentaar geven op specifieke regels code</li>
+      </ul>
+
+      <h2 id="git-vs-github">1.2 Git vs GitHub — niet hetzelfde!</h2>
+
+      <p>Veel mensen verwarren Git en GitHub. Ze zijn nauw verbonden, maar niet hetzelfde:</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin:var(--space-6) 0">
+        <div class="card" style="border-top:3px solid #F05033">
+          <h3 style="color:#F05033;margin-bottom:var(--space-2)">&#9679; Git</h3>
+          <ul style="margin:0;padding-left:var(--space-5)">
+            <li>Software die op je <strong>eigen computer</strong> staat</li>
+            <li>Houdt de versiegeschiedenis bij</li>
+            <li>Werkt ook zonder internet</li>
+            <li>Gratis en open-source</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top:3px solid var(--color-vak-github)">
+          <h3 style="color:var(--color-vak-github);margin-bottom:var(--space-2)">&#9679; GitHub</h3>
+          <ul style="margin:0;padding-left:var(--space-5)">
+            <li><strong>Online platform</strong> in de cloud</li>
+            <li>Sla je repository online op</li>
+            <li>Deel je code met anderen</li>
+            <li>Gratis basisaccount</li>
+          </ul>
+        </div>
+      </div>
+
+      <p><strong>Vergelijking:</strong> Git is als Microsoft Word (het programma op je computer), GitHub is als OneDrive (de online opslagplaats). Je schrijft lokaal met Word, en synchroniseert het naar OneDrive.</p>
+
+      <h2 id="begrippen">1.3 Begrippen die je moet kennen</h2>
+
+      <p>In de volgende hoofdstukken kom je deze termen constant tegen. Leer ze nu goed:</p>
+
+      <dl style="display:grid;gap:var(--space-3)">
+        <div class="card" style="padding:var(--space-4)">
+          <dt style="font-weight:600;color:var(--color-vak-github);margin-bottom:var(--space-1)">Repository (repo)</dt>
+          <dd style="margin:0">Een map die je project bevat én de volledige versiegeschiedenis. Elke leerling heeft één persoonlijke repository voor dit schooljaar.</dd>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <dt style="font-weight:600;color:var(--color-vak-github);margin-bottom:var(--space-1)">Commit</dt>
+          <dd style="margin:0">Een snapshot van je project op een bepaald moment. Je geeft elke commit een beschrijvende naam, bv. <em>"H01 oefening 1 afgewerkt"</em>.</dd>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <dt style="font-weight:600;color:var(--color-vak-github);margin-bottom:var(--space-1)">Clone</dt>
+          <dd style="margin:0">Een kopie van een online repository naar je lokale computer downloaden. Je doet dit één keer aan het begin van het jaar.</dd>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <dt style="font-weight:600;color:var(--color-vak-github);margin-bottom:var(--space-1)">Push</dt>
+          <dd style="margin:0">Je lokale commits uploaden naar GitHub. Zo staat je werk online en kan de leerkracht het bekijken.</dd>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <dt style="font-weight:600;color:var(--color-vak-github);margin-bottom:var(--space-1)">Pull</dt>
+          <dd style="margin:0">Wijzigingen van GitHub downloaden naar je lokale computer. Doe dit altijd als eerste wanneer je begint te werken.</dd>
+        </div>
+      </dl>
+
+      <h2 id="workflow">1.4 Jouw jaarworkflow</h2>
+
+      <p>Dit schooljaar gebruik je Git voor <strong>App-ontwikkeling</strong>. Elke leerling heeft een persoonlijke repository met een vaste mappenstructuur. Je werk lever je in door te pushen naar GitHub.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128193; Mappenstructuur van jouw repository</div>
+        <div class="code-block">
+          <div class="code-block__lang">Bash</div>
+          <pre><code>jouw-naam-5adb/
+├── app-ontwikkeling/
+│   ├── H01-html-basis/
+│   │   └── index.html
+│   ├── H02-html-tekst/
+│   │   └── index.html
+│   ├── huistaken/
+│   │   ├── H01-huistaak/
+│   │   └── H02-huistaak/
+│   └── toetsen/
+│       └── toets-1/
+└── README.md</code></pre>
+        </div>
+      </div>
+
+      <p>De leerkracht kloont of bekijkt jouw repository op GitHub. Hij/zij kan commentaar geven op specifieke regels code. Jij verwerkt die feedback, maakt een nieuwe commit en pusht opnieuw.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128204; Wat leer je dit jaar?</div>
+        <p>In 5ADB focussen we op de basisworkflow: <strong>clone → add → commit → push → pull</strong>. Branching en pull requests leer je in 6e jaar.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 1 — Versiebeheer in het dagelijks leven</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Versiebeheer bestaat niet alleen in de IT. Geef voor elk voorbeeld hieronder aan hoe "versiebeheer" in de praktijk werkt, en wat het probleem zou zijn zonder.</p>
+            <ol>
+              <li>Een schrijver werkt aan een boek</li>
+              <li>Een architect werkt aan een bouwtekening</li>
+              <li>Een leerkracht werkt aan een examen</li>
+            </ol>
+            <p>Schrijf je antwoorden op papier of in een tekstbestand. Bespreek daarna in klas.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 2 — Git vs GitHub matrix</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Geef voor elke uitspraak aan of die over <em>Git</em>, <em>GitHub</em>, of <em>beide</em> gaat:</p>
+            <ol>
+              <li>"Ik sla mijn commits op in de cloud."</li>
+              <li>"Ik voer <code>git commit</code> uit in de terminal."</li>
+              <li>"De leerkracht kan mijn code online bekijken."</li>
+              <li>"Het werkt ook zonder internetverbinding."</li>
+              <li>"Ik maak er een gratis account aan."</li>
+              <li>"Het houdt de versiegeschiedenis bij op mijn computer."</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Wat is versiebeheer?
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H01-voorbeeld.svg', 'Voorbeeld — Git vs GitHub mindmap')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak een vergelijkingstabel</h3>
+            <ol>
+              <li><strong>Deel 1 — 4 punten:</strong> Maak een tabel (in Word, Notion, of op papier) met twee kolommen: <em>Git</em> en <em>GitHub</em>. Vul minstens 4 kenmerken in per kolom.</li>
+              <li><strong>Deel 2 — 3 punten:</strong> Beschrijf in je eigen woorden wat een <em>commit</em> is, en geef een echt voorbeeld uit je dagelijks leven waarbij je een commit-moment zou aanmaken.</li>
+              <li><strong>Deel 3 — 3 punten:</strong> Zoek op het internet op: wat is de meest gebruikte Git-hostingdienst naast GitHub? Vergelijk kort (2-3 zinnen).</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H01 — Wat is versiebeheer?</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is een <em>commit</em> in Git?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="a"> <span>Een bestand dat je naar GitHub stuurt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="b"> <span>Een vastgelegde snapshot van je project op een bepaald moment</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="c"> <span>Een backup van je volledige harde schijf</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="d"> <span>Een samenwerking met een andere leerling</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is het verschil tussen Git en GitHub?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="a"> <span>Git is lokale software, GitHub is een online platform</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="b"> <span>GitHub is lokale software, Git is een online platform</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="c"> <span>Git en GitHub zijn exact hetzelfde programma</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="d"> <span>Git is gratis, GitHub is altijd betalend</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doe je als je een online repository naar je computer wil downloaden?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="a"> <span>git push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="b"> <span>git add</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="c"> <span>git clone</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="d"> <span>git pull</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Waarom is versiebeheer nuttig voor een leerling die aan een project werkt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="a"> <span>Zodat je sneller kan typen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="b"> <span>Zodat je de code mooier kan formatteren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="c"> <span>Zodat je altijd de meest recente versie van een bibliotheek gebruikt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="d"> <span>Zodat je eerdere versies kan terugzetten als je een fout maakt</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet <em>push</em>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="a"> <span>Wijzigingen van GitHub downloaden naar je computer</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="b"> <span>Lokale commits uploaden naar GitHub</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="c"> <span>Een nieuwe repository aanmaken op je computer</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="d"> <span>Een bestand toevoegen aan de staging area</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/github-version-control/H01')" data-progress-key="5adb/github-version-control/H01">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <span></span>
+          <a href="H02.html" class="btn btn-ghost">H02 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

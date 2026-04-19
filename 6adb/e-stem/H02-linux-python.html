@@ -33,45 +33,76 @@
   </div>
 </nav>
 <main id="main">
-  <div class="container">
-<nav class="breadcrumb" aria-label="Paginapad">
-<a href="../../index.html">Home</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<a href="../../6adb/index.html">6ADB</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<a href="index.html">E-STEM</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<span>H02</span>
-</nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. Python recap</a></li>
-        <li><a href="#s2">2. Flask installatie</a></li>
-        <li><a href="#s3">3. Flask basis-app</a></li>
-        <li><a href="#s4">4. Cron jobs</a></li>
-        <li><a href="#s5">5. systemd service</a></li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/e-stem/H02" style="--sidebar-accent: var(--color-vak-estem)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1">2.1 Python functies en modules</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s2">2.2 Flask installatie</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s3">2.3 Flask basis-app</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s4">2.4 Cron jobs op Linux</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s5">2.5 systemd service</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">E-STEM</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>H02 — Linux en Python verdieping</span>
+    </nav>
     <div class="page-header vak-estem">
       <div class="page-header__vak">&#9881; E-STEM &mdash; H02</div>
       <h1 class="page-header__title">Linux en Python verdieping</h1>
-      <div class="page-header__meta">
-        <span class="badge badge-verdieping">verdieping</span>
-        <span class="badge">5 u</span>
-      </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-ES-06] Flask webserver bouwen op Raspberry Pi &mdash; verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">LD-ES-06</span><span class="ld-tag__title">Flask webserver bouwen op Raspberry Pi — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>De leerling kan Python-code modulair organiseren in aparte bestanden.</li>
+        <li>De leerling kan Flask installeren in een virtual environment en een webserver opzetten.</li>
+        <li>De leerling kan Flask-routes definiëren voor HTML-pagina's en JSON API-endpoints.</li>
+        <li>De leerling kan cron jobs aanmaken om scripts automatisch te plannen.</li>
+        <li>De leerling kan een Flask-app als systemd-service laten starten bij het opstarten van de Pi.</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. Python functies en modules recap</h2>
@@ -366,19 +397,15 @@ sudo journalctl -u flask-app -f</code></pre>
       <li>Maak een systemd-service zodat het dashboard automatisch start.</li>
     </ol>
 
-    <div class="chapter-complete-wrap">
-      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/e-stem/H02">
-        Markeer als voltooid
-      </button>
+    <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('6adb/e-stem/H02')" data-progress-key="6adb/e-stem/H02">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav">
+        <a href="H01-raspberry-pi-hardware.html" class="btn btn-ghost">&larr; H01</a>
+        <a href="H03-geavanceerde-projecten.html" class="btn btn-ghost">H03 &rarr;</a>
+      </div>
     </div>
-
-    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
-      <a href="H01-raspberry-pi-hardware.html" class="btn btn-secondary">&larr; H01 &mdash; Raspberry Pi hardware</a>
-      <a href="H03-geavanceerde-projecten.html" class="btn btn-secondary">H03 &mdash; Geavanceerde projecten &rarr;</a>
-    </nav>
   </div>
 </div>
-  </div>
 </main>
 <footer class="site-footer">
   <div class="container">

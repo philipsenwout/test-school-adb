@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="Arial, sans-serif">
+  <rect width="800" height="420" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Emmet — Afkortingen in VS Code</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">Typ de afkorting en druk op Tab ↹ — VS Code genereert de volledige HTML</text>
+
+  <!-- Header rij -->
+  <rect x="30" y="58" width="370" height="26" rx="4" fill="#2a2c3e"/>
+  <text x="215" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#74c0fc">Afkorting (typ dit)</text>
+  <rect x="410" y="58" width="360" height="26" rx="4" fill="#2a2c3e"/>
+  <text x="590" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#a8ff7a">Gegenereerde HTML</text>
+
+  <!-- Rij 1: ! -->
+  <rect x="30" y="88" width="370" height="40" rx="3" fill="#1e2030"/>
+  <text x="215" y="104" text-anchor="middle" font-family="Courier New, monospace" font-size="16" fill="#f97316">!</text>
+  <text x="215" y="120" text-anchor="middle" font-size="10" fill="#888899">Volledige HTML5-basisstructuur</text>
+  <rect x="410" y="88" width="360" height="40" rx="3" fill="#0d1117"/>
+  <text x="425" y="103" font-family="Courier New, monospace" font-size="11" fill="#79c0ff">&lt;!DOCTYPE html&gt;</text>
+  <text x="425" y="120" font-family="Courier New, monospace" font-size="11" fill="#79c0ff">&lt;html&gt;&lt;head&gt;...&lt;/head&gt;&lt;body&gt;...&lt;/body&gt;&lt;/html&gt;</text>
+
+  <!-- Rij 2: ul>li*3 -->
+  <rect x="30" y="132" width="370" height="40" rx="3" fill="#1a1c28"/>
+  <text x="215" y="147" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#f97316">ul&gt;li*3</text>
+  <text x="215" y="164" text-anchor="middle" font-size="10" fill="#888899">ul met 3 li-kinderen</text>
+  <rect x="410" y="132" width="360" height="40" rx="3" fill="#0d1117"/>
+  <text x="425" y="147" font-family="Courier New, monospace" font-size="11" fill="#79c0ff">&lt;ul&gt;</text>
+  <text x="445" y="164" font-family="Courier New, monospace" font-size="11" fill="#a8ff7a">  &lt;li&gt;&lt;/li&gt; &lt;li&gt;&lt;/li&gt; &lt;li&gt;&lt;/li&gt;</text>
+
+  <!-- Rij 3: nav>ul>li*4>a -->
+  <rect x="30" y="176" width="370" height="40" rx="3" fill="#1e2030"/>
+  <text x="215" y="191" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#f97316">nav&gt;ul&gt;li*4&gt;a</text>
+  <text x="215" y="208" text-anchor="middle" font-size="10" fill="#888899">Navigatiemenu met 4 links</text>
+  <rect x="410" y="176" width="360" height="40" rx="3" fill="#0d1117"/>
+  <text x="425" y="191" font-family="Courier New, monospace" font-size="11" fill="#79c0ff">&lt;nav&gt;&lt;ul&gt;</text>
+  <text x="445" y="208" font-family="Courier New, monospace" font-size="11" fill="#a8ff7a">  &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt; × 4</text>
+
+  <!-- Rij 4: .container -->
+  <rect x="30" y="220" width="370" height="40" rx="3" fill="#1a1c28"/>
+  <text x="215" y="235" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#f97316">.container</text>
+  <text x="215" y="252" text-anchor="middle" font-size="10" fill="#888899">div met class="container"</text>
+  <rect x="410" y="220" width="360" height="40" rx="3" fill="#0d1117"/>
+  <text x="425" y="242" font-family="Courier New, monospace" font-size="11" fill="#79c0ff">&lt;div class="container"&gt;&lt;/div&gt;</text>
+
+  <!-- Rij 5: p*3 -->
+  <rect x="30" y="264" width="370" height="40" rx="3" fill="#1e2030"/>
+  <text x="215" y="279" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#f97316">p*3</text>
+  <text x="215" y="296" text-anchor="middle" font-size="10" fill="#888899">3 alinea-elementen na elkaar</text>
+  <rect x="410" y="264" width="360" height="40" rx="3" fill="#0d1117"/>
+  <text x="425" y="283" font-family="Courier New, monospace" font-size="11" fill="#79c0ff">&lt;p&gt;&lt;/p&gt; &lt;p&gt;&lt;/p&gt; &lt;p&gt;&lt;/p&gt;</text>
+
+  <!-- Rij 6: input:email -->
+  <rect x="30" y="308" width="370" height="40" rx="3" fill="#1a1c28"/>
+  <text x="215" y="323" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#f97316">input:email</text>
+  <text x="215" y="340" text-anchor="middle" font-size="10" fill="#888899">Input met type="email"</text>
+  <rect x="410" y="308" width="360" height="40" rx="3" fill="#0d1117"/>
+  <text x="425" y="330" font-family="Courier New, monospace" font-size="11" fill="#79c0ff">&lt;input type="email" name="" id=""&gt;</text>
+
+  <!-- Legenda operators -->
+  <rect x="30" y="358" width="740" height="50" rx="5" fill="#2a2c3e"/>
+  <text x="400" y="374" text-anchor="middle" font-size="11" font-weight="bold" fill="#f0f0f0">Operatoren</text>
+  <text x="60" y="395" font-size="11" fill="#f97316">&gt;</text><text x="75" y="395" font-size="11" fill="#aaa"> kind-element</text>
+  <text x="200" y="395" font-size="11" fill="#f97316">+</text><text x="215" y="395" font-size="11" fill="#aaa"> broer/zus naast</text>
+  <text x="360" y="395" font-size="11" fill="#f97316">*3</text><text x="380" y="395" font-size="11" fill="#aaa"> 3× herhalen</text>
+  <text x="500" y="395" font-size="11" fill="#f97316">.naam</text><text x="545" y="395" font-size="11" fill="#aaa"> class-attribuut</text>
+  <text x="650" y="395" font-size="11" fill="#f97316">#id</text><text x="668" y="395" font-size="11" fill="#aaa"> id-attribuut</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#6c63ff"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#43e97b"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#f9a825"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#ff6b6b"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="700" fill="#e8e8f0">insertAdjacentHTML — 4 insertie-posities</text>
+
+  <!-- beforebegin zone -->
+  <rect x="210" y="55" width="380" height="40" rx="8" fill="#3a1a4a" stroke="#6c63ff" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="400" y="80" text-anchor="middle" font-size="13" fill="#c0a0ff" font-family="'Courier New', monospace">'beforebegin' — vóór het element</text>
+
+  <!-- Main div element -->
+  <rect x="180" y="115" width="440" height="200" rx="10" fill="#1a1a2e" stroke="#3498db" stroke-width="3"/>
+  <text x="220" y="140" font-size="13" fill="#5b9bd5" font-family="'Courier New', monospace">&lt;div&gt;</text>
+
+  <!-- afterbegin zone -->
+  <rect x="210" y="150" width="380" height="40" rx="8" fill="#0d3320" stroke="#43e97b" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="400" y="175" text-anchor="middle" font-size="13" fill="#70e8a0" font-family="'Courier New', monospace">'afterbegin' — begin van de inhoud</text>
+
+  <!-- Existing content -->
+  <rect x="240" y="205" width="320" height="48" rx="6" fill="#2a2a4e"/>
+  <text x="400" y="229" text-anchor="middle" font-size="14" fill="#e8e8f0" font-weight="600">Bestaande inhoud</text>
+  <text x="400" y="246" text-anchor="middle" font-size="11" fill="#8080a0">(reeds aanwezig in de div)</text>
+
+  <!-- beforeend zone -->
+  <rect x="210" y="265" width="380" height="40" rx="8" fill="#3a2800" stroke="#f9a825" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="400" y="290" text-anchor="middle" font-size="13" fill="#f0c060" font-family="'Courier New', monospace">'beforeend' — einde van de inhoud</text>
+
+  <text x="220" y="328" font-size="13" fill="#5b9bd5" font-family="'Courier New', monospace">&lt;/div&gt;</text>
+
+  <!-- afterend zone -->
+  <rect x="210" y="338" width="380" height="40" rx="8" fill="#3a1010" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="400" y="362" text-anchor="middle" font-size="13" fill="#ff9090" font-family="'Courier New', monospace">'afterend' — ná het element</text>
+
+  <!-- Left side arrows and labels -->
+  <!-- beforebegin arrow -->
+  <line x1="160" y1="75" x2="208" y2="75" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="155" y="70" text-anchor="end" font-size="12" fill="#c0a0ff" font-family="'Courier New', monospace">beforebegin</text>
+
+  <!-- afterbegin arrow -->
+  <line x1="160" y1="170" x2="208" y2="170" stroke="#43e97b" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="155" y="165" text-anchor="end" font-size="12" fill="#70e8a0" font-family="'Courier New', monospace">afterbegin</text>
+
+  <!-- beforeend arrow -->
+  <line x1="160" y1="285" x2="208" y2="285" stroke="#f9a825" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="155" y="280" text-anchor="end" font-size="12" fill="#f0c060" font-family="'Courier New', monospace">beforeend</text>
+
+  <!-- afterend arrow -->
+  <line x1="160" y1="358" x2="208" y2="358" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="155" y="353" text-anchor="end" font-size="12" fill="#ff9090" font-family="'Courier New', monospace">afterend</text>
+
+  <!-- Example code -->
+  <rect x="30" y="400" width="740" height="82" rx="10" fill="#0d0d1a" stroke="#6c63ff" stroke-width="1.5"/>
+  <text x="50" y="422" font-size="12" fill="#8080a0" font-family="'Courier New', monospace">// Voorbeeld:</text>
+  <text x="50" y="442" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace"><tspan fill="#a0a0ff">const</tspan> div = document.querySelector(<tspan fill="#43e97b">'div'</tspan>);</text>
+  <text x="50" y="462" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">div.insertAdjacentHTML(<tspan fill="#43e97b">'afterend'</tspan>, <tspan fill="#43e97b">'&lt;p&gt;Nieuw!&lt;/p&gt;'</tspan>);</text>
+  <text x="50" y="476" font-size="11" fill="#f9a825" font-family="'Courier New', monospace">// Voegt &lt;p&gt;Nieuw!&lt;/p&gt; in NA de div, als buurknoop</text>
+</svg>

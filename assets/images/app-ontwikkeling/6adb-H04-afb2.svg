@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#e8e8f0">textContent vs innerHTML — ken het verschil!</text>
+
+  <!-- LEFT column: textContent -->
+  <rect x="30" y="60" width="360" height="340" rx="10" fill="#f0fff4" stroke="#43e97b" stroke-width="2"/>
+
+  <!-- Left header -->
+  <rect x="30" y="60" width="360" height="46" rx="10" fill="#43e97b"/>
+  <rect x="30" y="96" width="360" height="10" rx="0" fill="#43e97b"/>
+  <text x="210" y="90" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a2e">textContent  ✓  Veilig</text>
+
+  <!-- Left code -->
+  <text x="50" y="135" font-size="12" fill="#2d2d4e" font-weight="600">Invoer:</text>
+  <rect x="50" y="145" width="320" height="36" rx="6" fill="#e0f9ec"/>
+  <text x="66" y="168" font-size="13" fill="#1a6b3c" font-family="'Courier New', monospace">element.textContent = '&lt;b&gt;Tekst&lt;/b&gt;'</text>
+
+  <!-- Left result -->
+  <text x="50" y="215" font-size="12" fill="#2d2d4e" font-weight="600">Resultaat in browser:</text>
+  <rect x="50" y="225" width="320" height="50" rx="6" fill="white" stroke="#c0e8d0" stroke-width="1.5"/>
+  <text x="210" y="255" text-anchor="middle" font-size="15" fill="#555" font-family="'Courier New', monospace">&lt;b&gt;Tekst&lt;/b&gt;</text>
+  <text x="210" y="272" text-anchor="middle" font-size="11" fill="#999">(letterlijk weergegeven, geen opmaak)</text>
+
+  <!-- Left comment -->
+  <rect x="50" y="295" width="320" height="36" rx="6" fill="#d4f8e6"/>
+  <text x="210" y="318" text-anchor="middle" font-size="13" fill="#1a6b3c" font-weight="600">HTML-tags worden NIET geparsed</text>
+
+  <!-- LEFT safe icon -->
+  <circle cx="70" cy="370" r="20" fill="#43e97b"/>
+  <text x="70" y="377" text-anchor="middle" font-size="18" fill="white">✓</text>
+  <text x="100" y="368" font-size="12" fill="#2d2d4e">Gebruikersinput is veilig</text>
+  <text x="100" y="384" font-size="12" fill="#2d2d4e">Geen XSS-risico</text>
+
+  <!-- RIGHT column: innerHTML -->
+  <rect x="410" y="60" width="360" height="340" rx="10" fill="#fff8f0" stroke="#f9a825" stroke-width="2"/>
+
+  <!-- Right header -->
+  <rect x="410" y="60" width="360" height="46" rx="10" fill="#f9a825"/>
+  <rect x="410" y="96" width="360" height="10" rx="0" fill="#f9a825"/>
+  <text x="590" y="90" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a2e">innerHTML  ⚠  Let op!</text>
+
+  <!-- Right code -->
+  <text x="430" y="135" font-size="12" fill="#2d2d4e" font-weight="600">Invoer:</text>
+  <rect x="430" y="145" width="320" height="36" rx="6" fill="#feebd0"/>
+  <text x="446" y="168" font-size="13" fill="#8a4a00" font-family="'Courier New', monospace">element.innerHTML = '&lt;b&gt;Tekst&lt;/b&gt;'</text>
+
+  <!-- Right result -->
+  <text x="430" y="215" font-size="12" fill="#2d2d4e" font-weight="600">Resultaat in browser:</text>
+  <rect x="430" y="225" width="320" height="50" rx="6" fill="white" stroke="#f0d0a0" stroke-width="1.5"/>
+  <text x="590" y="252" text-anchor="middle" font-size="18" font-weight="700" fill="#222">Tekst</text>
+  <text x="590" y="270" text-anchor="middle" font-size="11" fill="#999">(HTML geparsed, &lt;b&gt; werkt als vet)</text>
+
+  <!-- Right comment -->
+  <rect x="430" y="295" width="320" height="36" rx="6" fill="#fde8c0"/>
+  <text x="590" y="318" text-anchor="middle" font-size="13" fill="#8a4a00" font-weight="600">HTML-tags WEL geparsed</text>
+
+  <!-- Right warning -->
+  <rect x="430" y="345" width="320" height="36" rx="6" fill="#ff6b6b"/>
+  <text x="590" y="368" text-anchor="middle" font-size="13" fill="white" font-weight="700">⚠ Nooit gebruikersdata in innerHTML!</text>
+
+  <!-- Bottom callout -->
+  <rect x="30" y="418" width="740" height="60" rx="10" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="400" y="442" text-anchor="middle" font-size="13" fill="#a0a0ff" font-weight="600">💡 Vuistregel:</text>
+  <text x="400" y="462" text-anchor="middle" font-size="13" fill="#e8e8f0">Gebruik <tspan font-family="'Courier New', monospace" fill="#43e97b">textContent</tspan> voor tekst, <tspan font-family="'Courier New', monospace" fill="#f9a825">innerHTML</tspan> enkel voor vertrouwde HTML-structuren.</text>
+</svg>

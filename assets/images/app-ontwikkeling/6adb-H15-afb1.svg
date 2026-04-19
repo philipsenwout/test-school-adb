@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">findIndex() vs indexOf() — het verschil</text>
+
+  <!-- indexOf panel -->
+  <rect x="20" y="45" width="360" height="200" rx="10" fill="#1e1e1e"/>
+  <rect x="20" y="45" width="360" height="36" rx="10" fill="#2d2d2d"/>
+  <rect x="20" y="69" width="360" height="12" fill="#2d2d2d"/>
+  <text x="200" y="66" text-anchor="middle" fill="#ff6b6b" font-size="13" font-weight="bold">indexOf() — zoekt op primitieve waarde</text>
+
+  <text x="40" y="102" fill="#888" font-size="11" font-family="'Courier New', monospace">const getallen = [10, 20, 30, 40];</text>
+  <text x="40" y="120" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">getallen.<tspan fill="#f9a825">indexOf</tspan>(30);  <tspan fill="#888">// → 2 ✓</tspan></text>
+
+  <line x1="40" y1="135" x2="360" y2="135" stroke="#444" stroke-width="1"/>
+
+  <text x="40" y="155" fill="#888" font-size="11" font-family="'Courier New', monospace">const recepten = [</text>
+  <text x="40" y="171" fill="#888" font-size="11" font-family="'Courier New', monospace">  &#123; naam: 'Soep' &#125;,</text>
+  <text x="40" y="187" fill="#888" font-size="11" font-family="'Courier New', monospace">  &#123; naam: 'Pasta' &#125;</text>
+  <text x="40" y="203" fill="#888" font-size="11" font-family="'Courier New', monospace">];</text>
+  <text x="40" y="222" fill="#ff6b6b" font-size="11" font-family="'Courier New', monospace">recepten.<tspan fill="#f9a825">indexOf</tspan>(&#123;naam:'Soep'&#125;); <tspan fill="#ff6b6b">// → -1 ✗</tspan></text>
+  <text x="40" y="238" fill="#ff6b6b" font-size="10" font-family="'Courier New', monospace">// objectvergelijking == referentie, niet inhoud</text>
+
+  <!-- findIndex panel -->
+  <rect x="420" y="45" width="360" height="200" rx="10" fill="#1e1e1e"/>
+  <rect x="420" y="45" width="360" height="36" rx="10" fill="#2d2d2d"/>
+  <rect x="420" y="69" width="360" height="12" fill="#2d2d2d"/>
+  <text x="600" y="66" text-anchor="middle" fill="#43e97b" font-size="13" font-weight="bold">findIndex() — zoekt met een functie</text>
+
+  <text x="440" y="102" fill="#888" font-size="11" font-family="'Courier New', monospace">const recepten = [</text>
+  <text x="440" y="118" fill="#888" font-size="11" font-family="'Courier New', monospace">  &#123; naam: 'Soep', cat: 'voorgerecht' &#125;,</text>
+  <text x="440" y="134" fill="#888" font-size="11" font-family="'Courier New', monospace">  &#123; naam: 'Pasta', cat: 'hoofdgerecht' &#125;</text>
+  <text x="440" y="150" fill="#888" font-size="11" font-family="'Courier New', monospace">];</text>
+
+  <text x="440" y="172" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">const i = recepten.<tspan fill="#f9a825">findIndex</tspan>(</text>
+  <text x="440" y="188" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">  r =&gt; r.naam === <tspan fill="#e8e8f0">'Soep'</tspan></text>
+  <text x="440" y="204" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">);  <tspan fill="#888">// → 0 ✓</tspan></text>
+  <text x="440" y="223" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">recepten.<tspan fill="#f9a825">splice</tspan>(i, 1); <tspan fill="#888">// verwijder op index i</tspan></text>
+
+  <!-- Arrow / contrast -->
+  <text x="400" y="185" text-anchor="middle" fill="#f9a825" font-size="22" font-weight="bold">vs</text>
+
+  <!-- Usecase box -->
+  <rect x="20" y="265" width="760" height="70" rx="8" fill="#6c63ff" fill-opacity="0.1" stroke="#6c63ff" stroke-width="1"/>
+  <text x="400" y="290" text-anchor="middle" fill="#6c63ff" font-size="13" font-weight="bold">Wanneer gebruik je welke?</text>
+  <text x="200" y="315" text-anchor="middle" fill="#2d2d4e" font-size="12">indexOf → primitieven (getallen, strings)</text>
+  <text x="600" y="315" text-anchor="middle" fill="#2d2d4e" font-size="12">findIndex → objecten (zoek op eigenschap)</text>
+
+  <!-- Code pattern box -->
+  <rect x="20" y="350" width="760" height="110" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="372" fill="#888" font-size="11" font-family="'Courier New', monospace">// Recept verwijderen op naam — volledig patroon:</text>
+  <text x="40" y="390" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">function <tspan fill="#6c63ff">verwijderRecept</tspan>(naam) &#123;</text>
+  <text x="40" y="407" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  const index = alleRecepten.<tspan fill="#f9a825">findIndex</tspan>(r =&gt; r.naam === naam);</text>
+  <text x="40" y="424" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  <tspan fill="#f9a825">if</tspan> (index === <tspan fill="#43e97b">-1</tspan>) <tspan fill="#f9a825">return</tspan>;  <tspan fill="#888">// niet gevonden — stop</tspan></text>
+  <text x="40" y="441" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  alleRecepten.<tspan fill="#f9a825">splice</tspan>(index, <tspan fill="#43e97b">1</tspan>);  <tspan fill="#6c63ff">updateLS</tspan>(alleRecepten);  receptenSectie.<tspan fill="#6c63ff">dispatchEvent</tspan>(update);</text>
+  <text x="40" y="452" fill="#888" font-size="11" font-family="'Courier New', monospace">&#125;</text>
+</svg>

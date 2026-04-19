@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="380" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Flex-container en Flex-items</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">display: flex op het ouder-element — kinderen worden automatisch flex-items</text>
+
+  <!-- Container eigenschappen -->
+  <rect x="20" y="58" width="370" height="300" rx="8" fill="#7B3FE4" opacity="0.08"/>
+  <rect x="20" y="58" width="370" height="300" rx="8" fill="none" stroke="#7B3FE4" stroke-width="2"/>
+  <text x="205" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#c4b5fd">FLEX CONTAINER</text>
+  <text x="205" y="95" text-anchor="middle" font-size="11" fill="#888">display: flex; → op het OUDER-element</text>
+
+  <text x="40" y="120" font-size="12" font-family="Courier New" fill="#7B3FE4">flex-direction:</text>
+  <text x="205" y="120" font-size="11" fill="#aaa">row | column | row-reverse</text>
+  <text x="40" y="142" font-size="12" font-family="Courier New" fill="#7B3FE4">justify-content:</text>
+  <text x="220" y="142" font-size="11" fill="#aaa">start | center | space-between</text>
+  <text x="40" y="164" font-size="12" font-family="Courier New" fill="#7B3FE4">align-items:</text>
+  <text x="185" y="164" font-size="11" fill="#aaa">stretch | center | start | end</text>
+  <text x="40" y="186" font-size="12" font-family="Courier New" fill="#7B3FE4">flex-wrap:</text>
+  <text x="170" y="186" font-size="11" fill="#aaa">nowrap | wrap | wrap-reverse</text>
+  <text x="40" y="208" font-size="12" font-family="Courier New" fill="#7B3FE4">gap:</text>
+  <text x="105" y="208" font-size="11" fill="#aaa">1rem (ruimte tussen items)</text>
+
+  <!-- Visueel container met items -->
+  <rect x="40" y="225" width="335" height="118" rx="4" fill="#2a2d3e" stroke="#7B3FE4" stroke-width="1"/>
+  <text x="50" y="243" font-size="10" fill="#c4b5fd">flex-container (ouder)</text>
+  <rect x="55" y="250" width="65" height="75" rx="3" fill="#7B3FE4" opacity="0.6"/>
+  <text x="87" y="291" text-anchor="middle" font-size="10" fill="white">flex-item</text>
+  <rect x="130" y="250" width="85" height="75" rx="3" fill="#7B3FE4" opacity="0.4"/>
+  <text x="172" y="291" text-anchor="middle" font-size="10" fill="white">flex-item</text>
+  <rect x="225" y="250" width="55" height="75" rx="3" fill="#7B3FE4" opacity="0.2"/>
+  <text x="252" y="291" text-anchor="middle" font-size="10" fill="white">flex-item</text>
+  <text x="205" y="340" text-anchor="middle" font-size="10" fill="#888">items op 1 rij naast elkaar</text>
+
+  <!-- Item eigenschappen -->
+  <rect x="410" y="58" width="370" height="300" rx="8" fill="#2D9CDB" opacity="0.08"/>
+  <rect x="410" y="58" width="370" height="300" rx="8" fill="none" stroke="#2D9CDB" stroke-width="2"/>
+  <text x="595" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#74c0fc">FLEX ITEMS</text>
+  <text x="595" y="95" text-anchor="middle" font-size="11" fill="#888">Eigenschappen op DIRECTE KINDEREN</text>
+
+  <text x="430" y="120" font-size="12" font-family="Courier New" fill="#2D9CDB">flex-grow:</text>
+  <text x="555" y="120" font-size="11" fill="#aaa">0 (standaard) | 1 | getal</text>
+  <text x="430" y="138" font-size="11" fill="#555">Hoeveel extra ruimte innemen</text>
+  <text x="430" y="164" font-size="12" font-family="Courier New" fill="#2D9CDB">flex-shrink:</text>
+  <text x="563" y="164" font-size="11" fill="#aaa">1 (standaard) | 0 | getal</text>
+  <text x="430" y="182" font-size="11" fill="#555">Mag het krimpen?</text>
+  <text x="430" y="208" font-size="12" font-family="Courier New" fill="#2D9CDB">flex-basis:</text>
+  <text x="555" y="208" font-size="11" fill="#aaa">auto | 200px | 30%</text>
+  <text x="430" y="226" font-size="11" fill="#555">Beginbreedte vóór flex</text>
+  <text x="430" y="252" font-size="12" font-family="Courier New" fill="#2D9CDB">flex: 1;</text>
+  <text x="510" y="252" font-size="11" fill="#22C55E">→ gelijke verdeling!</text>
+  <text x="430" y="270" font-size="10" fill="#555">(= grow:1 shrink:1 basis:0)</text>
+  <text x="430" y="295" font-size="12" font-family="Courier New" fill="#2D9CDB">align-self:</text>
+  <text x="553" y="295" font-size="11" fill="#aaa">overschrijft align-items</text>
+  <text x="430" y="318" font-size="12" font-family="Courier New" fill="#2D9CDB">order:</text>
+  <text x="505" y="318" font-size="11" fill="#aaa">0 | 1 | -1 (volgorde)</text>
+  <text x="430" y="340" font-size="10" fill="#888">items standaard gerangschikte via bronvolgorde</text>
+  <text x="430" y="355" font-size="10" fill="#888">order wijzigt visuele volgorde</text>
+
+  <text x="400" y="372" text-anchor="middle" font-size="10" fill="#555">Container-eigenschappen bepalen hoe de kinderen gerangschikt worden</text>
+</svg>

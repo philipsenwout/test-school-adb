@@ -33,46 +33,77 @@
   </div>
 </nav>
 <main id="main">
-  <div class="container">
-<nav class="breadcrumb" aria-label="Paginapad">
-<a href="../../index.html">Home</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<a href="../../6adb/index.html">6ADB</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<a href="index.html">E-STEM</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<span>H03</span>
-</nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. Flask + Jinja2 templates</a></li>
-        <li><a href="#s2">2. Formulieren verwerken</a></li>
-        <li><a href="#s3">3. SQLite database</a></li>
-        <li><a href="#s4">4. REST API bouwen</a></li>
-        <li><a href="#s5">5. Projectstructuur</a></li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/e-stem/H03" style="--sidebar-accent: var(--color-vak-estem)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1">3.1 Flask + Jinja2 templates</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s2">3.2 Formulieren verwerken</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s3">3.3 SQLite database</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s4">3.4 REST API bouwen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s5">3.5 Projectstructuur</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">E-STEM</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>H03 — Geavanceerde projecten</span>
+    </nav>
     <div class="page-header vak-estem">
       <div class="page-header__vak">&#9881; E-STEM &mdash; H03</div>
       <h1 class="page-header__title">Geavanceerde projecten</h1>
-      <div class="page-header__meta">
-        <span class="badge badge-verdieping">verdieping</span>
-        <span class="badge">5 u</span>
-      </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-ES-07] Geavanceerd Flask-project bouwen met database &mdash; verdieping</span>
-      <span class="ld-badge">[LD-ES-08] REST API ontwerpen en implementeren &mdash; verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">LD-ES-07</span><span class="ld-tag__title">Geavanceerd Flask-project bouwen met database — verdieping</span></div>
+      <div class="ld-tag"><span class="ld-tag__code">LD-ES-08</span><span class="ld-tag__title">REST API ontwerpen en implementeren — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>De leerling kan dynamische HTML-pagina's genereren met Jinja2-templates in Flask.</li>
+        <li>De leerling kan POST-formulieren verwerken en het PRG-patroon toepassen.</li>
+        <li>De leerling kan SQLite integreren in een Flask-applicatie via aparte database-functies.</li>
+        <li>De leerling kan een REST API bouwen met correcte HTTP-methoden en statuscodes.</li>
+        <li>De leerling kan een Flask-project correct structureren in aparte bestanden en mappen.</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. Flask met Jinja2 templates</h2>
@@ -428,19 +459,15 @@ python app.py</code></pre>
       <li>Zorg dat de app automatisch start via een systemd-service (zie H02).</li>
     </ol>
 
-    <div class="chapter-complete-wrap">
-      <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/e-stem/H03">
-        Markeer als voltooid
-      </button>
+    <div class="chapter-completion">
+      <button class="btn btn-primary" onclick="markComplete('6adb/e-stem/H03')" data-progress-key="6adb/e-stem/H03">&#10003; Markeer als voltooid</button>
+      <div class="chapter-completion__nav">
+        <a href="H02-linux-python.html" class="btn btn-ghost">&larr; H02</a>
+        <a href="H04-koppeling-databeheer.html" class="btn btn-ghost">H04 &rarr;</a>
+      </div>
     </div>
-
-    <nav class="chapter-nav" aria-label="Hoofdstuknavigatie">
-      <a href="H02-linux-python.html" class="btn btn-secondary">&larr; H02 &mdash; Linux en Python verdieping</a>
-      <a href="H04-koppeling-databeheer.html" class="btn btn-secondary">H04 &mdash; Koppeling met Databeheer &rarr;</a>
-    </nav>
   </div>
 </div>
-  </div>
 </main>
 <footer class="site-footer">
   <div class="container">

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">LINUX BESTANDSSYSTEEM — MAPPENSTRUCTUUR</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">FILESYSTEM HIERARCHY STANDARD (FHS) — RASPBERRY PI OS</text>
+  <line x1="80" y1="64" x2="720" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Root node -->
+  <rect x="350" y="80" width="100" height="32" rx="6" fill="#A855F720" stroke="#A855F7" stroke-width="2"/>
+  <text x="400" y="100" text-anchor="middle" font-family="monospace" font-size="14" font-weight="700" fill="#A855F7">/</text>
+
+  <!-- Verbindingslijnen van root naar level 1 -->
+  <!-- /bin -->
+  <line x1="400" y1="112" x2="100" y2="152" stroke="#A855F760" stroke-width="1.5"/>
+  <!-- /etc -->
+  <line x1="400" y1="112" x2="210" y2="152" stroke="#A855F760" stroke-width="1.5"/>
+  <!-- /home -->
+  <line x1="400" y1="112" x2="320" y2="152" stroke="#A855F760" stroke-width="1.5"/>
+  <!-- /var -->
+  <line x1="400" y1="112" x2="430" y2="152" stroke="#A855F760" stroke-width="1.5"/>
+  <!-- /usr -->
+  <line x1="400" y1="112" x2="540" y2="152" stroke="#A855F760" stroke-width="1.5"/>
+  <!-- /tmp -->
+  <line x1="400" y1="112" x2="650" y2="152" stroke="#A855F760" stroke-width="1.5"/>
+  <!-- /proc -->
+  <line x1="400" y1="112" x2="755" y2="152" stroke="#A855F760" stroke-width="1.5"/>
+
+  <!-- Level 1 mappen -->
+  <!-- /bin -->
+  <rect x="55" y="152" width="90" height="28" rx="5" fill="#1A1C28" stroke="#A855F750" stroke-width="1"/>
+  <text x="100" y="170" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#A855F7">/bin</text>
+
+  <!-- /etc -->
+  <rect x="165" y="152" width="90" height="28" rx="5" fill="#1A1C28" stroke="#A855F750" stroke-width="1"/>
+  <text x="210" y="170" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#A855F7">/etc</text>
+
+  <!-- /home -->
+  <rect x="275" y="152" width="90" height="28" rx="5" fill="#1A1C28" stroke="#A855F7" stroke-width="1.5"/>
+  <text x="320" y="170" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#A855F7">/home</text>
+
+  <!-- /var -->
+  <rect x="385" y="152" width="90" height="28" rx="5" fill="#1A1C28" stroke="#A855F750" stroke-width="1"/>
+  <text x="430" y="170" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#A855F7">/var</text>
+
+  <!-- /usr -->
+  <rect x="495" y="152" width="90" height="28" rx="5" fill="#1A1C28" stroke="#A855F750" stroke-width="1"/>
+  <text x="540" y="170" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#A855F7">/usr</text>
+
+  <!-- /tmp -->
+  <rect x="605" y="152" width="90" height="28" rx="5" fill="#1A1C28" stroke="#A855F740" stroke-width="1"/>
+  <text x="650" y="170" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#A855F7">/tmp</text>
+
+  <!-- /proc -->
+  <rect x="710" y="152" width="70" height="28" rx="5" fill="#1A1C28" stroke="#A855F740" stroke-width="1"/>
+  <text x="745" y="170" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#A855F7">/proc</text>
+
+  <!-- Beschrijvingen level 1 -->
+  <text x="100" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Essentiële</text>
+  <text x="100" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">commando's</text>
+
+  <text x="210" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Configuratie-</text>
+  <text x="210" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">bestanden</text>
+
+  <text x="320" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">Gebruikers-</text>
+  <text x="320" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">mappen</text>
+
+  <text x="430" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Variabele</text>
+  <text x="430" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">data, logs</text>
+
+  <text x="540" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Gebruikers-</text>
+  <text x="540" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">programma's</text>
+
+  <text x="650" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Tijdelijke</text>
+  <text x="650" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">bestanden</text>
+
+  <text x="745" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Systeem-</text>
+  <text x="745" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">info (RAM)</text>
+
+  <!-- Level 2: /home uitklappen -->
+  <line x1="320" y1="180" x2="240" y2="225" stroke="#A855F750" stroke-width="1.2"/>
+  <line x1="320" y1="180" x2="320" y2="225" stroke="#A855F750" stroke-width="1.2"/>
+  <line x1="320" y1="180" x2="400" y2="225" stroke="#A855F750" stroke-width="1.2"/>
+
+  <rect x="185" y="225" width="110" height="26" rx="4" fill="#13141D" stroke="#A855F760" stroke-width="1"/>
+  <text x="240" y="242" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8AACB">/home/pi</text>
+
+  <rect x="265" y="225" width="110" height="26" rx="4" fill="#13141D" stroke="#A855F760" stroke-width="1"/>
+  <text x="320" y="242" text-anchor="middle" font-family="monospace" font-size="11" fill="#A8AACB">/home/user2</text>
+
+  <rect x="345" y="225" width="110" height="26" rx="4" fill="#13141D" stroke="#A855F740" stroke-width="1"/>
+  <text x="400" y="242" text-anchor="middle" font-family="monospace" font-size="11" fill="#6B6E8E">/home/...</text>
+
+  <!-- Level 3: /home/pi uitklappen -->
+  <line x1="240" y1="251" x2="185" y2="290" stroke="#A855F740" stroke-width="1"/>
+  <line x1="240" y1="251" x2="255" y2="290" stroke="#A855F740" stroke-width="1"/>
+  <line x1="240" y1="251" x2="325" y2="290" stroke="#A855F740" stroke-width="1"/>
+
+  <rect x="132" y="290" width="106" height="24" rx="4" fill="#0D0E14" stroke="#A855F730" stroke-width="1"/>
+  <text x="185" y="306" text-anchor="middle" font-family="monospace" font-size="10" fill="#6B6E8E">Documents/</text>
+
+  <rect x="202" y="290" width="106" height="24" rx="4" fill="#0D0E14" stroke="#A855F730" stroke-width="1"/>
+  <text x="255" y="306" text-anchor="middle" font-family="monospace" font-size="10" fill="#6B6E8E">Downloads/</text>
+
+  <rect x="272" y="290" width="106" height="24" rx="4" fill="#0D0E14" stroke="#A855F730" stroke-width="1"/>
+  <text x="325" y="306" text-anchor="middle" font-family="monospace" font-size="10" fill="#6B6E8E">Desktop/</text>
+
+  <!-- Handige commando's -->
+  <rect x="470" y="225" width="290" height="135" rx="8" fill="#13141D" stroke="#2A2C45" stroke-width="1"/>
+  <text x="615" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">VEELGEBRUIKTE COMMANDO'S</text>
+  <line x1="480" y1="252" x2="750" y2="252" stroke="#1F2035" stroke-width="1"/>
+
+  <text x="485" y="268" font-family="monospace" font-size="11" font-weight="700" fill="#A855F7">ls</text>
+  <text x="540" y="268" font-family="monospace" font-size="11" fill="#A8AACB">Inhoud map tonen</text>
+
+  <text x="485" y="284" font-family="monospace" font-size="11" font-weight="700" fill="#A855F7">cd /home/pi</text>
+  <text x="600" y="284" font-family="monospace" font-size="11" fill="#A8AACB">Naar map navigeren</text>
+
+  <text x="485" y="300" font-family="monospace" font-size="11" font-weight="700" fill="#A855F7">pwd</text>
+  <text x="540" y="300" font-family="monospace" font-size="11" fill="#A8AACB">Huidige map tonen</text>
+
+  <text x="485" y="316" font-family="monospace" font-size="11" font-weight="700" fill="#A855F7">mkdir mijnmap</text>
+  <text x="620" y="316" font-family="monospace" font-size="11" fill="#A8AACB">Nieuwe map maken</text>
+
+  <text x="485" y="332" font-family="monospace" font-size="11" font-weight="700" fill="#A855F7">cat bestand.txt</text>
+  <text x="630" y="332" font-family="monospace" font-size="11" fill="#A8AACB">Bestand weergeven</text>
+
+  <text x="485" y="348" font-family="monospace" font-size="11" font-weight="700" fill="#A855F7">sudo</text>
+  <text x="540" y="348" font-family="monospace" font-size="11" fill="#A8AACB">Beheerder-rechten</text>
+
+  <!-- Info balk -->
+  <rect x="30" y="330" width="420" height="90" rx="8" fill="#A855F710" stroke="#A855F730" stroke-width="1"/>
+  <text x="240" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#A855F7">Belangrijk om te weten</text>
+  <text x="240" y="368" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">Alles in Linux is een bestand: harde schijven,</text>
+  <text x="240" y="383" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">netwerkaansluitingen, printers, GPIO-pinnen.</text>
+  <text x="240" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Er is slechts één boomstructuur. Schijven worden</text>
+  <text x="240" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">"gemount" in een map (bv. /mnt of /media).</text>
+
+  <!-- Paden info -->
+  <rect x="30" y="398" width="420" height="40" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <text x="240" y="414" text-anchor="middle" font-family="monospace" font-size="10" fill="#A8AACB">Absoluut pad:   /home/pi/Documents/script.py</text>
+  <text x="240" y="430" text-anchor="middle" font-family="monospace" font-size="10" fill="#6B6E8E">Relatief pad:   ../Documents/script.py  (vanuit ~/Downloads)</text>
+</svg>

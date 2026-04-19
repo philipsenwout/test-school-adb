@@ -44,18 +44,50 @@
       <span class="breadcrumb-sep">&#8250;</span>
       <span>H06</span>
     </nav>
-    <div class="chapter-layout">
-      <aside class="chapter-sidebar">
-        <div class="chapter-sidebar__title">Inhoud</div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="6adb/netwerken/H06" style="--sidebar-accent: var(--color-vak-netwerken)">
+        <div class="chapter-sidebar__header">
+          <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+          <div class="chapter-sidebar__progress-wrap">
+            <div class="chapter-sidebar__progress-bar">
+              <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+            </div>
+            <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+          </div>
+        </div>
         <ul class="chapter-sidebar__list">
-          <li><a href="#leerdoelen">Leerdoelen</a></li>
-          <li><a href="#waarom">1.1 Waarom monitoren?</a></li>
-          <li><a href="#tools">1.2 Diagnostische tools</a></li>
-          <li><a href="#snmp">1.3 SNMP</a></li>
-          <li><a href="#syslog">1.4 Syslog</a></li>
-          <li><a href="#unifi-dashboard">1.5 UniFi-dashboard</a></li>
-          <li><a href="#oefeningen">2. Oefeningen</a></li>
-          <li><a href="#samenvatting">3. Samenvatting</a></li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+            <a href="#waarom">1.1 Waarom monitoren?</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+            <a href="#tools">1.2 Diagnostische tools</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+            <a href="#snmp">1.3 SNMP</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+            <a href="#syslog">1.4 Syslog</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+            <a href="#unifi-dashboard">1.5 UniFi-dashboard</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+            <a href="#oefeningen">Oefeningen</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+            <a href="#huistaak">Huistaak</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+            <a href="#vragenlijst">Vragenlijst</a>
+          </li>
         </ul>
       </aside>
       <div class="chapter-content">
@@ -68,12 +100,11 @@
           </div>
         </div>
 
-        <section id="leerdoelen">
-          <h2>Leerdoelen</h2>
-          <div class="ld-badges">
-            <span class="badge badge-ld">[LD-NET-08]</span> Netwerk monitoren en beheren <span class="badge badge-verdieping">verdieping</span>
-          </div>
-          <p>Na dit hoofdstuk kan je:</p>
+        <div class="ld-badges">
+          <div class="ld-tag"><span class="ld-tag__code">NET08</span><span class="ld-tag__title">Netwerk monitoren en beheren — verdieping</span></div>
+        </div>
+        <div class="callout callout--info">
+          <div class="callout-header">🎯 Leerdoelen</div>
           <ul>
             <li>uitleggen waarom netwerkmonitoring essentieel is voor een beheerder</li>
             <li>diagnostische tools (ping, traceroute, nslookup) correct gebruiken</li>
@@ -81,7 +112,7 @@
             <li>het UniFi-dashboard gebruiken voor live monitoring van apparaten en verkeer</li>
             <li>een netwerk troubleshooten aan de hand van monitoringdata</li>
           </ul>
-        </section>
+        </div>
 
         <section>
           <h2>1. Theorie</h2>
@@ -314,7 +345,7 @@ Address: 142.250.74.174</code></pre>
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
-          <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H06">Markeer als voltooid</button>
+          <button class="btn btn-primary" onclick="markComplete('6adb/netwerken/H06')" data-progress-key="6adb/netwerken/H06">&#10003; Markeer als voltooid</button>
         </div>
         <div class="chapter-nav">
           <a href="H05-netwerksecurity.html" class="chapter-nav__link chapter-nav__link--prev">

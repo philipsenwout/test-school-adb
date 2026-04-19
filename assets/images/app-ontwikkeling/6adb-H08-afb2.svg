@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L10,3.5 Z" fill="#6c63ff"/>
+    </marker>
+  </defs>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#2d2d4e">JSON.stringify() en JSON.parse() — van object naar string en terug</text>
+
+  <!-- Label boven -->
+  <text x="240" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#6c63ff">Opslaan →</text>
+  <text x="580" y="68" text-anchor="middle" font-size="13" font-weight="600" fill="#43e97b">← Ophalen</text>
+
+  <!-- === Blok 1: JS Array === -->
+  <rect x="14" y="84" width="152" height="110" rx="10" fill="#e8f4fd" stroke="#3498db" stroke-width="2"/>
+  <rect x="14" y="84" width="152" height="30" rx="10" fill="#3498db"/>
+  <rect x="14" y="104" width="152" height="10" fill="#3498db"/>
+  <text x="90" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">JS Array</text>
+  <text x="26" y="128" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">[</text>
+  <text x="26" y="144" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">  {naam:'Pasta'},</text>
+  <text x="26" y="160" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">  {naam:'Soep'}</text>
+  <text x="26" y="176" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">]</text>
+
+  <!-- Pijl 1→2 -->
+  <line x1="166" y1="139" x2="214" y2="139" stroke="#6c63ff" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- === Blok 2: JSON.stringify() === -->
+  <rect x="216" y="112" width="130" height="54" rx="24" fill="#6c63ff"/>
+  <text x="281" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">JSON</text>
+  <text x="281" y="152" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">.stringify()</text>
+
+  <!-- Pijl 2→3 -->
+  <line x1="346" y1="139" x2="394" y2="139" stroke="#6c63ff" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- === Blok 3: String in localStorage === -->
+  <rect x="396" y="80" width="210" height="118" rx="10" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <rect x="396" y="80" width="210" height="30" rx="10" fill="#ff6b6b"/>
+  <rect x="396" y="100" width="210" height="10" fill="#ff6b6b"/>
+  <text x="501" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">String in localStorage</text>
+  <text x="408" y="124" font-size="9.5" font-family="'Courier New', monospace" fill="#ff6b6b">'[</text>
+  <text x="408" y="140" font-size="9.5" font-family="'Courier New', monospace" fill="#e8e8f0">  {"naam":"Pasta"},</text>
+  <text x="408" y="156" font-size="9.5" font-family="'Courier New', monospace" fill="#e8e8f0">  {"naam":"Soep"}</text>
+  <text x="408" y="172" font-size="9.5" font-family="'Courier New', monospace" fill="#ff6b6b">]'</text>
+
+  <!-- Waarschuwing onder blok 3 -->
+  <rect x="396" y="208" width="210" height="30" rx="6" fill="#fff3cd" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="501" y="224" text-anchor="middle" font-size="11" fill="#856404" font-weight="600">⚠ Enkel strings in localStorage!</text>
+
+  <!-- Pijl 3→4 (terug, rechtsom bovenlangs of nieuwe lijn) -->
+  <!-- Ophalen-pijlen starten van blok 3 naar rechts -->
+  <line x1="606" y1="139" x2="636" y2="139" stroke="#43e97b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- === Blok 4: localStorage.getItem() === -->
+  <rect x="638" y="112" width="68" height="54" rx="24" fill="#2d8a50"/>
+  <text x="672" y="131" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">localStorage</text>
+  <text x="672" y="147" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">.getItem()</text>
+
+  <!-- Terugkerende pijlen lager: getItem → parse → JS Array -->
+  <!-- We tonen het ophaal-pad op een lager niveau -->
+
+  <!-- Ophaal-pad: pijl van blok 3 naar JSON.parse (lager) -->
+  <!-- Neergaande lijn van blok 3 -->
+  <line x1="501" y1="198" x2="501" y2="248" stroke="#43e97b" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Horizontale lijn terug naar links -->
+  <line x1="90" y1="248" x2="501" y2="248" stroke="#43e97b" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Pijl omhoog naar blok JSON.parse -->
+  <line x1="280" y1="248" x2="280" y2="342" stroke="#43e97b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- === Blok 5: JSON.parse() === -->
+  <rect x="216" y="344" width="130" height="54" rx="24" fill="#2d8a50"/>
+  <text x="281" y="366" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">JSON</text>
+  <text x="281" y="384" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">.parse()</text>
+
+  <!-- Pijl parse → JS Array resultaat -->
+  <line x1="216" y1="371" x2="166" y2="371" stroke="#43e97b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- === Blok 6: JS Array resultaat === -->
+  <rect x="14" y="316" width="152" height="110" rx="10" fill="#d4edda" stroke="#43e97b" stroke-width="2"/>
+  <rect x="14" y="316" width="152" height="30" rx="10" fill="#43e97b"/>
+  <rect x="14" y="336" width="152" height="10" fill="#43e97b"/>
+  <text x="90" y="335" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">JS Array ✓</text>
+  <text x="26" y="360" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">[</text>
+  <text x="26" y="376" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">  {naam:'Pasta'},</text>
+  <text x="26" y="392" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">  {naam:'Soep'}</text>
+  <text x="26" y="408" font-size="10" font-family="'Courier New', monospace" fill="#1a1a2e">]</text>
+
+  <!-- Label stap opslaan -->
+  <text x="280" y="80" text-anchor="middle" font-size="11" fill="#6c63ff">stringify()</text>
+
+  <!-- Samenvatting -->
+  <rect x="14" y="446" width="772" height="44" rx="8" fill="#f0f4ff" stroke="#6c63ff" stroke-width="1"/>
+  <text x="400" y="463" text-anchor="middle" font-size="12" fill="#2d2d4e" font-weight="600">Opslaan: JSON.stringify(array) → string   |   Ophalen: JSON.parse(string) → array</text>
+  <text x="400" y="481" text-anchor="middle" font-size="11" fill="#888">localStorage.setItem('sleutel', JSON.stringify(data))  →  JSON.parse(localStorage.getItem('sleutel'))</text>
+</svg>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptenapp — Filteren op Categorie — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H13" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-bouwen">13.1 Wat gaan we bouwen?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.2"><span class="sidebar-check__box"></span></label>
+          <a href="#html-checkboxes">13.2 HTML voor de checkboxes</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.3"><span class="sidebar-check__box"></span></label>
+          <a href="#custom-event">13.3 Custom Event opzetten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.4"><span class="sidebar-check__box"></span></label>
+          <a href="#change-listener">13.4 Change listener op checkboxes</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.5"><span class="sidebar-check__box"></span></label>
+          <a href="#categorielijst">13.5 maakCategoriesLijst()</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="13.6"><span class="sidebar-check__box"></span></label>
+          <a href="#toon-recepten">13.6 toonRecepten() updaten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Receptenapp — Filteren op Categorie</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H13 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Receptenapp — Filteren op Categorie</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Checkboxes toevoegen aan een HTML-formulier en hun waarden uitlezen via JavaScript</li>
+          <li>Een <code>CustomEvent</code> aanmaken en dispatchen om componenten los te koppelen</li>
+          <li>Een <code>change</code>-event listener toevoegen op meerdere checkboxes tegelijk</li>
+          <li>Een filterfunctie schrijven die de receptenlijst beperkt op basis van geselecteerde categorieën</li>
+          <li>De volledige <code>toonRecepten()</code>-functie bijwerken zodat filter en verwijdering samenwerken</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-bouwen">13.1 Wat gaan we bouwen?</h2>
+      <p>In de vorige hoofdstukken kon je recepten toevoegen en verwijderen. In dit hoofdstuk voegen we <strong>filtercheckboxes</strong> toe: vier vinkjes waarmee de gebruiker kiest welke categorieën getoond worden.</p>
+      <p><strong>Gewenst gedrag:</strong></p>
+      <ul>
+        <li>Bij het laden van de pagina zijn alle vier categorieën aangevinkt → alle recepten zichtbaar</li>
+        <li>Haal je het vinkje weg bij "Dessert" → desserts verdwijnen uit de lijst</li>
+        <li>Zet je het vinkje terug → desserts verschijnen opnieuw</li>
+        <li>De update is <strong>live</strong>: geen herlaad nodig, geen knop</li>
+      </ul>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H13-afb1.svg" alt="Mockup van de index-pagina met checkboxes voor categorieën, elk met eigen kleur" loading="lazy">
+      </figure>
+
+      <h2 id="html-checkboxes">13.2 HTML voor de checkboxes</h2>
+      <p>Open <code>index.html</code>. Voeg boven de receptenlijst een formulier toe met vier checkboxes. Let op het <code>name</code>-attribuut: alle vier dragen dezelfde naam <code>categorie</code>, maar een andere <code>value</code>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;form class="categorieën"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Filter op categorie&lt;/legend&gt;
+
+    &lt;label&gt;
+      &lt;input type="checkbox" name="categorie" value="voorgerecht" checked&gt;
+      Voorgerecht
+    &lt;/label&gt;
+
+    &lt;label&gt;
+      &lt;input type="checkbox" name="categorie" value="hoofdgerecht" checked&gt;
+      Hoofdgerecht
+    &lt;/label&gt;
+
+    &lt;label&gt;
+      &lt;input type="checkbox" name="categorie" value="dessert" checked&gt;
+      Dessert
+    &lt;/label&gt;
+
+    &lt;label&gt;
+      &lt;input type="checkbox" name="categorie" value="snack" checked&gt;
+      Snack
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+      <p><strong>Waarom hetzelfde <code>name</code>-attribuut?</strong> Door alle checkboxes dezelfde naam te geven, kunnen we ze in één keer ophalen met <code>querySelectorAll('input[name=categorie]')</code>. Dat is veel handiger dan vier aparte id's.</p>
+      <p>Het <code>checked</code>-attribuut zorgt dat de vinkjes bij het laden al aangevinkt zijn.</p>
+
+      <h2 id="custom-event">13.3 Custom Event opzetten</h2>
+      <p>We gebruiken een <code>CustomEvent</code> om de receptenlijst te vernieuwen. Maar waarom niet gewoon <code>toonRecepten()</code> direct aanroepen?</p>
+      <p><strong>Het voordeel van een CustomEvent:</strong></p>
+      <ul>
+        <li>Het filtermechanisme en het weergavemechanisme zijn <strong>losgekoppeld</strong></li>
+        <li>Later kan je vanuit élk deel van de code een update triggeren door het event te dispatchen</li>
+        <li>Het is schaalbaar: meerdere listeners kunnen reageren op hetzelfde event</li>
+      </ul>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// script.js — bovenaan, na de selectoren
+
+const receptenSectie = document.querySelector('.recepten');
+
+// Maak het custom event aan
+const update = new CustomEvent('receptenUpdate');
+
+// Koppel de luisteraar aan de sectie
+receptenSectie.addEventListener('receptenUpdate', toonRecepten);</code></pre>
+      </div>
+
+      <h2 id="change-listener">13.4 Change listener op elke checkbox</h2>
+      <p>Elke keer dat een gebruiker een checkbox aan- of uitzet, moet de receptenlijst herberekend worden:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const checkboxes = document.querySelectorAll('input[name=categorie]');
+
+checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+        receptenSectie.dispatchEvent(update);
+    });
+});</code></pre>
+      </div>
+      <p>Stap voor stap:</p>
+      <ol>
+        <li><code>querySelectorAll('input[name=categorie]')</code> → geeft een NodeList terug met alle vier de checkboxes</li>
+        <li><code>.forEach(cb => ...)</code> → loop over elke checkbox</li>
+        <li><code>cb.addEventListener('change', ...)</code> → luister naar wijzigingen</li>
+        <li><code>receptenSectie.dispatchEvent(update)</code> → schiet het custom event af → <code>toonRecepten()</code> wordt uitgevoerd</li>
+      </ol>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H13-afb1.svg" alt="Flowdiagram: checkbox change event → maakCategoriesLijst() → toonRecepten() → filter + DOM rebuild" loading="lazy">
+      </figure>
+
+      <h2 id="categorielijst">13.5 <code>maakCategoriesLijst()</code> — welke categorieën zijn aangevinkt?</h2>
+      <p>We hebben een hulpfunctie nodig die de momenteel aangevinkte categorieën teruggeeft als een array van strings:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function maakCategoriesLijst() {
+    const geselecteerd = [];
+
+    checkboxes.forEach(cb => {
+        if (cb.checked) {
+            geselecteerd.push(cb.value);
+        }
+    });
+
+    return geselecteerd;
+}</code></pre>
+      </div>
+      <p>Voorbeelden van wat deze functie teruggeeft:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Alleen "voorgerecht" en "dessert" aangevinkt:
+maakCategoriesLijst(); // → ["voorgerecht", "dessert"]
+
+// Alle vier aangevinkt:
+maakCategoriesLijst(); // → ["voorgerecht", "hoofdgerecht", "dessert", "snack"]
+
+// Niets aangevinkt:
+maakCategoriesLijst(); // → []</code></pre>
+      </div>
+
+      <h2 id="toon-recepten">13.6 <code>toonRecepten()</code> updaten — filter op categorie</h2>
+      <p>Nu passen we <code>toonRecepten()</code> aan. We halen de lijst van aangevinkte categorieën op en tonen alleen de recepten waarvan de categorie in die lijst voorkomt:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonRecepten() {
+    const geselecteerdeCategorieen = maakCategoriesLijst();
+
+    // Leeg de receptensectie
+    document.querySelector('.recepten').innerHTML = '';
+
+    // Loop over alle recepten
+    alleRecepten.forEach(r => {
+        // Controleer of de categorie van dit recept geselecteerd is
+        if (geselecteerdeCategorieen.includes(r.categorie)) {
+            voegReceptToe(r);
+        }
+    });
+}
+
+// Initialiseer de pagina
+toonRecepten();</code></pre>
+      </div>
+      <p><strong>Wat doet <code>includes()</code> hier?</strong> <code>geselecteerdeCategorieen.includes(r.categorie)</code> kijkt of de categorie van het recept (bv. <code>"dessert"</code>) voorkomt in de array van aangevinkte categorieën. Als ja → toon het recept. Als nee → sla over.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Filter in actie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Implementeer de filtercheckboxes en test het gedrag:</p>
+            <ol>
+              <li>Voeg de HTML-checkboxes toe aan <code>index.html</code>.</li>
+              <li>Implementeer <code>maakCategoriesLijst()</code> en de change listeners.</li>
+              <li>Pas <code>toonRecepten()</code> aan om de filter te respecteren.</li>
+              <li>Test: voeg minstens 2 recepten per categorie toe en filter dan op elke categorie apart.</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H13-oef1-browser.svg" alt="Browser met 2 aangevinkte categorieën en alleen die recepten zichtbaar" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Alles selecteren / Alles deselecteren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg twee knoppen toe aan de HTML:</p>
+            <div class="code-block">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;button type="button" id="btn-alles-aan"&gt;Alles selecteren&lt;/button&gt;
+&lt;button type="button" id="btn-alles-uit"&gt;Alles deselecteren&lt;/button&gt;</code></pre>
+            </div>
+            <p>Schrijf de JavaScript voor deze knoppen: bij klik op "Alles selecteren" worden alle checkboxes aangevinkt, bij "Alles deselecteren" worden ze allemaal uitgezet. Vergeet niet het update-event te dispatchen na elke klik.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 3 — CSS voor de checkboxes</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg stijlregels toe aan <code>stijl.css</code> zodat de filter er visueel aantrekkelijk uitziet. Verwijderd de border van het fieldset-element en geef elke label-tekst de kleur van de bijbehorende categorie:</p>
+            <ul>
+              <li>"Voorgerecht" → rood (<code>var(--voorgerecht)</code>)</li>
+              <li>"Hoofdgerecht" → blauw (<code>var(--hoofdgerecht)</code>)</li>
+              <li>"Dessert" → paars (<code>var(--dessert)</code>)</li>
+              <li>"Snack" → oranje (<code>var(--snack)</code>)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H13 Filteren op Categorie
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H13-oef1-browser.svg', 'Voorbeeld — Filtercheckboxes in actie')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Complete filterlogica implementeren</h3>
+            <h4>Deel 1 — HTML en stijl (3 punten)</h4>
+            <ol>
+              <li>Voeg de vier filtercheckboxes toe aan <code>index.html</code>.</li>
+              <li>Stijl de checkboxes met de categoriekleuren via CSS.</li>
+            </ol>
+            <h4>Deel 2 — JavaScript (4 punten)</h4>
+            <ol>
+              <li>Implementeer <code>maakCategoriesLijst()</code>.</li>
+              <li>Voeg change listeners toe op alle checkboxes.</li>
+              <li>Pas <code>toonRecepten()</code> aan met de filterlogica.</li>
+            </ol>
+            <h4>Deel 3 — Extra knoppen (3 punten)</h4>
+            <ol>
+              <li>Implementeer "Alles selecteren" en "Alles deselecteren" knoppen.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H13 — Filteren op Categorie</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Waarom krijgen alle vier de filtercheckboxes hetzelfde <code>name</code>-attribuut?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="a"> <span>Om ze er identiek te laten uitzien</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="b"> <span>Om ze allemaal in één keer op te halen met <code>querySelectorAll('input[name=categorie]')</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="c"> <span>Zodat slechts één checkbox tegelijk aangevinkt kan zijn</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v1" value="d"> <span>Om ze te koppelen aan localStorage</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk event gebruik je voor checkboxes om wijzigingen op te vangen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="a"> <span><code>click</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="b"> <span><code>input</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="c"> <span><code>change</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v2" value="d"> <span><code>keyup</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>geselecteerdeCategorieen.includes(r.categorie)</code> in de filterfunctie?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="a"> <span>Controleert of de categorie van het recept aangevinkt is in de checkboxes</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="b"> <span>Voegt de categorie toe aan de lijst</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="c"> <span>Verwijdert de categorie uit de lijst</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v3" value="d"> <span>Telt het aantal recepten per categorie</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat geeft <code>maakCategoriesLijst()</code> terug als alle checkboxes uitgevinkt zijn?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="a"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="b"> <span><code>false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="c"> <span>Alle vier categorieën</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v4" value="d"> <span>Een lege array <code>[]</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is het voordeel van een Custom Event ten opzichte van het rechtstreeks aanroepen van <code>toonRecepten()</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="a"> <span>Custom Events zijn sneller</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="b"> <span>Het filtermechanisme en het weergavemechanisme zijn losgekoppeld en schaalbaar</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="c"> <span>Custom Events slaan automatisch op in localStorage</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v5" value="d"> <span>Er is geen voordeel</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe zet je een checkbox programmatisch aan in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="a"> <span><code>checkbox.setAttribute('checked', true)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="b"> <span><code>checkbox.value = true</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="c"> <span><code>checkbox.checked = true</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h13-v6" value="d"> <span><code>checkbox.toggle(true)</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H13')" data-progress-key="6adb/app-ontwikkeling/H13">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H12.html" class="btn btn-ghost">← H12</a>
+          <a href="H14.html" class="btn btn-ghost">H14 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

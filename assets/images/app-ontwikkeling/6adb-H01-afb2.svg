@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#43e97b"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+    </marker>
+    <marker id="arrowRedLeft" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#ff6b6b"/>
+    </marker>
+    <marker id="arrowGreenLeft" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#43e97b"/>
+    </marker>
+  </defs>
+
+  <!-- Titel -->
+  <text x="400" y="30" font-size="18" fill="#e8e8f0" text-anchor="middle" font-weight="bold">Array muterende methodes</text>
+  <line x1="200" y1="38" x2="600" y2="38" stroke="#6c63ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Legenda -->
+  <rect x="580" y="15" width="12" height="12" rx="2" fill="#43e97b"/>
+  <text x="596" y="26" font-size="11" fill="#43e97b">toevoegen</text>
+  <rect x="670" y="15" width="12" height="12" rx="2" fill="#ff6b6b"/>
+  <text x="686" y="26" font-size="11" fill="#ff6b6b">verwijderen</text>
+
+  <!-- Helper functie: vakje tekenen -->
+  <!-- ROW 1: VOOR -->
+  <text x="20" y="85" font-size="13" fill="#888" font-weight="bold">VOOR:</text>
+  <!-- A -->
+  <rect x="155" y="65" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="195" y="96" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">A</text>
+  <!-- B -->
+  <rect x="245" y="65" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="285" y="96" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">B</text>
+  <!-- C -->
+  <rect x="335" y="65" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="375" y="96" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">C</text>
+  <!-- D -->
+  <rect x="425" y="65" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="465" y="96" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">D</text>
+
+  <!-- ROW 2: push -->
+  <text x="20" y="175" font-size="12" fill="#888" font-weight="bold">NA push('E'):</text>
+  <rect x="155" y="155" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="195" y="186" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">A</text>
+  <rect x="245" y="155" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="285" y="186" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">B</text>
+  <rect x="335" y="155" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="375" y="186" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">C</text>
+  <rect x="425" y="155" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="465" y="186" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">D</text>
+  <!-- E nieuw -->
+  <rect x="515" y="155" width="80" height="50" rx="6" fill="#0d2e1a" stroke="#43e97b" stroke-width="2"/>
+  <text x="555" y="186" font-size="16" fill="#43e97b" text-anchor="middle" font-family="'Courier New', monospace">E</text>
+  <!-- Pijl rechts -->
+  <line x1="610" y1="180" x2="650" y2="180" stroke="#43e97b" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="660" y="176" font-size="12" fill="#43e97b" font-family="'Courier New', monospace">push('E')</text>
+
+  <!-- ROW 3: pop -->
+  <text x="20" y="265" font-size="12" fill="#888" font-weight="bold">NA pop():</text>
+  <rect x="155" y="245" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="195" y="276" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">A</text>
+  <rect x="245" y="245" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="285" y="276" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">B</text>
+  <rect x="335" y="245" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="375" y="276" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">C</text>
+  <!-- D weg, stippellijn -->
+  <rect x="425" y="245" width="80" height="50" rx="6" fill="#2e1a1a" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+  <text x="465" y="276" font-size="16" fill="#ff6b6b" text-anchor="middle" font-family="'Courier New', monospace" opacity="0.5">D</text>
+  <!-- Pijl rechts -->
+  <line x1="520" y1="270" x2="560" y2="270" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="568" y="266" font-size="12" fill="#ff6b6b" font-family="'Courier New', monospace">pop() → 'D'</text>
+
+  <!-- ROW 4: unshift -->
+  <text x="20" y="355" font-size="11" fill="#888" font-weight="bold">NA unshift('X'):</text>
+  <!-- X nieuw -->
+  <rect x="65" y="335" width="80" height="50" rx="6" fill="#0d2e1a" stroke="#43e97b" stroke-width="2"/>
+  <text x="105" y="366" font-size="16" fill="#43e97b" text-anchor="middle" font-family="'Courier New', monospace">X</text>
+  <rect x="155" y="335" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="195" y="366" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">A</text>
+  <rect x="245" y="335" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="285" y="366" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">B</text>
+  <rect x="335" y="335" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="375" y="366" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">C</text>
+  <rect x="425" y="335" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="465" y="366" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">D</text>
+  <!-- Pijl links -->
+  <line x1="55" y1="360" x2="20" y2="360" stroke="#43e97b" stroke-width="2" marker-end="url(#arrowGreenLeft)"/>
+  <text x="580" y="356" font-size="12" fill="#43e97b" font-family="'Courier New', monospace">unshift('X')</text>
+
+  <!-- ROW 5: shift -->
+  <text x="20" y="445" font-size="12" fill="#888" font-weight="bold">NA shift():</text>
+  <!-- A weg -->
+  <rect x="155" y="425" width="80" height="50" rx="6" fill="#2e1a1a" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+  <text x="195" y="456" font-size="16" fill="#ff6b6b" text-anchor="middle" font-family="'Courier New', monospace" opacity="0.5">A</text>
+  <rect x="245" y="425" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="285" y="456" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">B</text>
+  <rect x="335" y="425" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="375" y="456" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">C</text>
+  <rect x="425" y="425" width="80" height="50" rx="6" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <text x="465" y="456" font-size="16" fill="#e8e8f0" text-anchor="middle" font-family="'Courier New', monospace">D</text>
+  <!-- Pijl links -->
+  <line x1="145" y1="450" x2="110" y2="450" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrowRedLeft)"/>
+  <text x="560" y="446" font-size="12" fill="#ff6b6b" font-family="'Courier New', monospace">shift() → 'A'</text>
+
+  <!-- Scheidingslijnen per rij -->
+  <line x1="20" y1="140" x2="780" y2="140" stroke="#6c63ff" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+  <line x1="20" y1="230" x2="780" y2="230" stroke="#6c63ff" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+  <line x1="20" y1="320" x2="780" y2="320" stroke="#6c63ff" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+  <line x1="20" y1="410" x2="780" y2="410" stroke="#6c63ff" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+
+  <!-- Samenvatting onderaan -->
+  <rect x="20" y="500" width="760" height="80" rx="10" fill="#0d0d1a" stroke="#6c63ff" stroke-width="1" opacity="0.8"/>
+  <text x="400" y="524" font-size="12" fill="#888" text-anchor="middle">Overzicht</text>
+  <text x="200" y="548" font-size="12" fill="#43e97b" text-anchor="middle" font-family="'Courier New', monospace">push(x)  — achteraan toevoegen</text>
+  <text x="600" y="548" font-size="12" fill="#ff6b6b" text-anchor="middle" font-family="'Courier New', monospace">pop()    — achteraan verwijderen</text>
+  <text x="200" y="568" font-size="12" fill="#43e97b" text-anchor="middle" font-family="'Courier New', monospace">unshift(x) — vooraan toevoegen</text>
+  <text x="600" y="568" font-size="12" fill="#ff6b6b" text-anchor="middle" font-family="'Courier New', monospace">shift()  — vooraan verwijderen</text>
+</svg>

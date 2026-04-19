@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptenapp — Opzet &amp; Structuur — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H09" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="opdrachtbrief"><span class="sidebar-check__box"></span></label>
+          <a href="#opdrachtbrief">De opdrachtbrief</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.1"><span class="sidebar-check__box"></span></label>
+          <a href="#overzicht">9.1 Overzicht van de app</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.2"><span class="sidebar-check__box"></span></label>
+          <a href="#bestandsstructuur">9.2 Bestandsstructuur</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.3"><span class="sidebar-check__box"></span></label>
+          <a href="#recepten-js">9.3 recepten.js — de databron</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.4"><span class="sidebar-check__box"></span></label>
+          <a href="#hulpfuncties">9.4 hulpfuncties.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.5"><span class="sidebar-check__box"></span></label>
+          <a href="#index-html">9.5 index.html</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.6"><span class="sidebar-check__box"></span></label>
+          <a href="#add-html">9.6 add.html</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.7"><span class="sidebar-check__box"></span></label>
+          <a href="#stijl-css">9.7 stijl.css</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Receptenapp — Opzet &amp; Structuur</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H09 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Receptenapp — Opzet &amp; Structuur</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB03</span><span class="ld-tag__title">De leerlingen werken volgens specificaties van de opdrachtgever.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB05</span><span class="ld-tag__title">De leerlingen informeren zich over de specificaties van de opdracht.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB08</span><span class="ld-tag__title">De leerlingen werken een functionele analyse uit.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>De bestandsstructuur van een meerpagina JavaScript-app uitleggen en opzetten</li>
+          <li>Een array van objecten definiëren als databron voor een webapplicatie</li>
+          <li>ES-modules correct gebruiken met <code>export</code> en <code>import</code></li>
+          <li>Een hulpfunctie schrijven die gegevens opslaat in localStorage</li>
+          <li>HTML-pagina's opzetten met de correcte scriptkoppeling via <code>type="module"</code></li>
+          <li>CSS-variabelen gebruiken voor consistente kleurcodering per categorie</li>
+          <li>Een taakomschrijving lezen en omzetten naar een functionele analyse</li>
+        </ul>
+      </div>
+
+      <section id="opdrachtbrief">
+        <h2>De opdrachtbrief</h2>
+        <p>Je krijgt de volgende opdracht van je leerkracht als opdrachtgever. Lees ze grondig door vóór je verder gaat.</p>
+        <div class="callout callout--info">
+          <div class="callout-header">&#x1F4CB; Opdracht: Receptenapp</div>
+          <div class="callout-body">
+            <p>Maak een webapplicatie waarmee gebruikers recepten kunnen bijhouden. De app wordt volledig in de browser uitgevoerd — geen server, geen database. Recepten worden opgeslagen in de localStorage van de browser.</p>
+            <p><strong>Functionele vereisten:</strong></p>
+            <ul>
+              <li>Recepten toevoegen via een formulier (naam, categorie, ingrediënten, bereidingswijze)</li>
+              <li>Alle recepten weergeven als kaarten op de pagina</li>
+              <li>Recepten filteren op categorie</li>
+              <li>Recepten zoeken op naam</li>
+              <li>Recepten verwijderen</li>
+              <li>Statistieken tonen (aantal per categorie, meest gebruikte categorie)</li>
+            </ul>
+            <p><strong>Technische vereisten:</strong></p>
+            <ul>
+              <li>Pure HTML, CSS en JavaScript (geen frameworks)</li>
+              <li>Gebruik localStorage voor opslag</li>
+              <li>Mobile-friendly (responsive)</li>
+            </ul>
+            <p><strong>Oplevering:</strong> Één HTML-bestand + één JS-bestand + één CSS-bestand</p>
+          </div>
+        </div>
+
+        <p>Vul nu jouw eigen functionele analyse in. Kopieer het onderstaande sjabloon naar een nieuw document en vul elk onderdeel in:</p>
+        <div class="code-block">
+          <div class="code-block__lang">Markdown</div>
+          <pre><code>## Mijn Functionele Analyse — Receptenapp
+
+### Gebruikers
+Wie gebruikt deze app? (bv. thuiskok, student, gezin)
+
+### Schermen / pagina's
+Lijst de pagina's/secties op die je nodig hebt:
+- Homepagina met receptenlijst
+- ...
+
+### Functies (MoSCoW)
+| Functie | Must / Should / Could / Won't |
+|---|---|
+| Recept toevoegen | |
+| Recept weergeven | |
+| ... | |
+
+### Datastructuur
+Hoe sla je een recept op? Schrijf een voorbeeld:
+```javascript
+const recept = {
+  id: ...,
+  naam: ...,
+  categorie: ...,
+  // ...
+};
+```
+
+### Vragen aan de opdrachtgever
+1. ...
+2. ...</code></pre>
+        </div>
+
+        <div class="callout callout--warning">
+          <div class="callout-header">&#x26A0;&#xFE0F; Lever eerst in, dan pas coderen</div>
+          <p>Lever deze functionele analyse in bij je leerkracht vóór je begint te coderen. Pas na goedkeuring start je met de HTML-structuur.</p>
+        </div>
+      </section>
+
+      <h2 id="overzicht">9.1 Overzicht van de Receptenapp</h2>
+      <p>In de volgende acht hoofdstukken (H09–H16) bouwen we stap voor stap een volledige <strong>Receptenapp</strong>. Dit is een webapplicatie waarmee je recepten kan bijhouden: je kan ze bekijken, toevoegen, filteren, zoeken en verwijderen — allemaal zonder server of database, puur in de browser.</p>
+
+      <h3>Wat kan de app?</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Functionaliteit</th><th>Pagina</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Overzicht van alle recepten in een grid</td><td><code>index.html</code></td></tr>
+          <tr><td>Recepten zoeken op naam of beschrijving</td><td><code>index.html</code></td></tr>
+          <tr><td>Filteren op categorie (voorgerecht / hoofdgerecht / dessert / snack)</td><td><code>index.html</code></td></tr>
+          <tr><td>Statistieken tonen (totaal, snelste, gemiddelde bereidingstijd)</td><td><code>index.html</code></td></tr>
+          <tr><td>Een nieuw recept toevoegen via een formulier</td><td><code>add.html</code></td></tr>
+          <tr><td>Een willekeurig basisrecept toevoegen</td><td><code>add.html</code></td></tr>
+          <tr><td>Alle recepten verwijderen</td><td><code>add.html</code></td></tr>
+          <tr><td>Recepten bewaren tussen sessies via localStorage</td><td>beide pagina's</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H09-afb1.svg" alt="Wireframe van de receptenapp index-pagina: header met logo, zoekbalk, checkboxes voor categorieën en grid van receptkaarten" loading="lazy">
+      </figure>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ ES-modules vereisen een lokale server</div>
+        <p>We gebruiken <strong>ES-modules</strong> (<code>type="module"</code> op de script-tag). Dit werkt enkel als je de bestanden serveert via een lokale server (bijv. de <strong>Live Server</strong> extensie in VS Code) of via een gewone webserver. Als je de HTML-bestanden rechtstreeks opent via <code>file://</code>, zal de import/export niet werken.</p>
+      </div>
+
+      <h2 id="bestandsstructuur">9.2 Bestandsstructuur opzetten</h2>
+      <p>De app bestaat uit <strong>7 bestanden</strong>, elk met een duidelijke verantwoordelijkheid.</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Bestand</th><th>Type</th><th>Verantwoordelijkheid</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>index.html</code></td><td>HTML</td><td>Structuur van de overzichtspagina</td></tr>
+          <tr><td><code>add.html</code></td><td>HTML</td><td>Structuur van de toevoegpagina</td></tr>
+          <tr><td><code>stijl.css</code></td><td>CSS</td><td>Alle opmaak voor beide pagina's</td></tr>
+          <tr><td><code>recepten.js</code></td><td>JS (module)</td><td>Databron: array van basisrecepten + export</td></tr>
+          <tr><td><code>hulpfuncties.js</code></td><td>JS (module)</td><td>Herbruikbare hulpfuncties + export</td></tr>
+          <tr><td><code>script.js</code></td><td>JS (module)</td><td>Logica voor index.html</td></tr>
+          <tr><td><code>add.js</code></td><td>JS (module)</td><td>Logica voor add.html</td></tr>
+        </tbody>
+      </table>
+      <p>Maak een nieuwe map aan op je bureaublad of in je projectenmap, genaamd <code>receptenapp/</code>. Maak daarin de 7 bestanden aan (leeg voor nu). We vullen ze één voor één in.</p>
+
+      <h2 id="recepten-js">9.3 <code>recepten.js</code> aanmaken — de databron</h2>
+      <p>Dit bestand bevat de <strong>basisrecepten</strong>: een array van objecten die we bij de eerste keer opstarten in de app laden. Elk object heeft dezelfde structuur:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">{
+  naam: "string",          // naam van het recept
+  beschrijving: "string",  // korte beschrijving
+  categorie: "string",     // voorgerecht | hoofdgerecht | dessert | snack
+  bereidingstijd: number   // in minuten
+}</code></pre>
+      </div>
+      <p>Maak het bestand <code>recepten.js</code> aan en schrijf de volgende code:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// recepten.js
+// [ADB09] Databron: array van basisrecepten — verdieping
+
+export const basisRecepten = [
+    // --- Voorgerechten ---
+    {
+        naam: "Tomatensoep met balletjes",
+        beschrijving: "Een klassieke Belgische tomatensoep met kleine gehaktballetjes en vermicelli.",
+        categorie: "voorgerecht",
+        bereidingstijd: 35
+    },
+    {
+        naam: "Garnalencocktail",
+        beschrijving: "Verse grijze garnalen op een bedje van sla met roze saus.",
+        categorie: "voorgerecht",
+        bereidingstijd: 15
+    },
+    // --- Hoofdgerechten ---
+    {
+        naam: "Spaghetti carbonara",
+        beschrijving: "Klassieke Italiaanse pasta met ei, spek en parmezaan. Romig zonder room.",
+        categorie: "hoofdgerecht",
+        bereidingstijd: 25
+    },
+    {
+        naam: "Witloof met ham en kaassaus",
+        beschrijving: "Gestoofd witloof gewikkeld in ham, overgoten met een rijke kaassaus.",
+        categorie: "hoofdgerecht",
+        bereidingstijd: 50
+    },
+    // --- Desserts ---
+    {
+        naam: "Chocolademousse",
+        beschrijving: "Luchtige mousse van pure chocolade met slagroom en eiwitten.",
+        categorie: "dessert",
+        bereidingstijd: 20
+    },
+    // --- Snacks ---
+    {
+        naam: "Tomatensalsa met nachos",
+        beschrijving: "Verse salsa van tomaten, ui, koriander en limoen.",
+        categorie: "snack",
+        bereidingstijd: 10
+    }
+];</code></pre>
+      </div>
+      <p>Let op de volgende aandachtspunten:</p>
+      <ul>
+        <li>Het keyword <code>export</code> staat vóór <code>const</code>. Zo kan een ander bestand deze array <strong>importeren</strong>.</li>
+        <li>De categorieën zijn exact: <code>"voorgerecht"</code>, <code>"hoofdgerecht"</code>, <code>"dessert"</code>, <code>"snack"</code> (kleine letters, geen spaties). Dit is belangrijk voor de CSS-kleurcodering.</li>
+        <li><code>bereidingstijd</code> is een <strong>getal</strong> (number), geen string — we rekenen er later mee.</li>
+      </ul>
+
+      <h2 id="hulpfuncties">9.4 <code>hulpfuncties.js</code> aanmaken — herbruikbare functies</h2>
+      <p>Dit bestand bevat functies die we op <strong>meerdere plaatsen</strong> in de app nodig hebben. Door ze hier centraal te definiëren, vermijden we herhaling.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// hulpfuncties.js
+// [ADB09] Gegevens opslaan in localStorage — verdieping
+
+export const updateLS = (lijst) => {
+    localStorage.removeItem('opgeslagenRecepten');
+    localStorage.setItem('opgeslagenRecepten', JSON.stringify(lijst));
+};</code></pre>
+      </div>
+      <h3>Waarom <code>removeItem</code> vóór <code>setItem</code>?</h3>
+      <p>Je zou denken: <code>setItem</code> overschrijft toch gewoon de bestaande waarde? Dat klopt — maar door eerst expliciet te verwijderen, garanderen we een schone write. Dit is een <strong>defensief programmeerpatroon</strong>: we vermijden onverwachte bijwerkingen.</p>
+
+      <h2 id="index-html">9.5 <code>index.html</code> aanmaken — de basisstructuur</h2>
+      <p>Dit is de hoofdpagina van de app. Ze toont het overzicht van alle recepten. Merk op dat de script-tag <code>type="module"</code> heeft — dit is verplicht voor ES-modules.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Receptenapp&lt;/title&gt;
+    &lt;link rel="stylesheet" href="stijl.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+    &lt;h1 id="app-titel"&gt;Mijn Recepten&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;a href="add.html" class="knop-nav"&gt;+ Recept toevoegen&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;section class="zoek-filter"&gt;
+        &lt;input type="text" id="zoekbalk" placeholder="Zoek op naam..."&gt;
+        &lt;div class="filter-knoppen"&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="voorgerecht" checked&gt; Voorgerecht&lt;/label&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="hoofdgerecht" checked&gt; Hoofdgerecht&lt;/label&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="dessert" checked&gt; Dessert&lt;/label&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="snack" checked&gt; Snack&lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id="statistieken"&gt;
+        &lt;ul id="stats-lijst"&gt;&lt;!-- Wordt gevuld door script.js --&gt;&lt;/ul&gt;
+    &lt;/section&gt;
+    &lt;p id="geenrecepten" style="display: none;"&gt;
+        Geen recepten gevonden. &lt;a href="add.html"&gt;Voeg een recept toe →&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;section class="recepten" id="recepten-sectie"&gt;
+        &lt;!-- Receptkaarten worden hier toegevoegd door script.js --&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+    &lt;p&gt;Receptenapp — gemaakt met HTML, CSS en JavaScript&lt;/p&gt;
+&lt;/footer&gt;
+&lt;script src="script.js" type="module"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Element</th><th>Waarvoor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>id="app-titel"</code></td><td>We passen de tekst aan via DOM in script.js</td></tr>
+          <tr><td><code>id="zoekbalk"</code></td><td>Luistert naar <code>input</code>-events voor live zoeken</td></tr>
+          <tr><td><code>input[type="checkbox"]</code></td><td>Filter op categorie</td></tr>
+          <tr><td><code>id="statistieken"</code></td><td>Toont het aantal recepten per categorie</td></tr>
+          <tr><td><code>id="geenrecepten"</code></td><td>Verborgen bericht als er geen resultaten zijn</td></tr>
+          <tr><td><code>id="recepten-sectie"</code></td><td>Container waar de receptkaarten in komen</td></tr>
+          <tr><td><code>type="module"</code></td><td>Verplicht voor ES-modules (import/export)</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="add-html">9.6 <code>add.html</code> aanmaken — het formulier</h2>
+      <p>De tweede pagina van de app bevat een formulier waarmee de gebruiker een nieuw recept kan toevoegen, samen met knoppen voor een willekeurig basisrecept en het wissen van alle recepten.</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;form id="recept-formulier"&gt;
+    &lt;div class="formulier-groep"&gt;
+        &lt;label for="naam"&gt;Naam van het recept&lt;/label&gt;
+        &lt;input type="text" id="naam" placeholder="bv. Spaghetti carbonara" required&gt;
+    &lt;/div&gt;
+    &lt;div class="formulier-groep"&gt;
+        &lt;label for="beschrijving"&gt;Beschrijving&lt;/label&gt;
+        &lt;textarea id="beschrijving" rows="4" required&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div class="formulier-groep"&gt;
+        &lt;label for="categorie"&gt;Categorie&lt;/label&gt;
+        &lt;select id="categorie" required&gt;
+            &lt;option value=""&gt;-- Kies een categorie --&lt;/option&gt;
+            &lt;option value="voorgerecht"&gt;Voorgerecht&lt;/option&gt;
+            &lt;option value="hoofdgerecht"&gt;Hoofdgerecht&lt;/option&gt;
+            &lt;option value="dessert"&gt;Dessert&lt;/option&gt;
+            &lt;option value="snack"&gt;Snack&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="formulier-groep"&gt;
+        &lt;label for="bereidingstijd"&gt;Bereidingstijd (minuten)&lt;/label&gt;
+        &lt;input type="number" id="bereidingstijd" min="1" max="480" required&gt;
+    &lt;/div&gt;
+    &lt;div class="formulier-knoppen"&gt;
+        &lt;button type="submit" class="knop-primair"&gt;Recept toevoegen&lt;/button&gt;
+        &lt;button type="button" id="btn-willekeurig" class="knop-secundair"&gt;
+            Voeg willekeurig basisrecept toe
+        &lt;/button&gt;
+        &lt;button type="button" id="btn-verwijder-alle" class="knop-gevaar"&gt;
+            Verwijder alle recepten
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+
+      <h2 id="stijl-css">9.7 <code>stijl.css</code> — CSS-variabelen per categorie</h2>
+      <p>Het kleurenschema van de app is gebaseerd op <strong>CSS-variabelen</strong>. De vier categorieën krijgen elk een eigen kleur:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Categorie</th><th>Kleur</th><th>Hexcode</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Voorgerecht</td><td>Rood</td><td><code>#e74c3c</code></td></tr>
+          <tr><td>Hoofdgerecht</td><td>Blauw</td><td><code>#3498db</code></td></tr>
+          <tr><td>Dessert</td><td>Paars</td><td><code>#9b59b6</code></td></tr>
+          <tr><td>Snack</td><td>Oranje</td><td><code>#f39c12</code></td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-block__lang">CSS</div>
+        <pre><code class="language-css">:root {
+    --voorgerecht: #e74c3c;
+    --hoofdgerecht: #3498db;
+    --dessert: #9b59b6;
+    --snack: #f39c12;
+}
+
+/* Kleur linkerrand per categorie */
+article.recept-kaart.voorgerecht  { border-left-color: var(--voorgerecht); }
+article.recept-kaart.hoofdgerecht { border-left-color: var(--hoofdgerecht); }
+article.recept-kaart.dessert      { border-left-color: var(--dessert); }
+article.recept-kaart.snack        { border-left-color: var(--snack); }
+
+/* Grid layout voor de recepten */
+.recepten {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}</code></pre>
+      </div>
+      <p>De kleur wordt toegepast via de <code>border-left-color</code> op de receptkaart. We doen dit door de categorie als <strong>CSS-klasse</strong> toe te voegen aan het article-element via JavaScript: <code>kaart.classList.add(recept.categorie)</code>.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Projectopzet controleren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak alle 7 bestanden aan en vul ze in zoals beschreven in dit hoofdstuk. Controleer daarna via de DevTools van je browser:</p>
+            <ol>
+              <li>Open <code>index.html</code> via Live Server.</li>
+              <li>Open DevTools (<code>F12</code>).</li>
+              <li>Ga naar <strong>Application &gt; Storage &gt; Local Storage</strong>. Voorlopig staat er nog niets — dat is normaal.</li>
+              <li>Controleer ook de <strong>Console</strong>-tab: zijn er foutmeldingen? Zo ja, welke?</li>
+            </ol>
+            <p><strong>Denkvragen:</strong></p>
+            <ul>
+              <li>Waarom gebruiken we <code>type="module"</code> op de script-tag?</li>
+              <li>Wat is het verschil tussen <code>export const</code> en gewoon <code>const</code>?</li>
+              <li>Waarom staan alle recepten in <code>recepten.js</code> en niet rechtstreeks in <code>script.js</code>?</li>
+            </ul>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H09-oef1-browser.svg" alt="Browser met DevTools open, Application tab: localStorage leeg bij eerste start" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 2 — Eigen kleurschema</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">De huidige kleurvariabelen zijn de standaardkleuren. Pas ze aan naar een kleurenschema van jouw keuze (gebruik bijv. <a href="https://coolors.co" target="_blank">coolors.co</a> voor inspiratie).</p>
+            <p><strong>Regels:</strong></p>
+            <ul>
+              <li>De 4 categoriekleuren moeten duidelijk van elkaar te onderscheiden zijn.</li>
+              <li>De achtergrond en kaartachtergrond moeten voldoende contrast geven.</li>
+              <li>Wijzig enkel de variabelen in <code>:root {}</code> — de rest van de CSS mag je niet aanpassen.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 3 — Extra basisrecept toevoegen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg 2 extra basisrecepten toe aan de array in <code>recepten.js</code>. Zorg dat:</p>
+            <ol>
+              <li>Elk recept alle 4 verplichte velden heeft (<code>naam</code>, <code>beschrijving</code>, <code>categorie</code>, <code>bereidingstijd</code>).</li>
+              <li>De categorie exact overeenkomt met één van de 4 geldige waarden.</li>
+              <li><code>bereidingstijd</code> een getal is, geen string.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H09 Receptenapp Opzet
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H09-oef1-browser.svg', 'Voorbeeld — Projectopzet receptenapp')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledig project opzetten</h3>
+            <p>Maak thuis de volledige basisopzet van de Receptenapp. Alle 7 bestanden moeten aanwezig en correct zijn.</p>
+            <h4>Deel 1 — Bestandsstructuur (3 punten)</h4>
+            <ol>
+              <li>Maak de map <code>receptenapp/</code> aan met de 7 bestanden.</li>
+              <li>Controleer dat <code>index.html</code> opent via Live Server zonder console-fouten.</li>
+              <li>Maak een screenshot van de DevTools Console (leeg = goed).</li>
+            </ol>
+            <h4>Deel 2 — Databron uitbreiden (4 punten)</h4>
+            <ol>
+              <li>Voeg minstens 4 extra basisrecepten toe aan <code>recepten.js</code> (1 per categorie).</li>
+              <li>Controleer dat elk recept alle verplichte velden heeft.</li>
+            </ol>
+            <h4>Deel 3 — CSS aanpassen (3 punten)</h4>
+            <ol>
+              <li>Pas de CSS-variabelen in <code>:root</code> aan naar een eigen kleurenschema.</li>
+              <li>Zorg voor voldoende contrast (gebruik <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Contrast Checker</a>).</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H09 — Receptenapp Opzet &amp; Structuur</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Waarom gebruiken we <code>type="module"</code> op de script-tag?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="a"> <span>Om de pagina sneller te laden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="b"> <span>Om import/export (ES-modules) te kunnen gebruiken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="c"> <span>Om JavaScript in de HTML te verbieden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v1" value="d"> <span>Om de code te minificeren</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat doet <code>export const basisRecepten = [...]</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="a"> <span>Het maakt de array beschikbaar voor andere JS-bestanden via import</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="b"> <span>Het slaat de array op in localStorage</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="c"> <span>Het verzendt de array naar een server</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v2" value="d"> <span>Het blokkeert andere bestanden om de array te lezen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Waarom wordt in <code>hulpfuncties.js</code> eerst <code>removeItem</code> aangeroepen vóór <code>setItem</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="a"> <span>Omdat <code>setItem</code> niet overschrijft als de sleutel al bestaat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="b"> <span>Om de localStorage te vergroten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="c"> <span>Als defensief programmeerpatroon voor een schone write</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v3" value="d"> <span>Omdat <code>setItem</code> anders een fout geeft</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke categoriewaarde is <strong>fout</strong> voor gebruik in de Receptenapp?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="a"> <span><code>"voorgerecht"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="b"> <span><code>"snack"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="c"> <span><code>"dessert"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v4" value="d"> <span><code>"Hoofdgerecht"</code> (met hoofdletter)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Waarom werken ES-modules niet als je het HTML-bestand direct opent via <code>file://</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="a"> <span>Omdat de browser dan geen JavaScript ondersteunt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="b"> <span>Omdat modules een HTTP-server vereisen voor het correct laden van imports</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="c"> <span>Omdat <code>file://</code> geen CSS laadt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v5" value="d"> <span>Omdat localStorage niet beschikbaar is via <code>file://</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe importeer je de <code>updateLS</code> functie uit <code>hulpfuncties.js</code> in <code>script.js</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="a"> <span><code>import { updateLS } from "./hulpfuncties.js";</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="b"> <span><code>require('./hulpfuncties.js');</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="c"> <span><code>include hulpfuncties.js;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h09-v6" value="d"> <span><code>import hulpfuncties from "./hulpfuncties";</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H09')" data-progress-key="6adb/app-ontwikkeling/H09">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H08.html" class="btn btn-ghost">← H08</a>
+          <a href="H10.html" class="btn btn-ghost">H10 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

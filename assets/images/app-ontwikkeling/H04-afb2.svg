@@ -1,0 +1,59 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="380" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Ankerlinks — Springen naar een sectie</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">Een ankerlink verbindt een inhoudsopgave met secties op dezelfde pagina</text>
+
+  <!-- Pijl definitie -->
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2D9CDB"/>
+    </marker>
+  </defs>
+
+  <!-- Inhoudsopgave links -->
+  <rect x="30" y="60" width="280" height="200" rx="8" fill="#1e2030" stroke="#3b5bdb" stroke-width="1.5"/>
+  <text x="170" y="80" text-anchor="middle" font-size="12" fill="#74c0fc" font-weight="bold">Inhoudsopgave</text>
+  <text x="170" y="96" text-anchor="middle" font-size="10" fill="#888">(bovenaan de pagina)</text>
+
+  <rect x="50" y="106" width="240" height="28" rx="4" fill="#2D9CDB" opacity="0.25"/>
+  <text x="60" y="124" font-size="12" font-family="Courier New" fill="#74c0fc">&lt;a href="#inleiding"&gt;1. Inleiding&lt;/a&gt;</text>
+
+  <rect x="50" y="140" width="240" height="28" rx="4" fill="#2D9CDB" opacity="0.15"/>
+  <text x="60" y="158" font-size="12" font-family="Courier New" fill="#74c0fc">&lt;a href="#methode"&gt;2. Methode&lt;/a&gt;</text>
+
+  <rect x="50" y="174" width="240" height="28" rx="4" fill="#2D9CDB" opacity="0.25"/>
+  <text x="60" y="192" font-size="12" font-family="Courier New" fill="#74c0fc">&lt;a href="#besluit"&gt;3. Besluit&lt;/a&gt;</text>
+
+  <text x="170" y="240" text-anchor="middle" font-size="10" fill="#888">Klik op link → browser springt</text>
+  <text x="170" y="253" text-anchor="middle" font-size="10" fill="#888">naar de overeenkomstige sectie</text>
+
+  <!-- Pijlen van TOC naar secties -->
+  <line x1="310" y1="120" x2="455" y2="130" stroke="#2D9CDB" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  <line x1="310" y1="154" x2="455" y2="210" stroke="#2D9CDB" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  <line x1="310" y1="188" x2="455" y2="295" stroke="#2D9CDB" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+
+  <!-- Secties rechts -->
+  <rect x="460" y="60" width="310" height="70" rx="6" fill="#22C55E" opacity="0.12" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="475" y="80" font-size="11" font-family="Courier New" fill="#22C55E">&lt;section id="inleiding"&gt;</text>
+  <text x="475" y="97" font-size="12" fill="#f0f0f0" font-weight="bold">1. Inleiding</text>
+  <text x="475" y="115" font-size="11" fill="#888">Lorem ipsum dolor sit amet...</text>
+
+  <rect x="460" y="145" width="310" height="70" rx="6" fill="#22C55E" opacity="0.08" stroke="#22C55E" stroke-width="1"/>
+  <text x="475" y="165" font-size="11" font-family="Courier New" fill="#22C55E">&lt;section id="methode"&gt;</text>
+  <text x="475" y="182" font-size="12" fill="#f0f0f0" font-weight="bold">2. Methode</text>
+  <text x="475" y="200" font-size="11" fill="#888">De aanpak die we gebruikten...</text>
+
+  <rect x="460" y="230" width="310" height="70" rx="6" fill="#22C55E" opacity="0.12" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="475" y="250" font-size="11" font-family="Courier New" fill="#22C55E">&lt;section id="besluit"&gt;</text>
+  <text x="475" y="267" font-size="12" fill="#f0f0f0" font-weight="bold">3. Besluit</text>
+  <text x="475" y="285" font-size="11" fill="#888">De conclusies zijn duidelijk...</text>
+
+  <!-- Tip onderaan -->
+  <rect x="30" y="280" width="400" height="80" rx="6" fill="#2a2c3e"/>
+  <text x="230" y="300" text-anchor="middle" font-size="11" font-weight="bold" fill="#f0f0f0">Hoe werkt het?</text>
+  <text x="50" y="318" font-size="11" fill="#aaa">1. Sectie krijgt een id:  </text>
+  <text x="220" y="318" font-size="11" font-family="Courier New" fill="#79c0ff">&lt;section id="inleiding"&gt;</text>
+  <text x="50" y="338" font-size="11" fill="#aaa">2. Link verwijst ernaar:</text>
+  <text x="222" y="338" font-size="11" font-family="Courier New" fill="#79c0ff">href="#inleiding"</text>
+  <text x="50" y="356" font-size="10" fill="#888">Het #-teken betekent: springt naar het element met dat id</text>
+</svg>

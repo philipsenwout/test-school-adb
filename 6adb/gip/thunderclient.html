@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thunder Client installatie — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container container-narrow">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../software.html">Software</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>Thunder Client</span>
+    </nav>
+
+    <div class="page-header vak-appdev">
+      <div class="page-header__vak">&#9889; GIP-project &mdash; Software installatie</div>
+      <h1 class="page-header__title">Thunder Client</h1>
+      <p class="page-header__desc">
+        Thunder Client is een VS Code-extensie waarmee je HTTP-requests kan sturen naar je eigen Node.js-server. Zo test je je API-routes snel en eenvoudig, zonder extra software te installeren.
+      </p>
+    </div>
+
+    <div class="callout callout--info" style="margin-bottom: var(--space-8);">
+      <div class="callout-header">&#128161; Waarvoor gebruik je Thunder Client?</div>
+      <p>Tijdens het GIP bouw je een Node.js-server met routes zoals <code>POST /api/login</code> of <code>GET /api/items</code>. Thunder Client laat je deze routes testen en debuggen <strong>terwijl je ze schrijft</strong> &mdash; zonder dat je eerst een volledige front-end nodig hebt.</p>
+    </div>
+
+    <!-- ═══ STAP 1: INSTALLATIE ═══ -->
+    <h2 style="margin-bottom: var(--space-4);">Stap 1 &mdash; Installatie</h2>
+
+    <ol class="install-steps">
+      <li>
+        <strong>Open Visual Studio Code.</strong>
+      </li>
+      <li>
+        Klik op het <strong>Extensions-icoontje</strong> in de linkerbalk, of gebruik de sneltoets:
+        <span style="display: inline-flex; gap: 4px; margin-left: 4px;">
+          <kbd style="background: var(--surface-3); border: 1px solid var(--border); border-radius: 4px; padding: 1px 8px; font-size: 0.82em;">Ctrl</kbd>
+          <kbd style="background: var(--surface-3); border: 1px solid var(--border); border-radius: 4px; padding: 1px 8px; font-size: 0.82em;">Shift</kbd>
+          <kbd style="background: var(--surface-3); border: 1px solid var(--border); border-radius: 4px; padding: 1px 8px; font-size: 0.82em;">X</kbd>
+        </span>
+      </li>
+      <li>
+        Typ in de zoekbalk: <code>Thunder Client</code>
+      </li>
+      <li>
+        Kies het resultaat van <strong>Ranga Vadhineni</strong> &mdash; herkenbaar aan het bliksemschicht-icoontje.
+      </li>
+      <li>
+        Klik op <strong>Install</strong>.
+      </li>
+      <li>
+        Na de installatie verschijnt een <strong>bliksemicoontje &#9889;</strong> in de linkerbalk van VS Code. Klik erop om Thunder Client te openen.
+      </li>
+    </ol>
+
+    <!-- ═══ STAP 2: EERSTE GEBRUIK ═══ -->
+    <h2 style="margin-top: var(--space-8); margin-bottom: var(--space-4);">Stap 2 &mdash; Een route testen</h2>
+
+    <ol class="install-steps">
+      <li>
+        Start je Node.js-server: open een terminal in je <code>Server/</code>-map en voer <code>npm start</code> uit.
+      </li>
+      <li>
+        Klik op <strong>New Request</strong> in het Thunder Client-paneel.
+      </li>
+      <li>
+        Kies de HTTP-methode (<code>GET</code>, <code>POST</code>, <code>PUT</code> of <code>DELETE</code>) via het dropdown-menu links van de URL-balk.
+      </li>
+      <li>
+        Vul de URL in van je route, bv. <code>http://localhost:3000/api/items</code>.
+      </li>
+      <li>
+        Voeg indien nodig een <strong>Body</strong> toe via het tabblad <em>Body</em> &rarr; kies <em>JSON</em>.
+      </li>
+      <li>
+        Klik op <strong>Send</strong> en bekijk het antwoord van je server in het rechterpaneel.
+      </li>
+    </ol>
+
+    <!-- ═══ GIP API'S TESTEN ═══ -->
+    <h2 style="margin-top: var(--space-8); margin-bottom: var(--space-2);">Stap 3 &mdash; GIP API&rsquo;s testen</h2>
+    <p style="margin-bottom: var(--space-6); color: var(--text-secondary);">
+      Hieronder vind je voor elke route uit het GIP-project hoe je die test in Thunder Client. Test ze <strong>in volgorde</strong> &mdash; beveiligde routes werken pas nadat je ingelogd bent.
+    </p>
+
+    <div class="callout callout--warning" style="margin-bottom: var(--space-6);">
+      <div class="callout-header">&#9888;&#65039; Sessie &amp; cookies</div>
+      <p>Thunder Client bewaart je sessie-cookie automatisch zolang het venster open blijft. Je hoeft dus maar &eacute;&eacute;n keer in te loggen. Sluit je Thunder Client, dan ben je uitgelogd en moet je opnieuw starten met <code>POST /api/login</code>.</p>
+    </div>
+
+    <!-- Publieke routes -->
+    <h3 style="margin-bottom: var(--space-3);">&#127758; Publieke routes (geen login vereist)</h3>
+
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">Deze routes zijn toegankelijk voor iedereen, ook zonder sessie.</p>
+
+    <div class="code-block">
+      <div class="code-block__lang">GET &mdash; alle activiteiten ophalen</div>
+      <pre><code>Methode : GET
+URL     : http://localhost:3000/api/activiteiten
+Body    : (leeg)
+
+Verwacht antwoord: 200 OK
+[ { "id": 1, "titel": "Voetbal", ... }, ... ]</code></pre>
+    </div>
+
+    <!-- Auth routes -->
+    <h3 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">&#128274; Authenticatie</h3>
+
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">Test registratie en login. Begin altijd met registreren of inloggen voordat je beveiligde routes test.</p>
+
+    <div class="code-block">
+      <div class="code-block__lang">POST &mdash; registreren</div>
+      <pre><code>Methode : POST
+URL     : http://localhost:3000/api/register
+Body    : JSON
+
+{
+  "username": "testuser",
+  "password": "mijnWachtwoord123"
+}
+
+Verwacht antwoord: 201 Created
+{ "message": "Gebruiker aangemaakt" }</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">POST &mdash; inloggen</div>
+      <pre><code>Methode : POST
+URL     : http://localhost:3000/api/login
+Body    : JSON
+
+{
+  "username": "testuser",
+  "password": "mijnWachtwoord123"
+}
+
+Verwacht antwoord: 200 OK
+{ "message": "Ingelogd", "user": { "id": 1, "username": "testuser", "rol": "user" } }</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">GET &mdash; huidige gebruiker opvragen</div>
+      <pre><code>Methode : GET
+URL     : http://localhost:3000/api/mij
+Body    : (leeg)
+
+Verwacht antwoord: 200 OK  (als je ingelogd bent)
+{ "id": 1, "username": "testuser", "rol": "user" }
+
+Fout als niet ingelogd: 401 Unauthorized</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">POST &mdash; uitloggen</div>
+      <pre><code>Methode : POST
+URL     : http://localhost:3000/api/logout
+Body    : (leeg)
+
+Verwacht antwoord: 200 OK
+{ "message": "Uitgelogd" }</code></pre>
+    </div>
+
+    <!-- Gebruikersdashboard routes -->
+    <h3 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">&#128100; Gebruikersdashboard (login vereist)</h3>
+
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">Log eerst in als gewone gebruiker. Deze routes werken enkel met een actieve sessie en tonen alleen de eigen activiteiten.</p>
+
+    <div class="code-block">
+      <div class="code-block__lang">GET &mdash; eigen activiteiten ophalen</div>
+      <pre><code>Methode : GET
+URL     : http://localhost:3000/api/mijn-activiteiten
+Body    : (leeg)
+
+Verwacht antwoord: 200 OK
+[ { "id": 1, "naam": "Yoga", "datum": "2026-05-10", "user_id": 2, ... } ]</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">POST &mdash; nieuwe activiteit aanmaken</div>
+      <pre><code>Methode : POST
+URL     : http://localhost:3000/api/activiteiten
+Body    : JSON
+
+{
+  "naam": "Yoga",
+  "beschrijving": "Wekelijkse yogales",
+  "datum": "2026-05-10",
+  "starttijd": "09:00",
+  "locatie": "Sportzaal",
+  "max_deelnemers": 15
+}
+
+Verwacht antwoord: 201 Created
+{ "id": 3, "bericht": "Activiteit aangemaakt" }
+→ user_id wordt automatisch ingesteld op de ingelogde gebruiker</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">PUT &mdash; eigen activiteit bewerken</div>
+      <pre><code>Methode : PUT
+URL     : http://localhost:3000/api/activiteiten/3
+Body    : JSON
+
+{
+  "naam": "Yoga (gevorderd)",
+  "beschrijving": "Wekelijkse yogales voor gevorderden",
+  "datum": "2026-05-10",
+  "starttijd": "09:00",
+  "locatie": "Sportzaal",
+  "max_deelnemers": 10
+}
+
+Verwacht antwoord: 200 OK
+{ "bericht": "Activiteit bijgewerkt" }
+
+Fout als niet jouw activiteit: 403 Forbidden</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">DELETE &mdash; eigen activiteit verwijderen</div>
+      <pre><code>Methode : DELETE
+URL     : http://localhost:3000/api/activiteiten/3
+Body    : (leeg)
+
+→ vervang "3" door het id van jouw activiteit
+
+Verwacht antwoord: 204 No Content
+Fout als niet jouw activiteit: 403 Forbidden</code></pre>
+    </div>
+
+    <!-- Admin routes -->
+    <h3 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">&#128737;&#65039; Admin (login als admin vereist)</h3>
+
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">Log in met een account waarbij <code>rol = 'admin'</code> in de databank staat. Gewone gebruikers krijgen een <code>403 Forbidden</code>.</p>
+
+    <div class="code-block">
+      <div class="code-block__lang">POST &mdash; nieuwe activiteit aanmaken</div>
+      <pre><code>Methode : POST
+URL     : http://localhost:3000/api-admin/activiteiten
+Body    : JSON
+
+{
+  "titel": "Zwemmen",
+  "omschrijving": "Wekelijkse zwemtraining",
+  "datum": "2026-05-10",
+  "status": "actief"
+}
+
+Verwacht antwoord: 201 Created
+{ "id": 5, "titel": "Zwemmen", ... }</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">PUT &mdash; activiteit aanpassen</div>
+      <pre><code>Methode : PUT
+URL     : http://localhost:3000/api-admin/activiteiten/5
+Body    : JSON
+
+{
+  "titel": "Zwemmen (gevorderd)",
+  "omschrijving": "Wekelijkse zwemtraining voor gevorderden",
+  "datum": "2026-05-10",
+  "status": "actief"
+}
+
+Verwacht antwoord: 200 OK
+{ "message": "Activiteit bijgewerkt" }</code></pre>
+    </div>
+
+    <div class="code-block" style="margin-top: var(--space-4);">
+      <div class="code-block__lang">DELETE &mdash; activiteit verwijderen</div>
+      <pre><code>Methode : DELETE
+URL     : http://localhost:3000/api-admin/activiteiten/5
+Body    : (leeg)
+
+→ vervang "5" door het id van de activiteit
+
+Verwacht antwoord: 200 OK
+{ "message": "Activiteit verwijderd" }</code></pre>
+    </div>
+
+    <!-- ═══ VEELGEMAAKTE FOUTEN ═══ -->
+    <h2 style="margin-top: var(--space-8); margin-bottom: var(--space-4);">Veelgemaakte fouten</h2>
+
+    <div class="callout callout--warning" style="margin-bottom: var(--space-4);">
+      <div class="callout-header">&#9888;&#65039; Connection refused</div>
+      <p>Je server staat niet aan. Open een terminal in je <code>Server/</code>-map en voer <code>npm start</code> uit. Controleer of je geen foutmelding ziet in de terminal.</p>
+    </div>
+
+    <div class="callout callout--warning" style="margin-bottom: var(--space-4);">
+      <div class="callout-header">&#9888;&#65039; 404 Not Found</div>
+      <p>De route bestaat niet op je server. Controleer de URL (bv. <code>/api/items</code> en niet <code>/api/item</code>) en of de route correct gedefinieerd is in <code>server.js</code>.</p>
+    </div>
+
+    <div class="callout callout--warning" style="margin-bottom: var(--space-8);">
+      <div class="callout-header">&#9888;&#65039; 401 Unauthorized</div>
+      <p>Je probeert een beveiligde route aan te spreken zonder actieve sessie. Log eerst in via <code>POST /api/login</code>. Thunder Client bewaart de cookie automatisch als je <em>Cookies</em> ingeschakeld laat.</p>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="../software.html" class="btn btn-ghost">&#8592; Terug naar Software</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

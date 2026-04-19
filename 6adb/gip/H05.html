@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 — Gebruikersdashboard — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/gip/H05" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#db-aanpassen">1. Database aanpassen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#backend-routes">2. Back-end routes</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#dashboard-html">3. Dashboard HTML</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#dashboard-js">4. dashboard.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4b"><span class="sidebar-check__box"></span></label>
+          <a href="#event-delegation-uitleg">↳ Event delegation &amp; cache</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="index.html">GIP</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>H05 &mdash; Gebruikersdashboard</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H05 &mdash; GIP 6ADB</div>
+        <h1 class="page-header__title">Gebruikersdashboard</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">De leerlingen bevragen en bewerken een database.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een database aan een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#127919; Leerdoelen</div>
+        <ul>
+          <li>De activiteitentabel uitbreiden met een <code>user_id</code> kolom</li>
+          <li>Routes schrijven die alleen de eigen activiteiten van de ingelogde gebruiker teruggeven</li>
+          <li>Eigendomscontrole toepassen bij PUT en DELETE (een gebruiker kan alleen zijn eigen data aanpassen)</li>
+          <li>Een volledig CRUD-dashboard bouwen in de front-end</li>
+        </ul>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888;&#65039; Rolverdeling in deze applicatie</div>
+        <ul>
+          <li><strong>Gebruiker</strong>: kan inloggen en zijn eigen activiteiten toevoegen, bekijken, bewerken en verwijderen</li>
+          <li><strong>Admin</strong>: kan alle activiteiten van alle gebruikers beheren (zie H06)</li>
+        </ul>
+        <p style="margin-top: var(--space-3); margin-bottom:0">De routes in dit hoofdstuk zijn beschermd: je moet ingelogd zijn. Bovendien mag je bij PUT en DELETE <strong>enkel je eigen activiteiten</strong> aanpassen.</p>
+      </div>
+
+      <!-- ═══ SECTIE 1 ═══ -->
+      <h2 id="db-aanpassen">1. Database aanpassen</h2>
+
+      <p>Elke activiteit moet weten van welke gebruiker ze is. Voeg een <code>user_id</code> kolom toe aan de activiteitentabel:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">SQL — MySQL Workbench</div>
+        <pre><code class="language-sql">-- ALTER TABLE past een bestaande tabel aan zonder de data te verwijderen
+ALTER TABLE activiteiten
+  -- ADD COLUMN voegt een nieuwe kolom toe; INT past bij het id-veld van users
+  -- Geen NOT NULL: bestaande rijen krijgen automatisch NULL als user_id
+  ADD COLUMN user_id INT,
+
+  -- FOREIGN KEY legt een relatie: user_id verwijst naar het id-veld van de users-tabel
+  -- Dit garandeert op databaseniveau dat user_id altijd een bestaande user verwijst
+  -- ON DELETE SET NULL: als een gebruiker verwijderd wordt, wordt user_id NULL
+  --   (de activiteit zelf blijft bestaan)
+  ADD FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL;</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; ON DELETE SET NULL</div>
+        <p>Als een gebruiker verwijderd wordt, worden zijn activiteiten niet mee verwijderd. <code>user_id</code> wordt dan <code>NULL</code>. De admin kan die activiteiten dan nog beheren.</p>
+      </div>
+
+      <!-- ═══ SECTIE 2 ═══ -->
+      <h2 id="backend-routes">2. Back-end routes in server.js</h2>
+
+      <p>Voeg eerst een herbruikbare login-middleware toe bovenaan je routes. Daarna komen de vier routes voor het dashboard.</p>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888;&#65039; Routes uit H03 worden hier vervangen</div>
+        <p>De POST, PUT en DELETE routes uit H03 hadden nog geen eigendomscontrole. Vervang ze door de versies hieronder die <code>user_id</code> gebruiken.</p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">// ── Middleware: vereisLogin ───────────────────────────────────
+// Middleware is een functie met drie parameters: req, res, next.
+//   - Als de controle slaagt → next() aanroepen zodat de route verder gaat
+//   - Als de controle mislukt → zelf een response sturen (route wordt NIET uitgevoerd)
+function vereisLogin(req, res, next) {
+    // req.session.gebruikerId werd ingesteld bij inloggen (H04)
+    // Als het undefined is, is niemand ingelogd
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Inloggen vereist' });
+    }
+    next(); // alles OK — laat de route verder gaan
+}
+
+// ── GET /api/mijn-activiteiten — alleen eigen activiteiten ───
+// vereisLogin als tweede argument: Express roept vereisLogin aan VÓÓR de route-functie
+app.get('/api/mijn-activiteiten', vereisLogin, async (req, res) => {
+    const [rijen] = await pool.execute(
+        // WHERE user_id = ? filtert enkel de activiteiten van de ingelogde gebruiker
+        // req.session.gebruikerId werd ingesteld bij het inloggen in H04
+        'SELECT * FROM activiteiten WHERE user_id = ? ORDER BY datum ASC',
+        [req.session.gebruikerId]
+    );
+    res.json(rijen);
+});
+
+// ── POST /api/activiteiten — nieuwe activiteit aanmaken ──────
+// (vervangt de versie uit H03: user_id wordt nu automatisch ingesteld)
+app.post('/api/activiteiten', vereisLogin, async (req, res) => {
+    const { naam, beschrijving, datum, starttijd, locatie, max_deelnemers } = req.body;
+    if (!naam || !datum || !starttijd) {
+        return res.status(400).json({ fout: 'Naam, datum en starttijd zijn verplicht' });
+    }
+    const [r] = await pool.execute(
+        `INSERT INTO activiteiten
+         (naam, beschrijving, datum, starttijd, locatie, max_deelnemers, user_id)
+         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        // user_id = req.session.gebruikerId: de activiteit wordt gekoppeld aan de ingelogde gebruiker
+        [naam, beschrijving || null, datum, starttijd, locatie || null,
+         max_deelnemers || 20, req.session.gebruikerId]
+    );
+    res.status(201).json({ id: r.insertId, bericht: 'Activiteit aangemaakt' });
+});
+
+// ── PUT /api/activiteiten/:id — eigen activiteit bewerken ────
+app.put('/api/activiteiten/:id', vereisLogin, async (req, res) => {
+    const { naam, beschrijving, datum, starttijd, locatie, max_deelnemers } = req.body;
+    const [r] = await pool.execute(
+        `UPDATE activiteiten
+         SET naam=?, beschrijving=?, datum=?, starttijd=?, locatie=?, max_deelnemers=?
+         -- WHERE heeft TWEE voorwaarden: het juiste id ÉN de ingelogde gebruiker als eigenaar
+         -- Als de gebruiker een id van iemand anders probeert te bewerken,
+         -- matcht de WHERE niet → affectedRows is 0
+         WHERE id=? AND user_id=?`,
+        [naam, beschrijving || null, datum, starttijd, locatie || null,
+         max_deelnemers || 20, req.params.id, req.session.gebruikerId]
+    );
+    // affectedRows === 0: twee mogelijke oorzaken:
+    //   1. De activiteit bestaat niet (id ongeldig)
+    //   2. De activiteit bestaat wel, maar de gebruiker is niet de eigenaar
+    // In beide gevallen: 403 Forbidden
+    if (r.affectedRows === 0) {
+        return res.status(403).json({ fout: 'Activiteit niet gevonden of geen toegang' });
+    }
+    res.json({ bericht: 'Activiteit bijgewerkt' });
+});
+
+// ── DELETE /api/activiteiten/:id — eigen activiteit verwijderen
+app.delete('/api/activiteiten/:id', vereisLogin, async (req, res) => {
+    const [r] = await pool.execute(
+        // Zelfde eigendomscontrole via AND user_id = ?
+        // Een gebruiker kan nooit de activiteiten van iemand anders verwijderen
+        'DELETE FROM activiteiten WHERE id=? AND user_id=?',
+        [req.params.id, req.session.gebruikerId]
+    );
+    if (r.affectedRows === 0) {
+        return res.status(403).json({ fout: 'Activiteit niet gevonden of geen toegang' });
+    }
+    res.status(204).end();
+});</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Waarom <code>AND user_id = ?</code>?</div>
+        <p>Bij de PUT en DELETE voegen we <code>AND user_id = req.session.gebruikerId</code> toe aan de WHERE-clausule. Zo kan een ingelogde gebruiker nooit de activiteiten van iemand anders aanpassen, ook niet als hij het juiste <code>id</code> raadt. Als <code>affectedRows === 0</code> betekent dat óf het id bestaat niet, óf het id behoort aan iemand anders.</p>
+      </div>
+
+      <table>
+        <thead><tr><th>Route</th><th>Methode</th><th>Wat</th></tr></thead>
+        <tbody>
+          <tr><td><code>/api/mijn-activiteiten</code></td><td>GET</td><td>Eigen activiteiten ophalen</td></tr>
+          <tr><td><code>/api/activiteiten</code></td><td>POST</td><td>Nieuwe activiteit aanmaken (user_id automatisch)</td></tr>
+          <tr><td><code>/api/activiteiten/:id</code></td><td>PUT</td><td>Eigen activiteit bewerken</td></tr>
+          <tr><td><code>/api/activiteiten/:id</code></td><td>DELETE</td><td>Eigen activiteit verwijderen</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ═══ SECTIE 3 ═══ -->
+      <h2 id="dashboard-html">3. Dashboard HTML</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML — Client/dashboard.html</div>
+        <pre><code class="language-html">&lt;!-- Client/dashboard.html --&gt;
+&lt;header&gt;
+  &lt;h1&gt;Mijn Dashboard&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;span id="gebruiker-naam"&gt;&lt;/span&gt;
+    &lt;button id="logout-btn"&gt;Uitloggen&lt;/button&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;section class="form-container"&gt;
+    &lt;h2 id="form-titel"&gt;Nieuwe activiteit&lt;/h2&gt;
+    &lt;form id="activiteit-form"&gt;
+      &lt;input type="hidden" id="edit-id"&gt;
+      &lt;label&gt;Naam *&lt;input type="text" id="naam" required&gt;&lt;/label&gt;
+      &lt;label&gt;Beschrijving&lt;textarea id="beschrijving"&gt;&lt;/textarea&gt;&lt;/label&gt;
+      &lt;label&gt;Datum *&lt;input type="date" id="datum" required&gt;&lt;/label&gt;
+      &lt;label&gt;Starttijd *&lt;input type="time" id="starttijd" required&gt;&lt;/label&gt;
+      &lt;label&gt;Locatie&lt;input type="text" id="locatie"&gt;&lt;/label&gt;
+      &lt;label&gt;Max. deelnemers&lt;input type="number" id="max_deelnemers" value="20" min="1"&gt;&lt;/label&gt;
+      &lt;div style="display:flex; gap:0.5rem;"&gt;
+        &lt;button type="submit" id="opslaan-btn"&gt;Toevoegen&lt;/button&gt;
+        &lt;button type="button" id="annuleer-btn" hidden&gt;Annuleren&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;p id="foutmelding" class="fout" hidden&gt;&lt;/p&gt;
+  &lt;/section&gt;
+
+  &lt;section&gt;
+    &lt;h2&gt;Mijn activiteiten&lt;/h2&gt;
+    &lt;div id="activiteiten-tabel"&gt;Laden...&lt;/div&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+&lt;script type="module" src="js/dashboard.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+
+      <!-- ═══ SECTIE 4 ═══ -->
+      <h2 id="dashboard-js">4. dashboard.js (front-end)</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Client/js/dashboard.js</div>
+        <pre><code class="language-javascript">// Client/js/dashboard.js
+
+// ── Sessiecontrole bij laden ───────────────────────────────────────────────────
+async function init() {
+    // Vraag de server: wie is er momenteel ingelogd?
+    // GET /api/mij kijkt naar de sessie-cookie die de browser meestuurt.
+    const response = await fetch('/api/mij');
+
+    if (!response.ok) {
+        // 401 = niet ingelogd → doorsturen naar loginpagina
+        // Dit voorkomt dat niet-ingelogde bezoekers het dashboard zien
+        window.location.href = '/login.html';
+        return; // stop de functie — de rest mag niet uitgevoerd worden
+    }
+
+    const gebruiker = await response.json();
+    document.getElementById('gebruiker-naam').textContent = gebruiker.naam;
+
+    // Admins horen niet op het gebruikersdashboard — stuur door naar admin.html
+    if (gebruiker.rol === 'admin') {
+        window.location.href = '/admin.html';
+        return;
+    }
+
+    laadActiviteiten();
+
+    // Event listeners pas registreren nadat de sessiecontrole gelukt is
+    document.getElementById('activiteit-form')
+        .addEventListener('submit', slaActiviteitOp);
+    document.getElementById('annuleer-btn')
+        .addEventListener('click', resetFormulier);
+    document.getElementById('logout-btn')
+        .addEventListener('click', async () => {
+            await fetch('/api/logout', { method: 'POST' });
+            window.location.href = '/login.html';
+        });
+}
+
+// Module-level cache — beschikbaar voor event delegation zonder inline onclick
+let activiteitenCache = [];
+
+// ── Eigen activiteiten laden ───────────────────────────────────────────────────
+async function laadActiviteiten() {
+    // GET /api/mijn-activiteiten geeft enkel de activiteiten van de ingelogde gebruiker
+    const response     = await fetch('/api/mijn-activiteiten');
+    const activiteiten = await response.json();
+    activiteitenCache  = activiteiten; // bewaar voor event delegation
+    const container    = document.getElementById('activiteiten-tabel');
+
+    if (activiteiten.length === 0) {
+        container.innerHTML = '&lt;p&gt;Je hebt nog geen activiteiten toegevoegd.&lt;/p&gt;';
+        return;
+    }
+
+    // Template literal met .map() en .join('') om de tabel op te bouwen
+    container.innerHTML = `
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Naam&lt;/th&gt;&lt;th&gt;Datum&lt;/th&gt;&lt;th&gt;Aanvang&lt;/th&gt;
+                    &lt;th&gt;Locatie&lt;/th&gt;&lt;th&gt;Max.&lt;/th&gt;&lt;th&gt;Acties&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                ${activiteiten.map(a =&gt; `
+                    &lt;tr&gt;
+                        &lt;td&gt;${a.naam}&lt;/td&gt;
+                        &lt;td&gt;${new Date(a.datum).toLocaleDateString('nl-BE')}&lt;/td&gt;
+                        &lt;td&gt;${a.starttijd.slice(0,5)}&lt;/td&gt;
+                        &lt;td&gt;${a.locatie || '—'}&lt;/td&gt;
+                        &lt;td&gt;${a.max_deelnemers}&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;!-- Geef de activiteitsgegevens als argumenten mee zodat
+                                 startBewerken het formulier kan invullen zonder extra API-call --&gt;
+                            &lt;button data-actie="bewerken" data-id="${a.id}"&gt;
+                                Bewerken
+                            &lt;/button&gt;
+                            &lt;button data-actie="verwijderen" data-id="${a.id}"&gt;
+                                Verwijderen
+                            &lt;/button&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                `).join('')}
+            &lt;/tbody&gt;
+        &lt;/table&gt;`;
+}
+
+// ── Formulier verzenden: aanmaken of bewerken ─────────────────────────────────
+async function slaActiviteitOp(e) {
+    e.preventDefault();
+
+    // edit-id is leeg → nieuwe activiteit (POST)
+    // edit-id is gevuld → bestaande bewerken (PUT)
+    const editId = document.getElementById('edit-id').value;
+    const body = {
+        naam:           document.getElementById('naam').value,
+        beschrijving:   document.getElementById('beschrijving').value,
+        datum:          document.getElementById('datum').value,
+        starttijd:      document.getElementById('starttijd').value,
+        locatie:        document.getElementById('locatie').value,
+        max_deelnemers: document.getElementById('max_deelnemers').value,
+    };
+
+    // Bepaal URL en methode op basis van of we aanmaken of bewerken
+    const url    = editId ? `/api/activiteiten/${editId}` : '/api/activiteiten';
+    const method = editId ? 'PUT' : 'POST';
+
+    const response = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+    });
+    const data = await response.json();
+
+    if (response.ok) {
+        resetFormulier(); // formulier leegmaken
+        laadActiviteiten(); // tabel herladen
+    } else {
+        const fout = document.getElementById('foutmelding');
+        fout.textContent = data.fout;
+        fout.hidden = false;
+    }
+}
+
+// ── Bewerken: formulier invullen met bestaande gegevens ───────────────────────
+function startBewerken(id, naam, beschrijving, datum, starttijd, locatie, maxDeel) {
+    // Sla het id op in het verborgen veld — slaActiviteitOp() leest dit uit
+    document.getElementById('edit-id').value           = id;
+    document.getElementById('naam').value              = naam;
+    document.getElementById('beschrijving').value      = beschrijving;
+    document.getElementById('datum').value             = datum;
+    document.getElementById('starttijd').value         = starttijd;
+    document.getElementById('locatie').value           = locatie;
+    document.getElementById('max_deelnemers').value    = maxDeel;
+    document.getElementById('form-titel').textContent  = 'Activiteit bewerken';
+    document.getElementById('opslaan-btn').textContent = 'Wijzigingen opslaan';
+    document.getElementById('annuleer-btn').hidden     = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // scroll naar formulier
+}
+
+// ── Event delegation — vervangt inline onclick in template literals ───────────
+// Inline onclick("functie()") is niet bereikbaar vanuit ES-module scope.
+// In plaats daarvan luisteren we op de container en lezen we data-actie + data-id.
+document.getElementById('activiteiten-tabel').addEventListener('click', async function(e) {
+    const btn = e.target.closest('[data-actie]');
+    if (!btn) return;
+    const id = parseInt(btn.dataset.id);
+
+    if (btn.dataset.actie === 'verwijderen') {
+        if (!confirm('Activiteit verwijderen?')) return;
+        await fetch(`/api/activiteiten/${id}`, { method: 'DELETE' });
+        laadActiviteiten();
+    }
+
+    if (btn.dataset.actie === 'bewerken') {
+        // Zoek de activiteit op in de cache — geen extra API-call nodig
+        const a = activiteitenCache.find(x => x.id === id);
+        if (a) startBewerken(
+            a.id, a.naam, a.beschrijving || '',
+            a.datum.slice(0,10), a.starttijd.slice(0,5),
+            a.locatie || '', a.max_deelnemers
+        );
+    }
+});
+
+// ── Formulier resetten naar "nieuw aanmaken"-modus ────────────────────────────
+function resetFormulier() {
+    document.getElementById('activiteit-form').reset(); // alle velden leegmaken
+    document.getElementById('edit-id').value           = '';
+    document.getElementById('form-titel').textContent  = 'Nieuwe activiteit';
+    document.getElementById('opslaan-btn').textContent = 'Toevoegen';
+    document.getElementById('annuleer-btn').hidden     = true;
+    document.getElementById('foutmelding').hidden      = true;
+}
+
+// Startpunt: sessie controleren en activiteiten laden
+init();</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128214; Uitleg bij de code hierboven</div>
+        <p>
+          De <code>dashboard.js</code> hierboven bevat twee patronen die misschien ongewoon lijken:
+          <strong>data-attributen op de knoppen</strong> en een <strong>module-level cache</strong>.
+          Je hoeft hier niets extra aan toe te voegen — dit is een toelichting bij wat er al staat.
+        </p>
+      </div>
+
+      <h3 id="event-delegation-uitleg">Waarom geen <code>onclick</code> in de knoppen?</h3>
+
+      <p>
+        <code>dashboard.js</code> wordt geladen als een ES-module (<code>type="module"</code>).
+        Dat heeft één belangrijk gevolg: alle functies die je in een module definieert, zijn
+        <strong>module-scoped</strong>. Ze bestaan enkel binnen dat bestand en zijn
+        <em>niet</em> bereikbaar vanuit de globale <code>window</code>.
+      </p>
+      <p>
+        Een inline <code>onclick="startBewerken(...)"</code> in de HTML zoekt die functie
+        wél in <code>window</code> — en vindt ze niet. Resultaat: een
+        <code>ReferenceError: startBewerken is not defined</code> in de console, ook al staat
+        de functie keurig in je bestand.
+      </p>
+      <p>
+        Daarom staan er op de knoppen géén <code>onclick</code>-attributen, maar
+        <strong>data-attributen</strong>: <code>data-actie="bewerken"</code> en
+        <code>data-id="3"</code>. De knoppen bevatten zo puur data — geen JavaScript —
+        en de afhandeling zit volledig in het <code>addEventListener</code> dat verderop
+        in <code>dashboard.js</code> staat.
+      </p>
+
+      <h3>Waarom luisteren op de container en niet op de knoppen zelf?</h3>
+
+      <p>
+        De tabelrijen — en dus ook de Bewerken- en Verwijder-knoppen — bestaan nog niet
+        wanneer de pagina voor het eerst laadt. Ze worden pas aangemaakt door
+        <code>laadActiviteiten()</code>, nadat de server de data heeft teruggestuurd.
+        Dat betekent dat je er op dat moment geen <code>addEventListener</code> op kan
+        registreren: het element bestaat gewoonweg nog niet.
+      </p>
+      <p>
+        De oplossing is <strong>event delegation</strong>: je luistert niet op de knoppen
+        zelf, maar op de container <code>#activiteiten-tabel</code> die wél altijd aanwezig
+        is. Wanneer je op een knop klikt, "bubbelt" dat klikgebeuren omhoog door de
+        DOM-boom en bereikt uiteindelijk de container. Daar wordt het opgevangen.
+        Met <code>e.target.closest('[data-actie]')</code> zoeken we dan de dichtstbijzijnde
+        knop met een <code>data-actie</code> — dat werkt ook als de klik per ongeluk op de
+        tekst <em>binnen</em> de knop terechtkwam.
+      </p>
+
+      <h3>Waarom een <code>activiteitenCache</code> voor "Bewerken"?</h3>
+
+      <p>
+        Voor <em>verwijderen</em> volstaat het id: je stuurt een <code>DELETE</code> naar
+        de server en herlaadt de tabel. Maar voor <em>bewerken</em> moet je het formulier
+        vooraf invullen met de bestaande waarden — naam, datum, locatie, enzovoort.
+      </p>
+      <p>
+        Vroeger werden die waarden rechtstreeks als argumenten meegegeven aan
+        <code>onclick</code>. Nu dat niet meer kan, zijn er twee opties:
+      </p>
+      <ul>
+        <li>Een <strong>extra API-call</strong> doen naar <code>/api/activiteiten/:id</code>
+            op het moment van de klik. Dat werkt, maar kost een extra serververzoek voor
+            data die je al hebt opgehaald.</li>
+        <li>De data <strong>bijhouden in een variabele</strong> op moduleniveau —
+            de <code>activiteitenCache</code>. Die wordt gevuld telkens
+            <code>laadActiviteiten()</code> wordt uitgevoerd, en blijft beschikbaar
+            zolang de pagina open is. Bij een klik op "Bewerken" zoek je het juiste
+            object op met <code>.find()</code> — geen extra serververzoek nodig.</li>
+      </ul>
+      <p>
+        In <code>dashboard.js</code> is voor de cache gekozen. Je ziet dit terug in twee
+        plaatsen: de declaratie <code>let activiteitenCache = []</code> bovenaan, en de
+        regel <code>activiteitenCache = activiteiten</code> in <code>laadActiviteiten()</code>
+        net nadat de data van de server binnenkomt.
+      </p>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888;&#65039; Cache is tijdelijk</div>
+        <p>
+          De cache bevat de data van het <em>laatste moment dat de tabel werd geladen</em>.
+          Als iemand anders ondertussen een activiteit heeft aangepast, zit die wijziging
+          niet in jouw cache. Voor dit GIP is dat geen probleem — elke gebruiker bewerkt
+          enkel zijn eigen activiteiten. In een productietoepassing ververs je de cache
+          na elke actie of doe je toch een nieuwe API-call.
+        </p>
+      </div>
+
+      <!-- ═══ OEFENINGEN ═══ -->
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10 / ADB20 / ADB25</span>
+            <span class="oefening__title">Oefening 1 &mdash; Dashboard volledig bouwen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw het gebruikersdashboard met volledige CRUD-functionaliteit.</p>
+            <ol>
+              <li>Voeg de <code>user_id</code> kolom toe via het SQL-commando uit sectie 1</li>
+              <li>Voeg de vier routes toe aan <code>server.js</code></li>
+              <li>Maak <code>dashboard.html</code> aan</li>
+              <li>Maak <code>Client/js/dashboard.js</code> aan</li>
+              <li>Log in als gebruiker &rarr; voeg een activiteit toe via het formulier</li>
+              <li>Bewerk de activiteit &rarr; wijzigingen verschijnen in de tabel</li>
+              <li>Verwijder de activiteit</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB01 / ADB09</span>
+            <span class="oefening__title">Oefening 2 &mdash; Eigendomscontrole testen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Verifieer dat de beveiligingscontroles werken zoals bedoeld.</p>
+            <ol>
+              <li>Maak twee testaccounts aan (bv. gebruiker A en gebruiker B)</li>
+              <li>Log in als A en maak een activiteit aan &rarr; noteer het <code>id</code></li>
+              <li>Log in als B en probeer die activiteit te verwijderen via de browser-console:<br>
+                <code>fetch('/api/activiteiten/[id]', &#123;method:'DELETE'&#125;)</code></li>
+              <li>Welke statuscode krijg je? (verwacht: 403 Forbidden)</li>
+              <li>Surf naar <code>dashboard.html</code> zonder in te loggen &rarr; wat gebeurt er?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ HUISTAAK ═══ -->
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak &mdash; Gebruikersdashboard
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/gip/gip-H05-afb1.svg', 'Voorbeeld — Dashboard met eigen activiteiten')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledig gebruikersdashboard</h3>
+            <p><strong>Deel 1 &mdash; 4 punten:</strong> Back-end</p>
+            <ol>
+              <li>ALTER TABLE: <code>user_id</code> toevoegen aan activiteiten</li>
+              <li>GET <code>/api/mijn-activiteiten</code> met login-middleware</li>
+              <li>POST met automatische <code>user_id</code></li>
+              <li>PUT en DELETE met eigendomscontrole (<code>AND user_id = ?</code>)</li>
+            </ol>
+            <p><strong>Deel 2 &mdash; 4 punten:</strong> Front-end dashboard</p>
+            <ol>
+              <li><code>dashboard.html</code>: formulier + tabel</li>
+              <li><code>dashboard.js</code>: sessiecontrole, activiteiten laden, CRUD</li>
+              <li>Bewerkformulier: bestaande waarden invullen en opslaan</li>
+            </ol>
+            <p><strong>Deel 3 &mdash; 2 punten:</strong> Beveiliging</p>
+            <ol>
+              <li>Test dat gebruiker B de activiteiten van gebruiker A niet kan bewerken of verwijderen</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ VRAGENLIJST ═══ -->
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H05 &mdash; Gebruikersdashboard</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Waarom voeg je <code>AND user_id = ?</code> toe aan de WHERE-clausule van de DELETE-route?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v1" value="a"> <span>Om de query sneller te maken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v1" value="b"> <span>Zodat een gebruiker alleen zijn eigen activiteiten kan verwijderen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v1" value="c"> <span>Omdat user_id de primaire sleutel is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v1" value="d"> <span>Om te controleren of de gebruiker ingelogd is</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat betekent <code>affectedRows === 0</code> na een DELETE?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v2" value="a"> <span>De query is mislukt door een serverfout</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v2" value="b"> <span>De tabel is leeg</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v2" value="c"> <span>Het id bestaat niet of behoort aan een andere gebruiker</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v2" value="d"> <span>De gebruiker is niet ingelogd</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat is het verschil tussen <code>GET /api/activiteiten</code> en <code>GET /api/mijn-activiteiten</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v3" value="a"> <span><code>/api/activiteiten</code> geeft alle activiteiten terug, <code>/api/mijn-activiteiten</code> filtert op de ingelogde gebruiker</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v3" value="b"> <span>Ze geven hetzelfde terug, het zijn aliassen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v3" value="c"> <span><code>/api/mijn-activiteiten</code> sorteert op naam, de andere op datum</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v3" value="d"> <span><code>/api/activiteiten</code> vereist login, de andere niet</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welk SQL-commando gebruik je om een kolom toe te voegen aan een bestaande tabel?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v4" value="a"> <span>INSERT COLUMN</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v4" value="b"> <span>UPDATE TABLE</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v4" value="c"> <span>MODIFY TABLE</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v4" value="d"> <span>ALTER TABLE ... ADD COLUMN</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet <code>init()</code> als eerste stap in dashboard.js?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v5" value="a"> <span>Het formulier instellen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v5" value="b"> <span><code>/api/mij</code> aanroepen om te controleren of de gebruiker ingelogd is, en admin doorsturen naar admin.html</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v5" value="c"> <span>Alle activiteiten laden uit de database</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h05-v5" value="d"> <span>De logout-knop activeren</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/gip/H05')" data-progress-key="6adb/gip/H05">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H04.html" class="btn btn-ghost">&#8592; H04</a>
+          <a href="H06.html" class="btn btn-ghost">H06 &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

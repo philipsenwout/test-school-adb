@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Version Control &mdash; 5ADB &mdash; Appschool Munsterbilzen</title>
+  <meta name="description" content="Leer Git en GitHub gebruiken: clone, add, commit, push en pull. Bewaar je schoolwerk veilig en laat je leerkracht je code opvolgen.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../5adb/index.html">5ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>GitHub Version Control</span>
+    </nav>
+
+    <div class="page-header vak-github">
+      <div class="page-header__vak">&#128196; 5ADB &mdash; Basis</div>
+      <h1 class="page-header__title">GitHub Version Control</h1>
+      <p class="page-header__desc">Leer Git gebruiken om je code bij te houden, in te dienen en samen te werken. Je kloont je persoonlijke repository, commit je werk en pusht het naar GitHub &mdash; elke dag.</p>
+    </div>
+
+    <div class="meta-strip">
+      <div class="meta-item"><span class="meta-item__label">Hoofdstukken</span><span class="meta-item__value">7</span></div>
+      <div class="meta-item"><span class="meta-item__label">Lesuren</span><span class="meta-item__value">~14 u</span></div>
+      <div class="meta-item"><span class="meta-item__label">Niveau</span><span class="meta-item__value">Basis</span></div>
+      <div class="meta-item"><span class="meta-item__label">Leerplandoel</span><span class="meta-item__value">ADB16</span></div>
+    </div>
+
+    <div style="margin-bottom:var(--space-6);">
+      <div class="progress-label">
+        <span data-progress-label="5adb/github-version-control">0 / 7 hoofdstukken voltooid</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" data-progress-bar="5adb/github-version-control" data-total="7" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="callout callout--info" style="margin-bottom:var(--space-6)">
+      <div class="callout-header">&#128195; Hoe werkt dit vak?</div>
+      <p>GitHub Version Control is geen apart uur, maar loopt <strong>doorheen heel het jaar</strong>. Je gebruikt Git bij elk vak. Elke taak, toets en oefening die je maakt, sla je op in je persoonlijke GitHub-repository.</p>
+    </div>
+
+    <div>
+
+      <a href="software.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">&#9881;</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">Software installatie &mdash; Git &amp; GitHub account</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started">&#9675; Installatie</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Installeer Git op je computer en maak een GitHub-account aan om te beginnen.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"></div>
+            <span class="card-hoofdstuk__time">Voorbereiding</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="H01.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">01</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">H01 &mdash; Wat is versiebeheer?</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="5adb/github-version-control/H01">&#9675; Niet begonnen</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Leer waarom versiebeheer bestaat en hoe Git je code bijhoudt in snapshots.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB16</span></div>
+            <span class="card-hoofdstuk__time">2 u</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="H02.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">02</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">H02 &mdash; Git configureren</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="5adb/github-version-control/H02">&#9675; Niet begonnen</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Stel je naam en e-mailadres in via git config en koppel SSH-authenticatie aan GitHub.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB16</span></div>
+            <span class="card-hoofdstuk__time">2 u</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="H03.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">03</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">H03 &mdash; Je repository clonen</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="5adb/github-version-control/H03">&#9675; Niet begonnen</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Download een GitHub-repository naar je computer met git clone.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB16</span></div>
+            <span class="card-hoofdstuk__time">2 u</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="H04.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">04</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">H04 &mdash; Add &amp; Commit</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="5adb/github-version-control/H04">&#9675; Niet begonnen</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Voeg bestanden toe aan de staging area en maak een commit met een duidelijke boodschap.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB16</span></div>
+            <span class="card-hoofdstuk__time">2 u</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="H05.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">05</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">H05 &mdash; Push &amp; Pull</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="5adb/github-version-control/H05">&#9675; Niet begonnen</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Laad je commits omhoog naar GitHub en haal updates van anderen op met pull.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB16</span></div>
+            <span class="card-hoofdstuk__time">2 u</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="H06.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">06</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">H06 &mdash; De volledige workflow</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="5adb/github-version-control/H06">&#9675; Niet begonnen</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Oefen de dagelijkse cyclus: clone &rarr; wijzig &rarr; add &rarr; commit &rarr; push.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB16</span></div>
+            <span class="card-hoofdstuk__time">2 u</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="H07.html" class="card-hoofdstuk vak-github">
+        <div class="card-hoofdstuk__num">07</div>
+        <div class="card-hoofdstuk__body">
+          <div class="card-hoofdstuk__head">
+            <div class="card-hoofdstuk__title">H07 &mdash; GitHub Issues &amp; Samenwerken</div>
+            <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="5adb/github-version-control/H07">&#9675; Niet begonnen</span></div>
+          </div>
+          <p class="card-hoofdstuk__desc">Maak issues aan, verwijs ernaar in commits en volg de status van je taken op.</p>
+          <div class="card-hoofdstuk__foot">
+            <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB16</span></div>
+            <span class="card-hoofdstuk__time">2 u</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="250" fill="#7c3aed" opacity="0.03"/>
+  <circle cx="1000" cy="650" r="200" fill="#00d4ff" opacity="0.03"/>
+
+  <!-- Browser venster -->
+  <rect x="60" y="30" width="1080" height="730" rx="14" fill="#1e2030" stroke="#2d3150" stroke-width="1.5"/>
+  <!-- Title bar -->
+  <rect x="60" y="30" width="1080" height="44" rx="14" ry="14" fill="#252840"/>
+  <rect x="60" y="52" width="1080" height="22" fill="#252840"/>
+  <circle cx="88" cy="52" r="7" fill="#ff5f57"/>
+  <circle cx="110" cy="52" r="7" fill="#febc2e"/>
+  <circle cx="132" cy="52" r="7" fill="#28c840"/>
+  <rect x="200" y="40" width="720" height="24" rx="5" fill="#1a1d2e" stroke="#3d4166" stroke-width="1"/>
+  <text x="560" y="56" text-anchor="middle" fill="#6b7280" font-size="12" font-family="Courier New, monospace">typeconversie-oefening.html</text>
+  <!-- DevTools tab bar -->
+  <rect x="60" y="74" width="1080" height="30" fill="#1e2030" stroke="#2d3150" stroke-width="1"/>
+  <text x="100" y="93" fill="#9ca3af" font-size="12" font-family="Inter, sans-serif">Elements</text>
+  <text x="180" y="93" fill="#00d4ff" font-size="12" font-weight="600" font-family="Inter, sans-serif">Console</text>
+  <text x="256" y="93" fill="#9ca3af" font-size="12" font-family="Inter, sans-serif">Sources</text>
+
+  <!-- Console header -->
+  <rect x="60" y="104" width="1080" height="28" fill="#161929"/>
+  <text x="80" y="122" fill="#6b7280" font-size="11" font-family="Courier New, monospace">// Typeconversie — gemengde operaties en verrassende resultaten</text>
+
+  <!-- Console rij groepen -->
+  <!-- Groep 1: + probleem -->
+  <rect x="60" y="132" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="148" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; "5" + 3</text>
+  <text x="200" y="148" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">// Wat verwacht je? 8? Lees verder...</text>
+  <rect x="60" y="156" width="1080" height="28" fill="#1f1520"/>
+  <rect x="60" y="156" width="4" height="28" fill="#ef4444"/>
+  <text x="80" y="175" fill="#fca5a5" font-size="13" font-family="Courier New, monospace" font-weight="600">&lt; "53"</text>
+  <text x="180" y="175" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← Verrassing! Geen 8, maar stringconcatenatie</text>
+
+  <!-- Groep 2: - normaal -->
+  <rect x="60" y="184" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="200" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; "5" - 3</text>
+  <text x="200" y="200" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">// Nu wel getal?</text>
+  <rect x="60" y="208" width="1080" height="28" fill="#0f1e12"/>
+  <rect x="60" y="208" width="4" height="28" fill="#39ff14"/>
+  <text x="80" y="227" fill="#86efac" font-size="13" font-family="Courier New, monospace" font-weight="600" filter="url(#glow)">&lt; 2</text>
+  <text x="120" y="227" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← Ja! - heeft geen stringversie, dus '5' → 5</text>
+
+  <!-- Groep 3: NaN -->
+  <rect x="60" y="236" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="252" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; "abc" - 3</text>
+  <text x="250" y="252" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">// "abc" kan niet naar een getal</text>
+  <rect x="60" y="260" width="1080" height="28" fill="#1f1520"/>
+  <rect x="60" y="260" width="4" height="28" fill="#ef4444"/>
+  <text x="80" y="279" fill="#fca5a5" font-size="13" font-family="Courier New, monospace" font-weight="600">&lt; NaN</text>
+  <text x="170" y="279" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← Not a Number — wanneer conversie mislukt</text>
+
+  <!-- Groep 4: parseInt fix -->
+  <rect x="60" y="288" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="304" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; parseInt("5") + 3</text>
+  <text x="310" y="304" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">// Expliciet converteren — de veilige manier</text>
+  <rect x="60" y="312" width="1080" height="28" fill="#0f1e12"/>
+  <rect x="60" y="312" width="4" height="28" fill="#39ff14"/>
+  <text x="80" y="331" fill="#86efac" font-size="13" font-family="Courier New, monospace" font-weight="600" filter="url(#glow)">&lt; 8</text>
+  <text x="120" y="331" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← Correct! 5 + 3 = 8</text>
+
+  <!-- Groep 5: true/false als getal -->
+  <rect x="60" y="340" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="356" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; true + true + true</text>
+  <text x="340" y="356" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">// Drie booleans optellen?</text>
+  <rect x="60" y="364" width="1080" height="28" fill="#0f1e12"/>
+  <rect x="60" y="364" width="4" height="28" fill="#fbbf24"/>
+  <text x="80" y="383" fill="#fde68a" font-size="13" font-family="Courier New, monospace" font-weight="600">&lt; 3</text>
+  <text x="120" y="383" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← true = 1, dus 1+1+1 = 3</text>
+
+  <!-- Groep 6: null + getal -->
+  <rect x="60" y="392" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="408" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; null + 5</text>
+  <rect x="60" y="416" width="1080" height="28" fill="#0f1e12"/>
+  <rect x="60" y="416" width="4" height="28" fill="#fbbf24"/>
+  <text x="80" y="435" fill="#fde68a" font-size="13" font-family="Courier New, monospace" font-weight="600">&lt; 5</text>
+  <text x="120" y="435" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← null = 0 in rekenkundige context, dus 0+5 = 5</text>
+
+  <!-- Groep 7: undefined + getal -->
+  <rect x="60" y="444" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="460" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; undefined + 5</text>
+  <rect x="60" y="468" width="1080" height="28" fill="#1f1520"/>
+  <rect x="60" y="468" width="4" height="28" fill="#ef4444"/>
+  <text x="80" y="487" fill="#fca5a5" font-size="13" font-family="Courier New, monospace" font-weight="600">&lt; NaN</text>
+  <text x="170" y="487" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← undefined kan NIET worden omgezet, geeft NaN</text>
+
+  <!-- Groep 8: String() -->
+  <rect x="60" y="496" width="1080" height="24" fill="#1a1d2e"/>
+  <text x="80" y="512" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; String(42) + String(8)</text>
+  <rect x="60" y="520" width="1080" height="28" fill="#1f1520"/>
+  <rect x="60" y="520" width="4" height="28" fill="#ff6b35"/>
+  <text x="80" y="539" fill="#fed7aa" font-size="13" font-family="Courier New, monospace" font-weight="600">&lt; "428"</text>
+  <text x="185" y="539" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">← Beide omgezet naar string, dan samengevoegd</text>
+
+  <!-- Invoer prompt -->
+  <rect x="60" y="548" width="1080" height="182" fill="#111827"/>
+  <line x1="60" y1="548" x2="1140" y2="548" stroke="#2d3150" stroke-width="1"/>
+
+  <!-- Samenvatting/tip panel -->
+  <rect x="80" y="564" width="460" height="148" rx="8" fill="#1e2030" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="100" y="585" fill="#fca5a5" font-size="13" font-weight="700" font-family="Inter, sans-serif">⚠️  Gevaarlijke patronen</text>
+  <text x="100" y="607" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">invoer + getal  →  string!</text>
+  <text x="100" y="627" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">"abc" - getal   →  NaN</text>
+  <text x="100" y="647" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">undefined + iets →  NaN</text>
+  <text x="100" y="667" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">typeof NaN       →  "number" (!)</text>
+  <text x="100" y="690" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">isNaN("abc")     →  true ✓</text>
+
+  <rect x="600" y="564" width="500" height="148" rx="8" fill="#1e2030" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="620" y="585" fill="#86efac" font-size="13" font-weight="700" font-family="Inter, sans-serif">✓  Veilige patronen</text>
+  <text x="620" y="607" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">parseInt(invoer) + getal   →  getal</text>
+  <text x="620" y="627" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">Number(invoer) + getal    →  getal</text>
+  <text x="620" y="647" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">String(getal)             →  "getal"</text>
+  <text x="620" y="667" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">parseFloat(invoer)        →  kommagetal</text>
+  <text x="620" y="690" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">!isNaN(x) &amp;&amp; x !== ""      →  getal check</text>
+
+  <!-- Console input lijn -->
+  <text x="80" y="728" fill="#6b7280" font-size="12" font-family="Courier New, monospace">&gt; </text>
+  <rect x="100" y="715" width="2" height="18" fill="#00d4ff" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0;0.9" dur="1s" repeatCount="indefinite"/>
+  </rect>
+
+  <text x="600" y="780" text-anchor="middle" fill="#3d4166" font-size="12" font-family="Inter, sans-serif">H19 — Typeconversie — Console: gemengde operaties en verrassende resultaten [ADB09] [basis]</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#1a1a2e"/>
+
+  <!-- Title banner -->
+  <rect x="0" y="0" width="800" height="48" fill="#6c63ff"/>
+  <text x="400" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="white">super() is verplicht vóór this in een child class</text>
+  <text x="400" y="44" text-anchor="middle" font-size="12" fill="#c5c2ff">new Kat('Mies', 3, 'oranje') — stap voor stap</text>
+
+  <!-- Step numbers and blocks -->
+  <!-- STEP 1 -->
+  <circle cx="60" cy="100" r="18" fill="#6c63ff"/>
+  <text x="60" y="106" text-anchor="middle" font-size="14" font-weight="700" fill="white">1</text>
+  <rect x="90" y="74" width="680" height="52" rx="8" fill="#2a2a3e" stroke="#6c63ff" stroke-width="1.5"/>
+  <text x="110" y="96" font-size="13" fill="#888">Aanroep buiten de class:</text>
+  <text x="110" y="116" font-size="14" fill="white" font-family="monospace">const mies = new <tspan fill="#43e97b">Kat</tspan>(<tspan fill="#f9a825">'Mies'</tspan>, <tspan fill="#f9a825">3</tspan>, <tspan fill="#f9a825">'oranje'</tspan>);</text>
+
+  <!-- Arrow -->
+  <line x1="60" y1="136" x2="60" y2="158" stroke="#6c63ff" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="54,158 60,170 66,158" fill="#6c63ff"/>
+
+  <!-- STEP 2 -->
+  <circle cx="60" cy="190" r="18" fill="#f9a825"/>
+  <text x="60" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="white">2</text>
+  <rect x="90" y="164" width="680" height="70" rx="8" fill="#2a2a3e" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="110" y="185" font-size="13" fill="#888">Kat-constructor start → roept super() aan:</text>
+  <text x="110" y="205" font-size="14" fill="white" font-family="monospace">constructor(<tspan fill="#f9a825">naam</tspan>, <tspan fill="#f9a825">leeftijd</tspan>, <tspan fill="#f9a825">kleur</tspan>) &#123;</text>
+  <text x="130" y="223" font-size="14" fill="#f9a825" font-family="monospace">super(<tspan fill="#f9a825">naam</tspan>, <tspan fill="#f9a825">leeftijd</tspan>); <tspan fill="#888">// ← springt naar Dier-constructor</tspan></text>
+
+  <!-- Arrow with label -->
+  <line x1="60" y1="242" x2="60" y2="262" stroke="#f9a825" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="54,262 60,274 66,262" fill="#f9a825"/>
+  <text x="80" y="258" font-size="11" fill="#f9a825" font-style="italic">springt naar Dier!</text>
+
+  <!-- STEP 3 -->
+  <circle cx="60" cy="294" r="18" fill="#43e97b"/>
+  <text x="60" y="300" text-anchor="middle" font-size="14" font-weight="700" fill="white">3</text>
+  <rect x="90" y="268" width="680" height="70" rx="8" fill="#2a2a3e" stroke="#43e97b" stroke-width="1.5"/>
+  <text x="110" y="289" font-size="13" fill="#888">Dier-constructor voert uit:</text>
+  <text x="110" y="309" font-size="14" fill="white" font-family="monospace">this.<tspan fill="#ff6b6b">#naam</tspan> = <tspan fill="#f9a825">'Mies'</tspan>;  this.<tspan fill="#ff6b6b">#leeftijd</tspan> = <tspan fill="#f9a825">3</tspan>;</text>
+  <text x="110" y="327" font-size="12" fill="#43e97b" font-family="monospace">✓ naam en leeftijd zijn nu ingesteld via de parent</text>
+
+  <!-- Arrow -->
+  <line x1="60" y1="346" x2="60" y2="366" stroke="#43e97b" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="54,366 60,378 66,366" fill="#43e97b"/>
+  <text x="80" y="362" font-size="11" fill="#43e97b" font-style="italic">terug naar Kat!</text>
+
+  <!-- STEP 4 -->
+  <circle cx="60" cy="398" r="18" fill="#ff6b6b"/>
+  <text x="60" y="404" text-anchor="middle" font-size="14" font-weight="700" fill="white">4</text>
+  <rect x="90" y="372" width="680" height="70" rx="8" fill="#2a2a3e" stroke="#ff6b6b" stroke-width="1.5"/>
+  <text x="110" y="393" font-size="13" fill="#888">Kat-constructor vervolgt na super():</text>
+  <text x="110" y="413" font-size="14" fill="white" font-family="monospace">this.<tspan fill="#ff6b6b">#kleur</tspan> = <tspan fill="#f9a825">'oranje'</tspan>; <tspan fill="#888">// ← Kat-specifiek veld</tspan></text>
+  <text x="110" y="433" font-size="12" fill="#43e97b" font-family="monospace">✓ mies is nu volledig aangemaakt: naam + leeftijd + kleur</text>
+</svg>

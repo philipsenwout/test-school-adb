@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIP — Sportclub Ledenportaal — 6ADB — Appschool Munsterbilzen</title>
+  <meta name="description" content="GIP-cursus: bouw het Sportclub Ledenportaal met Node.js, MySQL, login en een adminpanel.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>GIP</span>
+    </nav>
+
+    <div class="page-header vak-appdev">
+      <div class="page-header__vak">&#127942; 6ADB &mdash; Ge&iuml;ntegreerd Informaticaproject</div>
+      <h1 class="page-header__title">GIP &mdash; Sportclub Ledenportaal</h1>
+      <p class="page-header__desc">Bouw een volledige full-stack webapplicatie: leden kunnen inloggen en inschrijven voor activiteiten, de admin beheert het programma. Je combineert Node.js, MySQL, bcrypt en front-end JavaScript in één project.</p>
+    </div>
+
+    <div class="meta-strip">
+      <div class="meta-item"><span class="meta-item__label">Hoofdstukken</span><span class="meta-item__value">7</span></div>
+      <div class="meta-item"><span class="meta-item__label">Technologie</span><span class="meta-item__value">Node.js + MySQL</span></div>
+      <div class="meta-item"><span class="meta-item__label">Niveau</span><span class="meta-item__value">Verdieping</span></div>
+      <div class="meta-item"><span class="meta-item__label">Type</span><span class="meta-item__value">Eindproject</span></div>
+    </div>
+
+    <div style="margin-bottom:var(--space-6);">
+      <div class="progress-label">
+        <span data-progress-label="6adb/gip">0 / 7 hoofdstukken voltooid</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" data-progress-bar="6adb/gip" data-total="7" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="callout callout--info" style="margin-bottom: var(--space-6);">
+      <div class="callout-header">&#128640; Wat bouw je?</div>
+      <p>Het <strong>Sportclub Ledenportaal</strong> is een webapplicatie met vier soorten pagina&rsquo;s:</p>
+      <ul>
+        <li><strong>Startpagina</strong> &mdash; alle activiteiten zichtbaar voor iedereen</li>
+        <li><strong>Register / Login</strong> &mdash; account aanmaken en inloggen</li>
+        <li><strong>Dashboard</strong> &mdash; inschrijven voor activiteiten (beschermd: leden only)</li>
+        <li><strong>Adminpanel</strong> &mdash; activiteiten beheren (beschermd: admin only)</li>
+      </ul>
+    </div>
+
+    <h2 style="margin-bottom: var(--space-4); margin-top: var(--space-6);">GIP-cursus &mdash; 6 hoofdstukken + opdracht</h2>
+
+    <div>
+
+    <a href="H01.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">01</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H01 &mdash; Project opzetten</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/gip/H01">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Initialiseer je Node.js-project, installeer Express en zet de mappenstructuur op.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB10</span><span class="ld-chip">ADB15</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H02.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">02</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H02 &mdash; Database aanmaken</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/gip/H02">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Ontwerp het datamodel en maak de MySQL-databank aan met tabellen en foreign key-relaties.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB17</span><span class="ld-chip">ADB18</span><span class="ld-chip">ADB20</span><span class="ld-chip">ADB25</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H03.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">03</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H03 &mdash; Activiteiten ophalen en tonen</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/gip/H03">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Schrijf een GET-route in Express en render de activiteiten dynamisch op de startpagina.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB10</span><span class="ld-chip">ADB20</span><span class="ld-chip">ADB25</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H04.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">04</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H04 &mdash; Registreren &amp; inloggen</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/gip/H04">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Versleutel wachtwoorden met bcrypt en beheer gebruikerssessies via express-session.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB01</span><span class="ld-chip">ADB09</span><span class="ld-chip">ADB25</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H05.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">05</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H05 &mdash; Ledendashboard &amp; inschrijven</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/gip/H05">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Bescherm het dashboard met sessiemiddleware en laat leden inschrijven voor activiteiten.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB10</span><span class="ld-chip">ADB20</span><span class="ld-chip">ADB25</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H06.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">06</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H06 &mdash; Adminpanel &amp; afwerking</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/gip/H06">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Bouw het adminpanel om activiteiten toe te voegen, te bewerken en te verwijderen.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB10</span><span class="ld-chip">ADB11</span><span class="ld-chip">ADB20</span><span class="ld-chip">ADB25</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="opdracht.html" class="card-hoofdstuk vak-appdev" style="margin-top: var(--space-4); border-style: dashed;">
+      <div class="card-hoofdstuk__num">&#127942;</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">GIP-Opdracht &mdash; Jouw eigen project</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/gip/opdracht">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Bouw je eigen full-stack webapplicatie van functionele analyse tot werkend eindproduct. Vrij onderwerp.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB05</span><span class="ld-chip">ADB08</span><span class="ld-chip">ADB15</span><span class="ld-chip">ADB25</span></div>
+          <span class="card-hoofdstuk__time">Vrij</span>
+        </div>
+      </div>
+    </a>
+
+    </div>
+
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

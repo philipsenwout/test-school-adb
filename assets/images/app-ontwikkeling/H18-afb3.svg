@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <text x="600" y="50" fill="#ffffff" font-size="28" font-weight="700" text-anchor="middle">Strings — Aanhalingstekens &amp; Template Literals</text>
+  <text x="600" y="76" fill="#aaaaaa" font-size="15" text-anchor="middle">Drie manieren om een string te schrijven in JavaScript</text>
+
+  <!-- Section 1: Enkele aanhalingstekens -->
+  <g transform="translate(60, 100)">
+    <rect width="340" height="240" rx="16" fill="#161b27" stroke="#ff6b35" stroke-width="2.5"/>
+    <!-- quote decoration -->
+    <text x="20" y="45" fill="#ff6b35" font-size="60" opacity="0.2" font-weight="700">'</text>
+    <text x="290" y="105" fill="#ff6b35" font-size="60" opacity="0.2" font-weight="700">'</text>
+    <text x="170" y="38" fill="#ff6b35" font-size="18" font-weight="700" text-anchor="middle">Enkele quotes</text>
+    <line x1="20" y1="50" x2="320" y2="50" stroke="#ff6b35" stroke-width="1" opacity="0.3"/>
+    <text x="20" y="82" fill="#aaaaaa" font-size="13">Gebruik voor eenvoudige tekst</text>
+    <text x="20" y="116" fill="#ff6b35" font-size="18" font-family="'Courier New', monospace">'Hallo wereld'</text>
+    <text x="20" y="145" fill="#ff6b35" font-size="18" font-family="'Courier New', monospace">'Jana'</text>
+    <text x="20" y="174" fill="#ff6b35" font-size="18" font-family="'Courier New', monospace">'Appschool'</text>
+    <rect x="20" y="198" width="300" height="32" rx="6" fill="#1a1a0d" stroke="#ff6b35" stroke-width="1" opacity="0.6"/>
+    <text x="170" y="219" fill="#aaaaaa" font-size="12" text-anchor="middle">⚠ Bevat de tekst een ' ? Gebruik dan "</text>
+  </g>
+
+  <!-- Section 2: Dubbele aanhalingstekens -->
+  <g transform="translate(420, 100)">
+    <rect width="340" height="240" rx="16" fill="#161b27" stroke="#7c3aed" stroke-width="2.5"/>
+    <text x="20" y="45" fill="#7c3aed" font-size="60" opacity="0.2" font-weight="700">"</text>
+    <text x="290" y="105" fill="#7c3aed" font-size="60" opacity="0.2" font-weight="700">"</text>
+    <text x="170" y="38" fill="#7c3aed" font-size="18" font-weight="700" text-anchor="middle">Dubbele quotes</text>
+    <line x1="20" y1="50" x2="320" y2="50" stroke="#7c3aed" stroke-width="1" opacity="0.3"/>
+    <text x="20" y="82" fill="#aaaaaa" font-size="13">Handig als de tekst een ' bevat</text>
+    <text x="20" y="116" fill="#7c3aed" font-size="18" font-family="'Courier New', monospace">"Hallo wereld"</text>
+    <text x="20" y="145" fill="#7c3aed" font-size="18" font-family="'Courier New', monospace">"It's a test"</text>
+    <text x="20" y="174" fill="#7c3aed" font-size="18" font-family="'Courier New', monospace">"Dag Jan"</text>
+    <rect x="20" y="198" width="300" height="32" rx="6" fill="#1a0d2a" stroke="#7c3aed" stroke-width="1" opacity="0.6"/>
+    <text x="170" y="219" fill="#aaaaaa" font-size="12" text-anchor="middle">⚠ Bevat de tekst een " ? Gebruik dan '</text>
+  </g>
+
+  <!-- Section 3: Backticks — AANBEVOLEN -->
+  <g transform="translate(780, 100)">
+    <rect width="360" height="240" rx="16" fill="#0d1a0d" stroke="#39ff14" stroke-width="2.5"/>
+    <!-- recommended badge -->
+    <rect x="220" y="12" width="130" height="26" rx="8" fill="#39ff14"/>
+    <text x="285" y="30" fill="#0f1117" font-size="12" font-weight="700" text-anchor="middle">✓ AANBEVOLEN</text>
+    <text x="20" y="45" fill="#39ff14" font-size="50" opacity="0.2" font-weight="700">`</text>
+    <text x="170" y="38" fill="#39ff14" font-size="18" font-weight="700">Backtick (template literal)</text>
+    <line x1="20" y1="50" x2="340" y2="50" stroke="#39ff14" stroke-width="1" opacity="0.3"/>
+    <text x="20" y="78" fill="#aaaaaa" font-size="13">Variabelen invoegen met ${ }</text>
+    <text x="20" y="112" fill="#39ff14" font-size="16" font-family="'Courier New', monospace">`Hallo ${naam}`</text>
+    <text x="20" y="140" fill="#39ff14" font-size="16" font-family="'Courier New', monospace">`Score: ${score}/10`</text>
+    <text x="20" y="168" fill="#39ff14" font-size="16" font-family="'Courier New', monospace">`${a} + ${b} = ${a+b}`</text>
+    <rect x="20" y="192" width="320" height="38" rx="6" fill="#0a2a0a" stroke="#39ff14" stroke-width="1"/>
+    <text x="180" y="209" fill="#39ff14" font-size="12" text-anchor="middle">✓ Geen + nodig om variabelen samen te</text>
+    <text x="180" y="224" fill="#39ff14" font-size="12" text-anchor="middle">voegen met tekst!</text>
+  </g>
+
+  <!-- Template literal anatomy -->
+  <rect x="60" y="370" width="1080" height="200" rx="14" fill="#0a0d14" stroke="#39ff14" stroke-width="2"/>
+  <text x="600" y="398" fill="#39ff14" font-size="18" font-weight="700" text-anchor="middle">Template Literal — Anatomie</text>
+  <line x1="80" y1="408" x2="1120" y2="408" stroke="#39ff14" stroke-width="1" opacity="0.3"/>
+
+  <!-- Big code example -->
+  <text x="600" y="460" fill="#ffffff" font-size="28" font-family="'Courier New', monospace" text-anchor="middle">
+    <tspan fill="#39ff14">`</tspan><tspan fill="#ffffff">Hallo, ik ben </tspan><tspan fill="#00d4ff">${</tspan><tspan fill="#ff6b35">naam</tspan><tspan fill="#00d4ff">}</tspan><tspan fill="#ffffff"> en ik ben </tspan><tspan fill="#00d4ff">${</tspan><tspan fill="#ff6b35">leeftijd</tspan><tspan fill="#00d4ff">}</tspan><tspan fill="#ffffff"> jaar.</tspan><tspan fill="#39ff14">`</tspan>
+  </text>
+
+  <!-- Annotation lines -->
+  <!-- backtick annotation -->
+  <line x1="130" y1="465" x2="130" y2="500" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="130" y="518" fill="#39ff14" font-size="13" text-anchor="middle">backtick</text>
+  <text x="130" y="534" fill="#39ff14" font-size="13" text-anchor="middle">start/einde</text>
+
+  <!-- ${ } annotation -->
+  <line x1="456" y1="465" x2="456" y2="500" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="456" y="518" fill="#00d4ff" font-size="13" text-anchor="middle">${ }</text>
+  <text x="456" y="534" fill="#00d4ff" font-size="13" text-anchor="middle">expressie</text>
+
+  <!-- variable annotation -->
+  <line x1="520" y1="465" x2="520" y2="560" stroke="#ff6b35" stroke-width="1.5"/>
+  <text x="520" y="578" fill="#ff6b35" font-size="13" text-anchor="middle">variabele</text>
+
+  <line x1="730" y1="465" x2="730" y2="500" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="730" y="518" fill="#00d4ff" font-size="13" text-anchor="middle">${ }</text>
+  <text x="730" y="534" fill="#00d4ff" font-size="13" text-anchor="middle">tweede</text>
+
+  <!-- result -->
+  <text x="600" y="560" fill="#aaaaaa" font-size="16" text-anchor="middle">Resultaat (als naam="Jana" en leeftijd=17):</text>
+  <rect x="200" y="570" width="800" height="42" rx="10" fill="#1a1a2a" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="600" y="597" fill="#ffffff" font-size="18" text-anchor="middle">"Hallo, ik ben Jana en ik ben 17 jaar."</text>
+
+  <!-- Comparison: old way vs new way -->
+  <rect x="60" y="590" width="510" height="180" rx="12" fill="#2a0a0a" stroke="#ff6b35" stroke-width="1.5"/>
+  <text x="315" y="618" fill="#ff6b35" font-size="15" font-weight="700" text-anchor="middle">✗ Oude manier (concatenatie)</text>
+  <text x="80" y="648" fill="#ff6b35" font-size="14" font-family="'Courier New', monospace">"Hallo, " + naam + " en " + leeftijd</text>
+  <text x="80" y="678" fill="#aaaaaa" font-size="13">→ Moeilijk te lezen</text>
+  <text x="80" y="700" fill="#aaaaaa" font-size="13">→ Veel + tekens</text>
+  <text x="80" y="722" fill="#aaaaaa" font-size="13">→ Makkelijk fout (spaties vergeten)</text>
+  <text x="80" y="752" fill="#666" font-size="12">Toch nog veel te zien in oudere code</text>
+
+  <rect x="590" y="590" width="550" height="180" rx="12" fill="#0a2a0a" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="865" y="618" fill="#39ff14" font-size="15" font-weight="700" text-anchor="middle">✓ Nieuwe manier (template literal)</text>
+  <text x="610" y="648" fill="#39ff14" font-size="14" font-family="'Courier New', monospace">`Hallo, ${naam} en ${leeftijd}`</text>
+  <text x="610" y="678" fill="#aaaaaa" font-size="13">→ Makkelijk te lezen</text>
+  <text x="610" y="700" fill="#aaaaaa" font-size="13">→ Variabelen direct in de tekst</text>
+  <text x="610" y="722" fill="#aaaaaa" font-size="13">→ Expressies mogelijk: ${a + b}</text>
+  <text x="610" y="752" fill="#39ff14" font-size="12">Gebruik dit altijd in nieuwe code!</text>
+</svg>

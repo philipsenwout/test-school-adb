@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Dark app background -->
+  <rect width="820" height="480" fill="#1e1e2e"/>
+
+  <!-- Title bar -->
+  <rect width="820" height="34" fill="#13131f"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="17" r="6" fill="#febc2e"/>
+  <circle cx="58" cy="17" r="6" fill="#28c840"/>
+  <text x="410" y="22" text-anchor="middle" font-size="12" fill="#888" font-weight="600">MySQL Workbench — takenlijst_db</text>
+
+  <!-- Left navigator panel -->
+  <rect x="0" y="34" width="200" height="446" fill="#17172a"/>
+  <text x="10" y="58" font-size="11" fill="#999" font-weight="700">NAVIGATOR</text>
+  <text x="14" y="80" font-size="12" fill="#c8c8d4">▼ localhost</text>
+  <text x="24" y="100" font-size="12" fill="#c8c8d4">▼ Schemas</text>
+  <text x="36" y="120" font-size="12" fill="#7c85ff" font-weight="700">▼ takenlijst_db</text>
+  <text x="48" y="140" font-size="12" fill="#c8c8d4">▼ Tables</text>
+  <!-- Highlighted table row -->
+  <rect x="60" y="148" width="134" height="22" fill="#3a3a5c" rx="3"/>
+  <text x="70" y="163" font-size="12" fill="#a8b8ff" font-weight="600">📋 taken</text>
+  <text x="48" y="186" font-size="11" fill="#666">  Views</text>
+  <text x="48" y="202" font-size="11" fill="#666">  Stored Procs</text>
+
+  <!-- Main SQL editor area -->
+  <rect x="200" y="34" width="620" height="240" fill="#1a1a2e"/>
+  <!-- Tab bar -->
+  <rect x="200" y="34" width="620" height="28" fill="#13131f"/>
+  <rect x="202" y="36" width="120" height="24" fill="#2a2a40" rx="3"/>
+  <text x="262" y="52" text-anchor="middle" font-size="11" fill="#aab" font-weight="600">Query 1 ✕</text>
+
+  <!-- Toolbar icons -->
+  <rect x="330" y="40" width="28" height="18" rx="3" fill="#3c3c6e"/>
+  <text x="344" y="52" text-anchor="middle" font-size="13" fill="#ffd700">⚡</text>
+  <text x="370" y="52" font-size="10" fill="#888">Uitvoeren</text>
+
+  <!-- Code lines in editor -->
+  <text x="215" y="85" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">SELECT</text>
+  <text x="280" y="85" font-size="13" fill="#c8c8d4" font-family="'Courier New', monospace"> * </text>
+  <text x="302" y="85" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">FROM</text>
+  <text x="342" y="85" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace"> taken</text>
+  <text x="215" y="102" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace">ORDER BY</text>
+  <text x="291" y="102" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace"> id</text>
+  <text x="307" y="102" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace"> ASC</text>
+  <text x="337" y="102" font-size="13" fill="#c8c8d4" font-family="'Courier New', monospace">;</text>
+
+  <!-- Line numbers gutter -->
+  <rect x="200" y="62" width="14" height="180" fill="#12121c"/>
+  <text x="207" y="86" text-anchor="middle" font-size="11" fill="#555">1</text>
+  <text x="207" y="103" text-anchor="middle" font-size="11" fill="#555">2</text>
+
+  <!-- Results grid area -->
+  <rect x="200" y="274" width="620" height="206" fill="#16162a"/>
+  <text x="215" y="294" font-size="11" fill="#888" font-weight="700">RESULTAAT — 3 rijen</text>
+
+  <!-- Table header -->
+  <rect x="200" y="300" width="620" height="24" fill="#252540"/>
+  <text x="240" y="315" font-size="12" fill="#7c85ff" font-weight="700">id</text>
+  <text x="310" y="315" font-size="12" fill="#7c85ff" font-weight="700">titel</text>
+  <text x="560" y="315" font-size="12" fill="#7c85ff" font-weight="700">voltooid</text>
+
+  <!-- Row 1 -->
+  <rect x="200" y="324" width="620" height="24" fill="#1a1a30"/>
+  <text x="240" y="339" font-size="12" fill="#c8c8d4">1</text>
+  <text x="310" y="339" font-size="12" fill="#a8e6a3">HTML-pagina bouwen</text>
+  <text x="560" y="339" font-size="12" fill="#c8c8d4">0</text>
+
+  <!-- Row 2 -->
+  <rect x="200" y="348" width="620" height="24" fill="#1f1f38"/>
+  <text x="240" y="363" font-size="12" fill="#c8c8d4">2</text>
+  <text x="310" y="363" font-size="12" fill="#a8e6a3">CSS styling toevoegen</text>
+  <text x="560" y="363" font-size="12" fill="#c8c8d4">0</text>
+
+  <!-- Row 3 -->
+  <rect x="200" y="372" width="620" height="24" fill="#1a1a30"/>
+  <text x="240" y="387" font-size="12" fill="#c8c8d4">3</text>
+  <text x="310" y="387" font-size="12" fill="#a8e6a3">API-route testen</text>
+  <text x="560" y="387" font-size="12" fill="#c8c8d4">0</text>
+
+  <!-- Column separators in header -->
+  <line x1="290" y1="300" x2="290" y2="396" stroke="#2a2a45" stroke-width="1"/>
+  <line x1="540" y1="300" x2="540" y2="396" stroke="#2a2a45" stroke-width="1"/>
+
+  <!-- Status bar -->
+  <rect x="200" y="454" width="620" height="26" fill="#0d0d1a"/>
+  <text x="215" y="470" font-size="11" fill="#5a5a8a">3 rijen opgehaald  •  0.003 sec</text>
+
+  <!-- Caption -->
+  <text x="410" y="462" text-anchor="middle" font-size="11" fill="#5a6a9a">MySQL Workbench — tabel 'taken' met 3 rijen testdata</text>
+</svg>

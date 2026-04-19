@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="800" height="500" fill="#1e1e1e" rx="10"/>
+  <rect width="800" height="44" fill="#2d2d2d" rx="10"/>
+  <rect y="22" width="800" height="22" fill="#2d2d2d"/>
+  <circle cx="22" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="22" r="6" fill="#27c93f"/>
+  <text x="400" y="28" font-size="13" fill="#aaa" text-anchor="middle">Terminal — git log --oneline</text>
+
+  <!-- git log output -->
+  <rect x="40" y="60" width="720" height="270" fill="#0d1117" rx="6"/>
+
+  <text x="60" y="88" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">$ git log --oneline</text>
+
+  <text x="60" y="116" font-size="13" fill="#f7c948" font-family="'Courier New', monospace">e4a1c2f <tspan fill="#c9d1d9">feat: stijlen en kleuren toegevoegd</tspan></text>
+  <text x="60" y="140" font-size="13" fill="#f7c948" font-family="'Courier New', monospace">b9d3e11 <tspan fill="#c9d1d9">feat: navigatiebalk aangemaakt</tspan></text>
+  <text x="60" y="164" font-size="13" fill="#f7c948" font-family="'Courier New', monospace">73a5c9d <tspan fill="#c9d1d9">feat: afbeelding en paragraph toegevoegd</tspan></text>
+  <text x="60" y="188" font-size="13" fill="#f7c948" font-family="'Courier New', monospace">c12e84a <tspan fill="#c9d1d9">feat: h1-heading en body aangemaakt</tspan></text>
+  <text x="60" y="212" font-size="13" fill="#f7c948" font-family="'Courier New', monospace">a01f3b2 <tspan fill="#c9d1d9">init: basisstructuur HTML</tspan></text>
+  <text x="60" y="240" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">$ git status</text>
+  <text x="60" y="264" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">On branch main</text>
+  <text x="60" y="284" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">nothing to commit, working tree clean</text>
+  <text x="60" y="308" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">$ <tspan fill="#555">_</tspan></text>
+
+  <!-- Checklist -->
+  <rect x="40" y="350" width="720" height="110" fill="#252525" rx="6"/>
+  <text x="60" y="374" font-size="13" fill="#2DBA4E" font-weight="bold">✔ Checklist</text>
+  <text x="60" y="396" font-size="12" fill="#ccc">✔  5 commits aangemaakt</text>
+  <text x="60" y="416" font-size="12" fill="#ccc">✔  Elke commit beschrijft één stap</text>
+  <text x="60" y="436" font-size="12" fill="#ccc">✔  Commitberichten in correct formaat (feat: / init:)</text>
+  <text x="420" y="396" font-size="12" fill="#ccc">✔  HTML-pagina werkt in browser</text>
+  <text x="420" y="416" font-size="12" fill="#ccc">✔  Working tree clean</text>
+</svg>

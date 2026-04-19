@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="820" height="480" fill="#1a1a2e"/>
+
+  <!-- Browser chrome -->
+  <rect x="0" y="0" width="820" height="44" rx="8" fill="#2d2d2d"/>
+  <circle cx="18" cy="22" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="22" r="6" fill="#febc2e"/>
+  <circle cx="58" cy="22" r="6" fill="#28c840"/>
+  <rect x="80" y="10" width="620" height="24" rx="12" fill="#3a3a3a"/>
+  <text x="390" y="25" text-anchor="middle" font-size="12" fill="#a8e6a3" font-weight="600">🔒  localhost:3000/api/notities</text>
+
+  <!-- JSON content -->
+  <rect x="0" y="44" width="820" height="436" fill="#1e2030"/>
+  <text x="20" y="74" font-size="12" fill="#888">Raw JSON response</text>
+
+  <text x="20" y="100" font-size="14" fill="#e0e0e0" font-family="'Courier New', monospace">[</text>
+  <text x="20" y="128" font-size="14" fill="#e0e0e0" font-family="'Courier New', monospace">  &#123;</text>
+  <text x="20" y="150" font-size="14" fill="#c792ea" font-family="'Courier New', monospace">    "id":</text>
+  <text x="108" y="150" font-size="14" fill="#f78c6c" font-family="'Courier New', monospace"> 1,</text>
+  <text x="20" y="172" font-size="14" fill="#c792ea" font-family="'Courier New', monospace">    "inhoud":</text>
+  <text x="142" y="172" font-size="14" fill="#a8e6a3" font-family="'Courier New', monospace"> "Les 1 samenvatting",</text>
+  <text x="20" y="194" font-size="14" fill="#c792ea" font-family="'Courier New', monospace">    "aangemaakt_op":</text>
+  <text x="204" y="194" font-size="14" fill="#a8e6a3" font-family="'Courier New', monospace"> "2024-09-02T08:00:00.000Z"</text>
+  <text x="20" y="216" font-size="14" fill="#e0e0e0" font-family="'Courier New', monospace">  &#125;,</text>
+  <text x="20" y="244" font-size="14" fill="#e0e0e0" font-family="'Courier New', monospace">  &#123;</text>
+  <text x="20" y="266" font-size="14" fill="#c792ea" font-family="'Courier New', monospace">    "id":</text>
+  <text x="108" y="266" font-size="14" fill="#f78c6c" font-family="'Courier New', monospace"> 2,</text>
+  <text x="20" y="288" font-size="14" fill="#c792ea" font-family="'Courier New', monospace">    "inhoud":</text>
+  <text x="142" y="288" font-size="14" fill="#a8e6a3" font-family="'Courier New', monospace"> "Huiswerk Node.js",</text>
+  <text x="20" y="310" font-size="14" fill="#c792ea" font-family="'Courier New', monospace">    "aangemaakt_op":</text>
+  <text x="204" y="310" font-size="14" fill="#a8e6a3" font-family="'Courier New', monospace"> "2024-09-03T14:30:00.000Z"</text>
+  <text x="20" y="332" font-size="14" fill="#e0e0e0" font-family="'Courier New', monospace">  &#125;</text>
+  <text x="20" y="352" font-size="14" fill="#e0e0e0" font-family="'Courier New', monospace">]</text>
+
+  <!-- Status badge -->
+  <rect x="580" y="90" width="220" height="60" rx="8" fill="#1a3a2a" stroke="#28c840" stroke-width="1.5"/>
+  <text x="690" y="116" text-anchor="middle" font-size="13" fill="#28c840" font-weight="700">✓ 200 OK</text>
+  <text x="690" y="136" text-anchor="middle" font-size="11" fill="#888">GET /api/notities</text>
+
+  <!-- Caption -->
+  <rect x="0" y="420" width="820" height="60" fill="#12121c"/>
+  <text x="410" y="445" text-anchor="middle" font-size="12" fill="#888">Oefening 1 — notities_db.notities tabel correct gekoppeld aan Node.js server</text>
+  <text x="410" y="465" text-anchor="middle" font-size="11" fill="#555">2 rijen testdata zichtbaar in browser via GET /api/notities</text>
+</svg>

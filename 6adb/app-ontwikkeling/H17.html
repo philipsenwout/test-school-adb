@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Klassen — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H17" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.1"><span class="sidebar-check__box"></span></label>
+          <a href="#van-objectliteral-naar-class">17.1 Van objectliteral naar class</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.2"><span class="sidebar-check__box"></span></label>
+          <a href="#constructor">17.2 Constructor &amp; private fields</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.3"><span class="sidebar-check__box"></span></label>
+          <a href="#methodes">17.3 Methodes</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.4"><span class="sidebar-check__box"></span></label>
+          <a href="#getters-en-setters">17.4 Getters en setters</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="17.5"><span class="sidebar-check__box"></span></label>
+          <a href="#static-fields-en-methodes">17.5 Static fields en methodes</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>JavaScript Klassen</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H17 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">JavaScript Klassen</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen waarom een klasse beter is dan meerdere losse objectliterals</li>
+          <li>Een klasse definiëren met het <code>class</code>-keyword en instanties aanmaken met <code>new</code></li>
+          <li>Een <code>constructor</code> schrijven die <code>this</code>-velden initialiseert</li>
+          <li>Private fields declareren met <code>#</code> en de toegang beveiligen</li>
+          <li>Methodes schrijven die gebruik maken van <code>this.#veld</code></li>
+          <li>Getters (<code>get</code>) en setters (<code>set</code>) gebruiken met validatie</li>
+          <li>Static fields en static methodes onderscheiden van instantie-leden</li>
+        </ul>
+      </div>
+
+      <h2 id="van-objectliteral-naar-class">17.1 Van objectliteral naar class</h2>
+
+      <h3>Het probleem met objectliterals</h3>
+      <p>In vorige hoofdstukken heb je gewerkt met <strong>objectliterals</strong> — objecten die je rechtstreeks aanmaakt met accolades. Dat werkt prima voor één object:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Één auto aanmaken gaat prima
+let auto1 = {
+  merk: "Honda",
+  kleur: "rood",
+  versnelling: 0
+};</code></pre>
+      </div>
+      <p>Maar wat als je <strong>tien auto's</strong> nodig hebt? Dan kopieer je de structuur tien keer, met alle kansen op fouten en inconsistentie:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Copy-paste = slecht
+let auto1 = { merk: "Honda", kleur: "rood",  versnelling: 0 };
+let auto2 = { merk: "BMW",   kleur: "blauw", versnelling: 0 };
+let auto3 = { merk: "Audi",  kleur: "zwart", versneliing: 0 }; // tikfout!</code></pre>
+      </div>
+      <p>Er is geen garantie dat elk object dezelfde structuur heeft. Als je later een veld wil toevoegen, moet je dat overal aanpassen.</p>
+
+      <h3>De oplossing: een klasse als blauwdruk</h3>
+      <p>Een <strong>klasse</strong> is een blauwdruk of sjabloon. Je definieert de structuur eenmalig, en dan maak je er zoveel <strong>instanties</strong> (= objecten) van als je wil.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Auto {
+  // (inhoud volgt in de volgende secties)
+}
+
+// Instanties aanmaken met het 'new' keyword
+let auto1 = new Auto("Honda", "rood");
+let auto2 = new Auto("BMW", "blauw");
+let auto3 = new Auto("Audi", "zwart");</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">Naamconventie</div>
+        <p>Een klassenaam begint altijd met een <strong>hoofdletter</strong> (<code>Auto</code>, <code>Boek</code>, <code>Gebruiker</code>). Instanties beginnen met een kleine letter (<code>auto1</code>, <code>mijnBoek</code>).</p>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H17-afb1.svg" alt="Klasse als blauwdruk: één blauwdruk leidt tot meerdere instanties" loading="lazy">
+      </figure>
+
+      <h2 id="constructor">17.2 Constructor &amp; private fields</h2>
+
+      <h3>De constructor aanmaken</h3>
+      <p>De <strong>constructor</strong> is een speciale methode die automatisch uitgevoerd wordt op het moment dat je <code>new</code> gebruikt. Er is slechts één constructor per klasse.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Auto {
+  constructor(merk, kleur) {
+    // 'this' verwijst naar het nieuwe object dat aangemaakt wordt
+    this.merk = merk;
+    this.kleur = kleur;
+    this.versnelling = 0; // standaardwaarde
+  }
+}
+
+let mijnAuto = new Auto("Honda", "rood");
+console.log(mijnAuto.merk);        // "Honda"
+console.log(mijnAuto.versnelling); // 0</code></pre>
+      </div>
+
+      <h3>Private fields met <code>#</code></h3>
+      <p>In het voorbeeld hierboven zijn <code>merk</code>, <code>kleur</code> en <code>versnelling</code> <strong>publieke</strong> velden. Iedereen kan ze van buitenaf lezen én overschrijven — ook met ongeldige waarden:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">mijnAuto.merk = "Ferrari";  // geen probleem... maar is dit gewenst?
+mijnAuto.versnelling = 99;  // gevaarlijk!</code></pre>
+      </div>
+      <p>Om data te beschermen gebruik je <strong>private fields</strong> met een <code>#</code> vóór de naam. Ze zijn alleen toegankelijk vanuit de klasse zelf.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Auto {
+  // Private fields declareer je bovenaan de klasse
+  #merk;
+  #kleur;
+  #versnelling;
+
+  constructor(merk, kleur) {
+    this.#merk = merk;
+    this.#kleur = kleur;
+    this.#versnelling = 0;
+  }
+}
+
+let mijnAuto = new Auto("Honda", "rood");
+console.log(mijnAuto.#merk); // SyntaxError! #merk is privaat</code></pre>
+      </div>
+
+      <h3>Volledig voorbeeld: de <code>Car</code>-klasse</h3>
+      <p>De <code>Car</code>-klasse gebruikt dit patroon volledig — private fields, een constructor met <code>this.#veld</code>-toewijzingen, en een statisch veld voor auto-ID's:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Car {
+  static #lastId = 0; // teller geldt voor de klasse, niet per instantie
+
+  #id;
+  #brand;
+  #color;
+  #maxSpeed;
+  #started;
+  #gear;
+
+  constructor(brand, color, maxSpeed) {
+    this.#id = Car.#lastId++; // uniek ID per auto
+    this.#brand = brand;
+    this.#color = color;
+    this.#maxSpeed = maxSpeed;
+    this.#started = false;
+    this.#gear = 0;
+  }
+}</code></pre>
+      </div>
+
+      <h2 id="methodes">17.3 Methodes</h2>
+      <p>Methodes zijn <strong>functies die bij een klasse horen</strong>. Je schrijft ze zonder het <code>function</code>-keyword — de naam alleen is voldoende.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Auto {
+  #merk;
+  #gestart;
+  #versnelling;
+
+  constructor(merk) {
+    this.#merk = merk;
+    this.#gestart = false;
+    this.#versnelling = 0;
+  }
+
+  start() {
+    this.#gestart = true;
+    console.log(`${this.#merk} is gestart.`);
+  }
+
+  schakelOp() {
+    this.#versnelling++;
+    console.log(`Versnelling: ${this.#versnelling}`);
+  }
+
+  rijd() {
+    if (this.#gestart) {
+      console.log(`${this.#merk} rijdt in versnelling ${this.#versnelling}.`);
+    } else {
+      console.log(`${this.#merk} is niet gestart.`);
+    }
+  }
+}
+
+let auto = new Auto("Honda");
+auto.start();     // Honda is gestart.
+auto.schakelOp(); // Versnelling: 1
+auto.rijd();      // Honda rijdt in versnelling 1.</code></pre>
+      </div>
+      <p>Methodes kunnen:</p>
+      <ul>
+        <li>Private fields van <code>this</code> lezen en schrijven</li>
+        <li>Andere methodes van dezelfde klasse aanroepen via <code>this.methode()</code></li>
+        <li>Parameters ontvangen zoals gewone functies</li>
+      </ul>
+
+      <h2 id="getters-en-setters">17.4 Getters en setters</h2>
+
+      <h3>Waarom getters en setters?</h3>
+      <p>Private fields beschermen je data — maar dan kan je ze ook niet meer lezen van buitenaf. De oplossing is een <strong>getter</strong>: een methode die je aanroept als een gewone eigenschap (zonder haakjes).</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Auto {
+  #merk;
+
+  constructor(merk) {
+    this.#merk = merk;
+  }
+
+  // Getter: lezen zonder haakjes
+  get merk() {
+    return this.#merk;
+  }
+}
+
+let auto = new Auto("Honda");
+console.log(auto.merk); // "Honda" — geen haakjes nodig!</code></pre>
+      </div>
+
+      <h3>Setter met validatie</h3>
+      <p>Een <strong>setter</strong> laat toe om een private field te schrijven via een gewone toewijzing — maar je kan eerst valideren of de waarde geldig is:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Auto {
+  #gaspedalPositie;
+
+  constructor() {
+    this.#gaspedalPositie = 0;
+  }
+
+  get gaspedalPositie() {
+    return this.#gaspedalPositie;
+  }
+
+  set gaspedalPositie(nieuweWaarde) {
+    if (nieuweWaarde &lt; 0 || nieuweWaarde &gt; 1) {
+      throw "Gelieve een waarde tussen 0 en 1 in te geven.";
+    }
+    this.#gaspedalPositie = nieuweWaarde;
+  }
+}
+
+let auto = new Auto();
+auto.gaspedalPositie = 0.7; // OK
+console.log(auto.gaspedalPositie); // 0.7
+
+auto.gaspedalPositie = 1.5; // Gooit een fout!</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">Let op</div>
+        <p><code>auto.gaspedalPositie = 0.7</code> ziet eruit als een gewone toewijzing, maar de setter-logica wordt toch uitgevoerd. Dat is de kracht van setters: transparante validatie.</p>
+      </div>
+
+      <h2 id="static-fields-en-methodes">17.5 Static fields en methodes</h2>
+
+      <h3>Static vs. instantie</h3>
+      <p>Tot nu toe waren alle fields en methodes gebonden aan een <strong>instantie</strong> — elke <code>new Auto()</code> heeft zijn eigen <code>#merk</code>, <code>#kleur</code>, enzovoort.</p>
+      <p>Een <strong>static</strong> field of methode hoort bij de <strong>klasse zelf</strong>, niet bij een individueel object.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Auto {
+  static aantalAutos = 0; // gedeeld over alle instanties
+
+  #merk;
+
+  constructor(merk) {
+    this.#merk = merk;
+    Auto.aantalAutos++; // teller verhogen bij elke new
+  }
+
+  static toonTotaal() {
+    console.log(`Er zijn ${Auto.aantalAutos} auto's aangemaakt.`);
+  }
+}
+
+let a1 = new Auto("Honda");
+let a2 = new Auto("BMW");
+let a3 = new Auto("Audi");
+
+Auto.toonTotaal();   // Er zijn 3 auto's aangemaakt.
+// a1.toonTotaal(); // Fout! toonTotaal is een klasse-methode</code></pre>
+      </div>
+
+      <h3>Private static: het ID-patroon</h3>
+      <p>In de <code>Car</code>-klasse wordt een <strong>private static</strong> veld gebruikt om auto-ID's te beheren. Het static veld <code>#lastId</code> bestaat maar één keer, ongeacht hoeveel <code>Car</code>-objecten er zijn:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">class Car {
+  static #lastId = 0; // privaat: van buiten niet leesbaar of wijzigbaar
+
+  #id;
+
+  constructor(brand, color, maxSpeed) {
+    this.#id = Car.#lastId++; // elke auto krijgt een uniek oplopend ID
+    // ...
+  }
+
+  get id() { return this.#id; }
+}
+
+let c1 = new Car("Honda", "rood", 180);
+let c2 = new Car("BMW",   "blauw", 240);
+
+console.log(c1.id); // 0
+console.log(c2.id); // 1</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10 / ADB11</span>
+            <span class="oefening__title">Oefening 1 — Klasse <code>Boek</code></span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een klasse <code>Boek</code> met de volgende vereisten:</p>
+            <p><strong>Private fields:</strong></p>
+            <ul>
+              <li><code>#titel</code> — de titel van het boek</li>
+              <li><code>#auteur</code> — de naam van de auteur</li>
+              <li><code>#jaar</code> — het jaar van publicatie</li>
+            </ul>
+            <p><strong>Static:</strong></p>
+            <ul>
+              <li><code>static #aantalBoeken = 0</code> — teller die bijhoudt hoeveel <code>Boek</code>-instanties zijn aangemaakt</li>
+              <li><code>static get aantalBoeken()</code> — getter om de teller te lezen</li>
+            </ul>
+            <p><strong>Constructor:</strong> <code>constructor(titel, auteur, jaar)</code> — wijst de parameters toe en verhoogt de static teller.</p>
+            <p><strong>Getters:</strong> <code>get titel()</code>, <code>get auteur()</code>, <code>get jaar()</code></p>
+            <p><strong>Methode <code>toonInfo()</code>:</strong> Logt een nette zin: <code>"De alchemist" van Paulo Coelho (1988)</code></p>
+            <p><strong>Validatie in de constructor:</strong> Als <code>jaar</code> kleiner is dan 1400 of groter dan het huidige jaar, gooi je een foutmelding: <code>"Ongeldig jaar."</code></p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">// Verwachte werking:
+let b1 = new Boek("De alchemist", "Paulo Coelho", 1988);
+let b2 = new Boek("1984", "George Orwell", 1949);
+let b3 = new Boek("Sapiens", "Yuval Noah Harari", 2011);
+
+b1.toonInfo(); // "De alchemist" van Paulo Coelho (1988)
+b2.toonInfo(); // "1984" van George Orwell (1949)
+b3.toonInfo(); // "Sapiens" van Yuval Noah Harari (2011)
+
+console.log(Boek.aantalBoeken); // 3</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 2 — Drie instanties en de teller</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak drie <code>Boek</code>-instanties naar keuze. Roep op elk <code>toonInfo()</code> aan. Toon daarna de static teller via <code>Boek.aantalBoeken</code>.</p>
+            <p>Probeer ook: wat gebeurt er als je <code>new Boek("Test", "Auteur", 1200)</code> aanmaakt? Welke foutmelding verschijnt er in de console?</p>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H17-oef1-browser.svg" alt="Console output van Boek-klasse oefening" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB11</span>
+            <span class="oefening__title">Oefening 3 — Klasse <code>Temperatuur</code></span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een klasse <code>Temperatuur</code> met:</p>
+            <ul>
+              <li>Private field <code>#graden</code> (in Celsius)</li>
+              <li>Constructor die de begintemperatuur instelt (standaard 0)</li>
+              <li>Getter <code>get graden()</code> — geeft de waarde in Celsius</li>
+              <li>Setter <code>set graden(waarde)</code> — valideert dat de waarde niet lager is dan &minus;273.15 (absoluut nulpunt)</li>
+              <li>Methode <code>naarFahrenheit()</code> — returnt de temperatuur omgezet naar Fahrenheit: <code>C * 9/5 + 32</code></li>
+              <li>Methode <code>toonInfo()</code> — logt: <code>"22 °C = 71.6 °F"</code></li>
+            </ul>
+            <p>Test je klasse met minstens 3 temperaturen, waaronder een negatieve waarde en de poging om &minus;300 °C in te stellen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#x1F4CB; Huistaak &mdash; JavaScript Klassen
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H17-oef1-browser.svg', 'Voorbeeld — BankRekening klasse')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Klasse <code>BankRekening</code></h3>
+            <p>Maak een klasse <code>BankRekening</code> met de volgende vereisten:</p>
+            <h4>Deel 1 — Structuur (4 punten)</h4>
+            <ol>
+              <li>Private fields <code>#rekeninghouder</code> en <code>#saldo</code></li>
+              <li>Een static teller <code>#aantalRekeningen</code> met bijbehorende static getter</li>
+              <li>Constructor die rekeninghouder en beginbedrag instelt (standaard saldo = 0)</li>
+              <li>Getters voor <code>rekeninghouder</code> en <code>saldo</code></li>
+            </ol>
+            <h4>Deel 2 — Methodes (3 punten)</h4>
+            <ol>
+              <li>Methode <code>storten(bedrag)</code> — voegt het bedrag toe aan het saldo. Validatie: bedrag moet groter zijn dan 0.</li>
+              <li>Methode <code>afhalen(bedrag)</code> — haalt het bedrag af van het saldo. Validatie: bedrag moet groter zijn dan 0 én mag het saldo niet overschrijden.</li>
+              <li>Methode <code>toonSaldo()</code> — logt een nette zin: <code>"[naam]: €[saldo]"</code></li>
+            </ol>
+            <h4>Deel 3 — Gebruik (3 punten)</h4>
+            <ol>
+              <li>Maak minstens 2 rekeningen aan</li>
+              <li>Voer stortingen en afhalingen uit, roep telkens <code>toonSaldo()</code> aan</li>
+              <li>Probeer een ongeldig afhaling (boven het saldo) en toon de foutmelding</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H17 — JavaScript Klassen</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is de juiste naamconventie voor een JavaScript klasse?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="a"> <span><code>class auto { }</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="b"> <span><code>class Auto { }</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="c"> <span><code>Class Auto { }</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v1" value="d"> <span><code>class_auto { }</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke uitspraak over private fields (<code>#</code>) is correct?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="a"> <span>Private fields zijn toegankelijk vanuit elke functie in hetzelfde bestand</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="b"> <span>Private fields kunnen worden gelezen met <code>object.#veld</code> van buitenaf</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="c"> <span>Private fields zijn alleen toegankelijk binnen de klasse zelf</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v2" value="d"> <span>Private fields bestaan niet in JavaScript</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet de <code>constructor</code> in een klasse?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="a"> <span>Hij wordt aangeroepen telkens je een methode aanroept</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="b"> <span>Hij wordt automatisch uitgevoerd op het moment dat je <code>new</code> gebruikt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="c"> <span>Hij vervangt het <code>static</code>-keyword</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v3" value="d"> <span>Hij maakt de klasse statisch</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe roep je een <strong>getter</strong> aan?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="a"> <span><code>auto.getMerk()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="b"> <span><code>auto.#merk</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="c"> <span><code>auto.merk</code> (zonder haakjes)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v4" value="d"> <span><code>Auto.merk</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is het verschil tussen een static methode en een gewone methode?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="a"> <span>Een static methode heeft toegang tot private fields</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="b"> <span>Een static methode wordt aangeroepen via de klasse (<code>Auto.methode()</code>), niet via een instantie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="c"> <span>Een static methode kan geen parameters ontvangen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v5" value="d"> <span>Er is geen verschil</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welke code gooit een foutmelding als de setter validatie bevat voor <code>[0, 1]</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="a"> <span>Nooit — JavaScript negeert setters</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="b"> <span>Alleen als <code>gaspedalPositie</code> een public field is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="c"> <span><code>auto.gaspedalPositie = 1.5</code> — want de setter bevat een <code>throw</code> bij ongeldige waarde</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h17-v6" value="d"> <span>Altijd, want 1.5 is een kommagetal</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H17')" data-progress-key="6adb/app-ontwikkeling/H17">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H16.html" class="btn btn-ghost">← H16</a>
+          <a href="H18.html" class="btn btn-ghost">H18 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -45,8 +45,36 @@
 <span>H05</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-5-datalinklaag-ethernet">Hoofdstuk 5 — Datalinklaag & Ethernet</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#5-theorie">5. Theorie</a></li><li><a href="#51-de-datalinklaag-osi-laag-2" style="padding-left:1.25rem">5.1 De datalinklaag (OSI Laag 2)</a></li><li><a href="#52-mac-adressen" style="padding-left:1.25rem">5.2 MAC-adressen</a></li><li><a href="#53-ethernet-frames" style="padding-left:1.25rem">5.3 Ethernet-frames</a></li><li><a href="#54-hub-vs-switch" style="padding-left:1.25rem">5.4 Hub vs switch</a></li><li><a href="#55-arp-address-resolution-protocol" style="padding-left:1.25rem">5.5 ARP — Address Resolution Protocol</a></li><li><a href="#5-voorbeelden">5. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h05" style="padding-left:1.25rem">Huistaak H05</a></li><li><a href="#6-toets">6. Toets</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/netwerken/H05" style="--sidebar-accent: var(--color-vak-netwerken)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.1"><span class="sidebar-check__box"></span></label>
+      <a href="#5-theorie">5. Theorie</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-5-datalinklaag-ethernet">Hoofdstuk 5 — Datalinklaag & Ethernet</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#5-theorie">5. Theorie</a></li><li><a href="#51-de-datalinklaag-osi-laag-2" style="padding-left:1.25rem">5.1 De datalinklaag (OSI Laag 2)</a></li><li><a href="#52-mac-adressen" style="padding-left:1.25rem">5.2 MAC-adressen</a></li><li><a href="#53-ethernet-frames" style="padding-left:1.25rem">5.3 Ethernet-frames</a></li><li><a href="#54-hub-vs-switch" style="padding-left:1.25rem">5.4 Hub vs switch</a></li><li><a href="#55-arp-address-resolution-protocol" style="padding-left:1.25rem">5.5 ARP — Address Resolution Protocol</a></li><li><a href="#5-voorbeelden">5. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h05" style="padding-left:1.25rem">Huistaak H05</a></li><li><a href="#6-toets">6. Toets</a></li></ul></div>
       <div class="chapter-content">
         <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
@@ -68,17 +96,21 @@
 <tr><td><strong>Status</strong></td><td>Definitief</td></tr>
 <tr><td><strong>Lesuren</strong></td><td>6 u</td></tr>
 </tbody></table></div>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ul>
-<li>uitleggen wat een MAC-adres is en hoe het opgebouwd is</li>
-<li>de structuur van een Ethernet-frame beschrijven</li>
-<li>het verschil uitleggen tussen een hub en een switch</li>
-<li>beschrijven hoe een switch werkt (MAC-adrestabel)</li>
-<li>het ARP-protocol uitleggen (hoe MAC- en IP-adressen aan elkaar gekoppeld worden)</li>
-<li>CSMA/CD uitleggen als toegangsmethode voor gedeelde media</li>
-</ul>
-<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span></div>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>uitleggen wat een MAC-adres is en hoe het opgebouwd is</li>
+    <li>de structuur van een Ethernet-frame beschrijven</li>
+    <li>het verschil uitleggen tussen een hub en een switch</li>
+    <li>beschrijven hoe een switch werkt (MAC-adrestabel)</li>
+    <li>het ARP-protocol uitleggen (hoe MAC- en IP-adressen aan elkaar gekoppeld worden)</li>
+    <li>CSMA/CD uitleggen als toegangsmethode voor gedeelde media</li>
+  </ul>
+</div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-03</span><span class="ld-tag__title">De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe.</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-04</span><span class="ld-tag__title">De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen.</span></div>
+</div>
 <h2 id="5-theorie">5. Theorie</h2>
 <h3 id="51-de-datalinklaag-osi-laag-2">5.1 De datalinklaag (OSI Laag 2)</h3>
 <p>De datalinklaag is verantwoordelijk voor de <strong>betrouwbare overdracht van data tussen twee rechtstreeks verbonden apparaten</strong> op hetzelfde netwerksegment. Ze werkt op het niveau van <strong>frames</strong> en gebruikt <strong>MAC-adressen</strong> voor adressering.</p>

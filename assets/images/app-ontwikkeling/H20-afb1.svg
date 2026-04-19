@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="btnCyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#0e7490"/>
+    </linearGradient>
+    <linearGradient id="btnGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="100%" style="stop-color:#15803d"/>
+    </linearGradient>
+    <linearGradient id="btnOrange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ea580c"/>
+      <stop offset="100%" style="stop-color:#c2410c"/>
+    </linearGradient>
+    <linearGradient id="btnPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="btnYellow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#b45309"/>
+    </linearGradient>
+    <linearGradient id="btnRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#b91c1c"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="600" cy="400" r="380" fill="#00d4ff" opacity="0.02"/>
+
+  <!-- Titel -->
+  <text x="600" y="52" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="700" font-family="Inter, sans-serif">Wiskundige Operatoren in JavaScript</text>
+  <text x="600" y="76" text-anchor="middle" fill="#6b7280" font-size="14" font-family="Inter, sans-serif">Elke operator als calculator-toets — met a = 10, b = 3</text>
+  <line x1="150" y1="92" x2="1050" y2="92" stroke="#2d3150" stroke-width="1"/>
+
+  <!-- Calculator body -->
+  <rect x="200" y="110" width="800" height="600" rx="20" fill="#1a1d2e" stroke="#2d3150" stroke-width="2"/>
+  <!-- Calculator display -->
+  <rect x="230" y="135" width="740" height="80" rx="10" fill="#0d1117" stroke="#3d4166" stroke-width="1.5"/>
+  <text x="950" y="175" text-anchor="end" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">let a = 10,  b = 3</text>
+  <text x="950" y="198" text-anchor="end" fill="#00d4ff" font-size="16" font-family="Courier New, monospace" font-weight="600" filter="url(#glow)">console.log(a OP b)</text>
+
+  <!-- Toetsen rij 1: + en - -->
+  <!-- Toets + -->
+  <rect x="230" y="238" width="350" height="130" rx="14" fill="url(#btnCyan)" stroke="#06b6d4" stroke-width="2"/>
+  <!-- Toets glans -->
+  <rect x="230" y="238" width="350" height="40" rx="14" ry="14" fill="#ffffff" opacity="0.08"/>
+  <rect x="230" y="266" width="350" height="12" fill="#ffffff" opacity="0.08"/>
+  <!-- Toets symbool -->
+  <text x="305" y="300" text-anchor="middle" fill="#ffffff" font-size="52" font-weight="700" font-family="Courier New, monospace" filter="url(#glow)">+</text>
+  <!-- Naam -->
+  <text x="425" y="280" fill="#a5f3fc" font-size="14" font-weight="600" font-family="Inter, sans-serif">Optelling</text>
+  <!-- Code + resultaat -->
+  <rect x="390" y="292" width="175" height="58" rx="8" fill="#0d1117" opacity="0.7"/>
+  <text x="400" y="313" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">a + b</text>
+  <text x="400" y="335" fill="#00d4ff" font-size="14" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">→ 13</text>
+  <text x="400" y="353" fill="#6b7280" font-size="10" font-family="Inter, sans-serif">10 + 3 = 13</text>
+
+  <!-- Toets - -->
+  <rect x="620" y="238" width="350" height="130" rx="14" fill="url(#btnGreen)" stroke="#16a34a" stroke-width="2"/>
+  <rect x="620" y="238" width="350" height="40" rx="14" ry="14" fill="#ffffff" opacity="0.08"/>
+  <rect x="620" y="266" width="350" height="12" fill="#ffffff" opacity="0.08"/>
+  <text x="695" y="300" text-anchor="middle" fill="#ffffff" font-size="52" font-weight="700" font-family="Courier New, monospace" filter="url(#glow)">-</text>
+  <text x="815" y="280" fill="#bbf7d0" font-size="14" font-weight="600" font-family="Inter, sans-serif">Aftrekking</text>
+  <rect x="780" y="292" width="175" height="58" rx="8" fill="#0d1117" opacity="0.7"/>
+  <text x="790" y="313" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">a - b</text>
+  <text x="790" y="335" fill="#39ff14" font-size="14" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">→ 7</text>
+  <text x="790" y="353" fill="#6b7280" font-size="10" font-family="Inter, sans-serif">10 - 3 = 7</text>
+
+  <!-- Toetsen rij 2: * en / -->
+  <!-- Toets * -->
+  <rect x="230" y="388" width="350" height="130" rx="14" fill="url(#btnOrange)" stroke="#ea580c" stroke-width="2"/>
+  <rect x="230" y="388" width="350" height="40" rx="14" ry="14" fill="#ffffff" opacity="0.08"/>
+  <rect x="230" y="416" width="350" height="12" fill="#ffffff" opacity="0.08"/>
+  <text x="305" y="450" text-anchor="middle" fill="#ffffff" font-size="52" font-weight="700" font-family="Courier New, monospace" filter="url(#glow)">*</text>
+  <text x="425" y="430" fill="#fed7aa" font-size="14" font-weight="600" font-family="Inter, sans-serif">Vermenigvuldiging</text>
+  <rect x="390" y="442" width="175" height="58" rx="8" fill="#0d1117" opacity="0.7"/>
+  <text x="400" y="463" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">a * b</text>
+  <text x="400" y="485" fill="#ff6b35" font-size="14" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">→ 30</text>
+  <text x="400" y="503" fill="#6b7280" font-size="10" font-family="Inter, sans-serif">10 × 3 = 30</text>
+
+  <!-- Toets / -->
+  <rect x="620" y="388" width="350" height="130" rx="14" fill="url(#btnPurple)" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="620" y="388" width="350" height="40" rx="14" ry="14" fill="#ffffff" opacity="0.08"/>
+  <rect x="620" y="416" width="350" height="12" fill="#ffffff" opacity="0.08"/>
+  <text x="695" y="450" text-anchor="middle" fill="#ffffff" font-size="52" font-weight="700" font-family="Courier New, monospace" filter="url(#glow)">/</text>
+  <text x="815" y="430" fill="#ddd6fe" font-size="14" font-weight="600" font-family="Inter, sans-serif">Deling</text>
+  <rect x="780" y="442" width="175" height="58" rx="8" fill="#0d1117" opacity="0.7"/>
+  <text x="790" y="463" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">a / b</text>
+  <text x="790" y="485" fill="#a78bfa" font-size="14" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">→ 3.333...</text>
+  <text x="790" y="503" fill="#6b7280" font-size="10" font-family="Inter, sans-serif">10 ÷ 3 = 3.333…</text>
+
+  <!-- Toetsen rij 3: % en ** -->
+  <!-- Toets % -->
+  <rect x="230" y="538" width="350" height="130" rx="14" fill="url(#btnYellow)" stroke="#d97706" stroke-width="2"/>
+  <rect x="230" y="538" width="350" height="40" rx="14" ry="14" fill="#ffffff" opacity="0.08"/>
+  <rect x="230" y="566" width="350" height="12" fill="#ffffff" opacity="0.08"/>
+  <text x="305" y="600" text-anchor="middle" fill="#ffffff" font-size="52" font-weight="700" font-family="Courier New, monospace" filter="url(#glow)">%</text>
+  <text x="425" y="575" fill="#fef3c7" font-size="14" font-weight="600" font-family="Inter, sans-serif">Modulo (rest)</text>
+  <rect x="390" y="588" width="175" height="68" rx="8" fill="#0d1117" opacity="0.7"/>
+  <text x="400" y="609" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">a % b</text>
+  <text x="400" y="631" fill="#fbbf24" font-size="14" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">→ 1</text>
+  <text x="400" y="649" fill="#6b7280" font-size="10" font-family="Inter, sans-serif">10 = 3×3 + 1 (rest=1)</text>
+
+  <!-- Toets ** -->
+  <rect x="620" y="538" width="350" height="130" rx="14" fill="url(#btnRed)" stroke="#dc2626" stroke-width="2"/>
+  <rect x="620" y="538" width="350" height="40" rx="14" ry="14" fill="#ffffff" opacity="0.08"/>
+  <rect x="620" y="566" width="350" height="12" fill="#ffffff" opacity="0.08"/>
+  <text x="695" y="600" text-anchor="middle" fill="#ffffff" font-size="42" font-weight="700" font-family="Courier New, monospace" filter="url(#glow)">**</text>
+  <text x="815" y="575" fill="#fecaca" font-size="14" font-weight="600" font-family="Inter, sans-serif">Machtsverheffing</text>
+  <rect x="780" y="588" width="175" height="68" rx="8" fill="#0d1117" opacity="0.7"/>
+  <text x="790" y="609" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">a ** b</text>
+  <text x="790" y="631" fill="#f87171" font-size="14" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">→ 1000</text>
+  <text x="790" y="649" fill="#6b7280" font-size="10" font-family="Inter, sans-serif">10³ = 1000</text>
+
+  <!-- Speciale tip: modulo gebruik -->
+  <rect x="80" y="695" width="520" height="55" rx="8" fill="#1e2030" stroke="#d97706" stroke-width="1.5"/>
+  <text x="100" y="715" fill="#fbbf24" font-size="12" font-weight="700" font-family="Inter, sans-serif">💡 Modulo-tip:</text>
+  <text x="100" y="735" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">getal % 2 === 0  →  even getal</text>
+  <text x="100" y="748" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">getal % 2 !== 0  →  oneven getal</text>
+
+  <!-- Speciale tip: machtsverheffing -->
+  <rect x="620" y="695" width="520" height="55" rx="8" fill="#1e2030" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="640" y="715" fill="#f87171" font-size="12" font-weight="700" font-family="Inter, sans-serif">💡 Machtsverheffing-tip:</text>
+  <text x="640" y="735" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">2 ** 8   →  256 (bytes in een byte)</text>
+  <text x="640" y="748" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">9 ** 0.5  →  3  (vierkantswortel)</text>
+
+  <text x="600" y="785" text-anchor="middle" fill="#3d4166" font-size="12" font-family="Inter, sans-serif">H20 — Operatoren — Wiskundige operatoren [ADB09] [basis]</text>
+</svg>

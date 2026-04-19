@@ -1,0 +1,99 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">repeat(), fr en gap — Flexibele Grid-kolommen</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">fr = fraction (breukdeel van beschikbare ruimte) — gap = ruimte tussen tracks</text>
+
+  <!-- repeat() sectie -->
+  <rect x="20" y="58" width="370" height="155" rx="8" fill="#22C55E" opacity="0.07" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="205" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#4ade80">repeat() — Herhaal een patroon</text>
+
+  <!-- Code blok repeat -->
+  <rect x="35" y="84" width="340" height="52" rx="4" fill="#0d1117"/>
+  <text x="50" y="102" font-size="11" font-family="Courier New" fill="#888">/* Zonder repeat: */</text>
+  <text x="50" y="118" font-size="11" font-family="Courier New" fill="#a8ff7a">grid-template-columns: 1fr 1fr 1fr 1fr;</text>
+
+  <rect x="35" y="143" width="340" height="36" rx="4" fill="#0d1117"/>
+  <text x="50" y="157" font-size="11" font-family="Courier New" fill="#888">/* Met repeat: (zelfde resultaat!) */</text>
+  <text x="50" y="172" font-size="11" font-family="Courier New" fill="#4ade80">grid-template-columns: repeat(4, 1fr);</text>
+
+  <!-- Grid visueel repeat -->
+  <rect x="35" y="185" width="340" height="20" rx="3" fill="#2a2d3e" stroke="#22C55E" stroke-width="1"/>
+  <rect x="36" y="186" width="83" height="18" rx="2" fill="#22C55E" opacity="0.55"/>
+  <rect x="121" y="186" width="83" height="18" rx="2" fill="#22C55E" opacity="0.40"/>
+  <rect x="206" y="186" width="83" height="18" rx="2" fill="#22C55E" opacity="0.28"/>
+  <rect x="291" y="186" width="83" height="18" rx="2" fill="#22C55E" opacity="0.18"/>
+  <text x="78" y="199" text-anchor="middle" font-size="9" fill="white">1fr</text>
+  <text x="163" y="199" text-anchor="middle" font-size="9" fill="white">1fr</text>
+  <text x="248" y="199" text-anchor="middle" font-size="9" fill="white">1fr</text>
+  <text x="333" y="199" text-anchor="middle" font-size="9" fill="white">1fr</text>
+
+  <!-- fr sectie -->
+  <rect x="20" y="228" width="370" height="155" rx="8" fill="#7B3FE4" opacity="0.07" stroke="#7B3FE4" stroke-width="1.5"/>
+  <text x="205" y="246" text-anchor="middle" font-size="12" font-weight="bold" fill="#c4b5fd">fr — Breukdeel van beschikbare ruimte</text>
+
+  <!-- Code fr -->
+  <rect x="35" y="254" width="340" height="36" rx="4" fill="#0d1117"/>
+  <text x="50" y="268" font-size="11" font-family="Courier New" fill="#888">/* Verhouding 1:2:1 */</text>
+  <text x="50" y="283" font-size="11" font-family="Courier New" fill="#c4b5fd">grid-template-columns: 1fr 2fr 1fr;</text>
+
+  <!-- Visueel fr verhouding -->
+  <rect x="35" y="296" width="340" height="28" rx="3" fill="#2a2d3e" stroke="#7B3FE4" stroke-width="1"/>
+  <rect x="36" y="297" width="84" height="26" rx="2" fill="#7B3FE4" opacity="0.55"/>
+  <rect x="122" y="297" width="169" height="26" rx="2" fill="#7B3FE4" opacity="0.40"/>
+  <rect x="293" y="297" width="81" height="26" rx="2" fill="#7B3FE4" opacity="0.25"/>
+  <text x="78" y="314" text-anchor="middle" font-size="10" fill="white">1fr</text>
+  <text x="207" y="314" text-anchor="middle" font-size="10" fill="white">2fr (dubbel zo breed)</text>
+  <text x="334" y="314" text-anchor="middle" font-size="10" fill="white">1fr</text>
+
+  <!-- Breedte annotaties -->
+  <line x1="36" y1="330" x2="120" y2="330" stroke="#7B3FE4" stroke-width="1"/>
+  <text x="78" y="341" text-anchor="middle" font-size="9" fill="#888">25%</text>
+  <line x1="122" y1="330" x2="290" y2="330" stroke="#7B3FE4" stroke-width="1"/>
+  <text x="207" y="341" text-anchor="middle" font-size="9" fill="#888">50%</text>
+  <line x1="293" y1="330" x2="374" y2="330" stroke="#7B3FE4" stroke-width="1"/>
+  <text x="334" y="341" text-anchor="middle" font-size="9" fill="#888">25%</text>
+
+  <!-- gap sectie rechts -->
+  <rect x="410" y="58" width="370" height="325" rx="8" fill="#2D9CDB" opacity="0.07" stroke="#2D9CDB" stroke-width="1.5"/>
+  <text x="595" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#74c0fc">gap — Ruimte tussen rijen en kolommen</text>
+
+  <!-- Code gap varianten -->
+  <rect x="425" y="84" width="340" height="110" rx="4" fill="#0d1117"/>
+  <text x="440" y="100" font-size="11" font-family="Courier New" fill="#888">/* Gelijke ruimte overal */</text>
+  <text x="440" y="115" font-size="11" font-family="Courier New" fill="#74c0fc">gap: 1rem;</text>
+  <text x="440" y="135" font-size="11" font-family="Courier New" fill="#888">/* Rij-gap / kolom-gap apart */</text>
+  <text x="440" y="150" font-size="11" font-family="Courier New" fill="#74c0fc">gap: 1rem 2rem;</text>
+  <text x="440" y="170" font-size="11" font-family="Courier New" fill="#888">/* Verouderde namen (ook geldig) */</text>
+  <text x="440" y="185" font-size="11" font-family="Courier New" fill="#555">row-gap: 1rem;  column-gap: 2rem;</text>
+
+  <!-- Grid met gap visueel: ZONDER gap -->
+  <text x="595" y="215" text-anchor="middle" font-size="11" fill="#888" font-weight="bold">gap: 0</text>
+  <rect x="425" y="220" width="155" height="75" rx="3" fill="#2a2d3e" stroke="#2D9CDB" stroke-width="1"/>
+  <rect x="426" y="221" width="75" height="35" rx="2" fill="#2D9CDB" opacity="0.50"/>
+  <rect x="503" y="221" width="76" height="35" rx="2" fill="#2D9CDB" opacity="0.35"/>
+  <rect x="426" y="258" width="75" height="36" rx="2" fill="#2D9CDB" opacity="0.25"/>
+  <rect x="503" y="258" width="76" height="36" rx="2" fill="#2D9CDB" opacity="0.15"/>
+
+  <!-- Grid met gap visueel: MET gap -->
+  <text x="595" y="215" text-anchor="middle" font-size="11" fill="#888" font-weight="bold">gap: 0</text>
+  <text x="650" y="215" text-anchor="middle" font-size="11" fill="#74c0fc" font-weight="bold">gap: 0.5rem</text>
+  <rect x="595" y="220" width="180" height="80" rx="3" fill="#2a2d3e" stroke="#2D9CDB" stroke-width="1"/>
+  <rect x="601" y="226" width="78" height="30" rx="2" fill="#2D9CDB" opacity="0.50"/>
+  <rect x="689" y="226" width="80" height="30" rx="2" fill="#2D9CDB" opacity="0.35"/>
+  <rect x="601" y="263" width="78" height="30" rx="2" fill="#2D9CDB" opacity="0.25"/>
+  <rect x="689" y="263" width="80" height="30" rx="2" fill="#2D9CDB" opacity="0.15"/>
+  <!-- gap annotaties -->
+  <line x1="680" y1="226" x2="688" y2="226" stroke="#74c0fc" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="680" y1="256" x2="688" y2="256" stroke="#74c0fc" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="583" y="244" text-anchor="middle" font-size="9" fill="#74c0fc">column</text>
+  <text x="583" y="253" text-anchor="middle" font-size="9" fill="#74c0fc">-gap</text>
+  <line x1="601" y1="257" x2="601" y2="262" stroke="#74c0fc" stroke-width="1"/>
+  <line x1="679" y1="257" x2="679" y2="262" stroke="#74c0fc" stroke-width="1"/>
+  <text x="640" y="313" text-anchor="middle" font-size="9" fill="#74c0fc">row-gap</text>
+
+  <!-- auto-fill tip -->
+  <rect x="425" y="318" width="340" height="52" rx="4" fill="#2a2d3e" stroke="#F97316" stroke-width="1"/>
+  <text x="435" y="334" font-size="11" fill="#fdba74" font-weight="bold">Bonus: auto-fill met minmax()</text>
+  <text x="435" y="350" font-size="10" font-family="Courier New" fill="#a8ff7a">grid-template-columns:</text>
+  <text x="435" y="364" font-size="10" font-family="Courier New" fill="#a8ff7a">  repeat(auto-fill, minmax(200px, 1fr));</text>
+</svg>

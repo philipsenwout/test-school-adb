@@ -33,7 +33,6 @@
   </div>
 </nav>
 <main id="main">
-  <div class="container">
 <nav class="breadcrumb" aria-label="Paginapad">
 <a href="../../index.html">Home</a>
 <span class="breadcrumb-sep">&#8250;</span>
@@ -43,27 +42,51 @@
 <span class="breadcrumb-sep">&#8250;</span>
 <span>H03</span>
 </nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s3">3. Theorie</a>
-          <ul>
-            <li><a href="#s3-1">3.1 Serverrollen en diensten</a></li>
-            <li><a href="#s3-2">3.2 Active Directory</a></li>
-            <li><a href="#s3-3">3.3 DNS-serverrol</a></li>
-            <li><a href="#s3-4">3.4 DHCP-serverrol</a></li>
-            <li><a href="#s3-5">3.5 Linux-serverbeheer</a></li>
-            <li><a href="#s3-6">3.6 Bestandspermissies</a></li>
-          </ul>
-        </li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/netwerken/H03" style="--sidebar-accent: var(--color-vak-netwerken)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s3-1">1.1 Serverrollen en diensten</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s3-2">1.2 Active Directory</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s3-3">1.3 DNS-serverrol</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s3-4">1.4 DHCP-serverrol</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s3-5">1.5 Linux-serverbeheer</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.6"><span class="sidebar-check__box"></span></label>
+        <a href="#s3-6">1.6 Bestandspermissies</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
     <div class="page-header vak-netwerken">
@@ -75,9 +98,20 @@
       </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-NET-05] Netwerk beheren — verdieping</span>
-      <span class="ld-badge">[LD-NET-09] Werkzaamheden plannen in functie van de opdracht — beide</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">LD-NET-05</span><span class="ld-tag__title">Netwerk beheren — verdieping</span></div>
+      <div class="ld-tag"><span class="ld-tag__code">LD-NET-09</span><span class="ld-tag__title">Werkzaamheden plannen in functie van de opdracht — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>Je kan de belangrijkste serverrollen in Windows Server en Linux benoemen</li>
+        <li>Je kan uitleggen wat Active Directory is en de kerncomponenten beschrijven</li>
+        <li>Je kan DNS-recordtypes (A, CNAME, MX, PTR) en hun gebruik uitleggen</li>
+        <li>Je kan een DHCP-scope configureren en het nut van DHCP-reservaties uitleggen</li>
+        <li>Je kan een Linux-server beheren via de CLI met systemctl, apt en chmod</li>
+      </ul>
     </div>
 
     <h2 id="s3">3. Theorie</h2>
@@ -373,7 +407,6 @@ sudo chown www-data:www-data index.html</code></pre>
     </nav>
   </div>
 </div>
-  </div>
 </main>
 <footer class="site-footer">
   <div class="container">

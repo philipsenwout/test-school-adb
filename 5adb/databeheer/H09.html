@@ -45,8 +45,56 @@
 <span>H09</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-9-datavisualisatie-met-python">Hoofdstuk 9 — Datavisualisatie met Python</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#91-waarom-visualiseren">9.1 Waarom visualiseren?</a></li><li><a href="#92-lijndiagram">9.2 Lijndiagram</a></li><li><a href="#93-staafdiagram">9.3 Staafdiagram</a></li><li><a href="#94-cirkeldiagram">9.4 Cirkeldiagram</a></li><li><a href="#95-grafiek-opslaan-als-bestand">9.5 Grafiek opslaan als bestand</a></li><li><a href="#96-meerdere-grafieken-per-figuur">9.6 Meerdere grafieken per figuur</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h09" style="padding-left:1.25rem">Huistaak H09</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/databeheer/H09" style="--sidebar-accent: var(--color-vak-data)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.1"><span class="sidebar-check__box"></span></label>
+      <a href="#91-waarom-visualiseren">9.1 Waarom visualiseren?</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.2"><span class="sidebar-check__box"></span></label>
+      <a href="#92-lijndiagram">9.2 Lijndiagram</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.3"><span class="sidebar-check__box"></span></label>
+      <a href="#93-staafdiagram">9.3 Staafdiagram</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.4"><span class="sidebar-check__box"></span></label>
+      <a href="#94-cirkeldiagram">9.4 Cirkeldiagram</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.5"><span class="sidebar-check__box"></span></label>
+      <a href="#95-grafiek-opslaan-als-bestand">9.5 Grafiek opslaan als bestand</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="9.6"><span class="sidebar-check__box"></span></label>
+      <a href="#96-meerdere-grafieken-per-figuur">9.6 Meerdere grafieken per figuur</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak-h09">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside>
       <div class="chapter-content">
         <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
@@ -68,16 +116,20 @@
 <tr><td><strong>Status</strong></td><td>Definitief</td></tr>
 </tbody></table></div>
 <h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Verwerken van gegevens met behulp van een programmeertaal <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB19</span><span class="ld-tag__title">Verwerken van gegevens met behulp van een programmeertaal</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">Gebruiken van een querytaal voor de bevraging van gegevens</span></div>
+</div>
 <p><strong>Geschatte lesuren:</strong> 4 u</p>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ol>
-<li>Uitleggen waarom datavisualisatie nuttig is.</li>
-<li>Een lijndiagram, staafdiagram en cirkeldiagram maken met matplotlib.</li>
-<li>Een titel, aslabels en legenda toevoegen aan een grafiek.</li>
-<li>Een grafiek opslaan als afbeelding.</li>
-</ol>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>Uitleggen waarom datavisualisatie nuttig is.</li>
+    <li>Een lijndiagram, staafdiagram en cirkeldiagram maken met matplotlib.</li>
+    <li>Een titel, aslabels en legenda toevoegen aan een grafiek.</li>
+    <li>Een grafiek opslaan als afbeelding.</li>
+  </ul>
+</div>
 <h2 id="91-waarom-visualiseren">9.1 Waarom visualiseren?</h2>
 <p>Een tabel met 100 rijen is moeilijk te lezen. Een grafiek toont direct:</p>
 <ul>
@@ -378,7 +430,10 @@ plt.show()
 </ul>
 </div>
 <h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Verwerken van gegevens met behulp van een programmeertaal <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB19</span><span class="ld-tag__title">Verwerken van gegevens met behulp van een programmeertaal</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">Gebruiken van een querytaal voor de bevraging van gegevens</span></div>
+</div>
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>

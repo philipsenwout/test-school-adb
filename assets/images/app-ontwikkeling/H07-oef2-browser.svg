@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" font-family="sans-serif">
+  <!-- Browser chrome -->
+  <rect width="900" height="560" fill="#ffffff"/>
+  <rect width="900" height="44" fill="#1e1e2e"/>
+  <circle cx="20" cy="22" r="6" fill="#ff5f57"/>
+  <circle cx="36" cy="22" r="6" fill="#febc2e"/>
+  <circle cx="52" cy="22" r="6" fill="#28c840"/>
+  <rect x="200" y="10" width="500" height="24" rx="12" fill="#2a2a3e"/>
+  <text x="450" y="26" text-anchor="middle" fill="#888" font-size="12">zoeken.html</text>
+
+  <!-- h1 -->
+  <text x="40" y="92" font-size="28" font-weight="bold" fill="#000">Zoeken in de Bibliotheek</text>
+
+  <!-- Search field -->
+  <text x="40" y="132" font-size="14" fill="#000">Zoekterm</text>
+  <rect x="40" y="142" width="500" height="28" fill="#fff" stroke="#999" stroke-width="1" rx="2"/>
+  <text x="52" y="161" font-size="14" fill="#bbb">Typ een trefwoord...</text>
+
+  <!-- Category dropdown -->
+  <text x="40" y="200" font-size="14" fill="#000">Categorie</text>
+  <rect x="40" y="210" width="220" height="28" fill="#fff" stroke="#999" stroke-width="1" rx="2"/>
+  <text x="52" y="229" font-size="14" fill="#555">-- Kies een categorie --</text>
+  <text x="248" y="229" font-size="12" fill="#888">▼</text>
+
+  <!-- Sortering radio buttons -->
+  <text x="40" y="268" font-size="14" fill="#000">Sortering</text>
+  <!-- radio 1 -->
+  <circle cx="56" cy="290" r="7" fill="none" stroke="#666" stroke-width="1.5"/>
+  <circle cx="56" cy="290" r="3" fill="#666"/>
+  <text x="72" y="295" font-size="14" fill="#000">Meest relevant</text>
+  <!-- radio 2 -->
+  <circle cx="56" cy="318" r="7" fill="none" stroke="#666" stroke-width="1.5"/>
+  <text x="72" y="323" font-size="14" fill="#000">Nieuwste eerst</text>
+  <!-- radio 3 -->
+  <circle cx="56" cy="346" r="7" fill="none" stroke="#666" stroke-width="1.5"/>
+  <text x="72" y="351" font-size="14" fill="#000">Alfabetisch</text>
+
+  <!-- Submit button -->
+  <rect x="40" y="376" width="130" height="36" fill="#222" rx="4"/>
+  <text x="105" y="399" text-anchor="middle" font-size="15" fill="#fff">Zoeken</text>
+</svg>

@@ -1,0 +1,208 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="glow-orange">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b35"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0e06"/>
+      <stop offset="100%" stop-color="#0f0a05"/>
+    </linearGradient>
+    <linearGradient id="menuBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#100c08"/>
+      <stop offset="100%" stop-color="#0a0806"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">Oefening 2 — Restaurantmenu met typografische hiërarchie</text>
+  <text x="480" y="56" text-anchor="middle" font-size="13" fill="#888">Browser-mockup van menu.html — Verwacht eindresultaat</text>
+
+  <!-- ===== BROWSER WINDOW ===== -->
+  <rect x="50" y="72" width="850" height="700" rx="12" fill="#1e2130" stroke="#2a2d3e" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Browser chrome -->
+  <rect x="50" y="72" width="850" height="44" rx="12" fill="#262a3e"/>
+  <rect x="50" y="98" width="850" height="18" fill="#262a3e"/>
+
+  <!-- Traffic lights -->
+  <circle cx="80" cy="94" r="6" fill="#ff5f57"/>
+  <circle cx="100" cy="94" r="6" fill="#febc2e"/>
+  <circle cx="120" cy="94" r="6" fill="#28c840"/>
+
+  <!-- URL bar -->
+  <rect x="155" y="82" width="580" height="24" rx="12" fill="#0f1117" stroke="#2a2d3e" stroke-width="1"/>
+  <text x="163" y="98" font-size="11" fill="#555">&#128274;</text>
+  <text x="178" y="98" font-size="12" fill="#888">menu.html</text>
+  <text x="800" y="98" font-size="14" fill="#555">&#8635;</text>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <rect x="50" y="116" width="850" height="656" rx="0" fill="url(#menuBg)"/>
+
+  <!-- === RESTAURANT HEADER === -->
+  <rect x="50" y="116" width="850" height="110" fill="url(#headerGrad)"/>
+
+  <!-- Decorative top line -->
+  <line x1="50" y1="118" x2="900" y2="118" stroke="#c9a84c" stroke-width="2"/>
+  <line x1="50" y1="222" x2="900" y2="222" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+
+  <!-- Restaurant name — large, serif, uppercase, tracked -->
+  <text x="475" y="160" text-anchor="middle" font-size="30" font-weight="700" fill="#c9a84c" letter-spacing="8">LE PALAIS DORÉ</text>
+
+  <!-- Tagline -->
+  <text x="475" y="184" text-anchor="middle" font-size="13" fill="#8a7a5a" letter-spacing="4">RESTAURANT • BRUSSEL • DEPUIS 1987</text>
+
+  <!-- Ornament line with diamond -->
+  <line x1="260" y1="205" x2="430" y2="205" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+  <polygon points="475,200 480,205 475,210 470,205" fill="#c9a84c" opacity="0.8"/>
+  <line x1="520" y1="205" x2="690" y2="205" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+
+  <!-- === STARTERS SECTION === -->
+  <text x="475" y="256" text-anchor="middle" font-size="18" font-weight="700" fill="#c9a84c" letter-spacing="5">STARTERS</text>
+  <line x1="180" y1="264" x2="770" y2="264" stroke="#3a2e1e" stroke-width="1"/>
+
+  <!-- Dish 1 -->
+  <text x="90" y="290" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Huisgemaakte velouté van pompoen</text>
+  <text x="840" y="290" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 9,50</text>
+  <text x="90" y="308" font-size="11.5" fill="#7a6a50">Met gerookte amandelen, crème fraîche en piment d'Espelette</text>
+
+  <!-- Dish 2 -->
+  <text x="90" y="334" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Ceviche van zeebaars</text>
+  <text x="840" y="334" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 14,00</text>
+  <text x="90" y="352" font-size="11.5" fill="#7a6a50">Limoen, koriander, avocado, rode ui en wasabi-mayo</text>
+
+  <!-- Dish 3 -->
+  <text x="90" y="376" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Gemarineerde burrata</text>
+  <text x="840" y="376" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 11,50</text>
+  <text x="90" y="394" font-size="11.5" fill="#7a6a50">Gedroogde tomaat, basilicumolie, gegrilde focaccia</text>
+
+  <!-- === MAIN COURSES SECTION === -->
+  <line x1="50" y1="412" x2="900" y2="412" stroke="#3a2e1e" stroke-width="1"/>
+  <text x="475" y="438" text-anchor="middle" font-size="18" font-weight="700" fill="#c9a84c" letter-spacing="5">HOOFDGERECHTEN</text>
+  <line x1="180" y1="446" x2="770" y2="446" stroke="#3a2e1e" stroke-width="1"/>
+
+  <!-- Dish 4 -->
+  <text x="90" y="472" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Gebraden eendenborst</text>
+  <text x="840" y="472" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 27,00</text>
+  <text x="90" y="490" font-size="11.5" fill="#7a6a50">Sinaasappeljus, confit van witloof, aardappelgratin</text>
+
+  <!-- Dish 5 -->
+  <text x="90" y="516" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Gebakken heilbot op vel</text>
+  <text x="840" y="516" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 32,00</text>
+  <text x="90" y="534" font-size="11.5" fill="#7a6a50">Venkelcrème, gremolata, gekonfijte citroen en kappertjes</text>
+
+  <!-- Dish 6 - vegetarisch -->
+  <text x="90" y="558" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Risotto van wilde paddenstoelen</text>
+  <rect x="455" y="544" width="24" height="14" rx="3" fill="#39ff14" opacity="0.25"/>
+  <text x="467" y="555" text-anchor="middle" font-size="9" fill="#39ff14" font-weight="700">V</text>
+  <text x="840" y="558" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 22,00</text>
+  <text x="90" y="576" font-size="11.5" fill="#7a6a50">Parmezaan, truffelolie, rucola, pijnboompitten</text>
+
+  <!-- === DESSERTS SECTION === -->
+  <line x1="50" y1="594" x2="900" y2="594" stroke="#3a2e1e" stroke-width="1"/>
+  <text x="475" y="620" text-anchor="middle" font-size="18" font-weight="700" fill="#c9a84c" letter-spacing="5">DESSERTS</text>
+  <line x1="180" y1="628" x2="770" y2="628" stroke="#3a2e1e" stroke-width="1"/>
+
+  <!-- Dish 7 -->
+  <text x="90" y="654" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Fondant au chocolat</text>
+  <text x="840" y="654" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 9,00</text>
+  <text x="90" y="672" font-size="11.5" fill="#7a6a50">Vloeibare kern, vanilleijs, karamelkoekje</text>
+
+  <!-- Dish 8 -->
+  <text x="90" y="698" font-size="14" font-weight="700" fill="#f0e8d8" letter-spacing="0.5">Citroentaart met Italiaanse meringue</text>
+  <text x="840" y="698" text-anchor="end" font-size="14" font-weight="700" fill="#c9a84c">€ 8,50</text>
+  <text x="90" y="716" font-size="11.5" fill="#7a6a50">Gekarameliseerde meringue, sinaasappelcoulis</text>
+
+  <!-- Footer of menu -->
+  <line x1="50" y1="736" x2="900" y2="736" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+  <text x="475" y="757" text-anchor="middle" font-size="11" fill="#5a4a30" letter-spacing="2">Alle prijzen inclusief BTW. Allergeneninfo op aanvraag.</text>
+
+  <!-- ===== ANNOTATION PANEL RIGHT ===== -->
+  <!-- Hierarchy annotation -->
+  <rect x="960" y="72" width="220" height="700" rx="10" fill="#101215" stroke="#1e2d3d" stroke-width="1.5"/>
+  <rect x="960" y="72" width="220" height="32" rx="10" fill="#ff6b35" opacity="0.2"/>
+  <rect x="960" y="94" width="220" height="10" fill="#101215"/>
+  <text x="1070" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#ff6b35">Typografische Hiërarchie</text>
+
+  <!-- Level 1: Restaurant name -->
+  <rect x="975" y="112" width="190" height="58" rx="6" fill="#1a0e06" stroke="#c9a84c" stroke-width="1.5"/>
+  <text x="1070" y="128" text-anchor="middle" font-size="11" fill="#c9a84c" font-weight="700">Niveau 1 — Restaurantnaam</text>
+  <text x="1070" y="144" text-anchor="middle" font-size="10" fill="#888">30px · UPPERCASE</text>
+  <text x="1070" y="158" text-anchor="middle" font-size="10" fill="#888">letter-spacing: 8px</text>
+
+  <!-- Level 2: Section headers -->
+  <rect x="975" y="182" width="190" height="58" rx="6" fill="#1a0e06" stroke="#ff6b35" stroke-width="1.5"/>
+  <text x="1070" y="198" text-anchor="middle" font-size="11" fill="#ff6b35" font-weight="700">Niveau 2 — Secties (H2)</text>
+  <text x="1070" y="214" text-anchor="middle" font-size="10" fill="#888">18px · UPPERCASE</text>
+  <text x="1070" y="228" text-anchor="middle" font-size="10" fill="#888">letter-spacing: 5px · Goud</text>
+
+  <!-- Level 3: Dish names -->
+  <rect x="975" y="252" width="190" height="58" rx="6" fill="#1a0e06" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="1070" y="268" text-anchor="middle" font-size="11" fill="#c4b5fd" font-weight="700">Niveau 3 — Gerecht (H3)</text>
+  <text x="1070" y="284" text-anchor="middle" font-size="10" fill="#888">14px · font-weight: 700</text>
+  <text x="1070" y="298" text-anchor="middle" font-size="10" fill="#888">Wit-crème kleur</text>
+
+  <!-- Level 4: Price -->
+  <rect x="975" y="322" width="190" height="58" rx="6" fill="#1a0e06" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="1070" y="338" text-anchor="middle" font-size="11" fill="#00d4ff" font-weight="700">Niveau 3 — Prijs</text>
+  <text x="1070" y="354" text-anchor="middle" font-size="10" fill="#888">14px · text-align: right</text>
+  <text x="1070" y="368" text-anchor="middle" font-size="10" fill="#888">Goudkleur · font-weight 700</text>
+
+  <!-- Level 5: Description -->
+  <rect x="975" y="392" width="190" height="58" rx="6" fill="#1a0e06" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="1070" y="408" text-anchor="middle" font-size="11" fill="#39ff14" font-weight="700">Niveau 4 — Beschrijving</text>
+  <text x="1070" y="424" text-anchor="middle" font-size="10" fill="#888">11.5px · kleur: #7a6a50</text>
+  <text x="1070" y="438" text-anchor="middle" font-size="10" fill="#888">Gedempte bruine toon</text>
+
+  <!-- CSS code block in annotation panel -->
+  <text x="975" y="472" font-size="10" fill="#888" font-family="'Courier New', monospace">/* menu.html */</text>
+
+  <text x="975" y="492" font-size="10" fill="#888" font-family="'Courier New', monospace">h1.restaurant {</text>
+  <text x="983" y="508" font-size="9.5" fill="#c9a84c" font-family="'Courier New', monospace">  letter-spacing: 8px;</text>
+  <text x="983" y="522" font-size="9.5" fill="#c9a84c" font-family="'Courier New', monospace">  text-transform:</text>
+  <text x="991" y="536" font-size="9.5" fill="#c9a84c" font-family="'Courier New', monospace">    uppercase;</text>
+  <text x="975" y="550" font-size="10" fill="#888" font-family="'Courier New', monospace">}</text>
+
+  <text x="975" y="570" font-size="10" fill="#888" font-family="'Courier New', monospace">h2.sectie {</text>
+  <text x="983" y="586" font-size="9.5" fill="#ff6b35" font-family="'Courier New', monospace">  text-align: center;</text>
+  <text x="983" y="600" font-size="9.5" fill="#ff6b35" font-family="'Courier New', monospace">  letter-spacing: 5px;</text>
+  <text x="983" y="614" font-size="9.5" fill="#ff6b35" font-family="'Courier New', monospace">  color: #c9a84c;</text>
+  <text x="975" y="628" font-size="10" fill="#888" font-family="'Courier New', monospace">}</text>
+
+  <text x="975" y="648" font-size="10" fill="#888" font-family="'Courier New', monospace">.dish-row {</text>
+  <text x="983" y="664" font-size="9.5" fill="#7c3aed" font-family="'Courier New', monospace">  display: flex;</text>
+  <text x="983" y="678" font-size="9.5" fill="#7c3aed" font-family="'Courier New', monospace">  justify-content:</text>
+  <text x="991" y="692" font-size="9.5" fill="#7c3aed" font-family="'Courier New', monospace">    space-between;</text>
+  <text x="975" y="706" font-size="10" fill="#888" font-family="'Courier New', monospace">}</text>
+
+  <!-- Explanation box at bottom -->
+  <rect x="975" y="720" width="190" height="44" rx="6" fill="#0a1628" stroke="#00d4ff" stroke-width="1"/>
+  <text x="1070" y="737" text-anchor="middle" font-size="10" fill="#00d4ff">Duidelijke visuele hiërarchie</text>
+  <text x="1070" y="752" text-anchor="middle" font-size="10" fill="#888">zonder afbeeldingen — enkel</text>
+  <text x="1070" y="764" text-anchor="middle" font-size="10" fill="#888">grootte, gewicht &amp; kleur.</text>
+
+  <!-- Footer label -->
+  <text x="540" y="790" text-anchor="middle" font-size="12" fill="#444">H16 — Typografie | App-ontwikkeling 5ADB | Oefening 2 | Leerplandoel ADB09</text>
+</svg>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H01" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-array">1.1 Wat is een array?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+          <a href="#elementen-opvragen">1.2 Elementen opvragen en wijzigen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+          <a href="#toevoegen-verwijderen">1.3 Toevoegen en verwijderen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+          <a href="#zoeken">1.4 Zoeken in een array</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+          <a href="#kopiëren-samenvoegen">1.5 Kopiëren en samenvoegen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Arrays</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H01 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Arrays</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een array declareren en de juiste elementen opvragen via index</li>
+          <li>Elementen toevoegen met <code>push</code>, <code>unshift</code> en verwijderen met <code>pop</code>, <code>shift</code>, <code>splice</code></li>
+          <li>Zoeken in een array met <code>indexOf</code>, <code>includes</code> en <code>lastIndexOf</code></li>
+          <li>Een deelrij ophalen met <code>slice</code> en arrays samenvoegen met <code>concat</code> of de spread operator <code>...</code></li>
+          <li>Een praktisch programma schrijven dat een array beheert</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-array">1.1 Wat is een array?</h2>
+      <p>Een <strong>array</strong> is een geordende lijst van waarden. Je kan er meerdere dingen in bewaren onder één naam. Elke waarde in een array heet een <strong>element</strong>, en elk element heeft een <strong>index</strong> — een volgnummer dat begint bij <strong>0</strong>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Declaratie van een array
+let boodschappen = ["appels", "brood", "melk", "kaas"];
+
+// De index:        0         1         2         3</code></pre>
+      </div>
+      <p>Je maakt een array met <strong>vierkante haakjes</strong> <code>[ ]</code>. De elementen staan gescheiden door komma's.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Lege array
+let lege = [];
+
+// Array met getallen
+let scores = [85, 92, 78, 95, 88];
+
+// Gemengde types (werkt, maar vermijd dit)
+let gemengd = ["Jan", 17, true, null];</code></pre>
+      </div>
+      <h3>De <code>length</code>-eigenschap</h3>
+      <p>Met <code>.length</code> weet je hoeveel elementen er in een array zitten.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let kleuren = ["rood", "groen", "blauw"];
+
+console.log(kleuren.length); // 3</code></pre>
+      </div>
+      <p>Let op: de laatste index is altijd <code>length - 1</code>.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H01-afb1.svg" alt="Visualisatie van een array als rij van genummerde vakjes (index 0 tot N), met pijlen naar de waarden" loading="lazy">
+      </figure>
+
+      <h2 id="elementen-opvragen">1.2 Elementen opvragen en wijzigen</h2>
+      <h3>Een element opvragen</h3>
+      <p>Gebruik de index tussen vierkante haakjes:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let fruits = ["banaan", "kers", "mango", "peer"];
+
+console.log(fruits[0]); // "banaan"
+console.log(fruits[2]); // "mango"
+console.log(fruits[9]); // undefined (bestaat niet)</code></pre>
+      </div>
+      <h3>Het eerste en laatste element</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let getallen = [10, 20, 30, 40, 50];
+
+// Eerste element
+console.log(getallen[0]);                    // 10
+
+// Laatste element
+console.log(getallen[getallen.length - 1]); // 50</code></pre>
+      </div>
+      <h3>Een element wijzigen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let steden = ["Brussel", "Gent", "Luik"];
+
+steden[1] = "Antwerpen"; // Gent vervangen door Antwerpen
+
+console.log(steden); // ["Brussel", "Antwerpen", "Luik"]</code></pre>
+      </div>
+
+      <h2 id="toevoegen-verwijderen">1.3 Elementen toevoegen en verwijderen</h2>
+      <p>JavaScript heeft vier veelgebruikte methodes om elementen toe te voegen of te verwijderen:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Methode</th><th>Wat doet het?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>push()</code></td><td>Voeg toe <strong>aan het einde</strong></td></tr>
+          <tr><td><code>pop()</code></td><td>Verwijder van <strong>het einde</strong></td></tr>
+          <tr><td><code>unshift()</code></td><td>Voeg toe <strong>aan het begin</strong></td></tr>
+          <tr><td><code>shift()</code></td><td>Verwijder van <strong>het begin</strong></td></tr>
+        </tbody>
+      </table>
+      <h3><code>push()</code> — toevoegen aan het einde</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let wachtrij = ["Ali", "Bo", "Cara"];
+
+wachtrij.push("Daan");
+console.log(wachtrij); // ["Ali", "Bo", "Cara", "Daan"]
+
+// Je kan meerdere elementen tegelijk toevoegen
+wachtrij.push("Elien", "Farid");
+console.log(wachtrij); // ["Ali", "Bo", "Cara", "Daan", "Elien", "Farid"]</code></pre>
+      </div>
+      <h3><code>pop()</code> — verwijderen van het einde</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let wachtrij = ["Ali", "Bo", "Cara", "Daan"];
+
+let laatste = wachtrij.pop();
+console.log(laatste);    // "Daan"
+console.log(wachtrij); // ["Ali", "Bo", "Cara"]</code></pre>
+      </div>
+      <h3><code>unshift()</code> — toevoegen aan het begin</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let taken = ["zwemmen", "lopen"];
+
+taken.unshift("yoga");
+console.log(taken); // ["yoga", "zwemmen", "lopen"]</code></pre>
+      </div>
+      <h3><code>shift()</code> — verwijderen van het begin</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let taken = ["yoga", "zwemmen", "lopen"];
+
+let eerste = taken.shift();
+console.log(eerste); // "yoga"
+console.log(taken);  // ["zwemmen", "lopen"]</code></pre>
+      </div>
+      <h3><code>splice()</code> — verwijderen of invoegen op een positie</h3>
+      <p><code>splice(startIndex, aantalVerwijderen, ...nieuwElements)</code> is de krachtigste methode:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let letters = ["a", "b", "c", "d", "e"];
+
+// Verwijder 2 elementen vanaf index 1
+let verwijderd = letters.splice(1, 2);
+console.log(verwijderd); // ["b", "c"]
+console.log(letters);    // ["a", "d", "e"]
+
+// Voeg in op index 1, zonder iets te verwijderen
+letters.splice(1, 0, "x", "y");
+console.log(letters); // ["a", "x", "y", "d", "e"]</code></pre>
+      </div>
+
+      <h2 id="zoeken">1.4 Zoeken in een array</h2>
+      <h3><code>indexOf()</code> — positie zoeken</h3>
+      <p>Geeft de <strong>index</strong> van het eerste voorkomen terug. Geeft <code>-1</code> als het element niet gevonden wordt.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let kleuren = ["rood", "groen", "blauw", "groen"];
+
+console.log(kleuren.indexOf("groen")); // 1 (eerste voorkomen)
+console.log(kleuren.indexOf("geel"));  // -1 (niet gevonden)</code></pre>
+      </div>
+      <h3><code>lastIndexOf()</code> — laatste voorkomen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let kleuren = ["rood", "groen", "blauw", "groen"];
+
+console.log(kleuren.lastIndexOf("groen")); // 3 (laatste voorkomen)</code></pre>
+      </div>
+      <h3><code>includes()</code> — bestaat dit element?</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let deelnemers = ["Jan", "Lena", "Sofie", "Omar"];
+
+console.log(deelnemers.includes("Lena"));  // true
+console.log(deelnemers.includes("Kevin")); // false
+
+// Praktisch gebruik: conditie
+if (deelnemers.includes("Sofie")) {
+  console.log("Sofie doet mee!");
+}</code></pre>
+      </div>
+
+      <h2 id="kopiëren-samenvoegen">1.5 Kopiëren en samenvoegen</h2>
+      <h3><code>slice()</code> — een deelrij ophalen</h3>
+      <p><code>slice(start, einde)</code> geeft een <strong>nieuw</strong> array terug, zonder het origineel te wijzigen. Het element op de eindindex zit er <strong>niet</strong> bij.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let maanden = ["jan", "feb", "mar", "apr", "mei", "jun"];
+
+let kwartaal1 = maanden.slice(0, 3);
+console.log(kwartaal1); // ["jan", "feb", "mar"]
+
+let vanalaf = maanden.slice(3);
+console.log(vanalaf); // ["apr", "mei", "jun"]
+
+// Negatieve index: telt van achter
+let laaste2 = maanden.slice(-2);
+console.log(laaste2); // ["mei", "jun"]</code></pre>
+      </div>
+      <h3><code>concat()</code> — arrays samenvoegen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let afdeling1 = ["Ali", "Bo"];
+let afdeling2 = ["Cara", "Daan"];
+
+let allemaal = afdeling1.concat(afdeling2);
+console.log(allemaal); // ["Ali", "Bo", "Cara", "Daan"]</code></pre>
+      </div>
+      <h3>Spread operator <code>...</code></h3>
+      <p>De spread operator <code>...</code> "spreidt" een array uit zijn haakjes. Dit is de moderne manier om arrays samen te voegen of te kopiëren:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let groep1 = [1, 2, 3];
+let groep2 = [4, 5, 6];
+
+// Samenvoegen met spread
+let samengevoegd = [...groep1, ...groep2];
+console.log(samengevoegd); // [1, 2, 3, 4, 5, 6]
+
+// Kopiëren
+let kopie = [...groep1];
+kopie.push(99);
+console.log(groep1); // [1, 2, 3]  ← origineel ongewijzigd
+console.log(kopie);  // [1, 2, 3, 99]
+
+// Iets tussenvoegen
+let uitgebreid = [...groep1, 10, 20, ...groep2];
+console.log(uitgebreid); // [1, 2, 3, 10, 20, 4, 5, 6]</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Spread vs concat</div>
+        <p>Zowel <code>concat()</code> als de spread operator voegen arrays samen, maar spread is flexibeler: je kan er gemakkelijk extra elementen aan toevoegen of arrays op willekeurige posities invoegen. Gebruik spread in moderne code.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Boodschappenlijst-manager</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een JavaScript-programma dat een boodschappenlijst beheert via de console. Gebruik de volgende stappen:</p>
+            <ol>
+              <li>Maak een array <code>boodschappen</code> met 5 producten: <code>"appels"</code>, <code>"brood"</code>, <code>"melk"</code>, <code>"kaas"</code>, <code>"eieren"</code></li>
+              <li>Toon de volledige lijst met <code>console.log</code></li>
+              <li>Voeg <code>"pasta"</code> toe aan het einde met <code>push()</code></li>
+              <li>Voeg <code>"boter"</code> toe aan het begin met <code>unshift()</code></li>
+              <li>Verwijder het laatste element met <code>pop()</code> en toon welk product verwijderd werd</li>
+              <li>Controleer of <code>"melk"</code> in de lijst zit — toon een bericht op basis van het resultaat</li>
+              <li>Haal een deelrij op van de eerste 3 producten met <code>slice()</code></li>
+              <li>Maak een tweede kleine lijst <code>extra = ["peper", "zout"]</code> en combineer de twee lijsten met de spread operator</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H01-oef1-browser.svg" alt="Browser console met output van de boodschappenlijst-oefening" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 2 — Favoriete films</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een array <code>films</code> met 6 filmtitels naar keuze. Voer dan de volgende bewerkingen uit:</p>
+            <ol>
+              <li>Zoek de index van je favoriete film met <code>indexOf()</code> en log het resultaat</li>
+              <li>Gebruik <code>lastIndexOf()</code> om te controleren of een titel dubbel voorkomt (voeg er eerst eentje dubbel in)</li>
+              <li>Verwijder de film op index 2 met <code>splice()</code></li>
+              <li>Voeg op index 1 twee nieuwe filmtitels in zonder iets te verwijderen</li>
+              <li>Maak een kopie van de array met de spread operator en voeg aan de kopie een extra film toe — controleer dat het origineel ongewijzigd bleef</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 3 — Kwartaalrapport</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Je hebt een array met de maandnamen van een volledig jaar. Gebruik array-methodes om kwartaalrapporten op te stellen:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">let maanden = ["jan","feb","mar","apr","mei","jun","jul","aug","sep","okt","nov","dec"];</code></pre>
+            </div>
+            <ol>
+              <li>Haal het eerste kwartaal op (jan t.e.m. mar) met <code>slice()</code></li>
+              <li>Haal het tweede kwartaal op (apr t.e.m. jun)</li>
+              <li>Haal het laatste kwartaal op met een negatieve index</li>
+              <li>Voeg alle vier kwartalen samen in één nieuwe array met de spread operator</li>
+              <li>Controleer met <code>includes()</code> of <code>"aug"</code> in het derde kwartaal zit</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H01 Arrays<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H01-oef1-browser.svg', 'Voorbeeld — Muzieklijst beheren met arrays')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+            <h3>Opdracht: Muzieklijst beheren met arrays</h3>
+            <p>Je bouwt een kleine JavaScript-toepassing die een muzieklijst beheert. De lijst is een array van artiestennamen en je past er verschillende array-methodes op toe. Alle uitvoer gebeurt via <code>console.log()</code>.</p>
+            <h4>Deel 1 — Array aanmaken en manipuleren (4 punten)</h4>
+            <p><code>[ADB09]</code> Array-methodes toepassen — verdieping</p>
+            <ol>
+              <li>Maak een array <code>artiesten</code> aan met minstens <strong>5 artiestennamen</strong> naar keuze</li>
+              <li>Voeg met <code>push()</code> een nieuwe artiest toe aan het <strong>einde</strong> van de array. Log de nieuwe array</li>
+              <li>Verwijder met <code>pop()</code> de <strong>laatste</strong> artiest. Log de verwijderde naam én de aangepaste array</li>
+              <li>Voeg met <code>unshift()</code> een artiest toe aan het <strong>begin</strong> van de array. Log de nieuwe array</li>
+              <li>Verwijder met <code>shift()</code> de <strong>eerste</strong> artiest. Log de verwijderde naam én de aangepaste array</li>
+            </ol>
+            <h4>Deel 2 — Zoeken en uitsnijden (3 punten)</h4>
+            <ol>
+              <li>Kies een artiest uit de array. Gebruik <code>indexOf()</code> om de <strong>index</strong> te bepalen en log het resultaat</li>
+              <li>Gebruik <code>includes()</code> om te controleren of een artiest die <strong>niet</strong> in de array staat toch gevonden wordt. Log <code>true</code> of <code>false</code></li>
+              <li>Gebruik <code>slice(1, 3)</code> om de <strong>tweede en derde artiest</strong> te selecteren en log de nieuwe deelarray</li>
+            </ol>
+            <h4>Deel 3 — Verwijderen en invoegen met splice (3 punten)</h4>
+            <ol>
+              <li>Gebruik <code>splice()</code> om de <strong>tweede artiest</strong> uit de array te <strong>verwijderen</strong>. Log de verwijderde artiest en de resterende array</li>
+              <li>Gebruik <code>splice()</code> om op <strong>positie 1</strong> een nieuwe artiest <strong>in te voegen</strong> zonder iemand te verwijderen. Log de aangepaste array</li>
+              <li>Gebruik <code>splice()</code> om <strong>twee artiesten tegelijk te vervangen</strong>. Log het eindresultaat</li>
+            </ol>
+            <p><strong>Dien het bestand <code>muzieklijst.js</code> in via het schoolplatform. Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H01 — Arrays</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Gegeven: <code>let arr = ["a", "b", "c", "d"]</code>. Welk element geeft <code>arr[2]</code> terug?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="a"> <span><code>"b"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="b"> <span><code>"c"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="c"> <span><code>"a"</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v1" value="d"> <span><code>"d"</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke methode voegt een element toe aan het <strong>begin</strong> van een array?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="a"> <span><code>push()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="b"> <span><code>shift()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="c"> <span><code>unshift()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v2" value="d"> <span><code>splice()</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat geeft <code>indexOf()</code> terug als het element <strong>niet</strong> in de array zit?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="a"> <span><code>-1</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="b"> <span><code>false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="c"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v3" value="d"> <span><code>undefined</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Gegeven: <code>let arr = [1, 2, 3, 4, 5]</code>. Wat geeft <code>arr.slice(1, 3)</code> terug?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="a"> <span><code>[1, 2, 3]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="b"> <span><code>[1, 2]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="c"> <span><code>[3, 4]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v4" value="d"> <span><code>[2, 3]</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke uitdrukking geeft het <strong>laatste</strong> element van een array <code>arr</code> terug, ongeacht de lengte?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="a"> <span><code>arr[arr.length]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="b"> <span><code>arr[arr.length - 1]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="c"> <span><code>arr.last()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v5" value="d"> <span><code>arr[-1]</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat doet <code>let kopie = [...original]</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="a"> <span>Maakt een verwijzing (referentie) naar de originele array</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="b"> <span>Voegt alle elementen van <code>original</code> samen tot een string</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="c"> <span>Maakt een oppervlakkige kopie van de array</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h01-v6" value="d"> <span>Leegt de originele array</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H01')" data-progress-key="6adb/app-ontwikkeling/H01">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H02.html" class="btn btn-ghost">H02 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

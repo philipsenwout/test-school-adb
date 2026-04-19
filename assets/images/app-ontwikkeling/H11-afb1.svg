@@ -1,0 +1,75 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#f0f0f0">CSS Selectors — Soorten Overzicht</text>
+
+  <!-- Element selector -->
+  <rect x="30" y="55" width="225" height="100" rx="6" fill="#7B3FE4" opacity="0.1"/>
+  <rect x="30" y="55" width="225" height="100" rx="6" fill="none" stroke="#7B3FE4" stroke-width="2"/>
+  <text x="142" y="75" text-anchor="middle" font-size="13" font-weight="bold" fill="#7B3FE4">Element</text>
+  <text x="142" y="100" text-anchor="middle" font-size="18" font-family="Courier New" fill="#f0f0f0">p { }</text>
+  <text x="142" y="120" text-anchor="middle" font-size="11" fill="#aaa">Alle &lt;p&gt;-elementen</text>
+  <text x="142" y="138" text-anchor="middle" font-size="11" fill="#aaa">Laagste specificiteit</text>
+
+  <!-- Class selector -->
+  <rect x="285" y="55" width="225" height="100" rx="6" fill="#2D9CDB" opacity="0.1"/>
+  <rect x="285" y="55" width="225" height="100" rx="6" fill="none" stroke="#2D9CDB" stroke-width="2"/>
+  <text x="397" y="75" text-anchor="middle" font-size="13" font-weight="bold" fill="#2D9CDB">Class</text>
+  <text x="397" y="100" text-anchor="middle" font-size="18" font-family="Courier New" fill="#f0f0f0">.klasse { }</text>
+  <text x="397" y="120" text-anchor="middle" font-size="11" fill="#aaa">Herbruikbaar, meerdere elementen</text>
+  <text x="397" y="138" text-anchor="middle" font-size="11" fill="#aaa">Meest gebruikte selector</text>
+
+  <!-- ID selector -->
+  <rect x="540" y="55" width="230" height="100" rx="6" fill="#F97316" opacity="0.1"/>
+  <rect x="540" y="55" width="230" height="100" rx="6" fill="none" stroke="#F97316" stroke-width="2"/>
+  <text x="655" y="75" text-anchor="middle" font-size="13" font-weight="bold" fill="#F97316">ID</text>
+  <text x="655" y="100" text-anchor="middle" font-size="18" font-family="Courier New" fill="#f0f0f0">#id { }</text>
+  <text x="655" y="120" text-anchor="middle" font-size="11" fill="#aaa">Uniek element op pagina</text>
+  <text x="655" y="138" text-anchor="middle" font-size="11" fill="#aaa">Hoge specificiteit</text>
+
+  <!-- Combinatoren rij -->
+  <text x="400" y="185" text-anchor="middle" font-size="15" font-weight="bold" fill="#f0f0f0">Combinatoren</text>
+
+  <!-- Afstammeling -->
+  <rect x="30" y="200" width="165" height="80" rx="6" fill="#22C55E" opacity="0.1"/>
+  <rect x="30" y="200" width="165" height="80" rx="6" fill="none" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="112" y="220" text-anchor="middle" font-size="12" font-weight="bold" fill="#22C55E">Afstammeling</text>
+  <text x="112" y="245" text-anchor="middle" font-size="16" font-family="Courier New" fill="#f0f0f0">div p</text>
+  <text x="112" y="272" text-anchor="middle" font-size="10" fill="#aaa">Alle &lt;p&gt; in div</text>
+
+  <!-- Rechtstreeks kind -->
+  <rect x="215" y="200" width="165" height="80" rx="6" fill="#22C55E" opacity="0.1"/>
+  <rect x="215" y="200" width="165" height="80" rx="6" fill="none" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="297" y="220" text-anchor="middle" font-size="12" font-weight="bold" fill="#22C55E">Rechtstreeks kind</text>
+  <text x="297" y="245" text-anchor="middle" font-size="16" font-family="Courier New" fill="#f0f0f0">div > p</text>
+  <text x="297" y="272" text-anchor="middle" font-size="10" fill="#aaa">Directe kinderen</text>
+
+  <!-- Adjacent sibling -->
+  <rect x="400" y="200" width="165" height="80" rx="6" fill="#7B3FE4" opacity="0.1"/>
+  <rect x="400" y="200" width="165" height="80" rx="6" fill="none" stroke="#7B3FE4" stroke-width="1.5"/>
+  <text x="482" y="220" text-anchor="middle" font-size="12" font-weight="bold" fill="#7B3FE4">Naast (adjacent)</text>
+  <text x="482" y="245" text-anchor="middle" font-size="16" font-family="Courier New" fill="#f0f0f0">h2 + p</text>
+  <text x="482" y="272" text-anchor="middle" font-size="10" fill="#aaa">Direct volgend element</text>
+
+  <!-- General sibling -->
+  <rect x="585" y="200" width="185" height="80" rx="6" fill="#7B3FE4" opacity="0.1"/>
+  <rect x="585" y="200" width="185" height="80" rx="6" fill="none" stroke="#7B3FE4" stroke-width="1.5"/>
+  <text x="677" y="220" text-anchor="middle" font-size="12" font-weight="bold" fill="#7B3FE4">Sibling (algemeen)</text>
+  <text x="677" y="245" text-anchor="middle" font-size="16" font-family="Courier New" fill="#f0f0f0">h2 ~ p</text>
+  <text x="677" y="272" text-anchor="middle" font-size="10" fill="#aaa">Alle volgende siblings</text>
+
+  <!-- Pseudo-klassen rij -->
+  <rect x="30" y="300" width="740" height="90" rx="8" fill="#F97316" opacity="0.08"/>
+  <rect x="30" y="300" width="740" height="90" rx="8" fill="none" stroke="#F97316" stroke-width="1.5"/>
+  <text x="400" y="320" text-anchor="middle" font-size="14" font-weight="bold" fill="#F97316">Pseudo-klassen &amp; Pseudo-elementen</text>
+  <text x="80" y="345" font-size="12" font-family="Courier New" fill="#f0f0f0">a:hover</text>
+  <text x="80" y="362" font-size="10" fill="#aaa">Muisover</text>
+  <text x="200" y="345" font-size="12" font-family="Courier New" fill="#f0f0f0">input:focus</text>
+  <text x="200" y="362" font-size="10" fill="#aaa">Focus (tab)</text>
+  <text x="330" y="345" font-size="12" font-family="Courier New" fill="#f0f0f0">li:nth-child(2n)</text>
+  <text x="330" y="362" font-size="10" fill="#aaa">Elk even kind</text>
+  <text x="490" y="345" font-size="12" font-family="Courier New" fill="#f0f0f0">p::before</text>
+  <text x="490" y="362" font-size="10" fill="#aaa">Vóór element</text>
+  <text x="610" y="345" font-size="12" font-family="Courier New" fill="#f0f0f0">p::first-line</text>
+  <text x="610" y="362" font-size="10" fill="#aaa">Eerste regel</text>
+  <text x="80" y="382" font-size="10" fill="#555">:first-child  :last-child  :not()  :checked  :disabled  ::after  ::placeholder</text>
+</svg>

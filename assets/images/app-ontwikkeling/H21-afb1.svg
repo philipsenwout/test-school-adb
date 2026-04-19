@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="1050" cy="150" r="200" fill="#00d4ff" opacity="0.03"/>
+  <circle cx="150" cy="650" r="180" fill="#7c3aed" opacity="0.04"/>
+
+  <!-- Titel -->
+  <text x="600" y="50" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="700" font-family="Inter, sans-serif">Vergelijkingsoperatoren — Volledig Overzicht</text>
+  <text x="600" y="74" text-anchor="middle" fill="#6b7280" font-size="14" font-family="Inter, sans-serif">Elk resultaat is altijd een boolean: true of false</text>
+  <line x1="80" y1="90" x2="1120" y2="90" stroke="#2d3150" stroke-width="1"/>
+
+  <!-- Tabelhoofden -->
+  <rect x="60" y="105" width="1080" height="38" rx="6" fill="#252840"/>
+  <text x="175" y="128" text-anchor="middle" fill="#9ca3af" font-size="13" font-weight="600" font-family="Inter, sans-serif">Operator</text>
+  <line x1="290" y1="105" x2="290" y2="143" stroke="#3d4166" stroke-width="1"/>
+  <text x="410" y="128" text-anchor="middle" fill="#9ca3af" font-size="13" font-weight="600" font-family="Inter, sans-serif">Betekenis</text>
+  <line x1="530" y1="105" x2="530" y2="143" stroke="#3d4166" stroke-width="1"/>
+  <text x="700" y="128" text-anchor="middle" fill="#9ca3af" font-size="13" font-weight="600" font-family="Inter, sans-serif">Voorbeeld-expressie</text>
+  <line x1="870" y1="105" x2="870" y2="143" stroke="#3d4166" stroke-width="1"/>
+  <text x="980" y="128" text-anchor="middle" fill="#9ca3af" font-size="13" font-weight="600" font-family="Inter, sans-serif">Resultaat</text>
+  <line x1="1090" y1="105" x2="1090" y2="143" stroke="#3d4166" stroke-width="1"/>
+
+  <!-- Rij hulpfunctie: x1=60, hoogte 70, kleur -->
+  <!-- Rij 1: > -->
+  <rect x="60" y="143" width="1080" height="70" fill="#1a1d2e" stroke="#2d3150" stroke-width="0.5"/>
+  <rect x="60" y="143" width="5" height="70" fill="#00d4ff"/>
+  <text x="175" y="185" text-anchor="middle" fill="#00d4ff" font-size="28" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">&gt;</text>
+  <line x1="290" y1="143" x2="290" y2="213" stroke="#2d3150" stroke-width="1"/>
+  <text x="410" y="182" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Groter dan</text>
+  <line x1="530" y1="143" x2="530" y2="213" stroke="#2d3150" stroke-width="1"/>
+  <text x="700" y="178" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">10 &gt; 5</text>
+  <text x="700" y="200" text-anchor="middle" fill="#6b7280" font-size="11" font-family="Courier New, monospace">17 &gt; 18  →  false</text>
+  <line x1="870" y1="143" x2="870" y2="213" stroke="#2d3150" stroke-width="1"/>
+  <rect x="900" y="155" width="140" height="46" rx="8" fill="#052e16" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="970" y="183" text-anchor="middle" fill="#39ff14" font-size="18" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">true</text>
+
+  <!-- Rij 2: < -->
+  <rect x="60" y="213" width="1080" height="70" fill="#1e2030" stroke="#2d3150" stroke-width="0.5"/>
+  <rect x="60" y="213" width="5" height="70" fill="#00d4ff"/>
+  <text x="175" y="255" text-anchor="middle" fill="#00d4ff" font-size="28" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">&lt;</text>
+  <line x1="290" y1="213" x2="290" y2="283" stroke="#2d3150" stroke-width="1"/>
+  <text x="410" y="252" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Kleiner dan</text>
+  <line x1="530" y1="213" x2="530" y2="283" stroke="#2d3150" stroke-width="1"/>
+  <text x="700" y="248" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">10 &lt; 5</text>
+  <text x="700" y="270" text-anchor="middle" fill="#6b7280" font-size="11" font-family="Courier New, monospace">3 &lt; 10  →  true</text>
+  <line x1="870" y1="213" x2="870" y2="283" stroke="#2d3150" stroke-width="1"/>
+  <rect x="900" y="225" width="140" height="46" rx="8" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="970" y="253" text-anchor="middle" fill="#fca5a5" font-size="18" font-family="Courier New, monospace" font-weight="700">false</text>
+
+  <!-- Rij 3: >= -->
+  <rect x="60" y="283" width="1080" height="70" fill="#1a1d2e" stroke="#2d3150" stroke-width="0.5"/>
+  <rect x="60" y="283" width="5" height="70" fill="#39ff14"/>
+  <text x="175" y="325" text-anchor="middle" fill="#39ff14" font-size="28" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">&gt;=</text>
+  <line x1="290" y1="283" x2="290" y2="353" stroke="#2d3150" stroke-width="1"/>
+  <text x="410" y="317" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Groter dan of gelijk aan</text>
+  <line x1="530" y1="283" x2="530" y2="353" stroke="#2d3150" stroke-width="1"/>
+  <text x="700" y="313" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">5 &gt;= 5</text>
+  <text x="700" y="335" text-anchor="middle" fill="#6b7280" font-size="11" font-family="Courier New, monospace">4 &gt;= 5  →  false</text>
+  <line x1="870" y1="283" x2="870" y2="353" stroke="#2d3150" stroke-width="1"/>
+  <rect x="900" y="295" width="140" height="46" rx="8" fill="#052e16" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="970" y="323" text-anchor="middle" fill="#39ff14" font-size="18" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">true</text>
+
+  <!-- Rij 4: <= -->
+  <rect x="60" y="353" width="1080" height="70" fill="#1e2030" stroke="#2d3150" stroke-width="0.5"/>
+  <rect x="60" y="353" width="5" height="70" fill="#39ff14"/>
+  <text x="175" y="395" text-anchor="middle" fill="#39ff14" font-size="28" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">&lt;=</text>
+  <line x1="290" y1="353" x2="290" y2="423" stroke="#2d3150" stroke-width="1"/>
+  <text x="410" y="387" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Kleiner dan of gelijk aan</text>
+  <line x1="530" y1="353" x2="530" y2="423" stroke="#2d3150" stroke-width="1"/>
+  <text x="700" y="383" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">4 &lt;= 5</text>
+  <text x="700" y="405" text-anchor="middle" fill="#6b7280" font-size="11" font-family="Courier New, monospace">6 &lt;= 5  →  false</text>
+  <line x1="870" y1="353" x2="870" y2="423" stroke="#2d3150" stroke-width="1"/>
+  <rect x="900" y="365" width="140" height="46" rx="8" fill="#052e16" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="970" y="393" text-anchor="middle" fill="#39ff14" font-size="18" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">true</text>
+
+  <!-- Rij 5: === (STRIKT) — benadrukt -->
+  <rect x="60" y="423" width="1080" height="75" fill="#1a2744" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="60" y="423" width="5" height="75" fill="#3b82f6"/>
+  <text x="175" y="468" text-anchor="middle" fill="#60a5fa" font-size="24" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">===</text>
+  <text x="175" y="487" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="Inter, sans-serif">✓ GEBRUIK DIT!</text>
+  <line x1="290" y1="423" x2="290" y2="498" stroke="#3d4166" stroke-width="1"/>
+  <text x="410" y="458" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Strikt gelijk aan</text>
+  <text x="410" y="477" text-anchor="middle" fill="#bfdbfe" font-size="11" font-family="Inter, sans-serif">(waarde ÉN type)</text>
+  <line x1="530" y1="423" x2="530" y2="498" stroke="#3d4166" stroke-width="1"/>
+  <text x="700" y="454" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">5 === 5</text>
+  <text x="700" y="476" text-anchor="middle" fill="#6b7280" font-size="11" font-family="Courier New, monospace">5 === "5"  →  false!</text>
+  <line x1="870" y1="423" x2="870" y2="498" stroke="#3d4166" stroke-width="1"/>
+  <rect x="900" y="435" width="140" height="50" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+  <text x="970" y="465" text-anchor="middle" fill="#60a5fa" font-size="18" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">true</text>
+
+  <!-- Rij 6: !== -->
+  <rect x="60" y="498" width="1080" height="70" fill="#1e2030" stroke="#2d3150" stroke-width="0.5"/>
+  <rect x="60" y="498" width="5" height="70" fill="#3b82f6"/>
+  <text x="175" y="540" text-anchor="middle" fill="#60a5fa" font-size="24" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">!==</text>
+  <line x1="290" y1="498" x2="290" y2="568" stroke="#2d3150" stroke-width="1"/>
+  <text x="410" y="527" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Strikt niet gelijk aan</text>
+  <text x="410" y="546" text-anchor="middle" fill="#bfdbfe" font-size="11" font-family="Inter, sans-serif">(waarde ÉN type)</text>
+  <line x1="530" y1="498" x2="530" y2="568" stroke="#2d3150" stroke-width="1"/>
+  <text x="700" y="528" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">5 !== "5"</text>
+  <text x="700" y="550" text-anchor="middle" fill="#6b7280" font-size="11" font-family="Courier New, monospace">5 !== 5  →  false</text>
+  <line x1="870" y1="498" x2="870" y2="568" stroke="#2d3150" stroke-width="1"/>
+  <rect x="900" y="510" width="140" height="46" rx="8" fill="#052e16" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="970" y="538" text-anchor="middle" fill="#39ff14" font-size="18" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">true</text>
+
+  <!-- Rij 7: == (LOS) — waarschuwing -->
+  <rect x="60" y="568" width="1080" height="75" fill="#1f1520" stroke="#7f1d1d" stroke-width="1.5"/>
+  <rect x="60" y="568" width="5" height="75" fill="#ef4444"/>
+  <text x="175" y="613" text-anchor="middle" fill="#f87171" font-size="24" font-family="Courier New, monospace" font-weight="700">==</text>
+  <text x="175" y="632" text-anchor="middle" fill="#fca5a5" font-size="10" font-family="Inter, sans-serif">⚠️  VERMIJD DIT</text>
+  <line x1="290" y1="568" x2="290" y2="643" stroke="#7f1d1d" stroke-width="1"/>
+  <text x="410" y="603" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Los gelijk aan</text>
+  <text x="410" y="622" text-anchor="middle" fill="#fca5a5" font-size="11" font-family="Inter, sans-serif">(enkel waarde, type wordt genegeerd)</text>
+  <line x1="530" y1="568" x2="530" y2="643" stroke="#7f1d1d" stroke-width="1"/>
+  <text x="700" y="598" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">5 == "5"</text>
+  <text x="700" y="620" text-anchor="middle" fill="#fca5a5" font-size="11" font-family="Courier New, monospace">⚠️ true — gevaarlijk!</text>
+  <line x1="870" y1="568" x2="870" y2="643" stroke="#7f1d1d" stroke-width="1"/>
+  <rect x="900" y="580" width="140" height="50" rx="8" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+  <text x="970" y="610" text-anchor="middle" fill="#fca5a5" font-size="18" font-family="Courier New, monospace" font-weight="700">true ⚠️</text>
+
+  <!-- Rij 8: != -->
+  <rect x="60" y="643" width="1080" height="70" fill="#1e2030" stroke="#7f1d1d" stroke-width="0.5"/>
+  <rect x="60" y="643" width="5" height="70" fill="#ef4444"/>
+  <text x="175" y="685" text-anchor="middle" fill="#f87171" font-size="28" font-family="Courier New, monospace" font-weight="700">!=</text>
+  <text x="175" y="701" text-anchor="middle" fill="#fca5a5" font-size="10" font-family="Inter, sans-serif">⚠️  Gebruik !==</text>
+  <line x1="290" y1="643" x2="290" y2="713" stroke="#2d3150" stroke-width="1"/>
+  <text x="410" y="682" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="Inter, sans-serif">Los niet gelijk aan</text>
+  <line x1="530" y1="643" x2="530" y2="713" stroke="#2d3150" stroke-width="1"/>
+  <text x="700" y="673" text-anchor="middle" fill="#9ca3af" font-size="13" font-family="Courier New, monospace">5 != "5"</text>
+  <text x="700" y="695" text-anchor="middle" fill="#fca5a5" font-size="11" font-family="Courier New, monospace">⚠️ false — maar !== geeft ook false</text>
+  <line x1="870" y1="643" x2="870" y2="713" stroke="#2d3150" stroke-width="1"/>
+  <rect x="900" y="655" width="140" height="46" rx="8" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="970" y="683" text-anchor="middle" fill="#fca5a5" font-size="18" font-family="Courier New, monospace" font-weight="700">false ⚠️</text>
+
+  <!-- Sluitende lijn + tip -->
+  <rect x="60" y="725" width="1080" height="40" rx="0" fill="#1a2744"/>
+  <rect x="60" y="725" width="1080" height="40" rx="0" fill="#1a2744"/>
+  <text x="600" y="750" text-anchor="middle" fill="#bfdbfe" font-size="13" font-weight="600" font-family="Inter, sans-serif">✅  Gouden regel: gebruik altijd === en !== — nooit == en !=</text>
+
+  <text x="600" y="785" text-anchor="middle" fill="#3d4166" font-size="12" font-family="Inter, sans-serif">H21 — Vergelijken — Vergelijkingsoperatoren overzicht [ADB09] [basis]</text>
+</svg>

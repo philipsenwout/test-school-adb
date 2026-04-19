@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="820" height="500" fill="#1a1a2e"/>
+  <text x="410" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#e0e0f0">GIP — REST API Activiteiten (CRUD)</text>
+
+  <!-- Column headers -->
+  <rect x="20" y="52" width="100" height="28" rx="4" fill="#252550"/>
+  <text x="70" y="70" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">Methode</text>
+  <rect x="132" y="52" width="220" height="28" rx="4" fill="#252550"/>
+  <text x="242" y="70" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">URL</text>
+  <rect x="364" y="52" width="240" height="28" rx="4" fill="#252550"/>
+  <text x="484" y="70" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">Wat doet het?</text>
+  <rect x="616" y="52" width="184" height="28" rx="4" fill="#252550"/>
+  <text x="708" y="70" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">SQL</text>
+
+  <!-- GET all -->
+  <rect x="20" y="92" width="100" height="38" rx="4" fill="#1a3020" stroke="#28c840" stroke-width="1.5"/>
+  <text x="70" y="115" text-anchor="middle" font-size="13" fill="#28c840" font-weight="700">GET</text>
+  <rect x="132" y="92" width="220" height="38" rx="4" fill="#252540"/>
+  <text x="242" y="115" text-anchor="middle" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace">/api/activiteiten</text>
+  <rect x="364" y="92" width="240" height="38" rx="4" fill="#252540"/>
+  <text x="484" y="115" text-anchor="middle" font-size="12" fill="#c8c8d4">Alle activiteiten ophalen</text>
+  <rect x="616" y="92" width="184" height="38" rx="4" fill="#252540"/>
+  <text x="708" y="115" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">SELECT * FROM ...</text>
+
+  <!-- POST -->
+  <rect x="20" y="142" width="100" height="38" rx="4" fill="#1a2040" stroke="#7c85ff" stroke-width="1.5"/>
+  <text x="70" y="165" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">POST</text>
+  <rect x="132" y="142" width="220" height="38" rx="4" fill="#1e1e38"/>
+  <text x="242" y="165" text-anchor="middle" font-size="13" fill="#a8b8ff" font-family="'Courier New', monospace">/api/activiteiten</text>
+  <rect x="364" y="142" width="240" height="38" rx="4" fill="#1e1e38"/>
+  <text x="484" y="165" text-anchor="middle" font-size="12" fill="#c8c8d4">Nieuwe activiteit aanmaken</text>
+  <rect x="616" y="142" width="184" height="38" rx="4" fill="#1e1e38"/>
+  <text x="708" y="165" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">INSERT INTO ...</text>
+
+  <!-- PUT -->
+  <rect x="20" y="192" width="100" height="38" rx="4" fill="#2a2010" stroke="#febc2e" stroke-width="1.5"/>
+  <text x="70" y="215" text-anchor="middle" font-size="13" fill="#febc2e" font-weight="700">PUT</text>
+  <rect x="132" y="192" width="220" height="38" rx="4" fill="#252540"/>
+  <text x="242" y="215" text-anchor="middle" font-size="13" fill="#febc2e" font-family="'Courier New', monospace">/api/activiteiten/:id</text>
+  <rect x="364" y="192" width="240" height="38" rx="4" fill="#252540"/>
+  <text x="484" y="215" text-anchor="middle" font-size="12" fill="#c8c8d4">Activiteit wijzigen</text>
+  <rect x="616" y="192" width="184" height="38" rx="4" fill="#252540"/>
+  <text x="708" y="215" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">UPDATE ... WHERE id</text>
+
+  <!-- DELETE -->
+  <rect x="20" y="242" width="100" height="38" rx="4" fill="#2a1010" stroke="#ff5f57" stroke-width="1.5"/>
+  <text x="70" y="265" text-anchor="middle" font-size="13" fill="#ff5f57" font-weight="700">DELETE</text>
+  <rect x="132" y="242" width="220" height="38" rx="4" fill="#252540"/>
+  <text x="242" y="265" text-anchor="middle" font-size="13" fill="#ff8888" font-family="'Courier New', monospace">/api/activiteiten/:id</text>
+  <rect x="364" y="242" width="240" height="38" rx="4" fill="#252540"/>
+  <text x="484" y="265" text-anchor="middle" font-size="12" fill="#c8c8d4">Activiteit verwijderen</text>
+  <rect x="616" y="242" width="184" height="38" rx="4" fill="#252540"/>
+  <text x="708" y="265" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">DELETE FROM ... WHERE id</text>
+
+  <!-- Code example bottom -->
+  <rect x="20" y="300" width="780" height="180" rx="8" fill="#0d0d1a" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="30" y="322" font-size="12" fill="#888" font-weight="700">server.js — voorbeeld GET-route:</text>
+
+  <text x="30" y="346" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">app.</text>
+  <text x="68" y="346" font-size="13" fill="#c792ea" font-family="'Courier New', monospace">get</text>
+  <text x="94" y="346" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">('/api/activiteiten',</text>
+  <text x="294" y="346" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">async</text>
+  <text x="340" y="346" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">(req, res) =&gt; &#123;</text>
+
+  <text x="50" y="368" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">const</text>
+  <text x="96" y="368" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace"> [rijen] = </text>
+  <text x="192" y="368" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">await</text>
+  <text x="240" y="368" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace"> pool.</text>
+  <text x="290" y="368" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace">execute</text>
+  <text x="370" y="368" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">(</text>
+  <text x="380" y="368" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace">'SELECT * FROM activiteiten'</text>
+  <text x="644" y="368" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">);</text>
+
+  <text x="50" y="390" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">res.</text>
+  <text x="80" y="390" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace">json</text>
+  <text x="116" y="390" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">(rijen);</text>
+  <text x="30" y="412" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">&#125;);</text>
+
+  <text x="30" y="440" font-size="12" fill="#555">→ Node.js haalt alle rijen op uit de database en stuurt die terug als JSON-array naar de browser</text>
+  <text x="30" y="458" font-size="12" fill="#555">→ De browser toont ze als kaartjes op de pagina via innerHTML</text>
+  <text x="30" y="476" font-size="12" fill="#555">→ :id in de URL = het id-nummer van de activiteit (bv. /api/activiteiten/3)</text>
+</svg>

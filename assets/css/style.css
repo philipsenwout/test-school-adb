@@ -41,6 +41,7 @@
   --color-vak-appdev:       #F97316;
   --color-vak-data:         #3B82F6;
   --color-vak-estem:        #A855F7;
+  --color-vak-github:       #2DBA4E;
 
   /* Tekstkleuren */
   --color-text-primary:     #F0F0FA;
@@ -161,6 +162,7 @@
   --color-vak-appdev:       #C2510A;
   --color-vak-data:         #1D4ED8;
   --color-vak-estem:        #7C3AED;
+  --color-vak-github:       #1a8a37;
 
   --color-text-primary:     #0D0E14;
   --color-text-secondary:   #3D3F62;
@@ -381,19 +383,150 @@ pre code {
 /* Operatoren (optioneel, neutraal) */
 .syn-op  { color: #ff6188; }
 
-/* Light mode overrides — GitHub-achtig met goed contrast */
-[data-theme="light"] .syn-kw  { color: #cf222e; font-weight: var(--font-weight-medium); }
-[data-theme="light"] .syn-fn  { color: #6639ba; }
-[data-theme="light"] .syn-str { color: #0a3069; }
-[data-theme="light"] .syn-num { color: #0550ae; }
-[data-theme="light"] .syn-cm  { color: #6e7781; font-style: italic; }
-[data-theme="light"] .syn-tag { color: #116329; }
-[data-theme="light"] .syn-atr { color: #953800; }
-[data-theme="light"] .syn-val { color: #0a3069; }
-[data-theme="light"] .syn-cls { color: #0550ae; }
-[data-theme="light"] .syn-blt { color: #0550ae; }
-[data-theme="light"] .syn-dec { color: #6639ba; font-style: italic; }
-[data-theme="light"] .syn-op  { color: #cf222e; }
+/* Light mode overrides — Atom One Light palet (hoge saturatie, goed contrast op #f6f8fa) */
+/* Om kleuren aan te passen: wijzig enkel de hex-waarden hieronder.           */
+/* Om een nieuwe syn-xxx klasse toe te voegen: voeg twee regels toe           */
+/* (één voor dark mode hierboven, één [data-theme="light"] hieronder).        */
+[data-theme="light"] .syn-kw  { color: #a626a4; font-weight: var(--font-weight-medium); } /* paars  — keywords */
+[data-theme="light"] .syn-fn  { color: #4078f2; }                                          /* blauw  — functies */
+[data-theme="light"] .syn-str { color: #50a14f; }                                          /* groen  — strings */
+[data-theme="light"] .syn-num { color: #c18401; }                                          /* goud   — getallen + eenheden */
+[data-theme="light"] .syn-cm  { color: #9ea1a8; font-style: italic; }                     /* grijs  — commentaar */
+[data-theme="light"] .syn-tag { color: #e45649; }                                          /* rood   — HTML-tags / CSS-selectors */
+[data-theme="light"] .syn-atr { color: #c18401; }                                          /* goud   — attribuutnamen / CSS-properties */
+[data-theme="light"] .syn-val { color: #50a14f; }                                          /* groen  — attribuutwaarden */
+[data-theme="light"] .syn-cls { color: #0184bc; }                                          /* cyaan  — klassen / CSS-vars / identifiers */
+[data-theme="light"] .syn-blt { color: #0184bc; }                                          /* cyaan  — ingebouwde functies / datatypes */
+[data-theme="light"] .syn-dec { color: #4078f2; font-style: italic; }                     /* blauw  — decorators */
+[data-theme="light"] .syn-op  { color: #383a42; }                                          /* donker — operatoren (neutraal, niet te afleidend) */
+
+/* ============================================================
+   DYSLEXIE-MODUS — Autumn-geïnspireerd, hoog contrast
+   ============================================================
+   Werkt als laag OP de bestaande dark/light themes:
+     [data-dyslexia="true"]                  = dyslexia dark
+     [data-dyslexia="true"][data-theme="light"] = dyslexia light
+
+   Kleurprincipes (gebaseerd op "Dyslexia Autumn" + BDA-richtlijnen):
+   • Warme crème/gele achtergronden — voorkomt "halatie" van wit
+   • Hoog contrast tekst — donkerbruin op crème / crème op warmbruin
+   • GEEN italic — italics zijn moeilijker leesbaar voor dyslectici
+   • Grotere regelafstand en letterafstand
+   • Verdana/Tahoma: aanbevolen door de British Dyslexia Association
+   ============================================================ */
+
+/* ---- Gedeeld: typografie ------------------------------------------ */
+[data-dyslexia="true"] {
+  --font-body:    'Verdana', 'Tahoma', 'Trebuchet MS', sans-serif;
+  --font-display: 'Verdana', 'Tahoma', 'Trebuchet MS', sans-serif;
+  --font-mono:    'Consolas', 'Lucida Console', 'Courier New', monospace;
+}
+[data-dyslexia="true"] body {
+  line-height:    1.9;
+  letter-spacing: 0.025em;
+  word-spacing:   0.06em;
+}
+/* Verwijder ALLE schuinschrift in dyslexie-modus */
+[data-dyslexia="true"] em,
+[data-dyslexia="true"] i,
+[data-dyslexia="true"] .syn-cm,
+[data-dyslexia="true"] .syn-dec { font-style: normal; }
+
+/* ---- DARK dyslexia — Henna Color Theme (httpsterio/vscode-henna) -- */
+/* Exacte kleuren van de officiële Henna VS Code extensie.             */
+[data-dyslexia="true"] {
+  --color-bg-base:     #1a1f26;
+  --color-bg-elevated: #21272e;
+  --color-bg-overlay:  #262d35;
+  --color-bg-sunken:   #161b21;
+}
+/* Code blokken — Henna donker blauw-grijs met rood accent */
+[data-dyslexia="true"] pre {
+  background:    #1a1e25;
+  border-color:  #2d3540;
+  border-left:   4px solid #e74c3c;
+  box-shadow:    0 2px 12px rgba(0,0,0,0.5);
+}
+[data-dyslexia="true"] pre[data-lang]::before {
+  background-color:    #161a20;
+  border-bottom-color: #2d3540;
+  background-image:
+    radial-gradient(circle, #ff6057 6px, transparent 6px),
+    radial-gradient(circle, #ffbe2e 6px, transparent 6px),
+    radial-gradient(circle, #28c840 6px, transparent 6px);
+  background-repeat: no-repeat;
+  background-position: 14px center, 32px center, 50px center;
+  color: #606f73;
+}
+[data-dyslexia="true"] pre code {
+  color:          #f8f8f0;
+  line-height:    2.15;
+  letter-spacing: 0.04em;
+}
+/* Syntax kleuren — Henna (officiële theme-kleuren, 1-op-1 gemapt) */
+[data-dyslexia="true"] .syn-kw  { color: #e74c3c; font-weight: bold; } /* Henna rood       — keywords */
+[data-dyslexia="true"] .syn-fn  { color: #e87a6a; }                     /* licht koraal     — functies (variant van rood) */
+[data-dyslexia="true"] .syn-str { color: #53df83; }                     /* Henna groen      — strings */
+[data-dyslexia="true"] .syn-num { color: #1abc9c; }                     /* Henna teal       — getallen & types */
+[data-dyslexia="true"] .syn-cm  { color: #606f73; font-style: normal; }/* Henna grijs-blauw — commentaar */
+[data-dyslexia="true"] .syn-tag { color: #9cd230; }                     /* Henna limoengroen — HTML-tags / storage */
+[data-dyslexia="true"] .syn-atr { color: #f8c860; }                     /* Henna amber       — properties / attributen */
+[data-dyslexia="true"] .syn-val { color: #53df83; }                     /* Henna groen       — waarden (= strings) */
+[data-dyslexia="true"] .syn-cls { color: #1abc9c; }                     /* Henna teal        — klassen / CSS-vars */
+[data-dyslexia="true"] .syn-blt { color: #1abc9c; }                     /* Henna teal        — builtins */
+[data-dyslexia="true"] .syn-dec { color: #9cd230; font-style: normal; }/* Henna limoengroen — decorators */
+[data-dyslexia="true"] .syn-op  { color: #e74c3c; }                     /* Henna rood        — operatoren */
+
+/* ---- LIGHT dyslexia — warme crème tonen (Solarized-geïnspireerd) - */
+[data-theme="light"][data-dyslexia="true"] {
+  --color-bg-base:     #fdf6e3;
+  --color-bg-elevated: #fffbf0;
+  --color-bg-overlay:  #f5edd6;
+  --color-bg-sunken:   #efe5c8;
+}
+/* Code blokken — licht warm */
+[data-theme="light"][data-dyslexia="true"] pre {
+  background:    #fef9f0;
+  border-color:  #d4c48a;
+  border-left:   4px solid #c8a000;
+  box-shadow:    0 1px 6px rgba(100,80,0,0.12);
+}
+[data-theme="light"][data-dyslexia="true"] pre[data-lang]::before {
+  background-color: #f5e8c0;
+  border-bottom-color: #d4c48a;
+  background-image:
+    radial-gradient(circle, #ff6057 6px, transparent 6px),
+    radial-gradient(circle, #ffbe2e 6px, transparent 6px),
+    radial-gradient(circle, #28c840 6px, transparent 6px);
+  background-repeat: no-repeat;
+  background-position: 14px center, 32px center, 50px center;
+  color: #7a6820;
+}
+[data-theme="light"][data-dyslexia="true"] pre code {
+  color:          #1e1600;
+  line-height:    2.15;
+  letter-spacing: 0.04em;
+}
+/* Syntax kleuren — Dyslexia Light (donker warm Autumn palet, hoog contrast op crème) */
+[data-theme="light"][data-dyslexia="true"] .syn-kw  { color: #8b2200; font-weight: bold; } /* donkerood    — keywords */
+[data-theme="light"][data-dyslexia="true"] .syn-fn  { color: #003d99; }                     /* donkerblauw  — functies */
+[data-theme="light"][data-dyslexia="true"] .syn-str { color: #2a6600; }                     /* bosgroen     — strings */
+[data-theme="light"][data-dyslexia="true"] .syn-num { color: #7c4400; }                     /* donkeramber  — getallen */
+[data-theme="light"][data-dyslexia="true"] .syn-cm  { color: #908c6a; font-style: normal; }/* warmgrijs    — commentaar */
+[data-theme="light"][data-dyslexia="true"] .syn-tag { color: #8b0000; }                     /* donkerrood   — HTML-tags */
+[data-theme="light"][data-dyslexia="true"] .syn-atr { color: #7c4400; }                     /* donkeramber  — properties */
+[data-theme="light"][data-dyslexia="true"] .syn-val { color: #2a6600; }                     /* bosgroen     — waarden */
+[data-theme="light"][data-dyslexia="true"] .syn-cls { color: #005566; }                     /* donker cyaan — klassen/vars */
+[data-theme="light"][data-dyslexia="true"] .syn-blt { color: #005566; }                     /* donker cyaan — builtins */
+[data-theme="light"][data-dyslexia="true"] .syn-dec { color: #7c0044; font-style: normal; }/* donker roze  — decorators */
+[data-theme="light"][data-dyslexia="true"] .syn-op  { color: #5c3000; }                     /* donkerbruin  — operatoren */
+
+/* ---- Dyslexie-knop kleur in light dyslexia mode ------------------- */
+[data-theme="light"][data-dyslexia="true"] .dyslexia-toggle.is-active {
+  background: #c8a000;
+  border-color: #c8a000;
+  color: #fff8e0;
+}
 
 /* Tables */
 table {
@@ -435,12 +568,13 @@ tr:hover td {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 var(--space-6);
 }
 
-.container-narrow { max-width: 860px; }
+.container-narrow { max-width: 960px; }
+.container--wide   { max-width: 1800px; }
 
 /* ============================================================
    6. NAVIGATIEBALK
@@ -542,6 +676,42 @@ tr:hover td {
   background: var(--color-bg-overlay);
   color: var(--color-text-primary);
   border-color: var(--color-border-strong);
+}
+
+/* Dyslexie-modus toggle knop — verschijnt automatisch via app.js */
+.dyslexia-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 0.7rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border-default);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  user-select: none;
+}
+.dyslexia-toggle:hover {
+  background: var(--color-bg-overlay);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+.dyslexia-toggle.is-active {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: #f8f8f0;
+  font-weight: var(--font-weight-bold);
+}
+.dyslexia-toggle.is-active:hover {
+  background: #c94030;
+  border-color: #c94030;
 }
 
 /* Hamburger */
@@ -721,7 +891,8 @@ tr:hover td {
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  display: block;
+  display: flex;
+  flex-direction: column;
   color: var(--color-text-primary);
 }
 
@@ -746,6 +917,7 @@ tr:hover td {
 .card-vak--appdev    { --vak-color: var(--color-vak-appdev); }
 .card-vak--data      { --vak-color: var(--color-vak-data); }
 .card-vak--estem     { --vak-color: var(--color-vak-estem); }
+.card-vak--github    { --vak-color: var(--color-vak-github); }
 
 .card-vak__icon {
   font-size: 2.5rem;
@@ -775,16 +947,24 @@ tr:hover td {
   color: var(--color-text-muted);
   margin-bottom: var(--space-4);
   max-width: none;
+  flex: 1; /* duwt progress + meta altijd naar de onderkant van de kaart */
 }
 
 .card-vak__meta {
-  display: flex;
-  gap: var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   margin-top: var(--space-4);
   padding-top: var(--space-4);
   border-top: 1px solid var(--color-border-subtle);
+}
+
+.card-vak__meta span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-vak__progress-label {
@@ -797,12 +977,13 @@ tr:hover td {
 /* Hoofdstukkaart */
 .card-hoofdstuk {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-4);
   background: var(--color-bg-elevated);
   border: 1px solid var(--color-border-default);
+  border-left: 4px solid var(--vak-color, var(--color-primary-500));
   border-radius: var(--radius-lg);
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-4) var(--space-5);
   text-decoration: none;
   transition: all var(--transition-fast);
   margin-bottom: var(--space-3);
@@ -812,6 +993,7 @@ tr:hover td {
 .card-hoofdstuk:hover {
   background: var(--color-bg-overlay);
   border-color: var(--color-border-strong);
+  border-left-color: var(--vak-color, var(--color-primary-500));
   transform: translateX(4px);
   text-decoration: none;
   color: var(--color-text-primary);
@@ -831,28 +1013,76 @@ tr:hover td {
   font-weight: var(--font-weight-bold);
   font-size: var(--text-sm);
   color: var(--vak-color, var(--color-primary-400));
+  margin-top: 2px;
 }
 
-.card-hoofdstuk__info { flex: 1; min-width: 0; }
+.card-hoofdstuk__body { flex: 1; min-width: 0; }
+
+.card-hoofdstuk__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
 
 .card-hoofdstuk__title {
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   font-size: var(--text-base);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card-hoofdstuk__meta {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  margin-top: var(--space-1);
-  margin-bottom: 0;
-  max-width: none;
+  line-height: 1.4;
 }
 
 .card-hoofdstuk__status { flex-shrink: 0; }
+
+.card-hoofdstuk__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.5;
+}
+
+.card-hoofdstuk__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.card-hoofdstuk__ld {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.ld-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  background: color-mix(in srgb, var(--vak-color, var(--color-primary-500)) 15%, transparent);
+  color: var(--vak-color, var(--color-primary-400));
+  border: 1px solid color-mix(in srgb, var(--vak-color, var(--color-primary-500)) 30%, transparent);
+  letter-spacing: 0.02em;
+}
+
+.card-hoofdstuk__time {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Legacy compat (used in some chapter pages still referencing old classes) */
+.card-hoofdstuk__info { flex: 1; min-width: 0; }
+.card-hoofdstuk__meta { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-1); margin-bottom: 0; }
+
+@media (max-width: 600px) {
+  .card-hoofdstuk__head { flex-direction: column; gap: var(--space-1); }
+  .card-hoofdstuk__status { align-self: flex-start; }
+}
 
 /* ============================================================
    10. VOORTGANGSINDICATOREN
@@ -1115,9 +1345,9 @@ tr:hover td {
   padding-bottom: var(--space-16);
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   .chapter-layout {
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 440px 1fr;
     align-items: start;
   }
 }
@@ -1138,7 +1368,7 @@ tr:hover td {
   scrollbar-color: var(--color-border-default) transparent;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   .chapter-sidebar { display: block; }
 }
 
@@ -1519,12 +1749,24 @@ tr:hover td {
   margin-top: var(--space-8);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .vak-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 960px) {
+  .vak-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 1200px) {
   .vak-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1440px) {
+  .vak-grid { grid-template-columns: repeat(5, 1fr); }
+  .vak-grid .card-vak { padding: var(--space-6); }
+  .vak-grid .card-vak__title { font-size: var(--text-xl); }
+  .vak-grid .card-vak__icon-img { width: 44px; height: 44px; }
+  .vak-grid .card-vak__icon { font-size: 2rem; }
 }
 
 .section-header {
@@ -1810,6 +2052,7 @@ tr:hover td {
 .vak-appdev    { --vak-color: var(--color-vak-appdev); }
 .vak-data      { --vak-color: var(--color-vak-data); }
 .vak-estem     { --vak-color: var(--color-vak-estem); }
+.vak-github    { --vak-color: var(--color-vak-github); }
 
 .vak-accent { color: var(--vak-color); }
 
@@ -2287,7 +2530,6 @@ tr:hover td {
 
   .hero { padding: var(--space-12) 0 var(--space-10); }
   .hero__actions { flex-direction: column; }
-  .vak-grid { grid-template-columns: 1fr; }
 
   .chapter-nav { flex-direction: column; }
   .chapter-nav__link { min-width: unset; width: 100%; }
@@ -2845,7 +3087,7 @@ body.modal-open { overflow: hidden; }
 /* ── Feature cards grid ──────────────────────────────────── */
 .hp-features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
 }
 
@@ -3173,7 +3415,7 @@ body.modal-open { overflow: hidden; }
 /* ── Vakken grid ─────────────────────────────────────────── */
 .hp-vakken-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
 }
 
@@ -3417,3 +3659,561 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .hp-hero__glow--1 { opacity: 0.15; }
 [data-theme="light"] .hp-hero__glow--2 { opacity: 0.12; }
 [data-theme="light"] .hp-hero__glow--3 { opacity: 0.08; }
+
+/* ============================================================
+   HOMEPAGE EXTRA — GitHub card, dashboard mock, journey v2,
+   account visual, quote strip, teacher extras
+   ============================================================ */
+
+/* GitHub feature highlight card */
+.hp-github-card {
+  background: var(--color-bg-overlay);
+  border: 1.5px solid var(--color-border-default);
+  border-left: 4px solid var(--color-primary-400);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+  transition: box-shadow var(--transition-base);
+}
+.hp-github-card:hover { box-shadow: var(--shadow-glow); }
+.hp-github-card__icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: var(--space-1);
+}
+.hp-github-card__body h3 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+.hp-github-card__body p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  max-width: none;
+}
+
+/* Teacher top grid: dashboard + GitHub side by side */
+.hp-teacher-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+/* Dashboard mockup widget */
+.hp-dashboard-mock {
+  background: var(--color-bg-sunken);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+.hp-dashboard-mock__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--space-3);
+}
+.hp-dashboard-mock__row:last-child { border-bottom: none; }
+.hp-dashboard-mock__name {
+  color: var(--color-text-secondary);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hp-dashboard-mock__pct {
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  flex-shrink: 0;
+}
+.hp-dashboard-mock__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.hp-dashboard-mock__dot--green  { background: var(--color-success); }
+.hp-dashboard-mock__dot--orange { background: var(--color-warning); }
+.hp-dashboard-mock__dot--red    { background: var(--color-error); }
+.hp-dashboard-mock__bar {
+  flex: 1;
+  height: 4px;
+  background: var(--color-border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.hp-dashboard-mock__bar-fill { height: 100%; border-radius: 2px; }
+
+/* Teacher extra features — 3-col row */
+.hp-teacher-extras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.hp-teacher-extra {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition: border-color var(--transition-fast);
+}
+.hp-teacher-extra:hover { border-color: var(--color-border-strong); }
+.hp-teacher-extra__icon { font-size: 1.5rem; margin-bottom: var(--space-3); display: block; }
+.hp-teacher-extra h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+.hp-teacher-extra p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: none;
+}
+
+/* Leerling journey v2 — 2-col grid cards */
+.hp-journey-v2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-5);
+}
+.hp-journey-v2__step {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.hp-journey-v2__step:hover {
+  border-color: var(--color-primary-400);
+  transform: translateY(-2px);
+}
+.hp-journey-v2__num {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-base);
+  color: #fff;
+  box-shadow: var(--shadow-glow-sm);
+}
+.hp-journey-v2__title {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+.hp-journey-v2__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* Gradient quote strip */
+.hp-quote-strip {
+  background: var(--color-gradient-primary);
+  padding: var(--space-12) 0;
+  text-align: center;
+}
+.hp-quote-strip__text {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  line-height: var(--leading-snug);
+  max-width: 800px;
+  margin: 0 auto var(--space-4);
+}
+.hp-quote-strip__sub {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+  max-width: none;
+}
+
+/* Accounts section */
+.hp-account-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+.hp-account-visual {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+}
+.hp-account-visual__title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+.hp-account-visual__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-4);
+}
+.hp-account-visual__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+}
+.hp-account-visual__name { font-weight: var(--font-weight-semibold); font-size: var(--text-sm); }
+.hp-account-visual__meta { font-size: var(--text-xs); color: var(--color-text-muted); }
+.hp-account-list li {
+  padding: var(--space-2) 0;
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.hp-account-list li:last-child { border-bottom: none; }
+.hp-account-list li strong { color: var(--color-text-primary); }
+
+/* Accent badge */
+.hp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(123, 63, 228, 0.15);
+  color: var(--color-primary-400);
+  border: 1px solid rgba(123, 63, 228, 0.3);
+  margin-bottom: var(--space-4);
+}
+
+/* Responsive — homepage extra */
+@media (max-width: 900px) {
+  .hp-teacher-extras { grid-template-columns: 1fr 1fr; }
+  .hp-account-grid   { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .hp-teacher-top    { grid-template-columns: 1fr; }
+  .hp-journey-v2     { grid-template-columns: 1fr; }
+  .hp-github-card    { flex-direction: column; }
+  .hp-two-col        { grid-template-columns: 1fr !important; }
+  .hp-quote-strip__text { font-size: var(--text-2xl); }
+}
+@media (max-width: 600px) {
+  .hp-teacher-extras { grid-template-columns: 1fr; }
+  .hp-vakken-grid    { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   GIP — GEÏNTEGREERD INFORMATICAPROJECT SECTIE
+   ============================================================ */
+
+.gip-section {
+  margin-top: var(--space-10);
+  border-radius: var(--radius-xl);
+  background: var(--color-gradient-subtle);
+  border: 1px solid var(--color-border-default);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* Rainbow top border — 5 vak colors equal width */
+.gip-section__rainbow {
+  display: flex;
+  height: 4px;
+}
+.gip-section__rainbow span {
+  flex: 1;
+}
+
+.gip-section__inner {
+  padding: var(--space-8) var(--space-8) var(--space-8);
+}
+
+/* Header */
+.gip-section__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.gip-section__label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+.gip-section__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  background: linear-gradient(90deg,
+    var(--color-vak-netwerken),
+    var(--color-vak-appdev),
+    var(--color-vak-data),
+    var(--color-vak-estem),
+    var(--color-vak-github));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gip-section__desc {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+/* CTA knop */
+.gip-section__cta {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg,
+    rgba(249,115,22,0.12),
+    rgba(59,130,246,0.12));
+  border: 1px solid rgba(249,115,22,0.3);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  min-width: 220px;
+}
+
+.gip-section__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-vak-appdev);
+  text-decoration: none;
+}
+
+.gip-section__cta-label {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.gip-section__cta-sub {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.gip-section__cta-arrow {
+  font-size: var(--text-xl);
+  color: var(--color-vak-appdev);
+  margin-top: var(--space-1);
+}
+
+/* Voortgangsbalk */
+.gip-section__progress-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.gip-section__progress-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.gip-section__progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border-default);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.gip-section__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg,
+    var(--color-vak-netwerken),
+    var(--color-vak-appdev),
+    var(--color-vak-data),
+    var(--color-vak-estem),
+    var(--color-vak-github));
+  border-radius: 9999px;
+  transition: width 0.6s ease;
+}
+
+.gip-section__progress-pct {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* 5 vakbijdragen */
+.gip-vakken {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.gip-vak {
+  padding: var(--space-4) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  border-top: 3px solid var(--gip-vak-color, var(--color-primary-500));
+  transition: all var(--transition-base);
+}
+
+.gip-vak:hover {
+  border-color: var(--gip-vak-color);
+  box-shadow: 0 4px 20px rgba(128,128,128,0.15);
+  transform: translateY(-2px);
+}
+
+.gip-vak__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gip-vak-color);
+  margin-bottom: var(--space-2);
+  box-shadow: 0 0 8px var(--gip-vak-color);
+}
+
+.gip-vak__naam {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--gip-vak-color);
+  margin-bottom: var(--space-2);
+}
+
+.gip-vak__bijdrage {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Mijlpalenbalk */
+.gip-mijlpalen {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-default);
+  padding: var(--space-4) var(--space-6);
+}
+
+.gip-mijlpaal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.gip-mijlpaal__lijn {
+  flex: 2;
+  height: 2px;
+  background: var(--color-border-default);
+  position: relative;
+}
+
+.gip-mijlpaal__lijn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-border-default);
+}
+
+.gip-mijlpaal__nr {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+    var(--color-vak-appdev),
+    var(--color-vak-data));
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gip-mijlpaal__naam {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.gip-mijlpaal__datum {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .gip-vakken { grid-template-columns: repeat(3, 1fr); }
+  .gip-section__header { flex-direction: column; }
+  .gip-section__cta { width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .gip-vakken { grid-template-columns: repeat(2, 1fr); }
+  .gip-mijlpalen { flex-wrap: wrap; gap: var(--space-3); }
+  .gip-mijlpaal__lijn { display: none; }
+  .gip-section__inner { padding: var(--space-5); }
+  .gip-section__title { font-size: var(--text-2xl); }
+}
+
+@media (max-width: 480px) {
+  .gip-vakken { grid-template-columns: 1fr; }
+}

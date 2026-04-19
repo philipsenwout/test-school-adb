@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#e8eaf6"/>
+
+  <!-- Browser window -->
+  <rect x="30" y="20" width="740" height="440" rx="12" fill="#ffffff" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- Browser chrome -->
+  <rect x="30" y="20" width="740" height="44" rx="12" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+  <rect x="30" y="52" width="740" height="12" fill="#f5f5f5"/>
+
+  <!-- Traffic lights -->
+  <circle cx="62" cy="42" r="7" fill="#ff5f57"/>
+  <circle cx="84" cy="42" r="7" fill="#ffbd2e"/>
+  <circle cx="106" cy="42" r="7" fill="#28ca41"/>
+
+  <!-- Address bar -->
+  <rect x="130" y="30" width="500" height="24" rx="12" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="380" y="47" text-anchor="middle" font-size="12" fill="#888">localhost:5500</text>
+
+  <!-- Page content area: code hint at top -->
+  <rect x="50" y="76" width="700" height="36" rx="6" fill="#1a1a2e"/>
+  <text x="70" y="90" font-size="11" fill="#888" font-family="monospace">// Maak 3 boeken aan:</text>
+  <text x="70" y="105" font-size="11" fill="white" font-family="monospace">new Boek(<tspan fill="#43e97b">'De Alchemist'</tspan>, <tspan fill="#43e97b">'Paulo Coelho'</tspan>, <tspan fill="#f9a825">1988</tspan>);</text>
+
+  <!-- DevTools panel -->
+  <rect x="50" y="122" width="700" height="300" rx="8" fill="#1e1e2e" stroke="#333" stroke-width="1"/>
+
+  <!-- DevTools tab bar -->
+  <rect x="50" y="122" width="700" height="28" rx="8" fill="#2a2a3e"/>
+  <rect x="50" y="138" width="700" height="12" fill="#2a2a3e"/>
+  <text x="90" y="140" font-size="12" fill="#aaa">Elements</text>
+  <text x="170" y="140" font-size="12" fill="white" font-weight="600">Console</text>
+  <rect x="158" y="122" width="58" height="28" rx="0" fill="#1e1e2e"/>
+  <text x="240" y="140" font-size="12" fill="#aaa">Sources</text>
+  <text x="310" y="140" font-size="12" fill="#aaa">Network</text>
+
+  <!-- Console output lines -->
+  <!-- Line 1 -->
+  <text x="76" y="178" font-size="13" fill="#43e97b" font-family="monospace">Boek #0: "De Alchemist" door Paulo Coelho (1988)</text>
+  <!-- Line 2 -->
+  <text x="76" y="204" font-size="13" fill="#43e97b" font-family="monospace">Boek #1: "1984" door George Orwell (1949)</text>
+  <!-- Line 3 -->
+  <text x="76" y="230" font-size="13" fill="#43e97b" font-family="monospace">Boek #2: "Dune" door Frank Herbert (1965)</text>
+
+  <!-- Divider -->
+  <line x1="66" y1="244" x2="734" y2="244" stroke="#333" stroke-width="1"/>
+
+  <!-- Static counter line -->
+  <text x="76" y="266" font-size="13" fill="#f9a825" font-family="monospace">Totaal aangemaakt: 3</text>
+
+  <!-- Prompt line -->
+  <text x="66" y="300" font-size="13" fill="#888" font-family="monospace">&gt;</text>
+  <rect x="80" y="286" width="8" height="15" fill="#6c63ff" opacity="0.8"/>
+
+  <!-- Static counter explanation -->
+  <rect x="66" y="316" width="668" height="52" rx="6" fill="#2a2a3e"/>
+  <text x="400" y="334" text-anchor="middle" font-size="11" fill="#888">// static #aantalBoeken wordt bijgehouden op class-niveau (niet per instantie)</text>
+  <text x="400" y="354" text-anchor="middle" font-size="12" fill="white" font-family="monospace">Boek.<tspan fill="#6c63ff">aantalBoeken</tspan>  <tspan fill="#888">// static getter</tspan>  → <tspan fill="#f9a825">3</tspan></text>
+  <text x="400" y="372" text-anchor="middle" font-size="11" fill="#888" font-family="monospace">// Elke new Boek(...) verhoogt de teller automatisch</text>
+
+  <!-- Bottom bar -->
+  <rect x="50" y="432" width="700" height="18" rx="4" fill="#6c63ff" fill-opacity="0.12"/>
+  <text x="400" y="445" text-anchor="middle" font-size="11" fill="#6c63ff">Oefening H17 — class Boek met constructor, static teller en toString()</text>
+</svg>

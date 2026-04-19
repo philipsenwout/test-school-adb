@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 — Herhaling &amp; GitHub Interface — GitHub Advanced 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/github-version-control/H01" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+          <a href="#herhaling">1.1 Snelle herhaling 5ADB</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+          <a href="#github-interface">1.2 GitHub interface verkennen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+          <a href="#issues">1.3 Issues</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-nieuw">1.4 Wat leer je dit jaar?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Advanced</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H01 — Herhaling &amp; GitHub Interface</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H01 — GitHub Advanced 6ADB</div>
+        <h1 class="page-header__title">Herhaling &amp; GitHub Interface</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem. [verdieping]</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB07</span><span class="ld-tag__title">De leerlingen houden de administratie bij in functie van de opdracht.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan de basisworkflow van Git vlot uitvoeren zonder nadenken</li>
+          <li>Je kan de GitHub-interface navigeren: commits, bestanden, issues</li>
+          <li>Je kan een GitHub Issue aanmaken en koppelen aan je werk</li>
+          <li>Je begrijpt wat er dit jaar nieuw bijkomt: branches, PR's en merge conflicten</li>
+        </ul>
+      </div>
+
+      <h2 id="herhaling">1.1 Snelle herhaling 5ADB</h2>
+
+      <p>Voer de volgende commando's blindelings uit — dit is je basisroutine voor heel het jaar:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Begin van elke les
+git pull
+
+# Werk vastleggen
+git status
+git add .
+git commit -m "beschrijvende boodschap"
+git push
+
+# Historiek bekijken
+git log --oneline</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Rust op je kennis</div>
+        <p>Als je de commando's uit 5ADB nog niet vlot kan uitvoeren, neem dan even de tijd om H04 t.e.m. H06 van 5ADB opnieuw door te nemen voor je verdergaat.</p>
+      </div>
+
+      <h2 id="github-interface">1.2 De GitHub-interface van a tot z</h2>
+
+      <p>In 5ADB gebruikte je GitHub voornamelijk als opslagplaats. In 6ADB ga je actief met de interface werken. Leer de volgende secties kennen:</p>
+
+      <div style="display:grid;gap:var(--space-3);margin:var(--space-4) 0">
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-1)">&#128196; Code</h3>
+          <p style="margin:0">Overzicht van alle bestanden. Rechts staan de laatste commits per bestand.</p>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-1)">&#128684; Issues</h3>
+          <p style="margin:0">Takenlijst en bugtracking. Je kan issues aanmaken, toewijzen en sluiten. Ideaal voor projectwerk.</p>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-1)">&#129337; Pull Requests</h3>
+          <p style="margin:0">Een verzoek om een branch samen te voegen. Hier geeft de leerkracht code review.</p>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-1)">&#128336; Commits</h3>
+          <p style="margin:0">Volledige geschiedenis van alle commits. Klik op een commit om precies te zien wat er gewijzigd is.</p>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-1)">&#127807; Branches</h3>
+          <p style="margin:0">Overzicht van alle branches. In 6ADB maak je zelf branches aan voor nieuwe functies.</p>
+        </div>
+      </div>
+
+      <h2 id="issues">1.3 Issues — taakopvolging</h2>
+
+      <p>Een <strong>Issue</strong> is een taak, bug of vraag die je wil bijhouden in je project. In de professionele wereld worden issues gebruikt om werk te plannen en op te volgen.</p>
+
+      <h3>Issue aanmaken</h3>
+      <ol>
+        <li>Ga naar je repository op GitHub</li>
+        <li>Klik op het tabblad <strong>Issues</strong></li>
+        <li>Klik op <strong>New issue</strong></li>
+        <li>Geef een duidelijke titel en beschrijving</li>
+        <li>Wijs het toe aan jezelf (Assignees)</li>
+        <li>Klik op <strong>Submit new issue</strong></li>
+      </ol>
+
+      <h3>Issue koppelen aan een commit</h3>
+      <p>Je kan een issue sluiten vanuit een commit door het issue-nummer te vermelden in de commit-boodschap:</p>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Issue #3 afsluiten via commit
+git commit -m "H01 nav-menu afgewerkt, closes #3"</code></pre>
+      </div>
+      <p>GitHub sluit issue #3 automatisch zodra deze commit gepusht is.</p>
+
+      <h2 id="wat-nieuw">1.4 Wat leer je dit jaar nieuw?</h2>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128195; Nieuwe concepten in 6ADB</div>
+        <ul>
+          <li><strong>H02 — Branching:</strong> werk op een aparte "lijn" zonder de hoofdcode te verstoren</li>
+          <li><strong>H03 — Pull Requests:</strong> vraag om je branch samen te voegen + code review</li>
+          <li><strong>H04 — Merge conflicten:</strong> los botsende wijzigingen op</li>
+          <li><strong>H05 — Geavanceerd:</strong> .gitignore, stash, tags en GitHub Pages</li>
+        </ul>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 1 — Herhalingsoefening basisworkflow</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Doorloop de volledige 5ADB-workflow zonder te spieken:</p>
+            <ol>
+              <li>Clone je 6ADB-repository (of gebruik je 5ADB-repo)</li>
+              <li>Pull de laatste versie</li>
+              <li>Maak een map <code>github-advanced/H01/</code> aan met een <code>README.md</code></li>
+              <li>Schrijf in dat bestand wat je al weet over Git (in Markdown)</li>
+              <li>Commit met een goede boodschap</li>
+              <li>Push naar GitHub</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB07</span>
+            <span class="oefening__title">Oefening 2 — GitHub interface verkennen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Beantwoord de volgende vragen door ze op te zoeken in jouw repository op GitHub:</p>
+            <ol>
+              <li>Hoeveel commits staan er in jouw repository?</li>
+              <li>Wanneer was de allereerste commit? Wat was de boodschap?</li>
+              <li>Klik op een specifieke commit — welke bestanden zijn er gewijzigd?</li>
+              <li>Maak een Issue aan met als titel "H01 GitHub Advanced afwerken"</li>
+              <li>Wijs het issue toe aan jezelf</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — GitHub profiel verbeteren
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H01-6adb-voorbeeld.svg', 'Voorbeeld — GitHub profiel README')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak een GitHub profiel-README</h3>
+            <ol>
+              <li><strong>Deel 1 — 5 punten:</strong> Maak een <em>profiel-repository</em> op GitHub (naam = je gebruikersnaam). Voeg een <code>README.md</code> toe met:
+                <ul>
+                  <li>Jouw naam en school</li>
+                  <li>Wat je studeert (Data- en Applicatiebeheer 6ADB)</li>
+                  <li>Je favoriete technologieën of vakken tot nu toe</li>
+                </ul>
+              </li>
+              <li><strong>Deel 2 — 3 punten:</strong> Stel minstens 3 Issues in voor je 6ADB-repository: één per groot onderwerp dat je dit jaar wil aanpakken.</li>
+              <li><strong>Deel 3 — 2 punten:</strong> Stuur de link naar je GitHub-profiel en je 6ADB-repository aan de leerkracht.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H01 — Herhaling &amp; GitHub Interface</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is een GitHub Issue?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v1" value="a"> <span>Een foutmelding die Git gooit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v1" value="b"> <span>Een versie van je code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v1" value="c"> <span>Een taak, bug of vraag die je wil bijhouden in je project</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v1" value="d"> <span>Een branch die geblokkeerd is</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Hoe sluit je een Issue automatisch via een commit?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v2" value="a"> <span>Door "close" te typen in het commit-bericht</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v2" value="b"> <span>Door "closes #nummer" te vermelden in de commit-boodschap</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v2" value="c"> <span>Door op de rode X-knop te klikken op GitHub</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v2" value="d"> <span>Via git issue close</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat is nieuw in GitHub Advanced (6ADB) dat je nog niet in 5ADB hebt geleerd?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v3" value="a"> <span>git add en git commit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v3" value="b"> <span>git push en git pull</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v3" value="c"> <span>git clone en git status</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v3" value="d"> <span>Branching, pull requests en merge conflicten</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Waar vind je een overzicht van alle commits in een GitHub repository?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v4" value="a"> <span>In het tabblad Code via de klok of commits-teller</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v4" value="b"> <span>In het tabblad Issues</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v4" value="c"> <span>In de Settings van de repository</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v4" value="d"> <span>Via het Actions-tabblad</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat toont het tabblad "Pull Requests" op GitHub?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v5" value="a"> <span>Een lijst van alle git pull commando's die je hebt uitgevoerd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v5" value="b"> <span>Een overzicht van alle pushed bestanden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v5" value="c"> <span>Verzoeken om een branch samen te voegen, inclusief code review</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-01-v5" value="d"> <span>De versie-instellingen van Git</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/github-version-control/H01')" data-progress-key="6adb/github-version-control/H01">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <span></span>
+          <a href="H02.html" class="btn btn-ghost">H02 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

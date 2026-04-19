@@ -45,8 +45,52 @@
 <span>H01</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-1-introductie-raspberry-pi-en-linux">Hoofdstuk 1 — Introductie: Raspberry Pi en Linux</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#11-wat-is-stem">1.1 Wat is STEM?</a></li><li><a href="#12-de-raspberry-pi">1.2 De Raspberry Pi</a></li><li><a href="#13-raspberry-pi-os-installeren">1.3 Raspberry Pi OS installeren</a></li><li><a href="#14-het-bureaublad-verkennen">1.4 Het bureaublad verkennen</a></li><li><a href="#15-het-ontwerpproces">1.5 Het ontwerpproces</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h01" style="padding-left:1.25rem">Huistaak H01</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/e-stem/H01" style="--sidebar-accent: var(--color-vak-estem)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+      <a href="#11-wat-is-stem">1.1 Wat is STEM?</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+      <a href="#12-de-raspberry-pi">1.2 De Raspberry Pi</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+      <a href="#13-raspberry-pi-os-installeren">1.3 Raspberry Pi OS installeren</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+      <a href="#14-het-bureaublad-verkennen">1.4 Het bureaublad verkennen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+      <a href="#15-het-ontwerpproces">1.5 Het ontwerpproces</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside>
       <div class="chapter-content">
         <div class="page-header vak-estem" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#127827; E-STEM &mdash; 5ADB</div>
@@ -67,16 +111,20 @@
 <tr><td><strong>Auteur</strong></td><td>Leerkracht E-STEM</td></tr>
 <tr><td><strong>Status</strong></td><td>Herzien</td></tr>
 </tbody></table></div>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<div class="ld-badges"><span class="badge badge-ld">[LD-EST-03]</span> Systemen onderscheiden aan de hand van STEM-concepten <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-06]</span> Creatieve ideeën genereren om een probleem op te lossen <span class="badge badge-basis">basis</span></div>
-<p>Na dit hoofdstuk kan de leerling:</p>
-<ul>
-<li>uitleggen wat STEM betekent en hoe de vier domeinen samenhangen;</li>
-<li>beschrijven wat een Raspberry Pi is en waarvoor hij gebruikt wordt;</li>
-<li>de onderdelen van een Raspberry Pi herkennen;</li>
-<li>Raspberry Pi OS opstarten en het bureaublad verkennen;</li>
-<li>het vijfstappen-ontwerpproces uitleggen.</li>
-</ul>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">EST-03</span><span class="ld-tag__title">Systemen onderscheiden aan de hand van STEM-concepten</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">EST-06</span><span class="ld-tag__title">Creatieve ideeën genereren om een probleem op te lossen</span></div>
+</div>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>uitleggen wat STEM betekent en hoe de vier domeinen samenhangen;</li>
+    <li>beschrijven wat een Raspberry Pi is en waarvoor hij gebruikt wordt;</li>
+    <li>de onderdelen van een Raspberry Pi herkennen;</li>
+    <li>Raspberry Pi OS opstarten en het bureaublad verkennen;</li>
+    <li>het vijfstappen-ontwerpproces uitleggen.</li>
+  </ul>
+</div>
 <p><strong>Geschatte lesuren:</strong> 4 uur</p>
 <h2 id="11-wat-is-stem">1.1 Wat is STEM?</h2>
 <div class="callout callout--definitie">
@@ -315,8 +363,10 @@
 <li>Het <strong>ontwerpproces</strong> (5 stappen) helpt je gestructureerd problemen aanpakken.</li>
 </ul>
 </div>
-<h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
-<div class="ld-badges"><span class="badge badge-ld">[LD-EST-03]</span> Systemen onderscheiden aan de hand van STEM-concepten <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-EST-06]</span> Creatieve ideeën genereren om een probleem op te lossen <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">EST-03</span><span class="ld-tag__title">Systemen onderscheiden aan de hand van STEM-concepten</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">EST-06</span><span class="ld-tag__title">Creatieve ideeën genereren om een probleem op te lossen</span></div>
+</div>
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>

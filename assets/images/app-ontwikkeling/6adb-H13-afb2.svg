@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#43e97b"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+    </marker>
+  </defs>
+
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">Filterlogica — van checkbox naar DOM</text>
+
+  <!-- Start -->
+  <ellipse cx="400" cy="65" rx="130" ry="25" fill="#6c63ff"/>
+  <text x="400" y="70" text-anchor="middle" fill="white" font-size="13" font-weight="bold">checkbox change event</text>
+
+  <line x1="400" y1="90" x2="400" y2="120" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- maakCategoriesLijst -->
+  <rect x="250" y="120" width="300" height="45" rx="8" fill="#3498db"/>
+  <text x="400" y="140" text-anchor="middle" fill="white" font-size="13" font-weight="bold">maakCategoriesLijst()</text>
+  <text x="400" y="157" text-anchor="middle" fill="#cce8ff" font-size="10">Welke checkboxes zijn aangevinkt?</text>
+
+  <!-- Result -->
+  <rect x="560" y="128" width="220" height="30" rx="6" fill="#1a1a2e" stroke="#3498db" stroke-width="1"/>
+  <text x="670" y="147" text-anchor="middle" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">['voorgerecht', 'snack']</text>
+  <line x1="550" y1="142" x2="562" y2="142" stroke="#3498db" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <line x1="400" y1="165" x2="400" y2="195" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- dispatchEvent -->
+  <rect x="280" y="195" width="240" height="40" rx="8" fill="#9b59b6"/>
+  <text x="400" y="212" text-anchor="middle" fill="white" font-size="13" font-weight="bold">dispatchEvent(update)</text>
+  <text x="400" y="228" text-anchor="middle" fill="#e8d5ff" font-size="10">Custom Event verstuurd → toonRecepten() wordt getriggerd</text>
+
+  <line x1="400" y1="235" x2="400" y2="265" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- toonRecepten -->
+  <rect x="250" y="265" width="300" height="45" rx="8" fill="#43e97b"/>
+  <text x="400" y="285" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="bold">toonRecepten()</text>
+  <text x="400" y="302" text-anchor="middle" fill="#1a1a2e" font-size="10">Leeg de sectie → forEach over alleRecepten</text>
+
+  <line x1="400" y1="310" x2="400" y2="340" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Decision diamond -->
+  <polygon points="400,340 480,375 400,410 320,375" fill="#f9a825"/>
+  <text x="400" y="372" text-anchor="middle" fill="#1a1a2e" font-size="11" font-weight="bold">categorie in</text>
+  <text x="400" y="387" text-anchor="middle" fill="#1a1a2e" font-size="11" font-weight="bold">geselecteerde lijst?</text>
+
+  <!-- Yes path -->
+  <line x1="480" y1="375" x2="560" y2="375" stroke="#43e97b" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="517" y="368" text-anchor="middle" fill="#43e97b" font-size="11">Ja</text>
+  <rect x="560" y="355" width="180" height="40" rx="8" fill="#43e97b" fill-opacity="0.2" stroke="#43e97b" stroke-width="2"/>
+  <text x="650" y="379" text-anchor="middle" fill="#2d2d4e" font-size="12" font-weight="bold">voegReceptToe(r) ✓</text>
+
+  <!-- No path -->
+  <line x1="320" y1="375" x2="60" y2="375" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrR)"/>
+  <text x="190" y="368" text-anchor="middle" fill="#ff6b6b" font-size="11">Nee</text>
+  <rect x="20" y="355" width="160" height="40" rx="8" fill="#ff6b6b" fill-opacity="0.15" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="5"/>
+  <text x="100" y="375" text-anchor="middle" fill="#ff6b6b" font-size="12">skip ✗</text>
+  <text x="100" y="392" text-anchor="middle" fill="#ff6b6b" font-size="10">(niet weergeven)</text>
+
+  <!-- Result -->
+  <rect x="270" y="430" width="260" height="35" rx="8" fill="#1a1a2e" stroke="#43e97b" stroke-width="1"/>
+  <text x="400" y="452" text-anchor="middle" fill="#43e97b" font-size="12">DOM herbouwd ✓ — alleen gefilterde recepten</text>
+  <line x1="650" y1="395" x2="650" y2="447" stroke="#43e97b" stroke-width="1.5"/>
+  <line x1="400" y1="447" x2="648" y2="447" stroke="#43e97b" stroke-width="1.5" marker-end="url(#arrG)"/>
+</svg>

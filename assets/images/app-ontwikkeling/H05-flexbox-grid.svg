@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">CSS FLEXBOX vs. CSS GRID</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">TWEE MODERNE LAYOUT-SYSTEMEN VERGELEKEN</text>
+  <line x1="80" y1="64" x2="720" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Scheidingslijn midden -->
+  <line x1="400" y1="70" x2="400" y2="445" stroke="#1F2035" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- FLEXBOX (links) -->
+  <text x="200" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#F97316">FLEXBOX</text>
+  <text x="200" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Eén richting (rij of kolom)</text>
+
+  <!-- Flexbox container -->
+  <rect x="60" y="112" width="320" height="90" rx="6" fill="#F9731608" stroke="#F9731650" stroke-width="1.5"/>
+  <text x="80" y="128" font-family="monospace, system-ui" font-size="10" fill="#F97316">display: flex;</text>
+  <text x="80" y="143" font-family="monospace, system-ui" font-size="10" fill="#F97316">flex-direction: row;</text>
+
+  <!-- Flex items (rij) -->
+  <rect x="72" y="148" width="60" height="44" rx="4" fill="#F9731620" stroke="#F97316" stroke-width="1.5"/>
+  <text x="102" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#F97316">Item 1</text>
+
+  <rect x="142" y="148" width="60" height="44" rx="4" fill="#F9731620" stroke="#F97316" stroke-width="1.5"/>
+  <text x="172" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#F97316">Item 2</text>
+
+  <rect x="212" y="148" width="60" height="44" rx="4" fill="#F9731620" stroke="#F97316" stroke-width="1.5"/>
+  <text x="242" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#F97316">Item 3</text>
+
+  <rect x="282" y="148" width="88" height="44" rx="4" fill="#F9731630" stroke="#F97316" stroke-width="1.5"/>
+  <text x="326" y="166" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#F97316">flex-grow: 1</text>
+  <text x="326" y="181" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">groeit mee</text>
+
+  <!-- Pijl richting -->
+  <text x="85" y="210" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">→ Hoofdas (main axis)</text>
+  <line x1="72" y1="215" x2="370" y2="215" stroke="#F97316" stroke-width="1.5" marker-end="url(#arrowF)"/>
+
+  <!-- Flexbox kolom voorbeeld -->
+  <rect x="60" y="230" width="320" height="140" rx="6" fill="#F9731605" stroke="#F9731540" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="80" y="248" font-family="monospace, system-ui" font-size="10" fill="#F97316">flex-direction: column;</text>
+  <rect x="72" y="256" width="296" height="24" rx="4" fill="#F9731615" stroke="#F97316" stroke-width="1"/>
+  <text x="220" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#F97316">Item A</text>
+  <rect x="72" y="286" width="296" height="24" rx="4" fill="#F9731615" stroke="#F97316" stroke-width="1"/>
+  <text x="220" y="302" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#F97316">Item B</text>
+  <rect x="72" y="316" width="296" height="24" rx="4" fill="#F9731615" stroke="#F97316" stroke-width="1"/>
+  <text x="220" y="332" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#F97316">Item C</text>
+  <text x="200" y="360" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">↓ Kruisas (cross axis)</text>
+
+  <!-- Flexbox use case -->
+  <rect x="60" y="386" width="320" height="50" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <text x="220" y="403" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#F97316">Ideaal voor:</text>
+  <text x="220" y="418" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">Navigatiebalk, knoprijen, kaartreeks,</text>
+  <text x="220" y="431" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">centreren van één element</text>
+
+  <!-- CSS GRID (rechts) -->
+  <text x="600" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#3B82F6">CSS GRID</text>
+  <text x="600" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Twee richtingen (rijen én kolommen)</text>
+
+  <!-- Grid container 2x3 -->
+  <rect x="420" y="112" width="340" height="180" rx="6" fill="#3B82F608" stroke="#3B82F650" stroke-width="1.5"/>
+  <text x="440" y="128" font-family="monospace, system-ui" font-size="10" fill="#3B82F6">display: grid;</text>
+  <text x="440" y="143" font-family="monospace, system-ui" font-size="10" fill="#3B82F6">grid-template-columns: repeat(3, 1fr);</text>
+
+  <!-- Grid cellen (2 rijen × 3 kolommen) -->
+  <!-- Rij 1 -->
+  <rect x="424" y="150" width="100" height="60" rx="3" fill="#3B82F620" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="474" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">1,1</text>
+  <text x="474" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">col 1, row 1</text>
+
+  <rect x="530" y="150" width="100" height="60" rx="3" fill="#3B82F620" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="580" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">1,2</text>
+  <text x="580" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">col 2, row 1</text>
+
+  <rect x="636" y="150" width="118" height="60" rx="3" fill="#3B82F620" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="695" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">1,3</text>
+  <text x="695" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">col 3, row 1</text>
+
+  <!-- Rij 2 -->
+  <rect x="424" y="216" width="100" height="60" rx="3" fill="#3B82F615" stroke="#3B82F640" stroke-width="1"/>
+  <text x="474" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#3B82F6">2,1</text>
+
+  <rect x="530" y="216" width="216" height="60" rx="3" fill="#3B82F630" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="638" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#3B82F6">grid-column: 2 / 4</text>
+  <text x="638" y="258" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">overspant 2 kolommen</text>
+
+  <!-- Pijlen assen -->
+  <text x="430" y="300" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">→ Kolomas</text>
+  <text x="430" y="316" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">↓ Rijas</text>
+
+  <!-- Grid template areas voorbeeld -->
+  <rect x="420" y="328" width="340" height="108" rx="6" fill="#09090F" stroke="#2A2C45" stroke-width="1"/>
+  <text x="430" y="346" font-family="monospace, system-ui" font-size="9" fill="#6B6E8E">/* Paginaopbouw met grid-areas */</text>
+  <text x="430" y="360" font-family="monospace, system-ui" font-size="9" fill="#F97316">grid-template-areas:</text>
+  <text x="430" y="374" font-family="monospace, system-ui" font-size="9" fill="#86EFAC">  "header  header  header"</text>
+  <text x="430" y="388" font-family="monospace, system-ui" font-size="9" fill="#86EFAC">  "sidebar main    main  "</text>
+  <text x="430" y="402" font-family="monospace, system-ui" font-size="9" fill="#86EFAC">  "footer  footer  footer";</text>
+  <text x="600" y="431" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Ideaal voor: paginalayout, dashboard,</text>
+  <text x="600" y="444" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">responsieve kaartgalerijen</text>
+</svg>

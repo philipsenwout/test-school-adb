@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptenapp — localStorage — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H12" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.1"><span class="sidebar-check__box"></span></label>
+          <a href="#terugblik">12.1 Terugblik</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.2"><span class="sidebar-check__box"></span></label>
+          <a href="#svg-knop">12.2 SVG delete-knop</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.3"><span class="sidebar-check__box"></span></label>
+          <a href="#verwijder-recept">12.3 verwijderRecept()</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.4"><span class="sidebar-check__box"></span></label>
+          <a href="#custom-event">12.4 Custom Event</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.5"><span class="sidebar-check__box"></span></label>
+          <a href="#toon-recepten">12.5 toonRecepten()</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="12.6"><span class="sidebar-check__box"></span></label>
+          <a href="#volledige-flow">12.6 Volledige flow testen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Receptenapp — localStorage</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H12 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Receptenapp — localStorage integreren</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Data persistent bewaren en ophalen via de <code>updateLS()</code> hulpfunctie</li>
+          <li>De verwijderfunctie koppelen aan een SVG-delete-knop in de DOM</li>
+          <li><code>findIndex()</code> en <code>splice()</code> gebruiken om een element uit een array te verwijderen</li>
+          <li>Een Custom Event gebruiken om de pagina te vernieuwen zonder de browser te herladen</li>
+          <li>De volledige flow van de app begrijpen: toevoegen → opslaan → weergeven → verwijderen</li>
+        </ul>
+      </div>
+
+      <h2 id="terugblik">12.1 Terugblik: waar staan we?</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Hoofdstuk</th><th>Wat is gebouwd</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>H09</td><td>Bestandsstructuur, <code>recepten.js</code>, <code>hulpfuncties.js</code>, <code>index.html</code>, <code>add.html</code>, <code>stijl.css</code></td></tr>
+          <tr><td>H10</td><td><code>script.js</code>: recepten laden en weergeven als kaarten</td></tr>
+          <tr><td>H11</td><td><code>add.js</code>: formulier, validatie, toevoegen, willekeurig, wissen</td></tr>
+          <tr><td><strong>H12</strong></td><td><strong>Verwijderknop koppelen, Custom Event, volledige flow</strong></td></tr>
+        </tbody>
+      </table>
+      <p>Na dit hoofdstuk heb je een volledig werkende app: recepten toevoegen, bewaren in localStorage en verwijderen.</p>
+
+      <h2 id="svg-knop">12.2 SVG delete-knop aanmaken</h2>
+      <p>In <code>voegReceptToe()</code> (script.js) voegen we een verwijderknop toe als SVG-element. SVG-elementen worden aangemaakt met <code>createElementNS</code> (namespace vereist):</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function voegReceptToe(recept) {
+    const artikel = document.createElement('article');
+    artikel.innerHTML = `
+        &lt;h2&gt;${recept.naam}&lt;/h2&gt;
+        &lt;p&gt;${recept.beschrijving}&lt;/p&gt;
+        &lt;p class="meta"&gt;${recept.categorie} — ${recept.bereidingstijd} min&lt;/p&gt;
+    `;
+    artikel.classList.add(recept.categorie);
+
+    // SVG delete-knop aanmaken
+    const deleteKnop = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    deleteKnop.setAttribute('viewBox', '0 0 24 24');
+    deleteKnop.setAttribute('fill', 'none');
+    deleteKnop.setAttribute('width', '30px');
+    deleteKnop.setAttribute('height', '30px');
+    deleteKnop.innerHTML = `
+        &lt;path d="M10 12V17" stroke-width="2" stroke-linecap="round"/&gt;
+        &lt;path d="M14 12V17" stroke-width="2" stroke-linecap="round"/&gt;
+        &lt;path d="M4 7H20" stroke-width="2" stroke-linecap="round"/&gt;
+        &lt;path d="M6 10V18C6 19.66 7.34 21 9 21H15C16.66 21 18 19.66 18 18V10"
+              stroke-width="2" stroke-linecap="round"/&gt;
+        &lt;path d="M9 5C9 3.9 9.9 3 11 3H13C14.1 3 15 3.9 15 5V7H9V5Z"
+              stroke-width="2" stroke-linecap="round"/&gt;
+    `;
+
+    // Knop bovenaan het artikel plaatsen
+    artikel.insertAdjacentElement('afterbegin', deleteKnop);
+
+    // Event listener op de knop
+    deleteKnop.addEventListener('click', () => {
+        verwijderRecept(recept.naam);
+    });
+
+    document.querySelector('section.recepten').appendChild(artikel);
+}</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H12-afb1.svg" alt="Schema: SVG delete-knop aanmaken met createElementNS, stap voor stap" loading="lazy">
+      </figure>
+
+      <h2 id="verwijder-recept">12.3 De <code>verwijderRecept()</code> functie</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const receptenSectie = document.querySelector('section.recepten');
+const update = new CustomEvent('receptenUpdate');
+
+function verwijderRecept(verwijderNaam) {
+    // Stap 1: Zoek de index van het recept in de array
+    const index = alleRecepten.findIndex(r => r.naam === verwijderNaam);
+
+    // Stap 2: Verwijder het element op die index (1 element)
+    alleRecepten.splice(index, 1);
+
+    // Stap 3: Sla de bijgewerkte array op in localStorage
+    updateLS(alleRecepten);
+
+    // Stap 4: Stuur een Custom Event om de UI te verversen
+    receptenSectie.dispatchEvent(update);
+}</code></pre>
+      </div>
+      <p>Laten we <code>findIndex()</code> en <code>splice()</code> stap voor stap doorlopen:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Stel: alleRecepten = [
+//   { naam: 'Pasta', ... },      index 0
+//   { naam: 'Soep', ... },       index 1
+//   { naam: 'Salade', ... },     index 2
+// ]
+
+const index = alleRecepten.findIndex(r => r.naam === 'Soep');
+// index = 1
+
+alleRecepten.splice(1, 1);
+// alleRecepten is nu: [{ naam: 'Pasta' }, { naam: 'Salade' }]</code></pre>
+      </div>
+
+      <h2 id="custom-event">12.4 Custom Event: de pagina verversen zonder herladen</h2>
+      <p>Een <strong>Custom Event</strong> is een event dat je zelf definieert en verstuurt. Het werkt als een signaal tussen onderdelen van je code:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// 1. Definieer het event (eenmalig, bovenaan het bestand)
+const update = new CustomEvent('receptenUpdate');
+
+// 2. Luister naar het event op de sectie
+receptenSectie.addEventListener('receptenUpdate', toonRecepten);
+
+// 3. Verstuur het event (triggert de listener)
+receptenSectie.dispatchEvent(update);</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Stap</th><th>Code</th><th>Wat er gebeurt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><code>new CustomEvent('receptenUpdate')</code></td><td>Maak een nieuw event-object aan</td></tr>
+          <tr><td>2</td><td><code>receptenSectie.addEventListener(...)</code></td><td>Registreer een luisteraar op dit element</td></tr>
+          <tr><td>3</td><td><code>receptenSectie.dispatchEvent(update)</code></td><td>Schiet het event af → de luisteraar wordt uitgevoerd</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="toon-recepten">12.5 De <code>toonRecepten()</code> functie</h2>
+      <p><code>toonRecepten()</code> bouwt de volledige receptensectie opnieuw op na elke wijziging:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonRecepten() {
+    // Leeg de sectie
+    document.querySelector('.recepten').innerHTML = '';
+
+    // Herbouw vanuit de array
+    alleRecepten.forEach(r => voegReceptToe(r));
+
+    // Toon/verberg de leesboodschap
+    document.querySelector('#geenrecepten').style.display =
+        alleRecepten.length === 0 ? 'block' : 'none';
+}
+
+// Koppel de listener en roep bij start op
+receptenSectie.addEventListener('receptenUpdate', toonRecepten);
+toonRecepten(); // Toon recepten bij paginaladen</code></pre>
+      </div>
+
+      <h2 id="volledige-flow">12.6 De volledige flow testen</h2>
+      <ol>
+        <li>Open <code>add.html</code> → vul een recept in → klik "Toevoegen"</li>
+        <li>Ga naar <code>index.html</code> → het recept staat er!</li>
+        <li>Ververs de pagina (<code>F5</code>) → het recept blijft staan (localStorage)</li>
+        <li>Klik op de delete-knop → recept verdwijnt</li>
+        <li>Ververs de pagina → recept is ook echt weg (localStorage bijgewerkt)</li>
+      </ol>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H12-afb1.svg" alt="DevTools Application-tab: localStorage toont 'opgeslagenRecepten' met JSON van recepten" loading="lazy">
+      </figure>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 De gouden regel na elke datawijziging</div>
+        <ol>
+          <li>Pas de array aan (<code>push</code> of <code>splice</code>)</li>
+          <li>Sla op via <code>updateLS()</code></li>
+          <li>Stuur een Custom Event om de UI te vernieuwen</li>
+        </ol>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB11</span>
+            <span class="oefening__title">Oefening 1 — Volledige app testen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Test de complete flow van de app:</p>
+            <ol>
+              <li>Voeg 5 recepten toe via het formulier (minstens 2 per categorie).</li>
+              <li>Ververs de pagina en controleer dat alle recepten er nog zijn.</li>
+              <li>Verwijder 2 recepten. Ververs opnieuw en controleer.</li>
+              <li>Open DevTools → Application → Local Storage. Bekijk de JSON-data. Hoe ziet de structuur eruit?</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H12-oef1-browser.svg" alt="Browser: confirm-dialoogvenster 'Ben je zeker dat je dit recept wil verwijderen?'" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Bevestiging toevoegen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg aan <code>verwijderRecept()</code> een <code>confirm()</code> toe zodat de gebruiker een bevestiging moet geven voor het verwijderen:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">function verwijderRecept(verwijderNaam) {
+    if (!confirm(`Ben je zeker dat je "${verwijderNaam}" wil verwijderen?`)) return;
+    // ... rest van de functie
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 3 — findIndex() vs indexOf()</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Leg in eigen woorden uit waarom we <code>findIndex()</code> gebruiken in plaats van <code>indexOf()</code> bij een array van objecten. Schrijf een klein testje in de console om het verschil te illustreren:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">const namen = ['Pasta', 'Soep', 'Salade'];
+console.log(namen.indexOf('Soep'));  // 1 — werkt voor primitieve waarden
+
+const recepten = [
+    { naam: 'Pasta', tijd: 20 },
+    { naam: 'Soep', tijd: 35 }
+];
+// Probeer dit eens:
+console.log(recepten.indexOf({ naam: 'Soep', tijd: 35 })); // Wat geeft dit?
+console.log(recepten.findIndex(r => r.naam === 'Soep'));    // En dit?</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H12 localStorage
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H12-oef1-browser.svg', 'Voorbeeld — Verwijderknop met bevestiging')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledige basisflow implementeren</h3>
+            <p>Integreer alle onderdelen van H12 in je Receptenapp en test de volledige flow.</p>
+            <h4>Deel 1 — Verwijderknop (4 punten)</h4>
+            <ol>
+              <li>Implementeer de SVG delete-knop in <code>voegReceptToe()</code>.</li>
+              <li>Implementeer <code>verwijderRecept()</code> met <code>findIndex()</code> en <code>splice()</code>.</li>
+              <li>Voeg een bevestigingsvenster toe.</li>
+            </ol>
+            <h4>Deel 2 — Custom Event (3 punten)</h4>
+            <ol>
+              <li>Definieer het Custom Event en koppel de luisteraar.</li>
+              <li>Zorg dat de UI automatisch bijwerkt na verwijderen.</li>
+            </ol>
+            <h4>Deel 3 — Volledige flow (3 punten)</h4>
+            <ol>
+              <li>Test de volledige flow: toevoegen, bewaren, weergeven, verwijderen.</li>
+              <li>Maak een screenshot van de localStorage in DevTools met minstens 3 recepten.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H12 — localStorage &amp; Custom Events</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat doet <code>alleRecepten.findIndex(r => r.naam === 'Soep')</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="a"> <span>Geeft het object 'Soep' terug</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="b"> <span>Geeft de index (positie) van 'Soep' in de array terug</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="c"> <span>Verwijdert 'Soep' uit de array</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v1" value="d"> <span>Controleert of 'Soep' bestaat</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat doet <code>alleRecepten.splice(2, 1)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="a"> <span>Voegt 1 element toe op positie 2</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="b"> <span>Verwijdert de eerste 2 elementen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="c"> <span>Verwijdert 1 element op positie 2</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v2" value="d"> <span>Geeft de waarde op positie 2 terug</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>receptenSectie.dispatchEvent(update)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="a"> <span>Stuurt het Custom Event en triggert alle luisteraars die ernaar luisteren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="b"> <span>Verwijdert de sectie uit de DOM</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="c"> <span>Stuurt de data naar een server</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v3" value="d"> <span>Maakt het Custom Event aan</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Waarom gebruiken we <code>createElementNS</code> voor SVG-elementen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="a"> <span>Omdat SVG sneller laadt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="b"> <span>Omdat SVG geen CSS ondersteunt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="c"> <span>Om de SVG interactief te maken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v4" value="d"> <span>SVG heeft een eigen XML-namespace die vereist is voor correcte rendering</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">In welke volgorde verlopen de stappen na het verwijderen van een recept?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="a"> <span>updateLS → splice → dispatchEvent</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="b"> <span>findIndex → splice → updateLS → dispatchEvent</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="c"> <span>dispatchEvent → splice → updateLS</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v5" value="d"> <span>splice → dispatchEvent → findIndex → updateLS</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Waarom wordt <code>receptenSectie.innerHTML = ''</code> aangeroepen aan het begin van <code>toonRecepten()</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="a"> <span>Om localStorage te wissen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="b"> <span>Om de array leeg te maken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="c"> <span>Om te voorkomen dat kaarten dubbel getoond worden bij herladen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h12-v6" value="d"> <span>Om de pagina opnieuw te laden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H12')" data-progress-key="6adb/app-ontwikkeling/H12">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H11.html" class="btn btn-ghost">← H11</a>
+          <a href="H13.html" class="btn btn-ghost">H13 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -45,8 +45,48 @@
 <span>H10</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-10-basisroutering">Hoofdstuk 10 — Basisroutering</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#101-wat-doet-een-router">10.1 Wat doet een router?</a></li><li><a href="#102-default-gateway">10.2 Default gateway</a></li><li><a href="#103-de-routeringstabel">10.3 De routeringstabel</a></li><li><a href="#104-windows-server-vs-linux-als-server">10.4 Windows Server vs Linux als server</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h10" style="padding-left:1.25rem">Huistaak H10</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/netwerken/H10" style="--sidebar-accent: var(--color-vak-netwerken)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.1"><span class="sidebar-check__box"></span></label>
+      <a href="#101-wat-doet-een-router">10.1 Wat doet een router?</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.2"><span class="sidebar-check__box"></span></label>
+      <a href="#102-default-gateway">10.2 Default gateway</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.3"><span class="sidebar-check__box"></span></label>
+      <a href="#103-de-routeringstabel">10.3 De routeringstabel</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="10.4"><span class="sidebar-check__box"></span></label>
+      <a href="#104-windows-server-vs-linux-als-server">10.4 Windows Server vs Linux als server</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-10-basisroutering">Hoofdstuk 10 — Basisroutering</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#101-wat-doet-een-router">10.1 Wat doet een router?</a></li><li><a href="#102-default-gateway">10.2 Default gateway</a></li><li><a href="#103-de-routeringstabel">10.3 De routeringstabel</a></li><li><a href="#104-windows-server-vs-linux-als-server">10.4 Windows Server vs Linux als server</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h10" style="padding-left:1.25rem">Huistaak H10</a></li></ul></div>
       <div class="chapter-content">
         <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
@@ -68,15 +108,19 @@
 <tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
 <tr><td><strong>Lesuren</strong></td><td>4 u</td></tr>
 </tbody></table></div>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ul>
-<li>uitleggen wat een router doet en hoe het verschilt van een switch</li>
-<li>het begrip "default gateway" verklaren en instellen</li>
-<li>beschrijven hoe een routeringstabel werkt</li>
-<li>het verschil uitleggen tussen Windows Server en Linux als serverplatform</li>
-</ul>
-<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span></div>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>uitleggen wat een router doet en hoe het verschilt van een switch</li>
+    <li>het begrip &#34;default gateway&#34; verklaren en instellen</li>
+    <li>beschrijven hoe een routeringstabel werkt</li>
+    <li>het verschil uitleggen tussen Windows Server en Linux als serverplatform</li>
+  </ul>
+</div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-03</span><span class="ld-tag__title">De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe.</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-04</span><span class="ld-tag__title">De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen.</span></div>
+</div>
 <h2 id="101-wat-doet-een-router">10.1 Wat doet een router?</h2>
 <div class="callout callout--definitie">
 <div class="callout-header">📘 Definitie</div>

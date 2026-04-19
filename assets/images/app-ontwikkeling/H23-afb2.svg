@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <marker id="arr-cyan" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#39ff14"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b35"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff4444"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-family="'Courier New', monospace" font-size="26" font-weight="bold" fill="#00d4ff">Short-Circuit Evaluation — Kortsluiting</text>
+  <text x="600" y="76" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#8892a4">JavaScript stopt evaluatie zodra het resultaat vaststaat</text>
+
+  <!-- Left panel: || short-circuit -->
+  <rect x="50" y="100" width="510" height="560" rx="14" fill="#12161f" stroke="#ff6b35" stroke-width="2.5"/>
+  <rect x="50" y="100" width="510" height="46" rx="14" fill="#2e1a0d" stroke="#ff6b35" stroke-width="2.5"/>
+  <rect x="50" y="132" width="510" height="14" fill="#2e1a0d"/>
+  <text x="305" y="132" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" fill="#ff6b35" font-weight="bold">|| stopt bij eerste TRUE</text>
+
+  <!-- OR diagram -->
+  <!-- Expr 1: true || ??? -->
+  <rect x="80" y="162" width="200" height="50" rx="8" fill="#0d2e1a" stroke="#39ff14" stroke-width="2"/>
+  <text x="180" y="182" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">naam !== ""</text>
+  <text x="180" y="202" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">→ true</text>
+
+  <!-- Stop sign after first -->
+  <circle cx="340" cy="187" r="28" fill="#2e1a0d" stroke="#ff6b35" stroke-width="2.5"/>
+  <text x="340" y="183" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ff6b35" font-weight="bold">STOP</text>
+  <text x="340" y="198" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#ff6b35">⏹</text>
+
+  <!-- Arrow from expr1 to stop -->
+  <line x1="280" y1="187" x2="308" y2="187" stroke="#39ff14" stroke-width="2.5" marker-end="url(#arr-green)"/>
+  <text x="294" y="178" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#39ff14">true!</text>
+
+  <!-- Expr 2: grayed out -->
+  <rect x="390" y="162" width="140" height="50" rx="8" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="2"/>
+  <text x="460" y="182" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#4a4a4a">expressie 2</text>
+  <text x="460" y="202" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#3a3a3a">OVERGESLAGEN</text>
+  <!-- Strikethrough -->
+  <line x1="392" y1="162" x2="528" y2="212" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+  <line x1="528" y1="162" x2="392" y2="212" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+
+  <!-- Result box -->
+  <rect x="80" y="234" width="450" height="40" rx="8" fill="#0d2040" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="305" y="258" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff">Resultaat: <tspan fill="#39ff14" font-weight="bold">true</tspan><tspan fill="#ffffff"> — expressie 2 nooit geëvalueerd!</tspan></text>
+
+  <!-- Practical example || -->
+  <text x="80" y="304" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">Praktijkvoorbeeld — standaardwaarde:</text>
+  <rect x="80" y="312" width="450" height="56" rx="8" fill="#1a1008" stroke="#2d3448" stroke-width="1"/>
+  <text x="100" y="334" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">let</text>
+  <text x="128" y="334" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> naam = "";</text>
+  <text x="100" y="354" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">let</text>
+  <text x="128" y="354" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> weergave = naam</text>
+  <text x="296" y="354" font-family="'Courier New', monospace" font-size="14" fill="#ff6b35" font-weight="bold"> ||</text>
+  <text x="318" y="354" font-family="'Courier New', monospace" font-size="13" fill="#e8c585"> "Anoniem"</text>
+  <text x="408" y="354" font-family="'Courier New', monospace" font-size="13" fill="#ffffff">;</text>
+
+  <!-- Step by step || -->
+  <text x="80" y="394" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">Stap voor stap:</text>
+  <rect x="80" y="402" width="450" height="220" rx="8" fill="#13100a"/>
+
+  <rect x="90" y="412" width="430" height="42" rx="6" fill="#2e1a0d" stroke="#ff6b35" stroke-width="1"/>
+  <text x="110" y="430" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35" font-weight="bold">Stap 1:</text>
+  <text x="162" y="430" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> Evalueer linkerkant: naam → ""</text>
+  <text x="110" y="448" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">          → "" is een lege string = </text>
+  <text x="362" y="448" font-family="'Courier New', monospace" font-size="12" fill="#ff4444" font-weight="bold">falsy</text>
+
+  <rect x="90" y="462" width="430" height="42" rx="6" fill="#1a2e0d" stroke="#39ff14" stroke-width="1"/>
+  <text x="110" y="480" font-family="'Courier New', monospace" font-size="12" fill="#39ff14" font-weight="bold">Stap 2:</text>
+  <text x="162" y="480" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> Linkerkant falsy → || kijkt rechts</text>
+  <text x="110" y="498" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">          → Evalueer: "Anoniem" → </text>
+  <text x="356" y="498" font-family="'Courier New', monospace" font-size="12" fill="#39ff14" font-weight="bold">truthy</text>
+
+  <rect x="90" y="512" width="430" height="42" rx="6" fill="#0d2040" stroke="#00d4ff" stroke-width="1"/>
+  <text x="110" y="530" font-family="'Courier New', monospace" font-size="12" fill="#00d4ff" font-weight="bold">Stap 3:</text>
+  <text x="162" y="530" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> Geeft rechterkant terug: "Anoniem"</text>
+  <text x="110" y="548" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">          → weergave = </text>
+  <text x="254" y="548" font-family="'Courier New', monospace" font-size="12" fill="#39ff14" font-weight="bold">"Anoniem"</text>
+
+  <rect x="90" y="562" width="430" height="50" rx="6" fill="#1a1830" stroke="#7c3aed" stroke-width="1"/>
+  <text x="110" y="580" font-family="'Courier New', monospace" font-size="12" fill="#a38dd0" font-weight="bold">Handig patroon:</text>
+  <text x="110" y="598" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> invoer || "Standaard" — als invoer leeg, gebruik standaard</text>
+
+  <!-- Right panel: && short-circuit -->
+  <rect x="640" y="100" width="510" height="560" rx="14" fill="#12161f" stroke="#39ff14" stroke-width="2.5"/>
+  <rect x="640" y="100" width="510" height="46" rx="14" fill="#0d2e1a" stroke="#39ff14" stroke-width="2.5"/>
+  <rect x="640" y="132" width="510" height="14" fill="#0d2e1a"/>
+  <text x="895" y="132" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" fill="#39ff14" font-weight="bold">&amp;&amp; stopt bij eerste FALSE</text>
+
+  <!-- AND diagram -->
+  <rect x="670" y="162" width="200" height="50" rx="8" fill="#2e0d0d" stroke="#ff4444" stroke-width="2"/>
+  <text x="770" y="182" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">gebruiker !== null</text>
+  <text x="770" y="202" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">→ false!</text>
+
+  <circle cx="930" cy="187" r="28" fill="#2e1a0d" stroke="#ff6b35" stroke-width="2.5"/>
+  <text x="930" y="183" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ff6b35" font-weight="bold">STOP</text>
+  <text x="930" y="198" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#ff6b35">⏹</text>
+
+  <line x1="870" y1="187" x2="898" y2="187" stroke="#ff4444" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <text x="884" y="178" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ff4444">false!</text>
+
+  <rect x="980" y="162" width="140" height="50" rx="8" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="2"/>
+  <text x="1050" y="182" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#4a4a4a">expressie 2</text>
+  <text x="1050" y="202" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#3a3a3a">OVERGESLAGEN</text>
+  <line x1="982" y1="162" x2="1118" y2="212" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1118" y1="162" x2="982" y2="212" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+
+  <rect x="670" y="234" width="450" height="40" rx="8" fill="#0d2040" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="895" y="258" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff">Resultaat: <tspan fill="#ff4444" font-weight="bold">false</tspan><tspan fill="#ffffff"> — expressie 2 nooit geëvalueerd!</tspan></text>
+
+  <text x="670" y="304" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">Praktijkvoorbeeld — veilige eigenschap-toegang:</text>
+  <rect x="670" y="312" width="450" height="56" rx="8" fill="#0a1f0a" stroke="#2d3448" stroke-width="1"/>
+  <text x="690" y="334" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">let</text>
+  <text x="718" y="334" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> gebruiker = null;</text>
+  <text x="690" y="354" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">if</text>
+  <text x="714" y="354" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> (gebruiker !== null</text>
+  <text x="860" y="354" font-family="'Courier New', monospace" font-size="14" fill="#39ff14" font-weight="bold"> &amp;&amp;</text>
+  <text x="886" y="354" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> gebruiker.naam === "Marie")</text>
+
+  <text x="670" y="394" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">Stap voor stap:</text>
+  <rect x="670" y="402" width="450" height="220" rx="8" fill="#0a130a"/>
+
+  <rect x="680" y="412" width="430" height="42" rx="6" fill="#2e0d0d" stroke="#ff4444" stroke-width="1"/>
+  <text x="700" y="430" font-family="'Courier New', monospace" font-size="12" fill="#ff4444" font-weight="bold">Stap 1:</text>
+  <text x="752" y="430" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> Evalueer: gebruiker !== null</text>
+  <text x="700" y="448" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">          → null !== null = </text>
+  <text x="846" y="448" font-family="'Courier New', monospace" font-size="12" fill="#ff4444" font-weight="bold">false</text>
+
+  <rect x="680" y="462" width="430" height="42" rx="6" fill="#2a2010" stroke="#ff6b35" stroke-width="1"/>
+  <text x="700" y="480" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35" font-weight="bold">Stap 2:</text>
+  <text x="752" y="480" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> Linkerkant is false → &amp;&amp; stopt</text>
+  <text x="700" y="498" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">          → gebruiker.naam wordt NIET geëvalueerd</text>
+
+  <rect x="680" y="512" width="430" height="42" rx="6" fill="#0d2040" stroke="#00d4ff" stroke-width="1"/>
+  <text x="700" y="530" font-family="'Courier New', monospace" font-size="12" fill="#00d4ff" font-weight="bold">Stap 3:</text>
+  <text x="752" y="530" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> Resultaat: false — if-blok overgeslagen</text>
+  <text x="700" y="548" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">          → Geen TypeError! Veilig ✔</text>
+
+  <rect x="680" y="562" width="430" height="50" rx="6" fill="#1a1830" stroke="#7c3aed" stroke-width="1"/>
+  <text x="700" y="580" font-family="'Courier New', monospace" font-size="12" fill="#a38dd0" font-weight="bold">Waarom nuttig?</text>
+  <text x="700" y="598" font-family="'Courier New', monospace" font-size="12" fill="#ffffff"> Voorkomt errors bij null/undefined objecten</text>
+
+  <!-- Bottom summary -->
+  <rect x="50" y="676" width="1100" height="100" rx="12" fill="#12161f" stroke="#2d3448" stroke-width="1.5"/>
+  <text x="600" y="702" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#00d4ff" font-weight="bold">Samenvatting Kortsluiting</text>
+  <text x="150" y="728" font-family="'Courier New', monospace" font-size="13" fill="#ff6b35" font-weight="bold">|| :</text>
+  <text x="190" y="728" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> Stopt bij eerste </text>
+  <text x="328" y="728" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">truthy</text>
+  <text x="395" y="728" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> waarde. De rest wordt niet geëvalueerd.</text>
+  <text x="150" y="752" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">&amp;&amp; :</text>
+  <text x="190" y="752" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> Stopt bij eerste </text>
+  <text x="328" y="752" font-family="'Courier New', monospace" font-size="13" fill="#ff4444" font-weight="bold">falsy</text>
+  <text x="390" y="752" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> waarde. De rest wordt niet geëvalueerd.</text>
+  <text x="750" y="740" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">Falsy waarden: false, 0, "", null, undefined, NaN</text>
+</svg>

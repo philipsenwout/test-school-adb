@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">CSS BOX MODEL</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">ELKE HTML-ELEMENT IS EEN DOOS MET 4 LAGEN</text>
+  <line x1="80" y1="64" x2="720" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- MARGIN (buitenste laag — grijsblauwig) -->
+  <rect x="90" y="75" width="480" height="310" rx="10" fill="#1A1C28" stroke="#3D3F62" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="200" y="100" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">MARGIN</text>
+  <text x="200" y="115" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Buitenste ruimte</text>
+  <text x="200" y="128" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Transparant</text>
+
+  <!-- BORDER -->
+  <rect x="130" y="115" width="400" height="230" rx="8" fill="#F9731618" stroke="#F97316" stroke-width="3"/>
+  <text x="250" y="142" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#F97316" letter-spacing="0.08em">BORDER</text>
+  <text x="250" y="157" font-family="system-ui, sans-serif" font-size="10" fill="#F97316">Zichtbare rand</text>
+
+  <!-- PADDING -->
+  <rect x="170" y="162" width="320" height="142" rx="6" fill="#3B82F618" stroke="#3B82F6" stroke-width="2"/>
+  <text x="280" y="186" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#3B82F6" letter-spacing="0.08em">PADDING</text>
+  <text x="280" y="201" font-family="system-ui, sans-serif" font-size="10" fill="#3B82F6">Binnenste ruimte</text>
+
+  <!-- CONTENT -->
+  <rect x="215" y="218" width="230" height="60" rx="5" fill="#00C2A825" stroke="#00C2A8" stroke-width="2"/>
+  <text x="330" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#00C2A8">CONTENT</text>
+  <text x="330" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Tekst, afbeelding, ...</text>
+
+  <!-- Maatpijlen rechts -->
+  <!-- Pijlen voor margin -->
+  <line x1="590" y1="75" x2="590" y2="385" stroke="#3D3F62" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="605" y="235" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E" transform="rotate(90, 605, 235)">margin-top / bottom</text>
+
+  <!-- Pijlen voor border -->
+  <line x1="622" y1="115" x2="622" y2="345" stroke="#F97316" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="637" y="232" font-family="system-ui, sans-serif" font-size="10" fill="#F97316" transform="rotate(90, 637, 232)">border</text>
+
+  <!-- Pijlen voor padding -->
+  <line x1="654" y1="162" x2="654" y2="304" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="669" y="234" font-family="system-ui, sans-serif" font-size="10" fill="#3B82F6" transform="rotate(90, 669, 234)">padding</text>
+
+  <!-- Pijl voor content -->
+  <line x1="686" y1="218" x2="686" y2="278" stroke="#00C2A8" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="700" y="250" font-family="system-ui, sans-serif" font-size="10" fill="#00C2A8" transform="rotate(90, 700, 250)">height</text>
+
+  <!-- CSS code voorbeeld rechts -->
+  <rect x="600" y="76" width="170" height="140" rx="6" fill="#09090F" stroke="#2A2C45" stroke-width="1"/>
+  <text x="610" y="92" font-family="monospace, system-ui" font-size="10" fill="#6B6E8E">/* CSS voorbeeld */</text>
+  <text x="610" y="108" font-family="monospace, system-ui" font-size="10" fill="#F97316">.box &#x7b;</text>
+  <text x="618" y="122" font-family="monospace, system-ui" font-size="10" fill="#00C2A8">  width: </text>
+  <text x="660" y="122" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">200px;</text>
+  <text x="618" y="136" font-family="monospace, system-ui" font-size="10" fill="#00C2A8">  padding: </text>
+  <text x="666" y="136" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">16px;</text>
+  <text x="618" y="150" font-family="monospace, system-ui" font-size="10" fill="#00C2A8">  border: </text>
+  <text x="662" y="150" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">2px</text>
+  <text x="618" y="164" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">          solid #F97316;</text>
+  <text x="618" y="178" font-family="monospace, system-ui" font-size="10" fill="#00C2A8">  margin: </text>
+  <text x="663" y="178" font-family="monospace, system-ui" font-size="10" fill="#86EFAC">24px;</text>
+  <text x="610" y="192" font-family="monospace, system-ui" font-size="10" fill="#F97316">&#x7d;</text>
+  <text x="610" y="208" font-family="monospace, system-ui" font-size="9" fill="#6B6E8E">Totale breedte =</text>
+  <text x="610" y="220" font-family="monospace, system-ui" font-size="9" fill="#6B6E8E">200+32+4+48 = 284px</text>
+
+  <!-- box-sizing tip -->
+  <rect x="600" y="232" width="170" height="48" rx="6" fill="#F9731610" stroke="#F9731640" stroke-width="1"/>
+  <text x="685" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#F97316">TIP: box-sizing</text>
+  <text x="685" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">box-sizing: border-box</text>
+  <text x="685" y="276" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">padding+border in width</text>
+
+  <!-- Maatopmerkingen onderaan -->
+  <rect x="90" y="398" width="480" height="40" rx="6" fill="#13141D" stroke="#2A2C45" stroke-width="1"/>
+  <text x="330" y="413" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">Totale breedte van element = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right</text>
+  <text x="330" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Marge vouwt samen (margin collapsing) bij boven/onderkant van blok-elementen</text>
+</svg>

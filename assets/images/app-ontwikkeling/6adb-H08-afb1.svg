@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#2d2d4e">Drie manieren om data op te slaan in de browser</text>
+
+  <!-- === Kolom 1: localStorage === -->
+  <rect x="30" y="58" width="228" height="360" rx="10" fill="#f0fdf4" stroke="#43e97b" stroke-width="2"/>
+  <rect x="30" y="58" width="228" height="50" rx="10" fill="#43e97b"/>
+  <rect x="30" y="98" width="228" height="10" fill="#43e97b"/>
+  <text x="144" y="80" text-anchor="middle" font-size="26">💾</text>
+  <text x="144" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">localStorage</text>
+
+  <line x1="50" y1="140" x2="240" y2="140" stroke="#ddd" stroke-width="1"/>
+  <text x="50" y="166" font-size="12" fill="#166534" font-weight="700">Levensduur</text>
+  <text x="50" y="184" font-size="12" fill="#2d2d4e">Blijft na sluiten browser ✓</text>
+
+  <line x1="50" y1="198" x2="240" y2="198" stroke="#ddd" stroke-width="1"/>
+  <text x="50" y="222" font-size="12" fill="#166534" font-weight="700">Capaciteit</text>
+  <text x="50" y="240" font-size="12" fill="#2d2d4e">~5 MB</text>
+
+  <line x1="50" y1="254" x2="240" y2="254" stroke="#ddd" stroke-width="1"/>
+  <text x="50" y="278" font-size="12" fill="#166534" font-weight="700">Bereik</text>
+  <text x="50" y="296" font-size="12" fill="#2d2d4e">Zelfde domein</text>
+
+  <line x1="50" y1="310" x2="240" y2="310" stroke="#ddd" stroke-width="1"/>
+  <text x="50" y="334" font-size="12" fill="#166534" font-weight="700">Gebruik</text>
+  <text x="50" y="352" font-size="12" fill="#2d2d4e">App-data, voorkeuren,</text>
+  <text x="50" y="370" font-size="12" fill="#2d2d4e">instellingen</text>
+
+  <rect x="44" y="393" width="200" height="16" rx="4" fill="#d1fae5"/>
+  <text x="144" y="405" text-anchor="middle" font-size="11" fill="#166534" font-weight="600">✓ Beste keuze voor onze app</text>
+
+  <!-- === Kolom 2: sessionStorage === -->
+  <rect x="286" y="58" width="228" height="360" rx="10" fill="#fff8f0" stroke="#f9a825" stroke-width="2"/>
+  <rect x="286" y="58" width="228" height="50" rx="10" fill="#f9a825"/>
+  <rect x="286" y="98" width="228" height="10" fill="#f9a825"/>
+  <text x="400" y="80" text-anchor="middle" font-size="26">⏱</text>
+  <text x="400" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">sessionStorage</text>
+
+  <line x1="306" y1="140" x2="496" y2="140" stroke="#ddd" stroke-width="1"/>
+  <text x="306" y="166" font-size="12" fill="#92400e" font-weight="700">Levensduur</text>
+  <text x="306" y="184" font-size="12" fill="#2d2d4e">Weg bij sluiten tab ✗</text>
+
+  <line x1="306" y1="198" x2="496" y2="198" stroke="#ddd" stroke-width="1"/>
+  <text x="306" y="222" font-size="12" fill="#92400e" font-weight="700">Capaciteit</text>
+  <text x="306" y="240" font-size="12" fill="#2d2d4e">~5 MB</text>
+
+  <line x1="306" y1="254" x2="496" y2="254" stroke="#ddd" stroke-width="1"/>
+  <text x="306" y="278" font-size="12" fill="#92400e" font-weight="700">Bereik</text>
+  <text x="306" y="296" font-size="12" fill="#2d2d4e">Zelfde tab + domein</text>
+
+  <line x1="306" y1="310" x2="496" y2="310" stroke="#ddd" stroke-width="1"/>
+  <text x="306" y="334" font-size="12" fill="#92400e" font-weight="700">Gebruik</text>
+  <text x="306" y="352" font-size="12" fill="#2d2d4e">Tijdelijke formulierdata,</text>
+  <text x="306" y="370" font-size="12" fill="#2d2d4e">winkelmandje (tijdelijk)</text>
+
+  <rect x="300" y="393" width="200" height="16" rx="4" fill="#fef3c7"/>
+  <text x="400" y="405" text-anchor="middle" font-size="11" fill="#92400e" font-weight="600">⚠ Tijdelijk: weg na sluiten tab</text>
+
+  <!-- === Kolom 3: cookies === -->
+  <rect x="542" y="58" width="228" height="360" rx="10" fill="#f0f4ff" stroke="#3498db" stroke-width="2"/>
+  <rect x="542" y="58" width="228" height="50" rx="10" fill="#3498db"/>
+  <rect x="542" y="98" width="228" height="10" fill="#3498db"/>
+  <text x="656" y="80" text-anchor="middle" font-size="26">🍪</text>
+  <text x="656" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">cookies</text>
+
+  <line x1="562" y1="140" x2="752" y2="140" stroke="#ddd" stroke-width="1"/>
+  <text x="562" y="166" font-size="12" fill="#1e40af" font-weight="700">Levensduur</text>
+  <text x="562" y="184" font-size="12" fill="#2d2d4e">Instelbaar (datum/tijd)</text>
+
+  <line x1="562" y1="198" x2="752" y2="198" stroke="#ddd" stroke-width="1"/>
+  <text x="562" y="222" font-size="12" fill="#1e40af" font-weight="700">Capaciteit</text>
+  <text x="562" y="240" font-size="12" fill="#2d2d4e">Max 4 KB ⚠</text>
+
+  <line x1="562" y1="254" x2="752" y2="254" stroke="#ddd" stroke-width="1"/>
+  <text x="562" y="278" font-size="12" fill="#1e40af" font-weight="700">Bereik</text>
+  <text x="562" y="296" font-size="12" fill="#2d2d4e">Instelbaar, ook server</text>
+
+  <line x1="562" y1="310" x2="752" y2="310" stroke="#ddd" stroke-width="1"/>
+  <text x="562" y="334" font-size="12" fill="#1e40af" font-weight="700">Gebruik</text>
+  <text x="562" y="352" font-size="12" fill="#2d2d4e">Authenticatie, tracking,</text>
+  <text x="562" y="370" font-size="12" fill="#2d2d4e">sessie-ID's</text>
+
+  <rect x="556" y="393" width="200" height="16" rx="4" fill="#dbeafe"/>
+  <text x="656" y="405" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">↑ Verstuurd bij elke request</text>
+
+  <!-- Voet -->
+  <text x="400" y="452" text-anchor="middle" font-size="12" fill="#888">In deze cursus gebruiken we uitsluitend localStorage</text>
+</svg>

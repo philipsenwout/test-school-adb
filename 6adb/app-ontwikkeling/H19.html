@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async JavaScript — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H19" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.1"><span class="sidebar-check__box"></span></label>
+          <a href="#synchroon-vs-asynchroon">19.1 Synchroon vs asynchroon</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.2"><span class="sidebar-check__box"></span></label>
+          <a href="#callbacks">19.2 Callbacks</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.3"><span class="sidebar-check__box"></span></label>
+          <a href="#promises">19.3 Promises</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="19.4"><span class="sidebar-check__box"></span></label>
+          <a href="#async-await">19.4 async / await</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="onderzoekscyclus"><span class="sidebar-check__box"></span></label>
+          <a href="#onderzoekscyclus">19.5 Van fetch() naar onderzoek</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Async JavaScript</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H19 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Async JavaScript</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV01.01</span><span class="ld-tag__title">De leerlingen doorlopen een onderzoekscyclus.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.08</span><span class="ld-tag__title">De leerlingen gebruiken hulpbronnen bij de implementatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB04</span><span class="ld-tag__title">De leerlingen informeren zich over evoluties in het vakgebied.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat het verschil is tussen synchrone en asynchrone code</li>
+          <li>Begrijpen waarom JavaScript single-threaded is en wat dat betekent in de praktijk</li>
+          <li>Een callback schrijven en uitleggen wat callback hell is</li>
+          <li>Een Promise aanmaken met <code>new Promise((resolve, reject) =&gt; { ... })</code></li>
+          <li>Een Promise-keten opzetten met <code>.then()</code> en <code>.catch()</code></li>
+          <li>Een <code>async</code>-functie schrijven die <code>await</code> gebruikt</li>
+          <li>Foutafhandeling toepassen met <code>try...catch</code> in async-functies</li>
+          <li>De drie patronen (callbacks, Promises, async/await) naast elkaar herkennen en vergelijken</li>
+          <li>Een publieke API opzoeken en bevragen met <code>fetch()</code></li>
+          <li>Een onderzoeksvraag formuleren, data ophalen en een conclusie trekken</li>
+        </ul>
+      </div>
+
+      <h2 id="synchroon-vs-asynchroon">19.1 Synchroon vs asynchroon</h2>
+
+      <h3>JavaScript is single-threaded</h3>
+      <p>JavaScript heeft slechts <strong>één uitvoeringsthread</strong> — dat betekent dat er op elk moment maar één stuk code tegelijk uitgevoerd kan worden. Het probleem ontstaat bij <strong>trage bewerkingen</strong> zoals een netwerkverzoek of het wachten op een API-antwoord. Als zo'n operatie synchroon uitgevoerd zou worden, <strong>blokkeert de hele browser</strong>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Asynchroon — de browser blijft responsief
+console.log('Start');
+setTimeout(() => {
+    console.log('Na 2 seconden');
+}, 2000);
+console.log('Dit loopt onmiddellijk na setTimeout');
+
+// Output:
+// Start
+// Dit loopt onmiddellijk na setTimeout
+// Na 2 seconden</code></pre>
+      </div>
+      <p><code>setTimeout</code> is asynchroon: JavaScript plant de callback in, gaat onmiddellijk verder, en roept de callback op na de opgegeven tijd.</p>
+
+      <h2 id="callbacks">19.2 Callbacks — de oude manier</h2>
+      <p>Een <strong>callback</strong> is een functie die je meegeeft aan een andere functie, om later aangeroepen te worden. Dit is de eenvoudigste manier om asynchroon te werken.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function groetNa1Seconde(naam, callback) {
+    setTimeout(() => {
+        callback('Hallo, ' + naam + '!');
+    }, 1000);
+}
+
+groetNa1Seconde('Jana', (bericht) => {
+    console.log(bericht); // "Hallo, Jana!" — na 1 seconde
+});</code></pre>
+      </div>
+
+      <h3>Callback hell</h3>
+      <p>Wanneer je meerdere asynchrone stappen na elkaar moet uitvoeren, nest je callbacks in callbacks — het resultaat heet <strong>callback hell</strong> of de "pyramid of doom":</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">setInterval(() => {
+    groen.setAttribute('class', 'active');
+
+    setTimeout(() => {
+        groen.removeAttribute('class');
+        oranje.setAttribute('class', 'active');
+
+        setTimeout(() => {
+            oranje.removeAttribute('class');
+            rood.setAttribute('class', 'active');
+
+            setTimeout(() => {
+                rood.removeAttribute('class');
+            }, 3000);     // rood uit
+        }, 1500);         // oranje uit
+    }, 3000);             // groen uit
+}, 8000);</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H19-afb1.svg" alt="Callback hell vs Promise chain vs async/await — drie kolommen naast elkaar" loading="lazy">
+      </figure>
+      <p><strong>Nadelen van callbacks:</strong></p>
+      <ul>
+        <li><strong>Moeilijk leesbaar:</strong> De logische volgorde is verborgen in de nesting</li>
+        <li><strong>Error-handling per niveau:</strong> Je moet bij elke callback afzonderlijk fouten opvangen</li>
+        <li><strong>Moeilijk onderhoudbaar:</strong> Extra stappen toevoegen betekent nog dieper nesten</li>
+      </ul>
+
+      <h2 id="promises">19.3 Promises</h2>
+      <p>Een <strong>Promise</strong> is een object dat een <strong>toekomstige waarde</strong> vertegenwoordigt. Een Promise heeft altijd één van drie staten:</p>
+      <table class="data-table">
+        <thead><tr><th>Staat</th><th>Betekenis</th></tr></thead>
+        <tbody>
+          <tr><td><code>pending</code></td><td>Bezig — het resultaat is nog niet bekend</td></tr>
+          <tr><td><code>fulfilled</code></td><td>Geslaagd — het resultaat is beschikbaar</td></tr>
+          <tr><td><code>rejected</code></td><td>Mislukt — er is een fout opgetreden</td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const mijnPromise = new Promise((resolve, reject) => {
+    const succes = true;
+
+    if (succes) {
+        resolve('Het is gelukt!');    // Promise fulfilled
+    } else {
+        reject('Er is iets fout gegaan.'); // Promise rejected
+    }
+});
+
+mijnPromise
+    .then((resultaat) => {
+        console.log(resultaat); // "Het is gelukt!"
+    })
+    .catch((fout) => {
+        console.error(fout);    // Enkel als reject() werd aangeroepen
+    });</code></pre>
+      </div>
+
+      <h3>De <code>setTimeOutAsync</code>-wrapper</h3>
+      <p>Om <code>setTimeout</code> te kunnen gebruiken met Promises, maak je een wrapper. De <code>resolve</code>-functie wordt direct als callback meegegeven:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">export const setTimeOutAsync = function (msec) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, msec);
+    });
+};</code></pre>
+      </div>
+
+      <h3>Het stoplicht met Promises</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">setInterval(() => {
+    groen.setAttribute('class', 'active');
+
+    setTimeOutAsync(3000)
+        .then(() => {
+            groen.removeAttribute('class');
+            oranje.setAttribute('class', 'active');
+            return setTimeOutAsync(1500); // geef de volgende Promise terug
+        })
+        .then(() => {
+            oranje.removeAttribute('class');
+            rood.setAttribute('class', 'active');
+            return setTimeOutAsync(3000);
+        })
+        .then(() => {
+            rood.removeAttribute('class');
+        })
+        .catch((e) => {
+            console.error(e); // centrale foutafhandeling
+        });
+}, 8000);</code></pre>
+      </div>
+
+      <h2 id="async-await">19.4 async / await</h2>
+      <p><code>async/await</code> is syntactische suiker bovenop Promises — onder de motorkap werkt alles nog steeds met Promises, maar de code <strong>leest als gewone synchrone code</strong>.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// async vóór de functie: deze functie is asynchroon en retourneert altijd een Promise
+async function haalDataOp() {
+    // await: wacht hier tot de Promise afgehandeld is
+    const resultaat = await setTimeOutAsync(2000);
+    console.log('2 seconden later');
+}</code></pre>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout-header">Regels voor async/await</div>
+        <ul>
+          <li><code>async</code> vóór <code>function</code> maakt de functie asynchroon</li>
+          <li><code>await</code> kan <strong>alleen</strong> binnen een <code>async</code>-functie gebruikt worden</li>
+          <li>Een <code>async</code>-functie <strong>retourneert altijd een Promise</strong>, ook als je <code>return 42</code> schrijft</li>
+        </ul>
+      </div>
+
+      <h3>Foutafhandeling met try...catch</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">async function laadGebruiker(id) {
+    try {
+        const data = await haalGebruikerOp(id); // kan mislukken
+        console.log('Gebruiker:', data.naam);
+    } catch (fout) {
+        console.error('Kon gebruiker niet laden:', fout);
+    }
+}</code></pre>
+      </div>
+
+      <h3>Het stoplicht met async/await</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">checkbox.addEventListener('change', async (evt) => {
+    while (checkbox.checked) {
+        try {
+            groen.setAttribute('class', 'active');
+            await setTimeOutAsync(3000);
+
+            groen.removeAttribute('class');
+            oranje.setAttribute('class', 'active');
+            await setTimeOutAsync(1500);
+
+            oranje.removeAttribute('class');
+            rood.setAttribute('class', 'active');
+            await setTimeOutAsync(3000);
+
+            rood.removeAttribute('class');
+        } catch (e) {
+            console.log('Er is een fout opgetreden: ' + e);
+        }
+    }
+});</code></pre>
+      </div>
+
+      <h3>Vergelijking: drie aanpakken naast elkaar</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th></th><th>Callbacks</th><th>Promises</th><th>async/await</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Leesbaarheid</strong></td><td>Moeilijk (nesting)</td><td>Goed (lineair)</td><td>Uitstekend (zoals sync)</td></tr>
+          <tr><td><strong>Error-handling</strong></td><td>Per callback</td><td>Centrale <code>.catch()</code></td><td><code>try...catch</code></td></tr>
+          <tr><td><strong>Debuggen</strong></td><td>Moeilijk</td><td>Matig</td><td>Eenvoudig</td></tr>
+          <tr><td><strong>Gebruik vandaag</strong></td><td>Verouderd patroon</td><td>Nog courant</td><td>Aanbevolen</td></tr>
+        </tbody>
+      </table>
+
+      <section id="onderzoekscyclus">
+        <h2>19.5 Van fetch() naar onderzoek</h2>
+        <p>Nu je <code>fetch()</code> begrijpt, kan je elke publieke API bevragen. Dit opent de deur naar echte onderzoeksvragen: je kiest een dataset, stelt een vraag, analyseert de data en trekt een conclusie.</p>
+
+        <h3>De onderzoekscyclus</h3>
+        <ol>
+          <li><strong>Probleemstelling / onderzoeksvraag</strong> — Wat wil je weten? (bv. "Welke landen hebben de meeste inwoners?")</li>
+          <li><strong>Bronnenonderzoek</strong> — Welke API geeft me die data? Hoe werkt die API?</li>
+          <li><strong>Experiment</strong> — Schrijf code die de data ophaalt en verwerkt</li>
+          <li><strong>Conclusie</strong> — Wat antwoordt de data op jouw vraag? Wat zijn de beperkingen?</li>
+        </ol>
+
+        <h3>Publieke API's voor onderzoek</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>API</th><th>Wat geeft het terug</th><th>URL</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>REST Countries</td><td>Land, bevolking, vlag, continent</td><td><code>https://restcountries.com/v3.1/all</code></td></tr>
+            <tr><td>Open-Meteo</td><td>Weerdata voor elke locatie</td><td><code>https://open-meteo.com</code></td></tr>
+            <tr><td>PokeAPI</td><td>Pokémon-data</td><td><code>https://pokeapi.co</code></td></tr>
+            <tr><td>OpenLibrary</td><td>Boeken en auteurs</td><td><code>https://openlibrary.org</code></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout--info">
+          <div class="callout-header">💡 Tip: documentatie lezen</div>
+          <p>Volg altijd de documentatie van de API. Kijk op de officiële website welke endpoints beschikbaar zijn en welke parameters je kan meegeven. Dit is een essentiële vaardigheid voor elke developer.</p>
+        </div>
+      </section>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — De wacht-functie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een functie <code>wacht(seconden)</code> die een Promise retourneert. Gebruik <code>async/await</code> en de <code>wacht</code>-functie om drie berichten na elkaar te tonen, telkens met een vertraging van 1 seconde.</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">// Stap 1: schrijf de wacht-functie
+function wacht(seconden) {
+    return new Promise((resolve) => {
+        // Vul aan...
+    });
+}
+
+// Stap 2: gebruik async/await om de berichten na elkaar te tonen
+async function toonBerichten() {
+    console.log('Bericht 1');
+    await wacht(1);
+    console.log('Bericht 2');
+    await wacht(1);
+    // Vul aan...
+}
+
+toonBerichten();</code></pre>
+            </div>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H19-oef1-browser.svg" alt="Browser console: drie berichten verschijnen na elkaar" loading="lazy">
+            </figure>
+            <p><strong>Uitbreiding:</strong> Pas de functie aan zodat de berichten ook in de DOM verschijnen in een <code>&lt;ul&gt;</code>-lijst, in plaats van in de console.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 2 — Promise-keten begrijpen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Gegeven de onderstaande code: wat is de output? Schrijf je antwoord op vóór je de code uitvoert, en controleer daarna in de browser.</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">async function test() {
+    console.log('voor');
+    await wacht(1);
+    console.log('na');
+}
+test();
+console.log('buiten');</code></pre>
+            </div>
+            <p>Leg uit waarom de output in die volgorde verschijnt. Gebruik de begrippen "event loop", "synchrone code" en "await" in je uitleg.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 3 — Foutafhandeling</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een async functie <code>laadData(url)</code> die:</p>
+            <ol>
+              <li>Een Promise aanmaakt die na 500ms resolved met <code>"Data van " + url</code></li>
+              <li>Maar met een kans van 50% reject met de fout <code>"Server niet bereikbaar"</code></li>
+              <li>De resultaten en fouten netjes afhandelt met <code>try...catch</code></li>
+              <li>De functie 5 keer aanroept en het resultaat logt</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#x1F4CB; Huistaak &mdash; Mini-onderzoek met een publieke API
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H19-ht-voorbeeld.svg', 'Voorbeeld — Mini-onderzoek resultatenlijst en conclusie')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <p><span class="oefening__badge" style="display:inline-block;margin-bottom:var(--space-3)">SV01.01 / SV07.08 / ADB04</span></p>
+            <h3>Opdracht: Mini-onderzoek met een publieke API</h3>
+            <h4>Deel 1 — Onderzoeksvraag (2 punten)</h4>
+            <p>Kies een publieke API uit de tabel hierboven (of een andere die je zelf vindt op <a href="https://public-apis.io" target="_blank">public-apis.io</a>).</p>
+            <p>Schrijf je onderzoeksvraag op in een HTML-commentaar bovenaan je bestand:</p>
+            <div class="code-block" style="margin-top:var(--space-3)">
+              <div class="code-block__lang">HTML</div>
+              <pre><code class="language-html">&lt;!-- Onderzoeksvraag: Welke 5 landen hebben de meeste inwoners? --&gt;
+&lt;!-- API: REST Countries --&gt;</code></pre>
+            </div>
+            <h4>Deel 2 — Experiment: de webpagina (6 punten)</h4>
+            <p>Schrijf een webpagina (<strong>1 HTML + 1 JS bestand</strong>) die:</p>
+            <ol>
+              <li>De API bevraagt met <code>fetch()</code> en <code>async/await</code></li>
+              <li>De data filtert of sorteert om je vraag te beantwoorden</li>
+              <li>Het resultaat toont in de browser (als lijst, tabel of kaarten — jouw keuze)</li>
+              <li>Laadstatus toont terwijl de data wordt opgehaald (bv. "Gegevens laden...")</li>
+              <li>Een foutmelding toont als de API niet bereikbaar is</li>
+            </ol>
+            <h4>Deel 3 — Conclusie (2 punten)</h4>
+            <p>Voeg onderaan je pagina een <code>&lt;section id="conclusie"&gt;</code> toe met:</p>
+            <ol>
+              <li>Antwoord op je onderzoeksvraag in maximaal 5 zinnen</li>
+              <li>Minstens 1 beperking van jouw aanpak (bv. "De data is van 2023 en kan verouderd zijn")</li>
+            </ol>
+            <p><strong>Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H19 — Async JavaScript</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat betekent het dat JavaScript single-threaded is?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="a"> <span>JavaScript kan slechts één variabele tegelijk opslaan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="b"> <span>JavaScript voert slechts één taak tegelijk uit op één thread</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="c"> <span>JavaScript werkt enkel op één besturingssysteem</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v1" value="d"> <span>JavaScript heeft slechts één versie</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is de output van <code>console.log('A'); setTimeout(()=&gt; console.log('B'), 0); console.log('C');</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="a"> <span>A, B, C</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="b"> <span>A, C, B</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="c"> <span>B, A, C</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v2" value="d"> <span>C, A, B</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke methode gebruik je om een fout te signaleren vanuit een Promise-constructor?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="a"> <span><code>throw new Error()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="b"> <span><code>return false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="c"> <span><code>reject(fout)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v3" value="d"> <span><code>resolve(null)</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is de uitvoer van: <code>async function test() { console.log('voor'); await wacht(1); console.log('na'); } test(); console.log('buiten');</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="a"> <span>voor, na, buiten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="b"> <span>buiten, voor, na</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="c"> <span>voor, buiten, na</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v4" value="d"> <span>na, buiten, voor</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wanneer gebruik je <code>.catch()</code> in een Promise-keten?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="a"> <span>Om de volgende <code>.then()</code> te overslaan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="b"> <span>Om een fout op te vangen die gegooid is in een eerdere <code>.then()</code> of een <code>reject()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="c"> <span>Om de Promise te annuleren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v5" value="d"> <span>Om de Promise opnieuw te starten</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welk patroon is vandaag het meest aanbevolen voor nieuwe asynchrone code?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="a"> <span><code>async/await</code> — leest als synchrone code, eenvoudige foutafhandeling via <code>try...catch</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="b"> <span>Callbacks — het oudste en meest geteste patroon</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="c"> <span>Promises — want <code>async/await</code> is enkel voor ervaren ontwikkelaars</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h19-v6" value="d"> <span>Geen van de drie — synchrone code is altijd beter</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H19')" data-progress-key="6adb/app-ontwikkeling/H19">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H18.html" class="btn btn-ghost">&larr; H18</a>
+          <a href="H20.html" class="btn btn-ghost">H20 &rarr;</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

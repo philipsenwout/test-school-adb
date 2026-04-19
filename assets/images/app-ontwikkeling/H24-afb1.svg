@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+    <marker id="arr-g" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#39ff14"/>
+    </marker>
+    <marker id="arr-o" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b35"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-family="'Courier New', monospace" font-size="26" font-weight="bold" fill="#00d4ff">while-lus Stroomdiagram</text>
+  <text x="600" y="76" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#8892a4">Stap voor stap doorloop van een while-lus</text>
+
+  <!-- Left: flowchart -->
+  <!-- INITIALISATIE -->
+  <rect x="200" y="100" width="220" height="52" rx="8" fill="#0d2040" stroke="#00d4ff" stroke-width="2"/>
+  <text x="310" y="121" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#8892a4">① Initialisatie</text>
+  <text x="310" y="142" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#00d4ff" font-weight="bold">let teller = 1</text>
+
+  <!-- Arrow down -->
+  <line x1="310" y1="152" x2="310" y2="196" stroke="#00d4ff" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- DIAMOND: condition -->
+  <polygon points="310,204 440,268 310,332 180,268" fill="#1a1f2e" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="310" y="260" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#8892a4">② Voorwaarde</text>
+  <text x="310" y="280" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#7c3aed" font-weight="bold">teller &lt;= 5?</text>
+
+  <!-- TRUE arrow right -->
+  <line x1="440" y1="268" x2="510" y2="268" stroke="#39ff14" stroke-width="2.5" marker-end="url(#arr-g)"/>
+  <text x="472" y="258" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#39ff14" font-weight="bold">true</text>
+
+  <!-- CODE block -->
+  <rect x="510" y="238" width="200" height="60" rx="8" fill="#0d2e1a" stroke="#39ff14" stroke-width="2"/>
+  <text x="610" y="260" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#8892a4">③ Code</text>
+  <text x="610" y="282" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#39ff14" font-weight="bold">console.log(teller)</text>
+
+  <!-- UPDATE arrow below code -->
+  <line x1="610" y1="298" x2="610" y2="350" stroke="#39ff14" stroke-width="2" marker-end="url(#arr-g)"/>
+
+  <!-- UPDATE block -->
+  <rect x="510" y="350" width="200" height="52" rx="8" fill="#2e1a0d" stroke="#ff6b35" stroke-width="2"/>
+  <text x="610" y="371" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#8892a4">④ Update</text>
+  <text x="610" y="391" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#ff6b35" font-weight="bold">teller++</text>
+
+  <!-- Arrow back up to condition (curved) -->
+  <path d="M 610 402 Q 780 402 780 268 Q 780 196 440 268" fill="none" stroke="#ff6b35" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arr-o)"/>
+  <text x="760" y="300" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ff6b35">terug naar</text>
+  <text x="760" y="316" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ff6b35">voorwaarde</text>
+
+  <!-- FALSE arrow down -->
+  <line x1="310" y1="332" x2="310" y2="394" stroke="#ff6b35" stroke-width="2.5" marker-end="url(#arr-o)"/>
+  <text x="290" y="370" text-anchor="end" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35" font-weight="bold">false</text>
+
+  <!-- STOP oval -->
+  <ellipse cx="310" cy="424" rx="80" ry="28" fill="none" stroke="#00d4ff" stroke-width="2"/>
+  <text x="310" y="430" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#00d4ff" font-weight="bold">STOP</text>
+
+  <!-- Right: iteration trace table -->
+  <rect x="900" y="100" width="250" height="400" rx="12" fill="#12161f" stroke="#2d3448" stroke-width="1.5"/>
+  <rect x="900" y="100" width="250" height="36" rx="12" fill="#1e2438"/>
+  <rect x="900" y="122" width="250" height="14" fill="#1e2438"/>
+  <text x="1025" y="124" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff" font-weight="bold">Iteraties</text>
+
+  <!-- Table headers -->
+  <rect x="900" y="136" width="250" height="28" fill="#1a2030"/>
+  <text x="944" y="155" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">teller</text>
+  <text x="1025" y="155" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">&lt;= 5?</text>
+  <text x="1105" y="155" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">uitvoer</text>
+  <line x1="900" y1="164" x2="1150" y2="164" stroke="#2d3448" stroke-width="1"/>
+  <line x1="976" y1="136" x2="976" y2="500" stroke="#2d3448" stroke-width="1"/>
+  <line x1="1068" y1="136" x2="1068" y2="500" stroke="#2d3448" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <rect x="900" y="164" width="250" height="40" fill="#0d1a0d"/>
+  <text x="944" y="190" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#ffffff" font-weight="bold">1</text>
+  <text x="1025" y="190" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#39ff14">true</text>
+  <text x="1105" y="190" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#39ff14" font-weight="bold">1</text>
+
+  <!-- Row 2 -->
+  <rect x="900" y="204" width="250" height="40" fill="#0f1117"/>
+  <text x="944" y="230" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#ffffff" font-weight="bold">2</text>
+  <text x="1025" y="230" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#39ff14">true</text>
+  <text x="1105" y="230" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#39ff14" font-weight="bold">2</text>
+
+  <!-- Row 3 -->
+  <rect x="900" y="244" width="250" height="40" fill="#0d1a0d"/>
+  <text x="944" y="270" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#ffffff" font-weight="bold">3</text>
+  <text x="1025" y="270" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#39ff14">true</text>
+  <text x="1105" y="270" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#39ff14" font-weight="bold">3</text>
+
+  <!-- Row 4 -->
+  <rect x="900" y="284" width="250" height="40" fill="#0f1117"/>
+  <text x="944" y="310" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#ffffff" font-weight="bold">4</text>
+  <text x="1025" y="310" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#39ff14">true</text>
+  <text x="1105" y="310" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#39ff14" font-weight="bold">4</text>
+
+  <!-- Row 5 -->
+  <rect x="900" y="324" width="250" height="40" fill="#0d1a0d"/>
+  <text x="944" y="350" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#ffffff" font-weight="bold">5</text>
+  <text x="1025" y="350" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#39ff14">true</text>
+  <text x="1105" y="350" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#39ff14" font-weight="bold">5</text>
+
+  <!-- Row 6: STOP -->
+  <rect x="900" y="364" width="250" height="40" fill="#1a0d0d"/>
+  <text x="944" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#ff4444" font-weight="bold">6</text>
+  <text x="1025" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ff4444">false</text>
+  <text x="1105" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">STOP</text>
+
+  <!-- Explanation rows -->
+  <rect x="900" y="410" width="250" height="90" rx="0" fill="#12161f"/>
+  <text x="920" y="432" font-family="'Courier New', monospace" font-size="11" fill="#6b7280">6 &lt;= 5 = false → lus stopt</text>
+  <text x="920" y="452" font-family="'Courier New', monospace" font-size="11" fill="#6b7280">Uitvoer: 1 2 3 4 5</text>
+  <text x="920" y="476" font-family="'Courier New', monospace" font-size="11" fill="#ff6b35">⚠ teller++ VERPLICHT!</text>
+  <text x="920" y="492" font-family="'Courier New', monospace" font-size="11" fill="#6b7280">Zonder update: ∞ lus</text>
+
+  <!-- Code box -->
+  <rect x="80" y="480" width="780" height="130" rx="12" fill="#12161f" stroke="#2d3448" stroke-width="1.5"/>
+  <rect x="80" y="480" width="780" height="30" rx="12" fill="#1e2438"/>
+  <rect x="80" y="496" width="780" height="14" fill="#1e2438"/>
+  <text x="100" y="502" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">while — code</text>
+  <text x="100" y="532" font-family="'Courier New', monospace" font-size="15" fill="#00d4ff">let</text>
+  <text x="130" y="532" font-family="'Courier New', monospace" font-size="15" fill="#ffffff"> teller = 1;                    </text>
+  <text x="540" y="532" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// ① initialisatie</text>
+  <text x="100" y="556" font-family="'Courier New', monospace" font-size="15" fill="#7c3aed">while</text>
+  <text x="148" y="556" font-family="'Courier New', monospace" font-size="15" fill="#ffffff"> (teller &lt;= 5) {             </text>
+  <text x="540" y="556" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// ② voorwaarde</text>
+  <text x="100" y="580" font-family="'Courier New', monospace" font-size="15" fill="#8892a4">    console.log(teller);       </text>
+  <text x="540" y="580" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// ③ code</text>
+  <text x="100" y="602" font-family="'Courier New', monospace" font-size="15" fill="#ff6b35">    teller++;                  </text>
+  <text x="540" y="602" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// ④ update — VERGEET NOOIT!</text>
+  <text x="100" y="596" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">}</text>
+
+  <!-- Warning box -->
+  <rect x="80" y="624" width="780" height="74" rx="10" fill="#2e1a0d" stroke="#ff6b35" stroke-width="2"/>
+  <text x="110" y="648" font-family="'Courier New', monospace" font-size="14" fill="#ff6b35" font-weight="bold">⚠ GEVAAR: Oneindige lus</text>
+  <text x="110" y="670" font-family="'Courier New', monospace" font-size="13" fill="#8892a4">Als de update (teller++) ontbreekt, wordt teller nooit groter dan 5.</text>
+  <text x="110" y="688" font-family="'Courier New', monospace" font-size="13" fill="#8892a4">De voorwaarde blijft altijd true → lus loopt voor eeuwig → browser crasht!</text>
+
+  <!-- Use case box -->
+  <rect x="900" y="520" width="250" height="100" rx="10" fill="#12161f" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="1025" y="544" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed" font-weight="bold">Wanneer while?</text>
+  <text x="920" y="566" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">Gebruik while als je niet</text>
+  <text x="920" y="582" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">op voorhand weet hoe</text>
+  <text x="920" y="598" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">vaak je moet herhalen.</text>
+  <text x="920" y="616" font-family="'Courier New', monospace" font-size="11" fill="#6b7280">Bv: wacht op gebruikersinvoer</text>
+
+  <!-- When to use for -->
+  <rect x="900" y="634" width="250" height="64" rx="10" fill="#12161f" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="1025" y="658" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">Wanneer for?</text>
+  <text x="920" y="678" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">Als je een teller gebruikt</text>
+  <text x="920" y="694" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">en het aantal iteraties kent.</text>
+</svg>

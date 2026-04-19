@@ -44,18 +44,50 @@
       <span class="breadcrumb-sep">&#8250;</span>
       <span>H05</span>
     </nav>
-    <div class="chapter-layout">
-      <aside class="chapter-sidebar">
-        <div class="chapter-sidebar__title">Inhoud</div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="6adb/netwerken/H05" style="--sidebar-accent: var(--color-vak-netwerken)">
+        <div class="chapter-sidebar__header">
+          <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+          <div class="chapter-sidebar__progress-wrap">
+            <div class="chapter-sidebar__progress-bar">
+              <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+            </div>
+            <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+          </div>
+        </div>
         <ul class="chapter-sidebar__list">
-          <li><a href="#leerdoelen">Leerdoelen</a></li>
-          <li><a href="#dreigingen">1.1 Netwerkdreigingen</a></li>
-          <li><a href="#aanvallen">1.2 Veelvoorkomende aanvallen</a></li>
-          <li><a href="#maatregelen">1.3 Beveiligingsmaatregelen</a></li>
-          <li><a href="#wachtwoorden">1.4 Wachtwoorden en authenticatie</a></li>
-          <li><a href="#vpn">1.5 VPN</a></li>
-          <li><a href="#oefeningen">2. Oefeningen</a></li>
-          <li><a href="#samenvatting">3. Samenvatting</a></li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+            <a href="#dreigingen">1.1 Netwerkdreigingen</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+            <a href="#aanvallen">1.2 Veelvoorkomende aanvallen</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+            <a href="#maatregelen">1.3 Beveiligingsmaatregelen</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+            <a href="#wachtwoorden">1.4 Wachtwoorden en authenticatie</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+            <a href="#vpn">1.5 VPN</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+            <a href="#oefeningen">Oefeningen</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+            <a href="#huistaak">Huistaak</a>
+          </li>
+          <li class="sidebar-check-item">
+            <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+            <a href="#vragenlijst">Vragenlijst</a>
+          </li>
         </ul>
       </aside>
       <div class="chapter-content">
@@ -68,12 +100,11 @@
           </div>
         </div>
 
-        <section id="leerdoelen">
-          <h2>Leerdoelen</h2>
-          <div class="ld-badges">
-            <span class="badge badge-ld">[LD-NET-07]</span> Netwerksecurity analyseren en toepassen <span class="badge badge-verdieping">verdieping</span>
-          </div>
-          <p>Na dit hoofdstuk kan je:</p>
+        <div class="ld-badges">
+          <div class="ld-tag"><span class="ld-tag__code">NET07</span><span class="ld-tag__title">Netwerksecurity analyseren en toepassen — verdieping</span></div>
+        </div>
+        <div class="callout callout--info">
+          <div class="callout-header">🎯 Leerdoelen</div>
           <ul>
             <li>veelvoorkomende netwerkdreigingen benoemen en uitleggen</li>
             <li>aanvallen zoals ARP spoofing, VLAN hopping en brute force beschrijven</li>
@@ -81,7 +112,7 @@
             <li>het belang van sterke wachtwoorden en tweestapsverificatie uitleggen</li>
             <li>het concept van een VPN uitleggen en gebruiksscenario&#8217;s benoemen</li>
           </ul>
-        </section>
+        </div>
 
         <section>
           <h2>1. Theorie</h2>
@@ -315,7 +346,7 @@
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>
-          <button class="btn btn-primary" id="complete-btn" data-chapter-key="6adb/netwerken/H05">Markeer als voltooid</button>
+          <button class="btn btn-primary" onclick="markComplete('6adb/netwerken/H05')" data-progress-key="6adb/netwerken/H05">&#10003; Markeer als voltooid</button>
         </div>
         <div class="chapter-nav">
           <a href="H04-firewallregels.html" class="chapter-nav__link chapter-nav__link--prev">

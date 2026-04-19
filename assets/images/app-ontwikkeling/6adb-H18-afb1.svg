@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#f0f4ff"/>
+
+  <!-- Title -->
+  <text x="400" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#2d2d4e">Overerving — gedeeld gedrag in de parent</text>
+
+  <!-- PARENT CLASS: Dier -->
+  <rect x="250" y="58" width="300" height="160" rx="12" fill="#6c63ff" stroke="#4a40cc" stroke-width="2"/>
+  <!-- Header band -->
+  <rect x="250" y="58" width="300" height="40" rx="12" fill="#4a40cc"/>
+  <rect x="250" y="86" width="300" height="12" fill="#4a40cc"/>
+  <text x="400" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="white">class Dier</text>
+
+  <!-- Fields -->
+  <text x="275" y="116" font-size="13" fill="white">#naam</text>
+  <text x="275" y="134" font-size="13" fill="white">#leeftijd</text>
+  <line x1="265" y1="145" x2="535" y2="145" stroke="white" stroke-width="1" opacity="0.4"/>
+  <!-- Methods -->
+  <text x="275" y="163" font-size="13" fill="#c5c2ff">slaap()</text>
+  <text x="395" y="163" font-size="11" fill="white" opacity="0.7">→ "Zzz..."</text>
+  <text x="275" y="183" font-size="13" fill="#c5c2ff">geluid()</text>
+  <text x="395" y="183" font-size="11" fill="white" opacity="0.7">→ overschreven in child</text>
+  <text x="275" y="203" font-size="13" fill="#c5c2ff">toString()</text>
+  <text x="395" y="203" font-size="11" fill="white" opacity="0.7">→ info over dier</text>
+
+  <!-- Inheritance arrows (triangle style) -->
+  <!-- Left arrow to Kat -->
+  <line x1="310" y1="218" x2="195" y2="310" stroke="#43e97b" stroke-width="2.5"/>
+  <!-- Triangle arrowhead pointing up to parent -->
+  <polygon points="310,218 298,238 322,238" fill="white" stroke="#43e97b" stroke-width="2"/>
+
+  <!-- Right arrow to Hond -->
+  <line x1="490" y1="218" x2="605" y2="310" stroke="#f9a825" stroke-width="2.5"/>
+  <polygon points="490,218 478,238 502,238" fill="white" stroke="#f9a825" stroke-width="2"/>
+
+  <!-- extends labels -->
+  <text x="222" y="276" text-anchor="middle" font-size="12" fill="#43e97b" font-weight="600">extends</text>
+  <text x="578" y="276" text-anchor="middle" font-size="12" fill="#f9a825" font-weight="600">extends</text>
+
+  <!-- CHILD CLASS: Kat -->
+  <rect x="50" y="310" width="280" height="140" rx="12" fill="#43e97b" fill-opacity="0.15" stroke="#43e97b" stroke-width="2"/>
+  <rect x="50" y="310" width="280" height="38" rx="12" fill="#43e97b"/>
+  <rect x="50" y="336" width="280" height="12" fill="#43e97b"/>
+  <text x="190" y="334" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a2e">class Kat extends Dier</text>
+
+  <text x="70" y="366" font-size="12" fill="#2d2d4e">Erft: naam, leeftijd, slaap(), toString()</text>
+  <line x1="62" y1="376" x2="318" y2="376" stroke="#43e97b" stroke-width="1" opacity="0.5"/>
+  <text x="70" y="394" font-size="12" fill="#2d2d4e" font-weight="600">Override geluid():</text>
+  <!-- Override badge -->
+  <rect x="68" y="403" width="250" height="30" rx="6" fill="#1a1a2e"/>
+  <text x="193" y="423" text-anchor="middle" font-size="13" fill="#43e97b" font-family="monospace">geluid() → "Miauw! 🐱"</text>
+
+  <!-- CHILD CLASS: Hond -->
+  <rect x="470" y="310" width="280" height="140" rx="12" fill="#f9a825" fill-opacity="0.15" stroke="#f9a825" stroke-width="2"/>
+  <rect x="470" y="310" width="280" height="38" rx="12" fill="#f9a825"/>
+  <rect x="470" y="336" width="280" height="12" fill="#f9a825"/>
+  <text x="610" y="334" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a2e">class Hond extends Dier</text>
+
+  <text x="490" y="366" font-size="12" fill="#2d2d4e">Erft: naam, leeftijd, slaap(), toString()</text>
+  <line x1="482" y1="376" x2="738" y2="376" stroke="#f9a825" stroke-width="1" opacity="0.5"/>
+  <text x="490" y="394" font-size="12" fill="#2d2d4e" font-weight="600">Override geluid():</text>
+  <rect x="488" y="403" width="250" height="30" rx="6" fill="#1a1a2e"/>
+  <text x="613" y="423" text-anchor="middle" font-size="13" fill="#f9a825" font-family="monospace">geluid() → "Woef! 🐶"</text>
+
+  <!-- Bottom legend -->
+  <rect x="140" y="464" width="520" height="0" fill="none"/>
+  <text x="400" y="468" text-anchor="middle" font-size="12" fill="#888">▲ = overerving (UML) — de child erft alles van de parent, en kan methodes overschrijven</text>
+</svg>

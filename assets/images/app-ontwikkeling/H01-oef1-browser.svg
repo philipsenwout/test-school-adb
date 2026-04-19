@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" font-family="sans-serif">
+  <!-- Browser chrome -->
+  <rect width="900" height="560" fill="#ffffff"/>
+  <rect width="900" height="44" fill="#1e1e2e"/>
+  <circle cx="20" cy="22" r="6" fill="#ff5f57"/>
+  <circle cx="36" cy="22" r="6" fill="#febc2e"/>
+  <circle cx="52" cy="22" r="6" fill="#28c840"/>
+  <rect x="200" y="10" width="500" height="24" rx="12" fill="#2a2a3e"/>
+  <text x="450" y="26" text-anchor="middle" fill="#888" font-size="12">index.html</text>
+
+  <!-- Page content -->
+  <!-- h1 -->
+  <text x="40" y="100" font-size="32" font-weight="bold" fill="#000000">Emma Claes</text>
+  <!-- p 1 -->
+  <text x="40" y="145" font-size="16" fill="#000000">Ik ben Emma, 16 jaar. Ik zit in het 5e jaar Data- en Applicatiebeheer.</text>
+  <text x="40" y="168" font-size="16" fill="#000000">Ik vind het leuk om te leren hoe websites werken.</text>
+  <!-- p 2 with em -->
+  <text x="40" y="213" font-size="16" fill="#000000">Mijn favoriete vakken zijn App-ontwikkeling,</text>
+  <text x="40" y="236" font-size="16" fill="#000000">
+    <tspan>Databeheer en </tspan><tspan font-style="italic">Netwerken</tspan><tspan>.</tspan>
+  </text>
+</svg>

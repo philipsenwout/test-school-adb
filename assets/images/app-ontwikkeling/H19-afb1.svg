@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7f1d1d"/>
+      <stop offset="100%" style="stop-color:#450a0a"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#14532d"/>
+      <stop offset="100%" style="stop-color:#052e16"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#39ff14"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- Decoratie -->
+  <circle cx="1100" cy="80" r="200" fill="#7c3aed" opacity="0.04"/>
+  <circle cx="100" cy="720" r="160" fill="#00d4ff" opacity="0.04"/>
+
+  <!-- Titel -->
+  <text x="600" y="55" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="700" font-family="Inter, sans-serif">Impliciete Typeconversie — Gevaarlijke Gevallen</text>
+  <text x="600" y="80" text-anchor="middle" fill="#6b7280" font-size="14" font-family="Inter, sans-serif">Wat doet JavaScript automatisch bij gemengde types?</text>
+  <line x1="200" y1="95" x2="1000" y2="95" stroke="#2d3150" stroke-width="1"/>
+
+  <!-- SECTIE 1: + operator (string concat) — GEVAARLIJK -->
+  <!-- Kolomtitel links -->
+  <rect x="60" y="110" width="510" height="36" rx="6" fill="#7f1d1d" opacity="0.9"/>
+  <text x="315" y="133" text-anchor="middle" fill="#fca5a5" font-size="15" font-weight="700" font-family="Inter, sans-serif">⚠️  + operator met string → STRING-SAMENVOEGEN</text>
+
+  <!-- Voorbeeld 1: '5' + 3 = '53' -->
+  <rect x="60" y="155" width="510" height="110" rx="8" fill="#1e2030" stroke="#7f1d1d" stroke-width="2"/>
+  <!-- Input vakjes -->
+  <rect x="80" y="175" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="125" y="197" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="Courier New, monospace" font-weight="600">'5'</text>
+  <text x="125" y="213" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">string</text>
+
+  <text x="200" y="205" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700" font-family="Courier New, monospace">+</text>
+
+  <rect x="215" y="175" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="260" y="197" text-anchor="middle" fill="#60a5fa" font-size="14" font-family="Courier New, monospace" font-weight="600">3</text>
+  <text x="260" y="213" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">number</text>
+
+  <!-- Pijl naar resultaat -->
+  <line x1="315" y1="200" x2="360" y2="200" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="337" y="193" text-anchor="middle" fill="#ef4444" font-size="9" font-family="Inter, sans-serif">JS: 3→"3"</text>
+
+  <!-- Resultaat -->
+  <rect x="368" y="172" width="100" height="56" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+  <text x="418" y="197" text-anchor="middle" fill="#fca5a5" font-size="16" font-family="Courier New, monospace" font-weight="700">'53'</text>
+  <text x="418" y="216" text-anchor="middle" fill="#fca5a5" font-size="10" font-family="Inter, sans-serif">string! ← Fout!</text>
+
+  <!-- Uitleg label -->
+  <text x="315" y="252" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">'5' + 3  →  '5' + '3'  →  '53'</text>
+
+  <!-- Voorbeeld 2: '5' + '3' = '53' (2e variant) -->
+  <rect x="60" y="275" width="510" height="110" rx="8" fill="#1e2030" stroke="#7f1d1d" stroke-width="2"/>
+  <rect x="80" y="295" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="125" y="317" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="Courier New, monospace" font-weight="600">'10'</text>
+  <text x="125" y="333" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">string</text>
+  <text x="200" y="325" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700" font-family="Courier New, monospace">+</text>
+  <rect x="215" y="295" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="260" y="317" text-anchor="middle" fill="#60a5fa" font-size="14" font-family="Courier New, monospace" font-weight="600">5</text>
+  <text x="260" y="333" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">number</text>
+  <line x1="315" y1="320" x2="360" y2="320" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="337" y="313" text-anchor="middle" fill="#ef4444" font-size="9" font-family="Inter, sans-serif">5→"5"</text>
+  <rect x="368" y="292" width="100" height="56" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+  <text x="418" y="317" text-anchor="middle" fill="#fca5a5" font-size="16" font-family="Courier New, monospace" font-weight="700">'105'</text>
+  <text x="418" y="336" text-anchor="middle" fill="#fca5a5" font-size="10" font-family="Inter, sans-serif">NIET 15!</text>
+  <text x="315" y="372" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">'10' + 5  →  '10' + '5'  →  '105'</text>
+
+  <!-- Waarschuwings-label -->
+  <rect x="60" y="395" width="510" height="40" rx="6" fill="#1c1917" stroke="#78350f" stroke-width="1"/>
+  <text x="315" y="420" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="600" font-family="Inter, sans-serif">⚠️  + geeft altijd string-samenvoegen als één kant een string is</text>
+
+  <!-- SCHEIDSLIJN verticaal -->
+  <line x1="620" y1="108" x2="620" y2="750" stroke="#2d3150" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="620" y="95" text-anchor="middle" fill="#3d4166" font-size="11" font-family="Inter, sans-serif">VS</text>
+
+  <!-- SECTIE 2: -, *, / operators (naar number) — VEILIG/VERWACHT -->
+  <rect x="630" y="110" width="510" height="36" rx="6" fill="#14532d" opacity="0.9"/>
+  <text x="885" y="133" text-anchor="middle" fill="#86efac" font-size="15" font-weight="700" font-family="Inter, sans-serif">✓  - * / → Omzetten naar NUMBER</text>
+
+  <!-- Voorbeeld 3: '5' - 3 = 2 -->
+  <rect x="630" y="155" width="510" height="110" rx="8" fill="#1e2030" stroke="#16a34a" stroke-width="2"/>
+  <rect x="650" y="175" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="695" y="197" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="Courier New, monospace" font-weight="600">'5'</text>
+  <text x="695" y="213" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">string</text>
+  <text x="770" y="205" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700" font-family="Courier New, monospace">-</text>
+  <rect x="785" y="175" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="830" y="197" text-anchor="middle" fill="#60a5fa" font-size="14" font-family="Courier New, monospace" font-weight="600">3</text>
+  <text x="830" y="213" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">number</text>
+  <line x1="885" y1="200" x2="930" y2="200" stroke="#39ff14" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="908" y="193" text-anchor="middle" fill="#39ff14" font-size="9" font-family="Inter, sans-serif">'5'→5</text>
+  <rect x="938" y="172" width="100" height="56" rx="6" fill="#14532d" stroke="#39ff14" stroke-width="2"/>
+  <text x="988" y="197" text-anchor="middle" fill="#86efac" font-size="16" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">2</text>
+  <text x="988" y="216" text-anchor="middle" fill="#86efac" font-size="10" font-family="Inter, sans-serif">number ✓</text>
+  <text x="885" y="252" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">'5' - 3  →  5 - 3  →  2</text>
+
+  <!-- Voorbeeld 4: '10' / 2 = 5 -->
+  <rect x="630" y="275" width="510" height="110" rx="8" fill="#1e2030" stroke="#16a34a" stroke-width="2"/>
+  <rect x="650" y="295" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="695" y="317" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="Courier New, monospace" font-weight="600">'10'</text>
+  <text x="695" y="333" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">string</text>
+  <text x="770" y="325" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700" font-family="Courier New, monospace">/</text>
+  <rect x="785" y="295" width="90" height="50" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="830" y="317" text-anchor="middle" fill="#60a5fa" font-size="14" font-family="Courier New, monospace" font-weight="600">2</text>
+  <text x="830" y="333" text-anchor="middle" fill="#9ca3af" font-size="10" font-family="Inter, sans-serif">number</text>
+  <line x1="885" y1="320" x2="930" y2="320" stroke="#39ff14" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="908" y="313" text-anchor="middle" fill="#39ff14" font-size="9" font-family="Inter, sans-serif">'10'→10</text>
+  <rect x="938" y="292" width="100" height="56" rx="6" fill="#14532d" stroke="#39ff14" stroke-width="2"/>
+  <text x="988" y="317" text-anchor="middle" fill="#86efac" font-size="16" font-family="Courier New, monospace" font-weight="700" filter="url(#glow)">5</text>
+  <text x="988" y="336" text-anchor="middle" fill="#86efac" font-size="10" font-family="Inter, sans-serif">number ✓</text>
+  <text x="885" y="372" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">'10' / 2  →  10 / 2  →  5</text>
+
+  <!-- Groen info-label -->
+  <rect x="630" y="395" width="510" height="40" rx="6" fill="#052e16" stroke="#166534" stroke-width="1"/>
+  <text x="885" y="420" text-anchor="middle" fill="#86efac" font-size="12" font-weight="600" font-family="Inter, sans-serif">✓  - * / zetten strings automatisch om naar number</text>
+
+  <!-- SAMENVATTINGSTABEL onderaan -->
+  <rect x="60" y="450" width="1080" height="260" rx="10" fill="#1e2030" stroke="#2d3150" stroke-width="1.5"/>
+  <text x="600" y="478" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700" font-family="Inter, sans-serif">Overzicht — Alle gevallen</text>
+
+  <!-- Tabel header -->
+  <rect x="80" y="490" width="1040" height="32" rx="4" fill="#2d3150"/>
+  <text x="200" y="510" text-anchor="middle" fill="#9ca3af" font-size="12" font-weight="600" font-family="Inter, sans-serif">Expressie</text>
+  <text x="480" y="510" text-anchor="middle" fill="#9ca3af" font-size="12" font-weight="600" font-family="Inter, sans-serif">Wat JS doet</text>
+  <text x="760" y="510" text-anchor="middle" fill="#9ca3af" font-size="12" font-weight="600" font-family="Inter, sans-serif">Resultaat</text>
+  <text x="1000" y="510" text-anchor="middle" fill="#9ca3af" font-size="12" font-weight="600" font-family="Inter, sans-serif">Veilig?</text>
+
+  <!-- Tabelrijen -->
+  <line x1="80" y1="522" x2="1120" y2="522" stroke="#3d4166" stroke-width="1"/>
+  <text x="200" y="542" text-anchor="middle" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">'5' + 3</text>
+  <text x="480" y="542" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">3 wordt "3", dan aaneengekoppeld</text>
+  <text x="760" y="542" text-anchor="middle" fill="#fca5a5" font-size="13" font-family="Courier New, monospace" font-weight="700">'53'</text>
+  <text x="1000" y="542" text-anchor="middle" fill="#ef4444" font-size="14">⚠️  NIET 8!</text>
+
+  <line x1="80" y1="556" x2="1120" y2="556" stroke="#2d3150" stroke-width="1"/>
+  <text x="200" y="576" text-anchor="middle" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">'5' - 3</text>
+  <text x="480" y="576" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">'5' wordt 5, dan aftrekking</text>
+  <text x="760" y="576" text-anchor="middle" fill="#86efac" font-size="13" font-family="Courier New, monospace" font-weight="700">2</text>
+  <text x="1000" y="576" text-anchor="middle" fill="#39ff14" font-size="14">✓</text>
+
+  <line x1="80" y1="590" x2="1120" y2="590" stroke="#2d3150" stroke-width="1"/>
+  <text x="200" y="610" text-anchor="middle" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">true + 1</text>
+  <text x="480" y="610" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">true wordt 1</text>
+  <text x="760" y="610" text-anchor="middle" fill="#86efac" font-size="13" font-family="Courier New, monospace" font-weight="700">2</text>
+  <text x="1000" y="610" text-anchor="middle" fill="#fbbf24" font-size="12">Onverwacht</text>
+
+  <line x1="80" y1="624" x2="1120" y2="624" stroke="#2d3150" stroke-width="1"/>
+  <text x="200" y="644" text-anchor="middle" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">null + 5</text>
+  <text x="480" y="644" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">null wordt 0</text>
+  <text x="760" y="644" text-anchor="middle" fill="#86efac" font-size="13" font-family="Courier New, monospace" font-weight="700">5</text>
+  <text x="1000" y="644" text-anchor="middle" fill="#fbbf24" font-size="12">Onverwacht</text>
+
+  <line x1="80" y1="658" x2="1120" y2="658" stroke="#2d3150" stroke-width="1"/>
+  <text x="200" y="678" text-anchor="middle" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace">'abc' - 3</text>
+  <text x="480" y="678" text-anchor="middle" fill="#9ca3af" font-size="11" font-family="Inter, sans-serif">'abc' → kan niet → NaN</text>
+  <text x="760" y="678" text-anchor="middle" fill="#fca5a5" font-size="13" font-family="Courier New, monospace" font-weight="700">NaN</text>
+  <text x="1000" y="678" text-anchor="middle" fill="#ef4444" font-size="14">⚠️</text>
+
+  <!-- Footer label -->
+  <text x="600" y="770" text-anchor="middle" fill="#3d4166" font-size="12" font-family="Inter, sans-serif">H19 — Typeconversie — Impliciete typeconversie: de gevaarlijke gevallen [ADB09] [basis]</text>
+</svg>

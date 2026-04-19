@@ -45,8 +45,48 @@
 <span>H07</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-7-subnetting">Hoofdstuk 7 — Subnetting</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#71-waarom-subnetten">7.1 Waarom subnetten?</a></li><li><a href="#72-de-referentietabel">7.2 De referentietabel</a></li><li><a href="#73-stappenplan-gelijke-subnetten">7.3 Stappenplan gelijke subnetten</a></li><li><a href="#74-voorbeelden">7.4 Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h07" style="padding-left:1.25rem">Huistaak H07</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/netwerken/H07" style="--sidebar-accent: var(--color-vak-netwerken)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.1"><span class="sidebar-check__box"></span></label>
+      <a href="#71-waarom-subnetten">7.1 Waarom subnetten?</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.2"><span class="sidebar-check__box"></span></label>
+      <a href="#72-de-referentietabel">7.2 De referentietabel</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.3"><span class="sidebar-check__box"></span></label>
+      <a href="#73-stappenplan-gelijke-subnetten">7.3 Stappenplan gelijke subnetten</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.4"><span class="sidebar-check__box"></span></label>
+      <a href="#74-voorbeelden">7.4 Voorbeelden</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-7-subnetting">Hoofdstuk 7 — Subnetting</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#71-waarom-subnetten">7.1 Waarom subnetten?</a></li><li><a href="#72-de-referentietabel">7.2 De referentietabel</a></li><li><a href="#73-stappenplan-gelijke-subnetten">7.3 Stappenplan gelijke subnetten</a></li><li><a href="#74-voorbeelden">7.4 Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h07" style="padding-left:1.25rem">Huistaak H07</a></li></ul></div>
       <div class="chapter-content">
         <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
@@ -68,14 +108,18 @@
 <tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
 <tr><td><strong>Lesuren</strong></td><td>4 u</td></tr>
 </tbody></table></div>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ul>
-<li>uitleggen waarom subnetting gebruikt wordt</li>
-<li>een netwerk opdelen in gelijke subnetten met een eenvoudig stappenplan</li>
-<li>voor elk subnet het netwerkadres, broadcastadres en hostbereik bepalen met behulp van de referentietabel</li>
-</ul>
-<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-NET-04]</span> De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen <span class="badge badge-basis">basis</span></div>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>uitleggen waarom subnetting gebruikt wordt</li>
+    <li>een netwerk opdelen in gelijke subnetten met een eenvoudig stappenplan</li>
+    <li>voor elk subnet het netwerkadres, broadcastadres en hostbereik bepalen met behulp van de referentietabel</li>
+  </ul>
+</div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-03</span><span class="ld-tag__title">De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe.</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-04</span><span class="ld-tag__title">De leerlingen ontwerpen een configuratie van een netwerksysteem op basis van gestelde eisen.</span></div>
+</div>
 <h2 id="71-waarom-subnetten">7.1 Waarom subnetten?</h2>
 <p>Een groot netwerk (<code>192.168.1.0/24</code>) met 254 toestellen heeft nadelen:</p>
 <ul>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#43e97b"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+    </marker>
+  </defs>
+
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">Gecombineerde filter- en zoeklogica</text>
+
+  <!-- toonRecepten() trigger -->
+  <ellipse cx="400" cy="65" rx="160" ry="25" fill="#6c63ff"/>
+  <text x="400" y="70" text-anchor="middle" fill="white" font-size="13" font-weight="bold">toonRecepten() aangeroepen</text>
+  <text x="400" y="50" text-anchor="middle" fill="#888" font-size="10">(via dispatchEvent — checkbox of input)</text>
+
+  <line x1="400" y1="90" x2="400" y2="120" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Stap 1: filter categorie -->
+  <rect x="240" y="120" width="320" height="45" rx="8" fill="#3498db"/>
+  <text x="400" y="140" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Stap 1 — filter categorie</text>
+  <text x="400" y="157" text-anchor="middle" fill="#cce8ff" font-size="10">alleRecepten.filter(r ⇒ geselecteerd.includes(r.categorie))</text>
+
+  <line x1="400" y1="165" x2="400" y2="195" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Stap 2: filter zoekterm -->
+  <rect x="240" y="195" width="320" height="45" rx="8" fill="#9b59b6"/>
+  <text x="400" y="215" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Stap 2 — filter zoekterm</text>
+  <text x="400" y="232" text-anchor="middle" fill="#e8d5ff" font-size="10">result.filter(r ⇒ r.naam.toLowerCase().includes(zoek))</text>
+
+  <line x1="400" y1="240" x2="400" y2="270" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Resultaat -->
+  <rect x="240" y="270" width="320" height="40" rx="8" fill="#43e97b" fill-opacity="0.2" stroke="#43e97b" stroke-width="1.5"/>
+  <text x="400" y="294" text-anchor="middle" fill="#2d2d4e" font-size="13" font-weight="bold">gefilterd — array met matching recepten</text>
+
+  <line x1="400" y1="310" x2="400" y2="340" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- forEach -->
+  <rect x="250" y="340" width="300" height="40" rx="8" fill="#f9a825" fill-opacity="0.9"/>
+  <text x="400" y="364" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="bold">gefilterd.forEach(r ⇒ voegReceptToe(r))</text>
+
+  <!-- Beide triggers -->
+  <rect x="20" y="170" width="180" height="95" rx="8" fill="#1a1a2e" stroke="#6c63ff" stroke-width="1"/>
+  <text x="110" y="193" text-anchor="middle" fill="#6c63ff" font-size="12" font-weight="bold">Checkbox change</text>
+  <line x1="20" y1="195" x2="238" y2="195" stroke="#6c63ff" stroke-width="1.5" stroke-dasharray="5" marker-end="url(#arr)"/>
+  <text x="110" y="218" text-anchor="middle" fill="#888" font-size="11">maakCategoriesLijst()</text>
+  <text x="110" y="234" text-anchor="middle" fill="#888" font-size="11">→ geselecteerde categorieën</text>
+  <text x="110" y="250" text-anchor="middle" fill="#888" font-size="11">→ dispatchEvent(update)</text>
+
+  <rect x="600" y="170" width="180" height="95" rx="8" fill="#1a1a2e" stroke="#9b59b6" stroke-width="1"/>
+  <text x="690" y="193" text-anchor="middle" fill="#9b59b6" font-size="12" font-weight="bold">Input event</text>
+  <line x1="600" y1="218" x2="562" y2="218" stroke="#9b59b6" stroke-width="1.5" stroke-dasharray="5" marker-end="url(#arr)"/>
+  <text x="690" y="218" text-anchor="middle" fill="#888" font-size="11">zoekVeld.value</text>
+  <text x="690" y="234" text-anchor="middle" fill="#888" font-size="11">→ zoekterm bijgewerkt</text>
+  <text x="690" y="250" text-anchor="middle" fill="#888" font-size="11">→ dispatchEvent(update)</text>
+
+  <!-- Result code -->
+  <rect x="20" y="395" width="760" height="88" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="416" fill="#888" font-size="11" font-family="'Courier New', monospace">function toonRecepten() {</text>
+  <text x="40" y="432" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  receptenSectie.<tspan fill="#6c63ff">innerHTML</tspan> = <tspan fill="#43e97b">''</tspan>;</text>
+  <text x="40" y="448" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  const gefilterd = alleRecepten.<tspan fill="#f9a825">filter</tspan>(r =&gt; geselecteerd.<tspan fill="#f9a825">includes</tspan>(r.categorie)).<tspan fill="#f9a825">filter</tspan>(r =&gt; r.naam.<tspan fill="#6c63ff">toLowerCase</tspan>().<tspan fill="#f9a825">includes</tspan>(zoekterm));</text>
+  <text x="40" y="464" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  gefilterd.<tspan fill="#f9a825">forEach</tspan>(r =&gt; <tspan fill="#6c63ff">voegReceptToe</tspan>(r));</text>
+  <text x="40" y="476" fill="#888" font-size="11" font-family="'Courier New', monospace">}</text>
+</svg>

@@ -45,8 +45,48 @@
 <span>H02</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-2-werkomgeving-en-versiebeheer-opzetten">Hoofdstuk 2 — Werkomgeving en versiebeheer opzetten</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#21-de-werkomgeving-opzetten">2.1 De werkomgeving opzetten</a></li><li><a href="#211-mysql-installeren" style="padding-left:1.25rem">2.1.1 MySQL installeren</a></li><li><a href="#212-mysql-workbench-als-grafische-client" style="padding-left:1.25rem">2.1.2 MySQL Workbench als grafische client</a></li><li><a href="#213-eerste-verbinding-via-de-command-line" style="padding-left:1.25rem">2.1.3 Eerste verbinding via de command-line</a></li><li><a href="#22-mappenstructuur-voor-een-databeheer-project">2.2 Mappenstructuur voor een databeheer-project</a></li><li><a href="#23-versiebeheer-met-git">2.3 Versiebeheer met Git</a></li><li><a href="#231-wat-is-versiebeheer" style="padding-left:1.25rem">2.3.1 Wat is versiebeheer?</a></li><li><a href="#232-git-basisbegrippen" style="padding-left:1.25rem">2.3.2 Git basisbegrippen</a></li><li><a href="#233-git-installeren-en-configureren" style="padding-left:1.25rem">2.3.3 Git installeren en configureren</a></li><li><a href="#234-een-project-opzetten-met-git" style="padding-left:1.25rem">2.3.4 Een project opzetten met Git</a></li><li><a href="#235-het-gitignore-bestand" style="padding-left:1.25rem">2.3.5 Het .gitignore-bestand</a></li><li><a href="#24-werkplanning-opstellen">2.4 Werkplanning opstellen</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h02" style="padding-left:1.25rem">Huistaak H02</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/databeheer/H02" style="--sidebar-accent: var(--color-vak-data)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.1"><span class="sidebar-check__box"></span></label>
+      <a href="#21-de-werkomgeving-opzetten">2.1 De werkomgeving opzetten</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.2"><span class="sidebar-check__box"></span></label>
+      <a href="#22-mappenstructuur-voor-een-databeheer-project">2.2 Mappenstructuur voor een databeheer-project</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.3"><span class="sidebar-check__box"></span></label>
+      <a href="#23-versiebeheer-met-git">2.3 Versiebeheer met Git</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.4"><span class="sidebar-check__box"></span></label>
+      <a href="#24-werkplanning-opstellen">2.4 Werkplanning opstellen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside>
       <div class="chapter-content">
         <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
@@ -68,18 +108,22 @@
 <tr><td><strong>Status</strong></td><td>Definitief</td></tr>
 </tbody></table></div>
 <h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB06]</span> Plannen van werkzaamheden in functie van de opdracht <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB16]</span> Gebruiken van een versiebeheersysteem <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB06</span><span class="ld-tag__title">Plannen van werkzaamheden in functie van de opdracht</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">Gebruiken van een versiebeheersysteem</span></div>
+</div>
 <p><strong>Geschatte lesuren:</strong> 4 u</p>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ol>
-<li>MySQL en een databaseclient (MySQL Workbench of phpMyAdmin) installeren en configureren.</li>
-<li>Een nieuwe database aanmaken via de command-line client.</li>
-<li>Uitleggen wat versiebeheer is en waarom het wordt gebruikt.</li>
-<li>Een lokale Git-repository aanmaken en bestanden toevoegen, committen en pushen naar GitHub.</li>
-<li>Een zinvolle mappenstructuur opzetten voor een databeheer-project.</li>
-<li>Een werkplanning opstellen voor een eenvoudige database-opdracht.</li>
-</ol>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>MySQL en een databaseclient (MySQL Workbench of phpMyAdmin) installeren en configureren.</li>
+    <li>Een nieuwe database aanmaken via de command-line client.</li>
+    <li>Uitleggen wat versiebeheer is en waarom het wordt gebruikt.</li>
+    <li>Een lokale Git-repository aanmaken en bestanden toevoegen, committen en pushen naar GitHub.</li>
+    <li>Een zinvolle mappenstructuur opzetten voor een databeheer-project.</li>
+    <li>Een werkplanning opstellen voor een eenvoudige database-opdracht.</li>
+  </ul>
+</div>
 <h2 id="21-de-werkomgeving-opzetten">2.1 De werkomgeving opzetten</h2>
 <h3 id="211-mysql-installeren">2.1.1 MySQL installeren</h3>
 <p>Voor dit vak gebruiken we <strong>MySQL</strong> als databasesysteem. MySQL is gratis, breed ondersteund en eenvoudig te installeren.</p>
@@ -517,7 +561,10 @@ git push origin main
 </ul>
 </div>
 <h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB06]</span> Plannen van werkzaamheden in functie van de opdracht <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB16]</span> Gebruiken van een versiebeheersysteem <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB06</span><span class="ld-tag__title">Plannen van werkzaamheden in functie van de opdracht</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">Gebruiken van een versiebeheersysteem</span></div>
+</div>
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>

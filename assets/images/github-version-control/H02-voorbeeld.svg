@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="800" height="500" fill="#1e1e1e" rx="10"/>
+  <rect width="800" height="44" fill="#2d2d2d" rx="10"/>
+  <rect y="22" width="800" height="22" fill="#2d2d2d"/>
+  <circle cx="22" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="22" r="6" fill="#27c93f"/>
+  <text x="400" y="28" font-size="13" fill="#aaa" text-anchor="middle">Terminal — Git configuratie</text>
+
+  <!-- Terminal body -->
+  <rect x="40" y="60" width="720" height="180" fill="#0d1117" rx="6"/>
+  <text x="60" y="86" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">$ git --version</text>
+  <text x="60" y="106" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">git version 2.43.0</text>
+  <text x="60" y="134" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">$ git config --list</text>
+  <text x="60" y="154" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">user.name=<tspan fill="#79c0ff">Lena Peeters</tspan></text>
+  <text x="60" y="174" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">user.email=<tspan fill="#79c0ff">lena.peeters@school.be</tspan></text>
+  <text x="60" y="194" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">core.editor=<tspan fill="#79c0ff">code --wait</tspan></text>
+  <text x="60" y="214" font-size="13" fill="#c9d1d9" font-family="'Courier New', monospace">init.defaultbranch=<tspan fill="#79c0ff">main</tspan></text>
+  <text x="60" y="234" font-size="13" fill="#2DBA4E" font-family="'Courier New', monospace">$ <tspan fill="#555">_</tspan></text>
+
+  <!-- Screenshot label -->
+  <rect x="40" y="258" width="180" height="28" fill="#2DBA4E" rx="4"/>
+  <text x="130" y="277" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Screenshot 1</text>
+  <rect x="240" y="258" width="180" height="28" fill="#333" rx="4"/>
+  <text x="330" y="277" font-size="12" fill="#aaa" text-anchor="middle">Screenshot 2</text>
+
+  <!-- Uitleg sectie -->
+  <rect x="40" y="304" width="720" height="90" fill="#252525" rx="6"/>
+  <text x="60" y="326" font-size="13" fill="#2DBA4E" font-weight="bold">Eigen uitleg (deel 2):</text>
+  <text x="60" y="348" font-size="12" fill="#ccc">"Git configureer je éénmalig met je naam en e-mailadres zodat elke commit</text>
+  <text x="60" y="368" font-size="12" fill="#ccc">weet wie hem gemaakt heeft. Dit is nodig voor samenwerking op GitHub."</text>
+
+  <!-- Score badges -->
+  <rect x="40" y="416" width="120" height="34" fill="#333" rx="6"/>
+  <text x="100" y="438" font-size="12" fill="#2DBA4E" text-anchor="middle">Deel 1: 5/5</text>
+  <rect x="176" y="416" width="120" height="34" fill="#333" rx="6"/>
+  <text x="236" y="438" font-size="12" fill="#2DBA4E" text-anchor="middle">Deel 2: 5/5</text>
+  <rect x="312" y="416" width="120" height="34" fill="#2DBA4E" rx="6"/>
+  <text x="372" y="438" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Totaal: 10/10</text>
+</svg>

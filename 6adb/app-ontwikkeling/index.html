@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App-ontwikkeling &mdash; 6ADB &mdash; Appschool Munsterbilzen</title>
-  <meta name="description" content="Verdieping in JavaScript, API's ophalen met fetch, Node.js, Python scripting, back-end koppeling met Databeheer en GIP-voorbereiding.">
+  <meta name="description" content="Verdieping in JavaScript OOP, async programmeren, Node.js &amp; Express, JSON-serialisatie en Fetch API.">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
 </head>
@@ -34,95 +34,393 @@
   </div>
 </nav>
 <main id="main">
-  <div class="container container-narrow">
-<nav class="breadcrumb" aria-label="Paginapad">
-<a href="../../index.html">Home</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<a href="../../6adb/index.html">6ADB</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<span>App-ontwikkeling</span>
-</nav>
+  <div class="container">
 
-    <div class="page-header vak-app">
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>App-ontwikkeling</span>
+    </nav>
+
+    <div class="page-header vak-appdev">
       <div class="page-header__vak">&#128187; 6ADB &mdash; Verdieping</div>
       <h1 class="page-header__title">App-ontwikkeling</h1>
-      <p class="page-header__desc">Verdieping in JavaScript, API's ophalen met fetch, Node.js server-side programmeren, Python scripting met pandas, back-end koppeling met Databeheer en GIP-voorbereiding.</p>
+      <p class="page-header__desc">Verdieping in JavaScript OOP (klassen, overerving, polymorfisme), asynchrone programmering, Node.js &amp; Express, JSON-serialisatie met klassen en de Fetch API voor externe data.</p>
     </div>
+
     <div class="meta-strip">
-      <div class="meta-item"><span class="meta-item__label">Hoofdstukken</span><span class="meta-item__value">6</span></div>
-      <div class="meta-item"><span class="meta-item__label">Lesuren</span><span class="meta-item__value">~36 u</span></div>
+      <div class="meta-item"><span class="meta-item__label">Hoofdstukken</span><span class="meta-item__value">23</span></div>
+      <div class="meta-item"><span class="meta-item__label">Lesuren</span><span class="meta-item__value">~132 u</span></div>
       <div class="meta-item"><span class="meta-item__label">Per week</span><span class="meta-item__value">6 u/week</span></div>
       <div class="meta-item"><span class="meta-item__label">Niveau</span><span class="meta-item__value">Verdieping</span></div>
     </div>
+
     <div style="margin-bottom:var(--space-6);">
       <div class="progress-label">
-        <span data-progress-label="6adb/app-ontwikkeling">0 / 6 hoofdstukken voltooid</span>
+        <span data-progress-label="6adb/app-ontwikkeling">0 / 23 hoofdstukken voltooid</span>
       </div>
       <div class="progress-bar-wrap">
-        <div class="progress-bar" data-progress-bar="6adb/app-ontwikkeling" data-total="6" style="width:0%"></div>
+        <div class="progress-bar" data-progress-bar="6adb/app-ontwikkeling" data-total="23" style="width:0%"></div>
       </div>
     </div>
+
+    <h2 style="margin-bottom: var(--space-4); margin-top: var(--space-6);">Semester 1 &mdash; JavaScript Verdieping &amp; Receptenapp</h2>
+
     <div>
-    <a href="H01-javascript-verdieping.html" class="card-hoofdstuk vak-app">
+
+    <a href="H01.html" class="card-hoofdstuk vak-appdev">
       <div class="card-hoofdstuk__num">01</div>
-      <div class="card-hoofdstuk__info">
-        <div class="card-hoofdstuk__title">H01 &mdash; JavaScript Verdieping</div>
-        <p class="card-hoofdstuk__meta">6 u &nbsp;|&nbsp; <span class="badge badge-verdieping">verdieping</span></p>
-      </div>
-      <div class="card-hoofdstuk__status">
-        <span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H01">&#9675; Niet begonnen</span>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H01 &mdash; Arrays</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H01">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Sla meerdere waarden op in een array en pas bewerkingen toe via indexen en methoden.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
       </div>
     </a>
-    <a href="H02-apis-en-fetch.html" class="card-hoofdstuk vak-app">
+
+    <a href="H02.html" class="card-hoofdstuk vak-appdev">
       <div class="card-hoofdstuk__num">02</div>
-      <div class="card-hoofdstuk__info">
-        <div class="card-hoofdstuk__title">H02 &mdash; API's ophalen met fetch</div>
-        <p class="card-hoofdstuk__meta">6 u &nbsp;|&nbsp; <span class="badge badge-verdieping">verdieping</span></p>
-      </div>
-      <div class="card-hoofdstuk__status">
-        <span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H02">&#9675; Niet begonnen</span>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H02 &mdash; Objecten</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H02">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Modelleer data als objecten met eigenschappen en methoden in JavaScript.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
       </div>
     </a>
-    <a href="H03-nodejs-basics.html" class="card-hoofdstuk vak-app">
+
+    <a href="H03.html" class="card-hoofdstuk vak-appdev">
       <div class="card-hoofdstuk__num">03</div>
-      <div class="card-hoofdstuk__info">
-        <div class="card-hoofdstuk__title">H03 &mdash; Node.js basics</div>
-        <p class="card-hoofdstuk__meta">6 u &nbsp;|&nbsp; <span class="badge badge-verdieping">verdieping</span></p>
-      </div>
-      <div class="card-hoofdstuk__status">
-        <span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H03">&#9675; Niet begonnen</span>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H03 &mdash; Template Literals &amp; Strings</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H03">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Bouw dynamische tekst met template literals en verken handige stringmethoden.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">4 u</span>
+        </div>
       </div>
     </a>
-    <a href="H04-python-scripting.html" class="card-hoofdstuk vak-app">
+
+    <a href="H04.html" class="card-hoofdstuk vak-appdev">
       <div class="card-hoofdstuk__num">04</div>
-      <div class="card-hoofdstuk__info">
-        <div class="card-hoofdstuk__title">H04 &mdash; Python scripting</div>
-        <p class="card-hoofdstuk__meta">6 u &nbsp;|&nbsp; <span class="badge badge-verdieping">verdieping</span></p>
-      </div>
-      <div class="card-hoofdstuk__status">
-        <span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H04">&#9675; Niet begonnen</span>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H04 &mdash; DOM Manipulatie</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H04">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Selecteer HTML-elementen vanuit JavaScript en pas inhoud, attributen en stijl dynamisch aan.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
       </div>
     </a>
-    <a href="H05-backend-koppeling-databeheer.html" class="card-hoofdstuk vak-app">
+
+    <a href="H05.html" class="card-hoofdstuk vak-appdev">
       <div class="card-hoofdstuk__num">05</div>
-      <div class="card-hoofdstuk__info">
-        <div class="card-hoofdstuk__title">H05 &mdash; Backend koppeling met Databeheer</div>
-        <p class="card-hoofdstuk__meta">6 u &nbsp;|&nbsp; <span class="badge badge-verdieping">verdieping</span></p>
-      </div>
-      <div class="card-hoofdstuk__status">
-        <span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H05">&#9675; Niet begonnen</span>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H05 &mdash; Events &amp; Luisteraars</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H05">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Reageer op klikken, toetsaanslagen en formulierinzendingen met event listeners en delegation.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
       </div>
     </a>
-    <a href="H06-gip-voorbereiding.html" class="card-hoofdstuk vak-app">
+
+    <a href="H06.html" class="card-hoofdstuk vak-appdev">
       <div class="card-hoofdstuk__num">06</div>
-      <div class="card-hoofdstuk__info">
-        <div class="card-hoofdstuk__title">H06 &mdash; GIP-voorbereiding</div>
-        <p class="card-hoofdstuk__meta">6 u &nbsp;|&nbsp; <span class="badge badge-verdieping">verdieping</span></p>
-      </div>
-      <div class="card-hoofdstuk__status">
-        <span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H06">&#9675; Niet begonnen</span>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H06 &mdash; Array Methodes</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H06">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Filter, map en sorteer arrays met de ingebouwde hogere-orde-functies zoals filter, map en reduce.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
       </div>
     </a>
+
+    <a href="H07.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">07</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H07 &mdash; ES Modules</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H07">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Splits JavaScript over meerdere bestanden met import en export voor betere structuur.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">4 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H08.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">08</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H08 &mdash; localStorage &amp; JSON</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H08">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Sla data op in de browser met localStorage en serialiseer objecten naar JSON-formaat.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span></div>
+          <span class="card-hoofdstuk__time">4 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H09.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">09</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H09 &mdash; Receptenapp &mdash; Opzet &amp; Structuur</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H09">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Zet de mappenstructuur, het HTML-skelet en het stijlbestand op voor de Receptenapp.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB10</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H10.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">10</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H10 &mdash; Receptenapp &mdash; Recepten Weergeven</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H10">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Laad recepten uit localStorage en render ze dynamisch als HTML-kaarten op de pagina.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H11.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">11</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H11 &mdash; Receptenapp &mdash; Formulier &amp; Invoer</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H11">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Voeg nieuwe recepten toe via een formulier met client-side validatie.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H12.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">12</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H12 &mdash; Receptenapp &mdash; localStorage integreren</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H12">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Bewaar en herstel recepten via localStorage zodat data bewaard blijft na het herladen van de pagina.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H13.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">13</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H13 &mdash; Receptenapp &mdash; Filteren op Categorie</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H13">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Bouw een filtermechanisme dat enkel de recepten van een gekozen categorie toont.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    </div>
+
+    <h2 style="margin-bottom: var(--space-4); margin-top: var(--space-8);">Semester 2 &mdash; OOP, Async &amp; Back-end</h2>
+
+    <div>
+
+    <a href="H14.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">14</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H14 &mdash; Receptenapp &mdash; Zoekfunctie</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H14">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Implementeer live zoeken op receptnaam via een zoekveld met directe DOM-updates.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">4 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H15.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">15</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H15 &mdash; Receptenapp &mdash; Verwijderen &amp; Uitdieping</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H15">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Verwijder recepten uit de lijst en verdiep je kennis van event delegation.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">4 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H16.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">16</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H16 &mdash; Receptenapp &mdash; Statistieken &amp; Live Klok</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H16">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Toon statistieken over de recepten en bouw een klok die elke seconde bijwerkt met setInterval.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H17.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">17</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H17 &mdash; JavaScript Klassen</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H17">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Definieer klassen met constructor, properties en methoden als basis van objectgericht programmeren.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H18.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">18</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H18 &mdash; Overerving &amp; Polymorfisme</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H18">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Laat klassen eigenschappen erven met extends en pas gedrag aan via method override.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H19.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">19</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H19 &mdash; Async JavaScript</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H19">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Werk met Promises, async/await en de Fetch API om externe data asynchroon op te halen.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB14</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H20.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">20</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H20 &mdash; Node.js &amp; npm</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H20">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Zet een Node.js-project op met Express, beheer pakketten via npm en schrijf je eerste routes.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB20</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H21.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">21</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H21 &mdash; MySQL koppelen aan Node.js</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H21">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Verbind een MySQL-databank aan Node.js en voer SELECT-queries uit via de API-route.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB20</span><span class="ld-chip">ADB25</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H22.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">22</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H22 &mdash; Login &amp; Register</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H22">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Versleutel wachtwoorden met bcrypt en implementeer sessiebeheer via express-session.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB01</span><span class="ld-chip">ADB20</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="H23.html" class="card-hoofdstuk vak-appdev">
+      <div class="card-hoofdstuk__num">23</div>
+      <div class="card-hoofdstuk__body">
+        <div class="card-hoofdstuk__head">
+          <div class="card-hoofdstuk__title">H23 &mdash; Front-end koppelen aan de API</div>
+          <div class="card-hoofdstuk__status"><span class="progress-badge progress-badge--not-started" data-progress-key="6adb/app-ontwikkeling/H23">&#9675; Niet begonnen</span></div>
+        </div>
+        <p class="card-hoofdstuk__desc">Stuur fetch-verzoeken vanuit de browser naar de Node.js-API en verwerk de JSON-respons in de DOM.</p>
+        <div class="card-hoofdstuk__foot">
+          <div class="card-hoofdstuk__ld"><span class="ld-chip">ADB09</span><span class="ld-chip">ADB20</span></div>
+          <span class="card-hoofdstuk__time">6 u</span>
+        </div>
+      </div>
+    </a>
+
     </div>
 
   </div>

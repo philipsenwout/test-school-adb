@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#f0f4ff"/>
+
+  <!-- Title -->
+  <text x="400" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#2d2d4e">Private fields + getters/setters</text>
+
+  <!-- LEFT PANEL: class diagram -->
+  <rect x="30" y="55" width="330" height="310" rx="12" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2"/>
+  <!-- Header -->
+  <rect x="30" y="55" width="330" height="40" rx="12" fill="#6c63ff"/>
+  <rect x="30" y="82" width="330" height="13" fill="#6c63ff"/>
+  <text x="195" y="81" text-anchor="middle" font-size="15" font-weight="700" fill="white">class Auto</text>
+
+  <!-- Private fields section -->
+  <text x="55" y="120" font-size="12" fill="#888" font-style="italic">Private velden:</text>
+  <!-- Lock icons (text based) -->
+  <text x="55" y="145" font-size="13" fill="#ff6b6b">&#128274;</text>
+  <text x="78" y="145" font-size="13" fill="#ff6b6b">#merk</text>
+  <text x="180" y="145" font-size="11" fill="#888">string</text>
+
+  <text x="55" y="170" font-size="13" fill="#ff6b6b">&#128274;</text>
+  <text x="78" y="170" font-size="13" fill="#ff6b6b">#kleur</text>
+  <text x="180" y="170" font-size="11" fill="#888">string</text>
+
+  <text x="55" y="195" font-size="13" fill="#ff6b6b">&#128274;</text>
+  <text x="78" y="195" font-size="13" fill="#ff6b6b">#snelheid</text>
+  <text x="180" y="195" font-size="11" fill="#888">number = 0</text>
+
+  <!-- Divider -->
+  <line x1="45" y1="210" x2="345" y2="210" stroke="#888" stroke-width="1" opacity="0.5"/>
+
+  <!-- Public methods section -->
+  <text x="55" y="230" font-size="12" fill="#888" font-style="italic">Publieke methodes (getters/setters):</text>
+
+  <text x="55" y="253" font-size="13" fill="#43e97b">get merk()</text>
+  <text x="210" y="253" font-size="11" fill="#888">→ geeft #merk terug</text>
+
+  <text x="55" y="275" font-size="13" fill="#43e97b">set merk(v)</text>
+  <text x="210" y="275" font-size="11" fill="#888">→ valideert + zet #merk</text>
+
+  <text x="55" y="297" font-size="13" fill="#43e97b">get kleur()</text>
+  <text x="210" y="297" font-size="11" fill="#888">→ geeft #kleur terug</text>
+
+  <text x="55" y="319" font-size="13" fill="#43e97b">set accelerator(v)</text>
+  <text x="210" y="319" font-size="11" fill="#888">→ 0–200 km/h</text>
+
+  <!-- Legend inside left panel -->
+  <rect x="44" y="338" width="12" height="12" fill="#ff6b6b" rx="2"/>
+  <text x="62" y="349" font-size="11" fill="#888">= privaat (buiten class onbereikbaar)</text>
+  <rect x="44" y="356" width="12" height="12" fill="#43e97b" rx="2"/>
+  <text x="62" y="367" font-size="11" fill="#888">= publiek (via getter/setter)</text>
+
+  <!-- RIGHT PANEL: code examples -->
+  <rect x="390" y="55" width="380" height="310" rx="12" fill="#1a1a2e" stroke="#2d2d4e" stroke-width="2"/>
+  <text x="580" y="82" text-anchor="middle" font-size="13" fill="#888">Gebruik buiten de class</text>
+  <line x1="400" y1="90" x2="760" y2="90" stroke="#888" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Access via getter - OK -->
+  <rect x="405" y="102" width="360" height="66" rx="6" fill="#43e97b" fill-opacity="0.1" stroke="#43e97b" stroke-width="1"/>
+  <text x="420" y="120" font-size="12" fill="#888">// ✓ Toegang via getter</text>
+  <text x="420" y="138" font-size="13" fill="white" font-family="monospace">const m = <tspan fill="#f9a825">auto</tspan>.<tspan fill="#43e97b">merk</tspan>;</text>
+  <text x="420" y="156" font-size="13" fill="white" font-family="monospace">console.log(m); <tspan fill="#43e97b">// "Toyota" ✓</tspan></text>
+  <!-- Green checkmark badge -->
+  <circle cx="748" cy="120" r="12" fill="#43e97b"/>
+  <text x="748" y="125" text-anchor="middle" font-size="14" fill="white">&#10003;</text>
+
+  <!-- Direct access - FAIL -->
+  <rect x="405" y="182" width="360" height="66" rx="6" fill="#ff6b6b" fill-opacity="0.1" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="420" y="200" font-size="12" fill="#888">// ✗ Directe toegang — FOUT!</text>
+  <text x="420" y="218" font-size="13" fill="white" font-family="monospace">const m = <tspan fill="#f9a825">auto</tspan>.<tspan fill="#ff6b6b">#merk</tspan>;</text>
+  <text x="420" y="236" font-size="13" fill="#ff6b6b" font-family="monospace">// SyntaxError ✗</text>
+  <!-- Red cross badge -->
+  <circle cx="748" cy="200" r="12" fill="#ff6b6b"/>
+  <text x="748" y="205" text-anchor="middle" font-size="14" fill="white">&#10007;</text>
+
+  <!-- Setter example -->
+  <rect x="405" y="262" width="360" height="86" rx="6" fill="#6c63ff" fill-opacity="0.1" stroke="#6c63ff" stroke-width="1"/>
+  <text x="420" y="280" font-size="12" fill="#888">// ✓ Setter met validatie</text>
+  <text x="420" y="298" font-size="13" fill="white" font-family="monospace"><tspan fill="#f9a825">auto</tspan>.<tspan fill="#43e97b">accelerator</tspan> = <tspan fill="#43e97b">80</tspan>;</text>
+  <text x="420" y="316" font-size="13" fill="#43e97b" font-family="monospace">// snelheid = 80 ✓</text>
+  <text x="420" y="334" font-size="13" fill="white" font-family="monospace"><tspan fill="#f9a825">auto</tspan>.<tspan fill="#43e97b">accelerator</tspan> = <tspan fill="#ff6b6b">999</tspan>;</text>
+  <text x="420" y="348" font-size="11" fill="#888" font-family="monospace">// setter begrenst op 200</text>
+
+  <!-- Bottom explanation -->
+  <rect x="30" y="382" width="740" height="76" rx="10" fill="#1a1a2e"/>
+  <text x="400" y="406" text-anchor="middle" font-size="13" fill="#888">Waarom private fields?</text>
+  <text x="400" y="428" text-anchor="middle" font-size="12" fill="white">Private velden (<tspan fill="#ff6b6b">#naam</tspan>) zijn alleen toegankelijk <tspan font-weight="700">binnen de class zelf</tspan>.</text>
+  <text x="400" y="448" text-anchor="middle" font-size="12" fill="white">Getters/setters geven <tspan fill="#43e97b">gecontroleerde toegang</tspan> van buitenaf — dit heet <tspan fill="#6c63ff" font-weight="700">encapsulatie</tspan>.</text>
+</svg>

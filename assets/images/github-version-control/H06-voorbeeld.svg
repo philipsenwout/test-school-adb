@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="800" height="500" fill="#1e1e1e" rx="10"/>
+  <rect width="800" height="44" fill="#2d2d2d" rx="10"/>
+  <rect y="22" width="800" height="22" fill="#2d2d2d"/>
+  <circle cx="22" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="66" cy="22" r="6" fill="#27c93f"/>
+  <text x="400" y="28" font-size="13" fill="#aaa" text-anchor="middle">VS Code Explorer — gip-project (volledige workflow)</text>
+
+  <!-- Explorer panel -->
+  <rect x="0" y="44" width="260" height="456" fill="#252526"/>
+  <text x="20" y="72" font-size="11" fill="#bbb" letter-spacing="1">EXPLORER</text>
+  <text x="20" y="100" font-size="12" fill="#cccccc">▼ gip-project</text>
+  <text x="36" y="122" font-size="12" fill="#cccccc">▼ Client</text>
+  <text x="52" y="142" font-size="12" fill="#d4d4d4">  index.html</text>
+  <text x="52" y="162" font-size="12" fill="#d4d4d4">  login.html</text>
+  <text x="52" y="182" font-size="12" fill="#d4d4d4">  style.css</text>
+  <text x="52" y="202" font-size="12" fill="#cccccc">▼ js</text>
+  <text x="68" y="222" font-size="12" fill="#d4d4d4">  main.js</text>
+  <text x="36" y="246" font-size="12" fill="#cccccc">▼ server</text>
+  <text x="52" y="266" font-size="12" fill="#d4d4d4">  server.js</text>
+  <text x="52" y="286" font-size="12" fill="#d4d4d4">  .env</text>
+  <text x="36" y="310" font-size="12" fill="#e2c08d">  README.md</text>
+  <text x="36" y="330" font-size="12" fill="#e2c08d">  werklog.md</text>
+  <text x="36" y="350" font-size="12" fill="#e2c08d">  planning.md</text>
+  <text x="36" y="374" font-size="12" fill="#8b8b8b">  .gitignore</text>
+  <text x="36" y="398" font-size="12" fill="#8b8b8b">  package.json</text>
+
+  <!-- Terminal rechts -->
+  <rect x="260" y="44" width="540" height="456" fill="#1e1e1e"/>
+  <rect x="260" y="44" width="540" height="36" fill="#2d2d2d"/>
+  <text x="530" y="67" font-size="12" fill="#aaa" text-anchor="middle">TERMINAL</text>
+
+  <text x="280" y="104" font-size="12" fill="#2DBA4E" font-family="'Courier New', monospace">$ git log --oneline</text>
+  <text x="280" y="126" font-size="12" fill="#f7c948" font-family="'Courier New', monospace">f1a2b3c <tspan fill="#c9d1d9">docs: werklog week 3 bijgewerkt</tspan></text>
+  <text x="280" y="148" font-size="12" fill="#f7c948" font-family="'Courier New', monospace">e9d8c7b <tspan fill="#c9d1d9">feat: login route toegevoegd</tspan></text>
+  <text x="280" y="170" font-size="12" fill="#f7c948" font-family="'Courier New', monospace">a5f4e3d <tspan fill="#c9d1d9">feat: database connectie</tspan></text>
+  <text x="280" y="192" font-size="12" fill="#f7c948" font-family="'Courier New', monospace">9c8b7a6 <tspan fill="#c9d1d9">init: projectstructuur aangemaakt</tspan></text>
+
+  <rect x="280" y="214" width="500" height="60" fill="#1c2128" rx="6"/>
+  <text x="300" y="238" font-size="12" fill="#8b949e">✔  Volledige mappenstructuur aangemaakt</text>
+  <text x="300" y="258" font-size="12" fill="#8b949e">✔  werklog.md + planning.md aanwezig</text>
+
+  <text x="280" y="300" font-size="12" fill="#2DBA4E" font-family="'Courier New', monospace">$ git push origin main</text>
+  <text x="280" y="322" font-size="12" fill="#c9d1d9" font-family="'Courier New', monospace">Everything up-to-date  ✔</text>
+</svg>

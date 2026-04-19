@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L10,3.5 Z" fill="#6c63ff"/>
+    </marker>
+    <marker id="arrowB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L10,3.5 Z" fill="#3498db"/>
+    </marker>
+    <marker id="arrowGr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L10,3.5 Z" fill="#43e97b"/>
+    </marker>
+    <marker id="arrowO" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L10,3.5 Z" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- Titel -->
+  <text x="400" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#2d2d4e">Bestandsstructuur — receptenapp/</text>
+
+  <!-- Map icoon + naam -->
+  <text x="340" y="64" font-size="20">📁</text>
+  <text x="366" y="64" font-size="16" font-weight="700" fill="#f9a825">receptenapp/</text>
+
+  <!-- === HTML bestanden (links, oranje) === -->
+  <!-- index.html -->
+  <rect x="30" y="90" width="150" height="44" rx="8" fill="#fff3e0" stroke="#f9a825" stroke-width="2"/>
+  <text x="50" y="108" font-size="14">📄</text>
+  <text x="72" y="108" font-size="13" font-weight="600" fill="#e65100">index.html</text>
+  <text x="105" y="125" text-anchor="middle" font-size="10" fill="#e65100">HTML</text>
+
+  <!-- add.html -->
+  <rect x="30" y="158" width="150" height="44" rx="8" fill="#fff3e0" stroke="#f9a825" stroke-width="2"/>
+  <text x="50" y="176" font-size="14">📄</text>
+  <text x="72" y="176" font-size="13" font-weight="600" fill="#e65100">add.html</text>
+  <text x="105" y="193" text-anchor="middle" font-size="10" fill="#e65100">HTML</text>
+
+  <!-- stijl.css (blauw, midden links) -->
+  <rect x="30" y="228" width="150" height="44" rx="8" fill="#e3f2fd" stroke="#3498db" stroke-width="2"/>
+  <text x="50" y="246" font-size="14">📄</text>
+  <text x="72" y="246" font-size="13" font-weight="600" fill="#1565c0">stijl.css</text>
+  <text x="105" y="263" text-anchor="middle" font-size="10" fill="#1565c0">CSS</text>
+
+  <!-- === JS modules (rechts, geel/groen/paars) === -->
+  <!-- recepten.js -->
+  <rect x="380" y="90" width="170" height="44" rx="8" fill="#fffde7" stroke="#f9a825" stroke-width="2"/>
+  <text x="400" y="108" font-size="14">📄</text>
+  <text x="422" y="108" font-size="13" font-weight="600" fill="#f57f17">recepten.js</text>
+  <text x="465" y="125" text-anchor="middle" font-size="10" fill="#f57f17">basisRecepten data</text>
+
+  <!-- hulpfuncties.js -->
+  <rect x="380" y="158" width="170" height="44" rx="8" fill="#e8f5e9" stroke="#43e97b" stroke-width="2"/>
+  <text x="400" y="176" font-size="14">📄</text>
+  <text x="422" y="176" font-size="13" font-weight="600" fill="#1b5e20">hulpfuncties.js</text>
+  <text x="465" y="193" text-anchor="middle" font-size="10" fill="#1b5e20">updateLS / hulpfns</text>
+
+  <!-- script.js -->
+  <rect x="600" y="90" width="160" height="44" rx="8" fill="#f3e5f5" stroke="#6c63ff" stroke-width="2"/>
+  <text x="620" y="108" font-size="14">📄</text>
+  <text x="642" y="108" font-size="13" font-weight="600" fill="#4a148c">script.js</text>
+  <text x="680" y="125" text-anchor="middle" font-size="10" fill="#4a148c">logica index</text>
+
+  <!-- add.js -->
+  <rect x="600" y="158" width="160" height="44" rx="8" fill="#f3e5f5" stroke="#6c63ff" stroke-width="2"/>
+  <text x="620" y="176" font-size="14">📄</text>
+  <text x="642" y="176" font-size="13" font-weight="600" fill="#4a148c">add.js</text>
+  <text x="680" y="193" text-anchor="middle" font-size="10" fill="#4a148c">logica add-pagina</text>
+
+  <!-- === Verbindingspijlen === -->
+
+  <!-- index.html → script.js -->
+  <line x1="180" y1="108" x2="596" y2="108" stroke="#6c63ff" stroke-width="1.5" marker-end="url(#arrowG)" stroke-dasharray="5,3"/>
+  <rect x="320" y="94" width="60" height="18" rx="4" fill="#fff" stroke="#6c63ff" stroke-width="1" opacity="0.9"/>
+  <text x="350" y="107" text-anchor="middle" font-size="10" fill="#6c63ff" font-weight="600">&lt;script&gt;</text>
+
+  <!-- add.html → add.js -->
+  <line x1="180" y1="176" x2="596" y2="176" stroke="#6c63ff" stroke-width="1.5" marker-end="url(#arrowG)" stroke-dasharray="5,3"/>
+  <rect x="320" y="162" width="60" height="18" rx="4" fill="#fff" stroke="#6c63ff" stroke-width="1" opacity="0.9"/>
+  <text x="350" y="175" text-anchor="middle" font-size="10" fill="#6c63ff" font-weight="600">&lt;script&gt;</text>
+
+  <!-- stijl.css → index.html (link) -->
+  <line x1="105" y1="228" x2="105" y2="134" stroke="#3498db" stroke-width="1.5" marker-end="url(#arrowB)" stroke-dasharray="5,3"/>
+  <rect x="56" y="178" width="40" height="16" rx="4" fill="#fff" stroke="#3498db" stroke-width="1" opacity="0.9"/>
+  <text x="76" y="190" text-anchor="middle" font-size="9" fill="#3498db">&lt;link&gt;</text>
+
+  <!-- stijl.css → add.html (link) -->
+  <path d="M155,250 Q220,250 220,176 L180,176" stroke="#3498db" stroke-width="1.5" fill="none" marker-end="url(#arrowB)" stroke-dasharray="5,3"/>
+  <rect x="186" y="208" width="40" height="16" rx="4" fill="#fff" stroke="#3498db" stroke-width="1" opacity="0.9"/>
+  <text x="206" y="220" text-anchor="middle" font-size="9" fill="#3498db">&lt;link&gt;</text>
+
+  <!-- recepten.js → add.js (import basisRecepten) -->
+  <line x1="550" y1="108" x2="596" y2="176" stroke="#f9a825" stroke-width="1.5" marker-end="url(#arrowO)" stroke-dasharray="4,3"/>
+  <rect x="545" y="130" width="60" height="16" rx="4" fill="#fff" stroke="#f9a825" stroke-width="1" opacity="0.9"/>
+  <text x="575" y="142" text-anchor="middle" font-size="9" fill="#f57f17">import</text>
+
+  <!-- hulpfuncties.js → script.js -->
+  <line x1="550" y1="168" x2="598" y2="128" stroke="#43e97b" stroke-width="1.5" marker-end="url(#arrowGr)" stroke-dasharray="4,3"/>
+
+  <!-- hulpfuncties.js → add.js -->
+  <line x1="550" y1="182" x2="598" y2="178" stroke="#43e97b" stroke-width="1.5" marker-end="url(#arrowGr)" stroke-dasharray="4,3"/>
+  <rect x="555" y="188" width="40" height="16" rx="4" fill="#fff" stroke="#43e97b" stroke-width="1" opacity="0.9"/>
+  <text x="575" y="200" text-anchor="middle" font-size="9" fill="#1b5e20">import</text>
+
+  <!-- Legende -->
+  <rect x="20" y="310" width="760" height="170" rx="10" fill="#f8f9ff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="400" y="334" text-anchor="middle" font-size="13" font-weight="700" fill="#2d2d4e">Bestandsoverzicht</text>
+
+  <rect x="40" y="348" width="14" height="14" rx="3" fill="#f9a825"/>
+  <text x="60" y="360" font-size="12" fill="#2d2d4e" font-weight="600">index.html / add.html</text>
+  <text x="60" y="376" font-size="11" fill="#555">HTML-pagina's — de twee schermen van de app</text>
+
+  <rect x="40" y="392" width="14" height="14" rx="3" fill="#3498db"/>
+  <text x="60" y="404" font-size="12" fill="#2d2d4e" font-weight="600">stijl.css</text>
+  <text x="60" y="420" font-size="11" fill="#555">Eén CSS-bestand voor beide pagina's</text>
+
+  <rect x="280" y="348" width="14" height="14" rx="3" fill="#f57f17"/>
+  <text x="300" y="360" font-size="12" fill="#2d2d4e" font-weight="600">recepten.js</text>
+  <text x="300" y="376" font-size="11" fill="#555">Data-module: basisRecepten array (export)</text>
+
+  <rect x="280" y="392" width="14" height="14" rx="3" fill="#43e97b"/>
+  <text x="300" y="404" font-size="12" fill="#2d2d4e" font-weight="600">hulpfuncties.js</text>
+  <text x="300" y="420" font-size="11" fill="#555">Hulp-module: updateLS en andere functies (export)</text>
+
+  <rect x="540" y="348" width="14" height="14" rx="3" fill="#6c63ff"/>
+  <text x="560" y="360" font-size="12" fill="#2d2d4e" font-weight="600">script.js / add.js</text>
+  <text x="560" y="376" font-size="11" fill="#555">Hoofdlogica per pagina (import + DOM-manipulatie)</text>
+</svg>

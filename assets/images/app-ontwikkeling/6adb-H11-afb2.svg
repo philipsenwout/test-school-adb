@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#00000020"/>
+    </filter>
+  </defs>
+
+  <!-- Browser chrome -->
+  <rect x="60" y="20" width="680" height="460" rx="10" fill="#e8eaf0"/>
+  <rect x="60" y="20" width="680" height="40" rx="10" fill="#d0d3dd"/>
+  <rect x="60" y="48" width="680" height="12" fill="#d0d3dd"/>
+  <!-- Knoppen -->
+  <circle cx="84" cy="40" r="7" fill="#ff5f57"/>
+  <circle cx="104" cy="40" r="7" fill="#febc2e"/>
+  <circle cx="124" cy="40" r="7" fill="#28c840"/>
+  <!-- URL -->
+  <rect x="148" y="28" width="424" height="24" rx="12" fill="#ffffff" opacity="0.9"/>
+  <text x="360" y="43" font-size="12" fill="#6b7280" text-anchor="middle">localhost:5500/index.html</text>
+
+  <!-- Pagina-inhoud achtergrond -->
+  <rect x="60" y="60" width="680" height="420" fill="#f8f9ff"/>
+
+  <!-- Groene succesmelding -->
+  <rect x="60" y="60" width="680" height="52" fill="#43e97b" opacity="0.9"/>
+  <text x="400" y="91" font-size="15" font-weight="700" fill="#1a4a2a" text-anchor="middle">✓ Recept 'Lasagne' is toegevoegd!</text>
+
+  <!-- Formulier titel -->
+  <text x="100" y="140" font-size="18" font-weight="700" fill="#2d2d4e">Recept toevoegen</text>
+
+  <!-- Label + Veld: Naam (leeg) -->
+  <text x="100" y="168" font-size="13" font-weight="600" fill="#4b5563">Naam</text>
+  <rect x="100" y="176" width="580" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="116" y="199" font-size="13" fill="#d1d5db" font-style="italic">Naam van het recept...</text>
+
+  <!-- Label + Veld: Beschrijving (leeg) -->
+  <text x="100" y="232" font-size="13" font-weight="600" fill="#4b5563">Beschrijving</text>
+  <rect x="100" y="240" width="580" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="116" y="263" font-size="13" fill="#d1d5db" font-style="italic">Korte beschrijving...</text>
+
+  <!-- Label + Veld: Categorie (dropdown) -->
+  <text x="100" y="296" font-size="13" font-weight="600" fill="#4b5563">Categorie</text>
+  <rect x="100" y="304" width="580" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="116" y="327" font-size="13" fill="#9ca3af">-- Kies een categorie --</text>
+  <text x="660" y="327" font-size="14" fill="#9ca3af">▼</text>
+
+  <!-- Label + Veld: Bereidingstijd (leeg) -->
+  <text x="100" y="360" font-size="13" font-weight="600" fill="#4b5563">Bereidingstijd (minuten)</text>
+  <rect x="100" y="368" width="580" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="116" y="391" font-size="13" fill="#d1d5db" font-style="italic">bv. 30</text>
+
+  <!-- Knoppen -->
+  <rect x="100" y="428" width="148" height="36" rx="8" fill="#6c63ff"/>
+  <text x="174" y="450" font-size="13" fill="#fff" text-anchor="middle" font-weight="600">Voeg toe</text>
+  <rect x="264" y="428" width="100" height="36" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="314" y="450" font-size="13" fill="#4b5563" text-anchor="middle">Annuleer</text>
+  <rect x="380" y="428" width="140" height="36" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="450" y="450" font-size="13" fill="#4b5563" text-anchor="middle">Wis formulier</text>
+</svg>

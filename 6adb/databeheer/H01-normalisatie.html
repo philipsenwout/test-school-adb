@@ -33,34 +33,62 @@
   </div>
 </nav>
 <main id="main">
-  <div class="container">
-<nav class="breadcrumb" aria-label="Paginapad">
-<a href="../../index.html">Home</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<a href="../../6adb/index.html">6ADB</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<a href="index.html">Databeheer</a>
-<span class="breadcrumb-sep">&#8250;</span>
-<span>H01</span>
-</nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. Waarom normaliseren?</a></li>
-        <li><a href="#s2">2. Eerste normaalvorm (1NF)</a></li>
-        <li><a href="#s3">3. Tweede normaalvorm (2NF)</a></li>
-        <li><a href="#s4">4. Derde normaalvorm (3NF)</a></li>
-        <li><a href="#s5">5. Volledig voorbeeld</a></li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/databeheer/H01" style="--sidebar-accent: var(--color-vak-data)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1">1. Waarom normaliseren?</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s2">2. Eerste normaalvorm (1NF)</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s3">3. Tweede normaalvorm (2NF)</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s4">4. Derde normaalvorm (3NF)</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s5">5. Volledig voorbeeld</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+        <a href="#vragenlijst">Vragenlijst</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="index.html">Databeheer</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>H01 — Normalisatie</span>
+    </nav>
     <div class="page-header vak-data">
       <div class="page-header__vak">&#128202; Databeheer &mdash; H01</div>
       <h1 class="page-header__title">Normalisatie</h1>
@@ -70,8 +98,18 @@
       </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-DB-09] Databaseschema normaliseren tot 3NF &mdash; verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">DB09</span><span class="ld-tag__title">Databaseschema normaliseren tot 3NF — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>De leerling kan de drie anomalieën in een slecht databaseschema benoemen en uitleggen.</li>
+        <li>De leerling kan een tabel controleren op 1NF, 2NF en 3NF.</li>
+        <li>De leerling kan een niet-genormaliseerde tabel stap voor stap normaliseren tot 3NF.</li>
+        <li>De leerling kan het genormaliseerde schema omzetten naar CREATE TABLE statements met foreign keys.</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. Waarom normaliseren?</h2>

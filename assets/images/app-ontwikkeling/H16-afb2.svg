@@ -1,0 +1,210 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff4444"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#39ff14"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+    <filter id="glow-red">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#ff4444" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Grid -->
+  <g opacity="0.035" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="150" x2="1200" y2="150"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="0" y1="750" x2="1200" y2="750"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="1">Ideale Regellengte — Vergelijking</text>
+  <line x1="180" y1="62" x2="1020" y2="62" stroke="#00d4ff" stroke-width="1.5" opacity="0.5"/>
+  <text x="600" y="84" text-anchor="middle" font-size="14" fill="#888">De breedte van je tekst heeft een grote invloed op leesbaarheid en leescomfort</text>
+
+  <!-- ===== LEFT PANEL: TOO LONG ===== -->
+  <rect x="40" y="105" width="530" height="530" rx="12" fill="#1a0a0a" stroke="#ff4444" stroke-width="2.5" filter="url(#glow-red)"/>
+
+  <!-- Label BAR -->
+  <rect x="40" y="105" width="530" height="44" rx="12" fill="#ff4444" opacity="0.2"/>
+  <rect x="40" y="128" width="530" height="21" fill="#1a0a0a"/>
+  <text x="305" y="133" text-anchor="middle" font-size="16" font-weight="700" fill="#ff4444">&#x2717;  Te lang — vermoeiend (&gt;90 tekens)</text>
+
+  <!-- Too-long text block -->
+  <rect x="60" y="162" width="490" height="340" rx="8" fill="#0f0a0a" stroke="#330000" stroke-width="1"/>
+  <rect x="60" y="162" width="490" height="340" fill="url(#scanlines)" opacity="0.5"/>
+
+  <text x="75" y="188" font-size="12.5" fill="#c8c8c8">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt</text>
+  <text x="75" y="206" font-size="12.5" fill="#c8c8c8">ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco</text>
+  <text x="75" y="224" font-size="12.5" fill="#c8c8c8">laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in</text>
+  <text x="75" y="242" font-size="12.5" fill="#c8c8c8">voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat</text>
+  <text x="75" y="260" font-size="12.5" fill="#c8c8c8">non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed perspiciatis</text>
+  <text x="75" y="278" font-size="12.5" fill="#c8c8c8">unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem</text>
+  <text x="75" y="296" font-size="12.5" fill="#c8c8c8">aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt</text>
+  <text x="75" y="314" font-size="12.5" fill="#c8c8c8">explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed</text>
+  <text x="75" y="332" font-size="12.5" fill="#c8c8c8">quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro</text>
+  <text x="75" y="350" font-size="12.5" fill="#c8c8c8">quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia</text>
+  <text x="75" y="368" font-size="12.5" fill="#c8c8c8">non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat</text>
+  <text x="75" y="386" font-size="12.5" fill="#c8c8c8">voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit</text>
+  <text x="75" y="404" font-size="12.5" fill="#c8c8c8">laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit</text>
+  <text x="75" y="422" font-size="12.5" fill="#c8c8c8">qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum</text>
+  <text x="75" y="440" font-size="12.5" fill="#c8c8c8">fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus</text>
+  <text x="75" y="458" font-size="12.5" fill="#c8c8c8">qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias</text>
+  <text x="75" y="476" font-size="12.5" fill="#c8c8c8">excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt</text>
+
+  <!-- Character ruler -->
+  <rect x="60" y="512" width="490" height="22" rx="4" fill="#2a0a0a" stroke="#550000" stroke-width="1"/>
+  <g stroke="#ff4444" stroke-width="1" opacity="0.7">
+    <line x1="60" y1="516" x2="60" y2="526"/>
+    <line x1="117" y1="516" x2="117" y2="526"/>
+    <line x1="174" y1="516" x2="174" y2="526"/>
+    <line x1="231" y1="516" x2="231" y2="526"/>
+    <line x1="288" y1="516" x2="288" y2="526"/>
+    <line x1="345" y1="516" x2="345" y2="526"/>
+    <line x1="402" y1="516" x2="402" y2="526"/>
+    <line x1="459" y1="516" x2="459" y2="526"/>
+    <line x1="516" y1="516" x2="516" y2="526"/>
+    <line x1="550" y1="516" x2="550" y2="526"/>
+  </g>
+  <text x="60" y="532" font-size="10" fill="#ff4444">0</text>
+  <text x="109" y="532" font-size="10" fill="#ff4444">20</text>
+  <text x="166" y="532" font-size="10" fill="#ff4444">40</text>
+  <text x="223" y="532" font-size="10" fill="#ff4444">60</text>
+  <text x="280" y="532" font-size="10" fill="#ff4444">80</text>
+  <text x="334" y="532" font-size="10" fill="#ff4444">100</text>
+  <text x="391" y="532" font-size="10" fill="#ff4444">120</text>
+  <text x="448" y="532" font-size="10" fill="#ff4444">140</text>
+  <text x="505" y="532" font-size="10" fill="#ff4444">160</text>
+  <text x="540" y="532" font-size="10" fill="#ff4444">180+</text>
+
+  <!-- Why it's bad -->
+  <rect x="60" y="545" width="490" height="76" rx="6" fill="#1e0a0a"/>
+  <text x="75" y="565" font-size="12" fill="#ff6b6b">&#x2718;  Oog verliest de volgende regel — regressies nemen toe</text>
+  <text x="75" y="583" font-size="12" fill="#ff6b6b">&#x2718;  Meer cognitieve belasting: oog moet ver bewegen</text>
+  <text x="75" y="601" font-size="12" fill="#ff6b6b">&#x2718;  Vermoeidheid na 10–15 seconden lezen</text>
+  <text x="75" y="619" font-size="12" fill="#ff8888">&#x2192;  Minder begrip, hogere foutrate bij terugspringen</text>
+
+  <!-- ===== RIGHT PANEL: IDEAL ===== -->
+  <rect x="630" y="105" width="530" height="530" rx="12" fill="#0a1a0a" stroke="#39ff14" stroke-width="2.5" filter="url(#glow-green)"/>
+
+  <!-- Label BAR -->
+  <rect x="630" y="105" width="530" height="44" rx="12" fill="#39ff14" opacity="0.15"/>
+  <rect x="630" y="128" width="530" height="21" fill="#0a1a0a"/>
+  <text x="895" y="133" text-anchor="middle" font-size="16" font-weight="700" fill="#39ff14">&#x2713;  Ideaal: 50–90 tekens (70ch)</text>
+
+  <!-- Ideal text block — narrower, centered -->
+  <rect x="680" y="162" width="340" height="340" rx="8" fill="#060f06" stroke="#1a3a1a" stroke-width="1"/>
+
+  <text x="695" y="188" font-size="12.5" fill="#e0ffe0">Lorem ipsum dolor sit amet</text>
+  <text x="695" y="206" font-size="12.5" fill="#e0ffe0">consectetur adipiscing elit sed</text>
+  <text x="695" y="224" font-size="12.5" fill="#e0ffe0">do eiusmod tempor incididunt</text>
+  <text x="695" y="242" font-size="12.5" fill="#e0ffe0">ut labore et dolore magna aliqua</text>
+  <text x="695" y="260" font-size="12.5" fill="#e0ffe0">ut enim ad minim veniam quis</text>
+  <text x="695" y="278" font-size="12.5" fill="#e0ffe0">nostrud exercitation ullamco</text>
+  <text x="695" y="296" font-size="12.5" fill="#e0ffe0">laboris nisi ut aliquip ex ea</text>
+  <text x="695" y="314" font-size="12.5" fill="#e0ffe0">commodo consequat duis aute</text>
+  <text x="695" y="332" font-size="12.5" fill="#e0ffe0">irure dolor in reprehenderit in</text>
+  <text x="695" y="350" font-size="12.5" fill="#e0ffe0">voluptate velit esse cillum</text>
+  <text x="695" y="368" font-size="12.5" fill="#e0ffe0">dolore eu fugiat nulla pariatur</text>
+  <text x="695" y="386" font-size="12.5" fill="#e0ffe0">excepteur sint occaecat non</text>
+  <text x="695" y="404" font-size="12.5" fill="#e0ffe0">proident sunt in culpa qui</text>
+  <text x="695" y="422" font-size="12.5" fill="#e0ffe0">officia deserunt mollit anim id</text>
+  <text x="695" y="440" font-size="12.5" fill="#e0ffe0">est laborum sed perspiciatis</text>
+  <text x="695" y="458" font-size="12.5" fill="#e0ffe0">unde omnis iste natus error sit</text>
+  <text x="695" y="476" font-size="12.5" fill="#e0ffe0">voluptatem accusantium totam</text>
+
+  <!-- 70ch indicator line -->
+  <line x1="1022" y1="165" x2="1022" y2="495" stroke="#39ff14" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+  <text x="1045" y="335" font-size="11" fill="#39ff14" transform="rotate(90 1045 335)">max-width: 70ch</text>
+
+  <!-- Character ruler — ideal -->
+  <rect x="680" y="512" width="340" height="22" rx="4" fill="#0a200a" stroke="#1a4a1a" stroke-width="1"/>
+  <g stroke="#39ff14" stroke-width="1" opacity="0.7">
+    <line x1="680" y1="516" x2="680" y2="526"/>
+    <line x1="728" y1="516" x2="728" y2="526"/>
+    <line x1="776" y1="516" x2="776" y2="526"/>
+    <line x1="824" y1="516" x2="824" y2="526"/>
+    <line x1="872" y1="516" x2="872" y2="526"/>
+    <line x1="920" y1="516" x2="920" y2="526"/>
+    <line x1="968" y1="516" x2="968" y2="526"/>
+    <line x1="1016" y1="516" x2="1016" y2="526"/>
+  </g>
+  <text x="680" y="532" font-size="10" fill="#39ff14">0</text>
+  <text x="721" y="532" font-size="10" fill="#39ff14">20</text>
+  <text x="769" y="532" font-size="10" fill="#39ff14">40</text>
+  <text x="817" y="532" font-size="10" fill="#39ff14">60</text>
+  <text x="858" y="532" font-size="10" fill="#39ff14">75 &#x2713;</text>
+  <text x="913" y="532" font-size="10" fill="#888">90</text>
+
+  <!-- Why it's good -->
+  <rect x="648" y="545" width="490" height="76" rx="6" fill="#0a1a0a"/>
+  <text x="663" y="565" font-size="12" fill="#39ff14">&#x2713;  Oog vindt moeiteloos de volgende regel</text>
+  <text x="663" y="583" font-size="12" fill="#39ff14">&#x2713;  Minder saccades nodig — vloeiend ritme</text>
+  <text x="663" y="601" font-size="12" fill="#39ff14">&#x2713;  Optimale leessnelheid en begrip</text>
+  <text x="663" y="619" font-size="12" fill="#39ff14">&#x2192;  Wetenschappelijk aanbevolen: 50–75 tekens</text>
+
+  <!-- ===== CSS CODE BLOCK ===== -->
+  <rect x="40" y="655" width="530" height="115" rx="10" fill="#101020" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="40" y="655" width="530" height="30" rx="10" fill="#7c3aed" opacity="0.2"/>
+  <rect x="40" y="674" width="530" height="11" fill="#101020"/>
+  <text x="305" y="674" text-anchor="middle" font-size="13" font-weight="600" fill="#c4b5fd">CSS — Regellengte beperken</text>
+  <text x="60" y="702" font-size="13" font-family="'Courier New', monospace" fill="#888">p, article {</text>
+  <text x="80" y="722" font-size="13" font-family="'Courier New', monospace" fill="#7c3aed">  max-width</text>
+  <text x="182" y="722" font-size="13" font-family="'Courier New', monospace" fill="#ffffff">: 70ch;</text>
+  <text x="80" y="742" font-size="13" font-family="'Courier New', monospace" fill="#00d4ff">  line-height</text>
+  <text x="198" y="742" font-size="13" font-family="'Courier New', monospace" fill="#ffffff">: 1.6;</text>
+  <text x="60" y="762" font-size="13" font-family="'Courier New', monospace" fill="#888">}</text>
+
+  <!-- ===== NEWSPAPER COLUMN EXAMPLE ===== -->
+  <rect x="630" y="655" width="530" height="115" rx="10" fill="#0a0e18" stroke="#00d4ff" stroke-width="1.5"/>
+  <rect x="630" y="655" width="530" height="30" rx="10" fill="#00d4ff" opacity="0.1"/>
+  <rect x="630" y="674" width="530" height="11" fill="#0a0e18"/>
+  <text x="895" y="674" text-anchor="middle" font-size="13" font-weight="600" fill="#00d4ff">Krantenkolom — Korte regels werken ook</text>
+
+  <rect x="650" y="682" width="155" height="80" rx="4" fill="#0f1117" stroke="#1e2d3d" stroke-width="1"/>
+  <text x="660" y="698" font-size="9" fill="#aaa">Gisteren werd in de</text>
+  <text x="660" y="710" font-size="9" fill="#aaa">Brusselse wijk een</text>
+  <text x="660" y="722" font-size="9" fill="#aaa">nieuwe fietsroute</text>
+  <text x="660" y="734" font-size="9" fill="#aaa">geopend door de</text>
+  <text x="660" y="746" font-size="9" fill="#aaa">burgemeester. Meer</text>
+  <text x="660" y="758" font-size="9" fill="#aaa">dan 200 bewoners...</text>
+
+  <rect x="820" y="682" width="155" height="80" rx="4" fill="#0f1117" stroke="#1e2d3d" stroke-width="1"/>
+  <text x="830" y="698" font-size="9" fill="#aaa">De aanleg kostte de</text>
+  <text x="830" y="710" font-size="9" fill="#aaa">stad 1,2 miljoen euro</text>
+  <text x="830" y="722" font-size="9" fill="#aaa">en werd gefinancierd</text>
+  <text x="830" y="734" font-size="9" fill="#aaa">via Europese subsidies</text>
+  <text x="830" y="746" font-size="9" fill="#aaa">voor duurzame mobiliteit</text>
+  <text x="830" y="758" font-size="9" fill="#aaa">in stedelijke gebieden.</text>
+
+  <rect x="990" y="682" width="155" height="80" rx="4" fill="#0f1117" stroke="#1e2d3d" stroke-width="1"/>
+  <text x="1000" y="698" font-size="9" fill="#aaa">Korte regels werken</text>
+  <text x="1000" y="710" font-size="9" fill="#aaa">ook! Krant: 35–50</text>
+  <text x="1000" y="722" font-size="9" fill="#aaa">tekens. Web artikel:</text>
+  <text x="1000" y="734" font-size="9" fill="#aaa">60–75 tekens is</text>
+  <text x="1000" y="746" font-size="9" fill="#aaa">de sweet spot voor</text>
+  <text x="1000" y="758" font-size="9" fill="#aaa">optimaal leesgemak.</text>
+
+  <!-- Footer -->
+  <text x="600" y="790" text-anchor="middle" font-size="12" fill="#444">H16 — Typografie | App-ontwikkeling 5ADB | Leerplandoel ADB09</text>
+</svg>

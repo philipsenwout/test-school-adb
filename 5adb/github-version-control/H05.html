@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 — Push &amp; Pull — GitHub Version Control 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/github-version-control/H05" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.1"><span class="sidebar-check__box"></span></label>
+          <a href="#local-remote">5.1 Lokaal vs remote</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.2"><span class="sidebar-check__box"></span></label>
+          <a href="#git-push">5.2 git push</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.3"><span class="sidebar-check__box"></span></label>
+          <a href="#git-pull">5.3 git pull</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.4"><span class="sidebar-check__box"></span></label>
+          <a href="#veelgemaakte-fouten">5.4 Veelgemaakte fouten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.5"><span class="sidebar-check__box"></span></label>
+          <a href="#feedback-verwerken">5.5 Feedback van de leerkracht</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Version Control</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H05 — Push &amp; Pull</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H05 — GitHub Version Control 5ADB</div>
+        <h1 class="page-header__title">Push &amp; Pull</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB14</span><span class="ld-tag__title">De leerlingen sturen een applicatie bij op basis van feedback.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan lokale commits uploaden naar GitHub met <code>git push</code></li>
+          <li>Je kan wijzigingen van GitHub downloaden met <code>git pull</code></li>
+          <li>Je weet waarom je altijd eerst <code>git pull</code> doet voor je begint te werken</li>
+          <li>Je kan feedback van de leerkracht ophalen via <code>git pull</code> en verwerken</li>
+        </ul>
+      </div>
+
+      <h2 id="local-remote">5.1 Lokaal vs remote</h2>
+
+      <p>Je werkt altijd op twee plaatsen tegelijk:</p>
+      <ul>
+        <li><strong>Lokale repository:</strong> de map op jouw computer</li>
+        <li><strong>Remote repository:</strong> de repo op GitHub (ook wel <em>origin</em> genoemd)</li>
+      </ul>
+
+      <p>Na een commit bestaat de snapshot enkel lokaal. Met <code>git push</code> stuur je die naar GitHub. Met <code>git pull</code> haal je wijzigingen van GitHub naar je computer.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/github-version-control/H05-push-pull.svg" alt="Diagram: lokale repo ↔ GitHub met push en pull pijlen" loading="lazy">
+      </figure>
+
+      <h2 id="git-push">5.2 git push — uploaden naar GitHub</h2>
+
+      <p>Na het committen stuur je je commits naar GitHub:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git push</code></pre>
+      </div>
+
+      <p>Git geeft feedback:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 892 bytes | 892.00 KiB/s, done.
+To https://github.com/appschool-munsterbilzen/jan-peeters-5adb
+   1a2b3c4..3f4a8b2  main -&gt; main</code></pre>
+      </div>
+
+      <p>Open je repository op GitHub in de browser. Je ziet de bestanden en commits verschijnen. De leerkracht kan jouw werk nu bekijken.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128274; Authenticatie vereist</div>
+        <p>Bij de eerste <code>git push</code> vraagt GitHub om je gebruikersnaam en <strong>Personal Access Token</strong> (niet je GitHub-wachtwoord). Gebruik het token dat je aangemaakt hebt in H03.</p>
+      </div>
+
+      <h2 id="git-pull">5.3 git pull — ophalen van GitHub</h2>
+
+      <p><code>git pull</code> haalt de nieuwste commits van GitHub naar je lokale computer:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git pull</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Doe dit <em>altijd</em> als eerste</div>
+        <p>Begin elke werksessie met <code>git pull</code>. Zo heb je altijd de meest recente versie — inclusief eventuele feedback van de leerkracht die online is gezet.</p>
+      </div>
+
+      <p>Als er niets te halen is, zie je:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>Already up to date.</code></pre>
+      </div>
+
+      <p>Als er wel nieuwe commits zijn, ziet de uitvoer er zo uit:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>Updating 1a2b3c4..7d8e9f0
+Fast-forward
+ app-ontwikkeling/H01/index.html | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)</code></pre>
+      </div>
+
+      <h2 id="veelgemaakte-fouten">5.4 Veelgemaakte fouten</h2>
+
+      <div class="callout callout--danger">
+        <div class="callout-header">&#10060; Fout: "failed to push some refs"</div>
+        <p><strong>Wat betekent dit?</strong> GitHub heeft commits die jij lokaal niet hebt. Je moet eerst pullen voor je kan pushen.</p>
+        <p><strong>Oplossing:</strong></p>
+        <div class="code-block" style="margin-top:var(--space-2)">
+          <div class="code-block__lang">Bash</div>
+          <pre><code>git pull
+git push</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Je kan niet pushen zonder commits</div>
+        <p>Als je <code>git push</code> uitvoert zonder nieuwe commits, zie je "Everything up-to-date". Dat is normaal — eerst <code>git add</code> en <code>git commit</code>, dan pas <code>git push</code>.</p>
+      </div>
+
+      <h2 id="feedback-verwerken">5.5 Feedback van de leerkracht ophalen en verwerken</h2>
+
+      <p>Je leerkracht bekijkt je gecommit werk op GitHub. Hij/zij kan:</p>
+      <ul>
+        <li><strong>Commentaar geven op specifieke regels</strong> in de GitHub-interface</li>
+        <li><strong>Wijzigingen doorvoeren</strong> en een commit aanmaken op GitHub</li>
+      </ul>
+
+      <p>Om die feedback naar je lokale computer te halen:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git pull</code></pre>
+      </div>
+
+      <p>Je code is nu bijgewerkt met de commentaren. Open het bestand in VS Code en bekijk de wijzigingen. Verwerk de feedback, maak een nieuwe commit en push opnieuw:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git add .
+git commit -m "H01 feedback leerkracht verwerkt"
+git push</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 1 — Je eerste push</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Push de commits die je in H04 aanmaakte naar GitHub:</p>
+            <ol>
+              <li>Open Git Bash in je repository</li>
+              <li>Controleer: <code>git status</code></li>
+              <li>Push: <code>git push</code></li>
+              <li>Open je repository op <code>github.com</code> in de browser</li>
+              <li>Controleer of je bestanden en commits zichtbaar zijn</li>
+              <li>Maak een screenshot van GitHub die je commits toont</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB14</span>
+            <span class="oefening__title">Oefening 2 — Pull-cyclus simuleren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Simuleer de dagelijkse startroutine:</p>
+            <ol>
+              <li>Open Git Bash</li>
+              <li>Navigeer naar je repository</li>
+              <li>Voer altijd als eerste uit: <code>git pull</code></li>
+              <li>Maak een kleine wijziging in een bestand</li>
+              <li>Doorloop de volledige cyclus: <code>git add .</code> → <code>git commit -m "..."</code> → <code>git push</code></li>
+              <li>Controleer op GitHub dat de wijziging zichtbaar is</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Volledige push/pull cyclus
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H05-voorbeeld.svg', 'Voorbeeld — GitHub repository met commits zichtbaar')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Werk van H04 inleveren via GitHub</h3>
+            <ol>
+              <li><strong>Deel 1 — 5 punten:</strong> Zorg dat alle bestanden van H04 (je HTML-pagina met 5 commits) gepusht zijn naar GitHub. Stuur de leerkracht de link naar je GitHub-repository.</li>
+              <li><strong>Deel 2 — 3 punten:</strong> Maak een screenshot van de <em>Commits</em>-pagina van je repository op GitHub (te vinden via de klok-icoon of de commits-teller). Je moet alle commits zien met hun boodschappen.</li>
+              <li><strong>Deel 3 — 2 punten:</strong> Schrijf in 3-4 zinnen uit: wat is het verschil tussen <code>git commit</code> en <code>git push</code>? Wanneer gebruik je welke?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H05 — Push &amp; Pull</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat doet <code>git push</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="a"> <span>Lokale commits uploaden naar GitHub</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="b"> <span>Wijzigingen van GitHub downloaden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="c"> <span>Bestanden toevoegen aan de staging area</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="d"> <span>Een nieuwe repository aanmaken</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat is de juiste volgorde om een bestand in te leveren?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="a"> <span>push → add → commit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="b"> <span>add → commit → push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="c"> <span>commit → add → push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="d"> <span>pull → add → commit</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wanneer doe je <code>git pull</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="a"> <span>Alleen als de leerkracht zegt dat je dit moet doen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="b"> <span>Alleen als er fouten zijn in je code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="c"> <span>Altijd als eerste als je begint te werken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="d"> <span>Nadat je gepusht hebt</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Je krijgt de foutmelding "failed to push some refs". Wat doe je?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="a"> <span>Je wacht een uur en probeert opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="b"> <span>Je verwijdert de repository en clonet opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="c"> <span>Je commit opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="d"> <span>Je voert eerst <code>git pull</code> uit en daarna <code>git push</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Hoe haal je feedback van de leerkracht op die online is toegevoegd?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="a"> <span>git fetch origin</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="b"> <span>git pull</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="c"> <span>git clone</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="d"> <span>git status</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/github-version-control/H05')" data-progress-key="5adb/github-version-control/H05">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H04.html" class="btn btn-ghost">← H04</a>
+          <a href="H06.html" class="btn btn-ghost">H06 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

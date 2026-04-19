@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">Zoekfunctie — input event + teller</text>
+
+  <!-- Search bar -->
+  <rect x="20" y="45" width="760" height="60" rx="10" fill="#f0f4ff" stroke="#6c63ff" stroke-width="1.5"/>
+  <text x="40" y="68" fill="#2d2d4e" font-size="13" font-weight="bold">🔍 Zoek een recept:</text>
+  <!-- Input field -->
+  <rect x="40" y="76" width="460" height="22" rx="6" fill="white" stroke="#6c63ff" stroke-width="2"/>
+  <text x="50" y="92" fill="#2d2d4e" font-size="13">pasta</text>
+  <!-- Cursor -->
+  <rect x="88" y="79" width="2" height="14" fill="#6c63ff"/>
+  <!-- Counter -->
+  <text x="515" y="92" fill="#6c63ff" font-size="12">5 tekens</text>
+  <!-- Clear button -->
+  <rect x="600" y="77" width="70" height="21" rx="10" fill="#ff6b6b" fill-opacity="0.15" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="635" y="92" text-anchor="middle" fill="#ff6b6b" font-size="12">✕ Wis</text>
+
+  <!-- Results header -->
+  <text x="20" y="135" fill="#888" font-size="12">2 recepten gevonden voor "pasta"</text>
+
+  <!-- Card 1 VISIBLE -->
+  <rect x="20" y="148" width="360" height="130" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="20" y="148" width="5" height="130" rx="2" fill="#3498db"/>
+  <text x="40" y="173" fill="#2d2d4e" font-size="14" font-weight="bold">Spaghetti carbonara</text>
+  <text x="40" y="193" fill="#888" font-size="11">Klassieke pasta met ei en spek.</text>
+  <rect x="40" y="218" width="76" height="18" rx="9" fill="#3498db" fill-opacity="0.15"/>
+  <text x="78" y="231" text-anchor="middle" fill="#3498db" font-size="10" font-weight="bold">hoofdgerecht</text>
+  <text x="170" y="231" fill="#888" font-size="11">⏱ 25 min</text>
+  <!-- Highlight: pasta -->
+  <rect x="40" y="177" width="108" height="14" rx="3" fill="#6c63ff" fill-opacity="0.15"/>
+  <text x="40" y="253" fill="#43e97b" font-size="13">✓ match op naam</text>
+
+  <!-- Card 2 VISIBLE -->
+  <rect x="400" y="148" width="360" height="130" rx="10" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="400" y="148" width="5" height="130" rx="2" fill="#9b59b6"/>
+  <text x="420" y="173" fill="#2d2d4e" font-size="14" font-weight="bold">Pasta pesto</text>
+  <text x="420" y="193" fill="#888" font-size="11">Groene pesto met verse basilicum.</text>
+  <rect x="420" y="218" width="76" height="18" rx="9" fill="#3498db" fill-opacity="0.15"/>
+  <text x="458" y="231" text-anchor="middle" fill="#3498db" font-size="10" font-weight="bold">hoofdgerecht</text>
+  <text x="550" y="231" fill="#888" font-size="11">⏱ 15 min</text>
+  <!-- Highlight: pasta -->
+  <rect x="420" y="177" width="50" height="14" rx="3" fill="#6c63ff" fill-opacity="0.15"/>
+  <text x="420" y="253" fill="#43e97b" font-size="13">✓ match op naam</text>
+
+  <!-- Hidden card (greyed out) -->
+  <rect x="20" y="295" width="760" height="80" rx="10" fill="#f5f5f5" stroke="#ddd" stroke-width="1" opacity="0.6"/>
+  <text x="400" y="340" text-anchor="middle" fill="#bbb" font-size="13">Tiramisu, Nachos, Tomatensoep — niet getoond (geen match)</text>
+
+  <!-- Code snippet -->
+  <rect x="20" y="390" width="760" height="75" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="412" fill="#888" font-size="11" font-family="'Courier New', monospace">// input event — vuurt bij elke toetsaanslag</text>
+  <text x="40" y="430" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">zoekVeld.<tspan fill="#6c63ff">addEventListener</tspan>(<tspan fill="#43e97b">'input'</tspan>, () =&gt; {</text>
+  <text x="40" y="448" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  teller.<tspan fill="#6c63ff">textContent</tspan> = <tspan fill="#43e97b">`${zoekVeld.value.length} tekens`</tspan>;  receptenSectie.<tspan fill="#6c63ff">dispatchEvent</tspan>(update);</text>
+  <text x="40" y="458" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">});</text>
+</svg>

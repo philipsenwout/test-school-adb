@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#f0f0f0">Mobile First vs Desktop First</text>
+
+  <!-- Mobile First -->
+  <rect x="30" y="55" width="355" height="310" rx="8" fill="#22C55E" opacity="0.08"/>
+  <rect x="30" y="55" width="355" height="310" rx="8" fill="none" stroke="#22C55E" stroke-width="2"/>
+  <text x="207" y="77" text-anchor="middle" font-size="15" font-weight="bold" fill="#22C55E">Mobile First ✓</text>
+  <text x="207" y="94" text-anchor="middle" font-size="11" fill="#aaa">(aanbevolen)</text>
+
+  <text x="50" y="120" font-size="12" fill="#f0f0f0">Basis CSS:</text>
+  <rect x="50" y="128" width="315" height="55" rx="4" fill="#2a2d3e"/>
+  <text x="65" y="148" font-size="11" font-family="Courier New" fill="#f0f0f0">.container {</text>
+  <text x="80" y="164" font-size="11" font-family="Courier New" fill="#22C55E">  flex-direction: column;</text>
+  <text x="65" y="176" font-size="11" font-family="Courier New" fill="#f0f0f0">}</text>
+
+  <text x="50" y="205" font-size="12" fill="#f0f0f0">Voor grotere schermen:</text>
+  <rect x="50" y="213" width="315" height="70" rx="4" fill="#2a2d3e"/>
+  <text x="65" y="232" font-size="11" font-family="Courier New" fill="#2D9CDB">@media (min-width: 768px) {</text>
+  <text x="80" y="250" font-size="11" font-family="Courier New" fill="#f0f0f0">  .container {</text>
+  <text x="95" y="267" font-size="11" font-family="Courier New" fill="#22C55E">    flex-direction: row;</text>
+  <text x="80" y="278" font-size="11" font-family="Courier New" fill="#f0f0f0">  }</text>
+  <text x="65" y="288" font-size="11" font-family="Courier New" fill="#2D9CDB">}</text>
+
+  <text x="50" y="315" font-size="11" fill="#22C55E">• Gebruikt min-width</text>
+  <text x="50" y="333" font-size="11" fill="#22C55E">• Klein naar groot</text>
+  <text x="50" y="351" font-size="11" fill="#22C55E">• Betere performance mobiel</text>
+
+  <!-- Desktop First -->
+  <rect x="415" y="55" width="355" height="310" rx="8" fill="#EF4444" opacity="0.08"/>
+  <rect x="415" y="55" width="355" height="310" rx="8" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <text x="592" y="77" text-anchor="middle" font-size="15" font-weight="bold" fill="#EF4444">Desktop First</text>
+  <text x="592" y="94" text-anchor="middle" font-size="11" fill="#aaa">(minder aanbevolen)</text>
+
+  <text x="435" y="120" font-size="12" fill="#f0f0f0">Basis CSS:</text>
+  <rect x="435" y="128" width="315" height="55" rx="4" fill="#2a2d3e"/>
+  <text x="450" y="148" font-size="11" font-family="Courier New" fill="#f0f0f0">.container {</text>
+  <text x="465" y="164" font-size="11" font-family="Courier New" fill="#EF4444">  flex-direction: row;</text>
+  <text x="450" y="176" font-size="11" font-family="Courier New" fill="#f0f0f0">}</text>
+
+  <text x="435" y="205" font-size="12" fill="#f0f0f0">Voor kleinere schermen:</text>
+  <rect x="435" y="213" width="315" height="70" rx="4" fill="#2a2d3e"/>
+  <text x="450" y="232" font-size="11" font-family="Courier New" fill="#F97316">@media (max-width: 767px) {</text>
+  <text x="465" y="250" font-size="11" font-family="Courier New" fill="#f0f0f0">  .container {</text>
+  <text x="480" y="267" font-size="11" font-family="Courier New" fill="#EF4444">    flex-direction: column;</text>
+  <text x="465" y="278" font-size="11" font-family="Courier New" fill="#f0f0f0">  }</text>
+  <text x="450" y="288" font-size="11" font-family="Courier New" fill="#F97316">}</text>
+
+  <text x="435" y="315" font-size="11" fill="#EF4444">• Gebruikt max-width</text>
+  <text x="435" y="333" font-size="11" fill="#EF4444">• Groot naar klein</text>
+  <text x="435" y="351" font-size="11" fill="#EF4444">• Mobiele laad meer CSS</text>
+
+  <text x="400" y="385" text-anchor="middle" font-size="12" fill="#555">Mobile First = Progressive Enhancement — voeg toe voor grotere schermen</text>
+</svg>

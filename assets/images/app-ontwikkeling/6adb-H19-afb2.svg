@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#f0f4ff"/>
+
+  <!-- Title -->
+  <text x="400" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#2d2d4e">Een Promise heeft 3 mogelijke staten</text>
+
+  <!-- Center: Pending circle -->
+  <circle cx="400" cy="180" r="68" fill="#888" fill-opacity="0.15" stroke="#888" stroke-width="2.5"/>
+  <text x="400" y="172" text-anchor="middle" font-size="14" font-weight="700" fill="#555">Promise</text>
+  <text x="400" y="192" text-anchor="middle" font-size="13" fill="#888">(pending)</text>
+  <text x="400" y="210" text-anchor="middle" font-size="11" fill="#aaa">⏳ wachten...</text>
+
+  <!-- Arrow to FULFILLED (right) -->
+  <line x1="462" y1="155" x2="590" y2="120" stroke="#43e97b" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <text x="536" y="130" text-anchor="middle" font-size="12" fill="#43e97b" transform="rotate(-12,536,130)">resolve(waarde)</text>
+
+  <!-- Fulfilled oval -->
+  <ellipse cx="650" cy="108" rx="110" ry="50" fill="#43e97b" fill-opacity="0.15" stroke="#43e97b" stroke-width="2.5"/>
+  <text x="650" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#43e97b">fulfilled</text>
+  <text x="650" y="118" text-anchor="middle" font-size="12" fill="#555">✓ .then(resultaat)</text>
+
+  <!-- Arrow to REJECTED (left) -->
+  <line x1="338" y1="155" x2="210" y2="120" stroke="#ff6b6b" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <text x="264" y="130" text-anchor="middle" font-size="12" fill="#ff6b6b" transform="rotate(12,264,130)">reject(fout) / throw</text>
+
+  <!-- Rejected oval -->
+  <ellipse cx="150" cy="108" rx="110" ry="50" fill="#ff6b6b" fill-opacity="0.15" stroke="#ff6b6b" stroke-width="2.5"/>
+  <text x="150" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#ff6b6b">rejected</text>
+  <text x="150" y="118" text-anchor="middle" font-size="12" fill="#555">✗ .catch(fout)</text>
+
+  <!-- Finally arrow from both -->
+  <line x1="150" y1="158" x2="220" y2="260" stroke="#6c63ff" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="650" y1="158" x2="580" y2="260" stroke="#6c63ff" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="400" y="250" text-anchor="middle" font-size="12" fill="#6c63ff">→ .finally() (optioneel — altijd uitgevoerd)</text>
+
+  <!-- Code examples at bottom -->
+  <!-- Fulfilled code -->
+  <rect x="30" y="270" width="340" height="120" rx="10" fill="#1a1a2e"/>
+  <text x="200" y="292" text-anchor="middle" font-size="12" fill="#43e97b" font-weight="600">fulfilled — .then()</text>
+  <text x="50" y="314" font-size="12" fill="#888" font-family="monospace">fetch(url)</text>
+  <text x="50" y="332" font-size="12" fill="#888" font-family="monospace">  .<tspan fill="#43e97b">then</tspan>(res =&gt; res.json())</text>
+  <text x="50" y="350" font-size="12" fill="#888" font-family="monospace">  .<tspan fill="#43e97b">then</tspan>(data =&gt; &#123;</text>
+  <text x="50" y="368" font-size="12" fill="white" font-family="monospace">    console.log(<tspan fill="#43e97b">data</tspan>);</text>
+  <text x="50" y="386" font-size="12" fill="#888" font-family="monospace">  &#125;)</text>
+
+  <!-- Rejected code -->
+  <rect x="430" y="270" width="340" height="120" rx="10" fill="#1a1a2e"/>
+  <text x="600" y="292" text-anchor="middle" font-size="12" fill="#ff6b6b" font-weight="600">rejected — .catch()</text>
+  <text x="450" y="314" font-size="12" fill="#888" font-family="monospace">fetch(url)</text>
+  <text x="450" y="332" font-size="12" fill="#888" font-family="monospace">  .then(res =&gt; res.json())</text>
+  <text x="450" y="350" font-size="12" fill="#ff6b6b" font-family="monospace">  .<tspan fill="#ff6b6b">catch</tspan>(err =&gt; &#123;</text>
+  <text x="450" y="368" font-size="12" fill="white" font-family="monospace">    console.error(<tspan fill="#ff6b6b">err</tspan>);</text>
+  <text x="450" y="386" font-size="12" fill="#ff6b6b" font-family="monospace">  &#125;)</text>
+
+  <!-- Finally note -->
+  <rect x="180" y="404" width="440" height="56" rx="10" fill="#6c63ff" fill-opacity="0.12" stroke="#6c63ff" stroke-width="1"/>
+  <text x="400" y="422" text-anchor="middle" font-size="12" fill="#6c63ff" font-weight="700">.finally() — altijd uitgevoerd</text>
+  <text x="400" y="442" text-anchor="middle" font-size="12" fill="#2d2d4e" font-family="monospace">.finally(() =&gt; &#123; laadscherm.verbergen(); &#125;)</text>
+  <text x="400" y="456" text-anchor="middle" font-size="11" fill="#888">Ongeacht succes of fout — ideaal voor opruimen</text>
+
+  <defs>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#43e97b"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+    </marker>
+  </defs>
+</svg>

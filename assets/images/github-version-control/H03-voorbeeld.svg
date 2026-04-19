@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <rect width="800" height="500" fill="#0d1117" rx="10"/>
+  <!-- GitHub-stijl header -->
+  <rect width="800" height="56" fill="#161b22" rx="10"/>
+  <rect y="34" width="800" height="22" fill="#161b22"/>
+  <rect x="20" y="14" width="28" height="28" rx="4" fill="#2DBA4E"/>
+  <text x="34" y="33" font-size="16" fill="#fff" text-anchor="middle">⌥</text>
+  <text x="400" y="34" font-size="13" fill="#8b949e" text-anchor="middle">github.com / lena-peeters / cursus-5adb / README.md</text>
+
+  <!-- Repo naam -->
+  <text x="40" y="90" font-size="18" fill="#58a6ff" font-weight="bold">lena-peeters / cursus-5adb</text>
+  <rect x="40" y="104" width="700" height="1" fill="#30363d"/>
+
+  <!-- README weergave -->
+  <rect x="40" y="120" width="720" height="280" fill="#161b22" rx="6"/>
+  <rect x="40" y="120" width="720" height="40" fill="#21262d" rx="6"/>
+  <rect x="40" y="148" width="720" height="12" fill="#21262d"/>
+  <text x="60" y="146" font-size="13" fill="#8b949e">README.md</text>
+
+  <text x="60" y="192" font-size="22" fill="#c9d1d9" font-weight="bold">📚 Cursus 5ADB — 2025–2026</text>
+  <rect x="60" y="204" width="300" height="2" fill="#2DBA4E" rx="1"/>
+
+  <text x="60" y="234" font-size="13" fill="#8b949e">Naam:</text>
+  <text x="130" y="234" font-size="13" fill="#c9d1d9">Lena Peeters</text>
+  <text x="60" y="256" font-size="13" fill="#8b949e">Klas:</text>
+  <text x="130" y="256" font-size="13" fill="#c9d1d9">5ADB</text>
+  <text x="60" y="278" font-size="13" fill="#8b949e">Schooljaar:</text>
+  <text x="160" y="278" font-size="13" fill="#c9d1d9">2025–2026</text>
+  <text x="60" y="310" font-size="13" fill="#8b949e">Inhoud:</text>
+  <text x="60" y="330" font-size="13" fill="#c9d1d9">▸ app-ontwikkeling/   ▸ netwerken/   ▸ databeheer/</text>
+  <text x="60" y="352" font-size="13" fill="#c9d1d9">▸ e-stem/   ▸ github-version-control/</text>
+
+  <!-- Commit rij -->
+  <rect x="40" y="418" width="720" height="36" fill="#161b22" rx="4"/>
+  <text x="60" y="441" font-size="12" fill="#8b949e" font-family="'Courier New', monospace">✔ docs: README.md toegevoegd</text>
+  <text x="680" y="441" font-size="11" fill="#484f58">zojuist</text>
+</svg>

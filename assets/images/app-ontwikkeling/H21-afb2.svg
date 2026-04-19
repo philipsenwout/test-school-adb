@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Title -->
+  <text x="600" y="55" text-anchor="middle" font-size="28" font-weight="bold" fill="#ffffff">== vs === in JavaScript</text>
+  <text x="600" y="85" text-anchor="middle" font-size="16" fill="#94a3b8">Gebruik altijd === (strikte gelijkheid)</text>
+
+  <!-- LEFT: == losse gelijkheid -->
+  <rect x="40" y="110" width="530" height="650" rx="12" fill="#1e1e2e" stroke="#ff6b35" stroke-width="2"/>
+  <rect x="40" y="110" width="530" height="50" rx="12" fill="#ff6b35"/>
+  <rect x="40" y="140" width="530" height="20" fill="#ff6b35"/>
+  <text x="305" y="143" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff">== Losse gelijkheid</text>
+  <text x="305" y="175" text-anchor="middle" font-size="14" fill="#ff6b35">⚠ GEVAARLIJK — converteert types automatisch</text>
+
+  <!-- == examples -->
+  <rect x="60" y="195" width="490" height="55" rx="8" fill="#2a1a1a"/>
+  <text x="80" y="220" font-size="16" fill="#ff8c42" font-family="monospace">'5' == 5</text>
+  <text x="400" y="220" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="80" y="240" font-size="12" fill="#94a3b8">String '5' wordt omgezet naar number 5 → gelijk</text>
+
+  <rect x="60" y="260" width="490" height="55" rx="8" fill="#2a1a1a"/>
+  <text x="80" y="285" font-size="16" fill="#ff8c42" font-family="monospace">0 == false</text>
+  <text x="400" y="285" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="80" y="305" font-size="12" fill="#94a3b8">false wordt omgezet naar 0 → gelijk</text>
+
+  <rect x="60" y="325" width="490" height="55" rx="8" fill="#2a1a1a"/>
+  <text x="80" y="350" font-size="16" fill="#ff8c42" font-family="monospace">'' == false</text>
+  <text x="400" y="350" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="80" y="370" font-size="12" fill="#94a3b8">Beide worden omgezet naar 0 → gelijk</text>
+
+  <rect x="60" y="390" width="490" height="55" rx="8" fill="#2a1a1a"/>
+  <text x="80" y="415" font-size="16" fill="#ff8c42" font-family="monospace">null == undefined</text>
+  <text x="400" y="415" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="80" y="435" font-size="12" fill="#94a3b8">Speciaal geval — verwarrend!</text>
+
+  <rect x="60" y="455" width="490" height="55" rx="8" fill="#2a1a1a"/>
+  <text x="80" y="480" font-size="16" fill="#ff8c42" font-family="monospace">1 == true</text>
+  <text x="400" y="480" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="80" y="500" font-size="12" fill="#94a3b8">true wordt omgezet naar 1 → gelijk</text>
+
+  <rect x="60" y="530" width="490" height="80" rx="8" fill="#3a1a1a" stroke="#ff6b35" stroke-width="1"/>
+  <text x="305" y="558" text-anchor="middle" font-size="14" fill="#ff6b35">⚠ Probleem</text>
+  <text x="305" y="578" text-anchor="middle" font-size="13" fill="#ffffff">JS converteert types VOOR de vergelijking.</text>
+  <text x="305" y="598" text-anchor="middle" font-size="13" fill="#ffffff">Dit geeft onverwachte resultaten!</text>
+
+  <!-- RIGHT: === strikte gelijkheid -->
+  <rect x="630" y="110" width="530" height="650" rx="12" fill="#1e1e2e" stroke="#39ff14" stroke-width="2"/>
+  <rect x="630" y="110" width="530" height="50" rx="12" fill="#39ff14"/>
+  <rect x="630" y="140" width="530" height="20" fill="#39ff14"/>
+  <text x="895" y="143" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f1117">=== Strikte gelijkheid</text>
+  <text x="895" y="175" text-anchor="middle" font-size="14" fill="#39ff14">✓ VEILIG — vergelijkt type én waarde</text>
+
+  <!-- === examples -->
+  <rect x="650" y="195" width="490" height="55" rx="8" fill="#1a2a1a"/>
+  <text x="670" y="220" font-size="16" fill="#00d4ff" font-family="monospace">'5' === 5</text>
+  <text x="990" y="220" font-size="16" fill="#ff6b35" font-family="monospace">→ false</text>
+  <text x="670" y="240" font-size="12" fill="#94a3b8">String ≠ Number — geen conversie — niet gelijk</text>
+
+  <rect x="650" y="260" width="490" height="55" rx="8" fill="#1a2a1a"/>
+  <text x="670" y="285" font-size="16" fill="#00d4ff" font-family="monospace">0 === false</text>
+  <text x="990" y="285" font-size="16" fill="#ff6b35" font-family="monospace">→ false</text>
+  <text x="670" y="305" font-size="12" fill="#94a3b8">Number ≠ Boolean — niet gelijk</text>
+
+  <rect x="650" y="325" width="490" height="55" rx="8" fill="#1a2a1a"/>
+  <text x="670" y="350" font-size="16" fill="#00d4ff" font-family="monospace">5 === 5</text>
+  <text x="990" y="350" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="670" y="370" font-size="12" fill="#94a3b8">Number === Number, zelfde waarde → gelijk ✓</text>
+
+  <rect x="650" y="390" width="490" height="55" rx="8" fill="#1a2a1a"/>
+  <text x="670" y="415" font-size="16" fill="#00d4ff" font-family="monospace">'hallo' === 'hallo'</text>
+  <text x="990" y="415" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="670" y="435" font-size="12" fill="#94a3b8">String === String, zelfde waarde → gelijk ✓</text>
+
+  <rect x="650" y="455" width="490" height="55" rx="8" fill="#1a2a1a"/>
+  <text x="670" y="480" font-size="16" fill="#00d4ff" font-family="monospace">true === true</text>
+  <text x="990" y="480" font-size="16" fill="#39ff14" font-family="monospace">→ true</text>
+  <text x="670" y="500" font-size="12" fill="#94a3b8">Boolean === Boolean → gelijk ✓</text>
+
+  <rect x="650" y="530" width="490" height="80" rx="8" fill="#1a3a1a" stroke="#39ff14" stroke-width="1"/>
+  <text x="895" y="558" text-anchor="middle" font-size="14" fill="#39ff14">✓ Vuistregel</text>
+  <text x="895" y="578" text-anchor="middle" font-size="13" fill="#ffffff">Gebruik ALTIJD === (en !==)</text>
+  <text x="895" y="598" text-anchor="middle" font-size="13" fill="#ffffff">tenzij je type-conversie bewust wil.</text>
+
+  <!-- Bottom rule -->
+  <rect x="200" y="670" width="800" height="50" rx="8" fill="#1a1a2e" stroke="#7c3aed" stroke-width="1"/>
+  <text x="600" y="700" text-anchor="middle" font-size="15" fill="#c4b5fd">== vergelijkt alleen WAARDE (na conversie)  ·  === vergelijkt TYPE én WAARDE</text>
+</svg>

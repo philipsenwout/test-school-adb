@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff"/>
+    </marker>
+  </defs>
+
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">filter() voor categorie-verwijdering</text>
+
+  <!-- VÓÓR -->
+  <rect x="20" y="45" width="340" height="180" rx="10" fill="#1e1e1e"/>
+  <rect x="20" y="45" width="340" height="32" rx="10" fill="#2a2a2a"/>
+  <rect x="20" y="65" width="340" height="12" fill="#2a2a2a"/>
+  <text x="190" y="66" text-anchor="middle" fill="#aaa" font-size="12">VÓÓR — 4 recepten (alle categorieën)</text>
+
+  <text x="40" y="100" fill="#e74c3c" font-size="11" font-family="'Courier New', monospace">&#123; naam: 'Soep', cat: 'voorgerecht' &#125;</text>
+  <text x="40" y="118" fill="#3498db" font-size="11" font-family="'Courier New', monospace">&#123; naam: 'Pasta', cat: 'hoofdgerecht' &#125;</text>
+  <text x="40" y="136" fill="#9b59b6" font-size="11" font-family="'Courier New', monospace">&#123; naam: 'Tiramisu', cat: 'dessert' &#125;</text>
+  <text x="40" y="154" fill="#f39c12" font-size="11" font-family="'Courier New', monospace">&#123; naam: 'Nachos', cat: 'snack' &#125;</text>
+  <line x1="20" y1="168" x2="360" y2="168" stroke="#444" stroke-width="1"/>
+  <text x="190" y="210" text-anchor="middle" fill="#aaa" font-size="12">Wil verwijder alle desserts weg</text>
+
+  <!-- Arrow + label -->
+  <text x="400" y="155" text-anchor="middle" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">.filter(</text>
+  <text x="400" y="170" text-anchor="middle" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">r ⇒ r.categorie</text>
+  <text x="400" y="185" text-anchor="middle" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">!== 'dessert'</text>
+  <text x="400" y="200" text-anchor="middle" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">)</text>
+  <line x1="362" y1="170" x2="434" y2="170" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- NA -->
+  <rect x="440" y="45" width="340" height="180" rx="10" fill="#1e1e1e"/>
+  <rect x="440" y="45" width="340" height="32" rx="10" fill="#2a2a2a"/>
+  <rect x="440" y="65" width="340" height="12" fill="#2a2a2a"/>
+  <text x="610" y="66" text-anchor="middle" fill="#aaa" font-size="12">NA — 3 recepten (dessert verwijderd)</text>
+
+  <text x="460" y="100" fill="#e74c3c" font-size="11" font-family="'Courier New', monospace">&#123; naam: 'Soep', cat: 'voorgerecht' &#125;</text>
+  <text x="460" y="118" fill="#3498db" font-size="11" font-family="'Courier New', monospace">&#123; naam: 'Pasta', cat: 'hoofdgerecht' &#125;</text>
+  <text x="460" y="136" fill="#9b59b6" font-size="11" font-family="'Courier New', monospace" text-decoration="line-through" fill-opacity="0.3">&#123; naam: 'Tiramisu', cat: 'dessert' &#125;</text>
+  <text x="460" y="154" fill="#f39c12" font-size="11" font-family="'Courier New', monospace">&#123; naam: 'Nachos', cat: 'snack' &#125;</text>
+  <line x1="440" y1="168" x2="780" y2="168" stroke="#444" stroke-width="1"/>
+  <text x="610" y="210" text-anchor="middle" fill="#43e97b" font-size="12">✓ dessert niet meer aanwezig</text>
+
+  <!-- Code -->
+  <rect x="20" y="245" width="760" height="95" rx="8" fill="#1a1a2e"/>
+  <text x="40" y="267" fill="#888" font-size="11" font-family="'Courier New', monospace">// splice verwijdert 1 element; filter maakt een nieuwe array zonder die categorie</text>
+  <text x="40" y="285" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">function <tspan fill="#6c63ff">verwijderCategorie</tspan>(cat) &#123;</text>
+  <text x="40" y="302" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  alleRecepten = alleRecepten.<tspan fill="#f9a825">filter</tspan>(r =&gt; r.categorie !== cat);</text>
+  <text x="40" y="319" fill="#e8e8f0" font-size="11" font-family="'Courier New', monospace">  <tspan fill="#6c63ff">updateLS</tspan>(alleRecepten);  receptenSectie.<tspan fill="#6c63ff">dispatchEvent</tspan>(update);</text>
+  <text x="40" y="330" fill="#888" font-size="11" font-family="'Courier New', monospace">&#125;</text>
+
+  <!-- Comparison -->
+  <rect x="20" y="355" width="760" height="70" rx="8" fill="#f0f4ff" stroke="#6c63ff" stroke-width="1"/>
+  <text x="400" y="378" text-anchor="middle" fill="#6c63ff" font-size="13" font-weight="bold">splice vs filter — wanneer welke?</text>
+  <text x="190" y="405" text-anchor="middle" fill="#2d2d4e" font-size="12">splice → verwijder 1 specifiek recept (op index)</text>
+  <text x="590" y="405" text-anchor="middle" fill="#2d2d4e" font-size="12">filter → verwijder meerdere op basis van eigenschap</text>
+</svg>

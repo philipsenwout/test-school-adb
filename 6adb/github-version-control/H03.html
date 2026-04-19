@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 — Pull Requests &amp; Code Review — GitHub Advanced 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/github-version-control/H03" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-pr">3.1 Wat is een Pull Request?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.2"><span class="sidebar-check__box"></span></label>
+          <a href="#pr-aanmaken">3.2 Pull Request aanmaken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.3"><span class="sidebar-check__box"></span></label>
+          <a href="#code-review">3.3 Code review ontvangen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.4"><span class="sidebar-check__box"></span></label>
+          <a href="#feedback-verwerken">3.4 Feedback verwerken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.5"><span class="sidebar-check__box"></span></label>
+          <a href="#pr-mergen">3.5 PR mergen en sluiten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Advanced</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H03 — Pull Requests &amp; Code Review</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H03 — GitHub Advanced 6ADB</div>
+        <h1 class="page-header__title">Pull Requests &amp; Code Review</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem. [verdieping]</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB14</span><span class="ld-tag__title">De leerlingen sturen een applicatie bij op basis van feedback.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB28</span><span class="ld-tag__title">De leerlingen communiceren over vragen, problemen en updates gerelateerd aan een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen wat een Pull Request (PR) is en wanneer je er één aanmaakt</li>
+          <li>Je kan een PR aanmaken op GitHub vanuit een feature-branch</li>
+          <li>Je kan code review ontvangen en begrijpen</li>
+          <li>Je kan feedback verwerken in een bestaande PR</li>
+          <li>Je kan een PR mergen en sluiten</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-pr">3.1 Wat is een Pull Request?</h2>
+
+      <p>Een <strong>Pull Request (PR)</strong> is een formeel verzoek om jouw feature-branch samen te voegen met een andere branch (meestal <code>main</code>). Het is de professionele manier om code te reviewen voor ze in de productieversie belandt.</p>
+
+      <p>In het onderwijs werkt het zo:</p>
+      <ol>
+        <li>Je werkt op een feature-branch en pusht naar GitHub</li>
+        <li>Je maakt een Pull Request aan op GitHub</li>
+        <li>De leerkracht beoordeelt de code, voegt commentaar toe</li>
+        <li>Jij verwerkt de feedback en pusht opnieuw</li>
+        <li>De PR wordt goedgekeurd en gemerged</li>
+      </ol>
+
+      <h2 id="pr-aanmaken">3.2 Pull Request aanmaken</h2>
+
+      <ol>
+        <li>Push je feature-branch naar GitHub: <code>git push -u origin feature/naam</code></li>
+        <li>Ga naar je repository op GitHub</li>
+        <li>GitHub toont een gele banner: <em>"feature/naam had recent pushes"</em> — klik op <strong>Compare &amp; pull request</strong></li>
+        <li>Of ga via het tabblad <strong>Pull Requests</strong> → <strong>New pull request</strong></li>
+      </ol>
+
+      <h3>De PR beschrijven</h3>
+      <div style="display:grid;gap:var(--space-3);margin:var(--space-4) 0">
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-2)">Titel</h3>
+          <p style="margin:0">Kort en beschrijvend. Bv. <em>"H01 contactformulier met validatie"</em></p>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-2)">Description</h3>
+          <p style="margin:0">Wat heb je gemaakt? Wat werkt er? Zijn er nog openstaande vragen voor de leerkracht?</p>
+        </div>
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-2)">Reviewers</h3>
+          <p style="margin:0">Voeg je leerkracht toe als reviewer. Hij/zij krijgt een melding.</p>
+        </div>
+      </div>
+
+      <h2 id="code-review">3.3 Code review ontvangen</h2>
+
+      <p>De leerkracht kan op GitHub:</p>
+      <ul>
+        <li><strong>Inline commentaar</strong> geven op specifieke regels — klik op het + teken naast een regel</li>
+        <li>Een algemene review schrijven: <em>Approve</em>, <em>Comment</em> of <em>Request changes</em></li>
+      </ul>
+
+      <p>Je ontvangt een e-mail als er nieuwe commentaren zijn. Bekijk ze op de GitHub PR-pagina.</p>
+
+      <h2 id="feedback-verwerken">3.4 Feedback verwerken</h2>
+
+      <p>Als de leerkracht wijzigingen vraagt:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Zorg dat je op de feature-branch zit
+git switch feature/naam
+
+# Haal eventuele nieuwe commentaar-commits op
+git pull
+
+# Pas je code aan op basis van de feedback
+# ... wijzigingen maken in VS Code ...
+
+# Commit en push
+git add .
+git commit -m "feedback leerkracht verwerkt: validatie toegevoegd"
+git push</code></pre>
+      </div>
+
+      <p>De PR wordt automatisch bijgewerkt met de nieuwe commits. De leerkracht ziet de wijzigingen onmiddellijk.</p>
+
+      <h2 id="pr-mergen">3.5 PR mergen en sluiten</h2>
+
+      <p>Als de leerkracht de PR goedkeurt (<em>Approved</em>), kan je mergen:</p>
+      <ol>
+        <li>Klik op <strong>Merge pull request</strong> op GitHub</li>
+        <li>Klik op <strong>Confirm merge</strong></li>
+        <li>Optioneel: klik op <strong>Delete branch</strong> (opgeruimd!)</li>
+      </ol>
+
+      <p>Daarna lokaal bijwerken:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git switch main
+git pull
+git branch -d feature/naam   # lokale branch opruimen</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB14</span>
+            <span class="oefening__title">Oefening 1 — Volledige PR-cyclus</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Doorloop een complete PR-cyclus:</p>
+            <ol>
+              <li>Maak een branch <code>feature/pr-oefening</code></li>
+              <li>Maak een HTML-bestand met een formulier</li>
+              <li>Commit en push de branch</li>
+              <li>Open een Pull Request op GitHub, voeg je leerkracht toe als reviewer</li>
+              <li>Wacht op feedback (of vraag een medeleerling)</li>
+              <li>Verwerk minstens één wijziging en push opnieuw</li>
+              <li>Merge de PR</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB28</span>
+            <span class="oefening__title">Oefening 2 — PR-beschrijving schrijven</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een professionele PR-beschrijving voor je oefening van H02 (branching). Zorg voor:</p>
+            <ul>
+              <li>Een duidelijke titel</li>
+              <li>Wat je gemaakt hebt (2-3 zinnen)</li>
+              <li>Minstens één vraag of aandachtspunt voor de leerkracht</li>
+              <li>Eventuele gekende beperkingen of openstaande punten</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — GIP-voorbereiding via PR
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H03-6adb-voorbeeld.svg', 'Voorbeeld — Pull Request pagina op GitHub')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak een PR voor je GIP-startsectie</h3>
+            <ol>
+              <li><strong>Deel 1 — 5 punten:</strong> Maak een branch <code>gip/startpagina</code>. Bouw hierop de basisstructuur van je GIP-startpagina (HTML + CSS). Commit in minstens 3 stappen.</li>
+              <li><strong>Deel 2 — 3 punten:</strong> Open een PR op GitHub met een volledige beschrijving. Voeg de leerkracht toe als reviewer.</li>
+              <li><strong>Deel 3 — 2 punten:</strong> Verwerk eventuele feedback en push de verbeterde versie. Merge de PR als de leerkracht akkoord is.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H03 — Pull Requests &amp; Code Review</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is een Pull Request?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v1" value="a"> <span>Een commando om code van GitHub te halen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v1" value="b"> <span>Een formeel verzoek om een branch samen te voegen, inclusief code review</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v1" value="c"> <span>Een verzoek aan de leerkracht om een extra toets te geven</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v1" value="d"> <span>Een back-up van je repository</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Hoe verwerk je feedback van de leerkracht in een openstaande PR?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v2" value="a"> <span>Je maakt een nieuwe PR aan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v2" value="b"> <span>Je sluit de PR en begint opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v2" value="c"> <span>Je past de code aan, commit en push op dezelfde branch — de PR wordt automatisch bijgewerkt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v2" value="d"> <span>Je mergt de PR zonder de feedback te verwerken</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat betekent "Request changes" als review-uitkomst?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v3" value="a"> <span>Er zijn verplichte aanpassingen nodig voor de PR gemerged kan worden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v3" value="b"> <span>De PR is goedgekeurd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v3" value="c"> <span>Je moet een nieuwe branch aanmaken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v3" value="d"> <span>De repository is vergrendeld</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Na het mergen van een PR via GitHub, wat doe je lokaal?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v4" value="a"> <span>Niets — de lokale repo wordt automatisch bijgewerkt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v4" value="b"> <span>Je clonet de repository opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v4" value="c"> <span>Je push de main-branch</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v4" value="d"> <span>Je switcht naar main en doet git pull</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wie voeg je toe als reviewer bij een schoolopdracht?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v5" value="a"> <span>Een willekeurig GitHub-account</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v5" value="b"> <span>De leerkracht — die krijgt een notificatie en beoordeelt de code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v5" value="c"> <span>Niemand — reviews zijn optioneel</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-03-v5" value="d"> <span>Jezelf</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/github-version-control/H03')" data-progress-key="6adb/github-version-control/H03">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H02.html" class="btn btn-ghost">← H02</a>
+          <a href="H04.html" class="btn btn-ghost">H04 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H05 — Geavanceerd GitHub — GitHub Advanced 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/github-version-control/H05" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.1"><span class="sidebar-check__box"></span></label>
+          <a href="#gitignore">.gitignore</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.2"><span class="sidebar-check__box"></span></label>
+          <a href="#git-stash">git stash</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.3"><span class="sidebar-check__box"></span></label>
+          <a href="#tags">Tags &amp; releases</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.4"><span class="sidebar-check__box"></span></label>
+          <a href="#github-pages">GitHub Pages</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Advanced</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H05 — Geavanceerd GitHub</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H05 — GitHub Advanced 6ADB</div>
+        <h1 class="page-header__title">Geavanceerd GitHub</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem. [verdieping]</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB13</span><span class="ld-tag__title">De leerlingen stellen een applicatie in werking.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan een <code>.gitignore</code> bestand aanmaken en uitleggen waarvoor het dient</li>
+          <li>Je kan <code>git stash</code> gebruiken om tijdelijk wijzigingen op te slaan</li>
+          <li>Je kan een release-tag aanmaken voor het GIP-eindproduct</li>
+          <li>Je kan je GIP-project publiceren via GitHub Pages</li>
+        </ul>
+      </div>
+
+      <h2 id="gitignore">.gitignore — bestanden uitsluiten</h2>
+
+      <p>Sommige bestanden wil je <em>niet</em> in je repository opslaan. Denk aan:</p>
+      <ul>
+        <li><code>node_modules/</code> — duizenden kleine bestanden van npm</li>
+        <li><code>.env</code> — wachtwoorden en API-sleutels</li>
+        <li><code>.DS_Store</code> — macOS systeembestanden</li>
+        <li><code>*.log</code> — logbestanden</li>
+      </ul>
+
+      <p>Maak een <code>.gitignore</code> bestand aan in de root van je repository:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">touch .gitignore</code></pre>
+      </div>
+
+      <p>Voeg patronen toe — elk patroon staat op een aparte regel:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code># .gitignore
+node_modules/
+.env
+.DS_Store
+*.log
+dist/</code></pre>
+      </div>
+
+      <p>Commit daarna het <code>.gitignore</code> bestand zelf:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git add .gitignore
+git commit -m ".gitignore toegevoegd"
+git push</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; GitHub .gitignore templates</div>
+        <p>Bij het aanmaken van een repository op GitHub kan je een sjabloon kiezen (bv. <em>Node</em> of <em>Python</em>). GitHub genereert dan automatisch een passende <code>.gitignore</code>.</p>
+      </div>
+
+      <h2 id="git-stash">git stash — wijzigingen tijdelijk opzijleggen</h2>
+
+      <p>Soms wil je snel van branch wisselen, maar heb je onafgemaakte wijzigingen die je nog niet wil committen. <code>git stash</code> bewaart die tijdelijk:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git stash            # wijzigingen opzijleggen
+git switch main      # van branch wisselen
+git switch feature/x # terug naar je branch
+git stash pop        # wijzigingen terugzetten</code></pre>
+      </div>
+
+      <h2 id="tags">Tags &amp; releases</h2>
+
+      <p>Een tag is een label dat je aan een specifieke commit geeft. Handig om versies aan te duiden:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Annotated tag aanmaken
+git tag -a v1.0 -m "GIP versie 1.0 — eindpresentatie"
+
+# Tag pushen naar GitHub
+git push origin v1.0
+
+# Alle tags bekijken
+git tag</code></pre>
+      </div>
+
+      <p>Op GitHub kan je een <strong>Release</strong> aanmaken op basis van een tag: ga naar <em>Releases</em> → <em>Create a new release</em>. Dit maakt je project downloadbaar als zip.</p>
+
+      <h2 id="github-pages">GitHub Pages — je project online publiceren</h2>
+
+      <p>GitHub Pages publiceert je statische website (HTML/CSS/JS) gratis online op een <code>.github.io</code>-adres. Perfect voor je GIP-frontend.</p>
+
+      <ol>
+        <li>Ga naar je repository op GitHub</li>
+        <li>Klik op <strong>Settings</strong></li>
+        <li>Scroll naar de sectie <strong>Pages</strong></li>
+        <li>Kies bij <em>Source</em>: <strong>Deploy from a branch</strong></li>
+        <li>Kies <strong>main</strong> branch en <strong>/ (root)</strong></li>
+        <li>Klik op <strong>Save</strong></li>
+      </ol>
+
+      <p>Na een minuutje is je website beschikbaar op:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>https://gebruikersnaam.github.io/repository-naam/</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Alleen statische sites</div>
+        <p>GitHub Pages werkt alleen met <strong>statische bestanden</strong> (HTML, CSS, JS). Server-side code (Node.js, Python Flask) werkt niet op GitHub Pages — daarvoor heb je een aparte hosting nodig.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB13</span>
+            <span class="oefening__title">Oefening 1 — .gitignore instellen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een <code>.gitignore</code> voor je GIP-repository:</p>
+            <ol>
+              <li>Maak een <code>.gitignore</code> bestand aan in de root</li>
+              <li>Voeg toe: <code>.DS_Store</code>, <code>*.log</code>, <code>node_modules/</code></li>
+              <li>Maak een bestand <code>test.log</code> aan — wordt het getrackt door Git?</li>
+              <li>Controleer met <code>git status</code></li>
+              <li>Commit en push het <code>.gitignore</code> bestand</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB13</span>
+            <span class="oefening__title">Oefening 2 — GIP publiceren via GitHub Pages</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Publiceer je GIP-frontend via GitHub Pages:</p>
+            <ol>
+              <li>Zorg dat je <code>index.html</code> in de root van je repository staat</li>
+              <li>Ga naar Settings → Pages</li>
+              <li>Activeer GitHub Pages via de main branch</li>
+              <li>Wacht 1-2 minuten en bezoek je .github.io URL</li>
+              <li>Test op een smartphone: werkt het responsive?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — GIP v1.0 releasen
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H05-6adb-voorbeeld.svg', 'Voorbeeld — GitHub Release pagina')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak een officiële release van je GIP-frontend</h3>
+            <ol>
+              <li><strong>Deel 1 — 4 punten:</strong> Zorg dat je GIP-frontend klaar is op main. Maak een tag aan: <code>git tag -a v1.0 -m "GIP frontend v1.0"</code> en push: <code>git push origin v1.0</code></li>
+              <li><strong>Deel 2 — 3 punten:</strong> Maak een GitHub Release op basis van de v1.0 tag. Schrijf een release-beschrijving met:
+                <ul><li>Wat zit er in v1.0?</li><li>Wat is nog niet af voor de volgende versie?</li></ul>
+              </li>
+              <li><strong>Deel 3 — 3 punten:</strong> Activeer GitHub Pages en stuur de publieke URL naar de leerkracht. De website moet werken op een smartphone.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H05 — Geavanceerd GitHub</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat doet een <code>.gitignore</code> bestand?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v1" value="a"> <span>Het verwijdert bestanden uit de repository</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v1" value="b"> <span>Het vertelt Git welke bestanden het niet moet bijhouden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v1" value="c"> <span>Het beveiligt bestanden met een wachtwoord</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v1" value="d"> <span>Het maakt bestanden onzichtbaar op GitHub</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Waarvoor gebruik je <code>git stash</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v2" value="a"> <span>Om een back-up van de volledige repository te maken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v2" value="b"> <span>Om bestanden te deleten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v2" value="c"> <span>Om onafgemaakte wijzigingen tijdelijk opzij te zetten zodat je van branch kan wisselen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v2" value="d"> <span>Om snel te committen zonder boodschap</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welk type websites kan je publiceren via GitHub Pages?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v3" value="a"> <span>Alleen statische sites: HTML, CSS, JavaScript</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v3" value="b"> <span>Elke webapplicatie inclusief Node.js backends</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v3" value="c"> <span>Alleen Python Flask applicaties</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v3" value="d"> <span>Alleen PHP-applicaties</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welk bestand moet je <em>nooit</em> committen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v4" value="a"> <span>index.html</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v4" value="b"> <span>README.md</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v4" value="c"> <span>style.css</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v4" value="d"> <span>.env (wachtwoorden en API-sleutels)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Hoe push je een tag naar GitHub?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v5" value="a"> <span>git push (tags worden automatisch meegestuurd)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v5" value="b"> <span>git tag push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v5" value="c"> <span>git push origin v1.0</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-05-v5" value="d"> <span>git release v1.0</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/github-version-control/H05')" data-progress-key="6adb/github-version-control/H05">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H04.html" class="btn btn-ghost">← H04</a>
+          <a href="H06.html" class="btn btn-ghost">H06 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

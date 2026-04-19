@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events &amp; Luisteraars — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H05" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-zijn-events">5.1 Wat zijn events?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.2"><span class="sidebar-check__box"></span></label>
+          <a href="#addeventlistener">5.2 addEventListener</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.3"><span class="sidebar-check__box"></span></label>
+          <a href="#event-object">5.3 Het event-object</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.4"><span class="sidebar-check__box"></span></label>
+          <a href="#veelgebruikte-events">5.4 Veelgebruikte events</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.5"><span class="sidebar-check__box"></span></label>
+          <a href="#meerdere-listeners">5.5 Meerdere listeners</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.6"><span class="sidebar-check__box"></span></label>
+          <a href="#event-delegation">5.6 Event delegation</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Events &amp; Luisteraars</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H05 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Events &amp; Luisteraars</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat events zijn en hoe event-driven programmeren werkt</li>
+          <li>Een event listener toevoegen aan een element met <code>addEventListener</code></li>
+          <li>Het event-object gebruiken om informatie over een event op te halen (<code>e.target</code>, <code>e.type</code>, <code>e.preventDefault()</code>)</li>
+          <li>De veelgebruikte events opnoemen en correct toepassen</li>
+          <li>Meerdere listeners registreren op hetzelfde element</li>
+          <li>Event delegation uitleggen en toepassen om dynamische elementen te beheren</li>
+          <li>Een interactieve kleurkiezer bouwen met events</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-zijn-events">5.1 Wat zijn events?</h2>
+      <p>Een <strong>event</strong> is een signaal dat iets is gebeurd in de browser. Dat kan van alles zijn:</p>
+      <ul>
+        <li>De gebruiker klikt op een knop</li>
+        <li>De gebruiker drukt een toets in</li>
+        <li>De muis beweegt over een element</li>
+        <li>Een formulier wordt ingediend</li>
+        <li>De pagina is volledig geladen</li>
+      </ul>
+      <p>JavaScript gebruikt een <strong>event-driven</strong> model: in plaats van continu te checken of iets is gebeurd (polling), <em>registreer</em> je een functie die automatisch opgeroepen wordt zodra een bepaald event plaatsvindt. Die functie heet een <strong>event handler</strong> of <strong>callback</strong>.</p>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Hollywood Principle</div>
+        <p>"Don't call us, we'll call you." — Jij registreert een handler, de browser roept die op wanneer nodig. Efficiënt en overzichtelijk.</p>
+      </div>
+
+      <h2 id="addeventlistener">5.2 addEventListener</h2>
+      <h3>Syntax</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">element.addEventListener(eventType, callbackFunctie);</code></pre>
+      </div>
+      <h3>Basisvorm</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const knop = document.querySelector('#mijn-knop');
+
+knop.addEventListener('click', function() {
+  console.log('Er is geklikt!');
+});</code></pre>
+      </div>
+      <p>Je kan ook een vooraf gedefinieerde functie meegeven (<strong>zonder</strong> haakjes!):</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function reageerOpKlik() {
+  console.log('Geklikt!');
+}
+
+knop.addEventListener('click', reageerOpKlik);
+// Correct: reageerOpKlik zonder ()
+// FOUT:    reageerOpKlik() — dan roep je de functie onmiddellijk aan!</code></pre>
+      </div>
+      <h3>Arrow functions</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">knop.addEventListener('click', () => {
+  console.log('Geklikt!');
+});</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H05-afb1.svg" alt="Schema addEventListener: element → eventtype → callback" loading="lazy">
+      </figure>
+
+      <h2 id="event-object">5.3 Het event-object</h2>
+      <p>Elke callback-functie kan automatisch een <strong>event-object</strong> ontvangen met informatie over het event.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">knop.addEventListener('click', function(e) {
+  console.log(e.type);   // "click"
+  console.log(e.target); // het element waarop geklikt werd
+});</code></pre>
+      </div>
+      <h3><code>e.target</code> — het element dat het event veroorzaakte</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">document.querySelector('ul').addEventListener('click', function(e) {
+  console.log(e.target);              // het specifieke element
+  console.log(e.target.tagName);     // bijv. "LI"
+  console.log(e.target.textContent); // de tekst van dat element
+});</code></pre>
+      </div>
+      <h3><code>e.preventDefault()</code> — standaardgedrag voorkomen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Formulier NIET versturen bij submit
+const formulier = document.querySelector('form');
+formulier.addEventListener('submit', function(e) {
+  e.preventDefault(); // Browser stuurt het formulier NIET op
+  console.log('Formulier onderschept!');
+});
+
+// Link NIET navigeren bij klik
+const link = document.querySelector('a.intern');
+link.addEventListener('click', function(e) {
+  e.preventDefault();
+  console.log('Navigatie geblokkeerd');
+});</code></pre>
+      </div>
+
+      <h2 id="veelgebruikte-events">5.4 Veelgebruikte events</h2>
+      <h3>Muis-events</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Event</th><th>Wanneer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>click</code></td><td>Gebruiker klikt (mousedown + mouseup)</td></tr>
+          <tr><td><code>dblclick</code></td><td>Dubbele klik</td></tr>
+          <tr><td><code>mouseover</code></td><td>Muis beweegt naar een element</td></tr>
+          <tr><td><code>mouseout</code></td><td>Muis beweegt weg van een element</td></tr>
+          <tr><td><code>mousemove</code></td><td>Muis beweegt over een element</td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const box = document.querySelector('.box');
+
+box.addEventListener('mouseover', function() {
+  box.style.backgroundColor = 'lightblue';
+});
+
+box.addEventListener('mouseout', function() {
+  box.style.backgroundColor = '';
+});</code></pre>
+      </div>
+      <h3>Formulier-events</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Event</th><th>Wanneer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>input</code></td><td>Elke keer de waarde van een invoerveld verandert</td></tr>
+          <tr><td><code>change</code></td><td>Waarde verandert definitief (na verlaten veld)</td></tr>
+          <tr><td><code>submit</code></td><td>Formulier wordt ingediend</td></tr>
+          <tr><td><code>focus</code></td><td>Element krijgt de focus</td></tr>
+          <tr><td><code>blur</code></td><td>Element verliest de focus</td></tr>
+        </tbody>
+      </table>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const invoer = document.querySelector('#naam');
+
+// Live tekenteller
+invoer.addEventListener('input', function() {
+  const max = 50;
+  const resterend = max - invoer.value.length;
+  document.querySelector('#teller').textContent = resterend + ' tekens over';
+});</code></pre>
+      </div>
+      <h3>Toetsenbord-events</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">document.addEventListener('keydown', function(e) {
+  console.log('Toets:', e.key);      // Leesbare naam: "Enter", "ArrowUp", "a"
+  console.log('Shift?', e.shiftKey); // true/false
+  console.log('Ctrl?', e.ctrlKey);   // true/false
+
+  if (e.key === 'Escape') {
+    sluitModal();
+  }
+  if (e.key === 'Enter') {
+    verstuurFormulier();
+  }
+});</code></pre>
+      </div>
+      <h3>Document-events</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Wacht tot de DOM volledig geladen is
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM is klaar!');
+  // Initialiseer hier je app
+});</code></pre>
+      </div>
+
+      <h2 id="meerdere-listeners">5.5 Meerdere listeners op één element</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const knop = document.querySelector('#doe-knop');
+
+knop.addEventListener('click', function() {
+  console.log('Eerste listener');
+});
+
+knop.addEventListener('click', function() {
+  console.log('Tweede listener');
+});
+// Bij een klik: "Eerste listener", dan "Tweede listener"
+
+// Listener verwijderen — gebruik een benoemde functie
+function mijnHandler() {
+  console.log('Geklikt!');
+}
+
+knop.addEventListener('click', mijnHandler);
+// Later:
+knop.removeEventListener('click', mijnHandler);</code></pre>
+      </div>
+
+      <h2 id="event-delegation">5.6 Event delegation</h2>
+      <p>Stel: je hebt een lijst waaraan dynamisch items worden toegevoegd. Listeners die je toevoegt aan bestaande items, werken niet voor toekomstige items.</p>
+      <p><strong>Event bubbling</strong> lost dit op: events "borrelen omhoog" door de DOM-boom. Een klik op een <code>&lt;li&gt;</code> bereikt ook de <code>&lt;ul&gt;</code> erboven.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H05-afb1.svg" alt="Event flow diagram: event bubbling van child naar parent naar document" loading="lazy">
+      </figure>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const lijst = document.querySelector('#taak-lijst');
+
+// Één listener op de parent — werkt ook voor toekomstige items!
+lijst.addEventListener('click', function(e) {
+  if (e.target.tagName === 'LI') {
+    e.target.classList.toggle('geselecteerd');
+  }
+});</code></pre>
+      </div>
+      <h3>Verfijnd met closest()</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">lijst.addEventListener('click', function(e) {
+  // Zoek het dichtstbijzijnde .taak-item (ook als je op een child klikt)
+  const taakItem = e.target.closest('.taak-item');
+
+  if (taakItem) {
+    taakItem.classList.toggle('voltooid');
+  }
+});</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Voordelen van event delegation</div>
+        <ul>
+          <li>Werkt voor toekomstige, dynamisch toegevoegde elementen</li>
+          <li>Minder event listeners → betere performance</li>
+          <li>Eenvoudiger code</li>
+        </ul>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Kleurkiezer</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw een kleurkiezer. De gebruiker klikt op een gekleurde knop en de achtergrond van de pagina verandert. Toon ook welke toets wordt ingedrukt.</p>
+            <p>Maak een HTML-pagina met een rij gekleurde knoppen (elk met een <code>data-kleur</code>-attribuut) en een tekstveld om de ingedrukte toets te tonen.</p>
+            <ol>
+              <li>Gebruik event delegation op de container om kliks op knoppen te detecteren</li>
+              <li>Lees het attribuut <code>data-kleur</code> via <code>getAttribute('data-kleur')</code></li>
+              <li>Pas <code>document.body.style.backgroundColor</code> aan</li>
+              <li>Voeg de klasse <code>actief</code> toe aan de geklikte knop en verwijder hem van alle andere knoppen</li>
+              <li>Luister naar <code>keydown</code> en <code>keyup</code> op <code>document</code> en toon de ingedrukte toets</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H05-oef1-browser.svg" alt="Browser mockup van de kleurkiezer" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Formuliervalidatie</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een inschrijvingsformulier met velden voor naam, e-mail en wachtwoord. Valideer elk veld bij het verlaten (<code>blur</code>) en bij het indienen (<code>submit</code>).</p>
+            <ol>
+              <li>Gebruik <code>e.preventDefault()</code> om te voorkomen dat het formulier wordt verstuurd</li>
+              <li>Bij <code>blur</code> op het naamveld: toon een foutmelding als het leeg is</li>
+              <li>Bij <code>blur</code> op het e-mailveld: toon een foutmelding als het geen <code>@</code> bevat</li>
+              <li>Bij <code>blur</code> op het wachtwoordveld: toon een foutmelding als het minder dan 8 tekens heeft</li>
+              <li>Toon bij succesvolle validatie een groen "Formulier is geldig!" bericht</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 3 — Dynamische accordeon</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw een accordeon (uitklapbare secties). Klik op een titel om de bijhorende inhoud te tonen of te verbergen. Gebruik event delegation.</p>
+            <ol>
+              <li>Maak 4 secties, elk met een <code>.accordeon-titel</code> en een <code>.accordeon-inhoud</code> (initieel verborgen via CSS)</li>
+              <li>Gebruik één <code>click</code>-listener op de container</li>
+              <li>Gebruik <code>e.target.closest('.accordeon-titel')</code> om het juiste element te vinden</li>
+              <li>Toggle de klasse <code>open</code> op de bijhorende <code>.accordeon-inhoud</code></li>
+              <li>Sluit alle andere secties wanneer je er een opent</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H05 Events &amp; Luisteraars<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H05-oef1-browser.svg', 'Voorbeeld — Interactieve rekenmachine')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+            <h3>Opdracht: Interactieve rekenmachine</h3>
+            <p>Je bouwt een eenvoudige rekenmachine in de browser. Gebruikers kunnen klikken op knoppen of toetsenbordcijfers indrukken.</p>
+            <h4>Deel 1 — Interface (4 punten)</h4>
+            <ol>
+              <li>Maak een HTML-pagina met een display-vak en knoppen voor 0-9, +, -, *, /, = en C (wis)</li>
+              <li>Gebruik CSS om de rekenmachine er verzorgd uit te laten zien</li>
+              <li>Registreer een <code>click</code>-listener via event delegation op de knop-container</li>
+            </ol>
+            <h4>Deel 2 — Logica (3 punten)</h4>
+            <ol>
+              <li>Bouw de rekenfunctionaliteit: sla het eerste getal, de operator en het tweede getal op in variabelen</li>
+              <li>Toon tussentijdse waarden in het display via <code>textContent</code></li>
+              <li>Bereken het resultaat bij het klikken op <code>=</code> en toon het</li>
+            </ol>
+            <h4>Deel 3 — Toetsenbord (3 punten)</h4>
+            <ol>
+              <li>Voeg een <code>keydown</code>-listener toe op <code>document</code></li>
+              <li>Reageer op numerieke toetsen (0-9) en operators (+, -, *, /)</li>
+              <li>Reageer op Enter (= berekenen) en Escape (wis)</li>
+            </ol>
+            <p><strong>Dien de bestanden <code>rekenmachine.html</code> en <code>rekenmachine.js</code> in. Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H05 — Events &amp; Luisteraars</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is de correcte manier om een click-listener toe te voegen aan een knop?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="a"> <span><code>knop.addEventListener('click', mijnFunctie);</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="b"> <span><code>knop.addEventListener('click', mijnFunctie());</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="c"> <span><code>knop.onClick = mijnFunctie();</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v1" value="d"> <span><code>knop.listen('click', mijnFunctie);</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat stelt <code>e.target</code> voor in een event handler?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="a"> <span>Het type van het event (bv. "click")</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="b"> <span>Het element waar de listener op staat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="c"> <span>De positie van de muisklik</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v2" value="d"> <span>Het element dat het event daadwerkelijk veroorzaakte (bv. de gekleurde knop zelf)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>e.preventDefault()</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="a"> <span>Verwijdert de event listener van het element</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="b"> <span>Voorkomt het standaardgedrag van de browser (bv. formulier niet versturen)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="c"> <span>Stopt het uitvoeren van alle andere JavaScript-code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v3" value="d"> <span>Voorkomt dat het event naar de parent borrelt</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is event delegation?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="a"> <span>Meerdere listeners registreren op hetzelfde element</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="b"> <span>Events verwijderen van een element</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="c"> <span>Één listener op een parent-element registreren en via <code>e.target</code> bepalen welk child-element het event veroorzaakte</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v4" value="d"> <span>Een event naar een andere pagina sturen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk event vuur je bij het verlaten van een invoerveld?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="a"> <span><code>blur</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="b"> <span><code>leave</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="c"> <span><code>exit</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v5" value="d"> <span><code>unfocus</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Waarom is event delegation handig bij dynamisch toegevoegde elementen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="a"> <span>Dynamische elementen kunnen geen events ontvangen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="b"> <span>Het maakt de code sneller door meerdere listeners tegelijk uit te voeren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="c"> <span>Listeners op de parent werken niet voor dynamische elementen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h05-v6" value="d"> <span>De parent-listener werkt ook voor elementen die later worden toegevoegd, zonder dat je nieuwe listeners moet registreren</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H05')" data-progress-key="6adb/app-ontwikkeling/H05">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H04.html" class="btn btn-ghost">← H04</a>
+          <a href="H06.html" class="btn btn-ghost">H06 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="360" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Label vs Placeholder — Wat is het verschil?</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">Gebruik altijd een &lt;label&gt; — een placeholder is geen vervanging</text>
+
+  <!-- GOED voorbeeld -->
+  <rect x="30" y="58" width="340" height="200" rx="8" fill="#22C55E" opacity="0.08"/>
+  <rect x="30" y="58" width="340" height="200" rx="8" fill="none" stroke="#22C55E" stroke-width="2"/>
+  <text x="200" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#22C55E">✓ Correct — met &lt;label&gt;</text>
+
+  <!-- Label boven input -->
+  <text x="55" y="108" font-size="12" fill="#22C55E">&lt;label for="naam"&gt;Voornaam&lt;/label&gt;</text>
+  <text x="55" y="126" font-size="12" fill="#22C55E">&lt;input type="text" id="naam" name="naam"&gt;</text>
+  <!-- Visuele weergave -->
+  <text x="55" y="156" font-size="11" fill="#74c0fc">Voornaam</text>
+  <rect x="55" y="162" width="200" height="24" rx="4" fill="#2a2d3e" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="65" y="178" font-size="11" fill="#888">Jan</text>
+  <!-- Pijl koppeling -->
+  <line x1="80" y1="151" x2="80" y2="162" stroke="#22C55E" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="165" y="212" text-anchor="middle" font-size="11" fill="#aaa">for="naam" ↔ id="naam"</text>
+  <text x="165" y="230" text-anchor="middle" font-size="10" fill="#22C55E">Klik op label → veld krijgt focus</text>
+  <text x="165" y="246" text-anchor="middle" font-size="10" fill="#22C55E">Screenreader leest het label voor</text>
+
+  <!-- FOUT voorbeeld -->
+  <rect x="410" y="58" width="340" height="200" rx="8" fill="#f03e3e" opacity="0.06"/>
+  <rect x="410" y="58" width="340" height="200" rx="8" fill="none" stroke="#f03e3e" stroke-width="2"/>
+  <text x="580" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#f03e3e">✗ Fout — alleen placeholder</text>
+
+  <text x="435" y="108" font-size="12" fill="#f03e3e">&lt;input type="text"</text>
+  <text x="435" y="126" font-size="12" fill="#f03e3e">  placeholder="Voornaam"&gt;</text>
+  <!-- Visuele weergave: voor typen -->
+  <rect x="435" y="140" width="200" height="24" rx="4" fill="#2a2d3e" stroke="#f03e3e" stroke-width="1.5"/>
+  <text x="445" y="156" font-size="11" fill="#555">Voornaam</text>
+  <!-- Visuele weergave: na typen -->
+  <rect x="435" y="172" width="200" height="24" rx="4" fill="#2a2d3e" stroke="#f03e3e" stroke-width="1.5"/>
+  <text x="445" y="188" font-size="11" fill="#888">Jan</text>
+  <text x="635" y="156" font-size="9" fill="#f03e3e">← voor typen</text>
+  <text x="635" y="188" font-size="9" fill="#f03e3e">← na typen: label weg!</text>
+  <text x="580" y="218" text-anchor="middle" font-size="10" fill="#f03e3e">Geen label → screenreader blokkeert</text>
+  <text x="580" y="234" text-anchor="middle" font-size="10" fill="#f03e3e">Gebruiker vergeet wat veld vraagt</text>
+  <text x="580" y="250" text-anchor="middle" font-size="10" fill="#f03e3e">Niet WCAG-conform (A vereiste)</text>
+
+  <!-- Fieldset sectie -->
+  <rect x="30" y="270" width="740" height="78" rx="8" fill="#7B3FE4" opacity="0.1"/>
+  <rect x="30" y="270" width="740" height="78" rx="8" fill="none" stroke="#7B3FE4" stroke-width="1.5"/>
+  <text x="400" y="290" text-anchor="middle" font-size="12" font-weight="bold" fill="#7B3FE4">Fieldset + Legend — Groepering van gerelateerde velden</text>
+  <text x="60" y="312" font-size="11" font-family="Courier New, monospace" fill="#f0f0f0">&lt;fieldset&gt;</text>
+  <text x="90" y="328" font-size="11" font-family="Courier New, monospace" fill="#2D9CDB">  &lt;legend&gt;Contactgegevens&lt;/legend&gt;</text>
+  <text x="400" y="342" text-anchor="middle" font-size="10" fill="#aaa">Screenreader kondigt "Contactgegevens groep" aan → logische navigatie</text>
+</svg>

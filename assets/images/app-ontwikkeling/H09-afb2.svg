@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="380" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Kleurenblindheid &amp; Contrast — Toegankelijkheid</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">8% van mannen heeft kleurenblindheid — gebruik nooit alleen kleur om info over te brengen</text>
+
+  <!-- Linker helft: normaal zicht -->
+  <rect x="20" y="58" width="368" height="250" rx="8" fill="#1e2030" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="204" y="78" text-anchor="middle" font-size="12" fill="#22C55E" font-weight="bold">Normaal kleurenzicht</text>
+
+  <!-- Formulier normaal -->
+  <text x="50" y="105" font-size="11" fill="#aaa">E-mailadres</text>
+  <rect x="50" y="110" width="200" height="28" rx="4" fill="#2a2c3e" stroke="#22C55E" stroke-width="2"/>
+  <text x="60" y="128" font-size="11" fill="#888">gebruiker@school.be</text>
+  <text x="270" y="128" font-size="16" fill="#22C55E">✓</text>
+
+  <text x="50" y="158" font-size="11" fill="#aaa">Wachtwoord</text>
+  <rect x="50" y="163" width="200" height="28" rx="4" fill="#2a2c3e" stroke="#f03e3e" stroke-width="2"/>
+  <text x="60" y="181" font-size="11" fill="#888">••••••</text>
+  <text x="270" y="181" font-size="16" fill="#f03e3e">✗</text>
+  <text x="50" y="202" font-size="10" fill="#f03e3e">Fout: minstens 8 tekens vereist</text>
+
+  <text x="204" y="240" text-anchor="middle" font-size="10" fill="#22C55E">✓ Groen = correct</text>
+  <text x="204" y="256" text-anchor="middle" font-size="10" fill="#f03e3e">✗ Rood = fout</text>
+  <text x="204" y="272" text-anchor="middle" font-size="10" fill="#888">Duidelijk zichtbaar verschil</text>
+
+  <!-- Rechter helft: kleurenblinde simulatie -->
+  <rect x="412" y="58" width="368" height="250" rx="8" fill="#1e2030" stroke="#F97316" stroke-width="1.5"/>
+  <text x="596" y="78" text-anchor="middle" font-size="12" fill="#F97316" font-weight="bold">Groen-rood kleurenblindheid (deuteranopie)</text>
+
+  <!-- Zelfde formulier maar groen-rood als bruin/geel -->
+  <text x="442" y="105" font-size="11" fill="#aaa">E-mailadres</text>
+  <rect x="442" y="110" width="200" height="28" rx="4" fill="#2a2c3e" stroke="#8B8000" stroke-width="2"/>
+  <text x="452" y="128" font-size="11" fill="#888">gebruiker@school.be</text>
+  <text x="662" y="128" font-size="16" fill="#8B8000">✓</text>
+
+  <text x="442" y="158" font-size="11" fill="#aaa">Wachtwoord</text>
+  <rect x="442" y="163" width="200" height="28" rx="4" fill="#2a2c3e" stroke="#8B6914" stroke-width="2"/>
+  <text x="452" y="181" font-size="11" fill="#888">••••••</text>
+  <text x="662" y="181" font-size="16" fill="#8B6914">✗</text>
+  <text x="442" y="202" font-size="10" fill="#8B6914">Fout: minstens 8 tekens vereist</text>
+
+  <text x="596" y="240" text-anchor="middle" font-size="10" fill="#888">Groen en rood zien er gelijkaardig uit</text>
+  <text x="596" y="256" text-anchor="middle" font-size="10" fill="#F97316">⚠ Moeilijk te onderscheiden!</text>
+
+  <!-- Oplossingen onderaan -->
+  <rect x="20" y="320" width="760" height="50" rx="6" fill="#2a2c3e"/>
+  <text x="400" y="338" text-anchor="middle" font-size="11" font-weight="bold" fill="#f0f0f0">Correcte aanpak: kleur + extra visueel signaal</text>
+  <text x="60" y="357" font-size="10" fill="#22C55E">✓</text><text x="75" y="357" font-size="10" fill="#aaa"> Rand + icoon + tekst voor fouten</text>
+  <text x="270" y="357" font-size="10" fill="#22C55E">✓</text><text x="285" y="357" font-size="10" fill="#aaa"> Onderstreep links (niet alleen kleur)</text>
+  <text x="510" y="357" font-size="10" fill="#22C55E">✓</text><text x="525" y="357" font-size="10" fill="#aaa"> Grafieklijnen: kleur + patroon</text>
+  <text x="680" y="357" font-size="10" fill="#22C55E">✓</text><text x="695" y="357" font-size="10" fill="#aaa"> Contrast ≥4.5:1</text>
+</svg>

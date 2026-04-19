@@ -43,30 +43,39 @@
 <span class="breadcrumb-sep">&#8250;</span>
 <span>H03</span>
 </nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. Stored Procedures</a>
-          <ul>
-            <li><a href="#s1-1">1.1 Aanmaken</a></li>
-            <li><a href="#s1-2">1.2 Parameters</a></li>
-            <li><a href="#s1-3">1.3 Aanroepen</a></li>
-          </ul>
-        </li>
-        <li><a href="#s2">2. Triggers</a>
-          <ul>
-            <li><a href="#s2-1">2.1 AFTER INSERT</a></li>
-            <li><a href="#s2-2">2.2 BEFORE UPDATE</a></li>
-          </ul>
-        </li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/databeheer/H03" style="--sidebar-accent: var(--color-vak-data)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1">1. Stored Procedures</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s2">2. Triggers</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+        <a href="#vragenlijst">Vragenlijst</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
     <div class="page-header vak-data">
@@ -78,8 +87,19 @@
       </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-DB-11] Stored procedures en triggers schrijven en gebruiken &mdash; verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">DB11</span><span class="ld-tag__title">Stored procedures en triggers schrijven en gebruiken — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>De leerling kan een stored procedure aanmaken met IN-, OUT- en INOUT-parameters.</li>
+        <li>De leerling kan een stored procedure aanroepen via CALL en het resultaat ophalen.</li>
+        <li>De leerling kan het verschil uitleggen tussen BEFORE en AFTER triggers.</li>
+        <li>De leerling kan NEW en OLD gebruiken in een trigger om waarden te raadplegen.</li>
+        <li>De leerling kan een trigger schrijven voor auditlogging en inputvalidatie.</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. Stored Procedures</h2>

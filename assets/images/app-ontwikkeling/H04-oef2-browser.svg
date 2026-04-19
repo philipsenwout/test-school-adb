@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" font-family="sans-serif">
+  <!-- Browser chrome -->
+  <rect width="900" height="560" fill="#ffffff"/>
+  <rect width="900" height="44" fill="#1e1e2e"/>
+  <circle cx="20" cy="22" r="6" fill="#ff5f57"/>
+  <circle cx="36" cy="22" r="6" fill="#febc2e"/>
+  <circle cx="52" cy="22" r="6" fill="#28c840"/>
+  <rect x="200" y="10" width="500" height="24" rx="12" fill="#2a2a3e"/>
+  <text x="450" y="26" text-anchor="middle" fill="#888" font-size="12">navigatie.html</text>
+
+  <!-- header with nav -->
+  <rect x="0" y="44" width="900" height="46" fill="#f0f0f0"/>
+  <text x="40" y="73" font-size="15" fill="#0000ee" text-decoration="underline">Home</text>
+  <text x="110" y="73" font-size="15" fill="#0000ee" text-decoration="underline">Producten</text>
+  <text x="210" y="73" font-size="15" fill="#0000ee" text-decoration="underline">Over ons</text>
+  <text x="300" y="73" font-size="15" fill="#0000ee" text-decoration="underline">Wikipedia ↗</text>
+
+  <!-- main: table of contents -->
+  <text x="40" y="120" font-size="18" font-weight="bold" fill="#000">Inhoudsopgave</text>
+  <text x="56" y="148" font-size="15" fill="#0000ee" text-decoration="underline">1. Introductie</text>
+  <text x="56" y="172" font-size="15" fill="#0000ee" text-decoration="underline">2. Kenmerken</text>
+  <text x="56" y="196" font-size="15" fill="#0000ee" text-decoration="underline">3. Contact</text>
+
+  <!-- section 1 -->
+  <text x="40" y="240" font-size="22" font-weight="bold" fill="#000">1. Introductie</text>
+  <text x="40" y="266" font-size="15" fill="#000">Welkom op deze pagina. Hier leer je meer over onze producten en diensten.</text>
+
+  <!-- section 2 -->
+  <text x="40" y="310" font-size="22" font-weight="bold" fill="#000">2. Kenmerken</text>
+  <text x="40" y="336" font-size="15" fill="#000">Onze producten zijn duurzaam, betaalbaar en eenvoudig in gebruik.</text>
+
+  <!-- section 3 -->
+  <text x="40" y="380" font-size="22" font-weight="bold" fill="#000">3. Contact</text>
+  <text x="40" y="406" font-size="15" fill="#000">Neem contact op via</text>
+  <text x="184" y="406" font-size="15" fill="#0000ee" text-decoration="underline">info@voorbeeld.be</text>
+
+  <!-- footer -->
+  <rect x="0" y="490" width="900" height="70" fill="#f0f0f0"/>
+  <text x="40" y="520" font-size="15" fill="#000">Contact: </text>
+  <text x="100" y="520" font-size="15" fill="#0000ee" text-decoration="underline">info@voorbeeld.be</text>
+</svg>

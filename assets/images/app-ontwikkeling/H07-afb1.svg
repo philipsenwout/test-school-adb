@@ -1,0 +1,78 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Anatomie van een HTML-formulier</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">Een contactformulier met annotaties van de belangrijkste elementen</text>
+
+  <!-- Browser frame -->
+  <rect x="30" y="58" width="480" height="330" rx="8" fill="#1e2030" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="30" y="58" width="480" height="28" rx="8" fill="#2a2c3e"/>
+  <circle cx="50" cy="72" r="5" fill="#f03e3e"/>
+  <circle cx="66" cy="72" r="5" fill="#f97316"/>
+  <circle cx="82" cy="72" r="5" fill="#22C55E"/>
+  <text x="260" y="77" text-anchor="middle" font-size="10" fill="#888">contactformulier.html</text>
+
+  <!-- Form content -->
+  <text x="60" y="110" font-size="14" fill="#f0f0f0" font-weight="bold">Contactformulier</text>
+
+  <!-- Naam label + input -->
+  <text x="60" y="132" font-size="11" fill="#74c0fc">Naam *</text>
+  <rect x="60" y="137" width="200" height="24" rx="4" fill="#2a2d3e" stroke="#555" stroke-width="1"/>
+  <text x="70" y="153" font-size="10" fill="#555">Jan Janssen</text>
+
+  <!-- Email label + input -->
+  <text x="60" y="180" font-size="11" fill="#74c0fc">E-mailadres *</text>
+  <rect x="60" y="185" width="200" height="24" rx="4" fill="#2a2d3e" stroke="#555" stroke-width="1"/>
+  <text x="70" y="201" font-size="10" fill="#555">jan@voorbeeld.be</text>
+
+  <!-- Onderwerp -->
+  <text x="60" y="228" font-size="11" fill="#74c0fc">Onderwerp</text>
+  <rect x="60" y="233" width="200" height="24" rx="4" fill="#2a2d3e" stroke="#555" stroke-width="1"/>
+  <rect x="252" y="233" width="16" height="24" rx="0" fill="#3a3c4e"/>
+  <text x="260" y="248" text-anchor="middle" font-size="10" fill="#aaa">▼</text>
+
+  <!-- Bericht textarea -->
+  <text x="60" y="278" font-size="11" fill="#74c0fc">Bericht *</text>
+  <rect x="60" y="283" width="430" height="60" rx="4" fill="#2a2d3e" stroke="#555" stroke-width="1"/>
+  <text x="70" y="300" font-size="10" fill="#555">Uw bericht hier...</text>
+
+  <!-- Submit button -->
+  <rect x="60" y="357" width="120" height="24" rx="5" fill="#3b5bdb"/>
+  <text x="120" y="373" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Verstuur</text>
+
+  <!-- Annotaties rechts -->
+  <!-- 1: form tag -->
+  <line x1="510" y1="80" x2="560" y2="80" stroke="#7B3FE4" stroke-width="1.5"/>
+  <rect x="560" y="65" width="210" height="32" rx="4" fill="#7B3FE4" opacity="0.2" stroke="#7B3FE4" stroke-width="1"/>
+  <text x="665" y="82" text-anchor="middle" font-size="10" fill="#c4b5fd" font-weight="bold">&lt;form action="..." method="POST"&gt;</text>
+  <text x="665" y="94" text-anchor="middle" font-size="9" fill="#888">Omsluit het volledige formulier</text>
+
+  <!-- 2: label -->
+  <line x1="215" y1="132" x2="560" y2="140" stroke="#74c0fc" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="560" y="128" width="210" height="32" rx="4" fill="#3b5bdb" opacity="0.2" stroke="#3b5bdb" stroke-width="1"/>
+  <text x="665" y="143" text-anchor="middle" font-size="10" fill="#74c0fc" font-weight="bold">&lt;label for="naam"&gt;Naam&lt;/label&gt;</text>
+  <text x="665" y="155" text-anchor="middle" font-size="9" fill="#888">Koppelt tekst aan invoerveld</text>
+
+  <!-- 3: input -->
+  <line x1="260" y1="149" x2="560" y2="195" stroke="#a8ff7a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="560" y="183" width="210" height="32" rx="4" fill="#22C55E" opacity="0.12" stroke="#22C55E" stroke-width="1"/>
+  <text x="665" y="198" text-anchor="middle" font-size="10" fill="#a8ff7a" font-weight="bold">&lt;input type="text" id="naam"&gt;</text>
+  <text x="665" y="210" text-anchor="middle" font-size="9" fill="#888">Invoerveld — type bepaalt soort</text>
+
+  <!-- 4: select -->
+  <line x1="268" y1="245" x2="560" y2="250" stroke="#fdba74" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="560" y="238" width="210" height="32" rx="4" fill="#F97316" opacity="0.12" stroke="#F97316" stroke-width="1"/>
+  <text x="665" y="253" text-anchor="middle" font-size="10" fill="#fdba74" font-weight="bold">&lt;select&gt;&lt;option&gt;...&lt;/select&gt;</text>
+  <text x="665" y="265" text-anchor="middle" font-size="9" fill="#888">Keuzelijst met opties</text>
+
+  <!-- 5: textarea -->
+  <line x1="490" y1="313" x2="560" y2="305" stroke="#f8a4b8" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="560" y="293" width="210" height="32" rx="4" fill="#f03e3e" opacity="0.1" stroke="#f03e3e" stroke-width="1"/>
+  <text x="665" y="308" text-anchor="middle" font-size="10" fill="#f8a4b8" font-weight="bold">&lt;textarea rows="4"&gt;&lt;/textarea&gt;</text>
+  <text x="665" y="320" text-anchor="middle" font-size="9" fill="#888">Meerdere regels tekst</text>
+
+  <!-- 6: button -->
+  <line x1="180" y1="369" x2="560" y2="355" stroke="#e879f9" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="560" y="345" width="210" height="32" rx="4" fill="#7c3aed" opacity="0.2" stroke="#7c3aed" stroke-width="1"/>
+  <text x="665" y="360" text-anchor="middle" font-size="10" fill="#e879f9" font-weight="bold">&lt;button type="submit"&gt;</text>
+  <text x="665" y="372" text-anchor="middle" font-size="9" fill="#888">Verstuurt het formulier</text>
+</svg>

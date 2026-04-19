@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#00C2A8"/>
+    </marker>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrow3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#22C55E"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">TCP DRIE-WEG HANDSHAKE</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">VERBINDINGSOPBOUW TUSSEN CLIENT EN SERVER</text>
+  <line x1="80" y1="64" x2="720" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Client blok -->
+  <rect x="60" y="80" width="160" height="60" rx="8" fill="#1A1C28" stroke="#00C2A8" stroke-width="2"/>
+  <text x="140" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#00C2A8">CLIENT</text>
+  <text x="140" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">bv. browser / app</text>
+
+  <!-- Server blok -->
+  <rect x="580" y="80" width="160" height="60" rx="8" fill="#1A1C28" stroke="#3B82F6" stroke-width="2"/>
+  <text x="660" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#3B82F6">SERVER</text>
+  <text x="660" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">bv. webserver :80/:443</text>
+
+  <!-- Lifelines -->
+  <line x1="140" y1="140" x2="140" y2="400" stroke="#00C2A8" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+  <line x1="660" y1="140" x2="660" y2="400" stroke="#3B82F6" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+
+  <!-- Stap 1: SYN -->
+  <rect x="80" y="155" width="100" height="30" rx="4" fill="#00C2A820" stroke="#00C2A8" stroke-width="1.5"/>
+  <text x="130" y="174" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#00C2A8">SYN</text>
+
+  <!-- Pijl SYN: links naar rechts -->
+  <line x1="220" y1="170" x2="620" y2="200" stroke="#00C2A8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- SYN label -->
+  <text x="420" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#00C2A8">SYN (seq=100)</text>
+  <text x="420" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">"Hallo, ik wil verbinden. Mijn volgnummer is 100."</text>
+
+  <!-- Stap 2: SYN-ACK -->
+  <rect x="620" y="208" width="110" height="30" rx="4" fill="#3B82F620" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="675" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#3B82F6">SYN-ACK</text>
+
+  <!-- Pijl SYN-ACK: rechts naar links -->
+  <line x1="620" y1="260" x2="180" y2="290" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- SYN-ACK label -->
+  <text x="400" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#3B82F6">SYN-ACK (seq=300, ack=101)</text>
+  <text x="400" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">"Begrepen! Mijn volgnummer is 300, ik verwacht jouw 101."</text>
+
+  <!-- Stap 3: ACK -->
+  <rect x="80" y="298" width="100" height="30" rx="4" fill="#22C55E20" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="130" y="318" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#22C55E">ACK</text>
+
+  <!-- Pijl ACK: links naar rechts -->
+  <line x1="220" y1="313" x2="620" y2="343" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- ACK label -->
+  <text x="420" y="319" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#22C55E">ACK (ack=301)</text>
+  <text x="420" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">"Akkoord! Ik verwacht jouw 301. Verbinding is actief."</text>
+
+  <!-- VERBONDEN badge -->
+  <rect x="280" y="360" width="240" height="28" rx="14" fill="#22C55E20" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="400" y="379" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#22C55E">✓  VERBINDING TOT STAND GEBRACHT</text>
+
+  <!-- Stap labels links -->
+  <text x="40" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6B6E8E">STAP 1</text>
+  <text x="40" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6B6E8E">STAP 2</text>
+  <text x="40" y="315" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6B6E8E">STAP 3</text>
+
+  <!-- Poortinfo -->
+  <text x="660" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Poort 80 (HTTP) of 443 (HTTPS)</text>
+  <text x="140" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Willekeurige bronpoort (bv. 54321)</text>
+
+  <!-- Info balk -->
+  <rect x="80" y="426" width="640" height="18" rx="3" fill="#1A1C28"/>
+  <text x="400" y="438" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">TCP garandeert betrouwbare, geordende levering — UDP slaat deze handshake over voor snelheid</text>
+</svg>

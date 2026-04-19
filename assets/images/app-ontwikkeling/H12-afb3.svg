@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#f0f0f0">Flexbox Cheatsheet — Veelgebruikte Combinaties</text>
+
+  <!-- Navigatiebalk -->
+  <rect x="30" y="50" width="355" height="100" rx="8" fill="#7B3FE4" opacity="0.1"/>
+  <rect x="30" y="50" width="355" height="100" rx="8" fill="none" stroke="#7B3FE4" stroke-width="2"/>
+  <text x="207" y="70" text-anchor="middle" font-size="13" font-weight="bold" fill="#7B3FE4">Navigatiebalk</text>
+  <rect x="45" y="80" width="325" height="40" rx="4" fill="#2a2d3e" stroke="#7B3FE4" stroke-width="0.5"/>
+  <text x="70" y="104" font-size="11" fill="#f0f0f0">Logo</text>
+  <text x="220" y="104" font-size="11" fill="#aaa">Home</text>
+  <text x="270" y="104" font-size="11" fill="#aaa">Over</text>
+  <text x="315" y="104" font-size="11" fill="#aaa">Contact</text>
+  <text x="207" y="140" text-anchor="middle" font-size="10" font-family="Courier New" fill="#aaa">justify-content: space-between;</text>
+
+  <!-- Centreren -->
+  <rect x="415" y="50" width="355" height="100" rx="8" fill="#22C55E" opacity="0.1"/>
+  <rect x="415" y="50" width="355" height="100" rx="8" fill="none" stroke="#22C55E" stroke-width="2"/>
+  <text x="592" y="70" text-anchor="middle" font-size="13" font-weight="bold" fill="#22C55E">Perfect centreren</text>
+  <rect x="430" y="78" width="325" height="55" rx="4" fill="#2a2d3e" stroke="#22C55E" stroke-width="0.5"/>
+  <rect x="560" y="90" width="90" height="30" rx="4" fill="#22C55E" opacity="0.6"/>
+  <text x="605" y="109" text-anchor="middle" font-size="11" fill="white">Inhoud</text>
+  <text x="592" y="145" text-anchor="middle" font-size="10" font-family="Courier New" fill="#aaa">justify-content + align-items: center;</text>
+
+  <!-- Kaarten rij -->
+  <rect x="30" y="175" width="355" height="110" rx="8" fill="#F97316" opacity="0.1"/>
+  <rect x="30" y="175" width="355" height="110" rx="8" fill="none" stroke="#F97316" stroke-width="2"/>
+  <text x="207" y="195" text-anchor="middle" font-size="13" font-weight="bold" fill="#F97316">Kaartenrij (gelijke breedte)</text>
+  <rect x="45" y="205" width="90" height="65" rx="4" fill="#F97316" opacity="0.4"/>
+  <rect x="145" y="205" width="90" height="65" rx="4" fill="#F97316" opacity="0.3"/>
+  <rect x="245" y="205" width="90" height="65" rx="4" fill="#F97316" opacity="0.2"/>
+  <text x="207" y="285" text-anchor="middle" font-size="10" font-family="Courier New" fill="#aaa">.kaart { flex: 1; }</text>
+
+  <!-- Zijbalk + inhoud -->
+  <rect x="415" y="175" width="355" height="110" rx="8" fill="#2D9CDB" opacity="0.1"/>
+  <rect x="415" y="175" width="355" height="110" rx="8" fill="none" stroke="#2D9CDB" stroke-width="2"/>
+  <text x="592" y="195" text-anchor="middle" font-size="13" font-weight="bold" fill="#2D9CDB">Sidebar + Inhoud</text>
+  <rect x="430" y="204" width="80" height="70" rx="4" fill="#2D9CDB" opacity="0.5"/>
+  <text x="470" y="243" text-anchor="middle" font-size="10" fill="white">sidebar</text>
+  <rect x="518" y="204" width="245" height="70" rx="4" fill="#2D9CDB" opacity="0.25"/>
+  <text x="640" y="243" text-anchor="middle" font-size="10" fill="white">main content</text>
+  <text x="592" y="285" text-anchor="middle" font-size="10" font-family="Courier New" fill="#aaa">sidebar { flex: 0 0 200px; } main { flex: 1; }</text>
+
+  <!-- flex-wrap visualisatie -->
+  <rect x="30" y="305" width="740" height="85" rx="8" fill="#2a2d3e"/>
+  <text x="400" y="325" text-anchor="middle" font-size="14" font-weight="bold" fill="#f0f0f0">flex-wrap: wrap — Automatisch naar volgende rij</text>
+  <rect x="50" y="335" width="70" height="40" rx="3" fill="#7B3FE4" opacity="0.6"/>
+  <rect x="130" y="335" width="70" height="40" rx="3" fill="#7B3FE4" opacity="0.5"/>
+  <rect x="210" y="335" width="70" height="40" rx="3" fill="#7B3FE4" opacity="0.4"/>
+  <rect x="290" y="335" width="70" height="40" rx="3" fill="#7B3FE4" opacity="0.3"/>
+  <text x="395" y="360" font-size="20" fill="#7B3FE4">↓</text>
+  <rect x="415" y="335" width="70" height="40" rx="3" fill="#2D9CDB" opacity="0.6"/>
+  <rect x="495" y="335" width="70" height="40" rx="3" fill="#2D9CDB" opacity="0.5"/>
+  <text x="600" y="360" font-size="11" fill="#aaa">Pas op nieuwe rij als te breed</text>
+  <text x="600" y="378" font-size="10" font-family="Courier New" fill="#aaa">flex-wrap: wrap; gap: 1rem;</text>
+</svg>

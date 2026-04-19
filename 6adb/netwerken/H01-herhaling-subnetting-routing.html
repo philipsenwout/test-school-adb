@@ -33,7 +33,6 @@
   </div>
 </nav>
 <main id="main">
-  <div class="container">
 <nav class="breadcrumb" aria-label="Paginapad">
 <a href="../../index.html">Home</a>
 <span class="breadcrumb-sep">&#8250;</span>
@@ -43,27 +42,47 @@
 <span class="breadcrumb-sep">&#8250;</span>
 <span>H01</span>
 </nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. Theorie</a>
-          <ul>
-            <li><a href="#s1-1">1.1 VLSM op grotere schaal</a></li>
-            <li><a href="#s1-2">1.2 Routing verdiept</a></li>
-            <li><a href="#s1-3">1.3 Administratieve distance</a></li>
-            <li><a href="#s1-4">1.4 Dynamische routeringprotocollen</a></li>
-            <li><a href="#s1-5">1.5 Routeringstabel diagnostiek</a></li>
-          </ul>
-        </li>
-        <li><a href="#voorbeelden">Voorbeelden</a></li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/netwerken/H01" style="--sidebar-accent: var(--color-vak-netwerken)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1-1">1.1 VLSM op grotere schaal</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s1-2">1.2 Routing verdiept</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s1-3">1.3 Administratieve distance</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s1-4">1.4 Dynamische routeringprotocollen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s1-5">1.5 Routeringstabel diagnostiek</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
     <div class="page-header vak-netwerken">
@@ -75,9 +94,20 @@
       </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-NET-03] Datacommunicatie &amp; computernetwerk — basis</span>
-      <span class="ld-badge">[LD-NET-04] Netwerksysteem configuratie ontwerpen — verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">LD-NET-03</span><span class="ld-tag__title">Datacommunicatie &amp; computernetwerk — verdieping</span></div>
+      <div class="ld-tag"><span class="ld-tag__code">LD-NET-04</span><span class="ld-tag__title">Netwerksysteem configuratie ontwerpen — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>Je kan VLSM toepassen op grotere adresblokken met meerdere subnetten</li>
+        <li>Je kan het principe van longest prefix match uitleggen en toepassen</li>
+        <li>Je kan administrative distance gebruiken om routebronnen te vergelijken</li>
+        <li>Je kan het verschil uitleggen tussen statische en dynamische routering</li>
+        <li>Je kent de basisprincipes van OSPF en kan een eenvoudige configuratie lezen</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. Theorie</h2>
@@ -366,7 +396,6 @@ S*   0.0.0.0/0 [1/0] via 10.0.0.1</code></pre>
     </nav>
   </div>
 </div>
-  </div>
 </main>
 <footer class="site-footer">
   <div class="container">

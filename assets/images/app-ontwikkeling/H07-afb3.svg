@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">10 Richtlijnen voor Toegankelijke Formulieren</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">Volg deze regels voor een gebruiksvriendelijk en toegankelijk formulier</text>
+
+  <!-- Richtlijn 1 -->
+  <rect x="30" y="58" width="355" height="48" rx="6" fill="#7B3FE4" opacity="0.15"/>
+  <rect x="30" y="58" width="6" height="48" rx="3" fill="#7B3FE4"/>
+  <text x="50" y="77" font-size="12" font-weight="bold" fill="#c4b5fd">1. Label altijd buiten het veld</text>
+  <text x="50" y="95" font-size="10" fill="#aaa">Gebruik &lt;label for="id"&gt;, nooit alleen placeholder</text>
+
+  <!-- Richtlijn 2 -->
+  <rect x="415" y="58" width="355" height="48" rx="6" fill="#2D9CDB" opacity="0.15"/>
+  <rect x="415" y="58" width="6" height="48" rx="3" fill="#2D9CDB"/>
+  <text x="435" y="77" font-size="12" font-weight="bold" fill="#74c0fc">2. Correct type gebruiken</text>
+  <text x="435" y="95" font-size="10" fill="#aaa">type="email" activeert e-mailtoetsenbord op mobiel</text>
+
+  <!-- Richtlijn 3 -->
+  <rect x="30" y="116" width="355" height="48" rx="6" fill="#F97316" opacity="0.15"/>
+  <rect x="30" y="116" width="6" height="48" rx="3" fill="#F97316"/>
+  <text x="50" y="135" font-size="12" font-weight="bold" fill="#fdba74">3. Verplichte velden markeren</text>
+  <text x="50" y="153" font-size="10" fill="#aaa">Gebruik required + visuele aanduiding (*)</text>
+
+  <!-- Richtlijn 4 -->
+  <rect x="415" y="116" width="355" height="48" rx="6" fill="#22C55E" opacity="0.15"/>
+  <rect x="415" y="116" width="6" height="48" rx="3" fill="#22C55E"/>
+  <text x="435" y="135" font-size="12" font-weight="bold" fill="#86efac">4. Korte formulieren</text>
+  <text x="435" y="153" font-size="10" fill="#aaa">Vraag enkel wat écht nodig is</text>
+
+  <!-- Richtlijn 5 -->
+  <rect x="30" y="174" width="355" height="48" rx="6" fill="#7B3FE4" opacity="0.15"/>
+  <rect x="30" y="174" width="6" height="48" rx="3" fill="#7B3FE4"/>
+  <text x="50" y="193" font-size="12" font-weight="bold" fill="#c4b5fd">5. Logische tabvolgorde</text>
+  <text x="50" y="211" font-size="10" fill="#aaa">Van boven naar onder, van links naar rechts</text>
+
+  <!-- Richtlijn 6 -->
+  <rect x="415" y="174" width="355" height="48" rx="6" fill="#2D9CDB" opacity="0.15"/>
+  <rect x="415" y="174" width="6" height="48" rx="3" fill="#2D9CDB"/>
+  <text x="435" y="193" font-size="12" font-weight="bold" fill="#74c0fc">6. Duidelijke foutmeldingen</text>
+  <text x="435" y="211" font-size="10" fill="#aaa">Zeg wát fout is en hóe te herstellen</text>
+
+  <!-- Richtlijn 7 -->
+  <rect x="30" y="232" width="355" height="48" rx="6" fill="#F97316" opacity="0.15"/>
+  <rect x="30" y="232" width="6" height="48" rx="3" fill="#F97316"/>
+  <text x="50" y="251" font-size="12" font-weight="bold" fill="#fdba74">7. Groepeer gerelateerde velden</text>
+  <text x="50" y="269" font-size="10" fill="#aaa">Gebruik &lt;fieldset&gt; + &lt;legend&gt;</text>
+
+  <!-- Richtlijn 8 -->
+  <rect x="415" y="232" width="355" height="48" rx="6" fill="#22C55E" opacity="0.15"/>
+  <rect x="415" y="232" width="6" height="48" rx="3" fill="#22C55E"/>
+  <text x="435" y="251" font-size="12" font-weight="bold" fill="#86efac">8. Voldoende contrast</text>
+  <text x="435" y="269" font-size="10" fill="#aaa">Tekst op achtergrond: minstens 4.5:1 ratio</text>
+
+  <!-- Richtlijn 9 -->
+  <rect x="30" y="290" width="355" height="48" rx="6" fill="#7B3FE4" opacity="0.15"/>
+  <rect x="30" y="290" width="6" height="48" rx="3" fill="#7B3FE4"/>
+  <text x="50" y="309" font-size="12" font-weight="bold" fill="#c4b5fd">9. Grote klikgebieden</text>
+  <text x="50" y="327" font-size="10" fill="#aaa">Klik op label activeert ook het bijhorend veld</text>
+
+  <!-- Richtlijn 10 -->
+  <rect x="415" y="290" width="355" height="48" rx="6" fill="#2D9CDB" opacity="0.15"/>
+  <rect x="415" y="290" width="6" height="48" rx="3" fill="#2D9CDB"/>
+  <text x="435" y="309" font-size="12" font-weight="bold" fill="#74c0fc">10. Autocomplete ondersteunen</text>
+  <text x="435" y="327" font-size="10" fill="#aaa">autocomplete="name|email|..." helpt gebruikers</text>
+
+  <text x="400" y="380" text-anchor="middle" font-size="10" fill="#555">Bron: Nielsen Norman Group — Form Design Best Practices / WCAG 2.1</text>
+</svg>

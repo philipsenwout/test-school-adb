@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 — Add &amp; Commit — GitHub Version Control 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/github-version-control/H04" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.1"><span class="sidebar-check__box"></span></label>
+          <a href="#drie-zones">4.1 De drie zones</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.2"><span class="sidebar-check__box"></span></label>
+          <a href="#git-add">4.2 git add</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.3"><span class="sidebar-check__box"></span></label>
+          <a href="#git-commit">4.3 git commit</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.4"><span class="sidebar-check__box"></span></label>
+          <a href="#goede-boodschap">4.4 Goede commit-boodschappen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.5"><span class="sidebar-check__box"></span></label>
+          <a href="#git-log">4.5 git log</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Version Control</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H04 — Add &amp; Commit</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H04 — GitHub Version Control 5ADB</div>
+        <h1 class="page-header__title">Add &amp; Commit</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB07</span><span class="ld-tag__title">De leerlingen houden de administratie bij in functie van de opdracht.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan het concept van de <em>staging area</em> uitleggen</li>
+          <li>Je kan bestanden toevoegen aan de staging area met <code>git add</code></li>
+          <li>Je kan een commit aanmaken met <code>git commit -m "boodschap"</code></li>
+          <li>Je kan een goede, beschrijvende commit-boodschap schrijven</li>
+          <li>Je kan de versiegeschiedenis bekijken met <code>git log</code></li>
+        </ul>
+      </div>
+
+      <h2 id="drie-zones">4.1 De drie zones van Git</h2>
+
+      <p>Git werkt met drie zones. Begrijp deze zones goed — ze zijn de kern van hoe Git werkt.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/github-version-control/H04-staging-area.svg" alt="Diagram: Working Directory → Staging Area → Repository, met git add en git commit pijlen" loading="lazy">
+      </figure>
+
+      <div style="display:grid;gap:var(--space-4);margin:var(--space-4) 0">
+        <div class="card" style="padding:var(--space-4);border-left:3px solid #F97316">
+          <h3 style="color:#F97316;margin-bottom:var(--space-2)">1. Working Directory (werkmap)</h3>
+          <p style="margin:0">Alle bestanden op je computer. Hier werk je normaal mee. Wijzigingen die je hier maakt zijn <em>nog niet</em> bijgehouden door Git.</p>
+        </div>
+        <div class="card" style="padding:var(--space-4);border-left:3px solid #3B82F6">
+          <h3 style="color:#3B82F6;margin-bottom:var(--space-2)">2. Staging Area (klaarzetzone)</h3>
+          <p style="margin:0">Een soort "wachtkamer" voor bestanden die je wil vastleggen. Je beslist zelf welke bestanden er in komen met <code>git add</code>.</p>
+        </div>
+        <div class="card" style="padding:var(--space-4);border-left:3px solid var(--color-vak-github)">
+          <h3 style="color:var(--color-vak-github);margin-bottom:var(--space-2)">3. Repository (.git map)</h3>
+          <p style="margin:0">De permanente versiegeschiedenis. Eenmaal je <code>git commit</code> uitvoert, is de snapshot voor altijd opgeslagen.</p>
+        </div>
+      </div>
+
+      <h2 id="git-add">4.2 git add — bestanden klaarzetten</h2>
+
+      <p>Nadat je bestanden hebt gewijzigd of aangemaakt, zet je ze klaar voor een commit:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Eén specifiek bestand toevoegen
+git add index.html
+
+# Meerdere bestanden tegelijk
+git add index.html style.css
+
+# Alle gewijzigde bestanden in de huidige map
+git add .</code></pre>
+      </div>
+
+      <p>Controleer altijd eerst met <code>git status</code> welke bestanden gewijzigd zijn:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git status</code></pre>
+      </div>
+
+      <p>Na een wijziging zie je de bestanden in rood (niet klaargezet):</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+
+        modified:   app-ontwikkeling/H01/index.html</code></pre>
+      </div>
+
+      <p>Na <code>git add</code> zie je ze in groen (klaargezet):</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+
+        modified:   app-ontwikkeling/H01/index.html</code></pre>
+      </div>
+
+      <h2 id="git-commit">4.3 git commit — de snapshot vastleggen</h2>
+
+      <p>Als alle gewenste bestanden klaargezet zijn, maak je de commit aan:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git commit -m "H01 oefening 1 afgewerkt"</code></pre>
+      </div>
+
+      <p>De <code>-m</code> staat voor "message" (boodschap). Wat je tussen de aanhalingstekens schrijft, is de beschrijving van de commit. Git bevestigt de commit:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>[main 3f4a8b2] H01 oefening 1 afgewerkt
+ 1 file changed, 42 insertions(+), 3 deletions(-)</code></pre>
+      </div>
+
+      <h2 id="goede-boodschap">4.4 Goede commit-boodschappen schrijven</h2>
+
+      <p>Een goede commit-boodschap vertelt <strong>wat je gedaan hebt</strong> en <strong>waarom</strong>. De leerkracht leest deze boodschappen als hij je werk nakijkt.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin:var(--space-4) 0">
+        <div class="callout callout--danger" style="margin:0">
+          <div class="callout-header">&#10060; Slecht</div>
+          <ul style="margin:0">
+            <li><code>"update"</code></li>
+            <li><code>"changes"</code></li>
+            <li><code>"fix"</code></li>
+            <li><code>"asdfgh"</code></li>
+            <li><code>"werk van vandaag"</code></li>
+          </ul>
+        </div>
+        <div class="callout callout--info" style="margin:0;border-color:var(--color-success);background:rgba(40,200,64,0.07)">
+          <div class="callout-header" style="color:var(--color-success)">&#10003; Goed</div>
+          <ul style="margin:0">
+            <li><code>"H01 oefening 1 nav-structuur toegevoegd"</code></li>
+            <li><code>"H03 CSS grid layout afgewerkt"</code></li>
+            <li><code>"bug opgelost: menu toont niet op mobiel"</code></li>
+            <li><code>"README bijgewerkt met installatiestappen"</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128204; Naamconventie voor schoolwerk</div>
+        <p>Gebruik dit formaat voor je commit-boodschappen: <code>[H01/H02/...] [beschrijving]</code><br>
+        Voorbeelden: <code>"H04 oef1 flexbox nav"</code>, <code>"H07 huistaak formulier afgewerkt"</code>, <code>"toets1 verbeterd nav feedback"</code></p>
+      </div>
+
+      <h2 id="git-log">4.5 git log — versiegeschiedenis bekijken</h2>
+
+      <p><code>git log</code> toont alle commits die je gemaakt hebt, van nieuwste naar oudste:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git log</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>commit 3f4a8b2c1d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5
+Author: Jan Peeters &lt;jan@schoolmail.be&gt;
+Date:   Mon Sep 9 14:23:11 2025 +0200
+
+    H01 oefening 1 nav-structuur toegevoegd
+
+commit 1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0
+Author: Jan Peeters &lt;jan@schoolmail.be&gt;
+Date:   Mon Sep 9 09:15:03 2025 +0200
+
+    README bijgewerkt met naam en klas</code></pre>
+      </div>
+
+      <p>Druk <kbd>Q</kbd> om het log af te sluiten.</p>
+
+      <p>Voor een compacte weergave gebruik je:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git log --oneline</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 1 — Je eerste commit</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak je eerste eigen commit in je repository:</p>
+            <ol>
+              <li>Open je repository in VS Code: <code>code .</code></li>
+              <li>Maak een nieuw bestand <code>app-ontwikkeling/H01/index.html</code> aan</li>
+              <li>Voeg een eenvoudige HTML-structuur toe (mag van vorige lessen zijn)</li>
+              <li>Sla op</li>
+              <li>Voer uit in Git Bash:
+                <div class="code-block" style="margin-top:var(--space-2)">
+                  <div class="code-block__lang">Bash</div>
+                  <pre><code>git status
+git add app-ontwikkeling/H01/index.html
+git status
+git commit -m "H01 eerste index.html aangemaakt"
+git log --oneline</code></pre>
+                </div>
+              </li>
+              <li>Maak screenshots van elke stap</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 2 — Meerdere commits</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak twee extra commits om de workflow in te oefenen:</p>
+            <ol>
+              <li>Voeg een <code>&lt;h1&gt;</code> toe aan je <code>index.html</code></li>
+              <li>Commit: <code>git commit -m "H01 titel toegevoegd"</code></li>
+              <li>Voeg een <code>&lt;p&gt;</code> toe</li>
+              <li>Commit: <code>git commit -m "H01 inleiding toegevoegd"</code></li>
+              <li>Bekijk je geschiedenis: <code>git log --oneline</code></li>
+            </ol>
+            <p>Je ziet nu drie commits in je log. Zo werkt versiebeheer!</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Commit-log
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H04-voorbeeld.svg', 'Voorbeeld — git log --oneline met meerdere commits')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak 5 commits aan</h3>
+            <ol>
+              <li><strong>Deel 1 — 6 punten:</strong> Bouw een eenvoudige HTML-pagina (<code>app-ontwikkeling/H01-oefening/index.html</code>) stap voor stap op en maak na <strong>elke stap een commit</strong> met een duidelijke boodschap:
+                <ul>
+                  <li>Stap 1: basisstructuur (<code>&lt;!DOCTYPE&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>)</li>
+                  <li>Stap 2: titels toevoegen</li>
+                  <li>Stap 3: een paragraaf toevoegen</li>
+                  <li>Stap 4: een link toevoegen</li>
+                  <li>Stap 5: een afbeelding toevoegen</li>
+                </ul>
+              </li>
+              <li><strong>Deel 2 — 4 punten:</strong> Maak een screenshot van <code>git log --oneline</code> die alle 5 commits toont. Zijn de commit-boodschappen duidelijk en beschrijvend?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H04 — Add &amp; Commit</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat doet <code>git add .</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="a"> <span>Het maakt een nieuwe commit aan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="b"> <span>Het voegt alle gewijzigde bestanden toe aan de staging area</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="c"> <span>Het uploadt bestanden naar GitHub</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v1" value="d"> <span>Het toont alle bestanden in de map</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke volgorde is correct bij het vastleggen van wijzigingen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="a"> <span>commit → add → status</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="b"> <span>add → push → commit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="c"> <span>status → add → commit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v2" value="d"> <span>clone → add → commit</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welke commit-boodschap is het best?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="a"> <span>"update"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="b"> <span>"werk"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="c"> <span>"aaa"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v3" value="d"> <span>"H03 CSS flexbox nav-menu afgewerkt"</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welk commando toont de versiegeschiedenis van de repository?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="a"> <span>git log</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="b"> <span>git history</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="c"> <span>git show</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v4" value="d"> <span>git status</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is de staging area?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="a"> <span>De map op GitHub waar je bestanden staan</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="b"> <span>Een back-up van je bestanden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="c"> <span>Een wachtkamer voor bestanden die je wil committen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h04-v5" value="d"> <span>De lokale kopie van je repository</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/github-version-control/H04')" data-progress-key="5adb/github-version-control/H04">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H03.html" class="btn btn-ghost">← H03</a>
+          <a href="H05.html" class="btn btn-ghost">H05 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

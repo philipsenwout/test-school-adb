@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Title -->
+  <text x="600" y="55" fill="#ffffff" font-size="28" font-weight="700" text-anchor="middle">Variabelen — Een doosje met een naam en inhoud</text>
+  <text x="600" y="82" fill="#00d4ff" font-size="16" text-anchor="middle">let naam = "Jana"</text>
+
+  <!-- Main box: let naam -->
+  <g transform="translate(160, 130)">
+    <!-- Box shadow -->
+    <rect x="8" y="8" width="320" height="200" rx="18" fill="#00d4ff" opacity="0.15"/>
+    <!-- Box body -->
+    <rect width="320" height="200" rx="18" fill="#161b27" stroke="#00d4ff" stroke-width="3"/>
+    <!-- Label tab -->
+    <rect x="20" y="-20" width="120" height="36" rx="8" fill="#00d4ff"/>
+    <text x="80" y="4" fill="#0f1117" font-size="15" font-weight="700" text-anchor="middle">naam</text>
+    <!-- keyword badge -->
+    <rect x="210" y="-20" width="90" height="30" rx="6" fill="#7c3aed"/>
+    <text x="255" y="-2" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">let</text>
+    <!-- Value inside box -->
+    <text x="160" y="95" fill="#39ff14" font-size="42" font-weight="700" text-anchor="middle">"Jana"</text>
+    <text x="160" y="135" fill="#aaaaaa" font-size="14" text-anchor="middle">inhoud (waarde) — string</text>
+    <!-- Pencil icon = can change -->
+    <text x="160" y="175" fill="#00d4ff" font-size="13" text-anchor="middle">✏️  Waarde mag wijzigen</text>
+  </g>
+
+  <!-- Arrow right -->
+  <line x1="490" y1="230" x2="560" y2="230" stroke="#00d4ff" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <polygon points="560,223 575,230 560,237" fill="#00d4ff"/>
+  <text x="525" y="220" fill="#aaaaaa" font-size="13" text-anchor="middle">wijzigen</text>
+
+  <!-- Second box: let naam changed -->
+  <g transform="translate(580, 130)">
+    <rect x="8" y="8" width="320" height="200" rx="18" fill="#39ff14" opacity="0.10"/>
+    <rect width="320" height="200" rx="18" fill="#161b27" stroke="#39ff14" stroke-width="3"/>
+    <rect x="20" y="-20" width="120" height="36" rx="8" fill="#39ff14"/>
+    <text x="80" y="4" fill="#0f1117" font-size="15" font-weight="700" text-anchor="middle">naam</text>
+    <rect x="210" y="-20" width="90" height="30" rx="6" fill="#7c3aed"/>
+    <text x="255" y="-2" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">let</text>
+    <text x="160" y="95" fill="#39ff14" font-size="42" font-weight="700" text-anchor="middle">"Liam"</text>
+    <text x="160" y="135" fill="#aaaaaa" font-size="14" text-anchor="middle">nieuwe waarde</text>
+    <text x="160" y="175" fill="#39ff14" font-size="13" text-anchor="middle">✓  Toegelaten!</text>
+  </g>
+
+  <!-- const box -->
+  <g transform="translate(160, 420)">
+    <rect x="8" y="8" width="320" height="200" rx="18" fill="#ff6b35" opacity="0.12"/>
+    <rect width="320" height="200" rx="18" fill="#161b27" stroke="#ff6b35" stroke-width="3"/>
+    <rect x="20" y="-20" width="120" height="36" rx="8" fill="#ff6b35"/>
+    <text x="80" y="4" fill="#ffffff" font-size="15" font-weight="700" text-anchor="middle">MAX_SCORE</text>
+    <rect x="210" y="-20" width="90" height="30" rx="6" fill="#ff6b35" opacity="0.8"/>
+    <text x="255" y="-2" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">const</text>
+    <!-- lock icon -->
+    <rect x="130" y="50" width="60" height="45" rx="6" fill="#ff6b35" opacity="0.3" stroke="#ff6b35" stroke-width="2"/>
+    <path d="M148 50 Q160 30 172 50" stroke="#ff6b35" stroke-width="3" fill="none"/>
+    <circle cx="160" cy="73" r="6" fill="#ff6b35"/>
+    <text x="160" y="120" fill="#ffffff" font-size="30" font-weight="700" text-anchor="middle">100</text>
+    <text x="160" y="150" fill="#aaaaaa" font-size="14" text-anchor="middle">vaste waarde — number</text>
+    <text x="160" y="178" fill="#ff6b35" font-size="13" text-anchor="middle">🔒  Waarde mag NIET wijzigen</text>
+  </g>
+
+  <!-- camelCase section -->
+  <g transform="translate(580, 420)">
+    <rect width="560" height="200" rx="14" fill="#161b27" stroke="#7c3aed" stroke-width="2"/>
+    <text x="280" y="38" fill="#7c3aed" font-size="18" font-weight="700" text-anchor="middle">camelCase naamgeving</text>
+    <line x1="30" y1="52" x2="530" y2="52" stroke="#7c3aed" stroke-width="1" opacity="0.4"/>
+    <!-- examples -->
+    <text x="50" y="88" fill="#ff6b35" font-size="15" font-weight="600">✗  voornaam van leerling</text>
+    <text x="50" y="115" fill="#39ff14" font-size="15" font-weight="600">✓  voornaamVanLeerling</text>
+    <text x="50" y="143" fill="#ff6b35" font-size="15" font-weight="600">✗  maximumscore</text>
+    <text x="50" y="170" fill="#39ff14" font-size="15" font-weight="600">✓  maximumScore</text>
+    <!-- rule labels -->
+    <rect x="340" y="75" width="190" height="105" rx="10" fill="#7c3aed" opacity="0.12"/>
+    <text x="435" y="100" fill="#aaaaaa" font-size="13" text-anchor="middle">Eerste woord: kleine letter</text>
+    <text x="435" y="122" fill="#aaaaaa" font-size="13" text-anchor="middle">Elk volgend woord:</text>
+    <text x="435" y="142" fill="#00d4ff" font-size="13" font-weight="700" text-anchor="middle">Hoofdletter</text>
+    <text x="435" y="164" fill="#aaaaaa" font-size="12" text-anchor="middle">Geen spaties of streepjes!</text>
+  </g>
+
+  <!-- Code example bottom -->
+  <rect x="80" y="650" width="1040" height="115" rx="12" fill="#0a0d14" stroke="#333" stroke-width="1.5"/>
+  <text x="110" y="678" fill="#666" font-size="13">JavaScript</text>
+  <text x="110" y="703" fill="#7c3aed" font-size="15" font-family="'Courier New', monospace">let</text>
+  <text x="140" y="703" fill="#00d4ff" font-size="15" font-family="'Courier New', monospace">voornaam</text>
+  <text x="238" y="703" fill="#ffffff" font-size="15" font-family="'Courier New', monospace">= </text>
+  <text x="258" y="703" fill="#39ff14" font-size="15" font-family="'Courier New', monospace">"Jana"</text>
+  <text x="320" y="703" fill="#ffffff" font-size="15" font-family="'Courier New', monospace">;</text>
+  <text x="110" y="727" fill="#7c3aed" font-size="15" font-family="'Courier New', monospace">const</text>
+  <text x="152" y="727" fill="#ff6b35" font-size="15" font-family="'Courier New', monospace">MAX_SCORE</text>
+  <text x="268" y="727" fill="#ffffff" font-size="15" font-family="'Courier New', monospace">= </text>
+  <text x="288" y="727" fill="#39ff14" font-size="15" font-family="'Courier New', monospace">100</text>
+  <text x="318" y="727" fill="#ffffff" font-size="15" font-family="'Courier New', monospace">;</text>
+  <text x="110" y="752" fill="#7c3aed" font-size="15" font-family="'Courier New', monospace">let</text>
+  <text x="140" y="752" fill="#00d4ff" font-size="15" font-family="'Courier New', monospace">voornaam</text>
+  <text x="238" y="752" fill="#ffffff" font-size="15" font-family="'Courier New', monospace">= </text>
+  <text x="258" y="752" fill="#39ff14" font-size="15" font-family="'Courier New', monospace">"Liam"</text>
+  <text x="316" y="752" fill="#ffffff" font-size="15" font-family="'Courier New', monospace">;</text>
+  <text x="360" y="752" fill="#666" font-size="14" font-family="'Courier New', monospace">// ✓ Toegelaten bij let</text>
+</svg>

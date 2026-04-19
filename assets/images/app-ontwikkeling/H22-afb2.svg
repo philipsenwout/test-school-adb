@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+    <marker id="arrow-right" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#aaaaaa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-family="'Courier New', monospace" font-size="26" font-weight="bold" fill="#00d4ff">if / else if / else — Puntenbeoordeling</text>
+  <text x="600" y="76" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#8892a4">Meerdere takken — evaluatie van boven naar onder</text>
+
+  <!-- START -->
+  <ellipse cx="600" cy="128" rx="70" ry="28" fill="none" stroke="#00d4ff" stroke-width="2"/>
+  <text x="600" y="134" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#00d4ff" font-weight="bold">START</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="156" x2="600" y2="186" stroke="#00d4ff" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <text x="617" y="175" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">punt = 72</text>
+
+  <!-- Diamond 1: punt >= 90 -->
+  <polygon points="600,194 720,252 600,310 480,252" fill="#1a1f2e" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="600" y="246" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">punt &gt;= 90</text>
+  <text x="600" y="266" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#7c3aed">Uitstekend?</text>
+
+  <!-- JA arrow right → purple block -->
+  <line x1="720" y1="252" x2="800" y2="252" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-right)"/>
+  <text x="756" y="244" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#7c3aed">JA</text>
+  <rect x="800" y="222" width="185" height="60" rx="8" fill="#2a1a4e" stroke="#7c3aed" stroke-width="2"/>
+  <text x="893" y="247" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#7c3aed" font-weight="bold">✦ Uitstekend!</text>
+  <text x="893" y="268" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#a38dd0">punt: 90 – 100</text>
+
+  <!-- NEE arrow down -->
+  <line x1="600" y1="310" x2="600" y2="340" stroke="#00d4ff" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <text x="617" y="329" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35">NEE</text>
+
+  <!-- Diamond 2: punt >= 70 -->
+  <polygon points="600,348 720,406 600,464 480,406" fill="#1a1f2e" stroke="#39ff14" stroke-width="2.5"/>
+  <text x="600" y="400" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">punt &gt;= 70</text>
+  <text x="600" y="420" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#39ff14">Goed?</text>
+
+  <!-- JA arrow right → green block -->
+  <line x1="720" y1="406" x2="800" y2="406" stroke="#39ff14" stroke-width="2" marker-end="url(#arrow-right)"/>
+  <text x="756" y="398" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#39ff14">JA</text>
+  <rect x="800" y="376" width="185" height="60" rx="8" fill="#0d2e1a" stroke="#39ff14" stroke-width="2"/>
+  <text x="893" y="401" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#39ff14" font-weight="bold">✔ Goed</text>
+  <text x="893" y="422" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#6baa78">punt: 70 – 89</text>
+
+  <!-- NEE arrow down -->
+  <line x1="600" y1="464" x2="600" y2="494" stroke="#00d4ff" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <text x="617" y="483" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35">NEE</text>
+
+  <!-- Diamond 3: punt >= 50 -->
+  <polygon points="600,502 720,560 600,618 480,560" fill="#1a1f2e" stroke="#00d4ff" stroke-width="2.5"/>
+  <text x="600" y="554" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">punt &gt;= 50</text>
+  <text x="600" y="574" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00d4ff">Voldoende?</text>
+
+  <!-- JA arrow right → blue block -->
+  <line x1="720" y1="560" x2="800" y2="560" stroke="#00d4ff" stroke-width="2" marker-end="url(#arrow-right)"/>
+  <text x="756" y="552" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00d4ff">JA</text>
+  <rect x="800" y="530" width="185" height="60" rx="8" fill="#0d2040" stroke="#00d4ff" stroke-width="2"/>
+  <text x="893" y="555" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff" font-weight="bold">~ Voldoende</text>
+  <text x="893" y="576" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#5599bb">punt: 50 – 69</text>
+
+  <!-- NEE arrow down -->
+  <line x1="600" y1="618" x2="600" y2="648" stroke="#00d4ff" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <text x="617" y="637" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35">NEE</text>
+
+  <!-- ELSE block - red -->
+  <rect x="480" y="656" width="240" height="60" rx="8" fill="#2e0d0d" stroke="#ff4444" stroke-width="2"/>
+  <text x="600" y="681" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#ff4444" font-weight="bold">✗ Onvoldoende</text>
+  <text x="600" y="700" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#aa5555">punt: 0 – 49</text>
+
+  <!-- All right-side blocks connect to EINDE line -->
+  <line x1="985" y1="252" x2="1060" y2="252" stroke="#8892a4" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="1060" y1="252" x2="1060" y2="720" stroke="#8892a4" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="985" y1="406" x2="1060" y2="406" stroke="#8892a4" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="985" y1="560" x2="1060" y2="560" stroke="#8892a4" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="720" y1="686" x2="1060" y2="686" stroke="#8892a4" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="1060" y1="686" x2="1060" y2="720" stroke="#8892a4" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- Note left side -->
+  <rect x="30" y="300" width="220" height="320" rx="10" fill="#12161f" stroke="#2d3448" stroke-width="1.5"/>
+  <text x="140" y="326" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff" font-weight="bold">Volgorde telt!</text>
+  <text x="50" y="352" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">JavaScript controleert</text>
+  <text x="50" y="370" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">van boven naar onder.</text>
+  <line x1="50" y1="385" x2="230" y2="385" stroke="#2d3448" stroke-width="1"/>
+  <text x="50" y="405" font-family="'Courier New', monospace" font-size="12" fill="#39ff14">1. punt &gt;= 90 → false</text>
+  <text x="50" y="425" font-family="'Courier New', monospace" font-size="12" fill="#39ff14">2. punt &gt;= 70 → true ✔</text>
+  <text x="50" y="445" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">3. (niet meer getest)</text>
+  <line x1="50" y1="460" x2="230" y2="460" stroke="#2d3448" stroke-width="1"/>
+  <text x="50" y="480" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35">Begin altijd met de</text>
+  <text x="50" y="498" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35">meest restrictieve</text>
+  <text x="50" y="516" font-family="'Courier New', monospace" font-size="12" fill="#ff6b35">voorwaarde!</text>
+  <text x="50" y="545" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">punt = 72 →</text>
+  <text x="50" y="563" font-family="'Courier New', monospace" font-size="14" fill="#39ff14" font-weight="bold">"Goed" ✔</text>
+
+  <!-- EINDE -->
+  <ellipse cx="600" cy="755" rx="70" ry="28" fill="none" stroke="#00d4ff" stroke-width="2"/>
+  <text x="600" y="761" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#00d4ff" font-weight="bold">EINDE</text>
+  <line x1="600" y1="716" x2="600" y2="727" stroke="#00d4ff" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <line x1="1060" y1="720" x2="600" y2="720" stroke="#8892a4" stroke-width="1.5" stroke-dasharray="5,4"/>
+</svg>

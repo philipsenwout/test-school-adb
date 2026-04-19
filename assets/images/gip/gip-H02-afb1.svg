@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7c85ff"/>
+    </marker>
+    <marker id="arrBR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7c85ff"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="500" fill="#1a1a2e"/>
+  <text x="410" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#e0e0f0">GIP — Database ERD (Entity Relationship Diagram)</text>
+
+  <!-- USERS TABLE -->
+  <rect x="40" y="70" width="220" height="230" rx="8" fill="#16162a" stroke="#7c85ff" stroke-width="2"/>
+  <rect x="40" y="70" width="220" height="34" rx="8" fill="#252560"/>
+  <text x="150" y="91" text-anchor="middle" font-size="14" fill="#7c85ff" font-weight="700">users</text>
+
+  <text x="60" y="120" font-size="12" fill="#febc2e" font-family="'Courier New', monospace">🔑 id</text>
+  <text x="190" y="120" font-size="11" fill="#888" font-family="'Courier New', monospace">INT AUTO</text>
+  <line x1="52" y1="126" x2="248" y2="126" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="60" y="148" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">naam</text>
+  <text x="190" y="148" font-size="11" fill="#888" font-family="'Courier New', monospace">VARCHAR</text>
+  <line x1="52" y1="154" x2="248" y2="154" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="60" y="176" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">email</text>
+  <text x="190" y="176" font-size="11" fill="#888" font-family="'Courier New', monospace">VARCHAR</text>
+  <line x1="52" y1="182" x2="248" y2="182" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="60" y="204" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">wachtwoord</text>
+  <text x="190" y="204" font-size="11" fill="#888" font-family="'Courier New', monospace">VARCHAR</text>
+  <line x1="52" y1="210" x2="248" y2="210" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="60" y="232" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">rol</text>
+  <text x="190" y="232" font-size="11" fill="#888" font-family="'Courier New', monospace">ENUM</text>
+  <text x="88" y="250" font-size="10" fill="#555">('lid','admin') DEFAULT 'lid'</text>
+  <line x1="52" y1="238" x2="248" y2="238" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="60" y="284" font-size="11" fill="#888" font-family="'Courier New', monospace">UNIQUE (email)</text>
+
+  <!-- ACTIVITEITEN TABLE -->
+  <rect x="560" y="70" width="220" height="280" rx="8" fill="#16162a" stroke="#c792ea" stroke-width="2"/>
+  <rect x="560" y="70" width="220" height="34" rx="8" fill="#3a1e50"/>
+  <text x="670" y="91" text-anchor="middle" font-size="14" fill="#c792ea" font-weight="700">activiteiten</text>
+
+  <text x="580" y="120" font-size="12" fill="#febc2e" font-family="'Courier New', monospace">🔑 id</text>
+  <text x="710" y="120" font-size="11" fill="#888" font-family="'Courier New', monospace">INT AUTO</text>
+  <line x1="568" y1="126" x2="772" y2="126" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="580" y="148" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">naam</text>
+  <text x="710" y="148" font-size="11" fill="#888" font-family="'Courier New', monospace">VARCHAR</text>
+  <line x1="568" y1="154" x2="772" y2="154" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="580" y="176" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">beschrijving</text>
+  <text x="710" y="176" font-size="11" fill="#888" font-family="'Courier New', monospace">TEXT</text>
+  <line x1="568" y1="182" x2="772" y2="182" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="580" y="204" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">datum</text>
+  <text x="710" y="204" font-size="11" fill="#888" font-family="'Courier New', monospace">DATE</text>
+  <line x1="568" y1="210" x2="772" y2="210" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="580" y="232" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">starttijd</text>
+  <text x="710" y="232" font-size="11" fill="#888" font-family="'Courier New', monospace">TIME</text>
+  <line x1="568" y1="238" x2="772" y2="238" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="580" y="260" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">locatie</text>
+  <text x="710" y="260" font-size="11" fill="#888" font-family="'Courier New', monospace">VARCHAR</text>
+  <line x1="568" y1="266" x2="772" y2="266" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="580" y="288" font-size="12" fill="#a8e6a3" font-family="'Courier New', monospace">max_deelnemers</text>
+  <text x="710" y="288" font-size="11" fill="#888" font-family="'Courier New', monospace">INT</text>
+  <line x1="568" y1="294" x2="772" y2="294" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="580" y="338" font-size="11" fill="#888" font-family="'Courier New', monospace">NOT NULL voor naam, datum</text>
+
+  <!-- INSCHRIJVINGEN TABLE - center -->
+  <rect x="290" y="290" width="240" height="160" rx="8" fill="#16162a" stroke="#f78c6c" stroke-width="2"/>
+  <rect x="290" y="290" width="240" height="34" rx="8" fill="#3a2010"/>
+  <text x="410" y="311" text-anchor="middle" font-size="14" fill="#f78c6c" font-weight="700">inschrijvingen</text>
+
+  <text x="310" y="344" font-size="12" fill="#febc2e" font-family="'Courier New', monospace">🔑 id</text>
+  <text x="465" y="344" font-size="11" fill="#888" font-family="'Courier New', monospace">INT AUTO</text>
+  <line x1="298" y1="350" x2="522" y2="350" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="310" y="372" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">🔗 user_id</text>
+  <text x="465" y="372" font-size="11" fill="#888" font-family="'Courier New', monospace">INT</text>
+  <line x1="298" y1="378" x2="522" y2="378" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="310" y="400" font-size="12" fill="#f78c6c" font-family="'Courier New', monospace">🔗 activiteit_id</text>
+  <text x="465" y="400" font-size="11" fill="#888" font-family="'Courier New', monospace">INT</text>
+  <line x1="298" y1="406" x2="522" y2="406" stroke="#2a2a4a" stroke-width="1"/>
+
+  <text x="310" y="440" font-size="10" fill="#555" font-family="'Courier New', monospace">UNIQUE(user_id, activiteit_id)</text>
+
+  <!-- Relationship lines -->
+  <!-- users → inschrijvingen -->
+  <line x1="150" y1="300" x2="150" y2="360" stroke="#7c85ff" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="150" y1="360" x2="290" y2="371" stroke="#7c85ff" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrB)"/>
+  <text x="190" y="345" font-size="11" fill="#7c85ff">1</text>
+  <text x="278" y="368" font-size="11" fill="#7c85ff">N</text>
+
+  <!-- activiteiten → inschrijvingen -->
+  <line x1="670" y1="350" x2="670" y2="390" stroke="#c792ea" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="670" y1="390" x2="530" y2="390" stroke="#c792ea" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrBR)"/>
+  <text x="644" y="366" font-size="11" fill="#c792ea">1</text>
+  <text x="534" y="387" font-size="11" fill="#c792ea">N</text>
+
+  <!-- Relationship labels -->
+  <text x="140" y="395" font-size="11" fill="#888">1 user heeft</text>
+  <text x="140" y="410" font-size="11" fill="#888">N inschrijvingen</text>
+
+  <text x="580" y="460" font-size="11" fill="#888">1 activiteit heeft</text>
+  <text x="580" y="475" font-size="11" fill="#888">N inschrijvingen</text>
+
+  <!-- UNIQUE note -->
+  <rect x="290" y="460" width="240" height="30" rx="4" fill="#1a2a10" stroke="#28c840" stroke-width="1"/>
+  <text x="410" y="479" text-anchor="middle" font-size="11" fill="#28c840">✓ Eén keer inschrijven per activiteit</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" fill="#2d2d4e" font-size="16" font-weight="bold">voegReceptToe(recept) — van object naar DOM-element</text>
+
+  <!-- Input block -->
+  <rect x="20" y="50" width="200" height="180" rx="10" fill="#f0f4ff" stroke="#6c63ff" stroke-width="2"/>
+  <rect x="20" y="50" width="200" height="30" rx="10" fill="#6c63ff"/>
+  <rect x="20" y="70" width="200" height="10" fill="#6c63ff"/>
+  <text x="120" y="70" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Invoer: receptobject</text>
+  <text x="30" y="100" fill="#2d2d4e" font-size="11" font-family="'Courier New', monospace">{</text>
+  <text x="30" y="118" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">  naam: <tspan fill="#43e97b">"Spaghetti"</tspan></text>
+  <text x="30" y="136" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">  beschrijving: <tspan fill="#43e97b">"..."</tspan></text>
+  <text x="30" y="154" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">  categorie: <tspan fill="#f9a825">"hoofdgerecht"</tspan></text>
+  <text x="30" y="172" fill="#6c63ff" font-size="11" font-family="'Courier New', monospace">  bereidingstijd: <tspan fill="#ff6b6b">25</tspan></text>
+  <text x="30" y="190" fill="#2d2d4e" font-size="11" font-family="'Courier New', monospace">}</text>
+
+  <!-- Arrow input to steps -->
+  <line x1="220" y1="140" x2="255" y2="140" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Steps block -->
+  <rect x="258" y="50" width="240" height="380" rx="10" fill="#1a1a2e" stroke="#6c63ff" stroke-width="1"/>
+  <text x="378" y="78" text-anchor="middle" fill="#e8e8f0" font-size="13" font-weight="bold">Stappen in de functie</text>
+
+  <rect x="278" y="88" width="200" height="40" rx="6" fill="#3498db" fill-opacity="0.8"/>
+  <text x="378" y="103" text-anchor="middle" fill="white" font-size="11" font-weight="bold">1. createElement('article')</text>
+  <text x="378" y="118" text-anchor="middle" fill="#cce8ff" font-size="10">Leeg article-element aanmaken</text>
+
+  <line x1="378" y1="128" x2="378" y2="148" stroke="#6c63ff" stroke-width="1.5" stroke-dasharray="4"/>
+
+  <rect x="278" y="148" width="200" height="40" rx="6" fill="#6c63ff" fill-opacity="0.8"/>
+  <text x="378" y="163" text-anchor="middle" fill="white" font-size="11" font-weight="bold">2. article.innerHTML = `...`</text>
+  <text x="378" y="178" text-anchor="middle" fill="#ddd" font-size="10">h2 + p + meta invullen</text>
+
+  <line x1="378" y1="188" x2="378" y2="208" stroke="#6c63ff" stroke-width="1.5" stroke-dasharray="4"/>
+
+  <rect x="278" y="208" width="200" height="40" rx="6" fill="#43e97b" fill-opacity="0.7"/>
+  <text x="378" y="223" text-anchor="middle" fill="#1a1a2e" font-size="11" font-weight="bold">3. classList.add(categorie)</text>
+  <text x="378" y="238" text-anchor="middle" fill="#1a1a2e" font-size="10">Kleurklasse koppelen</text>
+
+  <line x1="378" y1="248" x2="378" y2="268" stroke="#6c63ff" stroke-width="1.5" stroke-dasharray="4"/>
+
+  <rect x="278" y="268" width="200" height="40" rx="6" fill="#f9a825" fill-opacity="0.8"/>
+  <text x="378" y="283" text-anchor="middle" fill="#1a1a2e" font-size="11" font-weight="bold">4. SVG delete-knop</text>
+  <text x="378" y="298" text-anchor="middle" fill="#1a1a2e" font-size="10">createElementNS aanmaken</text>
+
+  <line x1="378" y1="308" x2="378" y2="328" stroke="#6c63ff" stroke-width="1.5" stroke-dasharray="4"/>
+
+  <rect x="278" y="328" width="200" height="40" rx="6" fill="#ff6b6b" fill-opacity="0.8"/>
+  <text x="378" y="343" text-anchor="middle" fill="white" font-size="11" font-weight="bold">5. receptenSectie.appendChild</text>
+  <text x="378" y="358" text-anchor="middle" fill="#ffe0e0" font-size="10">Toevoegen aan het DOM</text>
+
+  <!-- Arrow steps to output -->
+  <line x1="498" y1="210" x2="535" y2="210" stroke="#6c63ff" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Output: recipe card -->
+  <rect x="538" y="50" width="240" height="310" rx="10" fill="#f8f9ff" stroke="#43e97b" stroke-width="2"/>
+  <rect x="538" y="50" width="240" height="30" rx="10" fill="#43e97b"/>
+  <rect x="538" y="70" width="240" height="10" fill="#43e97b"/>
+  <text x="658" y="70" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="bold">Resultaat: receptkaart</text>
+
+  <!-- Card preview -->
+  <rect x="558" y="90" width="200" height="250" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="558" y="90" width="5" height="250" rx="2" fill="#3498db"/>
+  <!-- trash icon placeholder -->
+  <text x="748" y="108" text-anchor="end" fill="#ccc" font-size="16">🗑</text>
+  <text x="575" y="115" fill="#2d2d4e" font-size="14" font-weight="bold">Spaghetti carbonara</text>
+  <text x="575" y="133" fill="#666" font-size="11">Klassieke Italiaanse pasta met</text>
+  <text x="575" y="147" fill="#666" font-size="11">ei, spek en parmezaan.</text>
+  <line x1="565" y1="158" x2="748" y2="158" stroke="#eee" stroke-width="1"/>
+  <rect x="575" y="166" width="85" height="20" rx="10" fill="#3498db" fill-opacity="0.15"/>
+  <text x="617" y="180" text-anchor="middle" fill="#3498db" font-size="10" font-weight="bold">hoofdgerecht</text>
+  <text x="700" y="180" fill="#888" font-size="11">⏱ 25 min</text>
+
+  <!-- Class indicator -->
+  <rect x="565" y="200" width="185" height="30" rx="6" fill="#3498db" fill-opacity="0.1" stroke="#3498db" stroke-width="1" stroke-dasharray="4"/>
+  <text x="657" y="220" text-anchor="middle" fill="#3498db" font-size="11" font-family="'Courier New', monospace">class="hoofdgerecht"</text>
+
+  <!-- Bottom label -->
+  <text x="400" y="475" text-anchor="middle" fill="#888" font-size="11">Voor elk recept in alleRecepten wordt voegReceptToe() aangeroepen — de DOM groeit automatisch mee</text>
+</svg>

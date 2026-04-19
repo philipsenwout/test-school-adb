@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7c85ff"/>
+    </marker>
+    <marker id="arrowG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28c840"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff5f57"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="480" fill="#1a1a2e"/>
+  <text x="410" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#e0e0f0">Beveiligde route — sessiecontrole</text>
+
+  <!-- Request arrives -->
+  <rect x="20" y="55" width="150" height="40" rx="6" fill="#252550" stroke="#7c85ff" stroke-width="1.5"/>
+  <text x="95" y="78" text-anchor="middle" font-size="12" fill="#c8c8d4">Browser</text>
+  <text x="95" y="92" text-anchor="middle" font-size="11" fill="#888">GET /api/profiel</text>
+
+  <line x1="170" y1="75" x2="225" y2="75" stroke="#7c85ff" stroke-width="2" marker-end="url(#arrowR)"/>
+
+  <!-- Session check diamond -->
+  <polygon points="290,55 390,75 290,95 190,75" fill="#252540" stroke="#f78c6c" stroke-width="2"/>
+  <text x="290" y="72" text-anchor="middle" font-size="11" fill="#f78c6c" font-weight="700">req.session</text>
+  <text x="290" y="87" text-anchor="middle" font-size="11" fill="#f78c6c" font-weight="700">.gebruikerId?</text>
+
+  <!-- NO branch — 401 -->
+  <line x1="290" y1="95" x2="290" y2="165" stroke="#ff5f57" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="300" y="135" font-size="11" fill="#ff5f57">NEE</text>
+  <rect x="210" y="170" width="160" height="50" rx="6" fill="#2a1010" stroke="#ff5f57" stroke-width="1.5"/>
+  <text x="290" y="195" text-anchor="middle" font-size="13" fill="#ff5f57" font-weight="700">401 Unauthorized</text>
+  <text x="290" y="212" text-anchor="middle" font-size="11" fill="#888">&#123; fout: "Inloggen vereist" &#125;</text>
+
+  <!-- YES branch — query -->
+  <line x1="390" y1="75" x2="460" y2="75" stroke="#28c840" stroke-width="2" marker-end="url(#arrowG)"/>
+  <text x="425" y="68" font-size="11" fill="#28c840">JA</text>
+  <rect x="460" y="55" width="180" height="40" rx="6" fill="#1a3020" stroke="#28c840" stroke-width="1.5"/>
+  <text x="550" y="78" text-anchor="middle" font-size="12" fill="#28c840">SELECT * FROM users</text>
+  <text x="550" y="92" text-anchor="middle" font-size="11" fill="#888">WHERE id = ?</text>
+
+  <!-- Return data -->
+  <line x1="640" y1="75" x2="710" y2="75" stroke="#28c840" stroke-width="2" marker-end="url(#arrowG)"/>
+  <rect x="710" y="55" width="100" height="40" rx="6" fill="#1a3020" stroke="#28c840" stroke-width="1.5"/>
+  <text x="760" y="78" text-anchor="middle" font-size="13" fill="#28c840" font-weight="700">200 OK</text>
+
+  <!-- Code example -->
+  <rect x="20" y="270" width="780" height="190" rx="8" fill="#0d0d1a" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="30" y="294" font-size="12" fill="#888" font-weight="700">server.js — zo controleer je de sessie inline:</text>
+
+  <text x="30" y="318" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">app.</text>
+  <text x="68" y="318" font-size="13" fill="#c792ea" font-family="'Courier New', monospace">get</text>
+  <text x="94" y="318" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">('/api/profiel',</text>
+  <text x="270" y="318" font-size="13" fill="#7c85ff" font-family="'Courier New', monospace">async</text>
+  <text x="314" y="318" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">(req, res) =&gt; &#123;</text>
+
+  <rect x="30" y="324" width="10" height="22" fill="#ff5f5740" rx="2"/>
+  <text x="50" y="340" font-size="13" fill="#ff5f57" font-family="'Courier New', monospace">  if (!req.session.gebruikerId)</text>
+  <text x="50" y="358" font-size="13" fill="#ff5f57" font-family="'Courier New', monospace">    return res.status(401).json(&#123; fout: 'Inloggen vereist' &#125;);</text>
+
+  <text x="50" y="380" font-size="13" fill="#888" font-family="'Courier New', monospace">  // vanaf hier: gebruiker is zeker ingelogd</text>
+  <text x="50" y="400" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace">  const [rijen] = await pool.execute(</text>
+  <text x="50" y="418" font-size="13" fill="#a8e6a3" font-family="'Courier New', monospace">    'SELECT * FROM users WHERE id = ?', [req.session.gebruikerId]);</text>
+  <text x="50" y="436" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">  res.json(rijen[0]);</text>
+  <text x="30" y="452" font-size="13" fill="#e0e0e0" font-family="'Courier New', monospace">&#125;);</text>
+
+  <!-- Legend box -->
+  <rect x="20" y="242" width="340" height="24" rx="4" fill="#252540"/>
+  <text x="30" y="258" font-size="11" fill="#f78c6c">▶</text>
+  <text x="46" y="258" font-size="11" fill="#888">Rode lijn = de sessiecontrole die elke beveiligde route heeft</text>
+</svg>

@@ -45,8 +45,36 @@
 <span>H03</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-3-het-osi-model">Hoofdstuk 3 — Het OSI-model</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#3-theorie">3. Theorie</a></li><li><a href="#31-waarom-een-referentiemodel" style="padding-left:1.25rem">3.1 Waarom een referentiemodel?</a></li><li><a href="#32-de-7-lagen-van-het-osi-model" style="padding-left:1.25rem">3.2 De 7 lagen van het OSI-model</a></li><li><a href="#33-encapsulatie-en-decapsulatie" style="padding-left:1.25rem">3.3 Encapsulatie en decapsulatie</a></li><li><a href="#34-osi-model-vs-tcpip-model" style="padding-left:1.25rem">3.4 OSI-model vs TCP/IP-model</a></li><li><a href="#3-voorbeelden">3. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h03" style="padding-left:1.25rem">Huistaak H03</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/netwerken/H03" style="--sidebar-accent: var(--color-vak-netwerken)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.1"><span class="sidebar-check__box"></span></label>
+      <a href="#3-theorie">3. Theorie</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-3-het-osi-model">Hoofdstuk 3 — Het OSI-model</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#3-theorie">3. Theorie</a></li><li><a href="#31-waarom-een-referentiemodel" style="padding-left:1.25rem">3.1 Waarom een referentiemodel?</a></li><li><a href="#32-de-7-lagen-van-het-osi-model" style="padding-left:1.25rem">3.2 De 7 lagen van het OSI-model</a></li><li><a href="#33-encapsulatie-en-decapsulatie" style="padding-left:1.25rem">3.3 Encapsulatie en decapsulatie</a></li><li><a href="#34-osi-model-vs-tcpip-model" style="padding-left:1.25rem">3.4 OSI-model vs TCP/IP-model</a></li><li><a href="#3-voorbeelden">3. Voorbeelden</a></li><li><a href="#3-oefeningen">3. Oefeningen</a></li><li><a href="#4-samenvatting">4. Samenvatting</a></li><li><a href="#5-huistaak">5. Huistaak</a></li><li><a href="#huistaak-h03" style="padding-left:1.25rem">Huistaak H03</a></li></ul></div>
       <div class="chapter-content">
         <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
@@ -68,17 +96,20 @@
 <tr><td><strong>Status</strong></td><td>Definitief</td></tr>
 <tr><td><strong>Lesuren</strong></td><td>8 u</td></tr>
 </tbody></table></div>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ul>
-<li>de 7 lagen van het OSI-model benoemen in de juiste volgorde</li>
-<li>de functie van elke laag beschrijven</li>
-<li>protocollen koppelen aan de juiste OSI-laag</li>
-<li>encapsulatie en decapsulatie uitleggen</li>
-<li>het verschil tussen het OSI-model en het TCP/IP-model uitleggen</li>
-<li>een communicatieprobleem situeren op de juiste OSI-laag</li>
-</ul>
-<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span></div>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>de 7 lagen van het OSI-model benoemen in de juiste volgorde</li>
+    <li>de functie van elke laag beschrijven</li>
+    <li>protocollen koppelen aan de juiste OSI-laag</li>
+    <li>encapsulatie en decapsulatie uitleggen</li>
+    <li>het verschil tussen het OSI-model en het TCP/IP-model uitleggen</li>
+    <li>een communicatieprobleem situeren op de juiste OSI-laag</li>
+  </ul>
+</div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-03</span><span class="ld-tag__title">De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe.</span></div>
+</div>
 <h2 id="3-theorie">3. Theorie</h2>
 <h3 id="31-waarom-een-referentiemodel">3.1 Waarom een referentiemodel?</h3>
 <p>In de beginjaren van computernetwerken maakte elk bedrijf zijn eigen propriëtaire protocollen. Apparaten van merk A konden niet communiceren met merk B. In 1984 publiceerde de ISO (International Organization for Standardization) het <strong>OSI-model</strong> (Open Systems Interconnection) als universele standaard.</p>

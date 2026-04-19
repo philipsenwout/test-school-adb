@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 — Je repository clonen — GitHub Version Control 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/github-version-control/H03" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-clone">3.1 Wat is clonen?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.2"><span class="sidebar-check__box"></span></label>
+          <a href="#url-vinden">3.2 De repository-URL vinden</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.3"><span class="sidebar-check__box"></span></label>
+          <a href="#clone-uitvoeren">3.3 git clone uitvoeren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.4"><span class="sidebar-check__box"></span></label>
+          <a href="#structuur">3.4 Mappenstructuur bekijken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3.5"><span class="sidebar-check__box"></span></label>
+          <a href="#status">3.5 git status</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Version Control</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H03 — Je repository clonen</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H03 — GitHub Version Control 5ADB</div>
+        <h1 class="page-header__title">Je repository clonen</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB13</span><span class="ld-tag__title">De leerlingen stellen een applicatie in werking.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan de URL van een GitHub repository opzoeken via de groene <em>Code</em>-knop</li>
+          <li>Je kan een repository clonen met <code>git clone &lt;url&gt;</code></li>
+          <li>Je kan de mappenstructuur van je repo bekijken in de terminal</li>
+          <li>Je kan <code>git status</code> lezen en begrijpen wat de uitvoer betekent</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-clone">3.1 Wat is clonen?</h2>
+
+      <p>Clonen betekent: een volledige kopie maken van een GitHub-repository naar je computer. Je downloadt niet alleen de bestanden, maar ook de <strong>volledige versiegeschiedenis</strong>.</p>
+      <p>Je doet dit <strong>één keer</strong>, aan het begin van het jaar. De leerkracht heeft al een persoonlijke repository voor jou aangemaakt. Jij kloont die naar je computer en werkt er van daaruit mee.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/github-version-control/H03-clone-flow.svg" alt="Diagram: GitHub cloud met pijl naar lokale computer — clone" loading="lazy">
+      </figure>
+
+      <h2 id="url-vinden">3.2 De repository-URL vinden</h2>
+
+      <p>Je leerkracht stuurt je een link naar je persoonlijke repository. Die ziet er zo uit:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>https://github.com/appschool-munsterbilzen/jan-peeters-5adb</code></pre>
+      </div>
+
+      <p>Op die GitHub-pagina vind je de clone-URL via de groene <strong>Code</strong>-knop:</p>
+      <ol>
+        <li>Open de repository op GitHub</li>
+        <li>Klik op de groene <strong>&lt;&gt; Code</strong> knop</li>
+        <li>Zorg dat het tabblad <strong>HTTPS</strong> geselecteerd is</li>
+        <li>Kopieer de URL (klik op het kopieer-icoontje)</li>
+      </ol>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128274; HTTPS vs SSH</div>
+        <p>Er zijn twee manieren om te clonen: HTTPS en SSH. In 5ADB gebruiken we altijd <strong>HTTPS</strong> — dit is het eenvoudigst. Je wordt dan gevraagd om in te loggen met je GitHub gebruikersnaam en wachtwoord (of een Personal Access Token).</p>
+      </div>
+
+      <h2 id="clone-uitvoeren">3.3 git clone uitvoeren</h2>
+
+      <p>Open je terminal en navigeer naar de map waar je de repository wil plaatsen, bv. <code>Documents</code>:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">cd Documents
+git clone https://github.com/appschool-munsterbilzen/jan-peeters-5adb</code></pre>
+      </div>
+
+      <p>Git toont tijdens het clonen iets als:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">Cloning into 'jan-peeters-5adb'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+Receiving objects: 100% (12/12), done.</code></pre>
+      </div>
+
+      <p>Er staat nu een nieuwe map <code>jan-peeters-5adb</code> in je Documents. Navigeer daarin:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">cd jan-peeters-5adb</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Windows: Personal Access Token</div>
+        <p>GitHub aanvaardt geen wachtwoorden meer via HTTPS. Je hebt een <strong>Personal Access Token (PAT)</strong> nodig. Ga op GitHub naar <em>Settings → Developer settings → Personal access tokens → Generate new token</em>. Geef het scope <em>repo</em> en kopieer het token. Gebruik dit token als wachtwoord wanneer Git erom vraagt.</p>
+      </div>
+
+      <h2 id="structuur">3.4 Mappenstructuur bekijken</h2>
+
+      <p>Bekijk de inhoud van je repository:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">ls</code></pre>
+      </div>
+
+      <p>Je ziet de basisstructuur die de leerkracht al heeft aangemaakt:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>app-ontwikkeling/
+README.md</code></pre>
+      </div>
+
+      <p>Navigeer dieper in de structuur:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">cd app-ontwikkeling
+ls</code></pre>
+      </div>
+
+      <h2 id="status">3.5 git status — de toestand bekijken</h2>
+
+      <p><code>git status</code> is een van de commando's die je het meest gaat gebruiken. Het toont de huidige toestand van je repository: welke bestanden zijn gewijzigd, welke zijn klaar om te committen.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git status</code></pre>
+      </div>
+
+      <p>Vlak na het clonen, zonder wijzigingen, zie je:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean</code></pre>
+      </div>
+
+      <p>Dit betekent: er zijn geen onopgeslagen wijzigingen, alles is gesynchroniseerd met GitHub. Later, als je bestanden aanpast, zal <code>git status</code> je vertellen welke bestanden gewijzigd zijn.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128204; Onthoud</div>
+        <p>Twijfel je over de toestand van je repository? Typ altijd eerst <code>git status</code>. Het is altijd veilig om dit commando te gebruiken — het verandert niets, het <em>toont</em> alleen.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 1 — Clone je persoonlijke repository</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">De leerkracht heeft je de URL van je persoonlijke repository gegeven. Voer de volgende stappen uit:</p>
+            <ol>
+              <li>Open Git Bash</li>
+              <li>Navigeer naar je Documents-map: <code>cd ~/Documents</code></li>
+              <li>Clone je repository: <code>git clone [url-van-leerkracht]</code></li>
+              <li>Navigeer in de geclonede map: <code>cd [naam-van-repo]</code></li>
+              <li>Bekijk de inhoud: <code>ls</code></li>
+              <li>Controleer de status: <code>git status</code></li>
+              <li>Maak een screenshot van elke stap</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 2 — Repository verkennen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Verken de mappenstructuur van je repository via de terminal:</p>
+            <ol>
+              <li>Toon alle mappen en bestanden met <code>ls</code></li>
+              <li>Navigeer naar <code>app-ontwikkeling/</code> en bekijk de inhoud</li>
+              <li>Ga terug naar de root van de repository met <code>cd ..</code> of <code>cd ~</code></li>
+              <li>Open de repository ook in VS Code: typ <code>code .</code> in de terminal</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Clone en verken
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H03-voorbeeld.svg', 'Voorbeeld — git clone uitvoer in terminal')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak een README.md aan</h3>
+            <ol>
+              <li><strong>Deel 1 — 4 punten:</strong> Open <code>README.md</code> in je repository met VS Code. Voeg toe:
+                <ul>
+                  <li>Jouw naam</li>
+                  <li>Jouw klas (5ADB)</li>
+                  <li>Schooljaar (2025-2026)</li>
+                  <li>Een korte beschrijving van wat er in de repo staat</li>
+                </ul>
+              </li>
+              <li><strong>Deel 2 — 3 punten:</strong> Sla het bestand op. Voer <code>git status</code> uit en maak een screenshot. Wat zie je nu in de uitvoer?</li>
+              <li><strong>Deel 3 — 3 punten:</strong> Leg in eigen woorden uit wat het verschil is tussen de map op je computer (lokale repo) en de map op GitHub (remote repo).</li>
+            </ol>
+            <p class="text-muted">We leren in H04 hoe we het bestand vastleggen en uploaden. Bewaar je screenshot alvast.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H03 — Je repository clonen</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Hoe vaak clone je je persoonlijke schoolrepository?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="a"> <span>Elke dag opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="b"> <span>Één keer, aan het begin van het jaar</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="c"> <span>Elke keer als je een nieuw hoofdstuk begint</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v1" value="d"> <span>Elke keer als je pusht</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat download je naast de bestanden ook bij een <code>git clone</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="a"> <span>Een back-up van heel GitHub</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="b"> <span>Alleen de README</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="c"> <span>De volledige versiegeschiedenis</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v2" value="d"> <span>De instellingen van andere gebruikers</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welk commando toont de huidige toestand van je repository?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="a"> <span>git status</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="b"> <span>git info</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="c"> <span>git show</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v3" value="d"> <span>git log</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat betekent "nothing to commit, working tree clean"?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="a"> <span>Je repository is leeg</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="b"> <span>Je kan niet committen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="c"> <span>Er zijn fouten in je code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v4" value="d"> <span>Alles is bijgewerkt en gesynchroniseerd</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Via welke knop op GitHub vind je de clone-URL van een repository?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="a"> <span>De blauwe Download-knop</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="b"> <span>De groene Code-knop</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="c"> <span>De Settings-pagina</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h03-v5" value="d"> <span>Het profiel-icoontje</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/github-version-control/H03')" data-progress-key="5adb/github-version-control/H03">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H02.html" class="btn btn-ghost">← H02</a>
+          <a href="H04.html" class="btn btn-ghost">H04 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

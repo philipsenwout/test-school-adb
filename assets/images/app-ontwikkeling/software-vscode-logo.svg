@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Witte achtergrond met afgeronde hoeken -->
+  <rect width="200" height="150" rx="14" fill="#f5f6f7" stroke="#d8d8d8" stroke-width="1.5"/>
+
+  <!--
+    VS Code logo mark — gebaseerd op het officiële logo
+    Twee diagonale banden die kruisen en samen een V/X-patroon vormen.
+    Band 1 (/): van linksonder naar rechtsboven — donkerblauw (achterste laag)
+    Band 2 (\): van linksboven naar rechtsonder — middenblauw (voorste laag)
+    Samen zichtbaar als een gekruist lint (het VS Code kenmerk)
+  -->
+  <g transform="translate(68, 9)">
+
+    <!-- Band 1 (/) — donkerblauw, achterste laag -->
+    <polygon
+      points="2,52  16,64  64,12  50,0"
+      fill="#0065A9"/>
+
+    <!-- Band 2 (\) — middenblauw, voorste laag -->
+    <polygon
+      points="2,12  16,0  64,52  50,64"
+      fill="#0078D4"/>
+
+    <!-- Lichtblauw accent op de rechterbovenkant van band 1 (kleine highlight) -->
+    <polygon
+      points="50,0  64,12  56,20  44,8"
+      fill="#1ba1e2"/>
+
+    <!-- Witte dunne scheidingslijn op het kruispunt voor diepte -->
+    <line x1="33" y1="32" x2="33" y2="32" stroke="white" stroke-width="0"/>
+
+  </g>
+
+  <!-- Tekst "Visual Studio Code" -->
+  <text x="100" y="122"
+        text-anchor="middle"
+        font-size="13.5"
+        font-weight="400"
+        fill="#0078D4"
+        letter-spacing="0.01em">Visual Studio Code</text>
+
+</svg>

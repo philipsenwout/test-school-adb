@@ -1,0 +1,61 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="420" rx="8" fill="#1e1e2e"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="16" font-weight="bold" fill="#cdd6f4">float: left — tekst vloeit rechts naast de afbeelding</text>
+
+  <!-- ── LEFT PANEL: without float ── -->
+  <rect x="40" y="60" width="380" height="320" rx="10" fill="#2a2a3e" stroke="#45475a" stroke-width="1.5"/>
+  <text x="230" y="86" text-anchor="middle" font-size="12" fill="#6c757d" font-weight="bold">ZONDER float</text>
+
+  <!-- image block (block-level, full width) -->
+  <rect x="64" y="100" width="332" height="100" rx="6" fill="#3b5bdb" opacity="0.85"/>
+  <text x="230" y="147" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">🖼 afbeelding</text>
+  <text x="230" y="165" text-anchor="middle" font-size="10" fill="#a5b4fc">(display: block — neemt volle breedte)</text>
+
+  <!-- text below -->
+  <rect x="64" y="210" width="332" height="12" rx="3" fill="#585b70"/>
+  <rect x="64" y="228" width="280" height="12" rx="3" fill="#585b70"/>
+  <rect x="64" y="246" width="310" height="12" rx="3" fill="#585b70"/>
+  <rect x="64" y="264" width="200" height="12" rx="3" fill="#585b70"/>
+  <text x="230" y="310" text-anchor="middle" font-size="11" fill="#6c757d">Tekst begint pas ONDER de afbeelding</text>
+
+  <!-- ── RIGHT PANEL: with float:left ── -->
+  <rect x="480" y="60" width="380" height="320" rx="10" fill="#2a2a3e" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="670" y="86" text-anchor="middle" font-size="12" fill="#22c55e" font-weight="bold">MET float: left</text>
+
+  <!-- floated image (left) -->
+  <rect x="504" y="100" width="130" height="110" rx="6" fill="#3b5bdb" opacity="0.85"/>
+  <text x="569" y="152" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">🖼</text>
+  <text x="569" y="170" text-anchor="middle" font-size="10" fill="#a5b4fc">afbeelding</text>
+  <!-- float label -->
+  <rect x="504" y="218" width="130" height="22" rx="4" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1"/>
+  <text x="569" y="233" text-anchor="middle" font-size="10" fill="#22c55e" font-weight="bold">float: left</text>
+
+  <!-- text flowing right of image -->
+  <rect x="648" y="100" width="192" height="12" rx="3" fill="#585b70"/>
+  <rect x="648" y="118" width="192" height="12" rx="3" fill="#585b70"/>
+  <rect x="648" y="136" width="160" height="12" rx="3" fill="#585b70"/>
+  <rect x="648" y="154" width="192" height="12" rx="3" fill="#585b70"/>
+  <rect x="648" y="172" width="130" height="12" rx="3" fill="#585b70"/>
+
+  <!-- text continues below float -->
+  <rect x="504" y="256" width="336" height="12" rx="3" fill="#585b70"/>
+  <rect x="504" y="274" width="280" height="12" rx="3" fill="#585b70"/>
+  <rect x="504" y="292" width="310" height="12" rx="3" fill="#585b70"/>
+
+  <text x="670" y="335" text-anchor="middle" font-size="11" fill="#22c55e">Tekst vloeit NAAST de afbeelding</text>
+
+  <!-- Arrow between panels -->
+  <line x1="435" y1="220" x2="465" y2="220" stroke="#f9f871" stroke-width="2" marker-end="url(#arrowY)"/>
+  <defs>
+    <marker id="arrowY" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#f9f871"/>
+    </marker>
+  </defs>
+
+  <!-- CSS code snippet at bottom -->
+  <rect x="40" y="392" width="820" height="0" rx="0" fill="none"/>
+  <text x="450" y="408" text-anchor="middle" font-size="11" fill="#89b4fa" font-family="Courier New">img { float: left;  margin-right: 16px; }</text>
+</svg>

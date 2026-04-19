@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00C2A8"/>
+      <stop offset="100%" stop-color="#007A6A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Achtergrond -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- Titel -->
+  <text x="400" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3" letter-spacing="0.02em">OSI-MODEL — 7 LAGEN</text>
+  <text x="400" y="56" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em" text-transform="uppercase">Open Systems Interconnection</text>
+
+  <!-- Lijntje onder titel -->
+  <line x1="80" y1="66" x2="720" y2="66" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Kolomlabels -->
+  <text x="100" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E" letter-spacing="0.08em" text-transform="uppercase">LAAG</text>
+  <text x="220" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E" letter-spacing="0.08em">#</text>
+  <text x="380" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E" letter-spacing="0.08em">NAAM</text>
+  <text x="610" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E" letter-spacing="0.08em">VOORBEELDPROTOCOL / FUNCTIE</text>
+
+  <!-- Lagen data: y-start = 98, blok h = 46, gap = 4 -->
+  <!-- Laag 7: Applicatie -->
+  <rect x="80" y="98" width="640" height="44" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <rect x="80" y="98" width="4" height="44" rx="2" fill="#00C2A8"/>
+  <rect x="84" y="98" width="100" height="44" fill="#00C2A820" rx="0"/>
+  <text x="134" y="117" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">APPLICATIE</text>
+  <text x="134" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Application</text>
+  <rect x="195" y="110" width="40" height="22" rx="4" fill="#00C2A820" stroke="#00C2A840" stroke-width="1"/>
+  <text x="215" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#00C2A8">7</text>
+  <text x="400" y="117" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E8E9F3">Applicatielaag</text>
+  <text x="400" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Gebruikersinterface met het netwerk</text>
+  <text x="650" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#00C2A8">HTTP, FTP, DNS, SMTP</text>
+
+  <!-- Laag 6: Presentatie -->
+  <rect x="80" y="148" width="640" height="44" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <rect x="80" y="148" width="4" height="44" rx="2" fill="#00C2A8cc"/>
+  <rect x="84" y="148" width="100" height="44" fill="#00C2A815" rx="0"/>
+  <text x="134" y="167" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">PRESENTATIE</text>
+  <text x="134" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Presentation</text>
+  <rect x="195" y="160" width="40" height="22" rx="4" fill="#00C2A815" stroke="#00C2A835" stroke-width="1"/>
+  <text x="215" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#00C2A8cc">6</text>
+  <text x="400" y="167" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E8E9F3">Presentatielaag</text>
+  <text x="400" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Codering, compressie, encryptie</text>
+  <text x="650" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#00C2A8cc">SSL/TLS, JPEG, MPEG</text>
+
+  <!-- Laag 5: Sessie -->
+  <rect x="80" y="198" width="640" height="44" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <rect x="80" y="198" width="4" height="44" rx="2" fill="#00C2A8aa"/>
+  <rect x="84" y="198" width="100" height="44" fill="#00C2A810" rx="0"/>
+  <text x="134" y="217" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">SESSIE</text>
+  <text x="134" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Session</text>
+  <rect x="195" y="210" width="40" height="22" rx="4" fill="#00C2A810" stroke="#00C2A830" stroke-width="1"/>
+  <text x="215" y="225" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#00C2A8aa">5</text>
+  <text x="400" y="217" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E8E9F3">Sessielaag</text>
+  <text x="400" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Verbindingsbeheer, synchronisatie</text>
+  <text x="650" y="225" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#00C2A8aa">NetBIOS, RPC, PPTP</text>
+
+  <!-- Laag 4: Transport -->
+  <rect x="80" y="248" width="640" height="44" rx="6" fill="#13141D" stroke="#3D3F62" stroke-width="1.5"/>
+  <rect x="80" y="248" width="4" height="44" rx="2" fill="#7B3FE4"/>
+  <rect x="84" y="248" width="100" height="44" fill="#7B3FE415" rx="0"/>
+  <text x="134" y="267" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">TRANSPORT</text>
+  <text x="134" y="282" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Transport</text>
+  <rect x="195" y="260" width="40" height="22" rx="4" fill="#7B3FE420" stroke="#7B3FE450" stroke-width="1"/>
+  <text x="215" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#9B6FFA">4</text>
+  <text x="400" y="267" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E8E9F3">Transportlaag</text>
+  <text x="400" y="282" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">End-to-end communicatie, poortnummers</text>
+  <text x="650" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#9B6FFA">TCP, UDP</text>
+
+  <!-- Laag 3: Netwerk -->
+  <rect x="80" y="298" width="640" height="44" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <rect x="80" y="298" width="4" height="44" rx="2" fill="#3B82F6"/>
+  <rect x="84" y="298" width="100" height="44" fill="#3B82F615" rx="0"/>
+  <text x="134" y="317" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">NETWERK</text>
+  <text x="134" y="332" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Network</text>
+  <rect x="195" y="310" width="40" height="22" rx="4" fill="#3B82F615" stroke="#3B82F635" stroke-width="1"/>
+  <text x="215" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#3B82F6">3</text>
+  <text x="400" y="317" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E8E9F3">Netwerklaag</text>
+  <text x="400" y="332" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Logische adressering, routering</text>
+  <text x="650" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#3B82F6">IP, ICMP, OSPF</text>
+
+  <!-- Laag 2: Datalink -->
+  <rect x="80" y="348" width="640" height="44" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <rect x="80" y="348" width="4" height="44" rx="2" fill="#F97316"/>
+  <rect x="84" y="348" width="100" height="44" fill="#F9731615" rx="0"/>
+  <text x="134" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">DATALINK</text>
+  <text x="134" y="382" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Data Link</text>
+  <rect x="195" y="360" width="40" height="22" rx="4" fill="#F9731615" stroke="#F9731635" stroke-width="1"/>
+  <text x="215" y="375" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F97316">2</text>
+  <text x="400" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E8E9F3">Datalinklaag</text>
+  <text x="400" y="382" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">MAC-adressen, frames, switches</text>
+  <text x="650" y="375" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#F97316">Ethernet, Wi-Fi (802.11)</text>
+
+  <!-- Laag 1: Fysiek -->
+  <rect x="80" y="398" width="640" height="40" rx="6" fill="#1A1C28" stroke="#2A2C45" stroke-width="1"/>
+  <rect x="80" y="398" width="4" height="40" rx="2" fill="#A8AACB"/>
+  <rect x="84" y="398" width="100" height="40" fill="#A8AACB10" rx="0"/>
+  <text x="134" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">FYSIEK</text>
+  <text x="134" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Physical</text>
+  <rect x="195" y="408" width="40" height="22" rx="4" fill="#A8AACB15" stroke="#A8AACB35" stroke-width="1"/>
+  <text x="215" y="423" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#A8AACB">1</text>
+  <text x="400" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#E8E9F3">Fysieke laag</text>
+  <text x="400" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Bits over fysiek medium (kabel, signaal)</text>
+  <text x="650" y="422" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#A8AACB">Coax, UTP, Glasvezel, Hub</text>
+
+  <!-- Pijl omhoog -->
+  <text x="756" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">▲</text>
+  <text x="756" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Sender</text>
+  <!-- Pijl omlaag -->
+  <text x="44" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">▼</text>
+  <text x="44" y="288" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">Receiver</text>
+</svg>

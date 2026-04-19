@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#43e97b"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff"/>
+    </marker>
+  </defs>
+
+  <!-- Titel -->
+  <text x="400" y="30" font-size="17" fill="#e8e8f0" text-anchor="middle" font-weight="bold">Twee manieren om een property te lezen</text>
+  <line x1="80" y1="40" x2="720" y2="40" stroke="#6c63ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Scheidingslijn verticaal -->
+  <line x1="400" y1="50" x2="400" y2="480" stroke="#444" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- LINKS: Dot notation -->
+  <rect x="20" y="60" width="355" height="320" rx="12" fill="#f0fff4" stroke="#43e97b" stroke-width="2"/>
+
+  <!-- Label -->
+  <text x="197" y="92" font-size="15" fill="#27ae60" text-anchor="middle" font-weight="bold">Dot notation ✓</text>
+  <line x1="40" y1="100" x2="355" y2="100" stroke="#43e97b" stroke-width="1" opacity="0.4"/>
+
+  <!-- Code blok links -->
+  <rect x="40" y="115" width="315" height="70" rx="8" fill="#1a1a2e"/>
+  <text x="197" y="140" font-size="15" fill="#6c63ff" text-anchor="middle" font-family="'Courier New', monospace">persoon<tspan fill="#43e97b">.</tspan>naam</text>
+  <text x="197" y="170" font-size="12" fill="#888" text-anchor="middle" font-family="'Courier New', monospace">persoon.leeftijd</text>
+
+  <!-- Pijl naar resultaat -->
+  <line x1="197" y1="188" x2="197" y2="215" stroke="#43e97b" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- Resultaat bubbel links -->
+  <rect x="120" y="222" width="155" height="38" rx="19" fill="#43e97b"/>
+  <text x="197" y="246" font-size="15" fill="#1a1a2e" text-anchor="middle" font-weight="bold" font-family="'Courier New', monospace">"Jana"</text>
+
+  <!-- Gebruik info links -->
+  <rect x="40" y="278" width="315" height="80" rx="8" fill="#e8f8ef"/>
+  <text x="197" y="300" font-size="12" fill="#555" text-anchor="middle" font-weight="bold">Wanneer gebruiken?</text>
+  <text x="55" y="320" font-size="12" fill="#2d5a3d">✓  Als de key een vaste naam heeft</text>
+  <text x="55" y="338" font-size="12" fill="#2d5a3d">✓  Meest voorkomende manier</text>
+  <text x="55" y="356" font-size="12" fill="#2d5a3d">✓  Overzichtelijke, korte syntax</text>
+
+  <!-- RECHTS: Bracket notation -->
+  <rect x="425" y="60" width="355" height="320" rx="12" fill="#f0f4ff" stroke="#6c63ff" stroke-width="2"/>
+
+  <!-- Label -->
+  <text x="603" y="92" font-size="15" fill="#6c63ff" text-anchor="middle" font-weight="bold">Bracket notation</text>
+  <line x1="445" y1="100" x2="760" y2="100" stroke="#6c63ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Code blok rechts -->
+  <rect x="445" y="115" width="315" height="70" rx="8" fill="#1a1a2e"/>
+  <text x="603" y="140" font-size="15" fill="#6c63ff" text-anchor="middle" font-family="'Courier New', monospace">persoon<tspan fill="#a78bfa">['naam']</tspan></text>
+  <text x="603" y="170" font-size="12" fill="#888" text-anchor="middle" font-family="'Courier New', monospace">persoon['leeftijd']</text>
+
+  <!-- Pijl naar resultaat -->
+  <line x1="603" y1="188" x2="603" y2="215" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Resultaat bubbel rechts -->
+  <rect x="526" y="222" width="155" height="38" rx="19" fill="#6c63ff"/>
+  <text x="603" y="246" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold" font-family="'Courier New', monospace">"Jana"</text>
+
+  <!-- Gebruik info rechts -->
+  <rect x="445" y="278" width="315" height="80" rx="8" fill="#e8eaff"/>
+  <text x="603" y="300" font-size="12" fill="#555" text-anchor="middle" font-weight="bold">Wanneer gebruiken?</text>
+  <text x="460" y="320" font-size="12" fill="#2d2d6e">→  Als de key in een variabele zit</text>
+  <text x="460" y="338" font-size="12" fill="#2d2d6e">→  Als de key een spatie bevat</text>
+  <text x="460" y="356" font-size="12" fill="#2d2d6e">→  Bij dynamisch opvragen</text>
+
+  <!-- Onderaan: bracket met variabele voorbeeld -->
+  <rect x="100" y="405" width="600" height="75" rx="12" fill="#1a1a2e" stroke="#6c63ff" stroke-width="1.5"/>
+  <text x="400" y="428" font-size="12" fill="#888" text-anchor="middle">Bracket notation met een variabele</text>
+  <text x="180" y="458" font-size="14" fill="#888" font-family="'Courier New', monospace">const sleutel = <tspan fill="#43e97b">'naam'</tspan>;</text>
+  <text x="180" y="476" font-size="14" fill="#6c63ff" font-family="'Courier New', monospace">persoon[sleutel]  <tspan fill="#888">// →</tspan>  <tspan fill="#f9a825">"Jana"</tspan></text>
+</svg>

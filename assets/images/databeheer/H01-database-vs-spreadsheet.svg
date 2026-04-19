@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">SPREADSHEET vs. DATABASE</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">WAT IS HET VERSCHIL?</text>
+  <line x1="80" y1="64" x2="720" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Scheidingslijn midden -->
+  <line x1="400" y1="70" x2="400" y2="445" stroke="#1F2035" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="400" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#2A2C45">VS</text>
+
+  <!-- SPREADSHEET (links) -->
+  <text x="200" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#22C55E">SPREADSHEET</text>
+  <text x="200" y="104" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">bv. Excel, Google Sheets</text>
+
+  <!-- Spreadsheet visueel: platte tabel -->
+  <rect x="60" y="116" width="320" height="180" rx="6" fill="#13141D" stroke="#22C55E40" stroke-width="1.5"/>
+
+  <!-- Header rij -->
+  <rect x="60" y="116" width="320" height="28" rx="4" fill="#22C55E20"/>
+  <text x="100" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#22C55E">Naam</text>
+  <text x="185" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#22C55E">Vak</text>
+  <text x="270" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#22C55E">Leraar</text>
+  <text x="350" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#22C55E">Punten</text>
+
+  <!-- Kolomlijnen -->
+  <line x1="140" y1="116" x2="140" y2="296" stroke="#1F2035" stroke-width="1"/>
+  <line x1="226" y1="116" x2="226" y2="296" stroke="#1F2035" stroke-width="1"/>
+  <line x1="312" y1="116" x2="312" y2="296" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Datarijen -->
+  <line x1="60" y1="144" x2="380" y2="144" stroke="#1F2035" stroke-width="1"/>
+  <text x="100" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Ali</text>
+  <text x="185" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Netwerken</text>
+  <text x="270" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">De Smet</text>
+  <text x="350" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">78</text>
+
+  <line x1="60" y1="168" x2="380" y2="168" stroke="#1F2035" stroke-width="1"/>
+  <text x="100" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Jana</text>
+  <text x="185" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Netwerken</text>
+  <text x="270" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">De Smet</text>
+  <text x="350" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">85</text>
+
+  <line x1="60" y1="192" x2="380" y2="192" stroke="#1F2035" stroke-width="1"/>
+  <text x="100" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Ali</text>
+  <text x="185" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Databeheer</text>
+  <text x="270" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Pieters</text>
+  <text x="350" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">91</text>
+
+  <line x1="60" y1="216" x2="380" y2="216" stroke="#1F2035" stroke-width="1"/>
+  <text x="100" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Jana</text>
+  <text x="185" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Databeheer</text>
+  <text x="270" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">Pieters</text>
+  <text x="350" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#E8E9F3">74</text>
+
+  <!-- Probleem markering -->
+  <rect x="226" y="144" width="86" height="96" rx="0" fill="#EF444415" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="269" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#EF4444">⚠ Herhaling!</text>
+
+  <!-- Nadelen spreadsheet -->
+  <rect x="60" y="308" width="320" height="100" rx="6" fill="#EF444410" stroke="#EF444430" stroke-width="1"/>
+  <text x="220" y="326" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#EF4444">Nadelen spreadsheet</text>
+  <text x="80" y="344" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">✗  Gegevens worden herhaald (redundantie)</text>
+  <text x="80" y="360" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">✗  Moeilijk te beveiligen per kolom/rij</text>
+  <text x="80" y="376" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">✗  Geen relaties tussen tabellen</text>
+  <text x="80" y="392" font-family="system-ui, sans-serif" font-size="10" fill="#A8AACB">✗  Slechte prestaties bij veel data</text>
+
+  <!-- DATABASE (rechts) -->
+  <text x="600" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#3B82F6">RELATIONELE DATABASE</text>
+  <text x="600" y="104" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">bv. MySQL, PostgreSQL</text>
+
+  <!-- Tabel Leerling -->
+  <rect x="418" y="116" width="164" height="120" rx="6" fill="#13141D" stroke="#3B82F660" stroke-width="1.5"/>
+  <rect x="418" y="116" width="164" height="24" rx="4" fill="#3B82F620"/>
+  <text x="500" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#3B82F6">Tabel: Leerling</text>
+  <line x1="418" y1="140" x2="582" y2="140" stroke="#1F2035" stroke-width="1"/>
+  <text x="430" y="155" font-family="system-ui, sans-serif" font-size="9" fill="#F59E0B">🔑 leerling_id</text>
+  <text x="430" y="170" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">naam</text>
+  <line x1="418" y1="158" x2="582" y2="158" stroke="#1F2035" stroke-width="1"/>
+  <text x="500" y="191" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">1 — Ali</text>
+  <text x="500" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">2 — Jana</text>
+  <line x1="418" y1="182" x2="582" y2="182" stroke="#1F2035" stroke-width="1"/>
+  <line x1="418" y1="196" x2="582" y2="196" stroke="#1F2035" stroke-width="1"/>
+  <rect x="418" y="116" width="164" height="120" rx="6" fill="none" stroke="#3B82F660" stroke-width="1.5"/>
+
+  <!-- Tabel Vak -->
+  <rect x="598" y="116" width="162" height="120" rx="6" fill="#13141D" stroke="#3B82F660" stroke-width="1.5"/>
+  <rect x="598" y="116" width="162" height="24" rx="4" fill="#3B82F620"/>
+  <text x="679" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#3B82F6">Tabel: Vak</text>
+  <line x1="598" y1="140" x2="760" y2="140" stroke="#1F2035" stroke-width="1"/>
+  <text x="610" y="155" font-family="system-ui, sans-serif" font-size="9" fill="#F59E0B">🔑 vak_id</text>
+  <text x="610" y="170" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">vaknaam   leraar</text>
+  <line x1="598" y1="158" x2="760" y2="158" stroke="#1F2035" stroke-width="1"/>
+  <text x="679" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">1 — Netwerken</text>
+  <text x="679" y="191" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">2 — Databeheer</text>
+  <line x1="598" y1="168" x2="760" y2="168" stroke="#1F2035" stroke-width="1"/>
+  <line x1="598" y1="182" x2="760" y2="182" stroke="#1F2035" stroke-width="1"/>
+  <rect x="598" y="116" width="162" height="120" rx="6" fill="none" stroke="#3B82F660" stroke-width="1.5"/>
+
+  <!-- Tabel Resultaat (koppeltabel) -->
+  <rect x="418" y="256" width="342" height="110" rx="6" fill="#13141D" stroke="#3B82F680" stroke-width="1.5"/>
+  <rect x="418" y="256" width="342" height="24" rx="4" fill="#3B82F625"/>
+  <text x="589" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#3B82F6">Tabel: Resultaat (koppeling)</text>
+  <line x1="418" y1="280" x2="760" y2="280" stroke="#1F2035" stroke-width="1"/>
+  <text x="450" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#F59E0B">🔑 id</text>
+  <text x="530" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#22C55E">🔗 leerling_id</text>
+  <text x="640" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#22C55E">🔗 vak_id</text>
+  <text x="720" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">punten</text>
+  <line x1="418" y1="300" x2="760" y2="300" stroke="#1F2035" stroke-width="1"/>
+  <text x="450" y="314" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">1</text>
+  <text x="530" y="314" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">1 (Ali)</text>
+  <text x="640" y="314" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">1 (Netwerken)</text>
+  <text x="720" y="314" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">78</text>
+  <line x1="418" y1="320" x2="760" y2="320" stroke="#1F2035" stroke-width="1"/>
+  <text x="450" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">2</text>
+  <text x="530" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">1 (Ali)</text>
+  <text x="640" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">2 (Databeheer)</text>
+  <text x="720" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">91</text>
+  <line x1="418" y1="340" x2="760" y2="340" stroke="#1F2035" stroke-width="1"/>
+  <rect x="418" y="256" width="342" height="110" rx="6" fill="none" stroke="#3B82F680" stroke-width="1.5"/>
+
+  <!-- Relatielijnen -->
+  <line x1="500" y1="236" x2="500" y2="256" stroke="#22C55E" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="679" y1="236" x2="679" y2="256" stroke="#22C55E" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="489" y="250" font-family="system-ui, sans-serif" font-size="8" fill="#22C55E">FK</text>
+  <text x="668" y="250" font-family="system-ui, sans-serif" font-size="8" fill="#22C55E">FK</text>
+
+  <!-- Voordelen database -->
+  <rect x="418" y="380" width="342" height="58" rx="6" fill="#3B82F610" stroke="#3B82F630" stroke-width="1"/>
+  <text x="589" y="396" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#3B82F6">Voordelen database</text>
+  <text x="430" y="412" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">✓  Geen herhaling (normalisatie)   ✓  Toegangscontrole</text>
+  <text x="430" y="427" font-family="system-ui, sans-serif" font-size="9" fill="#A8AACB">✓  Relaties via sleutels (FK)          ✓  Snel opzoeken via queries</text>
+</svg>

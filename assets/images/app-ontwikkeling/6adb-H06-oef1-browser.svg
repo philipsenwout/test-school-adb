@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Browser chrome -->
+  <rect x="40" y="16" width="720" height="468" rx="12" fill="#1e1e2e" stroke="#3a3a5a" stroke-width="2"/>
+
+  <!-- Browser top bar -->
+  <rect x="40" y="16" width="720" height="44" rx="12" fill="#12121e"/>
+  <rect x="40" y="48" width="720" height="12" fill="#12121e"/>
+
+  <!-- Traffic lights -->
+  <circle cx="72" cy="38" r="6" fill="#ff6b6b"/>
+  <circle cx="94" cy="38" r="6" fill="#f9a825"/>
+  <circle cx="116" cy="38" r="6" fill="#43e97b"/>
+
+  <!-- Tab bar -->
+  <rect x="140" y="22" width="180" height="28" rx="6" fill="#1e1e2e"/>
+  <text x="230" y="41" text-anchor="middle" font-size="12" fill="#a0a0c0">DevTools — Console</text>
+
+  <!-- Page left (browser page, collapsed/minimized) -->
+  <rect x="40" y="60" width="720" height="16" fill="#1e1e2e"/>
+
+  <!-- DevTools panel -->
+  <rect x="40" y="76" width="720" height="408" rx="0" fill="#1a1a2a"/>
+
+  <!-- DevTools top bar -->
+  <rect x="40" y="76" width="720" height="32" fill="#222234"/>
+  <text x="68" y="96" font-size="12" fill="#888" >Elements</text>
+  <text x="140" y="96" font-size="12" fill="#888">Network</text>
+  <rect x="198" y="80" width="60" height="22" rx="4" fill="#1a1a2a"/>
+  <text x="228" y="96" font-size="12" fill="#a0d0ff" font-weight="600">Console</text>
+  <text x="276" y="96" font-size="12" fill="#888">Sources</text>
+
+  <!-- Console content area -->
+  <rect x="40" y="108" width="720" height="376" rx="0" fill="#141420"/>
+
+  <!-- Console line: empty input at top -->
+  <rect x="40" y="108" width="720" height="28" fill="#1a1a2a"/>
+  <text x="60" y="127" font-size="12" fill="#4a4a6a" font-family="'Courier New', monospace">Filter</text>
+  <line x1="40" y1="136" x2="760" y2="136" stroke="#2a2a3a" stroke-width="1"/>
+
+  <!-- Console entry 1: geslaagdeStudenten -->
+  <rect x="40" y="137" width="720" height="32" fill="#141420"/>
+  <text x="60" y="158" font-size="13" fill="#6c63ff" font-family="'Courier New', monospace">&gt;</text>
+  <text x="80" y="158" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">geslaagdeStudenten</text>
+
+  <rect x="40" y="169" width="720" height="32" fill="#1a1a26"/>
+  <text x="60" y="190" font-size="13" fill="#888" font-family="'Courier New', monospace">&#8592;</text>
+  <text x="80" y="190" font-size="13" fill="#c0a0ff" font-family="'Courier New', monospace">(3) [</text>
+  <text x="124" y="190" font-size="13" fill="#43e97b" font-family="'Courier New', monospace">'Jana'</text>
+  <text x="186" y="190" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">,</text>
+  <text x="196" y="190" font-size="13" fill="#43e97b" font-family="'Courier New', monospace">'Pieter'</text>
+  <text x="272" y="190" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">,</text>
+  <text x="282" y="190" font-size="13" fill="#43e97b" font-family="'Courier New', monospace">'Emma'</text>
+  <text x="340" y="190" font-size="13" fill="#c0a0ff" font-family="'Courier New', monospace">]</text>
+  <line x1="40" y1="201" x2="760" y2="201" stroke="#2a2a3a" stroke-width="1"/>
+
+  <!-- Console entry 2: gemiddeldePunten -->
+  <rect x="40" y="202" width="720" height="30" fill="#141420"/>
+  <text x="60" y="222" font-size="13" fill="#6c63ff" font-family="'Courier New', monospace">&gt;</text>
+  <text x="80" y="222" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">gemiddeldePunten</text>
+
+  <rect x="40" y="232" width="720" height="30" fill="#1a1a26"/>
+  <text x="60" y="252" font-size="13" fill="#888" font-family="'Courier New', monospace">&#8592;</text>
+  <text x="80" y="252" font-size="13" fill="#5bb8ff" font-family="'Courier New', monospace">72</text>
+  <line x1="40" y1="262" x2="760" y2="262" stroke="#2a2a3a" stroke-width="1"/>
+
+  <!-- Console entry 3: besteStudent (object, expanded) -->
+  <rect x="40" y="263" width="720" height="30" fill="#141420"/>
+  <text x="60" y="283" font-size="13" fill="#6c63ff" font-family="'Courier New', monospace">&gt;</text>
+  <text x="80" y="283" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">besteStudent</text>
+
+  <rect x="40" y="293" width="720" height="88" fill="#1a1a26"/>
+  <text x="60" y="313" font-size="13" fill="#888" font-family="'Courier New', monospace">&#9660;</text>
+  <text x="78" y="313" font-size="13" fill="#c0a0ff" font-family="'Courier New', monospace">&#123;</text>
+  <text x="94" y="313" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">naam: </text>
+  <text x="158" y="313" font-size="13" fill="#43e97b" font-family="'Courier New', monospace">"Emma"</text>
+  <text x="214" y="313" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">, punten: </text>
+  <text x="294" y="313" font-size="13" fill="#5bb8ff" font-family="'Courier New', monospace">91</text>
+  <text x="312" y="313" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">, geslaagd: </text>
+  <text x="408" y="313" font-size="13" fill="#f9a825" font-family="'Courier New', monospace">true</text>
+  <text x="450" y="313" font-size="13" fill="#c0a0ff" font-family="'Courier New', monospace">&#125;</text>
+
+  <!-- expanded props -->
+  <text x="90" y="333" font-size="12" fill="#888" font-family="'Courier New', monospace">naam:</text>
+  <text x="144" y="333" font-size="12" fill="#43e97b" font-family="'Courier New', monospace">"Emma"</text>
+  <text x="90" y="351" font-size="12" fill="#888" font-family="'Courier New', monospace">punten:</text>
+  <text x="152" y="351" font-size="12" fill="#5bb8ff" font-family="'Courier New', monospace">91</text>
+  <text x="90" y="369" font-size="12" fill="#888" font-family="'Courier New', monospace">geslaagd:</text>
+  <text x="168" y="369" font-size="12" fill="#f9a825" font-family="'Courier New', monospace">true</text>
+  <line x1="40" y1="381" x2="760" y2="381" stroke="#2a2a3a" stroke-width="1"/>
+
+  <!-- Console entry 4: alleGeslaagd -->
+  <rect x="40" y="382" width="720" height="28" fill="#141420"/>
+  <text x="60" y="400" font-size="13" fill="#6c63ff" font-family="'Courier New', monospace">&gt;</text>
+  <text x="80" y="400" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">alleGeslaagd</text>
+
+  <rect x="40" y="410" width="720" height="28" fill="#1a1a26"/>
+  <text x="60" y="428" font-size="13" fill="#888" font-family="'Courier New', monospace">&#8592;</text>
+  <text x="80" y="428" font-size="13" fill="#f9a825" font-family="'Courier New', monospace">false</text>
+  <line x1="40" y1="438" x2="760" y2="438" stroke="#2a2a3a" stroke-width="1"/>
+
+  <!-- Console entry 5: eentjeOnderZestig -->
+  <rect x="40" y="439" width="720" height="28" fill="#141420"/>
+  <text x="60" y="457" font-size="13" fill="#6c63ff" font-family="'Courier New', monospace">&gt;</text>
+  <text x="80" y="457" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">eentjeOnderZestig</text>
+
+  <rect x="40" y="467" width="720" height="28" fill="#1a1a26"/>
+  <text x="60" y="485" font-size="13" fill="#888" font-family="'Courier New', monospace">&#8592;</text>
+  <text x="80" y="485" font-size="13" fill="#f9a825" font-family="'Courier New', monospace">true</text>
+
+  <!-- Color legend bottom right -->
+  <rect x="580" y="444" width="170" height="36" rx="6" fill="#0d0d1a" stroke="#2a2a3a" stroke-width="1"/>
+  <text x="598" y="458" font-size="10" fill="#43e97b" font-family="'Courier New', monospace">string</text>
+  <text x="638" y="458" font-size="10" fill="#5bb8ff" font-family="'Courier New', monospace">number</text>
+  <text x="694" y="458" font-size="10" fill="#f9a825" font-family="'Courier New', monospace">boolean</text>
+  <text x="598" y="474" font-size="10" fill="#c0a0ff" font-family="'Courier New', monospace">array/object</text>
+</svg>

@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Title -->
+  <text x="600" y="48" text-anchor="middle" font-family="'Courier New', monospace" font-size="26" font-weight="bold" fill="#00d4ff">Waarheidstabellen — &amp;&amp; / || / !</text>
+  <text x="600" y="76" text-anchor="middle" font-family="'Courier New', monospace" font-size="15" fill="#8892a4">Logische operatoren: alle combinaties van true en false</text>
+
+  <!-- === AND TABLE === -->
+  <rect x="50" y="100" width="330" height="310" rx="14" fill="#12161f" stroke="#39ff14" stroke-width="2.5"/>
+  <!-- header -->
+  <rect x="50" y="100" width="330" height="44" rx="14" fill="#0d2e1a" stroke="#39ff14" stroke-width="2.5"/>
+  <rect x="50" y="130" width="330" height="14" fill="#0d2e1a"/>
+  <text x="215" y="128" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" fill="#39ff14" font-weight="bold">&amp;&amp; — EN</text>
+  <text x="215" y="155" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#6baa78">Beide moeten true zijn</text>
+
+  <!-- Column headers -->
+  <rect x="50" y="164" width="330" height="32" fill="#1a2e1a"/>
+  <text x="115" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">Links</text>
+  <text x="215" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">Rechts</text>
+  <text x="330" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">Resultaat</text>
+  <line x1="50" y1="196" x2="380" y2="196" stroke="#2d3448" stroke-width="1"/>
+  <line x1="163" y1="164" x2="163" y2="410" stroke="#2d3448" stroke-width="1"/>
+  <line x1="270" y1="164" x2="270" y2="410" stroke="#2d3448" stroke-width="1"/>
+
+  <!-- Row 1: T && T = T -->
+  <rect x="50" y="196" width="330" height="54" fill="#0a1f0a"/>
+  <text x="115" y="228" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <text x="215" y="228" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <rect x="276" y="204" width="98" height="38" rx="6" fill="#1a4a1a"/>
+  <text x="330" y="228" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true ✔</text>
+
+  <!-- Row 2: T && F = F -->
+  <rect x="50" y="250" width="330" height="54" fill="#0f1117"/>
+  <text x="115" y="282" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <text x="215" y="282" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <rect x="276" y="258" width="98" height="38" rx="6" fill="#3a0a0a"/>
+  <text x="330" y="282" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false ✗</text>
+
+  <!-- Row 3: F && T = F -->
+  <rect x="50" y="304" width="330" height="54" fill="#0a1f0a"/>
+  <text x="115" y="336" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <text x="215" y="336" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <rect x="276" y="312" width="98" height="38" rx="6" fill="#3a0a0a"/>
+  <text x="330" y="336" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false ✗</text>
+
+  <!-- Row 4: F && F = F -->
+  <rect x="50" y="358" width="330" height="52" rx="0" fill="#0f1117"/>
+  <rect x="50" y="370" width="330" height="40" rx="0" fill="#0f1117"/>
+  <text x="115" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <text x="215" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <rect x="276" y="366" width="98" height="38" rx="6" fill="#3a0a0a"/>
+  <text x="330" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false ✗</text>
+
+  <!-- === OR TABLE === -->
+  <rect x="435" y="100" width="330" height="310" rx="14" fill="#12161f" stroke="#ff6b35" stroke-width="2.5"/>
+  <rect x="435" y="100" width="330" height="44" rx="14" fill="#2e1a0d" stroke="#ff6b35" stroke-width="2.5"/>
+  <rect x="435" y="130" width="330" height="14" fill="#2e1a0d"/>
+  <text x="600" y="128" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" fill="#ff6b35" font-weight="bold">|| — OF</text>
+  <text x="600" y="155" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#c08060">Minstens één moet true zijn</text>
+
+  <rect x="435" y="164" width="330" height="32" fill="#2a1808"/>
+  <text x="500" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#ff6b35" font-weight="bold">Links</text>
+  <text x="600" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#ff6b35" font-weight="bold">Rechts</text>
+  <text x="715" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#ff6b35" font-weight="bold">Resultaat</text>
+  <line x1="435" y1="196" x2="765" y2="196" stroke="#2d3448" stroke-width="1"/>
+  <line x1="548" y1="164" x2="548" y2="410" stroke="#2d3448" stroke-width="1"/>
+  <line x1="655" y1="164" x2="655" y2="410" stroke="#2d3448" stroke-width="1"/>
+
+  <!-- T || T = T -->
+  <rect x="435" y="196" width="330" height="54" fill="#1a1008"/>
+  <text x="500" y="228" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <text x="600" y="228" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <rect x="661" y="204" width="98" height="38" rx="6" fill="#1a4a1a"/>
+  <text x="715" y="228" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true ✔</text>
+
+  <!-- T || F = T -->
+  <rect x="435" y="250" width="330" height="54" fill="#0f1117"/>
+  <text x="500" y="282" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <text x="600" y="282" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <rect x="661" y="258" width="98" height="38" rx="6" fill="#1a4a1a"/>
+  <text x="715" y="282" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true ✔</text>
+
+  <!-- F || T = T -->
+  <rect x="435" y="304" width="330" height="54" fill="#1a1008"/>
+  <text x="500" y="336" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <text x="600" y="336" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true</text>
+  <rect x="661" y="312" width="98" height="38" rx="6" fill="#1a4a1a"/>
+  <text x="715" y="336" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold">true ✔</text>
+
+  <!-- F || F = F -->
+  <rect x="435" y="358" width="330" height="52" fill="#0f1117"/>
+  <text x="500" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <text x="600" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false</text>
+  <rect x="661" y="366" width="98" height="38" rx="6" fill="#3a0a0a"/>
+  <text x="715" y="390" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff4444" font-weight="bold">false ✗</text>
+
+  <!-- === NOT TABLE === -->
+  <rect x="820" y="100" width="330" height="220" rx="14" fill="#12161f" stroke="#00d4ff" stroke-width="2.5"/>
+  <rect x="820" y="100" width="330" height="44" rx="14" fill="#0d2040" stroke="#00d4ff" stroke-width="2.5"/>
+  <rect x="820" y="130" width="330" height="14" fill="#0d2040"/>
+  <text x="985" y="128" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" fill="#00d4ff" font-weight="bold">! — NIET</text>
+  <text x="985" y="155" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#5599bb">Keert de waarde om</text>
+
+  <rect x="820" y="164" width="330" height="32" fill="#0a1828"/>
+  <text x="912" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff" font-weight="bold">Waarde</text>
+  <text x="1060" y="185" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff" font-weight="bold">! Waarde</text>
+  <line x1="820" y1="196" x2="1150" y2="196" stroke="#2d3448" stroke-width="1"/>
+  <line x1="985" y1="164" x2="985" y2="320" stroke="#2d3448" stroke-width="1"/>
+
+  <!-- T → F -->
+  <rect x="820" y="196" width="330" height="60" fill="#0a1828"/>
+  <text x="912" y="232" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#39ff14" font-weight="bold">true</text>
+  <text x="910" y="248" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#6b7280">!true</text>
+  <rect x="991" y="206" width="153" height="40" rx="6" fill="#3a0a0a"/>
+  <text x="1068" y="231" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#ff4444" font-weight="bold">false ✗</text>
+
+  <!-- F → T -->
+  <rect x="820" y="256" width="330" height="64" fill="#0f1117"/>
+  <text x="912" y="292" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#ff4444" font-weight="bold">false</text>
+  <text x="910" y="308" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#6b7280">!false</text>
+  <rect x="991" y="264" width="153" height="40" rx="6" fill="#1a4a1a"/>
+  <text x="1068" y="289" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#39ff14" font-weight="bold">true ✔</text>
+
+  <!-- Usage examples -->
+  <rect x="820" y="336" width="330" height="74" rx="8" fill="#12161f" stroke="#2d3448" stroke-width="1"/>
+  <text x="840" y="358" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">Voorbeeld:</text>
+  <text x="840" y="378" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">let</text>
+  <text x="872" y="378" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> isIngelogd = false;</text>
+  <text x="840" y="398" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">if</text>
+  <text x="862" y="398" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> (!isIngelogd) { ... }</text>
+
+  <!-- Bottom: summary boxes -->
+  <rect x="50" y="438" width="330" height="90" rx="10" fill="#0d2e1a" stroke="#39ff14" stroke-width="1.5"/>
+  <text x="215" y="462" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">&amp;&amp; — Beiden true</text>
+  <text x="215" y="484" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#6baa78">Slechts 1 combinatie geeft true.</text>
+  <text x="215" y="504" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#6baa78">Alle andere zijn false.</text>
+  <text x="215" y="518" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#3a6a3a">(meest streng)</text>
+
+  <rect x="435" y="438" width="330" height="90" rx="10" fill="#2e1a0d" stroke="#ff6b35" stroke-width="1.5"/>
+  <text x="600" y="462" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#ff6b35" font-weight="bold">|| — Minstens één true</text>
+  <text x="600" y="484" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#c08060">Slechts 1 combinatie geeft false.</text>
+  <text x="600" y="504" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#c08060">Alle andere zijn true.</text>
+  <text x="600" y="518" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#6a3a1a">(meest soepel)</text>
+
+  <rect x="820" y="438" width="330" height="90" rx="10" fill="#0d2040" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="985" y="462" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" fill="#00d4ff" font-weight="bold">! — Omgekeerde waarde</text>
+  <text x="985" y="484" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#5599bb">true wordt false, false wordt true.</text>
+  <text x="985" y="504" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#5599bb">Gebruikt voor negatie.</text>
+  <text x="985" y="518" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#1a4a6a">(werkt op één operand)</text>
+
+  <!-- Real examples section -->
+  <rect x="50" y="548" width="1100" height="220" rx="12" fill="#12161f" stroke="#2d3448" stroke-width="1.5"/>
+  <text x="70" y="574" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff" font-weight="bold">Praktijkvoorbeelden:</text>
+  <text x="70" y="600" font-family="'Courier New', monospace" font-size="13" fill="#6b7280">// &amp;&amp;: toegang verlenen ALS leeftijd &gt;= 18 EN ticket aanwezig</text>
+  <text x="70" y="622" font-family="'Courier New', monospace" font-size="14" fill="#7c3aed">if</text>
+  <text x="94" y="622" font-family="'Courier New', monospace" font-size="14" fill="#ffffff"> (leeftijd &gt;= 18</text>
+  <text x="266" y="622" font-family="'Courier New', monospace" font-size="16" fill="#39ff14" font-weight="bold"> &amp;&amp;</text>
+  <text x="306" y="622" font-family="'Courier New', monospace" font-size="14" fill="#ffffff"> heeftTicket) { console.log(</text>
+  <text x="594" y="622" font-family="'Courier New', monospace" font-size="14" fill="#e8c585">"Welkom!"</text>
+  <text x="660" y="622" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">); }</text>
+  <text x="70" y="654" font-family="'Courier New', monospace" font-size="13" fill="#6b7280">// ||: korting ALS student OF lid</text>
+  <text x="70" y="676" font-family="'Courier New', monospace" font-size="14" fill="#7c3aed">if</text>
+  <text x="94" y="676" font-family="'Courier New', monospace" font-size="14" fill="#ffffff"> (isStudent</text>
+  <text x="218" y="676" font-family="'Courier New', monospace" font-size="16" fill="#ff6b35" font-weight="bold"> ||</text>
+  <text x="248" y="676" font-family="'Courier New', monospace" font-size="14" fill="#ffffff"> heeftLidkaart) { console.log(</text>
+  <text x="552" y="676" font-family="'Courier New', monospace" font-size="14" fill="#e8c585">"20% korting"</text>
+  <text x="638" y="676" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">); }</text>
+  <text x="70" y="708" font-family="'Courier New', monospace" font-size="13" fill="#6b7280">// !: toon login ALS NIET ingelogd</text>
+  <text x="70" y="730" font-family="'Courier New', monospace" font-size="14" fill="#7c3aed">if</text>
+  <text x="94" y="730" font-family="'Courier New', monospace" font-size="14" fill="#ffffff"> (</text>
+  <text x="110" y="730" font-family="'Courier New', monospace" font-size="16" fill="#00d4ff" font-weight="bold">!</text>
+  <text x="124" y="730" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">isIngelogd) { console.log(</text>
+  <text x="392" y="730" font-family="'Courier New', monospace" font-size="14" fill="#e8c585">"Gelieve in te loggen."</text>
+  <text x="560" y="730" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">); }</text>
+  <text x="70" y="756" font-family="'Courier New', monospace" font-size="13" fill="#6b7280">// combinatie: 18+ EN (lid OF vip)</text>
+  <text x="70" y="758" font-family="'Courier New', monospace" font-size="13" fill="#6b7280">// leeftijd &gt;= 18 &amp;&amp; (isLid || heeftVipPas)  ← haakjes bepalen volgorde!</text>
+</svg>

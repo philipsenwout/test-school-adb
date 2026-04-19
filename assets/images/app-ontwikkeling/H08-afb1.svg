@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="360" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">Dezelfde HTML-pagina — zonder en met CSS</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">CSS bepaalt de vormgeving — HTML bepaalt de structuur</text>
+
+  <!-- Links: zonder CSS (browser standaard) -->
+  <rect x="20" y="58" width="370" height="285" rx="8" fill="#f5f5f5" stroke="#aaa" stroke-width="1.5"/>
+  <!-- Browserbalk mock -->
+  <rect x="20" y="58" width="370" height="22" rx="8" fill="#e0e0e0"/>
+  <text x="205" y="73" text-anchor="middle" font-size="9" fill="#666">zonder-css.html</text>
+  <text x="50" y="96" font-size="14" fill="#000080" font-weight="bold">Mijn Eerste Webpagina</text>
+  <line x1="30" y1="102" x2="380" y2="102" stroke="#888" stroke-width="0.5"/>
+  <text x="30" y="118" font-size="12" fill="#000" font-weight="bold">Welkom</text>
+  <text x="30" y="133" font-size="11" fill="#000">Dit is een alinea tekst op mijn website.</text>
+  <text x="30" y="148" font-size="11" fill="#000">Een tweede alinea met wat meer inhoud hier.</text>
+  <text x="30" y="166" font-size="12" fill="#000" font-weight="bold">Navigatie</text>
+  <text x="30" y="183" font-size="11" fill="#0000ee" text-decoration="underline">• Home</text>
+  <text x="30" y="199" font-size="11" fill="#0000ee" text-decoration="underline">• Over ons</text>
+  <text x="30" y="215" font-size="11" fill="#0000ee" text-decoration="underline">• Contact</text>
+  <text x="30" y="233" font-size="12" fill="#000" font-weight="bold">Mijn knop</text>
+  <rect x="30" y="240" width="70" height="18" rx="2" fill="#d3d3d3" stroke="#888" stroke-width="1"/>
+  <text x="65" y="253" text-anchor="middle" font-size="10" fill="#000">Klik hier</text>
+  <text x="205" y="325" text-anchor="middle" font-size="11" fill="#888" font-style="italic">Zonder CSS</text>
+  <text x="205" y="338" text-anchor="middle" font-size="10" fill="#888">Browser standaard stijl</text>
+
+  <!-- Rechts: met CSS -->
+  <rect x="410" y="58" width="370" height="285" rx="8" fill="#1a1a2e" stroke="#7B3FE4" stroke-width="1.5"/>
+  <!-- Browserbalk mock -->
+  <rect x="410" y="58" width="370" height="22" rx="8" fill="#16213e"/>
+  <text x="595" y="73" text-anchor="middle" font-size="9" fill="#7B3FE4">met-css.html</text>
+  <!-- Header gestyled -->
+  <rect x="410" y="80" width="370" height="45" fill="#7B3FE4"/>
+  <text x="595" y="100" text-anchor="middle" font-size="15" fill="white" font-weight="bold">Mijn Eerste Webpagina</text>
+  <text x="595" y="116" text-anchor="middle" font-size="10" fill="#e0d0ff">Welkom op mijn site</text>
+  <!-- Nav gestyled -->
+  <rect x="410" y="125" width="370" height="30" fill="#16213e"/>
+  <text x="445" y="144" font-size="11" fill="#74c0fc">Home</text>
+  <text x="515" y="144" font-size="11" fill="#74c0fc">Over ons</text>
+  <text x="590" y="144" font-size="11" fill="#74c0fc">Contact</text>
+  <!-- Content gestyled -->
+  <text x="430" y="175" font-size="13" fill="#f0f0f0" font-weight="bold">Welkom</text>
+  <text x="430" y="193" font-size="10" fill="#aaa">Dit is een alinea tekst op mijn website.</text>
+  <text x="430" y="208" font-size="10" fill="#aaa">Een tweede alinea met wat meer inhoud.</text>
+  <!-- Knop gestyled -->
+  <rect x="430" y="220" width="90" height="26" rx="5" fill="#7B3FE4"/>
+  <text x="475" y="237" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Klik hier</text>
+  <!-- Kleuraccenten -->
+  <rect x="410" y="260" width="370" height="30" fill="#0d0d1a"/>
+  <text x="595" y="279" text-anchor="middle" font-size="9" fill="#555">© 2025 Mijn Website</text>
+  <text x="595" y="325" text-anchor="middle" font-size="11" fill="#c4b5fd" font-style="italic">Met CSS</text>
+  <text x="595" y="338" text-anchor="middle" font-size="10" fill="#888">Kleur, typografie, lay-out</text>
+</svg>

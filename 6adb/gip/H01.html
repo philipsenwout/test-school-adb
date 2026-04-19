@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H01 — Project opzetten — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/gip/H01" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#mappenstructuur">1. Mappenstructuur</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#project-aanmaken">2. Project aanmaken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#server-js">3. Minimale server.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#startpagina">4. Startpagina</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5"><span class="sidebar-check__box"></span></label>
+          <a href="#testen">5. Testen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="fa"><span class="sidebar-check__box"></span></label>
+          <a href="#functionele-analyse">Functionele analyse</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="planning"><span class="sidebar-check__box"></span></label>
+          <a href="#planning">Planning</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="werklog"><span class="sidebar-check__box"></span></label>
+          <a href="#werklog">Werklog</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="index.html">GIP</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>H01 — Project opzetten</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H01 &mdash; GIP 6ADB</div>
+        <h1 class="page-header__title">Project opzetten</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB03</span><span class="ld-tag__title">De leerlingen werken volgens specificaties van de opdrachtgever.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB05</span><span class="ld-tag__title">De leerlingen informeren zich over de specificaties van de opdracht.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB06</span><span class="ld-tag__title">De leerlingen plannen hun werkzaamheden.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB07</span><span class="ld-tag__title">De leerlingen houden hun administratie bij.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB08</span><span class="ld-tag__title">De leerlingen werken een functionele analyse uit.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB15</span><span class="ld-tag__title">De leerlingen implementeren een eenvoudige client-serverarchitectuur.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#127919; Leerdoelen</div>
+        <ul>
+          <li>De mappenstructuur van het project uitleggen</li>
+          <li>Een Node.js-project initialiseren met de nodige packages</li>
+          <li>Een Express-server opzetten die de front-end bestanden serveert</li>
+          <li>De applicatie lokaal starten via <code>http://localhost:3000</code></li>
+          <li>Een functionele analyse invullen v&oacute;&oacute;r je eerste commit</li>
+          <li>Je werkzaamheden plannen met een taakoverzicht en tijdschatting</li>
+          <li>Een werklog bijhouden terwijl je codeert</li>
+        </ul>
+      </div>
+
+      <div class="callout callout--info" style="margin-top: var(--space-4);">
+        <div class="callout-header">&#9917; Over dit project: Sportclub Ledenportaal</div>
+        <p>Je bouwt een webapplicatie voor een sportclub. Leden kunnen inloggen en zich inschrijven voor activiteiten. De admin beheert het activiteitenprogramma.</p>
+        <ul>
+          <li>Leden registreren en inloggen</li>
+          <li>Activiteiten bekijken en inschrijven</li>
+          <li>Admin kan activiteiten toevoegen, aanpassen en verwijderen</li>
+        </ul>
+        <table>
+          <thead><tr><th>Wat</th><th>Technologie</th></tr></thead>
+          <tbody>
+            <tr><td>Front-end</td><td>HTML, CSS, JavaScript</td></tr>
+            <tr><td>Back-end</td><td>Node.js + Express</td></tr>
+            <tr><td>Database</td><td>MySQL</td></tr>
+            <tr><td>Login</td><td>bcrypt + express-session</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="mappenstructuur">1. Mappenstructuur</h2>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-H01-afb1.svg" alt="Mappenstructuur van het GIP-project: Server en Client mappen" loading="lazy">
+      </figure>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">sportclub-portaal/
+├── Server/
+│   ├── server.js        ← ALLE back-end code staat hier
+│   ├── package.json
+│   └── .gitignore
+├── Client/
+│   ├── index.html
+│   ├── register.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── admin.html
+│   ├── style.css
+│   └── js/
+│       ├── index.js
+│       ├── auth.js
+│       ├── dashboard.js
+│       └── admin.js
+├── planning.md          ← jouw GIP-planning (fase, taken, deadline)
+└── werklog.md           ← jouw werklog (datum, taak, duur, notities)</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Eenvoudig houden</div>
+        <p>Alle back-end code komt in <strong>één bestand</strong> &mdash; <code>server.js</code>. Geen aparte mapjes voor routes of middleware. Dat maakt het overzichtelijk.</p>
+      </div>
+
+      <h2 id="project-aanmaken">2. Project aanmaken</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash — Terminal</div>
+        <pre><code class="language-bash"># Maak de mappen aan
+mkdir sportclub-portaal
+cd sportclub-portaal
+mkdir -p Server Client/js
+
+# npm initialiseren
+cd Server
+npm init -y</code></pre>
+      </div>
+
+      <p>Voeg <code>"type": "module"</code> toe aan <code>Server/package.json</code>:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JSON — Server/package.json</div>
+        <pre><code class="language-json">{
+  "name": "mijn-gip-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev":   "node --watch server.js"
+  }
+}</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Wat betekenen deze instellingen?</div>
+        <ul>
+          <li><code>"type": "module"</code> — laat je de moderne <code>import</code>-syntax gebruiken in plaats van de oudere <code>require()</code>. Alle moderne Node.js-projecten doen dit.</li>
+          <li><code>"start": "node server.js"</code> — start de server via <code>npm start</code></li>
+          <li><code>"dev": "node --watch server.js"</code> — start via <code>npm run dev</code>; de server herstart automatisch bij elke opgeslagen wijziging in <code>server.js</code></li>
+        </ul>
+      </div>
+
+      <h3>Packages installeren</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash — Terminal</div>
+        <pre><code class="language-bash">npm install express mysql2 bcrypt express-session</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Waarvoor dient elk package?</div>
+        <ul>
+          <li><code>express</code> — het web-framework: verwerkt HTTP-requests en stuurt responses terug</li>
+          <li><code>mysql2</code> — de driver om verbinding te maken met MySQL; de <code>/promise</code>-variant zorgt voor <code>async/await</code>-support</li>
+          <li><code>bcrypt</code> — versleutelt wachtwoorden zodat ze nooit in leesbare tekst in de database staan</li>
+          <li><code>express-session</code> — beheert sessies zodat de server onthoudt wie er ingelogd is</li>
+        </ul>
+      </div>
+
+      <h3>.gitignore aanmaken</h3>
+
+      <p>Maak <code>Server/.gitignore</code> aan:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash — Server/.gitignore</div>
+        <pre><code class="language-bash">node_modules/</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Waarom node_modules/ nooit pushen?</div>
+        <p>De <code>node_modules/</code>-map bevat duizenden bestanden en is groot. Iedereen die je project via GitHub ophaalt krijgt ze automatisch terug met <code>npm install</code>. Je pusht ze dus nooit naar GitHub.</p>
+      </div>
+
+      <h2 id="server-js">3. Minimale server.js</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">// Server/server.js
+
+// ── Imports ──────────────────────────────────────────────────────────────────
+// express: het web-framework waarmee je HTTP-routes definieert
+import express  from 'express';
+// mysql2/promise: MySQL-driver met async/await-ondersteuning
+import mysql    from 'mysql2/promise';
+// bcrypt: wachtwoorden hashen (versleutelen) en vergelijken
+import bcrypt   from 'bcrypt';
+// express-session: sessies bijhouden (onthoud wie er ingelogd is)
+import session  from 'express-session';
+
+// ── App aanmaken ──────────────────────────────────────────────────────────────
+// express() maakt een nieuw Express-applicatie-object aan
+const app  = express();
+const port = 3000;  // poort waarop de server luistert
+
+// ── Middleware: statische bestanden ──────────────────────────────────────────
+// express.static serveert automatisch alle bestanden uit de Client-map.
+// Als de browser vraagt om '/', krijgt hij 'Client/index.html'.
+// Als de browser vraagt om '/style.css', krijgt hij 'Client/style.css'.
+app.use(express.static('../Client'));
+
+// ── Middleware: JSON body parsing ─────────────────────────────────────────────
+// Zonder express.json() is req.body altijd undefined bij POST/PUT-requests.
+// Met express.json() zet Express de inkomende JSON automatisch om naar een JS-object.
+app.use(express.json());
+
+// ── Middleware: sessies ───────────────────────────────────────────────────────
+app.use(session({
+    // secret: een geheime sleutel waarmee de sessie-cookie ondertekend wordt.
+    //         Kies een lange, willekeurige string. Nooit publiceren!
+    secret: 'verander_dit_naar_iets_geheims_2026',
+
+    // resave: false = sessie alleen opslaan als er iets veranderd is
+    resave: false,
+
+    // saveUninitialized: false = geen lege sessie aanmaken voor niet-ingelogde bezoekers
+    saveUninitialized: false,
+
+    cookie: {
+        // maxAge: hoe lang de sessie geldig blijft (in milliseconden)
+        // 1000ms × 60s × 60min × 4 = 4 uur
+        maxAge: 1000 * 60 * 60 * 4
+    }
+}));
+
+// ── Database-verbindingspool ──────────────────────────────────────────────────
+// createPool maakt een pool van herbruikbare verbindingen aan.
+// Een pool is efficiënter dan elke keer een nieuwe verbinding openen.
+const pool = mysql.createPool({
+    host:     'localhost',           // MySQL draait op dezelfde machine
+    port:     3306,                  // standaard MySQL-poort
+    user:     'root',                // MySQL-gebruiker
+    password: 'jouwMySQLwachtwoord', // ← vervang door jouw wachtwoord
+    database: 'jouw_db',            // ← vervang door jouw databasenaam
+});
+
+// ── Test-route ────────────────────────────────────────────────────────────────
+// Een eenvoudige route om te controleren of de server actief is.
+// Bezoek http://localhost:3000/api/test in de browser.
+app.get('/api/test', (req, res) => {
+    res.json({ bericht: 'Server werkt!' });
+});
+
+// ── Server starten ────────────────────────────────────────────────────────────
+// app.listen() start de server op de opgegeven poort.
+// De callback wordt éénmalig uitgevoerd zodra de server klaar is.
+app.listen(port, () => {
+    console.log('Server gestart → http://localhost:' + port);
+});</code></pre>
+      </div>
+
+      <h2 id="startpagina">4. Startpagina</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML — Client/index.html</div>
+        <pre><code class="language-html">&lt;!-- Client/index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Sportclub Portaal&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;&#9917; Sportclub Munsterbilzen&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a href="index.html"&gt;Activiteiten&lt;/a&gt;
+      &lt;a href="login.html"&gt;Inloggen&lt;/a&gt;
+      &lt;a href="register.html"&gt;Registreren&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;h2&gt;Welkom&lt;/h2&gt;
+    &lt;p&gt;Schrijf je in voor onze activiteiten. Maak een account aan om te starten.&lt;/p&gt;
+    &lt;div id="activiteiten-lijst"&gt;Laden...&lt;/div&gt;
+  &lt;/main&gt;
+  &lt;script type="module" src="js/index.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <h2 id="testen">5. Testen</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash — Terminal</div>
+        <pre><code class="language-bash">cd Server
+npm start</code></pre>
+      </div>
+
+      <p>Open <code>http://localhost:3000/api/test</code> &mdash; je ziet <code>{ "bericht": "Server werkt!" }</code>.<br>
+      Open <code>http://localhost:3000</code> &mdash; je ziet de startpagina.</p>
+
+      <table>
+        <thead><tr><th>Bestand</th><th>Doel</th></tr></thead>
+        <tbody>
+          <tr><td><code>Server/server.js</code></td><td>Alle back-end code: server, database, routes</td></tr>
+          <tr><td><code>Server/package.json</code></td><td>Project + dependencies</td></tr>
+          <tr><td><code>Client/</code></td><td>HTML, CSS, JS voor de browser</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="functionele-analyse">Functionele analyse</h2>
+
+      <p>V&oacute;&oacute;r je &eacute;&eacute;n regel code schrijft, beschrijf je WAT je gaat bouwen. Een functionele analyse is geen technisch document &mdash; het is een helder overzicht van wat de applicatie moet doen, voor wie, en welke schermen en functies er zijn.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Markdown — functionele-analyse.md</div>
+        <pre><code class="language-markdown">## Functionele Analyse — [Naam van jouw GIP-project]
+
+### 1. Doelstelling
+Wat doet de applicatie in één zin?
+
+### 2. Gebruikersrollen
+| Rol | Wat kan deze rol doen? |
+|---|---|
+| Bezoeker (niet ingelogd) | |
+| Gebruiker (ingelogd) | |
+| Admin | |
+
+### 3. Functies (MoSCoW)
+| Functie | Must / Should / Could / Won't |
+|---|---|
+| Registreren en inloggen | Must |
+| ... | ... |
+
+### 4. Schermen
+Lijst van pagina's die de applicatie heeft (bv. index.html, login.html, dashboard.html, admin.html, add.html, edit.html)
+
+### 5. Vragen aan de opdrachtgever
+Schrijf minstens 2 vragen op die je wil stellen aan de leerkracht vóór je begint.</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888;&#65039; Verplicht voor je eerste commit</div>
+        <p>Deze analyse moet ingeleverd worden v&oacute;&oacute;r je eerste commit. Zonder goedgekeurde analyse mag je niet beginnen coderen.</p>
+      </div>
+
+      <h2 id="planning">Planning</h2>
+
+      <p>Een goede planning helpt je om de GIP-opdracht op tijd af te ronden. Verdeel de opdracht in deeltaken en schat de tijd in.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Markdown — planning.md</div>
+        <pre><code class="language-markdown">## GIP Planning
+
+| Fase | Taken | Geschatte tijd | Deadline |
+|---|---|---|---|
+| Database | Schema ontwerpen, tabellen aanmaken, testdata | 2u | week 2 |
+| API | CRUD endpoints schrijven en testen | 3u | week 3 |
+| Authenticatie | Register + Login + sessie | 2u | week 4 |
+| Dashboard | Data tonen, formulier, verwijderen | 3u | week 5 |
+| Admin | admin.html, add.html, edit.html | 2u | week 6 |
+| Afwerking | README, gebruikershandleiding, demo | 2u | week 7 |</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Tip</div>
+        <p>Sla deze planning op als <code>planning.md</code> in de root van je GIP-project en houd ze bij tijdens het werken.</p>
+      </div>
+
+      <h2 id="werklog">Werklog</h2>
+
+      <p>Houd een werklog bij terwijl je codeert. Dit is je persoonlijk dagboek van het GIP-project.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Markdown — werklog.md</div>
+        <pre><code class="language-markdown">## Werklog
+
+| Datum | Taak | Duur | Notities / obstakels |
+|---|---|---|---|
+| 12/02 | Database schema ontwerpen | 1u30 | ERD gemaakt in Workbench |
+| 13/02 | CREATE TABLE activiteiten uitvoeren | 45min | Fout met DATE type, opgelost via MySQL docs |</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888;&#65039; Werklog telt mee</div>
+        <p>Het werklog wordt ingediend samen met je GIP en telt mee in de evaluatie. Vul het in op de dag zelf &mdash; niet achteraf.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10 / ADB15</span>
+            <span class="oefening__title">Oefening 1 &mdash; Project aanmaken en starten</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Zet het volledige project op en bevestig dat de server werkt.</p>
+            <ol>
+              <li>Maak de mappenstructuur aan (<code>Server/</code> en <code>Client/js/</code>)</li>
+              <li>Voer <code>npm init -y</code> uit en voeg <code>"type": "module"</code> toe</li>
+              <li>Installeer alle packages: <code>express mysql2 bcrypt express-session</code></li>
+              <li>Maak <code>server.js</code> aan met de minimale code uit dit hoofdstuk</li>
+              <li>Start de server met <code>npm start</code></li>
+              <li>Open <code>http://localhost:3000/api/test</code> en bevestig dat je de JSON-response ziet</li>
+            </ol>
+            <p><strong>Verwacht resultaat:</strong> Browser toont <code>{"bericht":"Server werkt!"}</code></p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10 / ADB15</span>
+            <span class="oefening__title">Oefening 2 &mdash; Startpagina serveren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Zorg dat de front-end bestanden correct geserveerd worden.</p>
+            <ol>
+              <li>Maak <code>Client/index.html</code> aan met de code uit dit hoofdstuk</li>
+              <li>Open <code>http://localhost:3000</code> &mdash; je ziet de pagina</li>
+              <li>Voeg een tweede route toe: <code>GET /api/status</code> die <code>{ online: true }</code> teruggeeft</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak &mdash; Project opzetten
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/gip/gip-H01-afb1.svg', 'Voorbeeld — Mappenstructuur GIP')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: GIP project volledig opzetten</h3>
+            <p><strong>Deel 1 &mdash; 4 punten:</strong> Mappenstructuur &amp; npm</p>
+            <ol>
+              <li>Maak de volledige mappenstructuur aan zoals beschreven in dit hoofdstuk</li>
+              <li><code>npm init -y</code> uitvoeren + <code>"type": "module"</code> instellen</li>
+              <li>Alle packages installeren en <code>.gitignore</code> aanmaken</li>
+              <li>Screenshot van je mappenstructuur in VS Code</li>
+            </ol>
+            <p><strong>Deel 2 &mdash; 4 punten:</strong> Server &amp; startpagina</p>
+            <ol>
+              <li><code>server.js</code> aanmaken met test-route en statische bestanden</li>
+              <li><code>Client/index.html</code> aanmaken</li>
+              <li>Server starten en <code>/api/test</code> tonen in de browser</li>
+            </ol>
+            <p><strong>Deel 3 &mdash; 2 punten:</strong> GitHub</p>
+            <ol>
+              <li>Repository aanmaken op GitHub</li>
+              <li>Eerste commit pushen (zorg dat <code>node_modules/</code> niet meegecommit is)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H01 &mdash; Project opzetten</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welk commando maakt een nieuw Node.js-project aan met standaardinstellingen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v1" value="a"> <span>node init</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v1" value="b"> <span>npm init -y</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v1" value="c"> <span>npm start</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v1" value="d"> <span>express init</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke packages installeer je voor het GIP-project?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v2" value="a"> <span>express, react, axios</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v2" value="b"> <span>express, mongodb, passport</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v2" value="c"> <span>express, mysql2, bcrypt, express-session</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v2" value="d"> <span>node, mysql, crypto</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">In welke map staat alle back-end code van het GIP?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v3" value="a"> <span>Server/</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v3" value="b"> <span>Client/</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v3" value="c"> <span>Backend/</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v3" value="d"> <span>api/</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke regel in server.js zorgt dat HTML, CSS en JS-bestanden uit de Client-map worden geserveerd?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v4" value="a"> <span>app.get('/Client', ...)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v4" value="b"> <span>app.use(express.static('../Client'))</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v4" value="c"> <span>app.send(Client)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v4" value="d"> <span>app.listen('../Client')</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Waarom moet <code>node_modules/</code> in <code>.gitignore</code> staan?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v5" value="a"> <span>Omdat het een geheime map is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v5" value="b"> <span>Omdat Node.js de map niet herkent via GitHub</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v5" value="c"> <span>Omdat de map leeg is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h01-v5" value="d"> <span>Omdat de map heel groot is en anderen via npm install opnieuw kunnen genereren</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/gip/H01')" data-progress-key="6adb/gip/H01">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="index.html" class="btn btn-ghost">&#8592; Overzicht</a>
+          <a href="H02.html" class="btn btn-ghost">H02 &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

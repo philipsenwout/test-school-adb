@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#00000020"/>
+    </filter>
+  </defs>
+
+  <!-- Browser chrome -->
+  <rect x="60" y="20" width="680" height="460" rx="10" fill="#e8eaf0"/>
+  <rect x="60" y="20" width="680" height="40" rx="10" fill="#d0d3dd"/>
+  <rect x="60" y="48" width="680" height="12" fill="#d0d3dd"/>
+  <circle cx="84" cy="40" r="7" fill="#ff5f57"/>
+  <circle cx="104" cy="40" r="7" fill="#febc2e"/>
+  <circle cx="124" cy="40" r="7" fill="#28c840"/>
+  <rect x="148" y="28" width="424" height="24" rx="12" fill="#ffffff" opacity="0.9"/>
+  <text x="360" y="43" font-size="12" fill="#6b7280" text-anchor="middle">localhost:5500/index.html</text>
+
+  <!-- Pagina-inhoud -->
+  <rect x="60" y="60" width="680" height="420" fill="#f8f9ff"/>
+
+  <!-- Rode foutmelding -->
+  <rect x="60" y="60" width="680" height="50" fill="#ff6b6b" opacity="0.85"/>
+  <text x="400" y="90" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">✗ Naam moet minstens 3 tekens bevatten.</text>
+
+  <!-- Formulier titel -->
+  <text x="100" y="138" font-size="18" font-weight="700" fill="#2d2d4e">Recept toevoegen</text>
+
+  <!-- Label + Veld: Naam — FOUT (rode rand, waarde "AB") -->
+  <text x="100" y="165" font-size="13" font-weight="600" fill="#ff6b6b">Naam</text>
+  <rect x="100" y="173" width="580" height="36" rx="6" fill="#fff5f5" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="116" y="196" font-size="13" fill="#2d2d4e" font-family="'Courier New', monospace">AB</text>
+  <text x="672" y="196" font-size="16" fill="#ff6b6b">✗</text>
+  <!-- Error hint -->
+  <text x="100" y="218" font-size="11" fill="#ff6b6b">Te kort: minimaal 3 tekens vereist (momenteel 2)</text>
+
+  <!-- Label + Veld: Beschrijving — OK met teller -->
+  <text x="100" y="242" font-size="13" font-weight="600" fill="#4b5563">Beschrijving</text>
+  <rect x="100" y="250" width="580" height="36" rx="6" fill="#ffffff" stroke="#43e97b" stroke-width="1.8"/>
+  <text x="116" y="273" font-size="13" fill="#2d2d4e">Een heerlijke soep van verse tomaten en kruiden.</text>
+  <!-- Teller onder beschrijving -->
+  <text x="100" y="298" font-size="11" fill="#43e97b">42 / min. 10 tekens ✓</text>
+
+  <!-- Label + Veld: Categorie -->
+  <text x="100" y="320" font-size="13" font-weight="600" fill="#4b5563">Categorie</text>
+  <rect x="100" y="328" width="580" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="116" y="351" font-size="13" fill="#2d2d4e">Voorgerecht</text>
+  <text x="660" y="351" font-size="14" fill="#9ca3af">▼</text>
+
+  <!-- Label + Veld: Bereidingstijd -->
+  <text x="100" y="382" font-size="13" font-weight="600" fill="#4b5563">Bereidingstijd (minuten)</text>
+  <rect x="100" y="390" width="580" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="116" y="413" font-size="13" fill="#2d2d4e">15</text>
+
+  <!-- Knoppen -->
+  <rect x="100" y="448" width="148" height="36" rx="8" fill="#6c63ff"/>
+  <text x="174" y="470" font-size="13" fill="#fff" text-anchor="middle" font-weight="600">Voeg toe</text>
+  <rect x="264" y="448" width="100" height="36" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="314" y="470" font-size="13" fill="#4b5563" text-anchor="middle">Annuleer</text>
+</svg>

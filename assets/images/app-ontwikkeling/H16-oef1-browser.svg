@@ -1,0 +1,204 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="glow-cyan">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff"/>
+    </marker>
+    <linearGradient id="navGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#0d1f35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Grid lines subtle -->
+  <g opacity="0.03" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- Title above browser -->
+  <text x="480" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">Oefening 1 — Artikel met Google Fonts en regellengte</text>
+  <text x="480" y="56" text-anchor="middle" font-size="13" fill="#888">Browser-mockup van artikel.html — Verwacht eindresultaat</text>
+
+  <!-- ===== BROWSER WINDOW ===== -->
+  <rect x="50" y="72" width="850" height="700" rx="12" fill="#1e2130" stroke="#2a2d3e" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Browser chrome -->
+  <rect x="50" y="72" width="850" height="44" rx="12" fill="#262a3e"/>
+  <rect x="50" y="98" width="850" height="18" fill="#262a3e"/>
+
+  <!-- Traffic lights -->
+  <circle cx="80" cy="94" r="6" fill="#ff5f57"/>
+  <circle cx="100" cy="94" r="6" fill="#febc2e"/>
+  <circle cx="120" cy="94" r="6" fill="#28c840"/>
+
+  <!-- URL bar -->
+  <rect x="155" y="82" width="580" height="24" rx="12" fill="#0f1117" stroke="#2a2d3e" stroke-width="1"/>
+  <text x="163" y="98" font-size="11" fill="#555">&#128274;</text>
+  <text x="178" y="98" font-size="12" fill="#888">artikel.html</text>
+
+  <!-- Reload icon -->
+  <text x="800" y="98" font-size="14" fill="#555">&#8635;</text>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <rect x="50" y="116" width="850" height="656" rx="0" fill="#0d1520"/>
+
+  <!-- === NAVBAR === -->
+  <rect x="50" y="116" width="850" height="54" fill="url(#navGrad)"/>
+  <!-- Logo text -->
+  <text x="84" y="148" font-size="16" font-weight="700" fill="#00d4ff" letter-spacing="2">ARTIKEL</text>
+  <!-- Nav links -->
+  <text x="600" y="148" font-size="13" fill="#aaaaaa">Home</text>
+  <text x="660" y="148" font-size="13" fill="#00d4ff" font-weight="600">Blog</text>
+  <text x="720" y="148" font-size="13" fill="#aaaaaa">Over ons</text>
+  <text x="790" y="148" font-size="13" fill="#aaaaaa">Contact</text>
+  <!-- Nav border -->
+  <line x1="50" y1="170" x2="900" y2="170" stroke="#00d4ff" stroke-width="1" opacity="0.3"/>
+
+  <!-- === ARTICLE CONTAINER — centered, constrained width === -->
+  <!-- Container background subtle -->
+  <rect x="170" y="182" width="560" height="572" rx="0" fill="#0d1520" opacity="0.5"/>
+
+  <!-- Category tag -->
+  <rect x="200" y="192" width="120" height="22" rx="11" fill="#00d4ff" opacity="0.15" stroke="#00d4ff" stroke-width="1"/>
+  <text x="260" y="207" text-anchor="middle" font-size="11" fill="#00d4ff" font-weight="600" letter-spacing="1">TYPOGRAFIE</text>
+
+  <!-- H1 — serif big, visually prominent -->
+  <text x="200" y="248" font-size="28" font-weight="700" fill="#f0ece4" letter-spacing="-0.5">Waarom goede typografie</text>
+  <text x="200" y="278" font-size="28" font-weight="700" fill="#f0ece4" letter-spacing="-0.5">je website transformeert</text>
+
+  <!-- Meta info -->
+  <text x="200" y="306" font-size="12" fill="#555">Door Thomas De Smedt</text>
+  <text x="330" y="306" font-size="12" fill="#333"> · </text>
+  <text x="340" y="306" font-size="12" fill="#555">15 oktober 2024</text>
+  <text x="480" y="306" font-size="12" fill="#333"> · </text>
+  <text x="490" y="306" font-size="12" fill="#555">5 min lezen</text>
+  <line x1="200" y1="316" x2="730" y2="316" stroke="#1e2a3e" stroke-width="1"/>
+
+  <!-- Intro paragraph -->
+  <text x="200" y="340" font-size="13.5" fill="#c8d0d8">Typografie is veel meer dan het kiezen van een mooi</text>
+  <text x="200" y="358" font-size="13.5" fill="#c8d0d8">lettertype. Het bepaalt hoe snel en comfortabel een</text>
+  <text x="200" y="376" font-size="13.5" fill="#c8d0d8">bezoeker je tekst kan lezen, en of ze überhaupt verder</text>
+  <text x="200" y="394" font-size="13.5" fill="#c8d0d8">scrollen na de eerste paragraaf.</text>
+
+  <!-- H2 subkop 1 -->
+  <text x="200" y="430" font-size="19" font-weight="700" fill="#e8e0d0">De kracht van het juiste lettertype</text>
+  <line x1="200" y1="438" x2="420" y2="438" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+
+  <!-- Paragraph 2 -->
+  <text x="200" y="460" font-size="13.5" fill="#c8d0d8">Een serif lettertype zoals Playfair Display straalt</text>
+  <text x="200" y="478" font-size="13.5" fill="#c8d0d8">autoriteit en elegantie uit. Het wordt al eeuwen</text>
+  <text x="200" y="496" font-size="13.5" fill="#c8d0d8">gebruikt in kranten en boeken. Een sans-serif zoals</text>
+  <text x="200" y="514" font-size="13.5" fill="#c8d0d8">Inter is clean en modern — ideaal voor UI en schermen.</text>
+
+  <!-- H2 subkop 2 -->
+  <text x="200" y="546" font-size="19" font-weight="700" fill="#e8e0d0">Regellengte en witruimte</text>
+  <line x1="200" y1="554" x2="380" y2="554" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+
+  <!-- Paragraph 3 -->
+  <text x="200" y="576" font-size="13.5" fill="#c8d0d8">Onderzoek toont aan dat regels van 50 tot 75 tekens</text>
+  <text x="200" y="594" font-size="13.5" fill="#c8d0d8">de beste leesbaarheid geven. Te lange regels vermoei-</text>
+  <text x="200" y="612" font-size="13.5" fill="#c8d0d8">en het oog. Te korte regels verstoren het leesritme.</text>
+
+  <!-- Paragraph 4 -->
+  <text x="200" y="644" font-size="13.5" fill="#c8d0d8">Een line-height van 1.5 tot 1.7 geeft de tekst lucht</text>
+  <text x="200" y="662" font-size="13.5" fill="#c8d0d8">en maakt het scannen eenvoudiger. Combineer dit met</text>
+  <text x="200" y="680" font-size="13.5" fill="#c8d0d8">voldoende padding en contrasterende koppen.</text>
+
+  <!-- ===== ANNOTATION PANEL RIGHT ===== -->
+  <!-- max-width annotation -->
+  <!-- Right border of text column indicator -->
+  <line x1="755" y1="182" x2="755" y2="740" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6" filter="url(#glow-cyan)"/>
+
+  <!-- Arrow pointing to text column -->
+  <line x1="840" y1="460" x2="762" y2="460" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arrow-cyan)" filter="url(#glow-cyan)"/>
+
+  <!-- Annotation box max-width -->
+  <rect x="756" y="432" width="136" height="58" rx="8" fill="#0a1628" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="824" y="450" text-anchor="middle" font-size="12" font-weight="700" fill="#00d4ff">max-width: 70ch</text>
+  <text x="824" y="466" text-anchor="middle" font-size="11" fill="#888">560px container</text>
+  <text x="824" y="480" text-anchor="middle" font-size="11" fill="#888">~65 tekens/regel</text>
+
+  <!-- Serif font annotation -->
+  <rect x="756" y="230" width="136" height="46" rx="8" fill="#0a1628" stroke="#7c3aed" stroke-width="1.5"/>
+  <line x1="756" y1="253" x2="458" y2="263" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+  <text x="824" y="248" text-anchor="middle" font-size="12" font-weight="700" fill="#c4b5fd">H1 — Serif</text>
+  <text x="824" y="264" text-anchor="middle" font-size="11" fill="#888">Playfair Display</text>
+
+  <!-- Body font annotation -->
+  <rect x="756" y="340" width="136" height="46" rx="8" fill="#0a1628" stroke="#ff6b35" stroke-width="1.5"/>
+  <line x1="756" y1="363" x2="440" y2="370" stroke="#ff6b35" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+  <text x="824" y="358" text-anchor="middle" font-size="12" font-weight="700" fill="#ff6b35">Body — Sans</text>
+  <text x="824" y="374" text-anchor="middle" font-size="11" fill="#888">Inter, 13.5px/1.6</text>
+
+  <!-- H2 font annotation -->
+  <rect x="756" y="524" width="136" height="46" rx="8" fill="#0a1628" stroke="#39ff14" stroke-width="1.5"/>
+  <line x1="756" y1="547" x2="380" y2="543" stroke="#39ff14" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+  <text x="824" y="542" text-anchor="middle" font-size="12" font-weight="700" fill="#39ff14">H2 — Accent</text>
+  <text x="824" y="558" text-anchor="middle" font-size="11" fill="#888">19px + blauw streep</text>
+
+  <!-- ===== SIDE PANEL: CSS CODE ===== -->
+  <rect x="960" y="72" width="220" height="700" rx="10" fill="#101620" stroke="#1e2d3d" stroke-width="1.5"/>
+  <rect x="960" y="72" width="220" height="32" rx="10" fill="#7c3aed" opacity="0.2"/>
+  <rect x="960" y="94" width="220" height="10" fill="#101620"/>
+  <text x="1070" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#c4b5fd">CSS Inspecteur</text>
+
+  <!-- CSS properties listed -->
+  <text x="975" y="122" font-size="10" fill="#888" font-family="'Courier New', monospace">/* article.html */</text>
+
+  <text x="975" y="142" font-size="10" fill="#888" font-family="'Courier New', monospace">body {</text>
+  <text x="983" y="158" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  font-family</text>
+  <text x="975" y="172" font-size="9.5" fill="#ffffff" font-family="'Courier New', monospace">    : 'Inter', sans-serif;</text>
+  <text x="983" y="188" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  background</text>
+  <text x="975" y="202" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : #0d1520;</text>
+  <text x="983" y="218" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  color</text>
+  <text x="975" y="232" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : #c8d0d8;</text>
+  <text x="975" y="248" font-size="10" fill="#888" font-family="'Courier New', monospace">}</text>
+
+  <text x="975" y="268" font-size="10" fill="#888" font-family="'Courier New', monospace">article {</text>
+  <text x="983" y="284" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  max-width</text>
+  <text x="975" y="298" font-size="9.5" fill="#00d4ff" font-family="'Courier New', monospace">    : 70ch;</text>
+  <text x="983" y="314" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  margin</text>
+  <text x="975" y="328" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : 0 auto;</text>
+  <text x="983" y="344" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  padding</text>
+  <text x="975" y="358" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : 2rem 1rem;</text>
+  <text x="983" y="374" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  line-height</text>
+  <text x="975" y="388" font-size="9.5" fill="#00d4ff" font-family="'Courier New', monospace">    : 1.6;</text>
+  <text x="975" y="404" font-size="10" fill="#888" font-family="'Courier New', monospace">}</text>
+
+  <text x="975" y="424" font-size="10" fill="#888" font-family="'Courier New', monospace">h1 {</text>
+  <text x="983" y="440" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  font-family</text>
+  <text x="975" y="454" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : 'Playfair Display'</text>
+  <text x="983" y="468" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">      , serif;</text>
+  <text x="983" y="484" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  font-size</text>
+  <text x="975" y="498" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : 2rem;</text>
+  <text x="983" y="514" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  color</text>
+  <text x="975" y="528" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : #f0ece4;</text>
+  <text x="975" y="544" font-size="10" fill="#888" font-family="'Courier New', monospace">}</text>
+
+  <text x="975" y="564" font-size="10" fill="#888" font-family="'Courier New', monospace">h2 {</text>
+  <text x="983" y="580" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  font-size</text>
+  <text x="975" y="594" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : 1.3rem;</text>
+  <text x="983" y="610" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  color</text>
+  <text x="975" y="624" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : #e8e0d0;</text>
+  <text x="983" y="640" font-size="10" fill="#7c3aed" font-family="'Courier New', monospace">  border-bottom</text>
+  <text x="975" y="654" font-size="9.5" fill="#39ff14" font-family="'Courier New', monospace">    : 2px solid</text>
+  <text x="975" y="668" font-size="9.5" fill="#00d4ff" font-family="'Courier New', monospace">      #00d4ff80;</text>
+  <text x="975" y="684" font-size="10" fill="#888" font-family="'Courier New', monospace">}</text>
+
+  <!-- Footer label -->
+  <text x="540" y="790" text-anchor="middle" font-size="12" fill="#444">H16 — Typografie | App-ontwikkeling 5ADB | Oefening 1 | Leerplandoel ADB09</text>
+</svg>

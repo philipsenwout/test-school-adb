@@ -45,8 +45,52 @@
 <span>H08</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-8-transportlaag-tcp-en-udp">Hoofdstuk 8 — Transportlaag: TCP en UDP</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#81-de-transportlaag">8.1 De transportlaag</a></li><li><a href="#82-poortnummers">8.2 Poortnummers</a></li><li><a href="#83-tcp-betrouwbaar-maar-iets-trager">8.3 TCP — betrouwbaar maar iets trager</a></li><li><a href="#84-udp-snel-maar-zonder-garanties">8.4 UDP — snel maar zonder garanties</a></li><li><a href="#85-tcp-vs-udp-vergelijking">8.5 TCP vs UDP — vergelijking</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h08" style="padding-left:1.25rem">Huistaak H08</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/netwerken/H08" style="--sidebar-accent: var(--color-vak-netwerken)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.1"><span class="sidebar-check__box"></span></label>
+      <a href="#81-de-transportlaag">8.1 De transportlaag</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.2"><span class="sidebar-check__box"></span></label>
+      <a href="#82-poortnummers">8.2 Poortnummers</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.3"><span class="sidebar-check__box"></span></label>
+      <a href="#83-tcp-betrouwbaar-maar-iets-trager">8.3 TCP — betrouwbaar maar iets trager</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.4"><span class="sidebar-check__box"></span></label>
+      <a href="#84-udp-snel-maar-zonder-garanties">8.4 UDP — snel maar zonder garanties</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.5"><span class="sidebar-check__box"></span></label>
+      <a href="#85-tcp-vs-udp-vergelijking">8.5 TCP vs UDP — vergelijking</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-8-transportlaag-tcp-en-udp">Hoofdstuk 8 — Transportlaag: TCP en UDP</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#81-de-transportlaag">8.1 De transportlaag</a></li><li><a href="#82-poortnummers">8.2 Poortnummers</a></li><li><a href="#83-tcp-betrouwbaar-maar-iets-trager">8.3 TCP — betrouwbaar maar iets trager</a></li><li><a href="#84-udp-snel-maar-zonder-garanties">8.4 UDP — snel maar zonder garanties</a></li><li><a href="#85-tcp-vs-udp-vergelijking">8.5 TCP vs UDP — vergelijking</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#huistaak">Huistaak</a></li><li><a href="#huistaak-h08" style="padding-left:1.25rem">Huistaak H08</a></li></ul></div>
       <div class="chapter-content">
         <div class="page-header vak-netwerken" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#127760; Netwerken &mdash; 5ADB</div>
@@ -68,15 +112,18 @@
 <tr><td><strong>Status</strong></td><td>Herzien (60%)</td></tr>
 <tr><td><strong>Lesuren</strong></td><td>3 u</td></tr>
 </tbody></table></div>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ul>
-<li>het doel van de transportlaag beschrijven</li>
-<li>het verschil uitleggen tussen TCP (betrouwbaar) en UDP (snel)</li>
-<li>de meest gebruikte poortnummers herkennen</li>
-<li>voor een gegeven toepassing de juiste keuze maken tussen TCP en UDP</li>
-</ul>
-<div class="ld-badges"><span class="badge badge-ld">[LD-NET-03]</span> De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe <span class="badge badge-basis">basis</span></div>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>het doel van de transportlaag beschrijven</li>
+    <li>het verschil uitleggen tussen TCP (betrouwbaar) en UDP (snel)</li>
+    <li>de meest gebruikte poortnummers herkennen</li>
+    <li>voor een gegeven toepassing de juiste keuze maken tussen TCP en UDP</li>
+  </ul>
+</div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">LD-NET-03</span><span class="ld-tag__title">De leerlingen lichten de opbouw en de werking van datacommunicatie en van een computernetwerk toe.</span></div>
+</div>
 <h2 id="81-de-transportlaag">8.1 De transportlaag</h2>
 <p>De transportlaag (OSI Laag 4) zorgt ervoor dat data bij de <strong>juiste toepassing</strong> aankomt. Het IP-adres zegt welke computer het is; het <strong>poortnummer</strong> zegt welk programma op die computer.</p>
 <p><strong>Voorbeeld:</strong> Als je tegelijk een website bezoekt en een Teams-gesprek hebt, weet je computer welke data bij je browser hoort en welke bij Teams — dankzij de poortnummers.</p>

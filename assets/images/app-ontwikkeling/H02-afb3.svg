@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="360" fill="#1a1c28"/>
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#f0f0f0">HTML Speciale Tekens — Entities</text>
+
+  <!-- Tabel met entities -->
+  <!-- Header rij -->
+  <rect x="50" y="50" width="700" height="35" rx="4" fill="#7B3FE4" opacity="0.8"/>
+  <text x="150" y="73" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Entity</text>
+  <text x="380" y="73" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Symbool</text>
+  <text x="580" y="73" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Gebruik</text>
+
+  <!-- Rijen -->
+  <rect x="50" y="85" width="700" height="30" fill="#7B3FE4" opacity="0.1"/>
+  <text x="150" y="105" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;lt;</text>
+  <text x="380" y="105" text-anchor="middle" font-size="18" fill="#22C55E">&lt;</text>
+  <text x="580" y="105" text-anchor="middle" font-size="12" fill="#aaa">HTML-tag in tekst tonen</text>
+
+  <rect x="50" y="115" width="700" height="30" fill="#2D9CDB" opacity="0.1"/>
+  <text x="150" y="135" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;gt;</text>
+  <text x="380" y="135" text-anchor="middle" font-size="18" fill="#22C55E">&gt;</text>
+  <text x="580" y="135" text-anchor="middle" font-size="12" fill="#aaa">HTML-tag in tekst tonen</text>
+
+  <rect x="50" y="145" width="700" height="30" fill="#7B3FE4" opacity="0.1"/>
+  <text x="150" y="165" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;amp;</text>
+  <text x="380" y="165" text-anchor="middle" font-size="18" fill="#22C55E">&amp;</text>
+  <text x="580" y="165" text-anchor="middle" font-size="12" fill="#aaa">Ampersand tonen</text>
+
+  <rect x="50" y="175" width="700" height="30" fill="#2D9CDB" opacity="0.1"/>
+  <text x="150" y="195" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;copy;</text>
+  <text x="380" y="195" text-anchor="middle" font-size="18" fill="#22C55E">©</text>
+  <text x="580" y="195" text-anchor="middle" font-size="12" fill="#aaa">Copyright symbool</text>
+
+  <rect x="50" y="205" width="700" height="30" fill="#7B3FE4" opacity="0.1"/>
+  <text x="150" y="225" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;nbsp;</text>
+  <text x="380" y="225" text-anchor="middle" font-size="13" fill="#22C55E">(vaste spatie)</text>
+  <text x="580" y="225" text-anchor="middle" font-size="12" fill="#aaa">Niet-afbrekende spatie</text>
+
+  <rect x="50" y="235" width="700" height="30" fill="#2D9CDB" opacity="0.1"/>
+  <text x="150" y="255" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;euro;</text>
+  <text x="380" y="255" text-anchor="middle" font-size="18" fill="#22C55E">€</text>
+  <text x="580" y="255" text-anchor="middle" font-size="12" fill="#aaa">Euroteken</text>
+
+  <rect x="50" y="265" width="700" height="30" fill="#7B3FE4" opacity="0.1"/>
+  <text x="150" y="285" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;ldquo; &amp;rdquo;</text>
+  <text x="380" y="285" text-anchor="middle" font-size="18" fill="#22C55E">"   "</text>
+  <text x="580" y="285" text-anchor="middle" font-size="12" fill="#aaa">Correcte aanhalingstekens</text>
+
+  <rect x="50" y="295" width="700" height="30" fill="#2D9CDB" opacity="0.1"/>
+  <text x="150" y="315" text-anchor="middle" font-size="13" fill="#f0f0f0" font-family="Courier New, monospace">&amp;plusmn;</text>
+  <text x="380" y="315" text-anchor="middle" font-size="18" fill="#22C55E">±</text>
+  <text x="580" y="315" text-anchor="middle" font-size="12" fill="#aaa">Plus/min symbool</text>
+
+  <text x="400" y="348" text-anchor="middle" font-size="12" fill="#666">Volledig overzicht: freeformatter.com/html-entities.html</text>
+</svg>

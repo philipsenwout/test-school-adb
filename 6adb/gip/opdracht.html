@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIP-Opdracht — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/gip/opdracht" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-gip">1. Wat is het GIP?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#kies-onderwerp">2. Kies je onderwerp</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#technische-vereisten">3. Technische vereisten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#projectstructuur">4. Projectstructuur</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5"><span class="sidebar-check__box"></span></label>
+          <a href="#fasering">5. Fasering &amp; planning</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6"><span class="sidebar-check__box"></span></label>
+          <a href="#oplevermomenten">6. Oplevermomenten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7"><span class="sidebar-check__box"></span></label>
+          <a href="#evaluatie">7. Evaluatie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8"><span class="sidebar-check__box"></span></label>
+          <a href="#eindproducten">8. Eindproducten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="9"><span class="sidebar-check__box"></span></label>
+          <a href="#mondelinge-verdediging">9. Mondelinge verdediging</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="index.html">GIP</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>GIP-Opdracht</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">&#127942; GIP &mdash; 6ADB</div>
+        <h1 class="page-header__title">GIP-Opdracht</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB05</span><span class="ld-tag__title">De leerlingen analyseren en plannen een ICT-project.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB08</span><span class="ld-tag__title">De leerlingen ontwikkelen en testen een applicatie.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB15</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen bouwen een webapplicatie met databank-integratie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#127919; Leerdoelen</div>
+        <ul>
+          <li>Je kan zelfstandig een volledig full-stack webproject plannen en uitvoeren</li>
+          <li>Je past alle geleerde technologie&euml;n toe in een eigen project naar keuze</li>
+          <li>Je documenteert je werk professioneel en presenteert het aan een jury</li>
+        </ul>
+      </div>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="wat-is-gip">1. Wat is het GIP?</h2>
+
+      <p>Het GIP (<strong>Ge&iuml;ntegreerde Informatica Proef</strong>) is je eindproject van het 6e jaar. Je bouwt zelfstandig een volledige webapplicatie waarbij je alles wat je hebt geleerd samenbrengt:</p>
+
+      <ul>
+        <li><strong>Front-end:</strong> HTML, CSS en JavaScript</li>
+        <li><strong>Back-end:</strong> Node.js (Express)</li>
+        <li><strong>Databank:</strong> MySQL</li>
+        <li><strong>Versiebeheer:</strong> GitHub</li>
+      </ul>
+
+      <p>Je kiest zelf een onderwerp. De technische vereisten hieronder gelden voor elk project, ongeacht het onderwerp.</p>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="kies-onderwerp">2. Kies je eigen onderwerp</h2>
+
+      <p>Je bepaalt zelf waarvoor je applicatie dient. Dit mag van alles zijn: een boekenbibliotheek, een sporttracker, een receptenapp, een reservatiesysteem, een hobbyprojectbeheerder &mdash; wat je maar wil, zolang het zinvol en uitvoerbaar is.</p>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888;&#65039; Voorwaarden voor je onderwerp</div>
+        <ul>
+          <li>Het onderwerp heeft minstens &eacute;&eacute;n hoofdentiteit die je kunt beheren (toevoegen, aanpassen, verwijderen, bekijken)</li>
+          <li>Gebruikers kunnen zich registreren en inloggen</li>
+          <li>Er is een verschil tussen een gewone gebruiker en een beheerder (admin)</li>
+          <li>Het is origineel &mdash; geen kopie van een bestaand platform</li>
+        </ul>
+        <p style="margin-top: var(--space-3); margin-bottom: 0;"><strong>Bespreek je onderwerp eerst met de begeleider v&oacute;&oacute;r je begint met de analyse.</strong></p>
+      </div>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="technische-vereisten">3. Technische vereisten</h2>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-techstack.svg" alt="Overzicht van de technologiestack: HTML/CSS/JS, Node.js en MySQL" loading="lazy">
+      </figure>
+
+      <p>Dit zijn de <strong>minimale technische vereisten</strong>. Je project moet aan al deze punten voldoen. Je mag altijd extra functionaliteit toevoegen.</p>
+
+      <h3>3.1 Technologiestack</h3>
+      <table>
+        <thead>
+          <tr><th>Laag</th><th>Technologie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Front-end</td><td>HTML, CSS, JavaScript</td></tr>
+          <tr><td>Back-end</td><td>Node.js (Express)</td></tr>
+          <tr><td>Databank</td><td>MySQL</td></tr>
+          <tr><td>Versiebeheer</td><td>GitHub</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3.2 Gebruikersbeheer</h3>
+      <ul>
+        <li>Registratie met gebruikersnaam of e-mailadres en wachtwoord</li>
+        <li>Login en logout</li>
+        <li>Wachtwoorden worden <strong>gehasht opgeslagen</strong> (bcrypt)</li>
+        <li>Sessies worden beheerd via <code>express-session</code></li>
+        <li>Er zijn minstens twee rollen: <strong>gebruiker</strong> en <strong>admin</strong></li>
+        <li>Elke gebruiker ziet alleen zijn eigen data (tenzij admin)</li>
+        <li>De admin kan alle data raadplegen en beheren</li>
+      </ul>
+
+      <h3>3.3 CRUD op de hoofdentiteit</h3>
+      <p>De kern van je applicatie is het beheren van &eacute;&eacute;n (of meer) hoofdentiteiten. Voor elke entiteit moet je het volgende kunnen:</p>
+      <ul>
+        <li><strong>C</strong>reate &mdash; een nieuw item toevoegen via een formulier</li>
+        <li><strong>R</strong>ead &mdash; een overzicht tonen van alle items van de ingelogde gebruiker</li>
+        <li><strong>U</strong>pdate &mdash; een bestaand item aanpassen</li>
+        <li><strong>D</strong>elete &mdash; een item verwijderen</li>
+      </ul>
+      <p>Elk item heeft minstens: een titel/naam, een omschrijving, een datum en een status.</p>
+
+      <h3>3.4 Accountpagina</h3>
+      <ul>
+        <li>De ingelogde gebruiker kan zijn eigen gegevens raadplegen</li>
+        <li>De gebruiker kan zijn wachtwoord aanpassen</li>
+      </ul>
+
+      <h3>3.5 Rapportering</h3>
+      <ul>
+        <li>Een overzichtspagina met <strong>statistieken</strong> over de data (bv. aantal items per status)</li>
+        <li>Een <strong>CSV-export</strong> van de data van de ingelogde gebruiker</li>
+      </ul>
+
+      <h3>3.6 Databank</h3>
+      <ul>
+        <li>Minstens twee tabellen met een relatie (Foreign Key)</li>
+        <li>Correct gebruik van Primary Keys, Foreign Keys en datatypes</li>
+        <li>Een <code>.sql</code>-bestand met de CREATE-statements en voorbeelddata</li>
+      </ul>
+
+      <h3>3.7 Versiebeheer</h3>
+      <ul>
+        <li>Het volledige project staat op GitHub</li>
+        <li>Regelmatige commits &mdash; minstens na elke werkzitting</li>
+        <li>Een duidelijke <code>README.md</code> met uitleg over het project en hoe het te installeren</li>
+      </ul>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="projectstructuur">4. Projectstructuur</h2>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-projectstructuur.svg" alt="Verplichte mappenstructuur van het GIP-project" loading="lazy">
+      </figure>
+
+      <p>Je project volgt deze basisstructuur. De opsplitsing <code>Server/</code> en <code>Client/</code> is verplicht. Je mag mappen toevoegen of uitbreiden naargelang je project.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Structuur</div>
+        <pre><code>MijnProject/
+├── Server/
+│   ├── server.js          ← alle back-end routes en logica
+│   ├── package.json
+│   └── .gitignore
+├── Client/
+│   ├── index.html         ← startpagina (publiek)
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html     ← pagina voor ingelogde gebruiker
+│   ├── admin.html         ← pagina enkel voor admin
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       ├── auth.js
+│       ├── dashboard.js
+│       └── admin.js
+├── database.sql
+└── README.md</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Architectuur</div>
+        <p>De server is de enige component die rechtstreeks met de databank communiceert. De front-end praat <strong>alleen via HTTP-requests</strong> met de server.</p>
+        <figure class="chapter-figure" style="margin-top: var(--space-4);">
+          <img src="../../assets/images/gip/gip-architectuur.svg" alt="Client-Server-Database architectuur" loading="lazy">
+        </figure>
+      </div>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="fasering">5. Fasering &amp; planning</h2>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-fasering.svg" alt="Tijdlijn van de 7 fases van het GIP" loading="lazy">
+      </figure>
+
+      <table>
+        <thead>
+          <tr><th>Fase</th><th>Periode</th><th>Wat lever je op?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. Analyse &amp; ontwerp</td><td>November</td><td>Analyseverslag, ERD, wireframes, planning</td></tr>
+          <tr><td>2. Databank</td><td>December</td><td>Werkend SQL-script met testdata</td></tr>
+          <tr><td>3. Applicatie-ontwikkeling</td><td>Januari &ndash; april</td><td>Werkende webapplicatie</td></tr>
+          <tr><td>4. Testing &amp; debugging</td><td>April</td><td>Testverslag</td></tr>
+          <tr><td>5. Documentatie</td><td>Mei</td><td>Gebruikershandleiding (PDF)</td></tr>
+          <tr><td>6. Eindpresentatie</td><td>Juni</td><td>Demo en mondelinge verdediging</td></tr>
+          <tr><td>7. Reflectie</td><td>Juni</td><td>Persoonlijk reflectieverslag</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="oplevermomenten">6. Oplevermomenten</h2>
+
+      <table>
+        <thead>
+          <tr><th>Deadline</th><th>Wat?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Eind november</td><td>Analyseverslag + ERD</td></tr>
+          <tr><td>Eind december</td><td>Werkende databank</td></tr>
+          <tr><td>Eind april</td><td>Functionerende applicatie</td></tr>
+          <tr><td>Eind mei</td><td>Handleiding + documentatie</td></tr>
+          <tr><td>Half juni</td><td>Mondelinge presentatie + demo</td></tr>
+          <tr><td>Eind juni</td><td>Reflectieverslag</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="evaluatie">7. Evaluatie</h2>
+
+      <table>
+        <thead>
+          <tr><th>Domein</th><th>Criteria</th><th>Punten</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Analyse &amp; planning</td><td>Probleemstelling, ERD, wireframes, planning</td><td>10</td></tr>
+          <tr><td>Ontwikkeling</td><td>Codekwaliteit, werking CRUD, Node.js + MySQL integratie</td><td>35</td></tr>
+          <tr><td>Testing &amp; onderhoud</td><td>Testplan, debugging, verbeteringen</td><td>10</td></tr>
+          <tr><td>Versiebeheer</td><td>GitHub-gebruik, commits, structuur</td><td>10</td></tr>
+          <tr><td>Documentatie</td><td>Technische en gebruikersdocumentatie, README</td><td>10</td></tr>
+          <tr><td>Presentatie</td><td>Demo, mondelinge toelichting</td><td>10</td></tr>
+          <tr><td>Attitudes</td><td>Samenwerking, deadlines, communicatie</td><td>10</td></tr>
+          <tr><td>Reflectie</td><td>Zelfevaluatie en leerproces</td><td>5</td></tr>
+          <tr><td><strong>Totaal</strong></td><td></td><td><strong>100</strong></td></tr>
+        </tbody>
+      </table>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="eindproducten">8. Eindproducten</h2>
+
+      <p>Bij de finale indiening verwachten we de volgende producten:</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128196; Checklist eindproducten</div>
+        <ul>
+          <li>Werkende webapplicatie (lokaal uitvoerbaar via <code>npm start</code>)</li>
+          <li>GitHub-repository met regelmatige commits</li>
+          <li><code>database.sql</code> met volledige databasestructuur en testdata</li>
+          <li><code>README.md</code> met installatie-instructies en uitleg</li>
+          <li>Analyseverslag met ERD en wireframes</li>
+          <li>Testverslag</li>
+          <li>Gebruikershandleiding (PDF met screenshots)</li>
+          <li>Reflectieverslag</li>
+        </ul>
+      </div>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <h2 id="mondelinge-verdediging">9. Mondelinge verdediging</h2>
+
+      <p>De verdediging duurt <strong>15 minuten</strong>: 10 minuten demo + 5 minuten vragen. Je toont je applicatie live op jouw laptop — zorg dat alles lokaal werkt.</p>
+
+      <h3>Wat wordt beoordeeld?</h3>
+      <ul>
+        <li>Werkt de applicatie zoals beschreven in de functionele analyse?</li>
+        <li>Kan je uitleggen WAAROM je bepaalde technische keuzes maakte?</li>
+        <li>Kan je omgaan met een onverwachte vraag (bv. "Toon me de admin-pagina")?</li>
+        <li>Is je code leesbaar en netjes gedocumenteerd?</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Tip: oefen je demo</div>
+        <p>Oefen je demo minstens &eacute;&eacute;n keer met iemand die de applicatie niet kent. Dit helpt je ontdekken welke stappen je vanzelfsprekend vindt maar die niet vanzelfsprekend zijn voor anderen.</p>
+      </div>
+
+      <p>Voorbereiding: zie <a href="H06.html#demo-voorbereiden">GIP H06 &mdash; sectie "Demo voorbereiden"</a>.</p>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/gip/opdracht')" data-progress-key="6adb/gip/opdracht">&#10003; Markeer als gelezen</button>
+        <div class="chapter-completion__nav">
+          <a href="H06.html" class="btn btn-ghost">&#8592; H06</a>
+          <a href="index.html" class="btn btn-ghost">&#127942; Overzicht GIP</a>
+        </div>
+      </div>
+
+    </div><!-- /chapter-content -->
+  </div><!-- /chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

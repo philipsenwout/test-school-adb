@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Methodes — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H06" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.1"><span class="sidebar-check__box"></span></label>
+          <a href="#higher-order">6.1 Higher-order functies</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.2"><span class="sidebar-check__box"></span></label>
+          <a href="#foreach">6.2 forEach</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.3"><span class="sidebar-check__box"></span></label>
+          <a href="#map">6.3 map</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.4"><span class="sidebar-check__box"></span></label>
+          <a href="#filter">6.4 filter</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.5"><span class="sidebar-check__box"></span></label>
+          <a href="#find-findindex">6.5 find en findIndex</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.6"><span class="sidebar-check__box"></span></label>
+          <a href="#some-every">6.6 some en every</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.7"><span class="sidebar-check__box"></span></label>
+          <a href="#chaining">6.7 Methodes combineren (chaining)</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Array Methodes</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H06 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Array Methodes</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07</span><span class="ld-tag__title">De leerlingen verwerken gegevens met hogere-orde functies.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li><code>forEach</code>, <code>map</code>, <code>filter</code>, <code>find</code>, <code>findIndex</code>, <code>some</code> en <code>every</code> toepassen op arrays</li>
+          <li>Het verschil uitleggen tussen methodes die een nieuwe array teruggeven en methodes die dat niet doen</li>
+          <li>Methodes combineren via <strong>method chaining</strong></li>
+          <li>De juiste methode kiezen voor een gegeven probleem</li>
+          <li>Een studentenlijst analyseren met meerdere array-methodes</li>
+        </ul>
+      </div>
+
+      <h2 id="higher-order">6.1 Wat zijn higher-order functies?</h2>
+      <p>Een <strong>higher-order functie</strong> is een functie die een andere functie als argument aanneemt, of een functie als resultaat teruggeeft.</p>
+      <p>De array-methodes in dit hoofdstuk zijn allemaal higher-order functies: ze nemen een <strong>callback-functie</strong> aan die voor elk element van de array wordt aangeroepen.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const getallen = [1, 2, 3, 4, 5];
+
+// De callback wordt voor elk getal aangeroepen
+getallen.forEach(function(getal) {
+  console.log(getal);
+});</code></pre>
+      </div>
+
+      <h2 id="foreach">6.2 forEach — itereren zonder resultaat</h2>
+      <p><code>forEach</code> loopt over elk element van de array en voert een functie uit. Het <strong>geeft niets terug</strong> (return value is <code>undefined</code>).</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const kleuren = ['rood', 'groen', 'blauw'];
+
+kleuren.forEach(function(kleur, index) {
+  console.log(index + ': ' + kleur);
+});
+// 0: rood
+// 1: groen
+// 2: blauw</code></pre>
+      </div>
+      <p>De callback krijgt drie parameters (je hoeft ze niet allemaal te gebruiken): <code>element</code>, <code>index</code>, <code>array</code>.</p>
+      <p><strong>Wanneer forEach?</strong> Wanneer je iets wil doen <em>met</em> elk element, maar geen nieuwe array nodig hebt.</p>
+
+      <h2 id="map">6.3 map — transformeer elk element</h2>
+      <p><code>map</code> maakt een <strong>nieuwe array</strong> door een transformatiefunctie toe te passen op elk element. De originele array blijft ongewijzigd.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const getallen = [1, 2, 3, 4, 5];
+
+const verdubbeld = getallen.map(function(getal) {
+  return getal * 2;
+});
+
+console.log(verdubbeld); // [2, 4, 6, 8, 10]
+console.log(getallen);   // [1, 2, 3, 4, 5] — ongewijzigd!</code></pre>
+      </div>
+      <p><strong>Met objecten — een eigenschap eruit halen:</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const producten = [
+  { naam: 'Laptop', prijs: 999 },
+  { naam: 'Muis', prijs: 29 },
+  { naam: 'Toetsenbord', prijs: 79 }
+];
+
+const labels = producten.map(function(product) {
+  return product.naam + ': €' + product.prijs;
+});
+
+console.log(labels);
+// ['Laptop: €999', 'Muis: €29', 'Toetsenbord: €79']</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 map geeft altijd evenveel elementen terug</div>
+        <p><code>map</code> geeft altijd een nieuwe array terug met <strong>hetzelfde aantal elementen</strong> als de originele array. Als je wil filteren, gebruik dan <code>filter</code>.</p>
+      </div>
+
+      <h2 id="filter">6.4 filter — selecteer elementen die voldoen</h2>
+      <p><code>filter</code> maakt een <strong>nieuwe array</strong> met enkel de elementen waarvoor de callback <code>true</code> teruggeeft.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const getallen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const even = getallen.filter(function(getal) {
+  return getal % 2 === 0; // true → element wordt behouden
+});
+
+console.log(even); // [2, 4, 6, 8, 10]</code></pre>
+      </div>
+      <p><strong>Filter op objecten:</strong></p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const studenten = [
+  { naam: 'Ali', punten: 72, geslaagd: true },
+  { naam: 'Bo', punten: 45, geslaagd: false },
+  { naam: 'Caro', punten: 88, geslaagd: true },
+  { naam: 'Daan', punten: 38, geslaagd: false },
+  { naam: 'Eva', punten: 91, geslaagd: true }
+];
+
+const geslaagd = studenten.filter(function(student) {
+  return student.geslaagd === true;
+});
+
+const uitstekend = studenten.filter(function(student) {
+  return student.punten > 80;
+});
+console.log(uitstekend.length); // 2</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H06-afb1.svg" alt="Vergelijking forEach, map, filter naast elkaar: zelfde array-input, verschillende output" loading="lazy">
+      </figure>
+
+      <h2 id="find-findindex">6.5 find en findIndex</h2>
+      <h3>find — eerste overeenkomend element</h3>
+      <p><code>find</code> geeft het <strong>eerste element</strong> terug waarvoor de callback <code>true</code> is. Als er geen is, geeft het <code>undefined</code> terug.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const studenten = [
+  { naam: 'Ali', punten: 72 },
+  { naam: 'Bo', punten: 45 },
+  { naam: 'Caro', punten: 88 }
+];
+
+const eersteBoven80 = studenten.find(function(student) {
+  return student.punten > 80;
+});
+
+console.log(eersteBoven80); // { naam: 'Caro', punten: 88 }
+
+// Niet gevonden → undefined
+const boven100 = studenten.find(function(s) { return s.punten > 100; });
+console.log(boven100); // undefined</code></pre>
+      </div>
+      <h3>findIndex — index van het eerste overeenkomend element</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const namen = ['Ali', 'Bo', 'Caro', 'Daan'];
+
+const indexVanCaro = namen.findIndex(function(naam) {
+  return naam === 'Caro';
+});
+console.log(indexVanCaro); // 2
+
+// Gebruik findIndex + splice om een element te verwijderen
+const index = studenten.findIndex(function(s) { return s.naam === 'Bo'; });
+if (index !== -1) {
+  studenten.splice(index, 1);
+}</code></pre>
+      </div>
+
+      <h2 id="some-every">6.6 some en every</h2>
+      <h3>some — minstens één element voldoet</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const getallen = [1, 3, 5, 7, 8];
+
+const heeftEven = getallen.some(function(getal) {
+  return getal % 2 === 0;
+});
+console.log(heeftEven); // true (8 is even)
+
+const iemandGezakt = studenten.some(function(s) {
+  return s.geslaagd === false;
+});
+console.log(iemandGezakt); // true</code></pre>
+      </div>
+      <h3>every — alle elementen voldoen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const getallen = [2, 4, 6, 8];
+
+const alleEven = getallen.every(function(getal) {
+  return getal % 2 === 0;
+});
+console.log(alleEven); // true
+
+const alleGeslaagd = studenten.every(function(s) {
+  return s.geslaagd === true;
+});
+console.log(alleGeslaagd); // false (Bo is niet geslaagd)</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Methode</th><th>Geeft terug</th><th>Stopt vroeg wanneer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>some</code></td><td><code>boolean</code></td><td>Eerste <code>true</code> gevonden</td></tr>
+          <tr><td><code>every</code></td><td><code>boolean</code></td><td>Eerste <code>false</code> gevonden</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="chaining">6.7 Methodes combineren (chaining)</h2>
+      <p>Het echte kracht van deze methodes ligt in <strong>chaining</strong>: je koppelt meerdere methodes aaneen. Elke methode ontvangt het resultaat van de vorige.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const studenten = [
+  { naam: 'Ali', punten: 72, geslaagd: true },
+  { naam: 'Bo', punten: 45, geslaagd: false },
+  { naam: 'Caro', punten: 88, geslaagd: true },
+  { naam: 'Daan', punten: 38, geslaagd: false },
+  { naam: 'Eva', punten: 91, geslaagd: true }
+];
+
+// Stap 1: filter geslaagde studenten
+// Stap 2: haal hun namen op
+const namenGeslaagden = studenten
+  .filter(function(s) { return s.geslaagd; })
+  .map(function(s) { return s.naam; });
+
+console.log(namenGeslaagden); // ['Ali', 'Caro', 'Eva']</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H06-afb2.svg" alt="Visueel schema van method chaining: array → filter → map → resultaat" loading="lazy">
+      </figure>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / SV07</span>
+            <span class="oefening__title">Oefening 1 — Studentenanalyse</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Gebruik de gegeven studentenarray en beantwoord de vragen via array-methodes.</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">const studenten = [
+  { naam: 'Ali',   punten: 72, klas: '6A', geslaagd: true  },
+  { naam: 'Bo',    punten: 45, klas: '6B', geslaagd: false },
+  { naam: 'Caro',  punten: 88, klas: '6A', geslaagd: true  },
+  { naam: 'Daan',  punten: 38, klas: '6B', geslaagd: false },
+  { naam: 'Eva',   punten: 91, klas: '6A', geslaagd: true  },
+  { naam: 'Finn',  punten: 67, klas: '6B', geslaagd: true  },
+  { naam: 'Greta', punten: 55, klas: '6A', geslaagd: true  },
+  { naam: 'Hamid', punten: 29, klas: '6B', geslaagd: false }
+];</code></pre>
+            </div>
+            <ol>
+              <li>Gebruik <code>filter</code> om een lijst van geslaagde studenten te maken. Log het aantal</li>
+              <li>Gebruik <code>map</code> op de geslaagde studenten om een array van namen te maken</li>
+              <li>Gebruik <code>some</code> om te controleren of iemand minder dan 30 punten heeft</li>
+              <li>Gebruik <code>every</code> op de studenten van 6A om te controleren of ze allemaal geslaagd zijn</li>
+              <li>Maak een puntenlijst van 6B via chaining (<code>filter + map</code>)</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H06-oef1-browser.svg" alt="Console output van de studentenanalyse" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Productcatalogus</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een productarray met minstens 8 producten (naam, prijs, categorie, op_voorraad). Beantwoord de volgende vragen via array-methodes:</p>
+            <ol>
+              <li>Gebruik <code>filter</code> om enkel de producten op voorraad te tonen</li>
+              <li>Gebruik <code>map</code> om een lijst van prijslabels te maken: <code>"Naam: €prijs"</code></li>
+              <li>Gebruik <code>find</code> om het eerste product in een bepaalde categorie te zoeken</li>
+              <li>Gebruik <code>findIndex</code> om de positie van een specifiek product te vinden en het daarna te verwijderen met <code>splice</code></li>
+              <li>Gebruik <code>every</code> om te controleren of alle producten een prijs hoger dan 0 hebben</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">SV07</span>
+            <span class="oefening__title">Oefening 3 — Chaining challenge</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Gebruik chaining om complexe bewerkingen in één expressie te schrijven. Maak een array van 10 willekeurige getallen tussen 1 en 100.</p>
+            <ol>
+              <li>Filter de getallen die groter zijn dan 50 én daarna map ze zodat elk getal verdubbeld wordt</li>
+              <li>Filter de even getallen en map ze naar strings: <code>"Getal X is even"</code></li>
+              <li>Vergelijk de twee aanpakken: schrijf dezelfde bewerking eerst met een <code>for</code>-lus en daarna met chaining. Welke is leesbaarder?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H06 Array Methodes<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H06-oef1-browser.svg', 'Voorbeeld — Array methodes op een filmcatalogus')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+            <h3>Opdracht: Filmcatalogus analyseren</h3>
+            <p>Je analyseert een filmcatalogus met array-methodes. Gebruik <code>map</code>, <code>filter</code>, <code>find</code>, <code>some</code> en <code>every</code>.</p>
+            <h4>Deel 1 — Basisanalyse (4 punten)</h4>
+            <ol>
+              <li>Maak een array <code>films</code> met minstens 6 filmobjecten. Elk film heeft: <code>titel</code>, <code>jaar</code>, <code>genre</code>, <code>beoordeling</code> (0-10), <code>bekeken</code> (boolean)</li>
+              <li>Gebruik <code>filter</code> om een lijst van films met een beoordeling hoger dan 7 te maken. Log de titels</li>
+              <li>Gebruik <code>map</code> om een array van labels te maken: <code>"Titel (jaar) — beoordeling/10"</code></li>
+              <li>Gebruik <code>find</code> om de eerste film in een bepaald genre te vinden</li>
+            </ol>
+            <h4>Deel 2 — Geavanceerde analyse (3 punten)</h4>
+            <ol>
+              <li>Gebruik <code>some</code> om te controleren of er films zijn die je nog niet hebt bekeken</li>
+              <li>Gebruik <code>every</code> om te controleren of alle films na 2010 uitgebracht zijn</li>
+              <li>Gebruik <code>findIndex</code> om de positie van een film te vinden en vervang die film in de array door een nieuw object</li>
+            </ol>
+            <h4>Deel 3 — Chaining (3 punten)</h4>
+            <ol>
+              <li>Gebruik chaining (<code>filter + map</code>) om een gepersonaliseerde aanbevelingslijst te maken: enkel films die je nog niet hebt bekeken én een beoordeling hoger dan 8 hebben, als array van titels</li>
+            </ol>
+            <p><strong>Dien het bestand <code>filmcatalogus.js</code> in. Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H06 — Array Methodes</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke array-methode gebruik je om elk element te transformeren en een nieuwe array te krijgen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="a"> <span><code>forEach</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="b"> <span><code>map</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="c"> <span><code>filter</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="d"> <span><code>find</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat geeft <code>filter</code> terug als geen enkel element voldoet aan de voorwaarde?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="a"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="b"> <span><code>undefined</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="c"> <span>Een lege array <code>[]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="d"> <span><code>false</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat geeft <code>find</code> terug als het gezochte element niet gevonden wordt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="a"> <span><code>undefined</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="b"> <span><code>-1</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="c"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="d"> <span><code>false</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Gegeven: <code>[1,3,5,7].every(n => n % 2 !== 0)</code>. Wat is het resultaat?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="a"> <span><code>[1,3,5,7]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="b"> <span><code>4</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="c"> <span><code>false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="d"> <span><code>true</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is method chaining?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="a"> <span>Meerdere arrays samenvoegen met <code>concat</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="b"> <span>Meerdere array-methodes na elkaar koppelen, waarbij elke methode het resultaat van de vorige ontvangt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="c"> <span>Een array sorteren en dan omdraaien</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="d"> <span>Een callback-functie meerdere keren aanroepen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welke methode gebruik je om de <strong>index</strong> te vinden van het eerste object in een array dat aan een voorwaarde voldoet?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v6" value="a"> <span><code>indexOf</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v6" value="b"> <span><code>find</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v6" value="c"> <span><code>findIndex</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v6" value="d"> <span><code>some</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H06')" data-progress-key="6adb/app-ontwikkeling/H06">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H05.html" class="btn btn-ghost">← H05</a>
+          <a href="H07.html" class="btn btn-ghost">H07 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

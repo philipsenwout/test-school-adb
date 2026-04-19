@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git installatie — GitHub Version Control 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container container-narrow">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../5adb/index.html">5ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../5adb/software.html">Software</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>GitHub Version Control</span>
+    </nav>
+
+    <div class="page-header vak-github">
+      <div class="page-header__vak">&#128196; GitHub Version Control 5ADB</div>
+      <h1 class="page-header__title">Git &amp; GitHub installatie</h1>
+      <p class="page-header__desc">Installeer Git op je computer en maak een gratis GitHub account aan. Volg de stappen voor jouw besturingssysteem.</p>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">&#x1F4CC; Wat installeren we?</div>
+      <ul>
+        <li><strong>Git</strong> — de versiebeheersoftware die lokaal op je computer draait</li>
+        <li><strong>GitHub account</strong> — een gratis online platform om je code op te slaan en te delen</li>
+      </ul>
+    </div>
+
+    <!-- ===================== TOOL 1: GIT ===================== -->
+    <div class="software-tool" id="git">
+      <div class="software-tool__header">
+        <div style="width:52px;height:52px;background:#F05033;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;color:#fff;font-weight:700;">G</div>
+        <div>
+          <h2 class="software-tool__name">Git</h2>
+          <p class="software-tool__sub">Gratis en open-source versiebeheersysteem &mdash; Windows, macOS en Linux</p>
+        </div>
+      </div>
+
+      <p>Git is de software die bijhoudt welke wijzigingen je aanbrengt in je bestanden. Het draait lokaal op je computer. GitHub is de online dienst waar je je code mee synchroniseert.</p>
+
+      <h3>Windows</h3>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Download Git voor Windows</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Ga naar <code>git-scm.com</code> en klik op de grote downloadknop. Het detecteert Windows automatisch en biedt de nieuwste versie aan.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Voer de installer uit</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Dubbelklik op het <code>.exe</code> bestand. Klik bij elke stap op <strong>Next</strong>. Pas de volgende opties aan:
+          <br>&#10003; <em>"Git Bash Here"</em> — handig: rechtermuisklik in een map opent de terminal
+          <br>&#10003; <em>"Use Git from the command line and also from 3rd-party software"</em>
+          <br>&#10003; <em>"Use Visual Studio Code as Git's default editor"</em> (als je VS Code hebt)
+          </p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">3</div>
+        <div class="install-step__body">
+          <strong>Klik op Install en daarna Finish</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">De installatie duurt een minuutje. Vink <em>"Launch Git Bash"</em> aan bij Finish om meteen te testen.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">4</div>
+        <div class="install-step__body">
+          <strong>Controleer de installatie</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Open <strong>Git Bash</strong> (via het startmenu of rechtermuisklik in een map) en typ:</p>
+          <div class="code-block" style="margin-top:var(--space-2)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">git --version</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Je ziet zoiets als <code>git version 2.47.0.windows.2</code>. Als je dit ziet, is Git correct geïnstalleerd.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:var(--space-6)">macOS</h3>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Controleer of Git al aanwezig is</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Open <strong>Terminal</strong> (via Spotlight: <kbd>Cmd+Spatie</kbd> → type "Terminal") en typ:</p>
+          <div class="code-block" style="margin-top:var(--space-2)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">git --version</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">macOS vraagt soms automatisch om de Xcode Command Line Tools te installeren. Klik op <strong>Install</strong> als dit verschijnt — dit installeert Git automatisch.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Git via Homebrew (alternatief)</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Als je Homebrew hebt, kun je de meest recente versie van Git installeren via:</p>
+          <div class="code-block" style="margin-top:var(--space-2)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">brew install git</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:var(--space-6)">Linux (Ubuntu/Debian)</h3>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Installeer via de package manager</strong>
+          <div class="code-block" style="margin-top:var(--space-2)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">sudo apt update
+sudo apt install git</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== TOOL 2: GIT CONFIGUREREN ===================== -->
+    <div class="software-tool" id="git-config">
+      <div class="software-tool__header">
+        <div style="width:52px;height:52px;background:var(--color-vak-github);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0">&#9881;</div>
+        <div>
+          <h2 class="software-tool__name">Git configureren</h2>
+          <p class="software-tool__sub">Stel je naam en e-mailadres in &mdash; dit staat bij elke commit</p>
+        </div>
+      </div>
+
+      <p>Eén keer uitvoeren op je computer — Git onthoudt deze instellingen voor alle toekomstige commits.</p>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Stel je naam in</strong>
+          <div class="code-block" style="margin-top:var(--space-2)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">git config --global user.name "Jouw Naam"</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Vervang <code>Jouw Naam</code> door je echte naam (bv. <code>"Jan Peeters"</code>). Deze naam verschijnt bij elke commit die je maakt.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Stel je e-mailadres in</strong>
+          <div class="code-block" style="margin-top:var(--space-2)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">git config --global user.email "jouw@email.com"</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Gebruik <strong>hetzelfde e-mailadres</strong> als je GitHub account — zo worden je commits correct gekoppeld aan je profiel.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">3</div>
+        <div class="install-step__body">
+          <strong>Controleer je instellingen</strong>
+          <div class="code-block" style="margin-top:var(--space-2)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">git config --list</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Je ziet een lijst van alle instellingen. Controleer of <code>user.name</code> en <code>user.email</code> correct staan.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== TOOL 3: GITHUB ACCOUNT ===================== -->
+    <div class="software-tool" id="github-account">
+      <div class="software-tool__header">
+        <div style="width:52px;height:52px;background:#24292e;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;color:#fff;font-weight:700;">&#9880;</div>
+        <div>
+          <h2 class="software-tool__name">GitHub account aanmaken</h2>
+          <p class="software-tool__sub">Gratis account op github.com &mdash; je online opslagplaats voor code</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Ga naar github.com</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Surf naar <code>github.com</code> en klik op <strong>Sign up</strong> (rechtsboven).</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Vul je gegevens in</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">
+            <em>E-mailadres:</em> gebruik je schoolmailadres<br>
+            <em>Wachtwoord:</em> kies een sterk wachtwoord<br>
+            <em>Gebruikersnaam:</em> kies iets professioneel, bv. <code>jan-peeters-5adb</code>. Je leerkracht herkent je hierdoor.
+          </p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">3</div>
+        <div class="install-step__body">
+          <strong>Bevestig je e-mailadres</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">GitHub stuurt een bevestigingsmail naar je schooladres. Klik op de link in die mail om je account te activeren.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">4</div>
+        <div class="install-step__body">
+          <strong>Geef je gebruikersnaam door aan je leerkracht</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Je leerkracht maakt een persoonlijke repository voor je aan. Je ontvangt dan een uitnodiging per mail om toegang te krijgen.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--info" style="margin-top:var(--space-4)">
+        <div class="callout-header">&#128270; GitHub Student Developer Pack</div>
+        <p>Als student kun je gratis het <strong>GitHub Student Developer Pack</strong> aanvragen via <code>education.github.com</code>. Hiermee krijg je toegang tot gratis tools en diensten. Vraag dit aan met je schoolmailadres.</p>
+      </div>
+    </div>
+
+    <!-- ===================== KLAAR ===================== -->
+    <div class="callout callout--info" style="border-color: var(--color-success); background: rgba(40,200,64,0.07)">
+      <div class="callout-header" style="color: var(--color-success)">&#10003; Alles geïnstalleerd? Dan ben je klaar om te beginnen!</div>
+      <p>Je hebt Git geïnstalleerd, geconfigureerd en een GitHub account aangemaakt. Nu leer je in de cursus hoe je dit alles in de praktijk gebruikt.</p>
+      <div style="margin-top:var(--space-4)">
+        <a href="H01.html" class="btn btn-primary">&#8594; Ga naar H01 &mdash; Wat is versiebeheer?</a>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--space-8); text-align:center; display:flex; gap:var(--space-3); justify-content:center; flex-wrap:wrap">
+      <a href="../../5adb/software.html" class="btn btn-ghost">&#8592; Terug naar Software overzicht</a>
+      <a href="index.html" class="btn btn-ghost">GitHub Version Control overzicht</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

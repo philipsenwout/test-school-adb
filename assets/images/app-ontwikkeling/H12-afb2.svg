@@ -1,0 +1,108 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#f0f0f0">justify-content en align-items — De Twee Assen</text>
+  <text x="400" y="46" text-anchor="middle" font-size="11" fill="#888899">justify-content stuurt de hoofdas — align-items stuurt de dwarsas</text>
+
+  <!-- flex-direction: row (standaard) -->
+  <rect x="20" y="58" width="370" height="158" rx="8" fill="#7B3FE4" opacity="0.08"/>
+  <rect x="20" y="58" width="370" height="158" rx="8" fill="none" stroke="#7B3FE4" stroke-width="1.5"/>
+  <text x="205" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#c4b5fd">flex-direction: row (standaard)</text>
+
+  <!-- Hoofdas horizontaal -->
+  <defs>
+    <marker id="arr-p" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7B3FE4"/>
+    </marker>
+    <marker id="arr-b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2D9CDB"/>
+    </marker>
+    <marker id="arr-o" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F97316"/>
+    </marker>
+    <marker id="arr-b2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2D9CDB"/>
+    </marker>
+  </defs>
+  <line x1="45" y1="145" x2="370" y2="145" stroke="#7B3FE4" stroke-width="2.5" marker-end="url(#arr-p)"/>
+  <text x="205" y="140" text-anchor="middle" font-size="11" fill="#c4b5fd">Hoofdas (main axis) → justify-content</text>
+  <line x1="45" y1="88" x2="45" y2="195" stroke="#2D9CDB" stroke-width="2" marker-end="url(#arr-b)"/>
+  <text x="62" y="170" font-size="9" fill="#74c0fc">Dwarsas</text>
+  <text x="62" y="183" font-size="9" fill="#74c0fc">align-items</text>
+  <text x="62" y="193" font-size="9" fill="#74c0fc">↓</text>
+  <!-- Flex items horizontaal -->
+  <rect x="75" y="95" width="55" height="45" rx="4" fill="#7B3FE4" opacity="0.7"/>
+  <text x="102" y="122" text-anchor="middle" font-size="12" fill="white">1</text>
+  <rect x="138" y="95" width="55" height="45" rx="4" fill="#7B3FE4" opacity="0.5"/>
+  <text x="165" y="122" text-anchor="middle" font-size="12" fill="white">2</text>
+  <rect x="201" y="95" width="55" height="45" rx="4" fill="#7B3FE4" opacity="0.35"/>
+  <text x="228" y="122" text-anchor="middle" font-size="12" fill="white">3</text>
+  <rect x="264" y="95" width="55" height="45" rx="4" fill="#7B3FE4" opacity="0.2"/>
+  <text x="291" y="122" text-anchor="middle" font-size="12" fill="white">4</text>
+
+  <!-- flex-direction: column -->
+  <rect x="410" y="58" width="370" height="158" rx="8" fill="#F97316" opacity="0.08"/>
+  <rect x="410" y="58" width="370" height="158" rx="8" fill="none" stroke="#F97316" stroke-width="1.5"/>
+  <text x="595" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#fdba74">flex-direction: column</text>
+  <line x1="470" y1="88" x2="470" y2="195" stroke="#F97316" stroke-width="2.5" marker-end="url(#arr-o)"/>
+  <text x="492" y="110" font-size="9" fill="#fdba74">Hoofdas</text>
+  <text x="492" y="122" font-size="9" fill="#fdba74">(main axis)</text>
+  <text x="492" y="134" font-size="9" fill="#fdba74">↓</text>
+  <line x1="540" y1="100" x2="760" y2="100" stroke="#2D9CDB" stroke-width="2" marker-end="url(#arr-b2)"/>
+  <text x="650" y="95" text-anchor="middle" font-size="9" fill="#74c0fc">Dwarsas →</text>
+  <!-- Flex items verticaal -->
+  <rect x="536" y="108" width="190" height="20" rx="3" fill="#F97316" opacity="0.7"/>
+  <text x="631" y="122" text-anchor="middle" font-size="10" fill="white">Item 1</text>
+  <rect x="536" y="134" width="190" height="20" rx="3" fill="#F97316" opacity="0.5"/>
+  <text x="631" y="148" text-anchor="middle" font-size="10" fill="white">Item 2</text>
+  <rect x="536" y="160" width="190" height="20" rx="3" fill="#F97316" opacity="0.3"/>
+  <text x="631" y="174" text-anchor="middle" font-size="10" fill="white">Item 3</text>
+
+  <!-- justify-content opties -->
+  <text x="400" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="#f0f0f0">justify-content — langs de HOOFDAS</text>
+
+  <!-- flex-start -->
+  <rect x="20" y="250" width="220" height="50" rx="4" fill="#2a2d3e" stroke="#22C55E" stroke-width="1"/>
+  <rect x="25" y="258" width="35" height="34" rx="3" fill="#22C55E" opacity="0.7"/>
+  <rect x="65" y="258" width="35" height="34" rx="3" fill="#22C55E" opacity="0.5"/>
+  <rect x="105" y="258" width="35" height="34" rx="3" fill="#22C55E" opacity="0.35"/>
+  <text x="200" y="278" text-anchor="middle" font-size="9" fill="#22C55E">flex-start</text>
+
+  <!-- center -->
+  <rect x="255" y="250" width="220" height="50" rx="4" fill="#2a2d3e" stroke="#2D9CDB" stroke-width="1"/>
+  <rect x="315" y="258" width="35" height="34" rx="3" fill="#2D9CDB" opacity="0.7"/>
+  <rect x="355" y="258" width="35" height="34" rx="3" fill="#2D9CDB" opacity="0.5"/>
+  <rect x="395" y="258" width="35" height="34" rx="3" fill="#2D9CDB" opacity="0.35"/>
+  <text x="440" y="278" text-anchor="middle" font-size="9" fill="#2D9CDB">center</text>
+
+  <!-- space-between -->
+  <rect x="490" y="250" width="290" height="50" rx="4" fill="#2a2d3e" stroke="#7B3FE4" stroke-width="1"/>
+  <rect x="495" y="258" width="55" height="34" rx="3" fill="#7B3FE4" opacity="0.7"/>
+  <rect x="620" y="258" width="55" height="34" rx="3" fill="#7B3FE4" opacity="0.5"/>
+  <rect x="720" y="258" width="55" height="34" rx="3" fill="#7B3FE4" opacity="0.35"/>
+  <text x="770" y="278" text-anchor="middle" font-size="9" fill="#7B3FE4">space-between</text>
+
+  <!-- align-items opties -->
+  <text x="400" y="325" text-anchor="middle" font-size="13" font-weight="bold" fill="#f0f0f0">align-items — langs de DWARSAS</text>
+  <rect x="20" y="335" width="760" height="55" rx="5" fill="#2a2d3e"/>
+  <!-- stretch -->
+  <rect x="40" y="343" width="35" height="38" rx="3" fill="#2D9CDB" opacity="0.6"/>
+  <rect x="80" y="343" width="35" height="38" rx="3" fill="#2D9CDB" opacity="0.4"/>
+  <text x="95" y="395" text-anchor="middle" font-size="9" fill="#aaa">stretch (standaard)</text>
+  <!-- flex-start -->
+  <rect x="200" y="343" width="35" height="18" rx="3" fill="#22C55E" opacity="0.6"/>
+  <rect x="240" y="343" width="35" height="18" rx="3" fill="#22C55E" opacity="0.4"/>
+  <text x="252" y="395" text-anchor="middle" font-size="9" fill="#aaa">flex-start</text>
+  <!-- center -->
+  <rect x="365" y="355" width="35" height="18" rx="3" fill="#F97316" opacity="0.7"/>
+  <rect x="405" y="355" width="35" height="18" rx="3" fill="#F97316" opacity="0.5"/>
+  <text x="407" y="395" text-anchor="middle" font-size="9" fill="#aaa">center</text>
+  <!-- flex-end -->
+  <rect x="530" y="363" width="35" height="18" rx="3" fill="#7B3FE4" opacity="0.7"/>
+  <rect x="570" y="363" width="35" height="18" rx="3" fill="#7B3FE4" opacity="0.5"/>
+  <text x="562" y="395" text-anchor="middle" font-size="9" fill="#aaa">flex-end</text>
+  <!-- baseline -->
+  <text x="680" y="355" font-size="18" fill="#74c0fc">A</text>
+  <text x="710" y="370" font-size="10" fill="#74c0fc">A</text>
+  <line x1="675" y1="358" x2="745" y2="358" stroke="#74c0fc" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="710" y="395" text-anchor="middle" font-size="9" fill="#aaa">baseline</text>
+</svg>

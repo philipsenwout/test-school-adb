@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#3498db"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#e8e8f0">addEventListener — 3 onderdelen</text>
+
+  <!-- Block 1: Element -->
+  <rect x="30" y="70" width="210" height="220" rx="10" fill="#1a2a4a" stroke="#3498db" stroke-width="2.5"/>
+  <!-- Header -->
+  <rect x="30" y="70" width="210" height="44" rx="10" fill="#3498db"/>
+  <rect x="30" y="102" width="210" height="12" fill="#3498db"/>
+  <text x="135" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="white">1. Element</text>
+  <text x="135" y="116" text-anchor="middle" font-size="11" fill="#a0d0ff">Wie luistert?</text>
+
+  <!-- Button icon -->
+  <rect x="65" y="128" width="140" height="44" rx="8" fill="#2a3a5a"/>
+  <text x="135" y="155" text-anchor="middle" font-size="22" fill="#3498db">⬜</text>
+  <text x="173" y="160" font-size="16" fill="#e8e8f0">btn</text>
+
+  <rect x="55" y="184" width="160" height="36" rx="6" fill="#0d1a30"/>
+  <text x="135" y="200" text-anchor="middle" font-size="10" fill="#80b0e0" font-family="'Courier New', monospace">document</text>
+  <text x="135" y="214" text-anchor="middle" font-size="10" fill="#80b0e0" font-family="'Courier New', monospace">.querySelector('button')</text>
+
+  <text x="135" y="258" text-anchor="middle" font-size="11" fill="#6090c0">Een DOM-element</text>
+  <text x="135" y="274" text-anchor="middle" font-size="11" fill="#6090c0">dat luistert naar events</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="240" y1="180" x2="290" y2="180" stroke="#3498db" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="265" y="168" text-anchor="middle" font-size="11" fill="#6090c0">koppel</text>
+
+  <!-- Block 2: Event type -->
+  <rect x="294" y="70" width="212" height="220" rx="10" fill="#2a1a4a" stroke="#6c63ff" stroke-width="2.5"/>
+  <rect x="294" y="70" width="212" height="44" rx="10" fill="#6c63ff"/>
+  <rect x="294" y="102" width="212" height="12" fill="#6c63ff"/>
+  <text x="400" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="white">2. Event type</text>
+  <text x="400" y="116" text-anchor="middle" font-size="11" fill="#d0c0ff">Waarnaar luisteren?</text>
+
+  <!-- Event icon and list -->
+  <text x="400" y="158" text-anchor="middle" font-size="30" fill="#f9a825">👆</text>
+  <text x="400" y="186" text-anchor="middle" font-size="15" fill="#e8e8f0" font-family="'Courier New', monospace" font-weight="600">'click'</text>
+
+  <text x="314" y="214" font-size="11" fill="#9080c0" font-family="'Courier New', monospace">'mouseover'</text>
+  <text x="314" y="230" font-size="11" fill="#9080c0" font-family="'Courier New', monospace">'keydown'</text>
+  <text x="314" y="246" font-size="11" fill="#9080c0" font-family="'Courier New', monospace">'submit'  'input' ...</text>
+
+  <text x="400" y="274" text-anchor="middle" font-size="11" fill="#7060a0">Een string met de naam</text>
+  <text x="400" y="286" text-anchor="middle" font-size="0" fill="#7060a0">van het event</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="506" y1="180" x2="556" y2="180" stroke="#3498db" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="531" y="168" text-anchor="middle" font-size="11" fill="#6090c0">roep aan</text>
+
+  <!-- Block 3: Callback -->
+  <rect x="560" y="70" width="210" height="220" rx="10" fill="#0a2a1a" stroke="#43e97b" stroke-width="2.5"/>
+  <rect x="560" y="70" width="210" height="44" rx="10" fill="#43e97b"/>
+  <rect x="560" y="102" width="210" height="12" fill="#43e97b"/>
+  <text x="665" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a2e">3. Callback</text>
+  <text x="665" y="116" text-anchor="middle" font-size="11" fill="#104010">Wat doen?</text>
+
+  <!-- Function diagram -->
+  <rect x="578" y="130" width="174" height="80" rx="8" fill="#0d1a10"/>
+  <text x="665" y="152" text-anchor="middle" font-size="12" fill="#70e8a0" font-family="'Courier New', monospace">(e) =&gt; &#123;</text>
+  <text x="598" y="172" font-size="11" fill="#a0d0a0" font-family="'Courier New', monospace">  // code hier</text>
+  <text x="598" y="192" font-size="11" fill="#70e8a0" font-family="'Courier New', monospace">  console.log(e)</text>
+  <text x="665" y="212" text-anchor="middle" font-size="12" fill="#70e8a0" font-family="'Courier New', monospace">&#125;</text>
+
+  <text x="665" y="252" text-anchor="middle" font-size="11" fill="#306040">Een functie die uitvoert</text>
+  <text x="665" y="268" text-anchor="middle" font-size="11" fill="#306040">wanneer het event afvuurt</text>
+
+  <!-- Full example code block -->
+  <rect x="30" y="312" width="740" height="96" rx="10" fill="#0d0d1a" stroke="#6c63ff" stroke-width="1.5"/>
+  <text x="50" y="334" font-size="12" fill="#8080a0" font-family="'Courier New', monospace">// Volledig voorbeeld:</text>
+  <text x="50" y="356" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace"><tspan fill="#a0a0ff">const</tspan> knop = document.querySelector(<tspan fill="#43e97b">'button'</tspan>);</text>
+  <text x="50" y="378" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">knop.addEventListener(<tspan fill="#43e97b">'click'</tspan>, (<tspan fill="#f9a825">e</tspan>) =&gt; &#123;</text>
+  <text x="50" y="398" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">  console.log(<tspan fill="#43e97b">'Geklikt!'</tspan>, <tspan fill="#f9a825">e</tspan>.target);</text>
+  <text x="730" y="398" text-anchor="end" font-size="13" fill="#e8e8f0" font-family="'Courier New', monospace">&#125;);</text>
+
+  <!-- Labels under blocks -->
+  <text x="135" y="308" text-anchor="middle" font-size="13" font-weight="600" fill="#3498db">Wie luistert?</text>
+  <text x="400" y="308" text-anchor="middle" font-size="13" font-weight="600" fill="#6c63ff">Waarnaar?</text>
+  <text x="665" y="308" text-anchor="middle" font-size="13" font-weight="600" fill="#43e97b">Wat doen?</text>
+
+  <!-- footer tip -->
+  <rect x="30" y="422" width="740" height="56" rx="10" fill="#1a1a2e" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="400" y="446" text-anchor="middle" font-size="12" fill="#f9a825" font-weight="600">💡 Tip:</text>
+  <text x="400" y="466" text-anchor="middle" font-size="12" fill="#e8e8f0">De callback ontvangt automatisch een <tspan font-family="'Courier New', monospace" fill="#f9a825">event</tspan>-object (e) met info over het event: <tspan font-family="'Courier New', monospace" fill="#43e97b">e.target</tspan>, <tspan font-family="'Courier New', monospace" fill="#43e97b">e.key</tspan>, ...</text>
+</svg>

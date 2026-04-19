@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0E14"/>
+      <stop offset="100%" stop-color="#13141D"/>
+    </linearGradient>
+    <!-- Clip paths voor de overlapping -->
+    <clipPath id="circleA">
+      <circle cx="300" cy="240" r="130"/>
+    </clipPath>
+    <clipPath id="circleB">
+      <circle cx="500" cy="240" r="130"/>
+    </clipPath>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="400" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#E8E9F3">SQL JOIN-TYPEN — VENN-DIAGRAM</text>
+  <text x="400" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6E8E" letter-spacing="0.1em">RELATIE TUSSEN TWEE TABELLEN VISUEEL VOORGESTELD</text>
+  <line x1="80" y1="64" x2="720" y2="64" stroke="#1F2035" stroke-width="1"/>
+
+  <!-- Cirkel A (Leerlingen) — links -->
+  <circle cx="300" cy="240" r="130" fill="#3B82F615" stroke="#3B82F6" stroke-width="2" opacity="0.8"/>
+
+  <!-- Cirkel B (Klassen) — rechts -->
+  <circle cx="500" cy="240" r="130" fill="#3B82F610" stroke="#3B82F6" stroke-width="2" opacity="0.8"/>
+
+  <!-- INNER JOIN overlap: highlight -->
+  <!-- Overlap zone benaderd met een ellips in het midden -->
+  <ellipse cx="400" cy="240" rx="58" ry="105" fill="#3B82F6" opacity="0.25"/>
+  <ellipse cx="400" cy="240" rx="58" ry="105" fill="none" stroke="#3B82F6" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- Label Cirkel A -->
+  <text x="240" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#60BFFF">Tabel A</text>
+  <text x="240" y="213" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Leerlingen</text>
+
+  <!-- Label Cirkel B -->
+  <text x="560" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#60BFFF">Tabel B</text>
+  <text x="560" y="213" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Klassen</text>
+
+  <!-- Uniek A label -->
+  <text x="238" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Alleen in A</text>
+  <text x="238" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">(geen klas)</text>
+
+  <!-- Overlap label -->
+  <text x="400" y="233" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#E8E9F3">INNER</text>
+  <text x="400" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#E8E9F3">JOIN</text>
+  <text x="400" y="268" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#3B82F6">overeenkomst</text>
+
+  <!-- Uniek B label -->
+  <text x="562" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#A8AACB">Alleen in B</text>
+  <text x="562" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">(lege klas)</text>
+
+  <!-- SQL-queries rechterkant -->
+  <rect x="600" y="80" width="170" height="170" rx="8" fill="#13141D" stroke="#2A2C45" stroke-width="1"/>
+  <text x="685" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E" letter-spacing="0.08em">SQL QUERIES</text>
+  <line x1="610" y1="108" x2="760" y2="108" stroke="#1F2035" stroke-width="1"/>
+
+  <text x="615" y="126" font-family="monospace" font-size="10" font-weight="700" fill="#3B82F6">INNER JOIN</text>
+  <text x="615" y="141" font-family="monospace" font-size="9" fill="#A8AACB">Enkel overeenkomsten</text>
+  <text x="615" y="158" font-family="monospace" font-size="9" fill="#6B6E8E">WHERE A.id = B.id</text>
+
+  <line x1="610" y1="168" x2="760" y2="168" stroke="#1F2035" stroke-width="1"/>
+  <text x="615" y="184" font-family="monospace" font-size="10" font-weight="700" fill="#A8AACB">LEFT JOIN</text>
+  <text x="615" y="199" font-family="monospace" font-size="9" fill="#6B6E8E">Alle A + overeenkomsten B</text>
+
+  <line x1="610" y1="210" x2="760" y2="210" stroke="#1F2035" stroke-width="1"/>
+  <text x="615" y="226" font-family="monospace" font-size="10" font-weight="700" fill="#A8AACB">RIGHT JOIN</text>
+  <text x="615" y="241" font-family="monospace" font-size="9" fill="#6B6E8E">Alle B + overeenkomsten A</text>
+
+  <!-- Voorbeeld tabel -->
+  <rect x="30" y="80" width="150" height="160" rx="8" fill="#13141D" stroke="#2A2C45" stroke-width="1"/>
+  <text x="105" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#6B6E8E">Leerlingen</text>
+  <line x1="40" y1="108" x2="170" y2="108" stroke="#1F2035" stroke-width="1"/>
+  <text x="55" y="124" font-family="monospace" font-size="10" font-weight="700" fill="#3B82F6">id</text>
+  <text x="110" y="124" font-family="monospace" font-size="10" font-weight="700" fill="#6B6E8E">klas_id</text>
+  <line x1="40" y1="130" x2="170" y2="130" stroke="#1F2035" stroke-width="0.5"/>
+  <text x="55" y="144" font-family="monospace" font-size="10" fill="#E8E9F3">1</text>
+  <text x="110" y="144" font-family="monospace" font-size="10" fill="#E8E9F3">101</text>
+  <text x="55" y="158" font-family="monospace" font-size="10" fill="#E8E9F3">2</text>
+  <text x="110" y="158" font-family="monospace" font-size="10" fill="#E8E9F3">102</text>
+  <text x="55" y="172" font-family="monospace" font-size="10" fill="#E8E9F3">3</text>
+  <text x="110" y="172" font-family="monospace" font-size="10" fill="#6B6E8E">NULL</text>
+  <text x="55" y="186" font-family="monospace" font-size="10" fill="#E8E9F3">4</text>
+  <text x="110" y="186" font-family="monospace" font-size="10" fill="#E8E9F3">101</text>
+  <text x="105" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#6B6E8E">id 3 = geen klas</text>
+
+  <!-- Resultaat INNER JOIN -->
+  <rect x="30" y="310" width="740" height="120" rx="8" fill="#13141D" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#3B82F6">INNER JOIN resultaat: alleen rijen met overeenkomst in BEIDE tabellen</text>
+  <line x1="40" y1="338" x2="760" y2="338" stroke="#1F2035" stroke-width="1"/>
+  <text x="130" y="356" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#6B6E8E">leerling.id</text>
+  <text x="310" y="356" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#6B6E8E">naam</text>
+  <text x="500" y="356" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#6B6E8E">klas.naam</text>
+  <text x="680" y="356" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#6B6E8E">lokaal</text>
+  <line x1="40" y1="362" x2="760" y2="362" stroke="#2A2C45" stroke-width="0.5"/>
+  <text x="130" y="378" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">1</text>
+  <text x="310" y="378" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">Sander</text>
+  <text x="500" y="378" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">5ADB</text>
+  <text x="680" y="378" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">B204</text>
+  <text x="130" y="394" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">2</text>
+  <text x="310" y="394" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">Emma</text>
+  <text x="500" y="394" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">6ADB</text>
+  <text x="680" y="394" text-anchor="middle" font-family="monospace" font-size="11" fill="#E8E9F3">C110</text>
+  <text x="400" y="420" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6E8E">Leerling 3 (klas_id = NULL) wordt NIET opgenomen — gebruik LEFT JOIN om ook deze te tonen</text>
+</svg>

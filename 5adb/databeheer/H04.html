@@ -45,8 +45,48 @@
 <span>H04</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-4-databank-aanmaken-en-vullen">Hoofdstuk 4 — Databank aanmaken en vullen</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#41-ddl-data-definition-language">4.1 DDL — Data Definition Language</a></li><li><a href="#411-database-aanmaken-en-selecteren" style="padding-left:1.25rem">4.1.1 Database aanmaken en selecteren</a></li><li><a href="#42-tabellen-aanmaken-create-table">4.2 Tabellen aanmaken — CREATE TABLE</a></li><li><a href="#421-basisstructuur" style="padding-left:1.25rem">4.2.1 Basisstructuur</a></li><li><a href="#422-sql-datatypes" style="padding-left:1.25rem">4.2.2 SQL-datatypes</a></li><li><a href="#423-constraints" style="padding-left:1.25rem">4.2.3 Constraints</a></li><li><a href="#424-tabel-wijzigen-alter-table" style="padding-left:1.25rem">4.2.4 Tabel wijzigen — ALTER TABLE</a></li><li><a href="#425-tabel-verwijderen" style="padding-left:1.25rem">4.2.5 Tabel verwijderen</a></li><li><a href="#43-dml-data-invoegen-met-insert-into">4.3 DML — Data invoegen met INSERT INTO</a></li><li><a href="#431-insert-into-één-rij" style="padding-left:1.25rem">4.3.1 INSERT INTO — één rij</a></li><li><a href="#432-insert-into-meerdere-rijen-tegelijk" style="padding-left:1.25rem">4.3.2 INSERT INTO — meerdere rijen tegelijk</a></li><li><a href="#433-waarden-voor-speciale-datatypes" style="padding-left:1.25rem">4.3.3 Waarden voor speciale datatypes</a></li><li><a href="#44-data-importeren-uit-csv">4.4 Data importeren uit CSV</a></li><li><a href="#441-wat-is-een-csv-bestand" style="padding-left:1.25rem">4.4.1 Wat is een CSV-bestand?</a></li><li><a href="#442-importeren-via-mysql-workbench" style="padding-left:1.25rem">4.4.2 Importeren via MySQL Workbench</a></li><li><a href="#443-importeren-via-load-data-infile" style="padding-left:1.25rem">4.4.3 Importeren via LOAD DATA INFILE</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h04" style="padding-left:1.25rem">Huistaak H04</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/databeheer/H04" style="--sidebar-accent: var(--color-vak-data)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.1"><span class="sidebar-check__box"></span></label>
+      <a href="#41-ddl-data-definition-language">4.1 DDL — Data Definition Language</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.2"><span class="sidebar-check__box"></span></label>
+      <a href="#42-tabellen-aanmaken-create-table">4.2 Tabellen aanmaken — CREATE TABLE</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.3"><span class="sidebar-check__box"></span></label>
+      <a href="#43-dml-data-invoegen-met-insert-into">4.3 DML — Data invoegen met INSERT INTO</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.4"><span class="sidebar-check__box"></span></label>
+      <a href="#44-data-importeren-uit-csv">4.4 Data importeren uit CSV</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak-h04">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside>
       <div class="chapter-content">
         <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
@@ -68,18 +108,22 @@
 <tr><td><strong>Status</strong></td><td>Definitief</td></tr>
 </tbody></table></div>
 <h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Implementeren van een databank op basis van een datamodel <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB21]</span> Gebruiken van een querytaal voor het manipuleren van gegevens <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB19</span><span class="ld-tag__title">Implementeren van een databank op basis van een datamodel</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB21</span><span class="ld-tag__title">Gebruiken van een querytaal voor het manipuleren van gegevens</span></div>
+</div>
 <p><strong>Geschatte lesuren:</strong> 6 u</p>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ol>
-<li>Een database aanmaken en verwijderen met DDL-commando's (<code>CREATE DATABASE</code>, <code>DROP DATABASE</code>).</li>
-<li>Tabellen aanmaken met correcte datatypes en constraints.</li>
-<li>De meest gebruikte SQL-datatypes correct inzetten.</li>
-<li>Constraints toepassen: <code>PRIMARY KEY</code>, <code>NOT NULL</code>, <code>UNIQUE</code>, <code>DEFAULT</code>, <code>CHECK</code>.</li>
-<li>Gegevens invoegen met <code>INSERT INTO</code>.</li>
-<li>Data importeren vanuit een CSV-bestand via MySQL Workbench of <code>LOAD DATA INFILE</code>.</li>
-</ol>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>Een database aanmaken en verwijderen met DDL-commando's (<code>CREATE DATABASE</code>, <code>DROP DATABASE</code>).</li>
+    <li>Tabellen aanmaken met correcte datatypes en constraints.</li>
+    <li>De meest gebruikte SQL-datatypes correct inzetten.</li>
+    <li>Constraints toepassen: <code>PRIMARY KEY</code>, <code>NOT NULL</code>, <code>UNIQUE</code>, <code>DEFAULT</code>, <code>CHECK</code>.</li>
+    <li>Gegevens invoegen met <code>INSERT INTO</code>.</li>
+    <li>Data importeren vanuit een CSV-bestand via MySQL Workbench of <code>LOAD DATA INFILE</code>.</li>
+  </ul>
+</div>
 <h2 id="41-ddl-data-definition-language">4.1 DDL — Data Definition Language</h2>
 <div class="callout callout--definitie">
 <div class="callout-header">📘 Definitie</div>
@@ -572,7 +616,10 @@ INSERT INTO bestelregel (bestelling_id, product_id, aantal, eenheidsprijs) VALUE
 </ul>
 </div>
 <h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB19]</span> Implementeren van een databank op basis van een datamodel <span class="badge badge-basis">basis</span> &nbsp; <span class="badge badge-ld">[LD-DAT-ADB21]</span> Gebruiken van een querytaal voor het manipuleren van gegevens <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB19</span><span class="ld-tag__title">Implementeren van een databank op basis van een datamodel</span></div>
+  <div class="ld-tag"><span class="ld-tag__code">ADB21</span><span class="ld-tag__title">Gebruiken van een querytaal voor het manipuleren van gegevens</span></div>
+</div>
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>

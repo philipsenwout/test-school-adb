@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#43e97b"/>
+    </marker>
+  </defs>
+
+  <!-- Titel -->
+  <text x="400" y="32" font-size="18" font-weight="700" fill="#2d2d4e" text-anchor="middle">Submit flow — formulier-submit logica</text>
+
+  <!-- Start ovaal -->
+  <ellipse cx="400" cy="68" rx="160" ry="24" fill="#6c63ff"/>
+  <text x="400" y="73" font-size="13" fill="#fff" text-anchor="middle" font-weight="600">Gebruiker klikt 'Voeg toe'</text>
+
+  <!-- Pijl 1 -->
+  <line x1="400" y1="92" x2="400" y2="118" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Blok: preventDefault -->
+  <rect x="288" y="118" width="224" height="38" rx="8" fill="#6c63ff" opacity="0.85"/>
+  <text x="400" y="141" font-size="13" fill="#fff" text-anchor="middle" font-family="'Courier New', monospace">e.preventDefault()</text>
+
+  <!-- Pijl 2 -->
+  <line x1="400" y1="156" x2="400" y2="182" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Blok: voegToe() -->
+  <rect x="278" y="182" width="244" height="38" rx="8" fill="#9b59b6" opacity="0.85"/>
+  <text x="400" y="205" font-size="13" fill="#fff" text-anchor="middle" font-family="'Courier New', monospace">voegToe() aanroepen</text>
+
+  <!-- Pijl 3 -->
+  <line x1="400" y1="220" x2="400" y2="248" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Beslissing 1: Alle velden ingevuld? -->
+  <polygon points="400,248 530,288 400,328 270,288" fill="#f9a825" opacity="0.9"/>
+  <text x="400" y="284" font-size="12" fill="#2d2d4e" text-anchor="middle" font-weight="600">Alle velden</text>
+  <text x="400" y="300" font-size="12" fill="#2d2d4e" text-anchor="middle" font-weight="600">ingevuld?</text>
+  <!-- Nee pijl rechts -->
+  <line x1="530" y1="288" x2="620" y2="288" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="570" y="282" font-size="11" fill="#ff6b6b" text-anchor="middle">Nee</text>
+  <!-- Foutmelding blok 1 -->
+  <rect x="620" y="268" width="110" height="38" rx="8" fill="#ff6b6b"/>
+  <text x="675" y="291" font-size="12" fill="#fff" text-anchor="middle" font-weight="600">Foutmelding</text>
+
+  <!-- Ja pijl naar beneden -->
+  <line x1="400" y1="328" x2="400" y2="356" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="415" y="345" font-size="11" fill="#6c63ff">Ja</text>
+
+  <!-- Beslissing 2: Naam al in gebruik? -->
+  <polygon points="400,356 530,396 400,436 270,396" fill="#f9a825" opacity="0.9"/>
+  <text x="400" y="392" font-size="12" fill="#2d2d4e" text-anchor="middle" font-weight="600">Naam al</text>
+  <text x="400" y="408" font-size="12" fill="#2d2d4e" text-anchor="middle" font-weight="600">in gebruik?</text>
+  <!-- Ja pijl rechts -->
+  <line x1="530" y1="396" x2="620" y2="396" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="570" y="390" font-size="11" fill="#ff6b6b" text-anchor="middle">Ja</text>
+  <!-- Foutmelding blok 2 -->
+  <rect x="620" y="376" width="110" height="38" rx="8" fill="#ff6b6b"/>
+  <text x="675" y="399" font-size="12" fill="#fff" text-anchor="middle" font-weight="600">Foutmelding</text>
+
+  <!-- Nee pijl naar beneden -->
+  <line x1="400" y1="436" x2="400" y2="464" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="415" y="453" font-size="11" fill="#6c63ff">Nee</text>
+
+  <!-- Beslissing 3: Bereidingstijd > 0? -->
+  <polygon points="400,464 530,504 400,544 270,504" fill="#f9a825" opacity="0.9"/>
+  <text x="400" y="500" font-size="12" fill="#2d2d4e" text-anchor="middle" font-weight="600">Bereidingstijd</text>
+  <text x="400" y="516" font-size="12" fill="#2d2d4e" text-anchor="middle" font-weight="600">&gt; 0?</text>
+  <!-- Nee pijl rechts -->
+  <line x1="530" y1="504" x2="620" y2="504" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="570" y="498" font-size="11" fill="#ff6b6b" text-anchor="middle">Nee</text>
+  <!-- Foutmelding blok 3 -->
+  <rect x="620" y="484" width="110" height="38" rx="8" fill="#ff6b6b"/>
+  <text x="675" y="507" font-size="12" fill="#fff" text-anchor="middle" font-weight="600">Foutmelding</text>
+
+  <!-- Ja pijl naar succes (links van diagram) -->
+  <line x1="270" y1="504" x2="160" y2="504" stroke="#43e97b" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="160" y1="504" x2="160" y2="396" stroke="#43e97b" stroke-width="2"/>
+  <text x="200" y="498" font-size="11" fill="#43e97b">Ja ✓</text>
+
+  <!-- Succes blokken links -->
+  <rect x="50" y="358" width="212" height="32" rx="8" fill="#1a1a2e" stroke="#43e97b" stroke-width="1.5"/>
+  <text x="156" y="378" font-size="11" fill="#43e97b" text-anchor="middle" font-family="'Courier New', monospace">alleRecepten.push(nieuwRecept)</text>
+  <line x1="156" y1="358" x2="156" y2="332" stroke="#43e97b" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="50" y="296" width="212" height="32" rx="8" fill="#1a1a2e" stroke="#43e97b" stroke-width="1.5"/>
+  <text x="156" y="316" font-size="11" fill="#43e97b" text-anchor="middle" font-family="'Courier New', monospace">updateLS(alleRecepten)</text>
+  <line x1="156" y1="296" x2="156" y2="270" stroke="#43e97b" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Succes ovaal -->
+  <ellipse cx="156" cy="248" rx="90" ry="20" fill="#43e97b"/>
+  <text x="156" y="253" font-size="13" fill="#1a1a2e" text-anchor="middle" font-weight="700">Succes! ✓</text>
+
+  <!-- Connect succes naar push -->
+  <line x1="160" y1="396" x2="160" y2="390" stroke="#43e97b" stroke-width="2"/>
+</svg>

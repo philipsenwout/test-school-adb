@@ -37,7 +37,7 @@
 </nav>
 
 <main id="main">
-  <div class="container">
+  <div class="container container--wide">
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="Paginapad">
@@ -57,7 +57,7 @@
         </p>
       </div>
       <a href="software.html" class="software-widget" style="text-decoration:none">
-        <img src="../../app-ontwikkeling/images/software-banner.svg"
+        <img src="../assets/images/app-ontwikkeling/software-banner.svg"
              alt="Software installatie" class="software-widget__logo">
         <h3 class="software-widget__title">Software</h3>
         <p class="software-widget__desc">Installeer VS Code en de benodigde extensions.</p>
@@ -152,6 +152,24 @@
         </div>
       </a>
 
+      <!-- GitHub Version Control -->
+      <a href="github-version-control/index.html" class="card-vak card-vak--github animate-fade-in-up animate-delay-5">
+        <img src="../assets/images/github-version-control/github-icon.svg" alt="" class="card-vak__icon-img" aria-hidden="true">
+        <div class="card-vak__title">GitHub Version Control</div>
+        <p class="card-vak__subtitle">Leer Git gebruiken om je code bij te houden. Je kloont, commit, pusht en pullt je werk elke dag.</p>
+        <div class="card-vak__progress-label">
+          <span data-progress-label="5adb/github-version-control">0 / 6 voltooid</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" data-progress-bar="5adb/github-version-control" data-total="6" style="width:0%"></div>
+        </div>
+        <div class="card-vak__meta">
+          <span>6 H.</span>
+          <span>~12 u</span>
+          <span>doorheen jaar</span>
+        </div>
+      </a>
+
     </div>
 
     <!-- Info sectie -->
@@ -178,9 +196,9 @@
 <script>
   // Bereken totale voortgang (som van alle 4 vakken = 40 hoofdstukken)
   document.addEventListener('DOMContentLoaded', function() {
-    var totaal = 55;
-    var prefixes = ['5adb/netwerken','5adb/app-ontwikkeling','5adb/databeheer','5adb/e-stem'];
-    var totals   = [13, 25, 10, 7];
+    var totaal = 61;
+    var prefixes = ['5adb/netwerken','5adb/app-ontwikkeling','5adb/databeheer','5adb/e-stem','5adb/github-version-control'];
+    var totals   = [13, 25, 10, 7, 6];
     var completed = 0;
     try {
       var prog = JSON.parse(localStorage.getItem('ai-school-progress')) || {};
@@ -195,6 +213,7 @@
     document.getElementById('pct-totaal').textContent = pct + '%';
     var lbl = document.querySelector('[data-progress-label="5adb/totaal"]');
     if (lbl) lbl.textContent = completed + ' / ' + totaal + ' hoofdstukken voltooid';
+
   });
 </script>
 </body>

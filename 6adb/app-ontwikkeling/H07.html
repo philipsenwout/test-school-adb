@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES Modules — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H07" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.1"><span class="sidebar-check__box"></span></label>
+          <a href="#waarom-modules">7.1 Waarom modules?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.2"><span class="sidebar-check__box"></span></label>
+          <a href="#named-exports">7.2 Named exports</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.3"><span class="sidebar-check__box"></span></label>
+          <a href="#named-imports">7.3 Named imports</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.4"><span class="sidebar-check__box"></span></label>
+          <a href="#default-export">7.4 Default export</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.5"><span class="sidebar-check__box"></span></label>
+          <a href="#type-module">7.5 type="module" in HTML</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="7.6"><span class="sidebar-check__box"></span></label>
+          <a href="#bestandsstructuur">7.6 Bestandsstructuur en re-exports</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>ES Modules</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H07 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">ES Modules</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">SV07</span><span class="ld-tag__title">Leerling implementeert softwaremodules op een manier die herbruikbaarheid bevordert.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen waarom we code opdelen in modules</li>
+          <li>Een waarde of functie exporteren met <code>export</code></li>
+          <li>Een waarde of functie importeren met <code>import</code></li>
+          <li>Het verschil kennen tussen <strong>named export</strong> en <strong>default export</strong></li>
+          <li><code>type="module"</code> correct gebruiken in een HTML-script-tag</li>
+          <li>Een modulair project structureren over meerdere bestanden</li>
+        </ul>
+      </div>
+
+      <h2 id="waarom-modules">7.1 Waarom modules?</h2>
+      <p>Zonder modules zet je alle JavaScript in één groot bestand. Bij een kleine app is dat nog te doen, maar zodra je project groeit, wordt het:</p>
+      <ul>
+        <li><strong>moeilijk leesbaar</strong> — 500+ regels in één bestand</li>
+        <li><strong>moeilijk te onderhouden</strong> — een wijziging kan overal iets kapotmaken</li>
+        <li><strong>niet herbruikbaar</strong> — dezelfde functie kopiëren naar een ander project</li>
+      </ul>
+      <p>Met <strong>modules</strong> verdeel je je code over meerdere bestanden, elk met een duidelijke verantwoordelijkheid:</p>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">project/
+├── index.html
+├── hulpfuncties.js   ← hulpfuncties (herbruikbaar)
+├── data.js           ← alle data (herbruikbaar)
+└── script.js         ← logica voor deze pagina</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H07-afb1.svg" alt="Diagram van een modulair project: 3 bestanden met pijlen die import/export relaties tonen" loading="lazy">
+      </figure>
+
+      <h2 id="named-exports">7.2 Named exports</h2>
+      <p>Je kan één of meerdere dingen exporteren uit een bestand met het sleutelwoord <code>export</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// wiskunde.js
+
+export const PI = 3.14159;
+
+export function optellen(a, b) {
+    return a + b;
+}
+
+export function aftrekken(a, b) {
+    return a - b;
+}
+
+export const vermenigvuldigen = (a, b) => a * b;</code></pre>
+      </div>
+      <p>Je kan ook alles exporteren aan het einde van het bestand:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// wiskunde.js — alternatieve manier
+const PI = 3.14159;
+function optellen(a, b) { return a + b; }
+function aftrekken(a, b) { return a - b; }
+
+export { PI, optellen, aftrekken };</code></pre>
+      </div>
+
+      <h2 id="named-imports">7.3 Named imports</h2>
+      <p>In een ander bestand importeer je de geëxporteerde waarden met <code>import</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// main.js
+
+import { PI, optellen, aftrekken } from './wiskunde.js';
+
+console.log(PI);               // 3.14159
+console.log(optellen(4, 5));   // 9
+console.log(aftrekken(10, 3)); // 7</code></pre>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Regels voor imports</div>
+        <ul>
+          <li>De naam tussen <code>{}</code> moet <strong>exact overeenkomen</strong> met de naam in het export-bestand</li>
+          <li>Het pad begint met <code>./</code> (huidig mapje) of <code>../</code> (mapje hoger)</li>
+          <li>De extensie <code>.js</code> is verplicht in browser-modules</li>
+        </ul>
+      </div>
+      <p>Je kan een import hernoemen met <code>as</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">import { optellen as som } from './wiskunde.js';
+console.log(som(2, 3)); // 5</code></pre>
+      </div>
+
+      <h2 id="default-export">7.4 Default export</h2>
+      <p>Een bestand kan ook <strong>één</strong> default export hebben. Dit is handig als het bestand maar één hoofdding exporteert:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// groeter.js
+
+export default function begroet(naam) {
+    return `Hallo, ${naam}!`;
+}</code></pre>
+      </div>
+      <p>Importeren van een default export: <strong>geen accolades</strong>, kies zelf een naam:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// main.js
+import begroet from './groeter.js';
+console.log(begroet('Jana')); // Hallo, Jana!</code></pre>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th></th><th>Named export</th><th>Default export</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Syntax export</td><td><code>export const x = ...</code></td><td><code>export default ...</code></td></tr>
+          <tr><td>Syntax import</td><td><code>import { x } from '...'</code></td><td><code>import x from '...'</code></td></tr>
+          <tr><td>Aantal per bestand</td><td>Meerdere</td><td>Één</td></tr>
+          <tr><td>Naam bij import</td><td>Moet overeenkomen</td><td>Kies zelf</td></tr>
+        </tbody>
+      </table>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H07-afb2.svg" alt="Vergelijking: named export (accolades) vs default export (geen accolades)" loading="lazy">
+      </figure>
+
+      <h2 id="type-module">7.5 type="module" in HTML</h2>
+      <p>Om modules te gebruiken in de browser moet de script-tag <code>type="module"</code> hebben:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- index.html --&gt;
+&lt;script src="script.js" type="module"&gt;&lt;/script&gt;</code></pre>
+      </div>
+      <p>Wat dit automatisch doet:</p>
+      <ul>
+        <li>Strict mode is <strong>automatisch aan</strong> (zoals <code>"use strict"</code>)</li>
+        <li>Het script wordt <strong>uitgesteld</strong> (alsof <code>defer</code> — de HTML is al geladen voor het script start)</li>
+        <li>Elk bestand heeft zijn <strong>eigen scope</strong> (variabelen lekken niet naar het globale object)</li>
+        <li>CORS-regels gelden (module-scripts werken niet via <code>file://</code>, gebruik een lokale server of VS Code Live Server)</li>
+      </ul>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Live Server vereist</div>
+        <p>Module-scripts werken <strong>niet</strong> als je het HTML-bestand direct opent via <code>file://</code>. Gebruik altijd de VS Code <strong>Live Server</strong>-extensie of een andere lokale server.</p>
+      </div>
+
+      <h2 id="bestandsstructuur">7.6 Bestandsstructuur en re-exports</h2>
+      <p>Goed gebruik van modules — elk bestand heeft één verantwoordelijkheid:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// data.js — enkel data, geen logica
+export const producten = [
+    { naam: 'Appel', prijs: 0.50 },
+    { naam: 'Brood', prijs: 2.40 },
+    { naam: 'Melk', prijs: 1.20 },
+];</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// hulpfuncties.js — herbruikbare functies
+export const berekenTotaal = (lijst) => {
+    return lijst.reduce((som, product) => som + product.prijs, 0);
+};
+
+export const zoekProduct = (lijst, naam) => {
+    return lijst.find(p => p.naam === naam);
+};</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// script.js — paginalogica, combineert alles
+import { producten } from './data.js';
+import { berekenTotaal, zoekProduct } from './hulpfuncties.js';
+
+const totaal = berekenTotaal(producten);
+console.log(`Totaal: €${totaal.toFixed(2)}`);  // Totaal: €4.10
+
+const gevonden = zoekProduct(producten, 'Brood');
+console.log(gevonden);  // { naam: 'Brood', prijs: 2.40 }</code></pre>
+      </div>
+      <h3>Re-exports — barrel-bestand</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// index.js (barrel) — alles vanuit één plek importeren
+export { berekenTotaal, zoekProduct } from './hulpfuncties.js';
+export { producten } from './data.js';</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// main.js — importeer alles uit één plek
+import { producten, berekenTotaal } from './index.js';</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">SV07 / ADB09</span>
+            <span class="oefening__title">Oefening 1 — Modulaire rekenmachine</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw een modulaire rekenmachine verspreid over drie bestanden.</p>
+            <ol>
+              <li>Maak <code>bewerkingen.js</code> en exporteer 5 functies: <code>optellen</code>, <code>aftrekken</code>, <code>vermenigvuldigen</code>, <code>delen</code>, <code>gemiddelde</code></li>
+              <li>Maak <code>validatie.js</code> en exporteer een functie <code>isGeldigGetal(waarde)</code> die controleert of de invoer een getal is (geen NaN, geen Infinity)</li>
+              <li>Maak <code>main.js</code>: importeer alles, vraag twee getallen op via <code>prompt()</code>, valideer ze en toon alle bewerkingen</li>
+              <li>Maak <code>index.html</code> met <code>&lt;script type="module" src="main.js"&gt;&lt;/script&gt;</code></li>
+              <li>Test via VS Code Live Server (niet via file://)</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H07-oef1-browser.svg" alt="Console output van de modulaire rekenmachine" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">SV07</span>
+            <span class="oefening__title">Oefening 2 — Default export begrijpen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak twee bestanden om het verschil te begrijpen tussen named en default exports.</p>
+            <ol>
+              <li>Maak <code>kleuren.js</code> met een named export <code>kleurenLijst</code> (array met 5 kleuren) en een named export <code>getRandomKleur(lijst)</code></li>
+              <li>Maak <code>begroeting.js</code> met een default export: een functie die een naam aanneemt en een begroeting teruggeeft</li>
+              <li>Importeer beide in <code>app.js</code>: gebruik accolades voor de named exports, geen accolades voor de default export</li>
+              <li>Log een willekeurige kleur en een begroeting voor je eigen naam</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / SV07</span>
+            <span class="oefening__title">Oefening 3 — Barrel-bestand</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Neem de bestanden van Oefening 1 en maak er een barrel-bestand van.</p>
+            <ol>
+              <li>Maak <code>index.js</code> die zowel de bewerkingen als de validatiefuncties re-exporteert</li>
+              <li>Pas <code>main.js</code> aan zodat je alles importeert vanuit <code>./index.js</code> in plaats van uit de afzonderlijke bestanden</li>
+              <li>Controleer dat alles nog werkt</li>
+              <li>Beschrijf in commentaar: wat zijn de voor- en nadelen van een barrel-bestand?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H07 ES Modules<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H07-oef1-browser.svg', 'Voorbeeld — Modulaire applicatie')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+            <h3>Opdracht: Modulaire studentenapplicatie</h3>
+            <p>Bouw een modulaire applicatie die studentendata beheert, verspreid over minstens 3 JavaScript-bestanden.</p>
+            <h4>Deel 1 — Modules opzetten (4 punten)</h4>
+            <ol>
+              <li>Maak <code>data.js</code> met een geëxporteerde array van minstens 5 studenten (naam, punten, geslaagd, klas)</li>
+              <li>Maak <code>analyse.js</code> met geëxporteerde functies: <code>getGeslaagden(studenten)</code>, <code>getBeste(studenten)</code>, <code>gemiddeldePunten(studenten)</code></li>
+              <li>Maak <code>opmaak.js</code> met een default export: een functie die een student als string formatteert</li>
+            </ol>
+            <h4>Deel 2 — Importeren en gebruiken (3 punten)</h4>
+            <ol>
+              <li>Maak <code>main.js</code> en importeer alles correct (named én default)</li>
+              <li>Log de lijst van geslaagde studenten, de beste student en het gemiddelde</li>
+              <li>Toon alle studenten via de opmaakfunctie</li>
+            </ol>
+            <h4>Deel 3 — HTML integratie (3 punten)</h4>
+            <ol>
+              <li>Maak <code>index.html</code> met <code>type="module"</code> op de script-tag</li>
+              <li>Test via VS Code Live Server</li>
+              <li>Maak de resultaten zichtbaar op de pagina via DOM-manipulatie (<code>textContent</code> of <code>innerHTML</code>)</li>
+            </ol>
+            <p><strong>Dien alle JS-bestanden en <code>index.html</code> in. Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H07 — ES Modules</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Hoe importeer je een <strong>named export</strong> genaamd <code>berekenTotaal</code> uit het bestand <code>./hulp.js</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="a"> <span><code>import berekenTotaal from './hulp.js';</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="b"> <span><code>import berekenTotaal from 'hulp';</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="c"> <span><code>import { berekenTotaal } from './hulp.js';</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="d"> <span><code>require('./hulp.js').berekenTotaal;</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Hoeveel default exports mag een bestand hebben?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="a"> <span>Onbeperkt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="b"> <span>Precies één</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="c"> <span>Geen — default exports bestaan niet</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="d"> <span>Maximaal drie</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Waarvoor dient <code>type="module"</code> op een script-tag?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="a"> <span>Om TypeScript te kunnen gebruiken in de browser</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="b"> <span>Om het script te minificeren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="c"> <span>Om het script sneller te laden via een CDN</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="d"> <span>Om de browser te vertellen dat dit script ES module-syntax gebruikt, met automatisch strict mode en defer</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is een "barrel-bestand" in de context van modules?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="a"> <span>Een bestand dat re-exports bundelt zodat je alles vanuit één plek kan importeren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="b"> <span>Een bestand dat alle globale variabelen opslaat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="c"> <span>Het hoofdbestand van een project (altijd <code>index.html</code>)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="d"> <span>Een bestand dat geminificeerde code bevat</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Waarom werken module-scripts <strong>niet</strong> als je het HTML-bestand direct opent via <code>file://</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="a"> <span>Modules zijn enkel beschikbaar in Node.js, niet in de browser</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="b"> <span>Browsers blokkeren module-verzoeken vanuit het lokale bestandssysteem vanwege CORS-restricties</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="c"> <span>Het <code>import</code>-sleutelwoord is enkel beschikbaar op HTTPS</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="d"> <span>De extensie <code>.js</code> wordt niet herkend via file://</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Welk pad gebruik je om te importeren uit een bestand in hetzelfde mapje?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="a"> <span><code>import x from 'hulp.js'</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="b"> <span><code>import x from '../hulp.js'</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="c"> <span><code>import x from './hulp.js'</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v6" value="d"> <span><code>import x from '/hulp.js'</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H07')" data-progress-key="6adb/app-ontwikkeling/H07">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H06.html" class="btn btn-ghost">← H06</a>
+          <a href="H08.html" class="btn btn-ghost">H08 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

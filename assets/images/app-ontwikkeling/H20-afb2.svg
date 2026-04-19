@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowDown" markerWidth="10" markerHeight="7" refX="5" refY="0" orient="auto">
+      <polygon points="0 0, 10 0, 5 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="300" cy="400" r="300" fill="#ef4444" opacity="0.02"/>
+  <circle cx="900" cy="400" r="300" fill="#39ff14" opacity="0.02"/>
+
+  <!-- Titel -->
+  <text x="600" y="50" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="700" font-family="Inter, sans-serif">String Samenvoegen: + vs Template Literals</text>
+  <text x="600" y="74" text-anchor="middle" fill="#6b7280" font-size="14" font-family="Inter, sans-serif">Dezelfde output — twee manieren. Welke is leesbaarder?</text>
+  <line x1="100" y1="90" x2="1100" y2="90" stroke="#2d3150" stroke-width="1"/>
+
+  <!-- Kolom headers -->
+  <!-- Links: + manier (rood) -->
+  <rect x="60" y="105" width="520" height="44" rx="8" fill="#7f1d1d" opacity="0.8"/>
+  <text x="320" y="133" text-anchor="middle" fill="#fca5a5" font-size="16" font-weight="700" font-family="Inter, sans-serif">❌  String Concatenatie (+ operator)</text>
+
+  <!-- Rechts: template literal (groen) -->
+  <rect x="620" y="105" width="520" height="44" rx="8" fill="#14532d" opacity="0.8"/>
+  <text x="880" y="133" text-anchor="middle" fill="#86efac" font-size="16" font-weight="700" font-family="Inter, sans-serif">✓  Template Literal (backtick)</text>
+
+  <!-- Scenario 1: Basisgroet -->
+  <text x="60" y="178" fill="#9ca3af" font-size="12" font-weight="600" font-family="Inter, sans-serif">SCENARIO 1 — Variabelen in een zin</text>
+
+  <!-- Links: code -->
+  <rect x="60" y="188" width="520" height="120" rx="8" fill="#0d1117" stroke="#7f1d1d" stroke-width="1.5"/>
+  <text x="80" y="213" fill="#6b7280" font-size="11" font-family="Courier New, monospace">let naam = "Lena";</text>
+  <text x="80" y="233" fill="#6b7280" font-size="11" font-family="Courier New, monospace">let leeftijd = 17;</text>
+  <text x="80" y="258" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> bericht =</text>
+  <text x="80" y="278" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  <tspan fill="#fbbf24">"Hallo, "</tspan> + naam + <tspan fill="#fbbf24">". Je bent "</tspan></text>
+  <text x="80" y="296" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  + leeftijd + <tspan fill="#fbbf24">" jaar oud."</tspan>;</text>
+
+  <!-- Rechts: template literal -->
+  <rect x="620" y="188" width="520" height="120" rx="8" fill="#0d1117" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="640" y="213" fill="#6b7280" font-size="11" font-family="Courier New, monospace">let naam = "Lena";</text>
+  <text x="640" y="233" fill="#6b7280" font-size="11" font-family="Courier New, monospace">let leeftijd = 17;</text>
+  <text x="640" y="258" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> bericht =</text>
+  <text x="640" y="280" fill="#e2e8f0" font-size="13" font-family="Courier New, monospace">  <tspan fill="#39ff14" filter="url(#glow)">`</tspan>Hallo, <tspan fill="#00d4ff">${naam}</tspan>. Je bent <tspan fill="#00d4ff">${leeftijd}</tspan> jaar oud.<tspan fill="#39ff14" filter="url(#glow)">`</tspan></text>
+
+  <!-- Output labels -->
+  <rect x="60" y="316" width="520" height="36" rx="6" fill="#1e2030" stroke="#2d3150" stroke-width="1"/>
+  <text x="80" y="333" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">Output:</text>
+  <text x="160" y="333" fill="#fbbf24" font-size="11" font-family="Courier New, monospace" font-weight="600">"Hallo, Lena. Je bent 17 jaar oud."</text>
+
+  <rect x="620" y="316" width="520" height="36" rx="6" fill="#1e2030" stroke="#2d3150" stroke-width="1"/>
+  <text x="640" y="333" fill="#9ca3af" font-size="11" font-family="Courier New, monospace">Output:</text>
+  <text x="720" y="333" fill="#86efac" font-size="11" font-family="Courier New, monospace" font-weight="600">"Hallo, Lena. Je bent 17 jaar oud."</text>
+
+  <!-- Pijl dezelfde output -->
+  <text x="600" y="340" text-anchor="middle" fill="#3d4166" font-size="22">⟺</text>
+
+  <!-- Scenario 2: Meerdere regels / HTML -->
+  <text x="60" y="378" fill="#9ca3af" font-size="12" font-weight="600" font-family="Inter, sans-serif">SCENARIO 2 — Meerdere regels HTML genereren</text>
+
+  <rect x="60" y="388" width="520" height="160" rx="8" fill="#0d1117" stroke="#7f1d1d" stroke-width="1.5"/>
+  <text x="80" y="413" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> html =</text>
+  <text x="80" y="433" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  <tspan fill="#fbbf24">"&lt;div class='kaart'&gt;"</tspan> +</text>
+  <text x="80" y="453" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  <tspan fill="#fbbf24">"  &lt;h2&gt;"</tspan> + naam + <tspan fill="#fbbf24">"&lt;/h2&gt;"</tspan> +</text>
+  <text x="80" y="473" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  <tspan fill="#fbbf24">"  &lt;p&gt;Leeftijd: "</tspan> + leeftijd +</text>
+  <text x="80" y="493" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  <tspan fill="#fbbf24">"&lt;/p&gt;&lt;/div&gt;"</tspan>;</text>
+  <rect x="80" y="510" width="480" height="30" rx="4" fill="#7f1d1d" opacity="0.3"/>
+  <text x="100" y="530" fill="#fca5a5" font-size="11" font-family="Inter, sans-serif">⚠️  Moeilijk leesbaar — kans op typefouten in aanhalingstekens</text>
+
+  <rect x="620" y="388" width="520" height="160" rx="8" fill="#0d1117" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="640" y="413" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> html = <tspan fill="#39ff14" filter="url(#glow)">`</tspan></text>
+  <text x="640" y="433" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  &lt;div class='kaart'&gt;</text>
+  <text x="640" y="453" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">    &lt;h2&gt;<tspan fill="#00d4ff">${naam}</tspan>&lt;/h2&gt;</text>
+  <text x="640" y="473" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">    &lt;p&gt;Leeftijd: <tspan fill="#00d4ff">${leeftijd}</tspan>&lt;/p&gt;</text>
+  <text x="640" y="493" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace">  &lt;/div&gt;</text>
+  <text x="640" y="513" fill="#e2e8f0" font-size="11" font-family="Courier New, monospace"><tspan fill="#39ff14" filter="url(#glow)">`</tspan>;</text>
+  <rect x="640" y="527" width="480" height="16" rx="4" fill="#14532d" opacity="0.4"/>
+  <text x="660" y="538" fill="#86efac" font-size="10" font-family="Inter, sans-serif">✓  Eén backtick-blok — HTML-structuur blijft leesbaar</text>
+
+  <!-- Scenario 3: Expressies -->
+  <text x="60" y="572" fill="#9ca3af" font-size="12" font-weight="600" font-family="Inter, sans-serif">SCENARIO 3 — Berekening in de string</text>
+
+  <rect x="60" y="582" width="520" height="80" rx="8" fill="#0d1117" stroke="#7f1d1d" stroke-width="1.5"/>
+  <text x="80" y="610" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> prijs = 25;</text>
+  <text x="80" y="640" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> tekst = <tspan fill="#fbbf24">"Btw: "</tspan> + (prijs * 0.21) + <tspan fill="#fbbf24">"€"</tspan>;</text>
+
+  <rect x="620" y="582" width="520" height="80" rx="8" fill="#0d1117" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="640" y="610" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> prijs = 25;</text>
+  <text x="640" y="640" fill="#e2e8f0" font-size="12" font-family="Courier New, monospace"><tspan fill="#7c3aed">let</tspan> tekst = <tspan fill="#39ff14" filter="url(#glow)">`</tspan>Btw: <tspan fill="#00d4ff">${prijs * 0.21}</tspan>€<tspan fill="#39ff14" filter="url(#glow)">`</tspan>;</text>
+
+  <!-- Samenvatting -->
+  <rect x="60" y="682" width="1080" height="80" rx="10" fill="#1e2030" stroke="#2d3150" stroke-width="1.5"/>
+  <text x="600" y="704" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="Inter, sans-serif">Samenvatting — Template Literals</text>
+  <text x="240" y="728" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="Courier New, monospace">Gebruik backticks:  `tekst`</text>
+  <text x="600" y="728" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="Courier New, monospace">Variabele invoegen:  <tspan fill="#00d4ff">${variabele}</tspan></text>
+  <text x="950" y="728" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="Courier New, monospace">Expressie invoegen:  <tspan fill="#00d4ff">${2 + 2}</tspan></text>
+  <text x="240" y="750" text-anchor="middle" fill="#39ff14" font-size="11" font-family="Inter, sans-serif">Meerdere regels zonder \n!</text>
+  <text x="600" y="750" text-anchor="middle" fill="#39ff14" font-size="11" font-family="Inter, sans-serif">Geen aanhalingstekens-geklungel!</text>
+  <text x="950" y="750" text-anchor="middle" fill="#39ff14" font-size="11" font-family="Inter, sans-serif">Berekeningen direct in de string!</text>
+
+  <text x="600" y="785" text-anchor="middle" fill="#3d4166" font-size="12" font-family="Inter, sans-serif">H20 — Operatoren — Template literal vs string-concatenatie [ADB09] [basis]</text>
+</svg>

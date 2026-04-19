@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptenapp — Verwijderen &amp; Uitdieping — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H15" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.1"><span class="sidebar-check__box"></span></label>
+          <a href="#terugblik">15.1 Terugblik</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.2"><span class="sidebar-check__box"></span></label>
+          <a href="#bevestiging">15.2 Verwijderen met bevestiging</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.3"><span class="sidebar-check__box"></span></label>
+          <a href="#findindex-vs-indexof">15.3 findIndex() vs indexOf()</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.4"><span class="sidebar-check__box"></span></label>
+          <a href="#splice-detail">15.4 splice() in detail</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.5"><span class="sidebar-check__box"></span></label>
+          <a href="#categorie-verwijderen">15.5 Categorie verwijderen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="15.6"><span class="sidebar-check__box"></span></label>
+          <a href="#undo">15.6 Undo-functie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Receptenapp — Verwijderen &amp; Uitdieping</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H15 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Receptenapp — Verwijderen &amp; Uitdieping</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB11</span><span class="ld-tag__title">De leerlingen testen de werking van een applicatie en sturen bij waar nodig.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>De verwijderfunctie volledig begrijpen en uitbreiden</li>
+          <li><code>findIndex()</code> en <code>splice()</code> toepassen in complexere situaties</li>
+          <li>Een bevestigingsvenster (<code>confirm()</code>) correct integreren</li>
+          <li>De relatie tussen array-mutatie, localStorage en DOM-update beheersen</li>
+          <li>Een "verwijder alle recepten van categorie X"-knop bouwen</li>
+          <li>Een undo-functie implementeren met <code>setTimeout()</code></li>
+        </ul>
+      </div>
+
+      <h2 id="terugblik">15.1 Terugblik: <code>verwijderRecept()</code> uit H12</h2>
+      <p>In H12 bouwden we de basisverwijderfunctie:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function verwijderRecept(verwijderNaam) {
+    const index = alleRecepten.findIndex(r => r.naam === verwijderNaam);
+    alleRecepten.splice(index, 1);
+    updateLS(alleRecepten);
+    receptenSectie.dispatchEvent(update);
+}</code></pre>
+      </div>
+      <p>Dit werkt, maar we kunnen het <strong>robuuster en vriendelijker</strong> maken. In dit hoofdstuk leer je drie uitbreidingen: bevestiging, bulk-verwijderen per categorie, en ongedaan maken.</p>
+
+      <h2 id="bevestiging">15.2 Verwijderen met bevestiging</h2>
+      <p>De gebruiker kan per ongeluk op de delete-knop klikken. Een bevestigingsdialoog geeft hem de kans om te annuleren:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function verwijderRecept(verwijderNaam) {
+    // Vraag bevestiging
+    const bevestigd = confirm(`Ben je zeker dat je "${verwijderNaam}" wil verwijderen?`);
+    if (!bevestigd) return; // Annuleren: stop de functie
+
+    const index = alleRecepten.findIndex(r => r.naam === verwijderNaam);
+    if (index === -1) {
+        console.warn(`Recept "${verwijderNaam}" niet gevonden.`);
+        return;
+    }
+    alleRecepten.splice(index, 1);
+    updateLS(alleRecepten);
+    receptenSectie.dispatchEvent(update);
+}</code></pre>
+      </div>
+      <p><code>confirm()</code> toont een dialoogvenster met OK en Annuleren. Het geeft <code>true</code> terug als de gebruiker op OK klikt, <code>false</code> bij Annuleren.</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H15-afb1.svg" alt="Browser: confirm-dialoogvenster 'Ben je zeker dat je dit recept wil verwijderen?' met OK en Annuleren" loading="lazy">
+      </figure>
+      <p>We voegen ook een extra controle toe: als <code>findIndex()</code> <code>-1</code> teruggeeft (recept niet gevonden), stoppen we de functie. Dit voorkomt dat we <code>splice(-1, 1)</code> aanroepen, wat het laatste element van de array zou verwijderen.</p>
+
+      <h2 id="findindex-vs-indexof">15.3 <code>findIndex()</code> vs <code>indexOf()</code> — het verschil</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// indexOf: zoek een primitieve waarde (string, number)
+const namen = ['Pasta', 'Soep', 'Salade'];
+namen.indexOf('Soep');  // 1  ✓
+
+// findIndex: zoek met een conditie (objecten!)
+const recepten = [
+    { naam: 'Pasta', bereidingstijd: 20 },
+    { naam: 'Soep', bereidingstijd: 35 },
+];
+recepten.findIndex(r => r.naam === 'Soep');         // 1  ✓
+recepten.findIndex(r => r.bereidingstijd &lt; 25);    // 0 (Pasta)
+
+// indexOf werkt NIET bij objecten:
+recepten.indexOf({ naam: 'Soep', bereidingstijd: 35 }); // -1 (niet gevonden!)
+// Want indexOf vergelijkt referentie, niet inhoud</code></pre>
+      </div>
+      <p>Gebruik <code>findIndex()</code> <strong>altijd</strong> bij arrays van objecten. <code>indexOf()</code> vergelijkt referenties, niet de inhoud van objecten.</p>
+
+      <h2 id="splice-detail">15.4 <code>splice()</code> in detail</h2>
+      <p><code>splice(startIndex, aantalTeVerwijderen, ...elementenToevoegen)</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const arr = ['a', 'b', 'c', 'd', 'e'];
+
+arr.splice(2, 1);
+// Verwijder 1 element vanaf index 2
+// arr = ['a', 'b', 'd', 'e']
+
+arr.splice(1, 2);
+// Verwijder 2 elementen vanaf index 1
+// arr = ['a', 'e']
+
+arr.splice(1, 0, 'x', 'y');
+// Verwijder 0 elementen, voeg 'x' en 'y' toe op index 1
+// arr = ['a', 'x', 'y', 'e']</code></pre>
+      </div>
+      <p><code>splice()</code> <strong>muteert</strong> de originele array (past die aan). Het geeft ook een array terug met de verwijderde elementen — handig als je ze wil bewaren (bijv. voor "ongedaan maken"):</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const verwijderd = alleRecepten.splice(index, 1);
+console.log(verwijderd[0]); // Het verwijderde receptobject</code></pre>
+      </div>
+
+      <h2 id="categorie-verwijderen">15.5 Alle recepten van één categorie verwijderen</h2>
+      <p>Een interessante uitbreiding: verwijder alle recepten van een bepaalde categorie in één actie:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function verwijderCategorie(categorie) {
+    const bevestigd = confirm(`Alle "${categorie}"-recepten verwijderen?`);
+    if (!bevestigd) return;
+
+    // filter(): behoud enkel de recepten die NIET die categorie zijn
+    alleRecepten = alleRecepten.filter(r => r.categorie !== categorie);
+    updateLS(alleRecepten);
+    receptenSectie.dispatchEvent(update);
+}</code></pre>
+      </div>
+      <p>Voeg per categorie een verwijder-knop toe via event delegation:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">document.querySelectorAll('.verwijder-categorie').forEach(knop => {
+    knop.addEventListener('click', () => {
+        verwijderCategorie(knop.dataset.categorie);
+    });
+});</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;button class="verwijder-categorie" data-categorie="dessert"&gt;Wis alle desserts&lt;/button&gt;
+&lt;button class="verwijder-categorie" data-categorie="snack"&gt;Wis alle snacks&lt;/button&gt;</code></pre>
+      </div>
+      <p>Let op: in <code>verwijderCategorie()</code> gebruiken we <code>filter()</code> om een <strong>nieuwe array</strong> te maken met alle recepten die de opgegeven categorie <em>niet</em> hebben. Dit is anders dan <code>splice()</code>: <code>filter()</code> past de originele array niet aan, maar maakt een nieuwe — vandaar <code>alleRecepten = alleRecepten.filter(...)</code>.</p>
+
+      <h2 id="undo">15.6 "Ongedaan maken" — undo-functie</h2>
+      <p>Een geavanceerde maar elegant patroon: bewaar het laatste verwijderde recept zodat de gebruiker het kan herstellen:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let verwijderdRecept = null; // Bewaar laatste verwijderd item
+
+function verwijderRecept(verwijderNaam) {
+    const bevestigd = confirm(`"${verwijderNaam}" verwijderen?`);
+    if (!bevestigd) return;
+
+    const index = alleRecepten.findIndex(r => r.naam === verwijderNaam);
+    if (index === -1) return;
+
+    // Bewaar het verwijderde recept (splice geeft een array terug)
+    verwijderdRecept = alleRecepten.splice(index, 1)[0];
+    updateLS(alleRecepten);
+    receptenSectie.dispatchEvent(update);
+
+    // Toon herstel-melding gedurende 5 seconden
+    toonHerstelMelding();
+}
+
+function toonHerstelMelding() {
+    const melding = document.querySelector('#herstel-melding');
+    melding.textContent = `"${verwijderdRecept.naam}" verwijderd.`;
+    melding.style.display = 'block';
+
+    // Verberg de melding na 5 seconden
+    setTimeout(() => {
+        melding.style.display = 'none';
+        verwijderdRecept = null;
+    }, 5000);
+}
+
+document.querySelector('#herstel-knop').addEventListener('click', () => {
+    if (verwijderdRecept) {
+        alleRecepten.push(verwijderdRecept);
+        updateLS(alleRecepten);
+        receptenSectie.dispatchEvent(update);
+        document.querySelector('#herstel-melding').style.display = 'none';
+        verwijderdRecept = null;
+    }
+});</code></pre>
+      </div>
+      <p>De sleutel hier is <code>alleRecepten.splice(index, 1)[0]</code>: <code>splice()</code> geeft een array terug met de verwijderde elementen, en <code>[0]</code> haalt het eerste (en enige) element eruit. Dat object bewaren we in <code>verwijderdRecept</code>.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB11</span>
+            <span class="oefening__title">Oefening 1 — Verwijder met stijl</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg de volgende verbeteringen toe aan je Receptenapp:</p>
+            <ol>
+              <li>Voeg een bevestigingsdialoog toe aan de bestaande verwijderfunctie.</li>
+              <li>Voeg een veiligheidscheck toe: als <code>findIndex()</code> <code>-1</code> teruggeeft, stop de functie.</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H15-oef1-browser.svg" alt="Browser: herstel-melding 'Recept verwijderd — Herstellen?' zichtbaar bovenaan de pagina" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Categorie verwijderen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg "Wis alle desserts" en "Wis alle snacks" knoppen toe aan de pagina. Implementeer de <code>verwijderCategorie(categorie)</code> functie met bevestiging.</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB11</span>
+            <span class="oefening__title">Oefening 3 — Undo-functie implementeren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Implementeer de volledige undo-functie:</p>
+            <ol>
+              <li>Voeg <code>id="herstel-melding"</code> en <code>id="herstel-knop"</code> toe aan <code>index.html</code>.</li>
+              <li>Implementeer <code>toonHerstelMelding()</code> met <code>setTimeout()</code>.</li>
+              <li>Implementeer de "herstel"-knop listener.</li>
+              <li>Test: verwijder een recept, klik binnen 5 seconden op "Herstellen" en controleer of het recept terugkomt.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H15 Verwijderen &amp; Uitdieping
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H15-oef1-browser.svg', 'Voorbeeld — Verwijderen met undo-melding')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Robuuste verwijderfunctionaliteit</h3>
+            <h4>Deel 1 — Bevestiging en veiligheidscontroles (3 punten)</h4>
+            <ol>
+              <li>Voeg <code>confirm()</code> toe aan de verwijderfunctie.</li>
+              <li>Voeg een <code>index === -1</code>-controle toe.</li>
+            </ol>
+            <h4>Deel 2 — Bulk verwijderen (4 punten)</h4>
+            <ol>
+              <li>Implementeer <code>verwijderCategorie()</code> met <code>filter()</code>.</li>
+              <li>Voeg knoppen toe voor minstens 2 categorieën.</li>
+            </ol>
+            <h4>Deel 3 — Undo-functie (3 punten)</h4>
+            <ol>
+              <li>Implementeer de volledige undo-functie met herstel-melding.</li>
+              <li>Verberg de melding automatisch na 5 seconden.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H15 — Verwijderen &amp; Uitdieping</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat geeft <code>confirm('Zeker?')</code> terug als de gebruiker op "Annuleren" klikt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="a"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="b"> <span><code>0</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="c"> <span><code>false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v1" value="d"> <span><code>undefined</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat geeft <code>findIndex()</code> terug als het element niet gevonden wordt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="a"> <span><code>-1</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="b"> <span><code>null</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="c"> <span><code>false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v2" value="d"> <span><code>0</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Waarom gebruiken we <code>filter()</code> in <code>verwijderCategorie()</code> in plaats van <code>splice()</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="a"> <span>Omdat <code>splice()</code> niet werkt bij categorieën</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="b"> <span>Omdat we meerdere elementen willen verwijderen op basis van een conditie, en <code>filter()</code> dit eleganter doet</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="c"> <span>Omdat <code>filter()</code> sneller is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v3" value="d"> <span>Er is geen verschil</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat doet <code>alleRecepten.splice(index, 1)[0]</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="a"> <span>Geeft de index van het verwijderde element terug</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="b"> <span>Verwijdert het eerste element van de array</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="c"> <span>Geeft een array terug met alle overige elementen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v4" value="d"> <span>Verwijdert het element op <code>index</code> en geeft het verwijderde object terug</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet <code>setTimeout(() => {...}, 5000)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="a"> <span>Herhaalt de functie elke 5 seconden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="b"> <span>Wacht 5 milliseconden en voert dan de functie uit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="c"> <span>Wacht 5 seconden en voert dan de functie eenmalig uit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v5" value="d"> <span>Stopt de uitvoering van de pagina voor 5 seconden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Waarom werkt <code>indexOf()</code> niet correct bij een array van objecten?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="a"> <span>Omdat <code>indexOf()</code> niet bestaat voor arrays</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="b"> <span>Omdat <code>indexOf()</code> objecten vergelijkt op referentie, niet op inhoud</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="c"> <span>Omdat objecten niet in arrays kunnen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h15-v6" value="d"> <span>Omdat <code>indexOf()</code> alleen strings ondersteuning</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H15')" data-progress-key="6adb/app-ontwikkeling/H15">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H14.html" class="btn btn-ghost">← H14</a>
+          <a href="H16.html" class="btn btn-ghost">H16 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

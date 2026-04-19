@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <!-- Achtergrond gradient donkerblauw -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#051428"/>
+      <stop offset="50%"  stop-color="#082040"/>
+      <stop offset="100%" stop-color="#0a3060"/>
+    </linearGradient>
+    <!-- Glow cyan -->
+    <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#00d4ff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Glow oranje -->
+    <radialGradient id="glow-orange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#ff6b00" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ff6b00" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Glow paars -->
+    <radialGradient id="glow-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#7c3aed" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Scherm gradient -->
+    <linearGradient id="screen-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0d2a4a"/>
+      <stop offset="100%" stop-color="#0a1f38"/>
+    </linearGradient>
+    <linearGradient id="laptop-body" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#1a3a5c"/>
+      <stop offset="100%" stop-color="#0d2240"/>
+    </linearGradient>
+    <filter id="blur-sm">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="blur-md">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="blur-lg">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- Achtergrond -->
+  <rect width="600" height="380" fill="url(#bg)"/>
+
+  <!-- Subtiele grid-lijnen achtergrond -->
+  <g stroke="#0d3a6e" stroke-width="0.4" opacity="0.4">
+    <line x1="0" y1="50"  x2="600" y2="50"/>
+    <line x1="0" y1="100" x2="600" y2="100"/>
+    <line x1="0" y1="150" x2="600" y2="150"/>
+    <line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="300" x2="600" y2="300"/>
+    <line x1="0" y1="350" x2="600" y2="350"/>
+    <line x1="60"  y1="0" x2="60"  y2="380"/>
+    <line x1="120" y1="0" x2="120" y2="380"/>
+    <line x1="180" y1="0" x2="180" y2="380"/>
+    <line x1="240" y1="0" x2="240" y2="380"/>
+    <line x1="300" y1="0" x2="300" y2="380"/>
+    <line x1="360" y1="0" x2="360" y2="380"/>
+    <line x1="420" y1="0" x2="420" y2="380"/>
+    <line x1="480" y1="0" x2="480" y2="380"/>
+    <line x1="540" y1="0" x2="540" y2="380"/>
+  </g>
+
+  <!-- ── GLOW ACHTERGROND EFFECTEN ── -->
+  <ellipse cx="300" cy="200" rx="180" ry="120" fill="url(#glow-purple)" filter="url(#blur-lg)" opacity="0.5"/>
+  <ellipse cx="160" cy="290" rx="60" ry="60" fill="url(#glow-orange)" filter="url(#blur-md)" opacity="0.7"/>
+  <ellipse cx="440" cy="285" rx="55" ry="55" fill="url(#glow-orange)" filter="url(#blur-md)" opacity="0.6"/>
+
+  <!-- ── LAPTOP (centraal) ── -->
+  <!-- Laptop scherm -->
+  <rect x="190" y="105" width="220" height="150" rx="5" fill="url(#laptop-body)" stroke="#1e5080" stroke-width="1.5"/>
+  <rect x="197" y="112" width="206" height="136" rx="3" fill="url(#screen-grad)"/>
+  <!-- Scherm inhoud: code editor mockup -->
+  <!-- Tab bar -->
+  <rect x="197" y="112" width="206" height="14" rx="3" fill="#0d2a50"/>
+  <rect x="200" y="115" width="45" height="8" rx="2" fill="#1e5080"/>
+  <text x="222" y="122" text-anchor="middle" font-size="5" fill="#7ec8e3">index.html</text>
+  <rect x="248" y="115" width="45" height="8" rx="2" fill="#0d2240"/>
+  <text x="270" y="122" text-anchor="middle" font-size="5" fill="#4a7a9b">style.css</text>
+  <!-- Code lijnen -->
+  <rect x="202" y="130" width="80" height="3" rx="1" fill="#7c3aed" opacity="0.8"/>
+  <rect x="206" y="137" width="55" height="3" rx="1" fill="#00d4ff" opacity="0.7"/>
+  <rect x="210" y="144" width="70" height="3" rx="1" fill="#39ff14" opacity="0.6"/>
+  <rect x="210" y="151" width="45" height="3" rx="1" fill="#00d4ff" opacity="0.7"/>
+  <rect x="206" y="158" width="60" height="3" rx="1" fill="#7c3aed" opacity="0.8"/>
+  <rect x="202" y="165" width="40" height="3" rx="1" fill="#7c3aed" opacity="0.8"/>
+  <rect x="206" y="172" width="75" height="3" rx="1" fill="#39ff14" opacity="0.5"/>
+  <rect x="206" y="179" width="50" height="3" rx="1" fill="#00d4ff" opacity="0.6"/>
+  <rect x="202" y="186" width="30" height="3" rx="1" fill="#7c3aed" opacity="0.7"/>
+  <!-- Preview paneel rechts -->
+  <rect x="295" y="126" width="104" height="118" rx="2" fill="#071828"/>
+  <rect x="298" y="129" width="98" height="60" rx="2" fill="#0a2a44"/>
+  <!-- Mini UI in preview -->
+  <rect x="302" y="133" width="90" height="8" rx="1" fill="#1e5080"/>
+  <rect x="302" y="144" width="55" height="4" rx="1" fill="#00d4ff" opacity="0.4"/>
+  <rect x="302" y="151" width="70" height="4" rx="1" fill="#00d4ff" opacity="0.3"/>
+  <rect x="302" y="158" width="40" height="4" rx="1" fill="#00d4ff" opacity="0.3"/>
+  <!-- Graph bars in preview -->
+  <rect x="302" y="198" width="8"  height="30" rx="1" fill="#7c3aed" opacity="0.8"/>
+  <rect x="313" y="188" width="8"  height="40" rx="1" fill="#00d4ff" opacity="0.8"/>
+  <rect x="324" y="193" width="8"  height="35" rx="1" fill="#7c3aed" opacity="0.7"/>
+  <rect x="335" y="180" width="8"  height="48" rx="1" fill="#00d4ff" opacity="0.9"/>
+  <rect x="346" y="200" width="8"  height="28" rx="1" fill="#39ff14" opacity="0.7"/>
+  <rect x="357" y="185" width="8"  height="43" rx="1" fill="#7c3aed" opacity="0.8"/>
+  <rect x="368" y="195" width="8"  height="33" rx="1" fill="#00d4ff" opacity="0.7"/>
+  <!-- Groene curve lijn over preview -->
+  <polyline points="302,175 318,163 334,168 350,155 366,160 385,152" fill="none" stroke="#39ff14" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="302" cy="175" r="2" fill="#39ff14"/>
+  <circle cx="318" cy="163" r="2" fill="#39ff14"/>
+  <circle cx="334" cy="168" r="2" fill="#39ff14"/>
+  <circle cx="350" cy="155" r="2" fill="#39ff14"/>
+
+  <!-- Laptop basis/scharnier -->
+  <rect x="185" y="255" width="230" height="8" rx="3" fill="#1a3a5c" stroke="#1e5080" stroke-width="1"/>
+  <rect x="195" y="263" width="210" height="4" rx="2" fill="#0d2240"/>
+
+  <!-- ── TABLET (rechts) ── -->
+  <rect x="435" y="145" width="90" height="120" rx="6" fill="#1a3a5c" stroke="#1e5080" stroke-width="1.5"/>
+  <rect x="440" y="152" width="80" height="106" rx="3" fill="url(#screen-grad)"/>
+  <!-- Tablet scherm inhoud -->
+  <rect x="440" y="152" width="80" height="10" rx="3" fill="#0d2a50"/>
+  <rect x="443" y="155" width="30" height="4" rx="1" fill="#1e5080"/>
+  <rect x="443" y="166" width="74" height="35" rx="2" fill="#0a1f38"/>
+  <rect x="446" y="169" width="68" height="4" rx="1" fill="#00d4ff" opacity="0.5"/>
+  <rect x="446" y="176" width="50" height="4" rx="1" fill="#00d4ff" opacity="0.4"/>
+  <rect x="446" y="183" width="60" height="4" rx="1" fill="#00d4ff" opacity="0.3"/>
+  <!-- Mini graph -->
+  <rect x="443" y="206" width="6"  height="20" rx="1" fill="#7c3aed" opacity="0.8"/>
+  <rect x="452" y="213" width="6"  height="13" rx="1" fill="#00d4ff" opacity="0.8"/>
+  <rect x="461" y="208" width="6"  height="18" rx="1" fill="#7c3aed" opacity="0.7"/>
+  <rect x="470" y="200" width="6"  height="26" rx="1" fill="#00d4ff" opacity="0.9"/>
+  <rect x="479" y="210" width="6"  height="16" rx="1" fill="#39ff14" opacity="0.7"/>
+  <rect x="488" y="204" width="6"  height="22" rx="1" fill="#7c3aed" opacity="0.8"/>
+  <rect x="443" y="230" width="74" height="22" rx="2" fill="#0d2240"/>
+  <rect x="446" y="233" width="40" height="3" rx="1" fill="#7c3aed" opacity="0.7"/>
+  <rect x="446" y="239" width="55" height="3" rx="1" fill="#00d4ff" opacity="0.5"/>
+  <rect x="446" y="245" width="30" height="3" rx="1" fill="#39ff14" opacity="0.5"/>
+  <!-- Home knop tablet -->
+  <circle cx="480" cy="263" r="4" fill="#0d2240" stroke="#1e5080" stroke-width="1"/>
+
+  <!-- ── SMARTPHONE (links) ── -->
+  <rect x="78" y="165" width="54" height="95" rx="7" fill="#1a3a5c" stroke="#1e5080" stroke-width="1.5"/>
+  <rect x="83" y="173" width="44" height="79" rx="3" fill="url(#screen-grad)"/>
+  <!-- Speaker/notch -->
+  <rect x="97" y="169" width="16" height="3" rx="2" fill="#0d2240"/>
+  <!-- Scherminhoud telefoon -->
+  <rect x="83" y="173" width="44" height="8" rx="3" fill="#0d2a50"/>
+  <rect x="85" y="185" width="40" height="20" rx="2" fill="#0a1f38"/>
+  <rect x="87" y="188" width="36" height="3" rx="1" fill="#00d4ff" opacity="0.5"/>
+  <rect x="87" y="194" width="25" height="3" rx="1" fill="#00d4ff" opacity="0.4"/>
+  <!-- Mini icons op telefoon -->
+  <rect x="85" y="210" width="11" height="11" rx="2" fill="#7c3aed" opacity="0.7"/>
+  <rect x="99" y="210" width="11" height="11" rx="2" fill="#0078d4" opacity="0.7"/>
+  <rect x="113" y="210" width="11" height="11" rx="2" fill="#39ff14" opacity="0.5"/>
+  <rect x="85" y="224" width="11" height="11" rx="2" fill="#0078d4" opacity="0.6"/>
+  <rect x="99" y="224" width="11" height="11" rx="2" fill="#7c3aed" opacity="0.6"/>
+  <rect x="113" y="224" width="11" height="11" rx="2" fill="#00d4ff" opacity="0.5"/>
+  <!-- Home bar -->
+  <rect x="99" y="245" width="18" height="3" rx="1.5" fill="#1e5080"/>
+
+  <!-- ── ORANJE GLOW RINGEN ── -->
+  <!-- Linker ring -->
+  <circle cx="160" cy="290" r="38" fill="none" stroke="#ff6b00" stroke-width="3" opacity="0.9"/>
+  <circle cx="160" cy="290" r="38" fill="none" stroke="#ff6b00" stroke-width="8" opacity="0.15" filter="url(#blur-sm)"/>
+  <circle cx="160" cy="290" r="28" fill="none" stroke="#ff4400" stroke-width="1.5" opacity="0.6"/>
+  <!-- Power icon in ring -->
+  <path d="M160 278 L160 285" stroke="#ff6b00" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M152 282 a10 10 0 1 0 16 0" fill="none" stroke="#ff6b00" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Rechter ring -->
+  <circle cx="440" cy="285" r="34" fill="none" stroke="#ff6b00" stroke-width="3" opacity="0.85"/>
+  <circle cx="440" cy="285" r="34" fill="none" stroke="#ff6b00" stroke-width="8" opacity="0.12" filter="url(#blur-sm)"/>
+  <circle cx="440" cy="285" r="24" fill="none" stroke="#ff4400" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- ── ZWEVENDE ICON KAARTJES ── -->
+  <!-- Email icoon (bovenaan midden) -->
+  <rect x="270" y="30" width="44" height="34" rx="6" fill="#0d2a50" stroke="#00d4ff" stroke-width="1" opacity="0.9"/>
+  <rect x="275" y="35" width="34" height="20" rx="2" fill="#071828"/>
+  <polyline points="275,35 292,48 309,35" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.9"/>
+  <ellipse cx="292" cy="37" rx="16" ry="8" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- WiFi icoon (linksboven) -->
+  <rect x="80" y="88" width="38" height="38" rx="6" fill="#0d2a50" stroke="#00d4ff" stroke-width="1" opacity="0.8"/>
+  <path d="M99 118 a20 20 0 0 1 0-28" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M99 118 a13 13 0 0 1 0-18" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M99 118 a6 6 0 0 1 0-8" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="99" cy="120" r="2.5" fill="#00d4ff"/>
+
+  <!-- Slot icoon (rechtsboven) -->
+  <rect x="394" y="55" width="38" height="38" rx="6" fill="#0d2a50" stroke="#00d4ff" stroke-width="1" opacity="0.8"/>
+  <rect x="406" y="74" width="14" height="11" rx="2" fill="#00d4ff" opacity="0.7"/>
+  <path d="M408 74 v-5 a5 5 0 0 1 10 0 v5" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
+  <circle cx="413" cy="80" r="2" fill="#0d2a50"/>
+
+  <!-- Monitor icoon (linksboven, klein) -->
+  <rect x="85" y="145" width="38" height="30" rx="4" fill="#0d2a50" stroke="#1e80b8" stroke-width="1" opacity="0.7"/>
+  <rect x="89" y="149" width="30" height="18" rx="2" fill="#071828"/>
+  <rect x="100" y="175" width="8" height="4" rx="1" fill="#1e5080"/>
+  <!-- mini scherm lijntjes -->
+  <rect x="91" y="152" width="26" height="2" rx="1" fill="#00d4ff" opacity="0.5"/>
+  <rect x="91" y="157" width="18" height="2" rx="1" fill="#7c3aed" opacity="0.5"/>
+  <rect x="91" y="162" width="22" height="2" rx="1" fill="#00d4ff" opacity="0.4"/>
+
+  <!-- Database icoon (rechts) -->
+  <rect x="518" y="185" width="38" height="38" rx="6" fill="#0d2a50" stroke="#00d4ff" stroke-width="1" opacity="0.7"/>
+  <ellipse cx="537" cy="198" rx="10" ry="4" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.8"/>
+  <rect x="527" y="198" width="20" height="10" fill="#0d2a50"/>
+  <ellipse cx="537" cy="208" rx="10" ry="4" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.8"/>
+  <rect x="527" y="208" width="20" height="8" fill="#0d2a50"/>
+  <ellipse cx="537" cy="216" rx="10" ry="4" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Tandwiel/Settings (rechts midden) -->
+  <rect x="523" y="110" width="38" height="38" rx="6" fill="#0d2a50" stroke="#00d4ff" stroke-width="1" opacity="0.7"/>
+  <circle cx="542" cy="129" r="6" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
+  <circle cx="542" cy="129" r="2.5" fill="#00d4ff" opacity="0.6"/>
+  <line x1="542" y1="120" x2="542" y2="118" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="542" y1="138" x2="542" y2="140" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="533" y1="129" x2="531" y2="129" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <line x1="551" y1="129" x2="553" y2="129" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Code icoon (rechts boven) -->
+  <rect x="526" y="55" width="38" height="30" rx="4" fill="#0d2a50" stroke="#7c3aed" stroke-width="1" opacity="0.8"/>
+  <text x="545" y="75" text-anchor="middle" font-size="14" fill="#7c3aed" font-family="monospace" opacity="0.9">&lt;/&gt;</text>
+
+  <!-- ── VERBINDINGSLIJNEN (stippellijnen tussen elementen) ── -->
+  <line x1="292" y1="64"  x2="292" y2="105" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.4"/>
+  <line x1="99"  y1="126" x2="130" y2="165" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.4"/>
+  <line x1="123" y1="175" x2="190" y2="200" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="413" y1="93"  x2="410" y2="145" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.4"/>
+  <line x1="435" y1="205" x2="410" y2="200" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="518" y1="210" x2="525" y2="145" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.3"/>
+
+  <!-- Stip-verbindingspunten -->
+  <circle cx="292" cy="64"  r="2.5" fill="#00d4ff" opacity="0.8"/>
+  <circle cx="99"  cy="126" r="2.5" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="413" cy="93"  r="2.5" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="435" cy="205" r="2"   fill="#00d4ff" opacity="0.5"/>
+
+  <!-- ── DATAVISUALISATIE BALK ONDERAAN ── -->
+  <g transform="translate(145, 310)" opacity="0.6">
+    <rect x="0"   y="20" width="8" height="18" rx="1" fill="#00d4ff"/>
+    <rect x="12"  y="12" width="8" height="26" rx="1" fill="#7c3aed"/>
+    <rect x="24"  y="16" width="8" height="22" rx="1" fill="#00d4ff"/>
+    <rect x="36"  y="8"  width="8" height="30" rx="1" fill="#39ff14"/>
+    <rect x="48"  y="18" width="8" height="20" rx="1" fill="#00d4ff"/>
+    <rect x="60"  y="10" width="8" height="28" rx="1" fill="#7c3aed"/>
+    <rect x="72"  y="14" width="8" height="24" rx="1" fill="#00d4ff"/>
+    <rect x="84"  y="20" width="8" height="18" rx="1" fill="#39ff14"/>
+    <rect x="96"  y="6"  width="8" height="32" rx="1" fill="#7c3aed"/>
+    <rect x="108" y="15" width="8" height="23" rx="1" fill="#00d4ff"/>
+    <rect x="120" y="11" width="8" height="27" rx="1" fill="#39ff14"/>
+    <rect x="132" y="18" width="8" height="20" rx="1" fill="#7c3aed"/>
+    <rect x="144" y="9"  width="8" height="29" rx="1" fill="#00d4ff"/>
+    <rect x="156" y="14" width="8" height="24" rx="1" fill="#39ff14"/>
+    <rect x="168" y="17" width="8" height="21" rx="1" fill="#7c3aed"/>
+    <rect x="180" y="13" width="8" height="25" rx="1" fill="#00d4ff"/>
+    <rect x="192" y="20" width="8" height="18" rx="1" fill="#39ff14"/>
+    <rect x="204" y="7"  width="8" height="31" rx="1" fill="#7c3aed"/>
+    <rect x="216" y="15" width="8" height="23" rx="1" fill="#00d4ff"/>
+    <rect x="228" y="11" width="8" height="27" rx="1" fill="#39ff14"/>
+    <rect x="240" y="19" width="8" height="19" rx="1" fill="#7c3aed"/>
+    <rect x="252" y="10" width="8" height="28" rx="1" fill="#00d4ff"/>
+    <rect x="264" y="16" width="8" height="22" rx="1" fill="#39ff14"/>
+  </g>
+
+  <!-- ── GLOEIENDE OGEN/PUNTEN ── -->
+  <circle cx="292" cy="37"  r="4" fill="#00d4ff" opacity="0.9"/>
+  <circle cx="292" cy="37"  r="8" fill="#00d4ff" opacity="0.15" filter="url(#blur-sm)"/>
+  <circle cx="99"  cy="120" r="3" fill="#00d4ff" opacity="0.8"/>
+  <circle cx="99"  cy="120" r="7" fill="#00d4ff" opacity="0.1" filter="url(#blur-sm)"/>
+  <circle cx="413" cy="88"  r="3" fill="#00d4ff" opacity="0.8"/>
+  <circle cx="537" cy="129" r="2" fill="#00d4ff" opacity="0.9"/>
+
+  <!-- ── ORANJE LICHTPUNTEN ── -->
+  <circle cx="160" cy="290" r="4" fill="#ff6b00" opacity="0.9"/>
+  <circle cx="160" cy="290" r="10" fill="#ff6b00" opacity="0.2" filter="url(#blur-sm)"/>
+  <circle cx="440" cy="285" r="4" fill="#ff6b00" opacity="0.8"/>
+  <circle cx="440" cy="285" r="10" fill="#ff6b00" opacity="0.15" filter="url(#blur-sm)"/>
+
+  <!-- Rode stippen decoratie -->
+  <circle cx="352" cy="340" r="3" fill="#ff2244" opacity="0.8"/>
+  <circle cx="362" cy="340" r="3" fill="#ff2244" opacity="0.6"/>
+  <circle cx="372" cy="340" r="3" fill="#ff2244" opacity="0.4"/>
+  <circle cx="382" cy="340" r="3" fill="#ff2244" opacity="0.3"/>
+  <circle cx="225" cy="345" r="3" fill="#ff6b00" opacity="0.7"/>
+  <circle cx="235" cy="345" r="3" fill="#ff6b00" opacity="0.5"/>
+  <circle cx="245" cy="345" r="3" fill="#ff6b00" opacity="0.3"/>
+
+  <!-- Toetsenbord hint onderaan laptop -->
+  <g transform="translate(215, 276)" opacity="0.4">
+    <rect x="0"  y="0" width="12" height="6" rx="1" fill="#1e5080"/>
+    <rect x="15" y="0" width="12" height="6" rx="1" fill="#1e5080"/>
+    <rect x="30" y="0" width="12" height="6" rx="1" fill="#1e5080"/>
+    <rect x="45" y="0" width="12" height="6" rx="1" fill="#1e5080"/>
+    <rect x="60" y="0" width="12" height="6" rx="1" fill="#1e5080"/>
+    <rect x="75" y="0" width="12" height="6" rx="1" fill="#1e5080"/>
+    <rect x="90" y="0" width="12" height="6" rx="1" fill="#1e5080"/>
+    <rect x="7"  y="9" width="14" height="6" rx="1" fill="#1e5080"/>
+    <rect x="24" y="9" width="14" height="6" rx="1" fill="#1e5080"/>
+    <rect x="41" y="9" width="14" height="6" rx="1" fill="#1e5080"/>
+    <rect x="58" y="9" width="14" height="6" rx="1" fill="#1e5080"/>
+    <rect x="75" y="9" width="14" height="6" rx="1" fill="#1e5080"/>
+  </g>
+
+</svg>

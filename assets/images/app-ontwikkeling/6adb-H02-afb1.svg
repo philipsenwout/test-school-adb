@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff"/>
+    </marker>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Label persoon buiten kast -->
+  <text x="55" y="255" font-size="16" fill="#6c63ff" font-weight="bold" font-family="'Courier New', monospace">persoon</text>
+
+  <!-- Pijl naar kast -->
+  <line x1="120" y1="250" x2="160" y2="250" stroke="#6c63ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Kast omtrek -->
+  <rect x="170" y="60" width="480" height="380" rx="14" fill="#1a1a2e" stroke="#6c63ff" stroke-width="2.5"/>
+
+  <!-- Kast interne achtergrond gradient simulatie -->
+  <rect x="180" y="70" width="460" height="360" rx="10" fill="#12122a"/>
+
+  <!-- Kast titel -->
+  <text x="410" y="100" font-size="14" fill="#a78bfa" text-anchor="middle" font-family="'Courier New', monospace" font-weight="bold">const persoon = &#123; ... &#125;</text>
+  <line x1="195" y1="110" x2="625" y2="110" stroke="#6c63ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Lade 1: naam -->
+  <rect x="195" y="125" width="420" height="58" rx="8" fill="#1e1e3a" stroke="#333366" stroke-width="1"/>
+  <!-- Insprong/hendel -->
+  <rect x="590" y="140" width="18" height="28" rx="4" fill="#2a2a4a"/>
+  <text x="220" y="160" font-size="14" fill="#888">naam:</text>
+  <text x="350" y="160" font-size="15" fill="#f9a825" font-family="'Courier New', monospace" font-weight="bold">"Jana"</text>
+  <text x="220" y="176" font-size="11" fill="#555" font-style="italic">string — tekst</text>
+
+  <!-- Lade 2: leeftijd -->
+  <rect x="195" y="195" width="420" height="58" rx="8" fill="#1a1a30" stroke="#333366" stroke-width="1"/>
+  <rect x="590" y="210" width="18" height="28" rx="4" fill="#2a2a4a"/>
+  <text x="220" y="230" font-size="14" fill="#888">leeftijd:</text>
+  <text x="350" y="230" font-size="15" fill="#6c63ff" font-family="'Courier New', monospace" font-weight="bold">17</text>
+  <text x="220" y="246" font-size="11" fill="#555" font-style="italic">number — getal</text>
+
+  <!-- Lade 3: stad -->
+  <rect x="195" y="265" width="420" height="58" rx="8" fill="#1e1e3a" stroke="#333366" stroke-width="1"/>
+  <rect x="590" y="280" width="18" height="28" rx="4" fill="#2a2a4a"/>
+  <text x="220" y="300" font-size="14" fill="#888">stad:</text>
+  <text x="350" y="300" font-size="15" fill="#f9a825" font-family="'Courier New', monospace" font-weight="bold">"Hasselt"</text>
+  <text x="220" y="316" font-size="11" fill="#555" font-style="italic">string — tekst</text>
+
+  <!-- Lade 4: isStudent -->
+  <rect x="195" y="335" width="420" height="58" rx="8" fill="#1a1a30" stroke="#333366" stroke-width="1"/>
+  <rect x="590" y="350" width="18" height="28" rx="4" fill="#2a2a4a"/>
+  <text x="220" y="370" font-size="14" fill="#888">isStudent:</text>
+  <text x="350" y="370" font-size="15" fill="#43e97b" font-family="'Courier New', monospace" font-weight="bold">true</text>
+  <text x="220" y="386" font-size="11" fill="#555" font-style="italic">boolean — waar/onwaar</text>
+
+  <!-- Decoratieve bolletjes op kastfronten (laden illusion) -->
+  <circle cx="187" cy="154" r="3" fill="#333"/>
+  <circle cx="187" cy="224" r="3" fill="#333"/>
+  <circle cx="187" cy="294" r="3" fill="#333"/>
+  <circle cx="187" cy="364" r="3" fill="#333"/>
+
+  <!-- Hoe aanspreken -->
+  <rect x="170" y="460" width="480" height="30" rx="8" fill="#0d0d1a" stroke="#6c63ff" stroke-width="1" opacity="0.8"/>
+  <text x="410" y="480" font-size="13" fill="#6c63ff" text-anchor="middle" font-family="'Courier New', monospace">persoon.naam  →  <tspan fill="#f9a825">"Jana"</tspan>    persoon.leeftijd  →  <tspan fill="#6c63ff">17</tspan></text>
+</svg>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software installatie — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container container-narrow">
+
+    <nav class="breadcrumb" aria-label="Paginapad">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/index.html">6ADB</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <a href="../../6adb/software.html">Software</a>
+      <span class="breadcrumb-sep">&#8250;</span>
+      <span>App-ontwikkeling</span>
+    </nav>
+
+    <div class="page-header vak-appdev">
+      <div class="page-header__vak">&#128187; App-ontwikkeling 6ADB</div>
+      <h1 class="page-header__title">Software installatie</h1>
+      <p class="page-header__desc">Installeer alle tools die je nodig hebt voordat je begint. In 6ADB gebruiken we naast VS Code ook Node.js voor server-side JavaScript. Volg de stappen in volgorde.</p>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">&#x1F4CC; Wat installeren we?</div>
+      <ul>
+        <li><strong>Visual Studio Code</strong> — onze code-editor (al geïnstalleerd vanuit 5ADB)</li>
+        <li><strong>Extra VS Code extensions</strong> — specifieke plugins voor Node.js-ontwikkeling</li>
+        <li><strong>Node.js &amp; npm</strong> — JavaScript runtime voor de server + pakketbeheer</li>
+      </ul>
+    </div>
+
+    <div class="callout callout--warning">
+      <div class="callout-header">&#x26A0; VS Code al geïnstalleerd?</div>
+      <p>Als je VS Code nog niet hebt, installeer het eerst via de <a href="../../5adb/app-ontwikkeling/software.html">5ADB software-gids</a>. Kom daarna terug om de extra tools voor 6ADB te installeren.</p>
+    </div>
+
+    <!-- ===================== TOOL 1: NODE.JS ===================== -->
+    <div class="software-tool" id="nodejs">
+      <div class="software-tool__header">
+        <div style="width:52px;height:52px;background:#026e00;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0">&#9881;</div>
+        <div>
+          <h2 class="software-tool__name">Node.js &amp; npm</h2>
+          <p class="software-tool__sub">JavaScript runtime voor de server &mdash; Windows, macOS en Linux</p>
+        </div>
+      </div>
+
+      <p><strong>Node.js</strong> laat toe om JavaScript buiten de browser uit te voeren — rechtstreeks op je computer of server. We gebruiken het in 6ADB vanaf H20 om een eigen back-end te bouwen met <strong>Express</strong>. <strong>npm</strong> (Node Package Manager) wordt automatisch meegeïnstalleerd en dient om pakketten zoals Express te installeren.</p>
+
+      <h3>Installatiestappen</h3>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Ga naar de officiële website</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Open je browser en surf naar <code>nodejs.org</code>. Je ziet twee versies: kies altijd de <strong>LTS</strong>-versie (Long Term Support) — die is stabiel en geschikt voor schoolgebruik.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Download het installatiebestand</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">
+            <em>Windows:</em> download het <code>.msi</code> installatiebestand (Windows Installer).<br>
+            <em>macOS:</em> download het <code>.pkg</code> bestand.<br>
+            <em>Linux:</em> gebruik de package manager van je distributie.
+          </p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">3</div>
+        <div class="install-step__body">
+          <strong>Voer de installatie uit</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">
+            <em>Windows:</em> dubbelklik op het <code>.msi</code> bestand en volg de wizard. Laat alle standaardinstellingen staan. Vink zeker aan: <strong>Automatically install the necessary tools</strong>.<br>
+            <em>macOS:</em> dubbelklik op het <code>.pkg</code> bestand en volg de installatieprocedure.<br>
+            De installatie voegt <code>node</code> en <code>npm</code> automatisch toe aan je systeem-PATH.
+          </p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">4</div>
+        <div class="install-step__body">
+          <strong>Controleer de installatie via de terminal</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Open een <strong>terminal</strong> (Windows: <kbd>Win+R</kbd> → typ <code>cmd</code> of gebruik de terminal in VS Code) en voer de volgende twee commando's uit:</p>
+          <div class="code-block" style="margin-top:var(--space-3)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code>node --version
+npm --version</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-2) 0 0">Je ziet iets zoals <code>v22.x.x</code> en <code>10.x.x</code>. Als je versienummers ziet, is de installatie gelukt.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--info" style="margin-top:var(--space-4)">
+        <div class="callout-header">&#x2714; Geïntegreerde terminal in VS Code</div>
+        <p>In VS Code kan je de terminal rechtstreeks openen via <kbd>Ctrl+`</kbd> (Windows/Linux) of <kbd>Cmd+`</kbd> (macOS). Je hoeft nooit een apart venster te openen — typ al je Node.js-commando's direct in VS Code.</p>
+      </div>
+    </div>
+
+    <!-- ===================== TOOL 2: EXTENSIONS ===================== -->
+    <div class="software-tool" id="extensions">
+      <div class="software-tool__header">
+        <div style="width:52px;height:52px;background:var(--color-vak-appdev);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0">&#129520;</div>
+        <div>
+          <h2 class="software-tool__name">Extra VS Code Extensions</h2>
+          <p class="software-tool__sub">Aanvullend op de extensions uit 5ADB — specifiek voor Node.js &amp; back-end</p>
+        </div>
+      </div>
+
+      <p>Installeer de extensions via <kbd>Ctrl+Shift+X</kbd> / <kbd>Cmd+Shift+X</kbd> in VS Code. Zoek op de naam of de extension-id en klik op <strong>Install</strong>.</p>
+
+      <h3>Verplichte extensions (nieuw in 6ADB)</h3>
+      <div class="extension-grid">
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#9935; REST Client</div>
+          <p class="extension-card__desc">Stuur HTTP-verzoeken (GET, POST, DELETE …) rechtstreeks vanuit VS Code om je eigen API te testen — zonder aparte tool.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>humao.rest-client</code></p>
+        </div>
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#128640; ESLint</div>
+          <p class="extension-card__desc">Waarschuwt je direct in VS Code bij veelgemaakte JavaScript-fouten en stijlproblemen. Handig voor clean code bij Node.js-projecten.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>dbaeumer.vscode-eslint</code></p>
+        </div>
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#128196; DotENV</div>
+          <p class="extension-card__desc">Kleuring en syntax-highlighting voor <code>.env</code>-bestanden, waarin je API-sleutels en configuratievariabelen opslaat.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>mikestead.dotenv</code></p>
+        </div>
+
+        <div class="extension-card">
+          <div class="extension-card__name">&#128202; Thunder Client</div>
+          <p class="extension-card__desc">Lichtgewicht alternatief voor Postman — test GET/POST/DELETE/PATCH requests tegen je Express API vanuit VS Code zelf.</p>
+          <p class="extension-card__desc" style="margin-top:var(--space-2)"><em>Zoek op:</em> <code>rangav.vscode-thunder-client</code></p>
+        </div>
+
+      </div>
+
+      <h3 style="margin-top:var(--space-6)">Extensions uit 5ADB behouden</h3>
+      <p class="text-muted">Zorg dat je ook nog deze extensions van 5ADB hebt staan — ze blijven even nuttig in 6ADB:</p>
+      <div class="extension-grid">
+        <div class="extension-card">
+          <div class="extension-card__name">&#127760; Live Server</div>
+          <p class="extension-card__desc">Blijft nuttig voor de client-side pagina's. <em>Zoek op:</em> <code>ritwickdey.liveserver</code></p>
+        </div>
+        <div class="extension-card">
+          <div class="extension-card__name">&#127912; Prettier</div>
+          <p class="extension-card__desc">Code-formattering voor HTML, CSS, JS én JSON. <em>Zoek op:</em> <code>esbenp.prettier-vscode</code></p>
+        </div>
+        <div class="extension-card">
+          <div class="extension-card__name">&#9889; JavaScript (ES6) Snippets</div>
+          <p class="extension-card__desc">Shortcuts voor moderne JS-syntax. <em>Zoek op:</em> <code>xabikos.javascriptsnippets</code></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== EERSTE PROJECT ===================== -->
+    <div class="software-tool" id="eerste-project">
+      <div class="software-tool__header">
+        <div style="width:52px;height:52px;background:var(--color-vak-appdev);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0">&#128193;</div>
+        <div>
+          <h2 class="software-tool__name">Je eerste Node.js-project opzetten</h2>
+          <p class="software-tool__sub">Verifieer dat alles werkt met een eenvoudig testproject</p>
+        </div>
+      </div>
+
+      <p>Doe dit eenmalig om te controleren dat Node.js en npm correct werken.</p>
+
+      <div class="install-step">
+        <div class="install-step__num">1</div>
+        <div class="install-step__body">
+          <strong>Maak een nieuwe map aan en open die in VS Code</strong>
+          <div class="code-block" style="margin-top:var(--space-3)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code>mkdir mijn-node-test
+cd mijn-node-test
+code .</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">2</div>
+        <div class="install-step__body">
+          <strong>Initialiseer een npm-project</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">In de VS Code-terminal:</p>
+          <div class="code-block" style="margin-top:var(--space-3)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code>npm init -y</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-2) 0 0">Dit maakt een <code>package.json</code> aan. Voeg daarna <code>"type": "module"</code> toe zodat je <code>import/export</code> kan gebruiken.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">3</div>
+        <div class="install-step__body">
+          <strong>Installeer Express</strong>
+          <div class="code-block" style="margin-top:var(--space-3)">
+            <div class="code-block__lang">Bash</div>
+            <pre><code>npm install express</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-2) 0 0">Je ziet een <code>node_modules/</code> map verschijnen. Dit is normaal — zet deze nooit mee in een indiening.</p>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step__num">4</div>
+        <div class="install-step__body">
+          <strong>Maak een testserver</strong>
+          <p class="text-muted" style="margin:var(--space-1) 0 0">Maak een bestand <code>server.js</code> aan met deze inhoud:</p>
+          <div class="code-block" style="margin-top:var(--space-3)">
+            <div class="code-block__lang">JavaScript</div>
+            <pre><code>import express from 'express';
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Node.js werkt!');
+});
+
+app.listen(3000, () => {
+    console.log('Server draait op poort 3000');
+});</code></pre>
+          </div>
+          <p class="text-muted" style="margin:var(--space-2) 0 0">Start de server met <code>node server.js</code> en open <code>http://localhost:3000</code> in je browser. Als je "Node.js werkt!" ziet, is alles correct ingesteld.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== KLAAR ===================== -->
+    <div class="callout callout--info" style="border-color: var(--color-success); background: rgba(40,200,64,0.07)">
+      <div class="callout-header" style="color: var(--color-success)">&#10003; Alles geïnstalleerd? Dan ben je klaar om te beginnen!</div>
+      <p>Je hebt nu VS Code, Node.js, npm en alle benodigde extensions. Start bij H01 om de JavaScript-verdieping te beginnen. Node.js gebruik je pas actief vanaf H20.</p>
+      <div style="margin-top:var(--space-4)">
+        <a href="H01.html" class="btn btn-primary">&#8594; Ga naar H01 &mdash; Arrays</a>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--space-8); text-align:center; display:flex; gap:var(--space-3); justify-content:center; flex-wrap:wrap">
+      <a href="../../6adb/software.html" class="btn btn-ghost">&#8592; Terug naar Software overzicht</a>
+      <a href="index.html" class="btn btn-ghost">App-ontwikkeling overzicht</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7c85ff"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28c840"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="520" fill="#1a1a2e"/>
+  <text x="410" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#e0e0f0">Registratie — stap voor stap</text>
+
+  <!-- Column headers -->
+  <text x="110" y="66" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">Browser</text>
+  <text x="410" y="66" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">Node.js server</text>
+  <text x="700" y="66" text-anchor="middle" font-size="13" fill="#7c85ff" font-weight="700">MySQL</text>
+
+  <!-- Vertical lanes -->
+  <line x1="110" y1="72" x2="110" y2="490" stroke="#2a2a4a" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="410" y1="72" x2="410" y2="490" stroke="#2a2a4a" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="700" y1="72" x2="700" y2="490" stroke="#2a2a4a" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Step 1: POST /api/register -->
+  <rect x="30" y="85" width="160" height="36" rx="6" fill="#252550" stroke="#7c85ff" stroke-width="1.5"/>
+  <text x="110" y="107" text-anchor="middle" font-size="12" fill="#c8c8d4">POST /api/register</text>
+  <line x1="190" y1="103" x2="335" y2="103" stroke="#7c85ff" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="262" y="96" text-anchor="middle" font-size="10" fill="#888">naam, email, wachtwoord</text>
+
+  <!-- Step 2: bcrypt.hash -->
+  <rect x="330" y="120" width="160" height="36" rx="6" fill="#252550" stroke="#f78c6c" stroke-width="1.5"/>
+  <text x="410" y="138" text-anchor="middle" font-size="12" fill="#f78c6c" font-weight="700">bcrypt.hash(wachtwoord, 10)</text>
+  <text x="410" y="153" text-anchor="middle" font-size="10" fill="#888">→ "$2b$10$K8Jepbw..."</text>
+
+  <!-- Step 3: INSERT MySQL -->
+  <line x1="490" y1="165" x2="625" y2="180" stroke="#7c85ff" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="555" y="168" text-anchor="middle" font-size="10" fill="#888">INSERT INTO users</text>
+  <rect x="630" y="170" width="140" height="36" rx="6" fill="#252550" stroke="#a8e6a3" stroke-width="1.5"/>
+  <text x="700" y="192" text-anchor="middle" font-size="11" fill="#a8e6a3">rij opgeslagen ✓</text>
+
+  <!-- Step 4: 201 Created -->
+  <line x1="630" y1="220" x2="495" y2="235" stroke="#28c840" stroke-width="2" marker-end="url(#arrGreen)"/>
+  <text x="560" y="226" text-anchor="middle" font-size="10" fill="#888">insertId</text>
+  <rect x="330" y="235" width="160" height="36" rx="6" fill="#1a3a2a" stroke="#28c840" stroke-width="1.5"/>
+  <text x="410" y="257" text-anchor="middle" font-size="12" fill="#28c840" font-weight="700">201 Created</text>
+
+  <!-- Arrow back to browser -->
+  <line x1="330" y1="253" x2="195" y2="270" stroke="#28c840" stroke-width="2" marker-end="url(#arrGreen)"/>
+  <text x="262" y="263" text-anchor="middle" font-size="10" fill="#888">&#123; bericht: "Geregistreerd" &#125;</text>
+  <rect x="30" y="270" width="160" height="36" rx="6" fill="#1a3a2a" stroke="#28c840" stroke-width="1.5"/>
+  <text x="110" y="292" text-anchor="middle" font-size="12" fill="#28c840">→ redirect login.html</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="330" x2="780" y2="330" stroke="#2a2a4a" stroke-width="1"/>
+
+  <!-- Hash detail box -->
+  <rect x="40" y="345" width="360" height="130" rx="8" fill="#16162a" stroke="#f78c6c" stroke-width="1.5"/>
+  <text x="220" y="368" text-anchor="middle" font-size="13" fill="#f78c6c" font-weight="700">Hoe werkt bcrypt?</text>
+  <text x="60" y="392" font-size="12" fill="#c8c8d4">"geheim123"</text>
+  <text x="200" y="392" font-size="14" fill="#888">→</text>
+  <text x="230" y="392" font-size="11" fill="#f78c6c" font-family="'Courier New', monospace">"$2b$10$K8Jepbw..."</text>
+  <text x="60" y="416" font-size="11" fill="#888">• Eenrichtingsverkeer: hash → wachtwoord kan niet</text>
+  <text x="60" y="434" font-size="11" fill="#888">• bcrypt.compare() vergelijkt wachtwoord met hash</text>
+  <text x="60" y="452" font-size="11" fill="#888">• Getal 10 = kostfactor (hoe hoger, hoe trager)</text>
+  <text x="60" y="468" font-size="11" fill="#888">• Elke hash is uniek, ook bij zelfde wachtwoord</text>
+
+  <!-- Danger note -->
+  <rect x="440" y="345" width="340" height="80" rx="8" fill="#2a1010" stroke="#ff5f57" stroke-width="1.5"/>
+  <text x="610" y="370" text-anchor="middle" font-size="13" fill="#ff5f57" font-weight="700">⚠ Nooit plain-text opslaan!</text>
+  <text x="610" y="392" text-anchor="middle" font-size="11" fill="#888">Als de database gehackt wordt:</text>
+  <text x="610" y="410" text-anchor="middle" font-size="11" fill="#ff5f57">plain-text → alle wachtwoorden direct leesbaar</text>
+  <text x="610" y="428" text-anchor="middle" font-size="11" fill="#28c840">bcrypt hash → onbruikbaar voor aanvaller</text>
+</svg>

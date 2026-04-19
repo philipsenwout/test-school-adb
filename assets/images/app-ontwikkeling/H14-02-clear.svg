@@ -1,0 +1,78 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#f38ba8"/>
+    </marker>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" rx="8" fill="#1e1e2e"/>
+
+  <!-- Title -->
+  <text x="450" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#cdd6f4">clear — tekst loopt NIET onder de float door</text>
+
+  <!-- ── LEFT: WITHOUT clear ── -->
+  <rect x="30" y="52" width="400" height="390" rx="10" fill="#2a2a3e" stroke="#f38ba8" stroke-width="1.5"/>
+  <text x="230" y="76" text-anchor="middle" font-size="13" fill="#f38ba8" font-weight="bold">ZONDER clear</text>
+
+  <!-- float left image -->
+  <rect x="54" y="92" width="110" height="90" rx="6" fill="#3b5bdb" opacity="0.85"/>
+  <text x="109" y="133" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">🖼 float:left</text>
+  <text x="109" y="150" text-anchor="middle" font-size="10" fill="#a5b4fc">height: 90px</text>
+
+  <!-- text next to float -->
+  <rect x="178" y="92" width="226" height="12" rx="3" fill="#585b70"/>
+  <rect x="178" y="110" width="190" height="12" rx="3" fill="#585b70"/>
+  <rect x="178" y="128" width="226" height="12" rx="3" fill="#585b70"/>
+  <rect x="178" y="146" width="150" height="12" rx="3" fill="#585b70"/>
+
+  <!-- footer div overlapping float -->
+  <rect x="54" y="196" width="350" height="40" rx="6" fill="#f38ba8" opacity="0.25" stroke="#f38ba8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="229" y="221" text-anchor="middle" font-size="11" fill="#f38ba8" font-weight="bold">footer-div — kruipt naast de float!</text>
+
+  <!-- arrow pointing to overlap -->
+  <line x1="229" y1="240" x2="229" y2="232" stroke="#f38ba8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <text x="229" y="286" text-anchor="middle" font-size="11" fill="#f38ba8">De footer staat naast (en deels onder)</text>
+  <text x="229" y="302" text-anchor="middle" font-size="11" fill="#f38ba8">de gefloate afbeelding — niet gewenst!</text>
+
+  <!-- code -->
+  <rect x="54" y="330" width="350" height="40" rx="6" fill="#181825"/>
+  <text x="229" y="350" text-anchor="middle" font-size="11" fill="#f38ba8" font-family="Courier New">/* geen clear */</text>
+  <text x="229" y="366" text-anchor="middle" font-size="11" fill="#585b70" font-family="Courier New">.footer { }</text>
+
+  <!-- ── RIGHT: WITH clear ── -->
+  <rect x="470" y="52" width="400" height="390" rx="10" fill="#2a2a3e" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="670" y="76" text-anchor="middle" font-size="13" fill="#22c55e" font-weight="bold">MET clear: both</text>
+
+  <!-- float left image -->
+  <rect x="494" y="92" width="110" height="90" rx="6" fill="#3b5bdb" opacity="0.85"/>
+  <text x="549" y="133" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">🖼 float:left</text>
+  <text x="549" y="150" text-anchor="middle" font-size="10" fill="#a5b4fc">height: 90px</text>
+
+  <!-- text next to float -->
+  <rect x="618" y="92" width="226" height="12" rx="3" fill="#585b70"/>
+  <rect x="618" y="110" width="190" height="12" rx="3" fill="#585b70"/>
+  <rect x="618" y="128" width="226" height="12" rx="3" fill="#585b70"/>
+  <rect x="618" y="146" width="150" height="12" rx="3" fill="#585b70"/>
+
+  <!-- clear line indicator -->
+  <line x1="494" y1="196" x2="844" y2="196" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="670" y="191" text-anchor="middle" font-size="10" fill="#22c55e">clear: both — start hier pas na de float</text>
+
+  <!-- footer div BELOW float -->
+  <rect x="494" y="204" width="350" height="40" rx="6" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="669" y="229" text-anchor="middle" font-size="11" fill="#22c55e" font-weight="bold">footer-div — start netjes ONDER de float</text>
+
+  <!-- code -->
+  <rect x="494" y="330" width="350" height="40" rx="6" fill="#181825"/>
+  <text x="669" y="350" text-anchor="middle" font-size="11" fill="#22c55e" font-family="Courier New">/* clear: both */</text>
+  <text x="669" y="366" text-anchor="middle" font-size="11" fill="#a6e3a1" font-family="Courier New">.footer &#123; clear: both; &#125;</text>
+
+  <!-- Divider arrow -->
+  <line x1="440" y1="240" x2="460" y2="240" stroke="#cdd6f4" stroke-width="1.5"/>
+  <text x="450" y="235" text-anchor="middle" font-size="9" fill="#585b70">vs</text>
+</svg>

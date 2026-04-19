@@ -43,20 +43,51 @@
 <span class="breadcrumb-sep">&#8250;</span>
 <span>H06</span>
 </nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. Databaseschema ontwerpen</a></li>
-        <li><a href="#s2">2. API-endpoints plannen</a></li>
-        <li><a href="#s3">3. Koppeling front-end &harr; back-end &harr; database</a></li>
-        <li><a href="#s4">4. Testen met Postman en curl</a></li>
-        <li><a href="#s5">5. GIP backend checklist</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/databeheer/H06" style="--sidebar-accent: var(--color-vak-data)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1">1. Databaseschema ontwerpen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s2">2. API-endpoints plannen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s3">3. Koppeling front-end ↔ back-end ↔ database</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s4">4. Testen met Postman en curl</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s5">5. GIP backend checklist</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+        <a href="#vragenlijst">Vragenlijst</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
     <div class="page-header vak-data">
@@ -68,8 +99,18 @@
       </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-DB-14] GIP-database ontwerpen en koppelen aan de back-end &mdash; verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">DB14</span><span class="ld-tag__title">GIP-database ontwerpen en koppelen aan de back-end — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>De leerling kan een genormaliseerd databaseschema ontwerpen voor het GIP-project.</li>
+        <li>De leerling kan API-endpoints documenteren vóór de implementatie (HTTP-methode, pad, body, response).</li>
+        <li>De leerling kan de samenwerking tussen front-end, back-end en database beschrijven en implementeren.</li>
+        <li>De leerling kan een API testen met Postman of curl vóór de front-end gekoppeld wordt.</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. Databaseschema ontwerpen voor het GIP</h2>

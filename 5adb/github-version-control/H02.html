@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 — Git configureren — GitHub Version Control 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/github-version-control/H02" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.1"><span class="sidebar-check__box"></span></label>
+          <a href="#terminal">2.1 De terminal</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.2"><span class="sidebar-check__box"></span></label>
+          <a href="#versie-check">2.2 Git versie controleren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.3"><span class="sidebar-check__box"></span></label>
+          <a href="#configuratie">2.3 Naam en e-mail instellen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.4"><span class="sidebar-check__box"></span></label>
+          <a href="#navigatie">2.4 Navigeren in de terminal</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Version Control</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H02 — Git configureren</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H02 — GitHub Version Control 5ADB</div>
+        <h1 class="page-header__title">Git configureren</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan de terminal (Git Bash / Terminal) openen en basiscommando's uitvoeren</li>
+          <li>Je kan controleren of Git correct geïnstalleerd is via <code>git --version</code></li>
+          <li>Je kan je naam en e-mailadres instellen via <code>git config --global</code></li>
+          <li>Je kan navigeren in de terminal met <code>cd</code>, <code>ls</code> en <code>pwd</code></li>
+        </ul>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9432; Vereiste voorbereiding</div>
+        <p>Heb je Git nog niet geïnstalleerd? Ga eerst naar de <a href="software.html">software installatiepagina</a> en volg de stappen.</p>
+      </div>
+
+      <h2 id="terminal">2.1 De terminal openen</h2>
+
+      <p>De terminal is een tekstvenster waarmee je commando's geeft aan je computer. Git werkt via de terminal — je typt commando's en Git antwoordt met resultaten.</p>
+
+      <h3>Windows — Git Bash</h3>
+      <p>Git voor Windows installeert automatisch <strong>Git Bash</strong>, een Linux-achtige terminal. Je opent Git Bash op twee manieren:</p>
+      <ul>
+        <li>Via het startmenu: zoek op "Git Bash"</li>
+        <li>Rechtermuisklik in een map → <em>Open Git Bash here</em> (handig!)</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Windows Terminal en PowerShell</div>
+        <p>Git werkt ook in Windows Terminal en PowerShell. Maar Git Bash heeft als voordeel dat alle commando's in dit boek (Linux-stijl) zonder aanpassing werken.</p>
+      </div>
+
+      <h3>macOS — Terminal</h3>
+      <p>Druk op <kbd>Cmd+Spatie</kbd>, typ "Terminal" en druk Enter. Of via Finder → Programma's → Hulpprogramma's → Terminal.</p>
+
+      <h3>Linux</h3>
+      <p>Druk op <kbd>Ctrl+Alt+T</kbd> of zoek "Terminal" in het toepassingenmenu.</p>
+
+      <h2 id="versie-check">2.2 Controleer of Git werkt</h2>
+
+      <p>Open je terminal en typ:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git --version</code></pre>
+      </div>
+
+      <p>Je zou zoiets moeten zien:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git version 2.47.0.windows.2</code></pre>
+      </div>
+
+      <div class="callout callout--danger">
+        <div class="callout-header">&#10060; Foutmelding: "git is not recognized"</div>
+        <p>Als je <code>git: command not found</code> of <code>'git' is not recognized</code> ziet, is Git niet correct geïnstalleerd of niet toegevoegd aan het PATH. Ga terug naar de <a href="software.html">installatiepagina</a> en controleer stap 2 (vink "Add to PATH" aan).</p>
+      </div>
+
+      <h2 id="configuratie">2.3 Je naam en e-mail instellen</h2>
+
+      <p>Elke commit die je maakt, bevat jouw naam en e-mailadres. Zo weet de leerkracht van wie de commit is. Je stelt dit één keer in, en Git onthoudt het voor altijd.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git config --global user.name "Voornaam Naam"
+git config --global user.email "jouw@schoolmail.be"</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Gebruik je schoolmailadres</div>
+        <p>Het e-mailadres moet <strong>hetzelfde zijn</strong> als je GitHub account. Zo worden je commits correct gelinkt aan je profiel en kan de leerkracht je werk identificeren.</p>
+      </div>
+
+      <p>Controleer daarna of alles correct staat:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git config --list</code></pre>
+      </div>
+
+      <p>Je ziet een lijst van alle instellingen. Zoek naar <code>user.name</code> en <code>user.email</code>.</p>
+
+      <h2 id="navigatie">2.4 Navigeren in de terminal</h2>
+
+      <p>In de terminal navigeer je naar mappen (directories) met tekst-commando's. Dit zijn de drie commando's die je elke dag gebruikt:</p>
+
+      <div style="display:grid;gap:var(--space-4);margin:var(--space-4) 0">
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-2)"><code>pwd</code> — Print Working Directory</h3>
+          <p style="margin-bottom:var(--space-2)">Toont in welke map je je momenteel bevindt.</p>
+          <div class="code-block">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">pwd
+# Uitvoer: /c/Users/JanPeeters/Documents</code></pre>
+          </div>
+        </div>
+
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-2)"><code>ls</code> — List</h3>
+          <p style="margin-bottom:var(--space-2)">Toont de bestanden en mappen in de huidige map.</p>
+          <div class="code-block">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">ls
+# Toont: app-ontwikkeling/  README.md  huistaken/</code></pre>
+          </div>
+        </div>
+
+        <div class="card" style="padding:var(--space-4)">
+          <h3 style="margin-bottom:var(--space-2)"><code>cd</code> — Change Directory</h3>
+          <p style="margin-bottom:var(--space-2)">Navigeer naar een andere map.</p>
+          <div class="code-block">
+            <div class="code-block__lang">Bash</div>
+            <pre><code class="language-bash">cd Documents            # ga naar Documents
+cd app-ontwikkeling     # ga naar een submap
+cd ..                   # ga één map omhoog
+cd ~                    # ga naar je home-map</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Tab-aanvulling</div>
+        <p>Druk op <kbd>Tab</kbd> terwijl je typt om mapnamen automatisch aan te vullen. Typ bv. <code>cd Doc</code> + Tab en de terminal vult aan naar <code>cd Documents/</code>. Zeer handig!</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 1 — Git controleren en configureren</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voer de volgende stappen uit in de terminal:</p>
+            <ol>
+              <li>Open Git Bash (Windows) of Terminal (Mac/Linux)</li>
+              <li>Voer <code>git --version</code> uit en noteer de versie die je ziet</li>
+              <li>Stel je naam in: <code>git config --global user.name "Jouw Naam"</code></li>
+              <li>Stel je e-mail in: <code>git config --global user.email "jouw@schoolmail.be"</code></li>
+              <li>Controleer met <code>git config --list</code> — zijn naam en e-mail correct?</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 2 — Navigeren in de terminal</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Navigeer zonder de muis naar een bepaalde map:</p>
+            <ol>
+              <li>Open een nieuwe terminal</li>
+              <li>Gebruik <code>pwd</code> om te zien waar je bent</li>
+              <li>Gebruik <code>ls</code> om de inhoud van de huidige map te zien</li>
+              <li>Navigeer naar je <em>Documenten</em> map met <code>cd</code></li>
+              <li>Maak een nieuwe map aan: <code>mkdir git-oefening</code></li>
+              <li>Navigeer daarin: <code>cd git-oefening</code></li>
+              <li>Ga terug naar Documenten: <code>cd ..</code></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Git configureren
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H02-voorbeeld.svg', 'Voorbeeld — git config --list output')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak een screenshot-verslag</h3>
+            <ol>
+              <li><strong>Deel 1 — 5 punten:</strong> Maak screenshots van:
+                <ul>
+                  <li>de uitvoer van <code>git --version</code></li>
+                  <li>de uitvoer van <code>git config --list</code> (naam en e-mail zichtbaar)</li>
+                </ul>
+              </li>
+              <li><strong>Deel 2 — 5 punten:</strong> Leg in eigen woorden (3-4 zinnen) uit waarom je <code>--global</code> gebruikt bij <code>git config</code>, en wat het verschil is als je <code>--global</code> weglaat.</li>
+            </ol>
+            <p>Voeg de screenshots en tekst samen in één document (Word of PDF) en laad het op in je repository onder <code>github-version-control/H02-configuratie/</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H02 — Git configureren</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welk commando gebruik je om te controleren welke versie van Git geïnstalleerd is?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="a"> <span>git status</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="b"> <span>git info</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="c"> <span>git --version</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="d"> <span>git check</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk commando stelt je globale gebruikersnaam in voor Git?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="a"> <span>git set name "Naam"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="b"> <span>git config --global user.name "Naam"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="c"> <span>git config user.name "Naam"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="d"> <span>git username "Naam"</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Welk terminalcommando toont de huidige map waarin je je bevindt?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="a"> <span>pwd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="b"> <span>ls</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="c"> <span>dir</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="d"> <span>cd</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe navigeer je één map omhoog in de terminal?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="a"> <span>cd /</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="b"> <span>cd back</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="c"> <span>cd up</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="d"> <span>cd ..</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Waarom moet je hetzelfde e-mailadres gebruiken voor Git en GitHub?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="a"> <span>Zodat commits correct gelinkt worden aan je GitHub profiel</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="b"> <span>Zodat je wachtwoord hetzelfde blijft</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="c"> <span>Anders kan je niet pushen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="d"> <span>Het is verplicht door de GDPR-wetgeving</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/github-version-control/H02')" data-progress-key="5adb/github-version-control/H02">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H01.html" class="btn btn-ghost">← H01</a>
+          <a href="H03.html" class="btn btn-ghost">H03 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

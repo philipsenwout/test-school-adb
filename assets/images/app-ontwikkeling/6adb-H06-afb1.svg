@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#6a6a8a"/>
+    </marker>
+    <marker id="arrowBlue2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#3498db"/>
+    </marker>
+    <marker id="arrowPurple2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#6c63ff"/>
+    </marker>
+    <marker id="arrowGreen2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7 Z" fill="#43e97b"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#e8e8f0">Welke methode gebruik je wanneer?</text>
+
+  <!-- Input array -->
+  <text x="400" y="66" text-anchor="middle" font-size="13" fill="#a0a0c0">Invoer-array:</text>
+
+  <!-- Array boxes -->
+  <g transform="translate(246, 74)">
+    <rect x="0" y="0" width="48" height="34" rx="6" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="24" y="22" text-anchor="middle" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace">2</text>
+    <rect x="52" y="0" width="48" height="34" rx="6" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="76" y="22" text-anchor="middle" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace">4</text>
+    <rect x="104" y="0" width="48" height="34" rx="6" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="128" y="22" text-anchor="middle" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace">6</text>
+    <rect x="156" y="0" width="48" height="34" rx="6" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="180" y="22" text-anchor="middle" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace">8</text>
+    <rect x="208" y="0" width="48" height="34" rx="6" fill="#2d2d4e" stroke="#5a5a7a" stroke-width="1.5"/>
+    <text x="232" y="22" text-anchor="middle" font-size="14" fill="#e8e8f0" font-family="'Courier New', monospace">10</text>
+  </g>
+
+  <!-- Arrows from input to each column -->
+  <!-- to forEach -->
+  <line x1="280" y1="116" x2="130" y2="152" stroke="#6a6a8a" stroke-width="2" marker-end="url(#arrowBlue2)"/>
+  <!-- to map -->
+  <line x1="400" y1="116" x2="400" y2="152" stroke="#6a6a8a" stroke-width="2" marker-end="url(#arrowPurple2)"/>
+  <!-- to filter -->
+  <line x1="520" y1="116" x2="670" y2="152" stroke="#6a6a8a" stroke-width="2" marker-end="url(#arrowGreen2)"/>
+
+  <!-- ===== Column 1: forEach ===== -->
+  <rect x="24" y="154" width="222" height="290" rx="10" fill="#0e1e2e" stroke="#3498db" stroke-width="2.5"/>
+  <rect x="24" y="154" width="222" height="44" rx="10" fill="#3498db"/>
+  <rect x="24" y="186" width="222" height="12" fill="#3498db"/>
+  <text x="135" y="183" text-anchor="middle" font-size="15" font-weight="700" fill="white">forEach</text>
+
+  <text x="135" y="218" text-anchor="middle" font-size="11" fill="#80c0e0">Doe iets met elk element</text>
+
+  <rect x="38" y="226" width="194" height="68" rx="6" fill="#081018"/>
+  <text x="50" y="244" font-size="11" fill="#80c0ff" font-family="'Courier New', monospace">arr.forEach(n =&gt;</text>
+  <text x="50" y="260" font-size="11" fill="#43e97b" font-family="'Courier New', monospace">  console.log(n)</text>
+  <text x="50" y="276" font-size="11" fill="#80c0ff" font-family="'Courier New', monospace">)</text>
+  <text x="50" y="290" font-size="10" fill="#6080a0" font-family="'Courier New', monospace">// 2, 4, 6, 8, 10</text>
+
+  <!-- Console output -->
+  <text x="135" y="326" text-anchor="middle" font-size="11" fill="#8080a0">Console-output:</text>
+  <text x="135" y="342" text-anchor="middle" font-size="13" fill="#43e97b" font-family="'Courier New', monospace">2  4  6  8  10</text>
+
+  <rect x="38" y="358" width="194" height="68" rx="6" fill="#1a3048"/>
+  <text x="135" y="376" text-anchor="middle" font-size="11" fill="#6090c0" font-weight="600">Geen return,</text>
+  <text x="135" y="392" text-anchor="middle" font-size="11" fill="#6090c0">geen nieuwe array</text>
+  <text x="135" y="410" text-anchor="middle" font-size="11" fill="#4070a0">Gebruik voor bijwerkingen:</text>
+  <text x="135" y="424" text-anchor="middle" font-size="11" fill="#4070a0">logging, DOM-updates...</text>
+
+  <!-- ===== Column 2: map ===== -->
+  <rect x="288" y="154" width="224" height="290" rx="10" fill="#1a0a3e" stroke="#6c63ff" stroke-width="2.5"/>
+  <rect x="288" y="154" width="224" height="44" rx="10" fill="#6c63ff"/>
+  <rect x="288" y="186" width="224" height="12" fill="#6c63ff"/>
+  <text x="400" y="183" text-anchor="middle" font-size="15" font-weight="700" fill="white">map</text>
+
+  <text x="400" y="218" text-anchor="middle" font-size="11" fill="#c0b0ff">Transformeer elk element</text>
+
+  <rect x="302" y="226" width="196" height="68" rx="6" fill="#0a0618"/>
+  <text x="314" y="244" font-size="11" fill="#a090e0" font-family="'Courier New', monospace">arr.map(n =&gt;</text>
+  <text x="314" y="260" font-size="11" fill="#43e97b" font-family="'Courier New', monospace">  n * 2</text>
+  <text x="314" y="276" font-size="11" fill="#a090e0" font-family="'Courier New', monospace">)</text>
+
+  <!-- Output array boxes -->
+  <text x="400" y="318" text-anchor="middle" font-size="11" fill="#8080a0">Resultaat:</text>
+  <g transform="translate(298, 324)">
+    <rect x="0" y="0" width="34" height="28" rx="4" fill="#4a40a0"/>
+    <text x="17" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">4</text>
+    <rect x="38" y="0" width="34" height="28" rx="4" fill="#4a40a0"/>
+    <text x="55" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">8</text>
+    <rect x="76" y="0" width="38" height="28" rx="4" fill="#4a40a0"/>
+    <text x="95" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">12</text>
+    <rect x="118" y="0" width="38" height="28" rx="4" fill="#4a40a0"/>
+    <text x="137" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">16</text>
+    <rect x="160" y="0" width="40" height="28" rx="4" fill="#4a40a0"/>
+    <text x="180" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">20</text>
+  </g>
+
+  <rect x="302" y="368" width="196" height="58" rx="6" fill="#1a1035"/>
+  <text x="400" y="386" text-anchor="middle" font-size="11" fill="#8070d0" font-weight="600">Geeft nieuwe array terug</text>
+  <text x="400" y="402" text-anchor="middle" font-size="11" fill="#6050c0">Origineel blijft ongewijzigd</text>
+  <text x="400" y="418" text-anchor="middle" font-size="11" fill="#5040b0">Zelfde lengte als invoer</text>
+
+  <!-- ===== Column 3: filter ===== -->
+  <rect x="554" y="154" width="222" height="290" rx="10" fill="#0a2010" stroke="#43e97b" stroke-width="2.5"/>
+  <rect x="554" y="154" width="222" height="44" rx="10" fill="#43e97b"/>
+  <rect x="554" y="186" width="222" height="12" fill="#43e97b"/>
+  <text x="665" y="183" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a2e">filter</text>
+
+  <text x="665" y="218" text-anchor="middle" font-size="11" fill="#60d890">Behoud elementen met conditie</text>
+
+  <rect x="568" y="226" width="194" height="68" rx="6" fill="#041208"/>
+  <text x="580" y="244" font-size="11" fill="#50c870" font-family="'Courier New', monospace">arr.filter(n =&gt;</text>
+  <text x="580" y="260" font-size="11" fill="#43e97b" font-family="'Courier New', monospace">  n &gt; 5</text>
+  <text x="580" y="276" font-size="11" fill="#50c870" font-family="'Courier New', monospace">)</text>
+
+  <!-- Output array: fewer items -->
+  <text x="665" y="318" text-anchor="middle" font-size="11" fill="#8080a0">Resultaat:</text>
+  <g transform="translate(595, 324)">
+    <rect x="0" y="0" width="40" height="28" rx="4" fill="#206040"/>
+    <text x="20" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">6</text>
+    <rect x="44" y="0" width="40" height="28" rx="4" fill="#206040"/>
+    <text x="64" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">8</text>
+    <rect x="88" y="0" width="50" height="28" rx="4" fill="#206040"/>
+    <text x="113" y="19" text-anchor="middle" font-size="12" fill="white" font-family="'Courier New', monospace">10</text>
+  </g>
+
+  <rect x="568" y="368" width="194" height="58" rx="6" fill="#0a2010"/>
+  <text x="665" y="386" text-anchor="middle" font-size="11" fill="#40a060" font-weight="600">Geeft gefilterde array terug</text>
+  <text x="665" y="402" text-anchor="middle" font-size="11" fill="#308050">Minder of evenveel elementen</text>
+  <text x="665" y="418" text-anchor="middle" font-size="11" fill="#206040">Vereist een boolean-conditie</text>
+
+  <!-- Footer tip -->
+  <rect x="24" y="458" width="752" height="46" rx="10" fill="#1a1a2e" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="400" y="477" text-anchor="middle" font-size="12" fill="#f9a825" font-weight="600">💡 Combineer ze:</text>
+  <text x="400" y="495" text-anchor="middle" font-size="12" fill="#e8e8f0">arr<tspan font-family="'Courier New', monospace">.filter(n =&gt; n &gt; 5)</tspan><tspan font-family="'Courier New', monospace">.map(n =&gt; n * 2)</tspan> — <tspan fill="#43e97b">method chaining!</tspan></text>
+</svg>

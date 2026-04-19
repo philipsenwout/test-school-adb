@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H03 — Activiteiten ophalen en tonen — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/gip/H03" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#get-route">1. GET-route</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#front-end">2. Tonen op startpagina</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#datum">3. Datum netjes weergeven</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#post-route">4. Activiteiten toevoegen (POST)</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5"><span class="sidebar-check__box"></span></label>
+          <a href="#put-delete">5. Bijwerken en verwijderen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="index.html">GIP</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>H03 — Activiteiten ophalen en tonen</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H03 &mdash; GIP 6ADB</div>
+        <h1 class="page-header__title">Activiteiten ophalen en tonen</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">De leerlingen bevragen en bewerken een database.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een database aan een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#127919; Leerdoelen</div>
+        <ul>
+          <li>Een GET-route schrijven die alle activiteiten ophaalt</li>
+          <li>De activiteiten tonen op de startpagina via <code>fetch()</code></li>
+          <li>Een eenvoudige HTML-kaart genereren met JavaScript</li>
+          <li>De volledige CRUD-routes schrijven voor activiteiten</li>
+        </ul>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-H03-afb1.svg" alt="Overzicht van de REST API CRUD-routes voor activiteiten" loading="lazy">
+      </figure>
+
+      <h2 id="get-route">1. GET-route: alle activiteiten</h2>
+
+      <p>Voeg dit toe aan <code>server.js</code> (voor <code>app.listen</code>):</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">// GET /api/activiteiten — iedereen mag deze route oproepen (geen login vereist)
+app.get('/api/activiteiten', async (req, res) => {
+    // pool.execute() voert de SQL-query uit en wacht op het resultaat (await).
+    // Het geeft een array van twee elementen terug:
+    //   [0] = de rijen die MySQL teruggeeft (een array van objecten)
+    //   [1] = metadata over de kolommen (negeren we hier)
+    // Door destructuring schrijven we [rijen] in plaats van result[0].
+    const [rijen] = await pool.execute(
+        'SELECT * FROM activiteiten ORDER BY datum ASC'
+        // ORDER BY datum ASC = vroegste datum eerst
+    );
+
+    // res.json() zet het JS-array om naar JSON-tekst en stuurt het terug.
+    // Express zet automatisch de Content-Type header op 'application/json'.
+    res.json(rijen);
+});</code></pre>
+      </div>
+
+      <p>Test: open <code>http://localhost:3000/api/activiteiten</code> &mdash; je ziet de vier activiteiten als JSON.</p>
+
+      <h2 id="front-end">2. Activiteiten tonen op de startpagina</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Client/js/index.js</div>
+        <pre><code class="language-javascript">// Client/js/index.js
+
+// async function: een functie die await mag gebruiken
+async function laadActiviteiten() {
+    // fetch() stuurt een HTTP GET-request naar de server.
+    // Zonder tweede argument is de methode altijd GET.
+    // await wacht tot de server antwoordt voordat de code verder gaat.
+    const response = await fetch('/api/activiteiten');
+
+    // response.json() leest de JSON-tekst en zet die om naar een JS-array.
+    // Ook dit is asynchroon, vandaar de tweede await.
+    const activiteiten = await response.json();
+
+    const lijst = document.getElementById('activiteiten-lijst');
+
+    // Geen activiteiten? Toon een melding en stop de functie.
+    if (activiteiten.length === 0) {
+        lijst.innerHTML = '&lt;p&gt;Geen activiteiten gepland.&lt;/p&gt;';
+        return;
+    }
+
+    // .map() doorloopt elk activiteit-object en geeft een HTML-string terug.
+    // .join('') plakt alle strings aan elkaar zonder scheidingsteken.
+    lijst.innerHTML = activiteiten.map(act =&gt; `
+        &lt;article class="activiteit-kaart"&gt;
+            &lt;h3&gt;${act.naam}&lt;/h3&gt;
+            &lt;p&gt;${act.beschrijving || ''}&lt;/p&gt;
+            &lt;!-- act.beschrijving || '' : toon lege string als beschrijving null is --&gt;
+            &lt;p&gt;&#128197; ${act.datum.slice(0,10)} &nbsp; &#128336; ${act.starttijd.slice(0,5)}&lt;/p&gt;
+            &lt;p&gt;&#128205; ${act.locatie || '—'}&lt;/p&gt;
+            &lt;p&gt;Plaatsen: ${act.max_deelnemers}&lt;/p&gt;
+        &lt;/article&gt;
+    `).join('');
+}
+
+// De functie aanroepen zodra de pagina geladen is
+laadActiviteiten();</code></pre>
+      </div>
+
+      <h2 id="datum">3. Datum netjes weergeven</h2>
+
+      <p>MySQL stuurt de datum terug als een lange string (<code>"2026-02-10T00:00:00.000Z"</code>). Je formatteert het zo:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Client/js/index.js</div>
+        <pre><code class="language-javascript">const datum = new Date(act.datum).toLocaleDateString('nl-BE');
+// "10/02/2026"
+
+// In de kaart:
+&lt;p&gt;&#128197; ${new Date(act.datum).toLocaleDateString('nl-BE')}&lt;/p&gt;</code></pre>
+      </div>
+
+      <h2 id="post-route">4. Activiteiten toevoegen (POST) &mdash; voor de admin</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">// POST /api/activiteiten — activiteit toevoegen (later beveiliging toegevoegd in H05/H06)
+app.post('/api/activiteiten', async (req, res) => {
+    // req.body bevat de JSON die de client meestuurde in de request body
+    // Destructuring pakt de velden eruit die we nodig hebben
+    const { naam, beschrijving, datum, starttijd, locatie, max_deelnemers } = req.body;
+
+    // Validatie: zijn de verplichte velden aanwezig?
+    // Ontbreken ze, stuur dan status 400 (Bad Request) terug.
+    if (!naam || !datum || !starttijd) {
+        return res.status(400).json({ fout: 'Naam, datum en starttijd zijn verplicht' });
+    }
+
+    // De vraagtekens (?) zijn 'prepared statement'-parameters.
+    // mysql2 vult die in met de waarden uit het array — veilig tegen SQL-injectie!
+    // Nooit variabelen rechtstreeks in de SQL-string zetten.
+    const [resultaat] = await pool.execute(
+        'INSERT INTO activiteiten (naam, beschrijving, datum, starttijd, locatie, max_deelnemers) VALUES (?, ?, ?, ?, ?, ?)',
+        [naam, beschrijving || null, datum, starttijd, locatie || null, max_deelnemers || 20]
+        // null voor optionele velden die niet meegestuurd werden
+    );
+
+    // 201 Created: de resource is succesvol aangemaakt
+    // resultaat.insertId = het AUTO_INCREMENT-id van de nieuwe rij
+    res.status(201).json({ id: resultaat.insertId, bericht: 'Activiteit aangemaakt' });
+});</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; SQL-injectie voorkomen met prepared statements</div>
+        <p>Schrijf nooit variabelen rechtstreeks in een SQL-string:</p>
+        <div class="code-block" style="margin-top:var(--space-3)">
+          <div class="code-block__lang">JavaScript</div>
+          <pre><code class="language-javascript">// FOUT — nooit doen!
+`INSERT INTO activiteiten (naam) VALUES ('${naam}')`
+
+// CORRECT — gebruik altijd vraagtekens
+pool.execute('INSERT INTO activiteiten (naam) VALUES (?)', [naam])</code></pre>
+        </div>
+        <p style="margin-top:var(--space-3)">Een kwaadwillige gebruiker kan anders de SQL-query manipuleren en de database beschadigen of leegmaken.</p>
+      </div>
+
+      <h2 id="put-delete">5. Activiteiten bijwerken en verwijderen</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">// PUT /api/activiteiten/:id — activiteit bijwerken
+// :id is een URL-parameter — bij '/api/activiteiten/5' is req.params.id gelijk aan '5'
+app.put('/api/activiteiten/:id', async (req, res) => {
+    const { naam, beschrijving, datum, starttijd, locatie, max_deelnemers } = req.body;
+
+    const [resultaat] = await pool.execute(
+        'UPDATE activiteiten SET naam=?, beschrijving=?, datum=?, starttijd=?, locatie=?, max_deelnemers=? WHERE id=?',
+        [naam, beschrijving || null, datum, starttijd, locatie || null, max_deelnemers || 20, req.params.id]
+    );
+
+    // affectedRows = hoeveel rijen er daadwerkelijk aangepast zijn
+    // Als het 0 is, bestaat de activiteit met dit id niet
+    if (resultaat.affectedRows === 0) {
+        return res.status(404).json({ fout: 'Activiteit niet gevonden' });
+    }
+
+    // 204 No Content: de update is gelukt, maar er is niets terug te sturen
+    res.status(204).end();
+});
+
+// DELETE /api/activiteiten/:id — activiteit verwijderen
+app.delete('/api/activiteiten/:id', async (req, res) => {
+    // req.params.id: het getal uit de URL (bv. '/api/activiteiten/3' → id = '3')
+    await pool.execute('DELETE FROM activiteiten WHERE id=?', [req.params.id]);
+    res.status(204).end();
+});</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; HTTP-statuscodes uitgelegd</div>
+        <ul>
+          <li><code>200 OK</code> — verzoek gelukt, antwoord bevat data (standaard bij <code>res.json()</code>)</li>
+          <li><code>201 Created</code> — nieuw object aangemaakt (gebruik bij POST)</li>
+          <li><code>204 No Content</code> — actie gelukt, maar geen data om terug te sturen (gebruik bij PUT/DELETE)</li>
+          <li><code>400 Bad Request</code> — de client stuurde ongeldige of ontbrekende data</li>
+          <li><code>401 Unauthorized</code> — niet ingelogd</li>
+          <li><code>403 Forbidden</code> — ingelogd maar geen toestemming</li>
+          <li><code>404 Not Found</code> — het gevraagde object bestaat niet</li>
+        </ul>
+      </div>
+
+      <table>
+        <thead><tr><th>Route</th><th>Methode</th><th>Wat</th></tr></thead>
+        <tbody>
+          <tr><td><code>/api/activiteiten</code></td><td>GET</td><td>Alle activiteiten ophalen</td></tr>
+          <tr><td><code>/api/activiteiten</code></td><td>POST</td><td>Activiteit toevoegen</td></tr>
+          <tr><td><code>/api/activiteiten/:id</code></td><td>PUT</td><td>Activiteit bijwerken</td></tr>
+          <tr><td><code>/api/activiteiten/:id</code></td><td>DELETE</td><td>Activiteit verwijderen</td></tr>
+        </tbody>
+      </table>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB25</span>
+            <span class="oefening__title">Oefening 1 &mdash; Activiteiten tonen op de startpagina</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak de startpagina dynamisch: activiteiten worden geladen vanuit de database.</p>
+            <ol>
+              <li>Voeg de <code>GET /api/activiteiten</code> route toe aan <code>server.js</code></li>
+              <li>Maak <code>Client/js/index.js</code> aan met de <code>laadActiviteiten()</code> functie</li>
+              <li>Voeg <code>&lt;script type="module" src="js/index.js"&gt;</code> toe aan <code>index.html</code></li>
+              <li>Test: open de startpagina en bevestig dat je 4 activiteitenkaarten ziet</li>
+              <li>Zorg dat de datum netjes geformatteerd is (<code>nl-BE</code>)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak &mdash; Activiteiten API
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/gip/gip-H03-afb1.svg', 'Voorbeeld — REST API overzicht')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledige CRUD-API voor activiteiten</h3>
+            <p><strong>Deel 1 &mdash; 4 punten:</strong> GET + front-end</p>
+            <ol>
+              <li>GET-route schrijven en testen via de browser</li>
+              <li>Startpagina toont activiteiten met gecorrigeerde datum</li>
+            </ol>
+            <p><strong>Deel 2 &mdash; 4 punten:</strong> POST + PUT + DELETE</p>
+            <ol>
+              <li>POST-route schrijven inclusief validatie</li>
+              <li>PUT-route schrijven</li>
+              <li>DELETE-route schrijven</li>
+            </ol>
+            <p><strong>Deel 3 &mdash; 2 punten:</strong> Testen</p>
+            <ol>
+              <li>Test elke route met Postman of een test-form in de browser</li>
+              <li>Screenshot van elk resultaat</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H03 &mdash; Activiteiten API</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke HTTP-methode gebruik je om een nieuwe activiteit toe te voegen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v1" value="a"> <span>GET</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v1" value="b"> <span>POST</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v1" value="c"> <span>PUT</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v1" value="d"> <span>PATCH</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welke statuscode stuur je terug na het succesvol aanmaken van een activiteit?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v2" value="a"> <span>200 OK</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v2" value="b"> <span>204 No Content</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v2" value="c"> <span>201 Created</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v2" value="d"> <span>400 Bad Request</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Hoe formatteer je een datum uit MySQL als <code>"10/02/2026"</code> in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v3" value="a"> <span>new Date(act.datum).toLocaleDateString('nl-BE')</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v3" value="b"> <span>act.datum.format('dd/MM/yyyy')</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v3" value="c"> <span>act.datum.slice(0, 10)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v3" value="d"> <span>Date.parse(act.datum)</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat retourneert <code>pool.execute('SELECT * FROM activiteiten')</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v4" value="a"> <span>Één object met de activiteiten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v4" value="b"> <span>Een array met [rijen, velden]</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v4" value="c"> <span>Een Promise met de rijen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v4" value="d"> <span>Een JSON-string</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welke statuscode gebruik je na een succesvolle DELETE?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v5" value="a"> <span>200 OK</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v5" value="b"> <span>201 Created</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v5" value="c"> <span>204 No Content</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h03-v5" value="d"> <span>404 Not Found</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/gip/H03')" data-progress-key="6adb/gip/H03">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H02.html" class="btn btn-ghost">&#8592; H02</a>
+          <a href="H04.html" class="btn btn-ghost">H04 &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

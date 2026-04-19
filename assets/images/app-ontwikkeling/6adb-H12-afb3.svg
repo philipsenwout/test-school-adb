@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+    </marker>
+  </defs>
+
+  <text x="400" y="28" text-anchor="middle" fill="#2d2d4e" font-size="15" font-weight="bold">localStorage vóór en na verwijdering</text>
+
+  <!-- VOOR panel -->
+  <rect x="20" y="45" width="340" height="270" rx="10" fill="#1e1e1e"/>
+  <rect x="20" y="45" width="340" height="32" rx="10" fill="#2a2a2a"/>
+  <rect x="20" y="65" width="340" height="12" fill="#2a2a2a"/>
+  <text x="190" y="66" text-anchor="middle" fill="#aaa" font-size="12">VÓÓR verwijdering — 3 recepten</text>
+  <rect x="30" y="82" width="150" height="22" rx="4" fill="#333"/>
+  <text x="105" y="97" text-anchor="middle" fill="#ccc" font-size="11">Key</text>
+  <text x="270" y="97" text-anchor="middle" fill="#ccc" font-size="11">Value (samengevat)</text>
+  <line x1="20" y1="104" x2="360" y2="104" stroke="#444" stroke-width="1"/>
+  <!-- Row 1 -->
+  <rect x="20" y="104" width="340" height="50" fill="#6c63ff" fill-opacity="0.1"/>
+  <text x="35" y="124" fill="#6c63ff" font-size="10" font-family="'Courier New', monospace">opgeslagenRecepten</text>
+  <text x="185" y="118" fill="#43e97b" font-size="9" font-family="'Courier New', monospace">[</text>
+  <text x="185" y="130" fill="#43e97b" font-size="9" font-family="'Courier New', monospace">  {naam:"Pasta",...},</text>
+  <text x="185" y="142" fill="#43e97b" font-size="9" font-family="'Courier New', monospace">  {naam:"Soep",...},</text>
+  <text x="185" y="154" fill="#f9a825" font-size="9" font-family="'Courier New', monospace">  {naam:"Salade",...}</text>
+  <line x1="20" y1="156" x2="360" y2="156" stroke="#444" stroke-width="1"/>
+  <rect x="185" y="156" width="155" height="16" fill="#f9a825" fill-opacity="0.1"/>
+  <text x="262" y="168" text-anchor="middle" fill="#f9a825" font-size="9" font-family="'Courier New', monospace">← Soep wordt verwijderd</text>
+  <line x1="20" y1="172" x2="360" y2="172" stroke="#444" stroke-width="1"/>
+  <text x="105" y="192" text-anchor="middle" fill="#888" font-size="11">3 items in de array</text>
+
+  <!-- Arrow -->
+  <text x="400" y="170" text-anchor="middle" fill="#ff6b6b" font-size="11" font-family="'Courier New', monospace">verwijderRecept</text>
+  <text x="400" y="185" text-anchor="middle" fill="#ff6b6b" font-size="11" font-family="'Courier New', monospace">('Soep')</text>
+  <line x1="368" y1="180" x2="428" y2="180" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="400" y="205" text-anchor="middle" fill="#888" font-size="10">splice + updateLS</text>
+
+  <!-- NA panel -->
+  <rect x="440" y="45" width="340" height="270" rx="10" fill="#1e1e1e"/>
+  <rect x="440" y="45" width="340" height="32" rx="10" fill="#2a2a2a"/>
+  <rect x="440" y="65" width="340" height="12" fill="#2a2a2a"/>
+  <text x="610" y="66" text-anchor="middle" fill="#aaa" font-size="12">NA verwijdering — 2 recepten</text>
+  <rect x="450" y="82" width="150" height="22" rx="4" fill="#333"/>
+  <text x="525" y="97" text-anchor="middle" fill="#ccc" font-size="11">Key</text>
+  <text x="690" y="97" text-anchor="middle" fill="#ccc" font-size="11">Value (samengevat)</text>
+  <line x1="440" y1="104" x2="780" y2="104" stroke="#444" stroke-width="1"/>
+  <!-- Row 1 -->
+  <rect x="440" y="104" width="340" height="50" fill="#43e97b" fill-opacity="0.08"/>
+  <text x="455" y="124" fill="#6c63ff" font-size="10" font-family="'Courier New', monospace">opgeslagenRecepten</text>
+  <text x="605" y="118" fill="#43e97b" font-size="9" font-family="'Courier New', monospace">[</text>
+  <text x="605" y="130" fill="#43e97b" font-size="9" font-family="'Courier New', monospace">  {naam:"Pasta",...},</text>
+  <text x="605" y="142" fill="#43e97b" font-size="9" font-family="'Courier New', monospace">  {naam:"Salade",...}</text>
+  <text x="605" y="154" fill="#43e97b" font-size="9" font-family="'Courier New', monospace">]</text>
+  <line x1="440" y1="156" x2="780" y2="156" stroke="#444" stroke-width="1"/>
+  <text x="610" y="192" text-anchor="middle" fill="#43e97b" font-size="11">✓ 2 items — Soep verwijderd</text>
+
+  <!-- Success badge -->
+  <rect x="440" y="330" width="340" height="40" rx="8" fill="#43e97b" fill-opacity="0.15" stroke="#43e97b" stroke-width="1"/>
+  <text x="610" y="355" text-anchor="middle" fill="#43e97b" font-size="13" font-weight="bold">✓ Data persistent bewaard na paginaverversing</text>
+
+  <!-- Bottom note -->
+  <text x="400" y="415" text-anchor="middle" fill="#888" font-size="11">localStorage.setItem('opgeslagenRecepten', JSON.stringify(alleRecepten)) — altijd na elke wijziging</text>
+</svg>

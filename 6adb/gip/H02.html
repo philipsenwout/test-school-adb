@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 — Database aanmaken — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/gip/H02" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#tabellen">1. Welke tabellen?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#sql-script">2. SQL-script uitvoeren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#testdata">3. Testdata invoegen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#koppeling">4. Koppelen aan server.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="index.html">GIP</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>H02 — Database aanmaken</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H02 &mdash; GIP 6ADB</div>
+        <h1 class="page-header__title">Database aanmaken</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB17</span><span class="ld-tag__title">De leerlingen ontwerpen een datamodel.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB18</span><span class="ld-tag__title">De leerlingen implementeren een database op basis van een datamodel.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">De leerlingen bevragen en bewerken een database.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een database aan een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#127919; Leerdoelen</div>
+        <ul>
+          <li>De drie tabellen van het Sportclub Portaal uitleggen</li>
+          <li>De database aanmaken in MySQL Workbench via een SQL-script</li>
+          <li>Testdata invoegen voor alle tabellen</li>
+          <li>De database koppelen aan <code>server.js</code></li>
+        </ul>
+      </div>
+
+      <h2 id="tabellen">1. Welke tabellen heb je nodig?</h2>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-H02-afb1.svg" alt="ERD van de drie tabellen: users, activiteiten, inschrijvingen" loading="lazy">
+      </figure>
+
+      <table>
+        <thead><tr><th>Tabel</th><th>Wat staat er in</th></tr></thead>
+        <tbody>
+          <tr><td><code>users</code></td><td>Naam, e-mail, wachtwoord, rol van elke gebruiker</td></tr>
+          <tr><td><code>activiteiten</code></td><td>Naam, datum, locatie en max. deelnemers van elke activiteit</td></tr>
+          <tr><td><code>inschrijvingen</code></td><td>Welk lid is ingeschreven voor welke activiteit</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="sql-script">2. SQL-script uitvoeren</h2>
+
+      <p>Open MySQL Workbench, open een nieuw query-venster en voer dit script uit:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">SQL — sportclub_db.sql</div>
+        <pre><code class="language-sql">-- Stap 1: database aanmaken (IF NOT EXISTS = geen fout als de database al bestaat)
+CREATE DATABASE IF NOT EXISTS jouw_db;
+
+-- Stap 2: vertel MySQL welke database we gebruiken voor de rest van het script
+USE jouw_db;
+
+-- ── Tabel: users ──────────────────────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS users (
+  -- id: uniek getal dat automatisch ophoogt (1, 2, 3, ...)
+  -- PRIMARY KEY: het veld waarmee je een rij uniek identificeert
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+
+  -- NOT NULL: dit veld mag nooit leeg zijn
+  naam       VARCHAR(100) NOT NULL,
+
+  -- UNIQUE: geen twee accounts met hetzelfde e-mailadres
+  email      VARCHAR(150) NOT NULL UNIQUE,
+
+  -- VARCHAR(255): bcrypt-hashes zijn altijd 60 tekens, 255 is veilige marge
+  wachtwoord VARCHAR(255) NOT NULL,
+
+  -- DEFAULT 'gebruiker': nieuwe accounts krijgen automatisch de rol 'gebruiker'
+  rol        VARCHAR(20)  NOT NULL DEFAULT 'gebruiker'
+);
+
+-- ── Tabel: activiteiten ───────────────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS activiteiten (
+  id           INT AUTO_INCREMENT PRIMARY KEY,
+  naam         VARCHAR(150) NOT NULL,
+
+  -- TEXT: voor langere teksten zonder vaste maximumlengte
+  -- Geen NOT NULL: beschrijving is optioneel
+  beschrijving TEXT,
+
+  -- DATE slaat alleen de datum op (YYYY-MM-DD), geen uur
+  datum        DATE NOT NULL,
+
+  -- TIME slaat alleen het uur op (HH:MM:SS)
+  starttijd    TIME NOT NULL,
+
+  locatie      VARCHAR(200),
+
+  -- DEFAULT 20: als je max_deelnemers weglaat bij INSERT, wordt het 20
+  max_deelnemers INT NOT NULL DEFAULT 20
+);</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; UNIQUE (user_id, activiteit_id)</div>
+        <p>Dit zorgt ervoor dat een lid zich maar één keer kan inschrijven voor dezelfde activiteit &mdash; de database weigert een tweede inschrijving automatisch.</p>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; ON DELETE CASCADE</div>
+        <p>Als je een gebruiker of activiteit verwijdert, worden de bijhorende inschrijvingen automatisch ook verwijderd.</p>
+      </div>
+
+      <h2 id="testdata">3. Testdata invoegen</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">SQL — sportclub_db.sql</div>
+        <pre><code class="language-sql">USE sportclub_db;
+
+-- Testleden (wachtwoord wordt later gehashed — PLACEHOLDER is tijdelijk)
+INSERT INTO users (naam, email, wachtwoord, rol) VALUES
+  ('Admin', 'admin@sportclub.be', 'PLACEHOLDER', 'admin'),
+  ('Jana Peeters', 'jana@leden.be', 'PLACEHOLDER', 'lid'),
+  ('Liam Claes', 'liam@leden.be', 'PLACEHOLDER', 'lid');
+
+-- Activiteiten
+INSERT INTO activiteiten (naam, beschrijving, datum, starttijd, locatie, max_deelnemers) VALUES
+  ('Zaalvoetbal', 'Beginnerssessie zaalvoetbal', '2026-02-10', '18:00', 'Sportzaal A', 12),
+  ('Yoga', 'Ontspanningssessie, breng een mat mee', '2026-02-12', '19:30', 'Turnzaal', 15),
+  ('Basketbal', 'Training voor -16 jaar', '2026-02-17', '17:00', 'Sportzaal B', 16),
+  ('Wandelclub', 'Wandeling 10 km, stevige schoenen', '2026-02-21', '09:00', 'Markt', 30);
+
+-- Inschrijvingen
+INSERT INTO inschrijvingen (user_id, activiteit_id) VALUES
+  (2, 1),  -- Jana -> Zaalvoetbal
+  (2, 2),  -- Jana -> Yoga
+  (3, 1),  -- Liam -> Zaalvoetbal
+  (3, 3);  -- Liam -> Basketbal</code></pre>
+      </div>
+
+      <h2 id="koppeling">4. Database koppelen aan server.js</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">const pool = mysql.createPool({
+    host:     'localhost',     // MySQL draait op dezelfde pc als de server
+    port:     3306,            // standaard MySQL-poort
+    user:     'root',          // standaard MySQL-gebruiker bij een lokale installatie
+    password: 'jouwMySQLwachtwoord',  // ← vervang door jouw eigen wachtwoord
+    database: 'jouw_db',      // ← de naam die je bij CREATE DATABASE opgaf
+});</code></pre>
+      </div>
+
+      <h3>Test de verbinding</h3>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">app.get('/api/test-db', async (req, res) => {
+    // pool.execute() voert de SQL-query uit en geeft een array terug.
+    // Destructuring: [rijen] pakt het eerste element (de resultaatrijen).
+    // Het tweede element (kolominfo) negeren we.
+    const [rijen] = await pool.execute('SELECT * FROM activiteiten');
+
+    // res.json() zet het JS-array om naar JSON en stuurt het naar de browser
+    res.json(rijen);
+});</code></pre>
+      </div>
+
+      <p>Open <code>http://localhost:3000/api/test-db</code> &mdash; je ziet de activiteiten uit de database. Werkt het? Dan is de verbinding OK.</p>
+
+      <table>
+        <thead><tr><th>Tabel</th><th>Kolommen</th></tr></thead>
+        <tbody>
+          <tr><td><code>users</code></td><td>id, naam, email, wachtwoord, rol</td></tr>
+          <tr><td><code>activiteiten</code></td><td>id, naam, beschrijving, datum, starttijd, locatie, max_deelnemers</td></tr>
+          <tr><td><code>inschrijvingen</code></td><td>id, user_id, activiteit_id</td></tr>
+        </tbody>
+      </table>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB17 / ADB18 / ADB20</span>
+            <span class="oefening__title">Oefening 1 &mdash; Database aanmaken en testen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voer het volledige SQL-script uit en verifieer de resultaten.</p>
+            <ol>
+              <li>Open MySQL Workbench en maak een nieuw query-venster</li>
+              <li>Voer het <code>CREATE TABLE</code>-script uit</li>
+              <li>Voeg de testdata in</li>
+              <li>Schrijf een SELECT-query die alle activiteiten toont gesorteerd op datum</li>
+              <li>Schrijf een JOIN-query die toont welke leden zijn ingeschreven voor welke activiteit</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB25</span>
+            <span class="oefening__title">Oefening 2 &mdash; Verbinding testen via de browser</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Koppel de database aan de server en toon de data via de browser.</p>
+            <ol>
+              <li>Pas de pool-configuratie aan in <code>server.js</code></li>
+              <li>Voeg de <code>GET /api/test-db</code> route toe</li>
+              <li>Start de server en open de route in je browser</li>
+              <li>Bevestig dat je de vier activiteiten als JSON ziet</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak &mdash; Database aanmaken
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/gip/gip-H02-afb1.svg', 'Voorbeeld — ERD Sportclub Ledenportaal')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Database volledig opzetten</h3>
+            <p><strong>Deel 1 &mdash; 5 punten:</strong> SQL-script</p>
+            <ol>
+              <li>Voer het volledige <code>CREATE TABLE</code>-script uit in MySQL Workbench</li>
+              <li>Voeg alle testdata in (gebruikers, activiteiten, inschrijvingen)</li>
+              <li>Screenshot van de drie tabellen in de Workbench-navigator</li>
+            </ol>
+            <p><strong>Deel 2 &mdash; 3 punten:</strong> Queries</p>
+            <ol>
+              <li>Schrijf een query die alle leden toont (geen admin)</li>
+              <li>Schrijf een JOIN-query die toont: naam van lid, naam van activiteit, datum</li>
+            </ol>
+            <p><strong>Deel 3 &mdash; 2 punten:</strong> Koppeling</p>
+            <ol>
+              <li>Koppel de database aan server.js</li>
+              <li>Toon de activiteiten via <code>/api/test-db</code> in de browser</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H02 &mdash; Database aanmaken</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welke tabel koppelt gebruikers aan activiteiten?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v1" value="a"> <span>users</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v1" value="b"> <span>activiteiten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v1" value="c"> <span>inschrijvingen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v1" value="d"> <span>leden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat doet <code>UNIQUE (user_id, activiteit_id)</code> in de inschrijvingen-tabel?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v2" value="a"> <span>Het versnelt de query</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v2" value="b"> <span>Het zorgt dat een lid zich maar één keer kan inschrijven voor dezelfde activiteit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v2" value="c"> <span>Het maakt de kolommen verplicht</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v2" value="d"> <span>Het koppelt de twee kolommen als primary key</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>ON DELETE CASCADE</code> bij een foreign key?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v3" value="a"> <span>Verwijdert automatisch de gekoppelde rijen wanneer de ouderrij verwijderd wordt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v3" value="b"> <span>Blokkeert het verwijderen als er gekoppelde rijen zijn</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v3" value="c"> <span>Zet de foreign key op NULL</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v3" value="d"> <span>Maakt een backup van de verwijderde rij</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe test je of de database-koppeling werkt vanuit de browser?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v4" value="a"> <span>Door MySQL Workbench te openen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v4" value="b"> <span>Door een test-route toe te voegen en die te openen in de browser</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v4" value="c"> <span>Door npm test uit te voeren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v4" value="d"> <span>Door de server te herstarten</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk datatype gebruik je voor het wachtwoord in de users-tabel?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v5" value="a"> <span>VARCHAR(255) — voor de gehashte versie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v5" value="b"> <span>TEXT — want het wachtwoord kan heel lang zijn</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v5" value="c"> <span>INT — want wachtwoorden worden als getal opgeslagen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h02-v5" value="d"> <span>PASSWORD — speciaal datatype voor wachtwoorden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/gip/H02')" data-progress-key="6adb/gip/H02">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H01.html" class="btn btn-ghost">&#8592; H01</a>
+          <a href="H03.html" class="btn btn-ghost">H03 &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -45,8 +45,56 @@
 <span>H05</span>
 </nav>
 
-    <div class="chapter-layout">
-      <div class="chapter-sidebar"><div class="chapter-sidebar__title">Inhoud</div><ul class="chapter-sidebar__list"><li><a href="#hoofdstuk-5-sql-bevraging-select">Hoofdstuk 5 — SQL-bevraging: SELECT</a></li><li><a href="#leerplandoelen-behandeld" style="padding-left:1.25rem">Leerplandoelen behandeld</a></li><li><a href="#leerdoelen">Leerdoelen</a></li><li><a href="#51-de-select-opdracht">5.1 De SELECT-opdracht</a></li><li><a href="#511-basisstructuur" style="padding-left:1.25rem">5.1.1 Basisstructuur</a></li><li><a href="#512-specifieke-kolommen-selecteren" style="padding-left:1.25rem">5.1.2 Specifieke kolommen selecteren</a></li><li><a href="#513-kolomaliassen-met-as" style="padding-left:1.25rem">5.1.3 Kolomaliassen met AS</a></li><li><a href="#52-filteren-met-where">5.2 Filteren met WHERE</a></li><li><a href="#521-vergelijkingsoperatoren" style="padding-left:1.25rem">5.2.1 Vergelijkingsoperatoren</a></li><li><a href="#522-logische-operatoren-and-or-not" style="padding-left:1.25rem">5.2.2 Logische operatoren: AND, OR, NOT</a></li><li><a href="#523-between-in-like-is-null" style="padding-left:1.25rem">5.2.3 BETWEEN, IN, LIKE, IS NULL</a></li><li><a href="#53-sorteren-met-order-by">5.3 Sorteren met ORDER BY</a></li><li><a href="#54-resultaten-beperken-met-limit">5.4 Resultaten beperken met LIMIT</a></li><li><a href="#55-aggregaatfuncties">5.5 Aggregaatfuncties</a></li><li><a href="#56-groeperen-met-group-by">5.6 Groeperen met GROUP BY</a></li><li><a href="#561-groepen-filteren-met-having" style="padding-left:1.25rem">5.6.1 Groepen filteren met HAVING</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#oefeningen">Oefeningen</a></li><li><a href="#huistaak-h05" style="padding-left:1.25rem">Huistaak H05</a></li><li><a href="#samenvatting">Samenvatting</a></li><li><a href="#leerplandoel-badges">Leerplandoel-badges</a></li></ul></div>
+    <div class="chapter-layout container">
+      <aside class="chapter-sidebar" data-chapter-key="5adb/databeheer/H05" style="--sidebar-accent: var(--color-vak-data)">
+  <div class="chapter-sidebar__header">
+    <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+    <div class="chapter-sidebar__progress-wrap">
+      <div class="chapter-sidebar__progress-bar">
+        <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+      <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+    </div>
+  </div>
+  <ul class="chapter-sidebar__list">
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.1"><span class="sidebar-check__box"></span></label>
+      <a href="#51-de-select-opdracht">5.1 De SELECT-opdracht</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.2"><span class="sidebar-check__box"></span></label>
+      <a href="#52-filteren-met-where">5.2 Filteren met WHERE</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.3"><span class="sidebar-check__box"></span></label>
+      <a href="#53-sorteren-met-order-by">5.3 Sorteren met ORDER BY</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.4"><span class="sidebar-check__box"></span></label>
+      <a href="#54-resultaten-beperken-met-limit">5.4 Resultaten beperken met LIMIT</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.5"><span class="sidebar-check__box"></span></label>
+      <a href="#55-aggregaatfuncties">5.5 Aggregaatfuncties</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="5.6"><span class="sidebar-check__box"></span></label>
+      <a href="#56-groeperen-met-group-by">5.6 Groeperen met GROUP BY</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+      <a href="#oefeningen">Oefeningen</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+      <a href="#huistaak-h05">Huistaak</a>
+    </li>
+    <li class="sidebar-check-item">
+      <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+      <a href="#vragenlijst">Vragenlijst</a>
+    </li>
+  </ul>
+</aside>
       <div class="chapter-content">
         <div class="page-header vak-data" style="padding-bottom:var(--space-6)">
           <div class="page-header__vak">&#128452; Databeheer &mdash; 5ADB</div>
@@ -68,19 +116,22 @@
 <tr><td><strong>Status</strong></td><td>Definitief</td></tr>
 </tbody></table></div>
 <h3 id="leerplandoelen-behandeld">Leerplandoelen behandeld</h3>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">Gebruiken van een querytaal voor de bevraging van gegevens</span></div>
+</div>
 <p><strong>Geschatte lesuren:</strong> 8 u</p>
-<h2 id="leerdoelen">Leerdoelen</h2>
-<p>Na dit hoofdstuk kan je:</p>
-<ol>
-<li>Een SELECT-query schrijven om gegevens op te halen uit een tabel.</li>
-<li>Resultaten filteren met de WHERE-clausule en logische operatoren.</li>
-<li>Resultaten sorteren met ORDER BY.</li>
-<li>Het aantal resultaten beperken met LIMIT.</li>
-<li>Aggregaatfuncties toepassen: COUNT, SUM, AVG, MIN, MAX.</li>
-<li>Resultaten groeperen met GROUP BY en gefilterde groepen selecteren met HAVING.</li>
-<li>Kolomaliassen gebruiken met AS.</li>
-</ol>
+<div class="callout callout--info">
+  <div class="callout-header">🎯 Leerdoelen</div>
+  <ul>
+    <li>Een SELECT-query schrijven om gegevens op te halen uit een tabel.</li>
+    <li>Resultaten filteren met de WHERE-clausule en logische operatoren.</li>
+    <li>Resultaten sorteren met ORDER BY.</li>
+    <li>Het aantal resultaten beperken met LIMIT.</li>
+    <li>Aggregaatfuncties toepassen: COUNT, SUM, AVG, MIN, MAX.</li>
+    <li>Resultaten groeperen met GROUP BY en gefilterde groepen selecteren met HAVING.</li>
+    <li>Kolomaliassen gebruiken met AS.</li>
+  </ul>
+</div>
 <h2 id="51-de-select-opdracht">5.1 De SELECT-opdracht</h2>
 <div class="callout callout--definitie">
 <div class="callout-header">📘 Definitie</div>
@@ -578,7 +629,9 @@ ORDER BY gemiddelde_prijs DESC;
 </ul>
 </div>
 <h2 id="leerplandoel-badges">Leerplandoel-badges</h2>
-<div class="ld-badges"><span class="badge badge-ld">[LD-DAT-ADB20]</span> Gebruiken van een querytaal voor de bevraging van gegevens <span class="badge badge-basis">basis</span></div>
+<div class="ld-badges">
+  <div class="ld-tag"><span class="ld-tag__code">ADB20</span><span class="ld-tag__title">Gebruiken van een querytaal voor de bevraging van gegevens</span></div>
+</div>
 
         <div class="complete-btn-wrap">
           <p>Klaar met dit hoofdstuk? Markeer het als voltooid om je voortgang bij te houden.</p>

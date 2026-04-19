@@ -43,23 +43,55 @@
 <span class="breadcrumb-sep">&#8250;</span>
 <span>H04</span>
 </nav>
-<div class="chapter-layout">
-  <aside class="chapter-sidebar">
-    <div class="chapter-sidebar__inner">
-      <div class="chapter-sidebar__title">Inhoudstafel</div>
-      <ul class="chapter-toc">
-        <li><a href="#leerdoelen">Leerdoelen</a></li>
-        <li><a href="#s1">1. mysql-connector-python</a></li>
-        <li><a href="#s2">2. Verbinding en cursor</a></li>
-        <li><a href="#s3">3. SELECT-queries</a></li>
-        <li><a href="#s4">4. INSERT, UPDATE, DELETE</a></li>
-        <li><a href="#s5">5. Geparametriseerde queries</a></li>
-        <li><a href="#s6">6. Transactions</a></li>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#samenvatting">Samenvatting</a></li>
-        <li><a href="#huistaak">Huistaak</a></li>
-      </ul>
+<div class="chapter-layout container">
+  <aside class="chapter-sidebar" data-chapter-key="6adb/databeheer/H04" style="--sidebar-accent: var(--color-vak-data)">
+    <div class="chapter-sidebar__header">
+      <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+      <div class="chapter-sidebar__progress-wrap">
+        <div class="chapter-sidebar__progress-bar">
+          <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+      </div>
     </div>
+    <ul class="chapter-sidebar__list">
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.1"><span class="sidebar-check__box"></span></label>
+        <a href="#s1">1. mysql-connector-python</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.2"><span class="sidebar-check__box"></span></label>
+        <a href="#s2">2. Verbinding en cursor</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.3"><span class="sidebar-check__box"></span></label>
+        <a href="#s3">3. SELECT-queries</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.4"><span class="sidebar-check__box"></span></label>
+        <a href="#s4">4. INSERT, UPDATE, DELETE</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.5"><span class="sidebar-check__box"></span></label>
+        <a href="#s5">5. Geparametriseerde queries</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="1.6"><span class="sidebar-check__box"></span></label>
+        <a href="#s6">6. Transactions</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+        <a href="#oefeningen">Oefeningen</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+        <a href="#huistaak">Huistaak</a>
+      </li>
+      <li class="sidebar-check-item">
+        <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+        <a href="#vragenlijst">Vragenlijst</a>
+      </li>
+    </ul>
   </aside>
   <div class="chapter-content">
     <div class="page-header vak-data">
@@ -71,8 +103,19 @@
       </div>
     </div>
 
-    <div class="ld-badges" id="leerdoelen">
-      <span class="ld-badge">[LD-DB-12] Python koppelen aan een MySQL-database &mdash; verdieping</span>
+    <div class="ld-badges">
+      <div class="ld-tag"><span class="ld-tag__code">DB12</span><span class="ld-tag__title">Python koppelen aan een MySQL-database — verdieping</span></div>
+    </div>
+
+    <div class="callout callout--info">
+      <div class="callout-header">🎯 Leerdoelen</div>
+      <ul>
+        <li>De leerling kan mysql-connector-python installeren en een verbinding opzetten.</li>
+        <li>De leerling kan SELECT-queries uitvoeren en resultaten ophalen via fetchone() en fetchall().</li>
+        <li>De leerling kan INSERT, UPDATE en DELETE uitvoeren en de wijzigingen bevestigen via commit().</li>
+        <li>De leerling kan geparametriseerde queries schrijven om SQL-injectie te vermijden.</li>
+        <li>De leerling kan een transactie opzetten met commit() en rollback() bij fouten.</li>
+      </ul>
     </div>
 
     <h2 id="s1">1. mysql-connector-python</h2>

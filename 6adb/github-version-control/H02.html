@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H02 — Branching — GitHub Advanced 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/github-version-control/H02" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-branch">2.1 Wat is een branch?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.2"><span class="sidebar-check__box"></span></label>
+          <a href="#branch-aanmaken">2.2 Branch aanmaken &amp; wisselen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.3"><span class="sidebar-check__box"></span></label>
+          <a href="#werken-op-branch">2.3 Werken op een branch</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.4"><span class="sidebar-check__box"></span></label>
+          <a href="#branch-mergen">2.4 Branch samenvoegen (merge)</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.5"><span class="sidebar-check__box"></span></label>
+          <a href="#branch-strategie">2.5 Branch-strategie voor het GIP</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Advanced</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H02 — Branching</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H02 — GitHub Advanced 6ADB</div>
+        <h1 class="page-header__title">Branching</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem. [verdieping]</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">SV07.07</span><span class="ld-tag__title">De leerlingen implementeren softwaremodules op een manier die samenwerking vereenvoudigt.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen wat een branch is en waarom je er één aanmaakt</li>
+          <li>Je kan een nieuwe branch aanmaken met <code>git switch -c</code></li>
+          <li>Je kan wisselen tussen branches met <code>git switch</code></li>
+          <li>Je kan een branch samenvoegen met <code>main</code> via <code>git merge</code></li>
+          <li>Je kan een branch-strategie toepassen voor je GIP-project</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-branch">2.1 Wat is een branch?</h2>
+
+      <p>Tot nu toe werkte je altijd op de <strong>main</strong>-branch — de hoofdlijn van je project. Een branch is een <strong>aparte werklijn</strong> die je aanmaakt om een nieuwe functionaliteit te bouwen zonder de hoofdcode te verstoren.</p>
+
+      <p>Vergelijking: denk aan een boek dat je herwerkt. Je maakt een kopie van het manuscript, past die kopie aan, en als je tevreden bent, voeg je de wijzigingen samen met het origineel. Als het mislukt, staat het origineel nog intact.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/github-version-control/H02-6adb-branching.svg" alt="Diagram: main branch met een feature-branch die afsplitst en terug samenvoegt" loading="lazy">
+      </figure>
+
+      <h2 id="branch-aanmaken">2.2 Branch aanmaken en wisselen</h2>
+
+      <h3>Huidige branch bekijken</h3>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git branch</code></pre>
+      </div>
+      <p>De actieve branch heeft een <code>*</code> voor de naam. Zonder andere branches zie je alleen <code>* main</code>.</p>
+
+      <h3>Nieuwe branch aanmaken en er naartoe wisselen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Modern commando (aanbevolen)
+git switch -c feature/contactformulier
+
+# Ouder alternatief (ook geldig)
+git checkout -b feature/contactformulier</code></pre>
+      </div>
+
+      <p>Naamconventie voor branches:</p>
+      <ul>
+        <li><code>feature/naam-van-functie</code> — voor nieuwe functies</li>
+        <li><code>fix/beschrijving-van-bug</code> — voor bugfixes</li>
+        <li><code>gip/module-naam</code> — voor GIP-werk</li>
+      </ul>
+
+      <h3>Wisselen tussen branches</h3>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git switch main                      # terug naar main
+git switch feature/contactformulier  # naar je feature branch</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Commit voor je wisselt</div>
+        <p>Zorg altijd dat je gewijzigde bestanden committed zijn voor je van branch wisselt. Ongecommitte wijzigingen kunnen verloren gaan of meegenomen worden naar een andere branch.</p>
+      </div>
+
+      <h2 id="werken-op-branch">2.3 Werken op een branch</h2>
+
+      <p>Eens je op de nieuwe branch zit, werk je precies zoals altijd: add, commit, push. Het verschil: je commits komen op de feature-branch, niet op <code>main</code>.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># Controleer op welke branch je zit
+git branch
+# Uitvoer: * feature/contactformulier
+#            main
+
+# Werk normaal
+git add .
+git commit -m "contactformulier: HTML-structuur toegevoegd"
+
+# Push de branch naar GitHub
+git push -u origin feature/contactformulier</code></pre>
+      </div>
+
+      <p>De eerste keer push je met <code>-u origin branchnaam</code> om de link met GitHub in te stellen. Daarna volstaat <code>git push</code>.</p>
+
+      <h2 id="branch-mergen">2.4 Branch samenvoegen (merge)</h2>
+
+      <p>Als je functionaliteit klaar is, voeg je de branch samen met <code>main</code>:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># 1. Ga terug naar main
+git switch main
+
+# 2. Zorg dat main up-to-date is
+git pull
+
+# 3. Merge de feature-branch
+git merge feature/contactformulier
+
+# 4. Push het resultaat
+git push
+
+# 5. Optioneel: verwijder de branch (opgeruimd!)
+git branch -d feature/contactformulier</code></pre>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128204; Fast-forward merge</div>
+        <p>Als er geen conflicterende wijzigingen zijn, doet Git een <em>fast-forward merge</em>: de commits van de feature-branch worden direct op main gezet. Geen conflicten, clean history.</p>
+      </div>
+
+      <h2 id="branch-strategie">2.5 Branch-strategie voor het GIP</h2>
+
+      <p>Voor het GIP gebruik je de volgende branch-structuur:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>main                    ← stabiele, werkende versie
+├── feature/homepage    ← werken aan de startpagina
+├── feature/database    ← werken aan de backend
+├── feature/login       ← login-functionaliteit
+└── fix/nav-bug         ← bugfix</code></pre>
+      </div>
+
+      <p>Regel: <code>main</code> is altijd <strong>werkend</strong>. Je merge nooit kapotte code naar main.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16</span>
+            <span class="oefening__title">Oefening 1 — Eerste branch aanmaken</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak je eerste feature-branch aan en werk ermee:</p>
+            <ol>
+              <li><code>git branch</code> — op welke branch zit je?</li>
+              <li>Maak een nieuwe branch: <code>git switch -c feature/oefening-pagina</code></li>
+              <li>Maak een bestand <code>github-advanced/H02/oefening.html</code> aan</li>
+              <li>Commit op de feature-branch</li>
+              <li>Push: <code>git push -u origin feature/oefening-pagina</code></li>
+              <li>Ga terug naar main: <code>git switch main</code></li>
+              <li>Merge: <code>git merge feature/oefening-pagina</code></li>
+              <li>Push main naar GitHub</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / SV07.07</span>
+            <span class="oefening__title">Oefening 2 — Branch-overzicht op GitHub</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bekijk je branches op GitHub:</p>
+            <ol>
+              <li>Open je repository op GitHub</li>
+              <li>Klik op het dropdown-menu met de branchnaam (standaard "main")</li>
+              <li>Zie je de feature-branch verschijnen?</li>
+              <li>Klik op de feature-branch en bekijk de commits</li>
+              <li>Maak nog een tweede branch aan: <code>feature/stijl</code>, voeg een CSS-bestand toe, commit en push</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Feature branch workflow
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H02-6adb-voorbeeld.svg', 'Voorbeeld — GitHub branches overzicht')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Bouw een mini-webpagina via branches</h3>
+            <ol>
+              <li><strong>Deel 1 — 4 punten:</strong> Maak een branch <code>feature/mini-website</code> aan. Bouw hierop een eenvoudige <code>index.html</code> met:
+                <ul><li>HTML-structuur</li><li>Een navigatiebalk</li><li>Een sectie met inhoud</li></ul>
+              </li>
+              <li><strong>Deel 2 — 3 punten:</strong> Commit elke stap apart met duidelijke boodschappen. Push de branch naar GitHub.</li>
+              <li><strong>Deel 3 — 3 punten:</strong> Merge de branch terug naar <code>main</code> en push. Maak een screenshot van de commit-geschiedenis op GitHub die de merge toont.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H02 — Branching</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Waarom maak je een feature-branch aan in plaats van rechtstreeks op main te werken?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v1" value="a"> <span>Omdat main alleen voor de leerkracht is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v1" value="b"> <span>Zodat de hoofdcode stabiel blijft terwijl je aan nieuwe functies werkt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v1" value="c"> <span>Omdat Git anders je bestanden wist</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v1" value="d"> <span>Branches zijn verplicht door GitHub</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk commando maakt een nieuwe branch aan en wisselt er meteen naartoe?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v2" value="a"> <span>git branch feature/naam</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v2" value="b"> <span>git new feature/naam</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v2" value="c"> <span>git switch -c feature/naam</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v2" value="d"> <span>git push feature/naam</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">In welke volgorde voer je een merge correct uit?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v3" value="a"> <span>switch main → pull → merge feature-branch → push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v3" value="b"> <span>merge feature-branch → switch main → push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v3" value="c"> <span>pull → switch feature → merge main → push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v3" value="d"> <span>push feature → switch main → pull</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is een goede branchnaam voor een nieuwe loginpagina?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v4" value="a"> <span>branch1</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v4" value="b"> <span>test</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v4" value="c"> <span>mijn-werk</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v4" value="d"> <span>feature/login-pagina</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is de regel voor de main-branch in een GIP-project?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v5" value="a"> <span>Main bevat altijd de onafgewerkte code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v5" value="b"> <span>Main is altijd werkend — je merget nooit kapotte code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v5" value="c"> <span>Main is alleen voor de leerkracht</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-02-v5" value="d"> <span>Main mag nooit meer dan 10 commits hebben</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/github-version-control/H02')" data-progress-key="6adb/github-version-control/H02">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H01.html" class="btn btn-ghost">← H01</a>
+          <a href="H03.html" class="btn btn-ghost">H03 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

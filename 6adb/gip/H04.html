@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 — Registreren &amp; inloggen — GIP 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/gip/H04" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#auth-routes">1. Auth-routes in server.js</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#register-form">2. Registratieformulier</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#login-form">3. Login-formulier</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#auth-js">4. auth.js (front-end)</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5"><span class="sidebar-check__box"></span></label>
+          <a href="#admin-aanmaken">5. Admin aanmaken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <a href="index.html">GIP</a>
+        <span class="breadcrumb-sep">&#8250;</span>
+        <span>H04 — Registreren &amp; inloggen</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H04 &mdash; GIP 6ADB</div>
+        <h1 class="page-header__title">Registreren &amp; inloggen</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB01</span><span class="ld-tag__title">De leerlingen passen beveiligingstechnieken toe.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB25</span><span class="ld-tag__title">De leerlingen koppelen een database aan een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#127919; Leerdoelen</div>
+        <ul>
+          <li>Register, login en logout routes toevoegen aan <code>server.js</code></li>
+          <li>Registratie- en loginformulieren koppelen aan de API</li>
+          <li>Na inloggen doorsturen op basis van de rol (gebruiker &#8594; dashboard om eigen activiteiten te beheren, admin &#8594; adminpanel)</li>
+          <li>Wachtwoorden hashen met bcrypt</li>
+        </ul>
+      </div>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/gip/gip-H04-afb1.svg" alt="Authenticatiesysteem: registreren en inloggen stap voor stap" loading="lazy">
+      </figure>
+
+      <h2 id="auth-routes">1. Auth-routes in server.js</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Server/server.js</div>
+        <pre><code class="language-javascript">// ── POST /api/register — nieuw account aanmaken ────────────────────────────────
+app.post('/api/register', async (req, res) => {
+    // req.body bevat de JSON die het registratieformulier meestuurde
+    const { naam, email, wachtwoord } = req.body;
+
+    // Validatie: zijn alle verplichte velden ingevuld?
+    if (!naam || !email || !wachtwoord) {
+        return res.status(400).json({ fout: 'Alle velden zijn verplicht' });
+    }
+    if (wachtwoord.length &lt; 8) {
+        return res.status(400).json({ fout: 'Wachtwoord moet minstens 8 tekens zijn' });
+    }
+
+    // Controleer of dit e-mailadres al in gebruik is
+    const [bestaande] = await pool.execute(
+        'SELECT id FROM users WHERE email = ?', [email]
+    );
+    if (bestaande.length &gt; 0) {
+        // 409 Conflict: het e-mailadres is al bezet
+        return res.status(409).json({ fout: 'E-mailadres is al in gebruik' });
+    }
+
+    // bcrypt.hash(wachtwoord, 10):
+    //   - wachtwoord: de leesbare tekst die de gebruiker intypte
+    //   - 10: het aantal "salt rounds" — hoe meer rounds, hoe veiliger maar trager.
+    //         10 is de industriestandaard: veilig én snel genoeg voor login.
+    // De hash ziet er zo uit: '$2b$10$...' (altijd 60 tekens lang)
+    const hash = await bcrypt.hash(wachtwoord, 10);
+
+    // Sla de gebruiker op — nooit het originele wachtwoord, altijd de hash!
+    // rol hoeven we niet mee te geven: de database gebruikt DEFAULT 'gebruiker'
+    const [r] = await pool.execute(
+        'INSERT INTO users (naam, email, wachtwoord) VALUES (?, ?, ?)',
+        [naam, email, hash]
+    );
+
+    // 201 Created: account succesvol aangemaakt
+    // r.insertId = het AUTO_INCREMENT-id van de nieuwe gebruiker
+    res.status(201).json({ id: r.insertId, bericht: 'Account aangemaakt' });
+});
+
+
+// ── POST /api/login — inloggen ─────────────────────────────────────────────────
+app.post('/api/login', async (req, res) => {
+    const { email, wachtwoord } = req.body;
+
+    // Zoek de gebruiker op via e-mail
+    const [rijen] = await pool.execute(
+        'SELECT * FROM users WHERE email = ?', [email]
+    );
+
+    // Geen gebruiker gevonden? Geef DEZELFDE fout als bij een verkeerd wachtwoord.
+    // Zo weet een aanvaller niet of het e-mailadres bestaat of niet.
+    if (rijen.length === 0) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    const gebruiker = rijen[0];
+
+    // bcrypt.compare(ingevoerd, opgeslagenHash):
+    //   - berekent de hash van 'ingevoerd' en vergelijkt die met de opgeslagen hash
+    //   - geeft true terug als ze overeenkomen, false als niet
+    const klopt = await bcrypt.compare(wachtwoord, gebruiker.wachtwoord);
+    if (!klopt) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    // Sessie aanmaken: sla gebruikersgegevens op voor volgende requests.
+    // req.session is een object dat express-session bijhoudt tussen requests.
+    req.session.gebruikerId = gebruiker.id;    // nodig om te weten wie er ingelogd is
+    req.session.naam        = gebruiker.naam;  // voor weergave in de UI
+    req.session.rol         = gebruiker.rol;   // 'gebruiker' of 'admin'
+
+    // Stuur naam en rol terug — de front-end gebruikt dit om door te sturen
+    res.json({ bericht: 'Ingelogd', naam: gebruiker.naam, rol: gebruiker.rol });
+});
+
+
+// ── POST /api/logout — uitloggen ───────────────────────────────────────────────
+app.post('/api/logout', (req, res) => {
+    // req.session.destroy() verwijdert de sessie volledig van de server
+    req.session.destroy(() => {
+        res.json({ bericht: 'Uitgelogd' });
+    });
+});
+
+
+// ── GET /api/mij — wie is er ingelogd? ────────────────────────────────────────
+app.get('/api/mij', (req, res) => {
+    // req.session.gebruikerId is undefined als niemand ingelogd is
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Niet ingelogd' });
+    }
+    // Stuur de sessiegegevens terug — de front-end roept dit op bij het laden van elke beveiligde pagina
+    res.json({ id: req.session.gebruikerId, naam: req.session.naam, rol: req.session.rol });
+});</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888;&#65039; Waarom stuurt de login hetzelfde foutbericht voor zowel verkeerd e-mail als verkeerd wachtwoord?</div>
+        <p>Dit is bewust: als je een andere fout geeft voor "e-mail niet gevonden" versus "verkeerd wachtwoord", kan een aanvaller raden welke e-mailadressen bestaan in je database.</p>
+      </div>
+
+      <h2 id="register-form">2. Registratieformulier</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML — Client/register.html</div>
+        <pre><code class="language-html">&lt;!-- Client/register.html --&gt;
+&lt;section class="form-container"&gt;
+  &lt;h2&gt;Account aanmaken&lt;/h2&gt;
+  &lt;form id="register-form"&gt;
+    &lt;label&gt;Naam&lt;input type="text" id="naam" required&gt;&lt;/label&gt;
+    &lt;label&gt;E-mail&lt;input type="email" id="email" required&gt;&lt;/label&gt;
+    &lt;label&gt;Wachtwoord (min. 8 tekens)&lt;input type="password" id="wachtwoord" required&gt;&lt;/label&gt;
+    &lt;button type="submit"&gt;Registreren&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;p id="foutmelding" class="fout" hidden&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="login.html"&gt;Al een account? Inloggen&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+
+      <h2 id="login-form">3. Login-formulier</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML — Client/login.html</div>
+        <pre><code class="language-html">&lt;!-- Client/login.html --&gt;
+&lt;section class="form-container"&gt;
+  &lt;h2&gt;Inloggen&lt;/h2&gt;
+  &lt;form id="login-form"&gt;
+    &lt;label&gt;E-mail&lt;input type="email" id="email" required&gt;&lt;/label&gt;
+    &lt;label&gt;Wachtwoord&lt;input type="password" id="wachtwoord" required&gt;&lt;/label&gt;
+    &lt;button type="submit"&gt;Inloggen&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;p id="foutmelding" class="fout" hidden&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href="register.html"&gt;Nog geen account? Registreren&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+
+      <h2 id="auth-js">4. auth.js (front-end)</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript — Client/js/auth.js</div>
+        <pre><code class="language-javascript">// Client/js/auth.js
+// Dit bestand wordt geladen op zowel register.html als login.html.
+// Elke sectie controleert eerst of het formulier op de huidige pagina bestaat.
+
+// ── Registratie ───────────────────────────────────────────────────────────────
+const registerForm = document.getElementById('register-form');
+
+// Alleen uitvoeren als we op register.html zijn (anders is registerForm null)
+if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+        // e.preventDefault() voorkomt dat het formulier de pagina herlaadt
+        e.preventDefault();
+
+        const naam       = document.getElementById('naam').value;
+        const email      = document.getElementById('email').value;
+        const wachtwoord = document.getElementById('wachtwoord').value;
+
+        // fetch() stuurt een POST-request naar de server
+        const response = await fetch('/api/register', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' }, // vertel de server dat we JSON sturen
+            body:    JSON.stringify({ naam, email, wachtwoord }) // zet JS-object om naar JSON-tekst
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            // response.ok = true als de statuscode 200-299 is (hier: 201)
+            // Registratie gelukt → doorsturen naar loginpagina
+            window.location.href = '/login.html';
+        } else {
+            // Fout (bv. e-mail al in gebruik) → toon de foutmelding
+            const fout = document.getElementById('foutmelding');
+            fout.textContent = data.fout;  // tekst van de server instellen
+            fout.hidden = false;           // element zichtbaar maken
+        }
+    });
+}
+
+// ── Login ─────────────────────────────────────────────────────────────────────
+const loginForm = document.getElementById('login-form');
+
+// Alleen uitvoeren als we op login.html zijn
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email      = document.getElementById('email').value;
+        const wachtwoord = document.getElementById('wachtwoord').value;
+
+        const response = await fetch('/api/login', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ email, wachtwoord })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            // Login gelukt — stuur door op basis van de rol die de server terugstuurde:
+            //   admin     → admin.html (adminpanel)
+            //   gebruiker → dashboard.html (eigen activiteiten)
+            window.location.href = data.rol === 'admin' ? '/admin.html' : '/dashboard.html';
+        } else {
+            const fout = document.getElementById('foutmelding');
+            fout.textContent = data.fout;
+            fout.hidden = false;
+        }
+    });
+}</code></pre>
+      </div>
+
+      <h2 id="admin-aanmaken">5. Admin aanmaken via MySQL Workbench</h2>
+
+      <p>De admin maak je manueel aan. Genereer eerst een bcrypt-hash van het wachtwoord:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash — Terminal</div>
+        <pre><code class="language-bash"># Éénmalig uitvoeren vanuit de Server-map
+node -e "import('bcrypt').then(b => b.default.hash('Admin1234!', 10).then(h => console.log(h)))"</code></pre>
+      </div>
+
+      <p>Kopieer de hash en voer in Workbench uit:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">SQL — MySQL Workbench</div>
+        <pre><code class="language-sql">UPDATE users
+SET wachtwoord = '$2b$10$...(kopieer hash hier)...', rol = 'admin'
+WHERE email = 'admin@sportclub.be';</code></pre>
+      </div>
+
+      <table>
+        <thead><tr><th>Route</th><th>Wat</th></tr></thead>
+        <tbody>
+          <tr><td><code>POST /api/register</code></td><td>Gebruiker aanmaken + wachtwoord hashen</td></tr>
+          <tr><td><code>POST /api/login</code></td><td>Wachtwoord vergelijken + sessie aanmaken</td></tr>
+          <tr><td><code>POST /api/logout</code></td><td>Sessie vernietigen</td></tr>
+          <tr><td><code>GET /api/mij</code></td><td>Sessiedata opvragen</td></tr>
+        </tbody>
+      </table>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB01 / ADB09 / ADB25</span>
+            <span class="oefening__title">Oefening 1 &mdash; Registreren en inloggen testen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg de auth-routes toe en test het volledige register/login-flow.</p>
+            <ol>
+              <li>Voeg de vier auth-routes toe aan <code>server.js</code></li>
+              <li>Maak <code>register.html</code> en <code>login.html</code> aan</li>
+              <li>Maak <code>Client/js/auth.js</code> aan</li>
+              <li>Registreer een nieuw lid via de browser</li>
+              <li>Log in met dat account en bevestig dat je op <code>dashboard.html</code> terechtkomt</li>
+              <li>Maak de admin aan via MySQL Workbench</li>
+              <li>Log in als admin en bevestig dat je op <code>admin.html</code> terechtkomt</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak &mdash; Registreren &amp; inloggen
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/gip/gip-H04-afb1.svg', 'Voorbeeld — Authenticatieflow')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledig authenticatiesysteem</h3>
+            <p><strong>Deel 1 &mdash; 4 punten:</strong> Back-end</p>
+            <ol>
+              <li>Register-route met validatie (alle velden verplicht, wachtwoord min. 8 tekens, e-mail uniek)</li>
+              <li>Login-route met bcrypt.compare</li>
+              <li>Logout-route en <code>/api/mij</code> route</li>
+            </ol>
+            <p><strong>Deel 2 &mdash; 4 punten:</strong> Front-end</p>
+            <ol>
+              <li>Registratieformulier met foutmelding</li>
+              <li>Login-formulier met redirect op basis van rol</li>
+              <li>auth.js koppelen aan beide formulieren</li>
+            </ol>
+            <p><strong>Deel 3 &mdash; 2 punten:</strong> Admin</p>
+            <ol>
+              <li>Admin aanmaken via MySQL Workbench</li>
+              <li>Login als admin → doorsturen naar admin.html (even een lege pagina is OK)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H04 &mdash; Registreren &amp; inloggen</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Waarom sla je wachtwoorden nooit als plain text op?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v1" value="a"> <span>Omdat plain text te lang is voor de database</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v1" value="b"> <span>Bij een datalek zijn alle wachtwoorden direct blootgesteld</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v1" value="c"> <span>Omdat MySQL plain text niet ondersteunt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v1" value="d"> <span>Omdat bcrypt sneller is</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat doet <code>bcrypt.hash(wachtwoord, 10)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v2" value="a"> <span>Maakt een gehashte versie van het wachtwoord met 10 salt-rondes</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v2" value="b"> <span>Versleutelt het wachtwoord met 10 bits</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v2" value="c"> <span>Genereert een willekeurig wachtwoord van 10 tekens</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v2" value="d"> <span>Vergelijkt twee wachtwoorden</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat sla je op in <code>req.session</code> na een succesvolle login?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v3" value="a"> <span>Het gehashte wachtwoord</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v3" value="b"> <span>Het plain-text wachtwoord</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v3" value="c"> <span>gebruikerId, naam en rol</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v3" value="d"> <span>Alleen het e-mailadres</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Welke statuscode geeft de login-route terug bij een verkeerd wachtwoord?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v4" value="a"> <span>400 Bad Request</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v4" value="b"> <span>401 Unauthorized</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v4" value="c"> <span>403 Forbidden</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v4" value="d"> <span>404 Not Found</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Naar welke pagina wordt een lid doorgestuurd na inloggen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v5" value="a"> <span>admin.html</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v5" value="b"> <span>index.html</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v5" value="c"> <span>dashboard.html</span></label>
+                <label class="vraag__keuze"><input type="radio" name="gip-h04-v5" value="d"> <span>register.html</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/gip/H04')" data-progress-key="6adb/gip/H04">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H03.html" class="btn btn-ghost">&#8592; H03</a>
+          <a href="H05.html" class="btn btn-ghost">H05 &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

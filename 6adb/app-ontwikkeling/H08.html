@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>localStorage &amp; JSON — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H08" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-localstorage">8.1 Wat is localStorage?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.2"><span class="sidebar-check__box"></span></label>
+          <a href="#setitem">8.2 Data opslaan: setItem</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.3"><span class="sidebar-check__box"></span></label>
+          <a href="#getitem">8.3 Data ophalen: getItem</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.4"><span class="sidebar-check__box"></span></label>
+          <a href="#verwijderen">8.4 Data verwijderen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.5"><span class="sidebar-check__box"></span></label>
+          <a href="#json-stringify">8.5 JSON.stringify — object naar string</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.6"><span class="sidebar-check__box"></span></label>
+          <a href="#json-parse">8.6 JSON.parse — string naar object</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.7"><span class="sidebar-check__box"></span></label>
+          <a href="#opslagcyclus">8.7 Volledige opslagcyclus</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="8.8"><span class="sidebar-check__box"></span></label>
+          <a href="#devtools">8.8 DevTools inspecteren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>localStorage &amp; JSON</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H08 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">localStorage &amp; JSON</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Uitleggen wat localStorage is en waarvoor je het gebruikt</li>
+          <li>Data opslaan, ophalen en verwijderen via localStorage</li>
+          <li>Het verschil kennen tussen localStorage en sessionStorage</li>
+          <li>Arrays en objecten opslaan via <code>JSON.stringify()</code></li>
+          <li>Data terugzetten naar een array of object via <code>JSON.parse()</code></li>
+          <li>De volledige opslagcyclus toepassen in een kleine app</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-localstorage">8.1 Wat is localStorage?</h2>
+      <p>Normaal verdwijnt alle data zodra de gebruiker de pagina sluit of vernieuwt. Met <strong>localStorage</strong> kan je data bewaren in de browser — zelfs na het sluiten van het venster.</p>
+      <p>localStorage is een <strong>sleutel-waarde-opslag</strong> in de browser:</p>
+      <ul>
+        <li>Elke waarde heeft een unieke <strong>sleutel</strong> (string)</li>
+        <li>De data blijft bewaard <strong>tot je ze zelf verwijdert</strong> (of de gebruiker de browserdata wist)</li>
+        <li>Maximale opslagcapaciteit: ~5 MB per website</li>
+        <li>Beschikbaar via het globale object <code>localStorage</code></li>
+      </ul>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H08-afb1.svg" alt="Vergelijking: localStorage (blijft bewaard), sessionStorage (weg bij sluiten tab), cookies" loading="lazy">
+      </figure>
+      <table class="data-table">
+        <thead>
+          <tr><th></th><th>localStorage</th><th>sessionStorage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Levensduur</strong></td><td>Blijft bewaard (ook na sluiten)</td><td>Weg na sluiten tab</td></tr>
+          <tr><td><strong>Capaciteit</strong></td><td>~5 MB</td><td>~5 MB</td></tr>
+          <tr><td><strong>Zichtbaar voor</strong></td><td>Zelfde domein</td><td>Zelfde tab + domein</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="setitem">8.2 Data opslaan: setItem</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">localStorage.setItem('sleutel', 'waarde');
+
+// Voorbeelden
+localStorage.setItem('gebruikersnaam', 'Jana');
+localStorage.setItem('thema', 'donker');
+localStorage.setItem('score', '42');</code></pre>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ localStorage slaat altijd strings op</div>
+        <p>Getallen worden automatisch naar string omgezet. <code>localStorage.setItem('score', 42)</code> slaat <code>"42"</code> op (als string, niet als getal). Houd hier rekening mee bij het ophalen!</p>
+      </div>
+
+      <h2 id="getitem">8.3 Data ophalen: getItem</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const naam = localStorage.getItem('gebruikersnaam');
+console.log(naam); // "Jana"
+
+// Als de sleutel niet bestaat → null
+const onbekend = localStorage.getItem('bestaat-niet');
+console.log(onbekend); // null
+
+// Standaardwaarde instellen bij ontbrekende sleutel
+const thema = localStorage.getItem('thema') || 'licht';</code></pre>
+      </div>
+
+      <h2 id="verwijderen">8.4 Data verwijderen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Één item verwijderen
+localStorage.removeItem('thema');
+
+// Alles verwijderen
+localStorage.clear();
+
+// Aantal items opvragen
+console.log(localStorage.length);
+
+// Sleutel opvragen op basis van index
+console.log(localStorage.key(0));</code></pre>
+      </div>
+
+      <h2 id="json-stringify">8.5 JSON.stringify() — object naar string</h2>
+      <p>localStorage slaat enkel strings op. Wat als je een array of object wil opslaan?</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Probleem: arrays worden omgezet via .toString()
+const favorieten = ['Pasta', 'Pizza', 'Soep'];
+localStorage.setItem('favorieten', favorieten);
+console.log(localStorage.getItem('favorieten'));
+// "Pasta,Pizza,Soep" — FOUT: de arraystructuur gaat verloren</code></pre>
+      </div>
+      <p>De oplossing is <strong>JSON</strong> (JavaScript Object Notation):</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const recepten = [
+    { naam: 'Pasta', bereidingstijd: 20 },
+    { naam: 'Soep', bereidingstijd: 35 },
+];
+
+const jsonString = JSON.stringify(recepten);
+console.log(jsonString);
+// '[{"naam":"Pasta","bereidingstijd":20},{"naam":"Soep","bereidingstijd":35}]'
+
+localStorage.setItem('opgeslagenRecepten', jsonString);</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H08-afb2.svg" alt="Workflow: JavaScript array → JSON.stringify → setItem → getItem → JSON.parse → JavaScript array" loading="lazy">
+      </figure>
+
+      <h2 id="json-parse">8.6 JSON.parse() — string naar object/array</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const jsonString = localStorage.getItem('opgeslagenRecepten');
+const recepten = JSON.parse(jsonString);
+
+console.log(recepten[0].naam); // "Pasta"
+console.log(typeof recepten);  // "object" (array)</code></pre>
+      </div>
+      <p>Als er nog niets is opgeslagen, geeft <code>getItem</code> <code>null</code> terug. Gebruik altijd een fallback:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">const recepten = JSON.parse(localStorage.getItem('opgeslagenRecepten')) || [];</code></pre>
+      </div>
+
+      <h2 id="opslagcyclus">8.7 Volledige opslagcyclus</h2>
+      <p>Een patroon dat je in elke app zal gebruiken:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// 1. Data ophalen bij start (met fallback)
+let mijnLijst = JSON.parse(localStorage.getItem('mijnLijst')) || [];
+
+// 2. Data aanpassen
+mijnLijst.push({ naam: 'Nieuw item', datum: new Date().toLocaleDateString() });
+
+// 3. Data opslaan
+localStorage.setItem('mijnLijst', JSON.stringify(mijnLijst));
+
+// 4. Data verwijderen (bij verwijderknop)
+const index = mijnLijst.findIndex(item => item.naam === 'Nieuw item');
+mijnLijst.splice(index, 1);
+localStorage.setItem('mijnLijst', JSON.stringify(mijnLijst));</code></pre>
+      </div>
+      <h3>Hulpfunctie updateLS()</h3>
+      <p>Maak een herbruikbare hulpfunctie om dit te vereenvoudigen:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// hulpfuncties.js
+export const updateLS = (sleutel, lijst) => {
+    localStorage.removeItem(sleutel);
+    localStorage.setItem(sleutel, JSON.stringify(lijst));
+};
+
+// Gebruik in main.js:
+import { updateLS } from './hulpfuncties.js';
+updateLS('mijnLijst', mijnLijst);</code></pre>
+      </div>
+
+      <h2 id="devtools">8.8 localStorage inspecteren in de browser</h2>
+      <p>Open DevTools (<code>F12</code>) → tabblad <strong>Application</strong> → <strong>Local Storage</strong> → kies je domein.</p>
+      <p>Je ziet alle sleutels en hun waarden. Je kan ze daar ook manueel aanpassen of verwijderen — handig bij debuggen!</p>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H08-afb1.svg" alt="Browser DevTools Application tab — Local Storage tabel met sleutel en JSON-waarde" loading="lazy">
+      </figure>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Debugtip</div>
+        <p>Als je app niet het verwachte gedrag toont, open dan DevTools en controleer de huidige waarden in Local Storage. Je kan ze ook rechtstreeks vanuit de console aanpassen: <code>localStorage.setItem('test', '123')</code>.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Favorieten-opslager</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een pagina <code>favorieten.html</code> met een inputveld, een "Opslaan"-knop, een lijst van favorieten en een "Wis alles"-knop.</p>
+            <ol>
+              <li>Bij laden van de pagina: haal de array op via <code>JSON.parse || []</code> en toon de bestaande favorieten</li>
+              <li>Bij klikken op "Opslaan": voeg de ingevoerde tekst toe aan de array, sla op via <code>JSON.stringify</code>, toon de bijgewerkte lijst</li>
+              <li>Bij klikken op "Wis alles": verwijder de sleutel, leeg de lijst op de pagina</li>
+              <li>Verhinder dat lege of dubbele favorieten worden toegevoegd</li>
+            </ol>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">// Startpunt
+let favorieten = JSON.parse(localStorage.getItem('favorieten')) || [];
+
+document.querySelector('#slaOp').addEventListener('click', () => {
+    const invoer = document.querySelector('#invoer').value.trim();
+    if (invoer) {
+        favorieten.push(invoer);
+        localStorage.setItem('favorieten', JSON.stringify(favorieten));
+        toonFavorieten();
+    }
+});
+
+function toonFavorieten() {
+    // Maak zelf af...
+}</code></pre>
+            </div>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H08-oef1-browser.svg" alt="Browser mockup: inputveld + knop, lijst van favorieten, wis-alles knop" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Themavoorkeur onthouden</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw een pagina met een thema-toggle die de keuze onthoudt, ook na het sluiten van de browser.</p>
+            <ol>
+              <li>Lees bij laden de opgeslagen waarde op: <code>localStorage.getItem('thema') || 'licht'</code></li>
+              <li>Pas onmiddellijk het thema toe door een klasse op <code>document.body</code> te zetten</li>
+              <li>Voeg een knop toe "Wissel thema" die bij klik:
+                <ul>
+                  <li>De klasse op <code>body</code> togglet</li>
+                  <li>De nieuwe waarde opslaat in localStorage</li>
+                </ul>
+              </li>
+              <li>Ververs de pagina en controleer dat het thema bewaard bleef</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 3 — Notitieboek</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Bouw een eenvoudig notitieboek waarbij notities bewaard blijven na het sluiten van de browser.</p>
+            <ol>
+              <li>Elke notitie is een object: <code>{ id, tekst, datum }</code>. Sla een array van notities op in localStorage</li>
+              <li>Bij laden: haal de array op, render alle bestaande notities op de pagina</li>
+              <li>Een invoerformulier laat de gebruiker een nieuwe notitie toevoegen. Genereer een uniek id (bv. <code>Date.now()</code>)</li>
+              <li>Elke notitie heeft een "Verwijder"-knop. Bij klik: gebruik <code>findIndex + splice</code>, sla de bijgewerkte array op en herrender de lijst</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H08 localStorage &amp; JSON<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H08-oef1-browser.svg', 'Voorbeeld — Boodschappenlijst met localStorage')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+            <h3>Opdracht: Persistente boodschappenlijst</h3>
+            <p>Je bouwt een boodschappenlijst die bewaard blijft na het sluiten van de browser. Combineer DOM-manipulatie, events en localStorage.</p>
+            <h4>Deel 1 — Basisfunctionaliteit (4 punten)</h4>
+            <ol>
+              <li>Maak een HTML-bestand met invoerveld, "Toevoegen"-knop, lege <code>&lt;ul&gt;</code> en een "Wis alles"-knop</li>
+              <li>Sla een array van boodschappen op in localStorage. Elk item is een object: <code>{ id, naam, aangevinkt }</code></li>
+              <li>Bij laden van de pagina: haal de array op (<code>JSON.parse || []</code>) en render de lijst</li>
+              <li>Bij toevoegen: maak een nieuw item-object aan, voeg toe aan de array, sla op en herrender</li>
+            </ol>
+            <h4>Deel 2 — Interactiviteit (3 punten)</h4>
+            <ol>
+              <li>Elke rij heeft een checkbox: aanvinken past <code>aangevinkt</code> aan in de array en slaat op</li>
+              <li>Elke rij heeft een "Verwijder"-knop die het item verwijdert via <code>findIndex + splice</code></li>
+              <li>De "Wis alles"-knop verwijdert de sleutel uit localStorage en herrendert de lege lijst</li>
+            </ol>
+            <h4>Deel 3 — Verfijning (3 punten)</h4>
+            <ol>
+              <li>Toon een teller: "X van Y items aangevinkt"</li>
+              <li>Voeg een "Wis aangevinkte items"-knop toe (filter de array en sla op)</li>
+              <li>Verhinder dubbele boodschappen (<code>includes</code> of <code>find</code> op de bestaande array)</li>
+            </ol>
+            <p><strong>Dien de bestanden <code>boodschappen.html</code> en <code>boodschappen.js</code> in. Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H08 — localStorage &amp; JSON</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het belangrijkste verschil tussen localStorage en sessionStorage?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="a"> <span>localStorage is beveiligd, sessionStorage niet</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="b"> <span>localStorage blijft bewaard na het sluiten van de browser, sessionStorage verdwijnt na het sluiten van de tab</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="c"> <span>sessionStorage heeft meer opslagruimte dan localStorage</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v1" value="d"> <span>localStorage werkt enkel op HTTPS</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk type slaat localStorage op?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="a"> <span>Elk JavaScript-type (strings, getallen, objecten, arrays)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="b"> <span>Enkel getallen en booleans</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="c"> <span>Enkel strings — andere types worden automatisch naar string omgezet</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v2" value="d"> <span>JSON-objecten rechtstreeks</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Hoe sla je een array correct op in localStorage?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="a"> <span><code>localStorage.setItem('key', JSON.stringify(array))</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="b"> <span><code>localStorage.setItem('key', array)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="c"> <span><code>localStorage.save('key', array)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v3" value="d"> <span><code>localStorage['key'] = array</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat geeft <code>localStorage.getItem('bestaat-niet')</code> terug als de sleutel niet bestaat?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="a"> <span><code>undefined</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="b"> <span><code>false</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="c"> <span>Een lege string <code>""</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v4" value="d"> <span><code>null</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk JavaScript-object gebruik je om een JSON-string terug te zetten naar een array of object?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="a"> <span><code>JSON.stringify()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="b"> <span><code>JSON.parse()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="c"> <span><code>JSON.decode()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v5" value="d"> <span><code>JSON.convert()</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Wat is de correcte fallback-code om een array op te halen die mogelijk nog niet bestaat in localStorage?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="a"> <span><code>let arr = localStorage.getItem('arr') || [];</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="b"> <span><code>let arr = JSON.parse(localStorage.getItem('arr'));</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="c"> <span><code>let arr = JSON.parse(localStorage.getItem('arr')) || [];</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h08-v6" value="d"> <span><code>let arr = localStorage.getItem('arr') ?? JSON.parse([]);</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H08')" data-progress-key="6adb/app-ontwikkeling/H08">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H07.html" class="btn btn-ghost">← H07</a>
+          <a href="H09.html" class="btn btn-ghost">H09 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

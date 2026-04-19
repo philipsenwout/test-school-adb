@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H07 — GitHub Issues &amp; Samenwerken — GitHub 5ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link active">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="5adb/github-version-control/H07" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-een-issue">1. Wat is een Issue?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2"><span class="sidebar-check__box"></span></label>
+          <a href="#issue-aanmaken">2. Een Issue aanmaken</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="3"><span class="sidebar-check__box"></span></label>
+          <a href="#labels-assignees">3. Labels &amp; Assignees</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4"><span class="sidebar-check__box"></span></label>
+          <a href="#issue-linken">4. Issue linken aan commit</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="5"><span class="sidebar-check__box"></span></label>
+          <a href="#communiceren">5. Professioneel communiceren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../5adb/index.html">5ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub &amp; Versiebeheer</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H07 — GitHub Issues</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H07 — GitHub &amp; Versiebeheer 5ADB</div>
+        <h1 class="page-header__title">GitHub Issues &amp; Samenwerken</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB28</span><span class="ld-tag__title">De leerlingen communiceren over vragen, problemen en updates.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB07</span><span class="ld-tag__title">De leerlingen houden hun administratie bij.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan een GitHub Issue aanmaken voor een bug of feature request</li>
+          <li>Je kan labels, assignees en milestones gebruiken om issues te organiseren</li>
+          <li>Je kan een Issue linken aan een commit via <code>fixes #nummer</code></li>
+          <li>Je kan professioneel communiceren in een Issue (beschrijving, reactie, sluiten)</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-een-issue">1. Wat is een Issue?</h2>
+
+      <p>Een GitHub Issue is een gestructureerde manier om samen te werken aan een project. Je gebruikt Issues om:</p>
+
+      <ul>
+        <li><strong>Bugs</strong> te melden — iets werkt niet zoals verwacht</li>
+        <li><strong>Features</strong> voor te stellen — iets wat er nog niet is</li>
+        <li><strong>Vragen</strong> te stellen aan medeontwikkelaars</li>
+        <li><strong>Taken</strong> bij te houden in een project</li>
+      </ul>
+
+      <p>Issues zijn zichtbaar voor iedereen in het team. Ze fungeren als het "to-do-systeem" van je repository. Elk Issue krijgt automatisch een uniek nummer (bv. <code>#1</code>, <code>#2</code>, <code>#3</code>, …).</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/github-version-control/H07-issues-overzicht.svg" alt="Overzicht van de GitHub Issues-pagina met openstaande en gesloten issues" loading="lazy">
+      </figure>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128204; Waar vind je Issues?</div>
+        <p>Je GitHub-repository heeft een tabblad <strong>Issues</strong>. Klik erop om alle openstaande en gesloten issues te zien. Openstaande issues zijn taken die nog gedaan moeten worden — gesloten issues zijn afgewerkt.</p>
+      </div>
+
+      <h2 id="issue-aanmaken">2. Een Issue aanmaken</h2>
+
+      <p>Een goed gestructureerd Issue maakt het voor iedereen duidelijk wat het probleem is en hoe het opgelost kan worden. Volg deze stappen:</p>
+
+      <ol>
+        <li>Ga naar je repository op GitHub</li>
+        <li>Klik op het tabblad <strong>Issues</strong></li>
+        <li>Klik op <strong>New issue</strong></li>
+        <li>Geef een duidelijke <strong>titel</strong> (bv. "Knop 'Opslaan' reageert niet op mobiel")</li>
+        <li>Schrijf een <strong>beschrijving</strong>: wat is het probleem? Hoe reproduceer je het? Wat verwacht je?</li>
+        <li>Klik op <strong>Submit new issue</strong></li>
+      </ol>
+
+      <h3>Voorbeeld van een goede issue-beschrijving</h3>
+
+      <p>Gebruik Markdown-opmaak om je issue leesbaar te maken. Hieronder zie je een template die je kan hergebruiken:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Markdown</div>
+        <pre><code>## Beschrijving
+De knop "Opslaan" op de formulierpagina reageert niet wanneer je
+op een mobiel scherm (&lt; 480px) bent.
+
+## Stappen om te reproduceren
+1. Open de pagina op een mobiel scherm of gebruik DevTools (mobiele emulatie)
+2. Vul het formulier in
+3. Klik op "Opslaan"
+4. → Niets gebeurt
+
+## Verwacht gedrag
+Het formulier wordt opgeslagen en de gebruiker ziet een bevestigingsbericht.
+
+## Schermafbeelding
+[Voeg hier een screenshot toe]
+
+## Omgeving
+- Browser: Chrome 124
+- Schermgrootte: 375 × 812 px</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Wees specifiek</div>
+        <p>Een vage issue zoals "het werkt niet" is niet nuttig. Wees altijd specifiek: wat deed je, wat verwachtte je, wat gebeurde er werkelijk? Hoe gedetailleerder je Issue, hoe sneller iemand het kan oplossen.</p>
+      </div>
+
+      <h2 id="labels-assignees">3. Labels &amp; Assignees</h2>
+
+      <p>GitHub biedt extra tools om issues te organiseren. De drie belangrijkste zijn <strong>labels</strong>, <strong>assignees</strong> en <strong>milestones</strong>.</p>
+
+      <h3>Labels</h3>
+
+      <p>Labels helpen issues te categoriseren zodat je snel de juiste issues vindt. GitHub maakt standaard een aantal labels aan:</p>
+
+      <table style="width:100%; border-collapse:collapse; margin: var(--space-4) 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-border);">
+            <th style="text-align:left; padding: var(--space-2) var(--space-3);">Label</th>
+            <th style="text-align:left; padding: var(--space-2) var(--space-3);">Betekenis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: var(--space-2) var(--space-3);"><code>bug</code></td>
+            <td style="padding: var(--space-2) var(--space-3);">Iets werkt niet correct</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: var(--space-2) var(--space-3);"><code>enhancement</code></td>
+            <td style="padding: var(--space-2) var(--space-3);">Nieuwe functionaliteit of verbetering</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: var(--space-2) var(--space-3);"><code>question</code></td>
+            <td style="padding: var(--space-2) var(--space-3);">Een vraag aan het team</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: var(--space-2) var(--space-3);"><code>good first issue</code></td>
+            <td style="padding: var(--space-2) var(--space-3);">Geschikt voor beginners</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: var(--space-2) var(--space-3);"><code>help wanted</code></td>
+            <td style="padding: var(--space-2) var(--space-3);">Extra hulp gevraagd</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: var(--space-2) var(--space-3);"><code>duplicate</code></td>
+            <td style="padding: var(--space-2) var(--space-3);">Dit issue bestaat al</td>
+          </tr>
+          <tr>
+            <td style="padding: var(--space-2) var(--space-3);"><code>wontfix</code></td>
+            <td style="padding: var(--space-2) var(--space-3);">Dit wordt niet opgelost</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Assignees</h3>
+
+      <p><strong>Assignees</strong> zijn de personen die verantwoordelijk zijn voor het oplossen van de issue. Je kan jezelf of een teamgenoot aanwijzen. Zo is het voor iedereen duidelijk wie waarvoor verantwoordelijk is.</p>
+
+      <h3>Milestones</h3>
+
+      <p><strong>Milestones</strong> groeperen issues onder een deadline of doel. Voorbeelden:</p>
+      <ul>
+        <li>"Sprint 1" — alles wat af moet zijn voor week 4</li>
+        <li>"GIP indiening week 10" — alle taken die nodig zijn voor de GIP-indiening</li>
+        <li>"Versie 1.0" — alles wat in de eerste versie moet zitten</li>
+      </ul>
+
+      <h2 id="issue-linken">4. Issue linken aan een commit</h2>
+
+      <p>Je kan een Issue automatisch sluiten via een commit-boodschap. Dit werkt door een speciaal sleutelwoord gevolgd door het Issue-nummer te gebruiken:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git commit -m "fixes #3: knop reageert nu ook op mobiel"</code></pre>
+      </div>
+
+      <p>Wanneer deze commit gepusht wordt naar de <strong>main branch</strong>, sluit GitHub Issue #3 automatisch. Je hoeft het Issue dus niet handmatig te sluiten.</p>
+
+      <h3>Sleutelwoorden die GitHub herkent</h3>
+
+      <p>GitHub herkent de volgende woorden (en varianten) om een Issue te sluiten:</p>
+
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin: var(--space-4) 0;">
+        <div class="card" style="padding: var(--space-3); text-align:center;"><code>fixes</code> / <code>fix</code></div>
+        <div class="card" style="padding: var(--space-3); text-align:center;"><code>closes</code> / <code>close</code></div>
+        <div class="card" style="padding: var(--space-3); text-align:center;"><code>resolves</code> / <code>resolve</code></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128204; Issue-nummer vinden</div>
+        <p>Het issue-nummer vind je in de URL van het issue (bv. <code>github.com/jou/repo/issues/3</code> → nummer is <strong>3</strong>) of naast de titel in de Issues-lijst.</p>
+      </div>
+
+      <h2 id="communiceren">5. Professioneel communiceren</h2>
+
+      <p>GitHub Issues zijn openbare communicatiekanalen. In open-source projecten en professionele teams lezen collega's, opdrachtgevers en soms de hele wereld mee. Professioneel schrijven is een vaardigheid die je in je latere loopbaan dagelijks zal gebruiken.</p>
+
+      <h3>Tips voor professionele communicatie</h3>
+
+      <ul>
+        <li>Reageer altijd <strong>beleefd en constructief</strong>, ook als iemand een fout maakte</li>
+        <li>Gebruik <strong>@naam</strong> om iemand specifiek te taggen in een reactie (bv. <code>@jantje Kan jij dit nakijken?</code>)</li>
+        <li>Gebruik <code>&gt; citaat</code> om te citeren waarop je reageert</li>
+        <li>Markeer een Issue als <strong>closed</strong> wanneer het opgelost is — met een korte uitleg wat er veranderd is</li>
+        <li>Gebruik emoticons (👍, ✅) spaarzaam — enkel als ze iets toevoegen</li>
+        <li>Vermijd afkortingen die niet iedereen begrijpt</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128188; Professioneel schrijven</div>
+        <p>In open-source projecten communiceert iedereen via Issues en Pull Requests. Wat je schrijft in een Issue is zichtbaar voor iedereen die je repository bekijkt — nu en in de toekomst. Schrijf altijd alsof je leerkracht of een toekomstige werkgever meeleest.</p>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Issues zijn geen chat</div>
+        <p>Gebruik Issues niet als chatruimte voor korte berichten. Schrijf duidelijke, volledige berichten. Als je snel iets wil vragen aan een teamgenoot, gebruik dan een andere tool (bv. Teams). Gebruik Issues voor gestructureerde communicatie over taken en bugs.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB28</span>
+            <span class="oefening__title">Oefening 1 — Issue aanmaken voor een bug</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een Issue aan in de GitHub-repository van je GitHub-workflow-oefening (H06). Beschrijf een fictieve bug in de opmaak van je pagina. Gebruik de template uit sectie 2 als basis.</p>
+            <ol>
+              <li>Ga naar je repository op GitHub</li>
+              <li>Klik op het tabblad <strong>Issues</strong> → <strong>New issue</strong></li>
+              <li>Geef een duidelijke titel (bv. "Navigatiebalk toont niet correct op mobiel")</li>
+              <li>Vul de beschrijving in met: stappen om te reproduceren, verwacht gedrag, werkelijk gedrag</li>
+              <li>Voeg minstens <strong>1 label</strong> toe (bv. <code>bug</code>)</li>
+              <li>Wijs het Issue toe aan jezelf (Assignees)</li>
+              <li>Dien het Issue in</li>
+            </ol>
+            <p>Controleer: zie je het Issue staan in de Issues-lijst met het juiste label?</p>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB28</span>
+            <span class="oefening__title">Oefening 2 — Issue sluiten via commit</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Los de fictieve bug uit Oefening 1 op via een commit die het Issue automatisch sluit.</p>
+            <ol>
+              <li>Maak een kleine CSS-aanpassing in je project (bv. voeg <code>flex-wrap: wrap;</code> toe aan de navigatie)</li>
+              <li>Sla op</li>
+              <li>Voer uit:
+                <div class="code-block" style="margin: var(--space-2) 0;">
+                  <div class="code-block__lang">Bash</div>
+                  <pre><code class="language-bash">git add .
+git commit -m "fixes #1: navigatie toont nu correct op mobiel"
+git push</code></pre>
+                </div>
+              </li>
+              <li>Ga naar GitHub → Issues</li>
+              <li>Controleer: staat Issue #1 nu bij <strong>Closed</strong>?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — GitHub Issues in jouw GIP-repository
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H07-voorbeeld.svg', 'Voorbeeld — GitHub Issues overzicht')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Issues aanmaken en linken in je GIP-repository</h3>
+
+            <p><strong>Deel 1 — Issue aanmaken (3 punten)</strong></p>
+            <p>Maak 2 echte Issues aan in jouw GIP-repository (maak die repository alvast aan als je hem nog niet hebt):</p>
+            <ul>
+              <li><strong>Issue 1:</strong> een feature die je wil bouwen (bv. "Activiteiten filteren op datum")</li>
+              <li><strong>Issue 2:</strong> een vraag aan de leerkracht/opdrachtgever (bv. "Moet de admin ook activiteiten van anderen kunnen aanpassen?")</li>
+            </ul>
+            <p>Gebruik labels en schrijf een duidelijke beschrijving voor elk Issue.</p>
+
+            <p><strong>Deel 2 — Commit linken (4 punten)</strong></p>
+            <ol>
+              <li>Maak een kleine aanpassing aan je project (bv. README bijwerken)</li>
+              <li>Commit met <code>fixes #1</code> of <code>closes #2</code></li>
+              <li>Push naar GitHub</li>
+              <li>Voeg een screenshot toe van het gesloten Issue in je indiening</li>
+            </ol>
+
+            <p><strong>Deel 3 — Reflectie (3 punten)</strong></p>
+            <p>Schrijf in 5 zinnen: waarom is het bijhouden van Issues nuttig in een project? Geef een concreet voorbeeld uit je eigen GIP.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H07 — GitHub Issues &amp; Samenwerken</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Welk sleutelwoord gebruik je in een commit-boodschap om een Issue automatisch te sluiten?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="a"> <span>closes-issue</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="b"> <span>fixes</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="c"> <span>merge</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v1" value="d"> <span>resolve-issue</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Welk GitHub-label gebruik je voor een verzoek om een nieuwe functie toe te voegen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="a"> <span>bug</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="b"> <span>question</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="c"> <span>enhancement</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v2" value="d"> <span>duplicate</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Je hebt een Issue aangemaakt met nummer 5. Hoe verwijs je er in een commit naar?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="a"> <span>fixes #5</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="b"> <span>fix issue-5</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="c"> <span>closes 5</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v3" value="d"> <span>issue fixes 5</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is een Assignee in een GitHub Issue?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="a"> <span>De persoon die het Issue aangemaakt heeft</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="b"> <span>Een label dat de prioriteit aangeeft</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="c"> <span>De versie van de software met het probleem</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v4" value="d"> <span>De persoon die verantwoordelijk is voor het oplossen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is de beste manier om een Issue te beschrijven?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="a"> <span>"Het werkt niet op mijn computer"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="b"> <span>Stappen om te reproduceren, verwacht gedrag en werkelijk gedrag</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="c"> <span>"Kan iemand dit snel fixen?"</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h07-v5" value="d"> <span>Enkel een screenshot uploaden zonder tekst</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('5adb/github-version-control/H07')" data-progress-key="5adb/github-version-control/H07">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H06.html" class="btn btn-ghost">← H06</a>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 5ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

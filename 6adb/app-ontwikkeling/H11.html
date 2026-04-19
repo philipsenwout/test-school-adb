@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptenapp — Formulier &amp; Invoer — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H11" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.1"><span class="sidebar-check__box"></span></label>
+          <a href="#situatie">11.1 Situatie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.2"><span class="sidebar-check__box"></span></label>
+          <a href="#add-js-starten">11.2 add.js starten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.3"><span class="sidebar-check__box"></span></label>
+          <a href="#feedback">11.3 Feedback tonen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.4"><span class="sidebar-check__box"></span></label>
+          <a href="#submit-listener">11.4 Submit listener</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.5"><span class="sidebar-check__box"></span></label>
+          <a href="#voeg-toe">11.5 De voegToe() functie</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.6"><span class="sidebar-check__box"></span></label>
+          <a href="#willekeurig">11.6 Willekeurig basisrecept</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="11.7"><span class="sidebar-check__box"></span></label>
+          <a href="#wis-alles">11.7 Alle recepten verwijderen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Receptenapp — Formulier &amp; Invoer</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H11 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Receptenapp — Formulier &amp; Invoer</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een HTML-formulier koppelen aan JavaScript via <code>addEventListener('submit', ...)</code></li>
+          <li><code>e.preventDefault()</code> correct gebruiken om de standaard submit-actie te stoppen</li>
+          <li>Formulierwaarden ophalen en valideren in meerdere stappen</li>
+          <li>Een nieuw object aanmaken op basis van formulierinvoer</li>
+          <li>Feedback geven aan de gebruiker via succes- en foutmeldingen</li>
+          <li>Een "willekeurig basisrecept"-functie implementeren met <code>Math.random()</code></li>
+        </ul>
+      </div>
+
+      <h2 id="situatie">11.1 Situatie: waar staan we?</h2>
+      <p>In H09 hebben we de bestandsstructuur opgezet en de data aangemaakt. In H10 hebben we <code>script.js</code> gebouwd om recepten op de overzichtspagina te tonen. Nu bouwen we <strong><code>add.js</code></strong> — de logica voor de <code>add.html</code>-pagina. Hiermee kan de gebruiker:</p>
+      <ul>
+        <li>Zelf een nieuw recept invoeren via het formulier</li>
+        <li>Willekeurig een basisrecept toevoegen</li>
+        <li>Alle recepten wissen</li>
+      </ul>
+
+      <h2 id="add-js-starten">11.2 <code>add.js</code> starten</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// add.js
+import { basisRecepten } from "./recepten.js";
+import { updateLS } from "./hulpfuncties.js";
+
+// Laad de huidige recepten uit localStorage
+let alleRecepten = JSON.parse(localStorage.getItem('opgeslagenRecepten')) || [];</code></pre>
+      </div>
+      <p>Vergeet niet de koppeling in <code>add.html</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code class="language-html">&lt;!-- add.html — onderaan in de body --&gt;
+&lt;script src="add.js" type="module"&gt;&lt;/script&gt;</code></pre>
+      </div>
+
+      <h2 id="feedback">11.3 Feedback tonen: <code>toonMelding()</code></h2>
+      <p>Elke actie geeft de gebruiker terugkoppeling. Een eenvoudige functie toont een bericht in het feedback-element:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function toonMelding(soort, tekst) {
+    const melding = document.querySelector('#melding');
+    melding.innerHTML = `&lt;p&gt;${tekst}&lt;/p&gt;`;
+    melding.className = `melding ${soort}`;
+    melding.style.display = 'block';
+}
+
+// Oproepen:
+toonMelding('succes', 'Recept toegevoegd!');
+toonMelding('fout', 'Niet alle velden zijn ingevuld.');</code></pre>
+      </div>
+      <p><code>soort</code> is <code>"succes"</code> (groen) of <code>"fout"</code> (rood). De CSS-klassen <code>.succes</code> en <code>.fout</code> in <code>stijl.css</code> definiëren de kleur.</p>
+
+      <h2 id="submit-listener">11.4 Submit listener op het formulier</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">document.querySelector('#recept-formulier').addEventListener('submit', (e) => {
+    e.preventDefault(); // Voorkom het herladen van de pagina
+    voegToe();
+});</code></pre>
+      </div>
+      <p><code>e.preventDefault()</code> is <strong>essentieel</strong>: zonder dit verzendt het formulier de data naar een server en herlaadt de pagina, waardoor al onze JavaScript-state verloren gaat.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H11-afb1.svg" alt="Stroomdiagram: gebruiker klikt submit → e.preventDefault() → voegToe() → validatie → push → updateLS → melding" loading="lazy">
+      </figure>
+
+      <h2 id="voeg-toe">11.5 De <code>voegToe()</code> functie</h2>
+      <p>De validatie werkt in stappen: bij elke fout stoppen we de functie met <code>return</code>. Zo komen we nooit bij het opslaan zonder geldige data.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function voegToe() {
+    // Stap 1: Haal de veldwaarden op
+    const nieuwRecept = {
+        naam: document.querySelector('#naam').value.trim(),
+        beschrijving: document.querySelector('#beschrijving').value.trim(),
+        categorie: document.querySelector('#categorie').value,
+        bereidingstijd: Number(document.querySelector('#bereidingstijd').value),
+    };
+
+    // Stap 2: Valideer — zijn alle velden ingevuld?
+    if (!nieuwRecept.naam || !nieuwRecept.beschrijving || !nieuwRecept.categorie || !nieuwRecept.bereidingstijd) {
+        toonMelding('fout', 'Vul alle velden in voordat je een recept toevoegt.');
+        return;
+    }
+
+    // Stap 3: Valideer — is de naam al in gebruik?
+    const bestaandeNamen = alleRecepten.map(r => r.naam.toLowerCase());
+    if (bestaandeNamen.includes(nieuwRecept.naam.toLowerCase())) {
+        toonMelding('fout', `Er bestaat al een recept met de naam "${nieuwRecept.naam}".`);
+        return;
+    }
+
+    // Stap 4: Valideer — is bereidingstijd een positief getal?
+    if (nieuwRecept.bereidingstijd &lt;= 0 || isNaN(nieuwRecept.bereidingstijd)) {
+        toonMelding('fout', 'Bereidingstijd moet een positief getal zijn.');
+        return;
+    }
+
+    // Stap 5: Voeg toe en sla op
+    alleRecepten.push(nieuwRecept);
+    updateLS(alleRecepten);
+    toonMelding('succes', `Recept "${nieuwRecept.naam}" is toegevoegd!`);
+
+    // Stap 6: Reset het formulier
+    document.querySelector('#recept-formulier').reset();
+}</code></pre>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Concept</th><th>Code</th><th>Gebruik</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Waarde ophalen</td><td><code>.value.trim()</code></td><td>Whitespace verwijderen</td></tr>
+          <tr><td>Omzetten naar getal</td><td><code>Number(...)</code></td><td>String naar number</td></tr>
+          <tr><td>Stoppen bij fout</td><td><code>return;</code></td><td>Verdere uitvoering voorkomen</td></tr>
+          <tr><td>Duplicaat controleren</td><td><code>.map() + .includes()</code></td><td>Uniekheid garanderen</td></tr>
+          <tr><td>Opslaan</td><td><code>push() + updateLS()</code></td><td>Array en localStorage</td></tr>
+          <tr><td>Formulier leegmaken</td><td><code>.reset()</code></td><td>Na succesvolle opslag</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="willekeurig">11.6 Willekeurig basisrecept toevoegen</h2>
+      <p>Met de onderstaande functie voeg je willekeurig één basisrecept toe dat nog niet in de lijst staat:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function voegWillekeurigToe() {
+    // 1. Maak een lijst van bestaande namen
+    const bestaandeNamen = alleRecepten.map(r => r.naam.toLowerCase());
+
+    // 2. Filter de basisrecepten: welke zijn er nog niet?
+    const beschikbaar = basisRecepten.filter(r =>
+        !bestaandeNamen.includes(r.naam.toLowerCase())
+    );
+
+    // 3. Zijn er nog beschikbare basisrecepten?
+    if (beschikbaar.length === 0) {
+        toonMelding('fout', 'Alle basisrecepten zijn al toegevoegd!');
+        return;
+    }
+
+    // 4. Kies een willekeurig basisrecept
+    const index = Math.floor(Math.random() * beschikbaar.length);
+    const willekeurig = beschikbaar[index];
+
+    // 5. Voeg toe en sla op
+    alleRecepten.push(willekeurig);
+    updateLS(alleRecepten);
+    toonMelding('succes', `Basisrecept "${willekeurig.naam}" toegevoegd!`);
+}
+
+document.querySelector('#btn-willekeurig').addEventListener('click', voegWillekeurigToe);</code></pre>
+      </div>
+      <p><code>Math.floor(Math.random() * beschikbaar.length)</code> geeft een willekeurig geheel getal van 0 tot (maar niet inclusief) de lengte van de array — een klassieker voor het kiezen van een willekeurig element.</p>
+
+      <h2 id="wis-alles">11.7 Alle recepten verwijderen</h2>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">function wisAlleRecepten() {
+    if (confirm('Ben je zeker dat je alle recepten wil verwijderen?')) {
+        alleRecepten.length = 0;  // Array legen (zelfde referentie bewaren)
+        updateLS(alleRecepten);
+        toonMelding('succes', 'Alle recepten zijn verwijderd.');
+    }
+}
+
+document.querySelector('#btn-verwijder-alle').addEventListener('click', wisAlleRecepten);</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Tip: <code>array.length = 0</code></div>
+        <p><code>alleRecepten.length = 0</code> is een handige truc om een array leeg te maken <strong>zonder een nieuwe array aan te maken</strong>. Dit werkt omdat we de referentie naar de array bewaren. Het is anders dan <code>alleRecepten = []</code>, wat een nieuwe array aanmaakt en de oude referentie verbreekt.</p>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 1 — Validatie uitbreiden</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Breid de validatie in <code>voegToe()</code> uit met de volgende extra controles:</p>
+            <ol>
+              <li>Naam moet minstens <strong>3 tekens</strong> lang zijn.</li>
+              <li>Beschrijving moet minstens <strong>10 tekens</strong> lang zijn.</li>
+              <li>Bereidingstijd mag maximaal <strong>480 minuten</strong> zijn.</li>
+            </ol>
+            <p>Toon een duidelijke foutmelding als een van deze regels niet voldaan is.</p>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H11-oef1-browser.svg" alt="Browser mockup: formulier met foutmelding in rood zichtbaar" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 2 — Live tekenteller</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Voeg een live tekenteller toe bij het beschrijving-veld die bijwerkt bij elke toetsaanslag (<code>input</code>-event). Toon: "X / 200 tekens ingegeven."</p>
+            <ol>
+              <li>Voeg een <code>&lt;span id="teller"&gt;</code> toe na het textarea-element in <code>add.html</code>.</li>
+              <li>Voeg een <code>input</code>-listener toe op het textarea-element in <code>add.js</code>.</li>
+              <li>Werk de tekst van de span bij bij elke toetsaanslag.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB10</span>
+            <span class="oefening__title">Oefening 3 — Melding automatisch verbergen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Pas de <code>toonMelding()</code> functie aan zodat het bericht na <strong>5 seconden</strong> automatisch verdwijnt met behulp van <code>setTimeout</code>:</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">function toonMelding(soort, tekst) {
+    const melding = document.querySelector('#melding');
+    melding.innerHTML = `&lt;p&gt;${tekst}&lt;/p&gt;`;
+    melding.className = `melding ${soort}`;
+    melding.style.display = 'block';
+
+    // Verberg na 5 seconden
+    setTimeout(() => {
+        melding.style.display = 'none';
+    }, 5000);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H11 Formulier &amp; Invoer
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H11-oef1-browser.svg', 'Voorbeeld — Formulier met validatie en feedback')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Volledig werkend formulier</h3>
+            <p>Bouw de volledige <code>add.js</code> na en test alle functies grondig.</p>
+            <h4>Deel 1 — Formulier en validatie (4 punten)</h4>
+            <ol>
+              <li>Implementeer <code>voegToe()</code> met alle 4 validatiestappen.</li>
+              <li>Voeg de extra validatie toe (minimumlengte naam en beschrijving).</li>
+            </ol>
+            <h4>Deel 2 — Extra knoppen (3 punten)</h4>
+            <ol>
+              <li>Implementeer <code>voegWillekeurigToe()</code>.</li>
+              <li>Implementeer <code>wisAlleRecepten()</code> met bevestigingsvenster.</li>
+            </ol>
+            <h4>Deel 3 — UX verbeteringen (3 punten)</h4>
+            <ol>
+              <li>Voeg een live tekenteller toe bij het beschrijving-veld.</li>
+              <li>Laat meldingen automatisch verdwijnen na 5 seconden.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H11 — Formulier &amp; Invoer</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Waarom is <code>e.preventDefault()</code> noodzakelijk bij het verwerken van een formulier?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="a"> <span>Om het formulier zichtbaar te maken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="b"> <span>Om te voorkomen dat de pagina herlaadt en de JavaScript-state verloren gaat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="c"> <span>Om de formulierwaarden te wissen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v1" value="d"> <span>Om de submit-knop uit te schakelen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Waarom gebruiken we <code>Number(document.querySelector('#bereidingstijd').value)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="a"> <span>Om de waarde te verbergen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="b"> <span>Om het veld leeg te maken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="c"> <span>Omdat <code>.value</code> altijd een string teruggeeft, maar we een getal nodig hebben</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v2" value="d"> <span>Om de waarde op te slaan in localStorage</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wat doet <code>Math.floor(Math.random() * beschikbaar.length)</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="a"> <span>Geeft een willekeurig geheel getal van 0 tot (niet inclusief) de arraylengte</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="b"> <span>Geeft altijd 0 terug</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="c"> <span>Sorteert de array willekeurig</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v3" value="d"> <span>Geeft de laatste index van de array terug</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Wat is het verschil tussen <code>alleRecepten.length = 0</code> en <code>alleRecepten = []</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="a"> <span>Er is geen verschil</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="b"> <span><code>alleRecepten = []</code> leegt de array, <code>.length = 0</code> niet</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="c"> <span><code>.length = 0</code> verwijdert de variabele</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v4" value="d"> <span><code>.length = 0</code> leegt de bestaande array, <code>= []</code> maakt een nieuwe array aan</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat doet <code>document.querySelector('#recept-formulier').reset()</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="a"> <span>Verwijdert het formulier uit de DOM</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="b"> <span>Zet alle formuliervelden terug naar hun beginwaarde</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="c"> <span>Verzendt het formulier opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v5" value="d"> <span>Wist de localStorage</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe controleer je of een getal geen <code>NaN</code> is in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="a"> <span><code>isNaN(waarde)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="b"> <span><code>waarde === NaN</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="c"> <span><code>typeof waarde === 'NaN'</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h11-v6" value="d"> <span><code>waarde.isNaN()</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H11')" data-progress-key="6adb/app-ontwikkeling/H11">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H10.html" class="btn btn-ghost">← H10</a>
+          <a href="H12.html" class="btn btn-ghost">H12 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

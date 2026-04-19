@@ -1,0 +1,75 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="400" fill="#1a1c28"/>
+  <text x="400" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#f0f0f0">HTML5 Semantisch Element — Keuzehulp</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#aaa"/>
+    </marker>
+  </defs>
+
+  <!-- Start -->
+  <ellipse cx="400" cy="65" rx="130" ry="25" fill="#7B3FE4"/>
+  <text x="400" y="70" text-anchor="middle" font-size="13" fill="white" font-weight="bold">Nieuw HTML-element nodig?</text>
+
+  <!-- Pijl naar vraag 1 -->
+  <line x1="400" y1="90" x2="400" y2="115" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Vraag 1: Is het hoofd/voet/nav? -->
+  <rect x="240" y="115" width="320" height="40" rx="6" fill="#2D9CDB" opacity="0.8"/>
+  <text x="400" y="140" text-anchor="middle" font-size="12" fill="white">Is het een inleiding of sitetitel?</text>
+  <!-- Ja → header -->
+  <line x1="560" y1="135" x2="625" y2="135" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="592" y="128" font-size="10" fill="#22C55E">Ja</text>
+  <rect x="625" y="120" width="110" height="30" rx="4" fill="#22C55E" opacity="0.7"/>
+  <text x="680" y="139" text-anchor="middle" font-size="12" fill="white">&lt;header&gt;</text>
+  <!-- Nee pijl -->
+  <line x1="400" y1="155" x2="400" y2="180" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="408" y="169" font-size="10" fill="#F97316">Nee</text>
+
+  <!-- Vraag 2: Navigatie? -->
+  <rect x="240" y="180" width="320" height="40" rx="6" fill="#2D9CDB" opacity="0.8"/>
+  <text x="400" y="205" text-anchor="middle" font-size="12" fill="white">Is het een navigatiemenu?</text>
+  <!-- Ja → nav -->
+  <line x1="560" y1="200" x2="625" y2="200" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="592" y="193" font-size="10" fill="#22C55E">Ja</text>
+  <rect x="625" y="185" width="110" height="30" rx="4" fill="#22C55E" opacity="0.7"/>
+  <text x="680" y="204" text-anchor="middle" font-size="12" fill="white">&lt;nav&gt;</text>
+  <!-- Nee pijl -->
+  <line x1="400" y1="220" x2="400" y2="245" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="408" y="234" font-size="10" fill="#F97316">Nee</text>
+
+  <!-- Vraag 3: Op zichzelf staand? -->
+  <rect x="240" y="245" width="320" height="40" rx="6" fill="#2D9CDB" opacity="0.8"/>
+  <text x="400" y="270" text-anchor="middle" font-size="12" fill="white">Is het op zichzelf leesbaar (blogpost...)?</text>
+  <!-- Ja → article -->
+  <line x1="560" y1="265" x2="625" y2="265" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="592" y="258" font-size="10" fill="#22C55E">Ja</text>
+  <rect x="625" y="250" width="110" height="30" rx="4" fill="#22C55E" opacity="0.7"/>
+  <text x="680" y="269" text-anchor="middle" font-size="12" fill="white">&lt;article&gt;</text>
+  <!-- Nee pijl -->
+  <line x1="400" y1="285" x2="400" y2="310" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="408" y="299" font-size="10" fill="#F97316">Nee</text>
+
+  <!-- Vraag 4: Hoort het thematisch bij elkaar? -->
+  <rect x="240" y="310" width="320" height="40" rx="6" fill="#2D9CDB" opacity="0.8"/>
+  <text x="400" y="335" text-anchor="middle" font-size="12" fill="white">Hoort de inhoud thematisch bij elkaar?</text>
+  <!-- Ja → section -->
+  <line x1="560" y1="330" x2="625" y2="330" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="592" y="323" font-size="10" fill="#22C55E">Ja</text>
+  <rect x="625" y="315" width="110" height="30" rx="4" fill="#22C55E" opacity="0.7"/>
+  <text x="680" y="334" text-anchor="middle" font-size="12" fill="white">&lt;section&gt;</text>
+  <!-- Nee pijl -->
+  <line x1="400" y1="350" x2="400" y2="368" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="408" y="360" font-size="10" fill="#F97316">Nee</text>
+
+  <!-- Eindknoop: div als laatste keuze -->
+  <rect x="310" y="368" width="180" height="30" rx="6" fill="#555"/>
+  <text x="400" y="387" text-anchor="middle" font-size="12" fill="white">&lt;div&gt; — laatste keuze</text>
+
+  <!-- Extra notities links -->
+  <text x="30" y="140" font-size="10" fill="#888">ook: &lt;footer&gt; voor</text>
+  <text x="30" y="152" font-size="10" fill="#888">sluitende informatie</text>
+  <line x1="130" y1="144" x2="238" y2="135" stroke="#555" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>

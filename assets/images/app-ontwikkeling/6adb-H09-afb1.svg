@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Browser chrome -->
+  <rect x="10" y="10" width="780" height="500" rx="12" fill="#f5f6fa" stroke="#ccc" stroke-width="1.5"/>
+  <rect x="10" y="10" width="780" height="44" rx="12" fill="#e8e8ed"/>
+  <rect x="10" y="44" width="780" height="10" fill="#e8e8ed"/>
+  <circle cx="36" cy="32" r="7" fill="#ff6b6b" opacity="0.5"/>
+  <circle cx="58" cy="32" r="7" fill="#f9a825" opacity="0.5"/>
+  <circle cx="80" cy="32" r="7" fill="#43e97b" opacity="0.5"/>
+  <rect x="110" y="18" width="500" height="28" rx="6" fill="#fff" stroke="#ddd" stroke-width="1" stroke-dasharray="4,3" opacity="0.7"/>
+  <text x="360" y="37" text-anchor="middle" font-size="12" fill="#bbb">receptenapp/index.html</text>
+
+  <!-- Pagina achtergrond -->
+  <rect x="10" y="54" width="780" height="456" fill="#f8f9ff" rx="0"/>
+
+  <!-- Header balk (wireframe) -->
+  <rect x="10" y="54" width="780" height="50" fill="#e8eaf6" stroke="#c5cae9" stroke-width="1"/>
+  <!-- Logo placeholder -->
+  <rect x="28" y="66" width="80" height="26" rx="4" fill="#c5cae9" opacity="0.6"/>
+  <text x="68" y="83" text-anchor="middle" font-size="11" fill="#7986cb">LOGO</text>
+  <!-- Nav links rechts -->
+  <text x="530" y="83" font-size="12" fill="#555">Overzicht</text>
+  <line x1="525" y1="87" x2="578" y2="87" stroke="#7986cb" stroke-width="1.5"/>
+  <text x="610" y="83" font-size="12" fill="#555">Recept toevoegen</text>
+
+  <!-- H1 -->
+  <rect x="240" y="118" width="320" height="36" rx="4" fill="#e8eaf6" opacity="0.5"/>
+  <text x="400" y="143" text-anchor="middle" font-size="20" font-weight="700" fill="#555">Mijn Recepten</text>
+
+  <!-- Zoekbalk -->
+  <rect x="100" y="166" width="600" height="36" rx="6" fill="#fff" stroke="#c5cae9" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="400" y="188" text-anchor="middle" font-size="13" fill="#bbb">Zoek een recept...</text>
+  <rect x="690" y="166" width="36" height="36" rx="6" fill="#e8eaf6"/>
+  <text x="708" y="189" text-anchor="middle" font-size="16" fill="#7986cb">🔍</text>
+
+  <!-- Filter rij -->
+  <rect x="100" y="214" width="600" height="36" rx="6" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <!-- Checkbox 1 Voorgerecht -->
+  <rect x="116" y="224" width="14" height="14" rx="3" fill="#ef5350" opacity="0.3" stroke="#ef5350" stroke-width="1"/>
+  <text x="136" y="235" font-size="12" fill="#555">☑ Voorgerecht</text>
+  <!-- Checkbox 2 Hoofdgerecht -->
+  <rect x="258" y="224" width="14" height="14" rx="3" fill="#3498db" opacity="0.3" stroke="#3498db" stroke-width="1"/>
+  <text x="278" y="235" font-size="12" fill="#555">☑ Hoofdgerecht</text>
+  <!-- Checkbox 3 Dessert -->
+  <rect x="408" y="224" width="14" height="14" rx="3" fill="#6c63ff" opacity="0.3" stroke="#6c63ff" stroke-width="1"/>
+  <text x="428" y="235" font-size="12" fill="#555">☑ Dessert</text>
+  <!-- Checkbox 4 Snack -->
+  <rect x="520" y="224" width="14" height="14" rx="3" fill="#f9a825" opacity="0.3" stroke="#f9a825" stroke-width="1"/>
+  <text x="540" y="235" font-size="12" fill="#555">☑ Snack</text>
+
+  <!-- Grid 2x2 receptkaarten -->
+  <!-- Kaart 1 -->
+  <rect x="100" y="262" width="280" height="94" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="100" y="262" width="6" height="94" rx="3" fill="#ef5350"/>
+  <rect x="116" y="275" width="150" height="14" rx="3" fill="#e8eaf6"/>
+  <rect x="116" y="297" width="200" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="116" y="313" width="120" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="116" y="330" width="60" height="16" rx="4" fill="#ef5350" opacity="0.2"/>
+  <text x="146" y="342" text-anchor="middle" font-size="9" fill="#ef5350">voorgerecht</text>
+
+  <!-- Kaart 2 -->
+  <rect x="420" y="262" width="280" height="94" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="420" y="262" width="6" height="94" rx="3" fill="#3498db"/>
+  <rect x="436" y="275" width="150" height="14" rx="3" fill="#e8eaf6"/>
+  <rect x="436" y="297" width="200" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="436" y="313" width="120" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="436" y="330" width="64" height="16" rx="4" fill="#3498db" opacity="0.2"/>
+  <text x="468" y="342" text-anchor="middle" font-size="9" fill="#3498db">hoofdgerecht</text>
+
+  <!-- Kaart 3 -->
+  <rect x="100" y="368" width="280" height="94" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="100" y="368" width="6" height="94" rx="3" fill="#6c63ff"/>
+  <rect x="116" y="381" width="150" height="14" rx="3" fill="#e8eaf6"/>
+  <rect x="116" y="403" width="200" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="116" y="419" width="120" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="116" y="436" width="48" height="16" rx="4" fill="#6c63ff" opacity="0.2"/>
+  <text x="140" y="448" text-anchor="middle" font-size="9" fill="#6c63ff">dessert</text>
+
+  <!-- Kaart 4 -->
+  <rect x="420" y="368" width="280" height="94" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="420" y="368" width="6" height="94" rx="3" fill="#f9a825"/>
+  <rect x="436" y="381" width="150" height="14" rx="3" fill="#e8eaf6"/>
+  <rect x="436" y="403" width="200" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="436" y="419" width="120" height="10" rx="3" fill="#f0f0f0"/>
+  <rect x="436" y="436" width="42" height="16" rx="4" fill="#f9a825" opacity="0.2"/>
+  <text x="457" y="448" text-anchor="middle" font-size="9" fill="#9a6800">snack</text>
+
+  <!-- Footer -->
+  <rect x="10" y="474" width="780" height="36" fill="#2d2d4e"/>
+  <text x="400" y="496" text-anchor="middle" font-size="11" fill="#aaa">© 2025 — Receptenapp | vr 3 apr 2025 — 14:32:07</text>
+</svg>

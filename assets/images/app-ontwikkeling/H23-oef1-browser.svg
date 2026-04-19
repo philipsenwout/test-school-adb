@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <text x="600" y="44" text-anchor="middle" font-family="'Courier New', monospace" font-size="22" font-weight="bold" fill="#00d4ff">Oefening — Toegangscontrole</text>
+  <text x="600" y="70" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#8892a4">Console-uitvoer voor 5 testscenario's met &amp;&amp;, || en !</text>
+
+  <!-- Browser window -->
+  <rect x="60" y="88" width="1080" height="686" rx="14" fill="#1a1d26" stroke="#2d3448" stroke-width="2"/>
+  <rect x="60" y="88" width="1080" height="42" rx="14" fill="#1e2438"/>
+  <rect x="60" y="116" width="1080" height="14" fill="#1e2438"/>
+  <circle cx="92" cy="109" r="7" fill="#ff5f57"/>
+  <circle cx="116" cy="109" r="7" fill="#febc2e"/>
+  <circle cx="140" cy="109" r="7" fill="#28c840"/>
+  <rect x="170" y="98" width="760" height="22" rx="5" fill="#0f1117" stroke="#2d3448" stroke-width="1"/>
+  <text x="550" y="114" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">oefening-toegangscontrole.js</text>
+
+  <!-- DevTools -->
+  <rect x="60" y="130" width="1080" height="644" fill="#0f1117"/>
+  <rect x="60" y="130" width="1080" height="34" fill="#12161f"/>
+  <text x="96" y="153" font-family="'Courier New', monospace" font-size="13" fill="#8892a4">Console</text>
+  <line x1="60" y1="164" x2="1140" y2="164" stroke="#2d3448" stroke-width="1"/>
+
+  <!-- Code snippet -->
+  <rect x="80" y="172" width="1040" height="116" rx="8" fill="#12161f" stroke="#2d3448" stroke-width="1"/>
+  <text x="100" y="194" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// Logica (vereenvoudigd):</text>
+  <text x="100" y="214" font-family="'Courier New', monospace" font-size="13" fill="#7c3aed">const</text>
+  <text x="138" y="214" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> toegestaan = leeftijd &gt;= 16</text>
+  <text x="364" y="214" font-family="'Courier New', monospace" font-size="14" fill="#39ff14" font-weight="bold"> &amp;&amp;</text>
+  <text x="392" y="214" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> (heeftTicket</text>
+  <text x="520" y="214" font-family="'Courier New', monospace" font-size="14" fill="#ff6b35" font-weight="bold"> ||</text>
+  <text x="546" y="214" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> isLid)</text>
+  <text x="624" y="214" font-family="'Courier New', monospace" font-size="14" fill="#39ff14" font-weight="bold"> &amp;&amp;</text>
+  <text x="660" y="214" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff" font-weight="bold"> !</text>
+  <text x="676" y="214" font-family="'Courier New', monospace" font-size="13" fill="#ffffff">staatOpZwarteLijst;</text>
+  <text x="100" y="238" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// Condities: leeftijd &gt;= 16  &amp;&amp;  (ticket || lid)  &amp;&amp;  !zwarteLijst</text>
+  <text x="100" y="260" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// Haakjes bepalen de volgorde: (heeftTicket || isLid) wordt eerst berekend</text>
+  <text x="100" y="280" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// dan &amp;&amp; met leeftijd, dan &amp;&amp; met !zwarteLijst</text>
+
+  <line x1="80" y1="298" x2="1120" y2="298" stroke="#2d3448" stroke-width="1"/>
+
+  <!-- Header row -->
+  <rect x="80" y="298" width="1040" height="34" fill="#1e2438"/>
+  <text x="110" y="320" font-family="'Courier New', monospace" font-size="12" fill="#8892a4" font-weight="bold">Scenario</text>
+  <text x="290" y="320" font-family="'Courier New', monospace" font-size="12" fill="#8892a4" font-weight="bold">Leeftijd</text>
+  <text x="390" y="320" font-family="'Courier New', monospace" font-size="12" fill="#8892a4" font-weight="bold">Ticket</text>
+  <text x="480" y="320" font-family="'Courier New', monospace" font-size="12" fill="#8892a4" font-weight="bold">Lid</text>
+  <text x="556" y="320" font-family="'Courier New', monospace" font-size="12" fill="#8892a4" font-weight="bold">Zwarte lijst</text>
+  <text x="700" y="320" font-family="'Courier New', monospace" font-size="12" fill="#8892a4" font-weight="bold">Resultaat &amp; Reden</text>
+
+  <!-- Row 1: Access granted -->
+  <rect x="80" y="332" width="1040" height="62" rx="0" fill="#0a1f0a"/>
+  <rect x="80" y="332" width="6" height="62" fill="#39ff14"/>
+  <text x="110" y="356" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">1</text>
+  <text x="290" y="356" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">20</text>
+  <text x="390" y="356" font-family="'Courier New', monospace" font-size="13" fill="#39ff14">true</text>
+  <text x="480" y="356" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <text x="556" y="356" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <rect x="695" y="336" width="410" height="52" rx="6" fill="#1a4a1a"/>
+  <text x="715" y="358" font-family="'Courier New', monospace" font-size="15" fill="#39ff14" font-weight="bold">✔ TOEGANG VERLEEND</text>
+  <text x="715" y="378" font-family="'Courier New', monospace" font-size="12" fill="#6baa78">20&gt;=16 ✔ &amp;&amp; (ticket ✔ || lid ✗) ✔ &amp;&amp; !false ✔</text>
+
+  <!-- Row 2: Too young -->
+  <rect x="80" y="394" width="1040" height="62" fill="#1a0a0a"/>
+  <rect x="80" y="394" width="6" height="62" fill="#ff4444"/>
+  <text x="110" y="418" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">2</text>
+  <text x="290" y="418" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">14</text>
+  <text x="390" y="418" font-family="'Courier New', monospace" font-size="13" fill="#39ff14">true</text>
+  <text x="480" y="418" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <text x="556" y="418" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <rect x="695" y="398" width="410" height="52" rx="6" fill="#3a0a0a"/>
+  <text x="715" y="420" font-family="'Courier New', monospace" font-size="15" fill="#ff4444" font-weight="bold">✗ GEWEIGERD</text>
+  <text x="715" y="440" font-family="'Courier New', monospace" font-size="12" fill="#aa5555">14&gt;=16 ✗ — kortsluiting: rest niet geëvalueerd</text>
+  <text x="715" y="456" font-family="'Courier New', monospace" font-size="11" fill="#6b4040">Reden: te jong (minimum 16)</text>
+
+  <!-- Row 3: No ticket or membership -->
+  <rect x="80" y="456" width="1040" height="62" fill="#0a1f0a"/>
+  <rect x="80" y="456" width="6" height="62" fill="#ff4444"/>
+  <text x="110" y="480" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">3</text>
+  <text x="290" y="480" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">20</text>
+  <text x="390" y="480" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <text x="480" y="480" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <text x="556" y="480" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <rect x="695" y="460" width="410" height="52" rx="6" fill="#3a0a0a"/>
+  <text x="715" y="482" font-family="'Courier New', monospace" font-size="15" fill="#ff4444" font-weight="bold">✗ GEWEIGERD</text>
+  <text x="715" y="502" font-family="'Courier New', monospace" font-size="12" fill="#aa5555">20&gt;=16 ✔ maar (false || false) = false</text>
+  <text x="715" y="518" font-family="'Courier New', monospace" font-size="11" fill="#6b4040">Reden: geen ticket of lidmaatschap</text>
+
+  <!-- Row 4: Blacklist -->
+  <rect x="80" y="518" width="1040" height="62" fill="#1a0a0a"/>
+  <rect x="80" y="518" width="6" height="62" fill="#ff4444"/>
+  <text x="110" y="542" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">4</text>
+  <text x="290" y="542" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">20</text>
+  <text x="390" y="542" font-family="'Courier New', monospace" font-size="13" fill="#39ff14">true</text>
+  <text x="480" y="542" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <text x="556" y="542" font-family="'Courier New', monospace" font-size="13" fill="#39ff14">true</text>
+  <rect x="695" y="522" width="410" height="52" rx="6" fill="#3a0a0a"/>
+  <text x="715" y="544" font-family="'Courier New', monospace" font-size="15" fill="#ff4444" font-weight="bold">✗ GEWEIGERD</text>
+  <text x="715" y="564" font-family="'Courier New', monospace" font-size="12" fill="#aa5555">!staatOpZwarteLijst = !true = false</text>
+  <text x="715" y="580" font-family="'Courier New', monospace" font-size="11" fill="#6b4040">Reden: op de zwarte lijst</text>
+
+  <!-- Row 5: Access as member -->
+  <rect x="80" y="580" width="1040" height="62" fill="#0a1f0a"/>
+  <rect x="80" y="580" width="6" height="62" fill="#39ff14"/>
+  <text x="110" y="604" font-family="'Courier New', monospace" font-size="12" fill="#8892a4">5</text>
+  <text x="290" y="604" font-family="'Courier New', monospace" font-size="14" fill="#ffffff">17</text>
+  <text x="390" y="604" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <text x="480" y="604" font-family="'Courier New', monospace" font-size="13" fill="#39ff14">true</text>
+  <text x="556" y="604" font-family="'Courier New', monospace" font-size="13" fill="#ff4444">false</text>
+  <rect x="695" y="584" width="410" height="52" rx="6" fill="#1a4a1a"/>
+  <text x="715" y="606" font-family="'Courier New', monospace" font-size="15" fill="#39ff14" font-weight="bold">✔ TOEGANG VERLEEND</text>
+  <text x="715" y="626" font-family="'Courier New', monospace" font-size="12" fill="#6baa78">17&gt;=16 ✔ &amp;&amp; (false || true) ✔ &amp;&amp; !false ✔</text>
+  <text x="715" y="642" font-family="'Courier New', monospace" font-size="11" fill="#3a6a3a">Via lidmaatschap, geen ticket nodig</text>
+
+  <!-- Summary -->
+  <line x1="80" y1="650" x2="1120" y2="650" stroke="#2d3448" stroke-width="1"/>
+  <text x="100" y="672" font-family="'Courier New', monospace" font-size="12" fill="#6b7280">// Operatoren gebruikt:</text>
+  <text x="100" y="694" font-family="'Courier New', monospace" font-size="13" fill="#39ff14" font-weight="bold">&amp;&amp;</text>
+  <text x="128" y="694" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> (EN) — alle voorwaarden samen moeten kloppen</text>
+  <text x="100" y="716" font-family="'Courier New', monospace" font-size="13" fill="#ff6b35" font-weight="bold">||</text>
+  <text x="128" y="716" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> (OF) — minstens één van de twee (ticket OF lid)</text>
+  <text x="100" y="738" font-family="'Courier New', monospace" font-size="14" fill="#00d4ff" font-weight="bold">!</text>
+  <text x="120" y="738" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> (NIET) — keert boolean om: !true = false, !false = true</text>
+  <text x="700" y="694" font-family="'Courier New', monospace" font-size="12" fill="#7c3aed">( )</text>
+  <text x="720" y="694" font-family="'Courier New', monospace" font-size="13" fill="#ffffff"> Haakjes bepalen de volgorde van berekening!</text>
+</svg>

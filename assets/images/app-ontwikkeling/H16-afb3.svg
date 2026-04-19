@@ -1,0 +1,193 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow-cyan">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="browserGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e2030"/>
+      <stop offset="100%" stop-color="#161b27"/>
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1e2e"/>
+      <stop offset="100%" stop-color="#141828"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0f1117"/>
+
+  <!-- Grid -->
+  <g opacity="0.03" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- Title above browser -->
+  <text x="600" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">Google Fonts — Lettertypes koppelen aan je webpagina</text>
+  <line x1="180" y1="56" x2="1020" y2="56" stroke="#00d4ff" stroke-width="1.5" opacity="0.5"/>
+  <text x="600" y="76" text-anchor="middle" font-size="13" fill="#888">Stap 1: kies je lettertypes op fonts.google.com — Stap 2: kopieer de link — Stap 3: gebruik in CSS</text>
+
+  <!-- ===== BROWSER WINDOW ===== -->
+  <!-- Browser outer frame -->
+  <rect x="60" y="92" width="1080" height="580" rx="12" fill="url(#browserGrad)" stroke="#2a2d3e" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Browser chrome (title bar) -->
+  <rect x="60" y="92" width="1080" height="46" rx="12" fill="#1e2130"/>
+  <rect x="60" y="120" width="1080" height="18" fill="#1e2130"/>
+
+  <!-- Traffic lights -->
+  <circle cx="90" cy="115" r="7" fill="#ff5f57"/>
+  <circle cx="112" cy="115" r="7" fill="#febc2e"/>
+  <circle cx="134" cy="115" r="7" fill="#28c840"/>
+
+  <!-- URL Bar -->
+  <rect x="170" y="103" width="640" height="24" rx="12" fill="#0f1117" stroke="#2a2d3e" stroke-width="1"/>
+  <text x="178" y="119" font-size="12" fill="#888">&#128274;</text>
+  <text x="196" y="120" font-size="12" fill="#aaaaaa">fonts.google.com</text>
+
+  <!-- Tab indicators -->
+  <text x="1050" y="120" font-size="13" fill="#555">&#8635;</text>
+  <text x="1080" y="120" font-size="13" fill="#555">&#10005;</text>
+
+  <!-- ===== GOOGLE FONTS PAGE CONTENT ===== -->
+  <rect x="60" y="138" width="1080" height="534" rx="0" fill="#f8f9fa"/>
+  <rect x="60" y="138" width="1080" height="534" rx="0" fill="#0f1117" opacity="0.96"/>
+
+  <!-- Page header bar -->
+  <rect x="60" y="138" width="1080" height="52" fill="#161b27"/>
+  <!-- Google Fonts logo text -->
+  <text x="90" y="161" font-size="11" fill="#888" letter-spacing="1">Google</text>
+  <text x="90" y="177" font-size="14" font-weight="700" fill="#4285f4" letter-spacing="2">Fonts</text>
+  <!-- Search bar in header -->
+  <rect x="220" y="148" width="380" height="30" rx="15" fill="#0f1117" stroke="#2a2d3e" stroke-width="1"/>
+  <text x="238" y="167" font-size="12" fill="#555">&#128269;</text>
+  <text x="255" y="167" font-size="12" fill="#555">Zoek lettertypes...</text>
+  <!-- Filter pills -->
+  <rect x="620" y="152" width="80" height="22" rx="11" fill="#1e2a3a" stroke="#00d4ff" stroke-width="1"/>
+  <text x="660" y="167" text-anchor="middle" font-size="11" fill="#00d4ff">Serif</text>
+  <rect x="710" y="152" width="100" height="22" rx="11" fill="#1e2a3a" stroke="#555" stroke-width="1"/>
+  <text x="760" y="167" text-anchor="middle" font-size="11" fill="#888">Sans-serif</text>
+  <rect x="820" y="152" width="80" height="22" rx="11" fill="#1e2a3a" stroke="#555" stroke-width="1"/>
+  <text x="860" y="167" text-anchor="middle" font-size="11" fill="#888">Display</text>
+  <rect x="910" y="152" width="80" height="22" rx="11" fill="#1e2a3a" stroke="#555" stroke-width="1"/>
+  <text x="950" y="167" text-anchor="middle" font-size="11" fill="#888">Mono</text>
+
+  <!-- ===== FONT CARD 1: Playfair Display ===== -->
+  <rect x="90" y="204" width="470" height="260" rx="10" fill="#161b27" stroke="#2a2d3e" stroke-width="1.5"/>
+
+  <!-- Card header -->
+  <text x="115" y="232" font-size="11" fill="#888" letter-spacing="2">LETTERTYPE</text>
+  <text x="115" y="255" font-size="18" font-weight="700" fill="#ffffff">Playfair Display</text>
+  <text x="115" y="272" font-size="11" fill="#555">Serif · Vjenácek Fonts · 6 varianten</text>
+
+  <!-- Font preview — large serif display -->
+  <rect x="105" y="285" width="440" height="100" rx="6" fill="#0f1117"/>
+  <text x="325" y="352" text-anchor="middle" font-size="44" fill="#e8e0d0" font-style="italic" letter-spacing="2">Typografie</text>
+
+  <!-- Stars + meta -->
+  <text x="115" y="404" font-size="11" fill="#f4b942">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+  <text x="175" y="404" font-size="11" fill="#555"> 4,8 (12k reviews)</text>
+
+  <!-- Select button -->
+  <rect x="340" y="388" width="200" height="34" rx="17" fill="#4285f4"/>
+  <text x="440" y="409" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">+ Select this style</text>
+
+  <!-- Font usage callout -->
+  <text x="115" y="440" font-size="11" fill="#aaa">Gebruik: Koppen, titels, quotes, elegante body-tekst</text>
+  <text x="115" y="456" font-size="11" fill="#aaa">Combineert met: Lato, Source Sans, Open Sans</text>
+
+  <!-- SERIF indicator badge -->
+  <rect x="470" y="206" width="78" height="22" rx="11" fill="#7c3aed" opacity="0.3"/>
+  <text x="509" y="221" text-anchor="middle" font-size="11" fill="#c4b5fd" font-weight="600">SERIF</text>
+
+  <!-- ===== FONT CARD 2: Inter ===== -->
+  <rect x="640" y="204" width="470" height="260" rx="10" fill="#161b27" stroke="#2a2d3e" stroke-width="1.5"/>
+
+  <!-- Card header -->
+  <text x="665" y="232" font-size="11" fill="#888" letter-spacing="2">LETTERTYPE</text>
+  <text x="665" y="255" font-size="18" font-weight="700" fill="#ffffff">Inter</text>
+  <text x="665" y="272" font-size="11" fill="#555">Sans-serif · Rasmus Andersson · 9 varianten</text>
+
+  <!-- Font preview — clean sans -->
+  <rect x="655" y="285" width="440" height="100" rx="6" fill="#0f1117"/>
+  <text x="875" y="352" text-anchor="middle" font-size="44" fill="#ffffff" letter-spacing="1">Typografie</text>
+
+  <!-- Stars + meta -->
+  <text x="665" y="404" font-size="11" fill="#f4b942">&#9733;&#9733;&#9733;&#9733;&#9733;</text>
+  <text x="725" y="404" font-size="11" fill="#555"> 4,9 (28k reviews)</text>
+
+  <!-- Select button -->
+  <rect x="890" y="388" width="200" height="34" rx="17" fill="#4285f4"/>
+  <text x="990" y="409" text-anchor="middle" font-size="13" font-weight="600" fill="#ffffff">+ Select this style</text>
+
+  <!-- Font usage callout -->
+  <text x="665" y="440" font-size="11" fill="#aaa">Gebruik: Interface, body-tekst, labels, navigatie</text>
+  <text x="665" y="456" font-size="11" fill="#aaa">Combineert met: Playfair Display, Merriweather</text>
+
+  <!-- SANS badge -->
+  <rect x="1042" y="206" width="62" height="22" rx="11" fill="#00d4ff" opacity="0.2"/>
+  <text x="1073" y="221" text-anchor="middle" font-size="11" fill="#00d4ff" font-weight="600">SANS</text>
+
+  <!-- ===== SELECTED FONTS PANEL ===== -->
+  <rect x="90" y="478" width="1020" height="180" rx="10" fill="#0a1628" stroke="#00d4ff" stroke-width="1.5"/>
+  <rect x="90" y="478" width="1020" height="36" rx="10" fill="#00d4ff" opacity="0.1"/>
+  <rect x="90" y="504" width="1020" height="10" fill="#0a1628"/>
+  <text x="118" y="502" font-size="13" font-weight="700" fill="#00d4ff">&#x2713;  Geselecteerde lettertypes — Kopieer de gegenereerde link-code</text>
+
+  <!-- Label step -->
+  <text x="118" y="530" font-size="12" fill="#888">Stap 2: Plak dit in de</text>
+  <text x="242" y="530" font-size="12" font-family="'Courier New', monospace" fill="#ff6b35">&lt;head&gt;</text>
+  <text x="280" y="530" font-size="12" fill="#888">van je HTML:</text>
+
+  <!-- Generated link code block -->
+  <rect x="118" y="540" width="880" height="40" rx="6" fill="#0f1117" stroke="#1e2d3d" stroke-width="1"/>
+  <text x="130" y="556" font-size="11" font-family="'Courier New', monospace" fill="#888">&lt;</text>
+  <text x="139" y="556" font-size="11" font-family="'Courier New', monospace" fill="#7c3aed">link</text>
+  <text x="167" y="556" font-size="11" font-family="'Courier New', monospace" fill="#00d4ff"> rel</text>
+  <text x="191" y="556" font-size="11" font-family="'Courier New', monospace" fill="#888">=</text>
+  <text x="197" y="556" font-size="11" font-family="'Courier New', monospace" fill="#39ff14">"stylesheet"</text>
+  <text x="130" y="572" font-size="11" font-family="'Courier New', monospace" fill="#00d4ff">    href</text>
+  <text x="166" y="572" font-size="11" font-family="'Courier New', monospace" fill="#888">=</text>
+  <text x="172" y="572" font-size="11" font-family="'Courier New', monospace" fill="#39ff14">"https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@300;400;600;700&amp;display=swap"</text>
+  <text x="930" y="572" font-size="11" font-family="'Courier New', monospace" fill="#888">/&gt;</text>
+
+  <!-- Copy button -->
+  <rect x="1010" y="544" width="80" height="32" rx="6" fill="#00d4ff" opacity="0.2" stroke="#00d4ff" stroke-width="1"/>
+  <text x="1050" y="564" text-anchor="middle" font-size="12" fill="#00d4ff">Kopieer</text>
+
+  <!-- Step 3: CSS usage -->
+  <text x="118" y="600" font-size="12" fill="#888">Stap 3: Gebruik in</text>
+  <text x="230" y="600" font-size="12" font-family="'Courier New', monospace" fill="#ff6b35">style.css</text>
+  <text x="290" y="600" font-size="12" fill="#888">:</text>
+
+  <rect x="118" y="608" width="500" height="40" rx="6" fill="#0f1117" stroke="#1e2d3d" stroke-width="1"/>
+  <text x="130" y="624" font-size="11" font-family="'Courier New', monospace" fill="#888">h1, h2 {</text>
+  <text x="200" y="624" font-size="11" font-family="'Courier New', monospace" fill="#7c3aed">font-family</text>
+  <text x="290" y="624" font-size="11" font-family="'Courier New', monospace" fill="#888">:</text>
+  <text x="298" y="624" font-size="11" font-family="'Courier New', monospace" fill="#39ff14">'Playfair Display', serif</text>
+  <text x="476" y="624" font-size="11" font-family="'Courier New', monospace" fill="#888">; }</text>
+  <text x="130" y="640" font-size="11" font-family="'Courier New', monospace" fill="#888">p, li {</text>
+  <text x="190" y="640" font-size="11" font-family="'Courier New', monospace" fill="#7c3aed">font-family</text>
+  <text x="280" y="640" font-size="11" font-family="'Courier New', monospace" fill="#888">:</text>
+  <text x="288" y="640" font-size="11" font-family="'Courier New', monospace" fill="#39ff14">'Inter', sans-serif</text>
+  <text x="420" y="640" font-size="11" font-family="'Courier New', monospace" fill="#888">; }</text>
+
+  <!-- Step label badge -->
+  <rect x="635" y="590" width="470" height="58" rx="8" fill="#1a1e2e"/>
+  <text x="655" y="610" font-size="12" fill="#ff6b35">&#9888;  Let op performance!</text>
+  <text x="655" y="628" font-size="11" fill="#888">Laad max 2–3 lettertypes en max 3 font-weights per lettertype.</text>
+  <text x="655" y="644" font-size="11" fill="#888">Meer = trager laden. Gebruik</text>
+  <text x="830" y="644" font-size="11" font-family="'Courier New', monospace" fill="#00d4ff">display=swap</text>
+  <text x="938" y="644" font-size="11" fill="#888">voor betere UX.</text>
+
+  <!-- Footer label -->
+  <text x="600" y="790" text-anchor="middle" font-size="12" fill="#444">H16 — Typografie | App-ontwikkeling 5ADB | Leerplandoel ADB09</text>
+</svg>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objecten — App-ontwikkeling 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/app-ontwikkeling/H02" style="--sidebar-accent: var(--color-vak-appdev)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-object">2.1 Wat is een object?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.2"><span class="sidebar-check__box"></span></label>
+          <a href="#properties-lezen">2.2 Properties lezen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.3"><span class="sidebar-check__box"></span></label>
+          <a href="#properties-wijzigen">2.3 Properties toevoegen, wijzigen en verwijderen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.4"><span class="sidebar-check__box"></span></label>
+          <a href="#methodes">2.4 Methodes in objecten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.5"><span class="sidebar-check__box"></span></label>
+          <a href="#geneste-objecten">2.5 Geneste objecten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="2.6"><span class="sidebar-check__box"></span></label>
+          <a href="#array-van-objecten">2.6 Array van objecten</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">App-ontwikkeling</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Objecten</span>
+      </nav>
+
+      <div class="page-header vak-appdev">
+        <div class="page-header__vak">H02 &mdash; App-ontwikkeling 6ADB</div>
+        <h1 class="page-header__title">Objecten</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB09</span><span class="ld-tag__title">De leerlingen ontwikkelen oplossingen voor concrete problemen.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB10</span><span class="ld-tag__title">De leerlingen werken een applicatie uit binnen de opgelegde standaardsoftware of het IT-platform.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Een object aanmaken met properties en values</li>
+          <li>Properties lezen via dot notation én bracket notation</li>
+          <li>Properties toevoegen, wijzigen en verwijderen</li>
+          <li>Methodes definiëren in een object (functies als property)</li>
+          <li>Geneste objecten begrijpen en gebruiken</li>
+          <li>Een array van objecten aanmaken — de basis voor bijna elke echte applicatie</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-object">2.1 Wat is een object?</h2>
+      <p>In H01 leerde je arrays: lijsten van <strong>gelijksoortige</strong> waarden op volgorde. Een <strong>object</strong> is anders: het bundelt <strong>samenhangende eigenschappen</strong> onder één naam, elk met een eigen label.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">// Array: een lijst van adressen
+let adressen = ["Kerkstraat 1", "Marktplein 4", "Dorpslaan 12"];
+
+// Object: één adres met al zijn eigenschappen
+let adres = {
+  straat: "Kerkstraat",
+  nummer: 1,
+  stad: "Munsterbilzen",
+  postcode: 3740
+};</code></pre>
+      </div>
+      <p>Een object heeft <strong>key-value paren</strong> (sleutel-waarde-paren):</p>
+      <ul>
+        <li>De <strong>key</strong> (sleutel) is de naam van de eigenschap: <code>straat</code>, <code>nummer</code>, ...</li>
+        <li>De <strong>value</strong> (waarde) is de inhoud: <code>"Kerkstraat"</code>, <code>1</code>, ...</li>
+      </ul>
+      <p>Je maakt een object met <strong>accolades</strong> <code>{ }</code>. Properties worden gescheiden door komma's.</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let leerling = {
+  voornaam: "Lena",
+  familienaam: "Pieters",
+  leerjaar: 6,
+  isActief: true
+};</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H02-afb1.svg" alt="Object als 'doos met lades': elke lade heeft een label (key) en inhoud (value)" loading="lazy">
+      </figure>
+
+      <h2 id="properties-lezen">2.2 Properties lezen: dot notation vs bracket notation</h2>
+      <p>Er zijn twee manieren om een property op te vragen.</p>
+      <h3>Dot notation (puntnotatie)</h3>
+      <p>De meest gebruikte manier — schrijf de key direct na een punt:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let auto = {
+  merk: "Toyota",
+  model: "Yaris",
+  bouwjaar: 2021,
+  kleur: "grijs"
+};
+
+console.log(auto.merk);     // "Toyota"
+console.log(auto.bouwjaar); // 2021
+console.log(auto.kleur);    // "grijs"</code></pre>
+      </div>
+      <h3>Bracket notation (haakjesnotatie)</h3>
+      <p>Gebruik vierkante haakjes met de key als <strong>string</strong>. Dit is nodig als de key in een variabele zit, of als de key spaties of speciale tekens bevat:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let auto = {
+  merk: "Toyota",
+  "max snelheid": 180
+};
+
+console.log(auto["merk"]);         // "Toyota"
+console.log(auto["max snelheid"]); // 180 ← dot notation werkt hier niet
+
+// Dynamische key via variabele
+let eigenschap = "merk";
+console.log(auto[eigenschap]); // "Toyota"</code></pre>
+      </div>
+      <div class="callout callout--info">
+        <div class="callout-header">💡 Vuistregel</div>
+        <p>Gebruik dot notation wanneer je de key kent op voorhand. Gebruik bracket notation wanneer de key variabel is of speciale tekens bevat.</p>
+      </div>
+
+      <h2 id="properties-wijzigen">2.3 Properties toevoegen, wijzigen en verwijderen</h2>
+      <h3>Eigenschap toevoegen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let persoon = {
+  naam: "Omar",
+  leeftijd: 17
+};
+
+// Nieuwe property toevoegen
+persoon.stad = "Hasselt";
+persoon.hobby = "fotografie";
+
+console.log(persoon);
+// { naam: "Omar", leeftijd: 17, stad: "Hasselt", hobby: "fotografie" }</code></pre>
+      </div>
+      <h3>Eigenschap wijzigen</h3>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let persoon = {
+  naam: "Omar",
+  leeftijd: 17
+};
+
+persoon.leeftijd = 18; // verjaardag!
+console.log(persoon.leeftijd); // 18</code></pre>
+      </div>
+      <h3>Eigenschap verwijderen</h3>
+      <p>Gebruik het sleutelwoord <code>delete</code>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let product = {
+  naam: "Laptop",
+  prijs: 899,
+  kortingscode: "ZOMER10"
+};
+
+delete product.kortingscode;
+console.log(product); // { naam: "Laptop", prijs: 899 }</code></pre>
+      </div>
+
+      <h2 id="methodes">2.4 Methodes in objecten</h2>
+      <p>Een <strong>methode</strong> is een functie die als property in een object is opgeslagen. Zo geef je een object eigen gedrag:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let rekenmachine = {
+  getal1: 10,
+  getal2: 5,
+  optellen: function() {
+    return rekenmachine.getal1 + rekenmachine.getal2;
+  },
+  vermenigvuldigen: function() {
+    return rekenmachine.getal1 * rekenmachine.getal2;
+  }
+};
+
+console.log(rekenmachine.optellen());          // 15
+console.log(rekenmachine.vermenigvuldigen());  // 50</code></pre>
+      </div>
+      <h3>Kortere notatie</h3>
+      <p>Moderne JavaScript heeft een kortere schrijfwijze voor methodes:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let robot = {
+  naam: "R2D2",
+  kleur: "wit",
+  groeten() {
+    console.log("Beep boop! Ik ben " + robot.naam);
+  },
+  beschrijven() {
+    console.log("Kleur: " + robot.kleur);
+  }
+};
+
+robot.groeten();     // "Beep boop! Ik ben R2D2"
+robot.beschrijven(); // "Kleur: wit"</code></pre>
+      </div>
+
+      <h2 id="geneste-objecten">2.5 Geneste objecten</h2>
+      <p>Een property van een object kan zelf ook een object zijn. Dit noemen we een <strong>genest object</strong>:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let student = {
+  naam: "Amber",
+  leeftijd: 17,
+  adres: {
+    straat: "Dorpslaan",
+    nummer: 42,
+    stad: "Bilzen"
+  },
+  resultaten: {
+    wiskunde: 78,
+    informatica: 92,
+    Nederlands: 85
+  }
+};
+
+// Geneste property lezen
+console.log(student.adres.stad);             // "Bilzen"
+console.log(student.resultaten.informatica); // 92
+
+// Geneste property wijzigen
+student.adres.nummer = 43;
+console.log(student.adres.nummer); // 43</code></pre>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout-header">⚠️ Opgelet</div>
+        <p>Je kan zo diep nesten als je wil, maar probeer het niet te overdrijven — meer dan 2-3 niveaus maakt code moeilijk leesbaar.</p>
+      </div>
+
+      <h2 id="array-van-objecten">2.6 Array van objecten</h2>
+      <p>In de praktijk combineer je bijna altijd arrays en objecten. Een <strong>array van objecten</strong> is dé standaard manier om meerdere gelijksoortige items op te slaan:</p>
+      <div class="code-block">
+        <div class="code-block__lang">JavaScript</div>
+        <pre><code class="language-javascript">let leerlingen = [
+  { naam: "Ali", punten: 85, geslaagd: true },
+  { naam: "Bo",  punten: 52, geslaagd: false },
+  { naam: "Cara", punten: 91, geslaagd: true },
+  { naam: "Daan", punten: 68, geslaagd: true }
+];
+
+// Eerste leerling
+console.log(leerlingen[0]);          // { naam: "Ali", ... }
+console.log(leerlingen[0].naam);     // "Ali"
+console.log(leerlingen[0].punten);   // 85
+
+// Tweede leerling, geslaagd?
+console.log(leerlingen[1].geslaagd); // false
+
+// Doorheen alle leerlingen gaan met for...of
+for (let leerling of leerlingen) {
+  console.log(leerling.naam + ": " + leerling.punten + " punten");
+}
+// Ali: 85 punten
+// Bo: 52 punten
+// Cara: 91 punten
+// Daan: 68 punten</code></pre>
+      </div>
+      <figure class="chapter-figure">
+        <img src="../../assets/images/app-ontwikkeling/6adb-H02-afb1.svg" alt="Array van objecten: rij dozen naast elkaar, elk met dezelfde sleutels maar andere waarden" loading="lazy">
+      </figure>
+      <p>Dit patroon gebruik je constant — of je nu producten in een webshop toont, recepten opslaat, of gebruikersprofielen beheert.</p>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 1 — Boekenbibliotheek</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Schrijf een JavaScript-programma dat een kleine bibliotheek beheert.</p>
+            <ol>
+              <li>Maak één boekobject <code>boek1</code> met de properties: <code>titel</code>, <code>auteur</code>, <code>aantalPaginas</code>, <code>isGelezen</code> (boolean)</li>
+              <li>Voeg een methode <code>beschrijf()</code> toe die een volledige zin toont in de console</li>
+              <li>Wijzig <code>isGelezen</code> naar <code>true</code></li>
+              <li>Maak een array <code>bibliotheek</code> met minimaal 3 boekobjecten</li>
+              <li>Toon de titel en auteur van elk boek via een <code>for...of</code>-lus</li>
+              <li><strong>Bonus:</strong> Voeg een methode <code>beoordeling()</code> toe die op basis van <code>aantalPaginas</code> toont of het een "kort" (&lt;200), "normaal" (200-400) of "dik" (&gt;400) boek is</li>
+            </ol>
+            <figure class="chapter-figure">
+              <img src="../../assets/images/app-ontwikkeling/6adb-H02-oef1-browser.svg" alt="Console output van de boeken-oefening" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09 / ADB10</span>
+            <span class="oefening__title">Oefening 2 — Spelersprofielen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een array <code>spelers</code> met 4 spelerobjecten. Elke speler heeft: <code>naam</code>, <code>niveau</code> (getal), <code>levens</code>, <code>highscore</code> en een genest object <code>wapen</code> met <code>type</code> en <code>schade</code>.</p>
+            <ol>
+              <li>Log de naam en het wapentype van de eerste speler</li>
+              <li>Voeg aan de tweede speler een nieuwe property <code>actief: false</code> toe</li>
+              <li>Verwijder de <code>highscore</code> property van de derde speler</li>
+              <li>Maak een methode <code>samenvatting()</code> die een korte beschrijving van de speler teruggeeft als string</li>
+              <li>Loop over alle spelers en log hun samenvatting</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-3">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB09</span>
+            <span class="oefening__title">Oefening 3 — Weerstation</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een object <code>weerstation</code> dat meetgegevens bijhoudt.</p>
+            <div class="code-block">
+              <div class="code-block__lang">JavaScript</div>
+              <pre><code class="language-javascript">let weerstation = {
+  locatie: "Munsterbilzen",
+  metingen: {
+    temperatuur: 18.5,
+    luchtvochtigheid: 72,
+    windsnelheid: 15
+  },
+  eenheid: "Celsius"
+};</code></pre>
+            </div>
+            <ol>
+              <li>Log de temperatuur via bracket notation: gebruik een variabele met de sleutelnaam</li>
+              <li>Voeg een methode <code>omschrijving()</code> toe die een leesbare zin genereert</li>
+              <li>Voeg een nieuwe meting <code>luchtdruk: 1013</code> toe aan het geneste object</li>
+              <li>Maak een array met 3 historische weermetalingen (elk een volledig weerstation-object)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">&#x1F4CB; Huistaak &mdash; H02 Objecten<button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/app-ontwikkeling/6adb-H02-oef1-browser.svg', 'Voorbeeld — Objecten en arrays combineren')">&#128065; Bekijk voorbeeld</button></div>
+          <div class="callout-body">
+            <h3>Opdracht: Muziekbibliotheek met objecten</h3>
+            <p>Je bouwt een muziekbibliotheek met objecten in plaats van eenvoudige strings. Elk nummer is een object met meerdere eigenschappen.</p>
+            <h4>Deel 1 — Nummers als objecten (4 punten)</h4>
+            <ol>
+              <li>Maak een array <code>nummers</code> met minstens 4 objecten. Elk object heeft: <code>titel</code>, <code>artiest</code>, <code>duurInSeconden</code> (getal), <code>isGefavoriet</code> (boolean)</li>
+              <li>Log de titel van het eerste nummer via dot notation</li>
+              <li>Log de artiest van het derde nummer via bracket notation met een variabele als sleutel</li>
+              <li>Verander <code>isGefavoriet</code> van het tweede nummer naar <code>true</code> en log het object</li>
+            </ol>
+            <h4>Deel 2 — Methode toevoegen (3 punten)</h4>
+            <ol>
+              <li>Voeg aan elk nummer-object een methode <code>toonDuur()</code> toe die de duur omzet naar "minuten:seconden" formaat (bv. "3:45")</li>
+              <li>Roep de methode op voor elk nummer via een <code>for...of</code>-lus</li>
+            </ol>
+            <h4>Deel 3 — Uitbreiden (3 punten)</h4>
+            <ol>
+              <li>Voeg een property <code>album</code> toe aan het eerste nummer</li>
+              <li>Verwijder <code>isGefavoriet</code> van het vierde nummer</li>
+              <li>Maak een array <code>favorieten</code> die enkel de objecten bevat waarvan <code>isGefavoriet === true</code> is (doe dit manueel met een <code>for</code>-lus)</li>
+            </ol>
+            <p><strong>Dien het bestand <code>muziekbibliotheek.js</code> in via het schoolplatform. Totaal: 10 punten</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H02 — Objecten</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het verschil tussen een array en een object in JavaScript?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="a"> <span>Een array kan enkel getallen bevatten, een object kan ook strings bevatten</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="b"> <span>Er is geen verschil, ze zijn uitwisselbaar</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="c"> <span>Een array is een geordende lijst met numerieke indices, een object bundelt samenhangende data met benoemde keys</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v1" value="d"> <span>Objecten zijn sneller dan arrays</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Gegeven: <code>let p = { naam: "Lena", leeftijd: 17 }</code>. Hoe verwijder je de property <code>leeftijd</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="a"> <span><code>p.leeftijd = null;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="b"> <span><code>delete p.leeftijd;</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="c"> <span><code>p.remove("leeftijd");</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v2" value="d"> <span><code>p.leeftijd.delete();</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Wanneer gebruik je bracket notation in plaats van dot notation?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="a"> <span>Wanneer de key in een variabele zit, of spaties/speciale tekens bevat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="b"> <span>Wanneer de waarde een getal is</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="c"> <span>Bracket notation werkt enkel voor arrays</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v3" value="d"> <span>Alleen wanneer het object genest is</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Gegeven: <code>let student = { naam: "Bo", adres: { stad: "Gent" } }</code>. Hoe lees je de stad?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="a"> <span><code>student.stad</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="b"> <span><code>student[adres][stad]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="c"> <span><code>student.adres[0]</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v4" value="d"> <span><code>student.adres.stad</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is een "methode" in een JavaScript-object?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="a"> <span>Een speciale property die altijd een getal bevat</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="b"> <span>Een functie die als property is opgeslagen in een object</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="c"> <span>Een ingebouwde JavaScript-instructie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v5" value="d"> <span>Een apart bestand dat je importeert</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 6</div>
+              <p class="vraag__tekst">Hoe roep je een methode <code>groeten()</code> op van het object <code>robot</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="a"> <span><code>robot.groeten</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="b"> <span><code>call(robot.groeten)</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="c"> <span><code>robot.groeten()</code></span></label>
+                <label class="vraag__keuze"><input type="radio" name="h02-v6" value="d"> <span><code>robot["groeten"]</code></span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/app-ontwikkeling/H02')" data-progress-key="6adb/app-ontwikkeling/H02">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H01.html" class="btn btn-ghost">← H01</a>
+          <a href="H03.html" class="btn btn-ghost">H03 →</a>
+        </div>
+      </div>
+
+    </div><!-- end .chapter-content -->
+  </div><!-- end .chapter-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; App-ontwikkeling 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+<script>
+function checkQuiz(btn) {
+  const body = btn.closest('.oefening__body');
+  body.querySelectorAll('.vraag[data-type="mc"]').forEach(function(vraag) {
+    const correct = vraag.dataset.correct;
+    const selected = vraag.querySelector('.vraag__keuze.is-selected input');
+    const feedback = vraag.querySelector('.vraag__feedback');
+    if (!selected) { feedback.style.display='none'; return; }
+    if (selected.value === correct) {
+      feedback.className = 'vraag__feedback vraag__feedback--correct';
+      feedback.textContent = '✓ Correct!';
+    } else {
+      const correctLabel = vraag.querySelector('input[value="'+correct+'"]').closest('.vraag__keuze').querySelector('span');
+      feedback.className = 'vraag__feedback vraag__feedback--incorrect';
+      feedback.textContent = '✗ Niet correct. Juist antwoord: ' + correctLabel.textContent;
+    }
+    feedback.style.display = 'block';
+  });
+  btn.textContent = 'Opnieuw proberen';
+  btn.onclick = function() {
+    body.querySelectorAll('.vraag__feedback').forEach(function(f){ f.style.display='none'; });
+    body.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+    btn.textContent = 'Controleer antwoorden';
+    btn.onclick = function(){ checkQuiz(btn); };
+  };
+}
+document.addEventListener('click', function(e) {
+  const keuze = e.target.closest('.vraag__keuze');
+  if (!keuze) return;
+  const vraag = keuze.closest('.vraag');
+  if (vraag.dataset.type === 'mc') vraag.querySelectorAll('.vraag__keuze').forEach(function(k){ k.classList.remove('is-selected'); });
+  keuze.classList.toggle('is-selected');
+});
+function markComplete(key) {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  p[key] = 'completed';
+  localStorage.setItem('ai-school-progress', JSON.stringify(p));
+  document.querySelectorAll('[data-progress-key="'+key+'"]').forEach(function(el){
+    if (el.tagName === 'BUTTON') {
+      el.textContent = '✓ Voltooid';
+      el.disabled = true;
+      el.classList.add('btn-success');
+    } else {
+      el.className = 'progress-badge progress-badge--completed';
+      el.innerHTML = '✓&nbsp;Voltooid';
+    }
+  });
+  if (typeof showToast === 'function') showToast('Hoofdstuk gemarkeerd als voltooid!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const p = JSON.parse(localStorage.getItem('ai-school-progress')||'{}');
+  document.querySelectorAll('[data-progress-key]').forEach(function(el){
+    if (p[el.dataset.progressKey] === 'completed') {
+      if (el.tagName === 'BUTTON') {
+        el.textContent = '✓ Voltooid';
+        el.disabled = true;
+        el.classList.add('btn-success');
+      } else {
+        el.className = 'progress-badge progress-badge--completed';
+        el.innerHTML = '✓&nbsp;Voltooid';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

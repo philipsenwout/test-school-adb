@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&amp;family=Inter:wght@400;600;700&amp;display=swap');
+      text { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; }
+      .mono { font-family: 'Fira Code', 'Courier New', monospace; }
+    </style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1d2e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Achtergrond -->
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Decoratieve achtergrond-elementen -->
+  <circle cx="1050" cy="100" r="180" fill="#00d4ff" opacity="0.04"/>
+  <circle cx="150" cy="700" r="150" fill="#7c3aed" opacity="0.06"/>
+
+  <!-- Browser-venster shadow -->
+  <rect x="60" y="40" width="1080" height="720" rx="14" ry="14" fill="#000" opacity="0.5"/>
+
+  <!-- Browser-venster frame -->
+  <rect x="55" y="35" width="1080" height="720" rx="14" ry="14" fill="#1e2030" stroke="#2d3150" stroke-width="1.5"/>
+
+  <!-- Browser title bar -->
+  <rect x="55" y="35" width="1080" height="44" rx="14" ry="14" fill="#252840"/>
+  <rect x="55" y="57" width="1080" height="22" fill="#252840"/>
+
+  <!-- Window controls -->
+  <circle cx="85" cy="57" r="7" fill="#ff5f57"/>
+  <circle cx="107" cy="57" r="7" fill="#febc2e"/>
+  <circle cx="129" cy="57" r="7" fill="#28c840"/>
+
+  <!-- URL-balk -->
+  <rect x="200" y="45" width="720" height="24" rx="5" ry="5" fill="#1a1d2e" stroke="#3d4166" stroke-width="1"/>
+  <text x="560" y="61" text-anchor="middle" fill="#6b7280" font-size="12" class="mono">index.html</text>
+
+  <!-- Tab bar labels -->
+  <rect x="55" y="79" width="220" height="26" rx="3" ry="3" fill="#1e2030" stroke="#2d3150" stroke-width="1"/>
+  <text x="165" y="96" text-anchor="middle" fill="#9ca3af" font-size="11">Mijn Pagina — typeof test</text>
+
+  <!-- Hoofdinhoud: HTML pagina links, DevTools rechts -->
+  <!-- Splits: pagina-area 55..680, devtools 680..1135 -->
+
+  <!-- HTML pagina area -->
+  <rect x="55" y="105" width="620" height="650" fill="#ffffff"/>
+  <!-- Pagina-inhoud simulatie -->
+  <rect x="55" y="105" width="620" height="40" fill="#f8fafc"/>
+  <text x="90" y="130" fill="#374151" font-size="13" font-weight="600">Datatypes Testpagina</text>
+  <line x1="55" y1="145" x2="675" y2="145" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Lege pagina tekst -->
+  <text x="365" y="300" text-anchor="middle" fill="#9ca3af" font-size="14">Lege HTML-pagina</text>
+  <text x="365" y="320" text-anchor="middle" fill="#d1d5db" font-size="12">Open de console om typeof te testen</text>
+
+  <!-- Kleine code snippets op pagina -->
+  <rect x="90" y="350" width="540" height="130" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="110" y="372" fill="#64748b" font-size="11" class="mono">// In je JavaScript-bestand:</text>
+  <text x="110" y="392" fill="#0f172a" font-size="12" class="mono">let leeftijd = 17;</text>
+  <text x="110" y="412" fill="#0f172a" font-size="12" class="mono">let naam = <tspan fill="#16a34a">"Lena"</tspan>;</text>
+  <text x="110" y="432" fill="#0f172a" font-size="12" class="mono">let isActief = <tspan fill="#7c3aed">true</tspan>;</text>
+  <text x="110" y="452" fill="#0f172a" font-size="12" class="mono">let leeg = <tspan fill="#9ca3af">null</tspan>;</text>
+  <text x="110" y="472" fill="#0f172a" font-size="12" class="mono">let ongedefinieerd = <tspan fill="#9ca3af">undefined</tspan>;</text>
+
+  <!-- DevTools scheidslijn -->
+  <line x1="675" y1="105" x2="675" y2="755" stroke="#3d4166" stroke-width="2"/>
+
+  <!-- DevTools paneel -->
+  <rect x="675" y="105" width="460" height="650" fill="#1a1d2e"/>
+
+  <!-- DevTools tab bar -->
+  <rect x="675" y="105" width="460" height="32" fill="#1e2030"/>
+  <text x="705" y="125" fill="#9ca3af" font-size="11">Elements</text>
+  <rect x="745" y="107" width="1" height="28" fill="#3d4166"/>
+  <text x="760" y="125" fill="#00d4ff" font-size="11" font-weight="600">Console</text>
+  <rect x="805" y="107" width="1" height="28" fill="#3d4166"/>
+  <text x="820" y="125" fill="#9ca3af" font-size="11">Sources</text>
+  <rect x="865" y="107" width="1" height="28" fill="#3d4166"/>
+  <text x="880" y="125" fill="#9ca3af" font-size="11">Network</text>
+
+  <!-- Console-inhoud -->
+  <!-- Console invoer label -->
+  <rect x="675" y="137" width="460" height="20" fill="#161929"/>
+  <text x="685" y="151" fill="#6b7280" font-size="10" class="mono">typeof-operator resultaten:</text>
+
+  <!-- Console rijen met typeof resultaten -->
+  <!-- Rij 1: typeof 17 -->
+  <rect x="675" y="157" width="460" height="48" fill="#1a1d2e"/>
+  <text x="690" y="174" fill="#6b7280" font-size="11" class="mono">&gt; typeof leeftijd</text>
+  <text x="690" y="195" fill="#00d4ff" font-size="13" class="mono" filter="url(#glow)">"number"</text>
+  <rect x="675" y="157" width="4" height="48" fill="#3b82f6"/>
+
+  <!-- Rij 2: typeof "Lena" -->
+  <rect x="675" y="205" width="460" height="48" fill="#161929"/>
+  <text x="690" y="222" fill="#6b7280" font-size="11" class="mono">&gt; typeof naam</text>
+  <text x="690" y="243" fill="#39ff14" font-size="13" class="mono" filter="url(#glow)">"string"</text>
+  <rect x="675" y="205" width="4" height="48" fill="#39ff14"/>
+
+  <!-- Rij 3: typeof true -->
+  <rect x="675" y="253" width="460" height="48" fill="#1a1d2e"/>
+  <text x="690" y="270" fill="#6b7280" font-size="11" class="mono">&gt; typeof isActief</text>
+  <text x="690" y="291" fill="#ff6b35" font-size="13" class="mono" filter="url(#glow)">"boolean"</text>
+  <rect x="675" y="253" width="4" height="48" fill="#ff6b35"/>
+
+  <!-- Rij 4: typeof null -->
+  <rect x="675" y="301" width="460" height="48" fill="#161929"/>
+  <text x="690" y="318" fill="#6b7280" font-size="11" class="mono">&gt; typeof leeg</text>
+  <text x="690" y="339" fill="#a78bfa" font-size="13" class="mono" filter="url(#glow)">"object"  ⚠️ bekende bug!</text>
+  <rect x="675" y="301" width="4" height="48" fill="#7c3aed"/>
+
+  <!-- Rij 5: typeof undefined -->
+  <rect x="675" y="349" width="460" height="48" fill="#1a1d2e"/>
+  <text x="690" y="366" fill="#6b7280" font-size="11" class="mono">&gt; typeof ongedefinieerd</text>
+  <text x="690" y="387" fill="#9ca3af" font-size="13" class="mono">"undefined"</text>
+  <rect x="675" y="349" width="4" height="48" fill="#6b7280"/>
+
+  <!-- Rij 6: typeof NaN -->
+  <rect x="675" y="397" width="460" height="48" fill="#161929"/>
+  <text x="690" y="414" fill="#6b7280" font-size="11" class="mono">&gt; typeof NaN</text>
+  <text x="690" y="435" fill="#00d4ff" font-size="13" class="mono" filter="url(#glow)">"number"  ← ook NaN is number!</text>
+  <rect x="675" y="397" width="4" height="48" fill="#3b82f6"/>
+
+  <!-- Rij 7: typeof {} -->
+  <rect x="675" y="445" width="460" height="48" fill="#1a1d2e"/>
+  <text x="690" y="462" fill="#6b7280" font-size="11" class="mono">&gt; typeof &#123;naam: "Lena"&#125;</text>
+  <text x="690" y="483" fill="#fbbf24" font-size="13" class="mono">"object"</text>
+  <rect x="675" y="445" width="4" height="48" fill="#fbbf24"/>
+
+  <!-- Console input area -->
+  <rect x="675" y="493" width="460" height="262" fill="#111827"/>
+  <line x1="675" y1="493" x2="1135" y2="493" stroke="#3d4166" stroke-width="1"/>
+
+  <!-- Tip callout -->
+  <rect x="685" y="510" width="430" height="90" rx="6" fill="#1e2030" stroke="#00d4ff" stroke-width="1" opacity="0.8"/>
+  <text x="700" y="532" fill="#00d4ff" font-size="12" font-weight="700">💡 Oefening: Typ zelf in de console!</text>
+  <text x="700" y="554" fill="#cbd5e1" font-size="11" class="mono">typeof 42          → "number"</text>
+  <text x="700" y="572" fill="#cbd5e1" font-size="11" class="mono">typeof "hallo"     → "string"</text>
+  <text x="700" y="590" fill="#cbd5e1" font-size="11" class="mono">typeof true        → "boolean"</text>
+
+  <!-- Console input prompt -->
+  <rect x="675" y="620" width="460" height="135" fill="#0d1117"/>
+  <line x1="675" y1="620" x2="1135" y2="620" stroke="#2d3150" stroke-width="1"/>
+  <text x="690" y="645" fill="#6b7280" font-size="12" class="mono">&gt; </text>
+  <rect x="700" y="632" width="2" height="16" fill="#00d4ff" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0;0.8" dur="1s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Legenda / kleurcode onderaan -->
+  <rect x="685" y="665" width="430" height="80" rx="6" fill="#1a1d2e" stroke="#2d3150" stroke-width="1"/>
+  <text x="700" y="682" fill="#9ca3af" font-size="10" font-weight="600">KLEURCODERING DATATYPES</text>
+  <circle cx="710" cy="698" r="5" fill="#00d4ff"/>
+  <text x="720" y="702" fill="#9ca3af" font-size="10">number</text>
+  <circle cx="770" cy="698" r="5" fill="#39ff14"/>
+  <text x="780" y="702" fill="#9ca3af" font-size="10">string</text>
+  <circle cx="830" cy="698" r="5" fill="#ff6b35"/>
+  <text x="840" y="702" fill="#9ca3af" font-size="10">boolean</text>
+  <circle cx="900" cy="698" r="5" fill="#7c3aed"/>
+  <text x="910" y="702" fill="#9ca3af" font-size="10">null</text>
+  <circle cx="945" cy="698" r="5" fill="#6b7280"/>
+  <text x="955" y="702" fill="#9ca3af" font-size="10">undefined</text>
+  <circle cx="710" cy="718" r="5" fill="#fbbf24"/>
+  <text x="720" y="722" fill="#9ca3af" font-size="10">object</text>
+
+  <!-- Label -->
+  <text x="600" y="783" text-anchor="middle" fill="#3d4166" font-size="12" font-weight="600">H18 — Datatypes — typeof-operator in de browser DevTools console</text>
+</svg>

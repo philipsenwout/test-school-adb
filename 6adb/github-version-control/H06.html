@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H06 — De volledige workflow — GitHub Version Control 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/github-version-control/H06" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.1"><span class="sidebar-check__box"></span></label>
+          <a href="#dagelijkse-flow">6.1 De dagelijkse flow</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.2"><span class="sidebar-check__box"></span></label>
+          <a href="#mappenstructuur">6.2 Jouw mappenstructuur</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.3"><span class="sidebar-check__box"></span></label>
+          <a href="#taken-inleveren">6.3 Taken en toetsen inleveren</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.4"><span class="sidebar-check__box"></span></label>
+          <a href="#leerkracht-bekijkt">6.4 Hoe de leerkracht je werk bekijkt</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="6.5"><span class="sidebar-check__box"></span></label>
+          <a href="#cheatsheet">6.5 Git cheatsheet</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Version Control</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H06 — De volledige workflow</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H06 — GitHub Version Control 6ADB</div>
+        <h1 class="page-header__title">De volledige workflow</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB07</span><span class="ld-tag__title">De leerlingen houden de administratie bij in functie van de opdracht.</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB12</span><span class="ld-tag__title">De leerlingen documenteren een applicatie.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan de dagelijkse Git-workflow correct en zelfstandig uitvoeren</li>
+          <li>Je kent de mappenstructuur van jouw persoonlijke repository</li>
+          <li>Je kan taken en toetsen correct inleveren via GitHub</li>
+          <li>Je begrijpt hoe de leerkracht je werk opvolgt en beoordeelt</li>
+        </ul>
+      </div>
+
+      <h2 id="dagelijkse-flow">6.1 De dagelijkse Git-flow</h2>
+
+      <p>Dit is de routine die je <strong>elke les</strong> volgt. Leer deze stappen van buiten — ze worden tweede natuur.</p>
+
+      <figure class="chapter-figure">
+        <img src="../../assets/images/github-version-control/H06-volledige-workflow.svg" alt="Volledig diagram: pull → werk → add → commit → push cyclus" loading="lazy">
+      </figure>
+
+      <div style="counter-reset: stap; display:grid; gap:var(--space-3); margin:var(--space-4) 0">
+
+        <div class="card" style="padding:var(--space-4); display:flex; gap:var(--space-4); align-items:flex-start">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--color-vak-github);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:1.1rem">1</div>
+          <div>
+            <strong>Start met pullen</strong>
+            <div class="code-block" style="margin-top:var(--space-2)">
+              <div class="code-block__lang">Bash</div>
+              <pre><code>git pull</code></pre>
+            </div>
+            <p class="text-muted" style="margin:var(--space-1) 0 0">Haal altijd de laatste versie op. Zo werk je nooit op verouderde code.</p>
+          </div>
+        </div>
+
+        <div class="card" style="padding:var(--space-4); display:flex; gap:var(--space-4); align-items:flex-start">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--color-vak-github);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:1.1rem">2</div>
+          <div>
+            <strong>Werk aan je project</strong>
+            <p class="text-muted" style="margin:var(--space-1) 0 0">Open VS Code, schrijf je HTML/CSS/JS, werk aan je oefening of huistaak.</p>
+          </div>
+        </div>
+
+        <div class="card" style="padding:var(--space-4); display:flex; gap:var(--space-4); align-items:flex-start">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--color-vak-github);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:1.1rem">3</div>
+          <div>
+            <strong>Kijk wat er gewijzigd is</strong>
+            <div class="code-block" style="margin-top:var(--space-2)">
+              <div class="code-block__lang">Bash</div>
+              <pre><code>git status</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:var(--space-4); display:flex; gap:var(--space-4); align-items:flex-start">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--color-vak-github);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:1.1rem">4</div>
+          <div>
+            <strong>Zet bestanden klaar</strong>
+            <div class="code-block" style="margin-top:var(--space-2)">
+              <div class="code-block__lang">Bash</div>
+              <pre><code>git add .</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:var(--space-4); display:flex; gap:var(--space-4); align-items:flex-start">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--color-vak-github);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:1.1rem">5</div>
+          <div>
+            <strong>Maak een commit</strong>
+            <div class="code-block" style="margin-top:var(--space-2)">
+              <div class="code-block__lang">Bash</div>
+              <pre><code>git commit -m "H01 oef1 nav-structuur afgewerkt"</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:var(--space-4); display:flex; gap:var(--space-4); align-items:flex-start">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--color-vak-github);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:1.1rem">6</div>
+          <div>
+            <strong>Push naar GitHub</strong>
+            <div class="code-block" style="margin-top:var(--space-2)">
+              <div class="code-block__lang">Bash</div>
+              <pre><code>git push</code></pre>
+            </div>
+            <p class="text-muted" style="margin:var(--space-1) 0 0">Je werk staat nu online. Doe dit aan het einde van elke les, niet alleen thuis.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 id="mappenstructuur">6.2 Jouw mappenstructuur</h2>
+
+      <p>Jouw persoonlijke repository heeft een vaste structuur. Respecteer deze structuur altijd — de leerkracht gebruikt ze om je werk te vinden en beoordelen.</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code>jouw-naam-6adb/
+├── README.md                    ← beschrijving van je repo
+├── app-ontwikkeling/
+│   ├── H01-html-basis/
+│   │   └── index.html
+│   ├── H02-html-tekst/
+│   │   └── index.html
+│   ├── H03-semantische-html/
+│   │   └── index.html
+│   │   ...
+│   ├── huistaken/
+│   │   ├── H01-huistaak/
+│   │   │   └── index.html
+│   │   ├── H02-huistaak/
+│   │   │   └── index.html
+│   │   └── ...
+│   └── toetsen/
+│       ├── toets-1/
+│       │   └── index.html
+│       └── ...
+└── .gitignore                   ← bestanden die Git negeert</code></pre>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout-header">&#9888; Gebruik exacte mapnamen</div>
+        <p>Gebruik de mapnamen zoals ze in het schema staan. De leerkracht zoekt automatisch op basis van deze namen. Kies geen andere namen of schrijfwijzen.</p>
+      </div>
+
+      <h2 id="taken-inleveren">6.3 Taken en toetsen inleveren</h2>
+
+      <h3>Huistaken inleveren</h3>
+      <ol>
+        <li>Maak je werk in de juiste map: <code>app-ontwikkeling/huistaken/H01-huistaak/</code></li>
+        <li>Sla op</li>
+        <li><code>git add .</code></li>
+        <li><code>git commit -m "H01 huistaak ingediend"</code></li>
+        <li><code>git push</code></li>
+      </ol>
+
+      <h3>Toetsen inleveren</h3>
+      <p>Bij toetsen geldt precies hetzelfde, maar met een duidelijkere commit-boodschap:</p>
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git commit -m "toets-1 ingediend - eindversie"</code></pre>
+      </div>
+
+      <div class="callout callout--danger">
+        <div class="callout-header">&#128683; Niet pushen = niet ingediend</div>
+        <p>Alleen <code>git push</code> maakt je indiening zichtbaar voor de leerkracht. <code>git commit</code> alleen is <em>niet</em> genoeg. Zorg altijd dat je pusht voor de deadline.</p>
+      </div>
+
+      <h2 id="leerkracht-bekijkt">6.4 Hoe de leerkracht je werk bekijkt</h2>
+
+      <p>De leerkracht:</p>
+      <ol>
+        <li>Opent jouw repository op GitHub</li>
+        <li>Bekijkt de bestanden en de commit-geschiedenis</li>
+        <li>Kan commentaar schrijven op specifieke regels code (via <em>Pull Request reviews</em> of <em>inline comments</em>)</li>
+        <li>Kan een verbeterde versie pushen als correctie</li>
+      </ol>
+
+      <p>Als de leerkracht iets heeft toegevoegd, doe je <code>git pull</code> om die wijzigingen te halen. Verwerk daarna de feedback en push opnieuw.</p>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128214; GitHub — commentaar lezen</div>
+        <p>Als je op GitHub een bestand opent, zie je soms gele markeringen of commentaarballonnen. Die zijn van de leerkracht. Lees ze, pas je code aan en commit + push de verbeterde versie.</p>
+      </div>
+
+      <h2 id="cheatsheet">6.5 Git cheatsheet — alle commando's op een rij</h2>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash"># ── EÉNMALIG (begin van het jaar) ──────────────────────────
+git clone https://github.com/...    # repository downloaden
+
+# ── DAGELIJKS (begin van elke les) ─────────────────────────
+git pull                            # laatste versie ophalen
+
+# ── WERK VASTLEGGEN ─────────────────────────────────────────
+git status                          # wat is er gewijzigd?
+git add .                           # alles klaarzetten
+git add bestand.html                # één bestand klaarzetten
+git commit -m "omschrijving"        # snapshot vastleggen
+git push                            # uploaden naar GitHub
+
+# ── HISTORIEK ───────────────────────────────────────────────
+git log                             # alle commits
+git log --oneline                   # compacte weergave
+
+# ── CONFIGURATIE ────────────────────────────────────────────
+git config --global user.name "Naam"
+git config --global user.email "mail@school.be"
+git config --list                   # alle instellingen</code></pre>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB07</span>
+            <span class="oefening__title">Oefening 1 — Volledig workflow-oefening</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Doorloop de volledige workflow 3 keer achter elkaar:</p>
+            <ol>
+              <li><code>git pull</code></li>
+              <li>Maak een kleine wijziging in een HTML-bestand</li>
+              <li><code>git status</code> — beschrijf wat je ziet</li>
+              <li><code>git add .</code></li>
+              <li><code>git commit -m "..."</code> — schrijf een goede boodschap</li>
+              <li><code>git push</code></li>
+              <li>Herhaal 3x</li>
+              <li>Controleer op GitHub: 3 nieuwe commits zichtbaar?</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="oefening" id="oef-2">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB12</span>
+            <span class="oefening__title">Oefening 2 — README aanvullen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak een professionele README.md voor je repository:</p>
+            <ol>
+              <li>Open <code>README.md</code> in VS Code</li>
+              <li>Voeg toe (in Markdown-formaat):
+                <ul>
+                  <li>Jouw naam en klas</li>
+                  <li>Een overzicht van de vakken in deze repo</li>
+                  <li>Hoe de mappenstructuur werkt</li>
+                </ul>
+              </li>
+              <li>Commit en push</li>
+              <li>Bekijk hoe de README eruitziet op GitHub (het wordt automatisch getoond op de hoofdpagina)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Jaarworkflow instellen
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H06-voorbeeld.svg', 'Voorbeeld — GitHub repository overzichtspagina met commits')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Maak de volledige mappenstructuur aan</h3>
+            <ol>
+              <li><strong>Deel 1 — 5 punten:</strong> Zorg dat de volgende mappen bestaan in je repository (elke map heeft een leeg <code>.gitkeep</code> bestand zodat Git ze bijhoudt):
+                <ul>
+                  <li><code>app-ontwikkeling/H01-html-basis/</code></li>
+                  <li><code>app-ontwikkeling/huistaken/</code></li>
+                  <li><code>app-ontwikkeling/toetsen/</code></li>
+                </ul>
+              </li>
+              <li><strong>Deel 2 — 3 punten:</strong> Commit elke stap apart met een duidelijke boodschap. Push alles naar GitHub.</li>
+              <li><strong>Deel 3 — 2 punten:</strong> Stuur de link naar je GitHub-repository naar de leerkracht. De leerkracht controleert de mappenstructuur en de commits.</li>
+            </ol>
+            <p class="text-muted">Tip: maak een leeg bestand aan met <code>touch .gitkeep</code> in de terminal, of maak een leeg bestand aan in VS Code.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H06 — De volledige workflow</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wat is het eerste commando dat je uitvoert als je begint te werken?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="a"> <span>git pull</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="b"> <span>git add .</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="c"> <span>git status</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v1" value="d"> <span>git commit</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wanneer is je huistaak <em>definitief</em> ingediend?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="a"> <span>Nadat je het bestand hebt opgeslagen in VS Code</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="b"> <span>Nadat je <code>git add .</code> hebt uitgevoerd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="c"> <span>Nadat je <code>git commit</code> hebt uitgevoerd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v2" value="d"> <span>Nadat je <code>git push</code> hebt uitgevoerd</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">In welke map lever je een huistaak voor H01 in?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="a"> <span>app-ontwikkeling/H01-html-basis/</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="b"> <span>app-ontwikkeling/huistaken/H01-huistaak/</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="c"> <span>huistaken/app-ontwikkeling/</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v3" value="d"> <span>app-ontwikkeling/toetsen/H01/</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">De leerkracht heeft commentaar gegeven op jouw code online. Hoe haal je dat binnen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="a"> <span>git clone</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="b"> <span>git push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="c"> <span>git pull</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v4" value="d"> <span>git status</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Wat is de correcte volgorde van de dagelijkse workflow?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="a"> <span>push → work → pull → add → commit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="b"> <span>pull → work → status → add → commit → push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="c"> <span>clone → add → work → commit → push</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h06-v5" value="d"> <span>status → work → pull → add → push</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/github-version-control/H06')" data-progress-key="6adb/github-version-control/H06">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H05.html" class="btn btn-ghost">← H05</a>
+          <a href="H07.html" class="btn btn-ghost">H07 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

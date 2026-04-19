@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Browser chrome -->
+  <rect x="0" y="0" width="800" height="40" rx="8" fill="#2d2d2d"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="20" r="6" fill="#28c840"/>
+  <rect x="100" y="8" width="500" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="350" y="24" text-anchor="middle" fill="#888" font-size="12">localhost/receptenapp/</text>
+
+  <!-- DevTools panel -->
+  <rect x="0" y="40" width="800" height="460" rx="0" fill="#1e1e1e"/>
+  <!-- Tab bar -->
+  <rect x="0" y="40" width="800" height="32" fill="#252525"/>
+  <text x="20" y="61" fill="#888" font-size="13">Elements</text>
+  <text x="100" y="61" fill="#888" font-size="13">Console</text>
+  <text x="175" y="61" fill="#888" font-size="13">Sources</text>
+  <text x="250" y="61" fill="#e8e8f0" font-size="13" font-weight="bold">Application</text>
+  <line x1="250" y1="72" x2="322" y2="72" stroke="#6c63ff" stroke-width="2"/>
+
+  <!-- Left nav -->
+  <rect x="0" y="72" width="200" height="428" fill="#1a1a1a"/>
+  <text x="10" y="100" fill="#888" font-size="12">Application</text>
+  <text x="20" y="120" fill="#888" font-size="12">▶ Manifest</text>
+  <text x="20" y="140" fill="#888" font-size="12">▶ Service Workers</text>
+  <text x="10" y="165" fill="#aaa" font-size="12">Storage</text>
+  <text x="20" y="185" fill="#aaa" font-size="12">▼ Local Storage</text>
+  <rect x="30" y="192" width="160" height="22" rx="4" fill="#6c63ff" fill-opacity="0.3"/>
+  <text x="40" y="207" fill="#6c63ff" font-size="12" font-weight="bold">localhost</text>
+  <text x="20" y="230" fill="#666" font-size="12">▶ Session Storage</text>
+  <text x="20" y="250" fill="#666" font-size="12">▶ IndexedDB</text>
+  <text x="20" y="270" fill="#666" font-size="12">▶ Cookies</text>
+
+  <!-- Right content -->
+  <rect x="200" y="72" width="600" height="428" fill="#1e1e1e"/>
+  <!-- Table header -->
+  <rect x="200" y="72" width="600" height="30" fill="#2a2a2a"/>
+  <text x="220" y="92" fill="#aaa" font-size="13" font-weight="bold">Key</text>
+  <text x="450" y="92" fill="#aaa" font-size="13" font-weight="bold">Value</text>
+  <line x1="200" y1="102" x2="800" y2="102" stroke="#333" stroke-width="1"/>
+
+  <!-- Row 1 - highlighted -->
+  <rect x="200" y="102" width="600" height="36" fill="#6c63ff" fill-opacity="0.15"/>
+  <text x="220" y="125" fill="#6c63ff" font-size="13" font-family="'Courier New', monospace">opgeslagenRecepten</text>
+  <text x="450" y="118" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">[{"naam":"Spaghetti carbonara","beschrijving":</text>
+  <text x="450" y="132" fill="#43e97b" font-size="11" font-family="'Courier New', monospace">"Klassieke Italiaanse pasta...","categorie":...</text>
+  <line x1="200" y1="138" x2="800" y2="138" stroke="#333" stroke-width="1"/>
+
+  <!-- Row 2 -->
+  <text x="220" y="160" fill="#e8e8f0" font-size="13" font-family="'Courier New', monospace">thema</text>
+  <text x="450" y="160" fill="#f9a825" font-size="13" font-family="'Courier New', monospace">"donker"</text>
+  <line x1="200" y1="172" x2="800" y2="172" stroke="#333" stroke-width="1"/>
+
+  <!-- Info -->
+  <text x="220" y="210" fill="#888" font-size="12">2 items opgeslagen</text>
+
+  <!-- Explanation callout -->
+  <rect x="220" y="240" width="540" height="80" rx="8" fill="#6c63ff" fill-opacity="0.15" stroke="#6c63ff" stroke-width="1"/>
+  <text x="240" y="265" fill="#6c63ff" font-size="13" font-weight="bold">💡 Tip: data bekijken en bewerken</text>
+  <text x="240" y="285" fill="#aaa" font-size="12">Klik op een rij om de volledige waarde te zien.</text>
+  <text x="240" y="305" fill="#aaa" font-size="12">Dubbelklik op een waarde om ze manueel aan te passen (handig bij debuggen!).</text>
+
+  <!-- Title -->
+  <text x="400" y="460" text-anchor="middle" fill="#666" font-size="11">DevTools → Application → Local Storage → localhost</text>
+</svg>

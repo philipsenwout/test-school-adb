@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H04 — Merge conflicten — GitHub Advanced 6ADB — Appschool Munsterbilzen</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Ga naar de inhoud</a>
+<nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
+  <div class="container">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <img src="../../assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+      </a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="../../index.html" class="site-nav__link">Home</a></li>
+        <li><a href="../../5adb/index.html" class="site-nav__link">5ADB</a></li>
+        <li><a href="../../6adb/index.html" class="site-nav__link active">6ADB</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" id="theme-toggle" title="Schakel thema" aria-label="Schakel thema">&#x2600;&#xFE0F;</button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="site-nav__mobile" id="nav-mobile">
+    <a href="../../index.html" class="site-nav__link">Home</a>
+    <a href="../../5adb/index.html" class="site-nav__link">5ADB</a>
+    <a href="../../6adb/index.html" class="site-nav__link">6ADB</a>
+  </div>
+</nav>
+<main id="main">
+  <div class="chapter-layout container">
+
+    <aside class="chapter-sidebar" data-chapter-key="6adb/github-version-control/H04" style="--sidebar-accent: var(--color-vak-github)">
+      <div class="chapter-sidebar__header">
+        <div class="chapter-sidebar__title">In dit hoofdstuk</div>
+        <div class="chapter-sidebar__progress-wrap">
+          <div class="chapter-sidebar__progress-bar">
+            <div class="chapter-sidebar__progress-fill" id="sidebar-progress-fill"></div>
+          </div>
+          <span class="chapter-sidebar__progress-pct" id="sidebar-progress-pct">0%</span>
+        </div>
+      </div>
+      <ul class="chapter-sidebar__list">
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.1"><span class="sidebar-check__box"></span></label>
+          <a href="#wat-is-conflict">4.1 Wat is een merge conflict?</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.2"><span class="sidebar-check__box"></span></label>
+          <a href="#conflict-markers">4.2 Conflict markers lezen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.3"><span class="sidebar-check__box"></span></label>
+          <a href="#conflict-oplossen">4.3 Conflict oplossen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="4.4"><span class="sidebar-check__box"></span></label>
+          <a href="#voorkomen">4.4 Conflicten voorkomen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="oef"><span class="sidebar-check__box"></span></label>
+          <a href="#oefeningen">Oefeningen</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="huistaak"><span class="sidebar-check__box"></span></label>
+          <a href="#huistaak">Huistaak</a>
+        </li>
+        <li class="sidebar-check-item">
+          <label class="sidebar-check__label"><input type="checkbox" data-section-key="quiz"><span class="sidebar-check__box"></span></label>
+          <a href="#vragenlijst">Vragenlijst</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="chapter-content">
+
+      <nav class="breadcrumb" aria-label="Paginapad">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="../../6adb/index.html">6ADB</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="index.html">GitHub Advanced</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>H04 — Merge conflicten oplossen</span>
+      </nav>
+
+      <div class="page-header vak-github">
+        <div class="page-header__vak">H04 — GitHub Advanced 6ADB</div>
+        <h1 class="page-header__title">Merge conflicten oplossen</h1>
+      </div>
+
+      <div class="ld-badges">
+        <div class="ld-tag"><span class="ld-tag__code">ADB16</span><span class="ld-tag__title">De leerlingen gebruiken een versiebeheersysteem. [verdieping]</span></div>
+        <div class="ld-tag"><span class="ld-tag__code">ADB15</span><span class="ld-tag__title">De leerlingen onderhouden een applicatie en lossen problemen op.</span></div>
+      </div>
+
+      <div class="callout callout--info">
+        <div class="callout-header">🎯 Leerdoelen</div>
+        <ul>
+          <li>Je kan uitleggen wanneer een merge conflict ontstaat</li>
+          <li>Je kan de conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) begrijpen en lezen</li>
+          <li>Je kan een merge conflict manueel oplossen in VS Code</li>
+          <li>Je kan een conflict-oplossing committen en pushen</li>
+          <li>Je kent strategieën om conflicten te voorkomen</li>
+        </ul>
+      </div>
+
+      <h2 id="wat-is-conflict">4.1 Wat is een merge conflict?</h2>
+
+      <p>Een merge conflict treedt op als twee branches <strong>hetzelfde bestand op dezelfde plek</strong> hebben gewijzigd. Git weet niet welke versie de correcte is en vraagt jou om te beslissen.</p>
+
+      <p>Typische situatie:</p>
+      <ol>
+        <li>Je werkt op <code>feature/login</code> en past <code>index.html</code> aan</li>
+        <li>Tegelijk wordt <code>index.html</code> ook op <code>main</code> gewijzigd (bv. door de leerkracht)</li>
+        <li>Als je <code>feature/login</code> probeert te mergen naar <code>main</code>: conflict!</li>
+      </ol>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128204; Niet panikeren</div>
+        <p>Een merge conflict is geen fout — het is Git dat om jouw beslissing vraagt. Met de juiste aanpak is het in enkele minuten opgelost.</p>
+      </div>
+
+      <h2 id="conflict-markers">4.2 Conflict markers lezen</h2>
+
+      <p>Als Git een conflict detecteert, voegt het markers in het bestand:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+&lt;h1&gt;Welkom op onze website&lt;/h1&gt;
+=======
+&lt;h1&gt;Welkom bij Appschool Munsterbilzen&lt;/h1&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/login</code></pre>
+      </div>
+
+      <ul>
+        <li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> — begin van de huidige versie (main)</li>
+        <li><code>=======</code> — scheiding tussen de twee versies</li>
+        <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/login</code> — versie van de andere branch</li>
+      </ul>
+
+      <h2 id="conflict-oplossen">4.3 Conflict oplossen in VS Code</h2>
+
+      <p>VS Code detecteert automatisch conflict markers en toont knoppen om te kiezen:</p>
+      <ul>
+        <li><strong>Accept Current Change</strong> — bewaar de HEAD-versie</li>
+        <li><strong>Accept Incoming Change</strong> — bewaar de branch-versie</li>
+        <li><strong>Accept Both Changes</strong> — bewaar beide versies</li>
+        <li><strong>Compare Changes</strong> — bekijk de twee versies naast elkaar</li>
+      </ul>
+
+      <p>Je kan ook manueel de markers verwijderen en de gewenste code bewaren:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">HTML</div>
+        <pre><code>&lt;!-- Verwijder de markers en kies de correcte versie --&gt;
+&lt;h1&gt;Welkom bij Appschool Munsterbilzen&lt;/h1&gt;</code></pre>
+      </div>
+
+      <p>Na het oplossen van alle conflicten:</p>
+
+      <div class="code-block">
+        <div class="code-block__lang">Bash</div>
+        <pre><code class="language-bash">git status                    # toont welke bestanden opgelost zijn
+git add index.html            # mark als opgelost
+git commit -m "merge conflict opgelost: h1 titel"
+git push</code></pre>
+      </div>
+
+      <h2 id="voorkomen">4.4 Conflicten voorkomen</h2>
+
+      <div class="callout callout--info">
+        <div class="callout-header">&#128161; Best practices</div>
+        <ul>
+          <li><strong>Pull altijd eerst</strong> voor je begint te werken: <code>git pull</code></li>
+          <li><strong>Kleine, frequente commits</strong> zijn makkelijker te mergen dan grote</li>
+          <li><strong>Communiceer</strong> wie aan welk bestand werkt</li>
+          <li><strong>Branches aanpassen</strong> aan functionaliteiten, niet aan personen</li>
+          <li><strong>Merge regelmatig</strong> van main naar je feature-branch: <code>git merge main</code></li>
+        </ul>
+      </div>
+
+      <section id="oefeningen">
+        <h2>Oefeningen</h2>
+        <div class="oefening" id="oef-1">
+          <div class="oefening__header">
+            <span class="oefening__badge">ADB16 / ADB15</span>
+            <span class="oefening__title">Oefening 1 — Conflict simuleren en oplossen</span>
+          </div>
+          <div class="oefening__body">
+            <p class="oefening__intro">Maak bewust een merge conflict aan en los het op:</p>
+            <ol>
+              <li>Maak een bestand <code>conflict-oefening.html</code> op <code>main</code></li>
+              <li>Commit en push</li>
+              <li>Maak een branch <code>feature/conflict-test</code></li>
+              <li>Wijzig regel 5 op de feature-branch, commit</li>
+              <li>Ga terug naar main, wijzig dezelfde regel 5, commit</li>
+              <li>Probeer de feature-branch te mergen: <code>git merge feature/conflict-test</code></li>
+              <li>Bekijk de conflict-markers in VS Code</li>
+              <li>Los op, commit, push</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="huistaak">
+        <h2>Huistaak</h2>
+        <div class="callout callout--huistaak">
+          <div class="callout-header">
+            &#128203; Huistaak — Conflict-verslag
+            <button class="btn-voorbeeld" onclick="openVoorbeeldModal('../../assets/images/github-version-control/H04-6adb-voorbeeld.svg', 'Voorbeeld — VS Code met conflict markers')">&#128065; Bekijk voorbeeld</button>
+          </div>
+          <div class="callout-body">
+            <h3>Opdracht: Documenteer een conflict-oplossing</h3>
+            <ol>
+              <li><strong>Deel 1 — 5 punten:</strong> Voer de conflict-simulatie van oefening 1 uit en maak screenshots van:
+                <ul>
+                  <li>De conflict-markers in VS Code</li>
+                  <li>De staat na het oplossen</li>
+                  <li>De git log --oneline na de merge commit</li>
+                </ul>
+              </li>
+              <li><strong>Deel 2 — 5 punten:</strong> Schrijf een kort verslag (max. 1 pagina) over:
+                <ul>
+                  <li>Wanneer ontstaan merge conflicten?</li>
+                  <li>Hoe los je ze op? (stap voor stap)</li>
+                  <li>Hoe voorkom je ze in de toekomst?</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="vragenlijst">
+        <h2>Vragenlijst</h2>
+        <p class="text-muted">Controleer of je de leerstof van dit hoofdstuk begrijpt.</p>
+        <div class="oefening">
+          <div class="oefening__header">
+            <span class="oefening__badge">Quiz</span>
+            <span class="oefening__title">H04 — Merge conflicten oplossen</span>
+          </div>
+          <div class="oefening__body">
+
+            <div class="vraag" data-type="mc" data-correct="c">
+              <div class="vraag__nr">Vraag 1</div>
+              <p class="vraag__tekst">Wanneer ontstaat een merge conflict?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v1" value="a"> <span>Als je geen internetverbinding hebt</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v1" value="b"> <span>Als je een verkeerde commit-boodschap schrijft</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v1" value="c"> <span>Als twee branches hetzelfde bestand op dezelfde plek hebben gewijzigd</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v1" value="d"> <span>Als je vergeet te pushen</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 2</div>
+              <p class="vraag__tekst">Wat staan er tussen <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> en <code>=======</code>?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v2" value="a"> <span>De inkomende branch-versie</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v2" value="b"> <span>De huidige branch-versie (main)</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v2" value="c"> <span>De oorspronkelijke versie voor beide wijzigingen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v2" value="d"> <span>De foutmelding van Git</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="a">
+              <div class="vraag__nr">Vraag 3</div>
+              <p class="vraag__tekst">Na het manueel oplossen van een conflict, wat doe je als volgende stap?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v3" value="a"> <span>git add, git commit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v3" value="b"> <span>git push zonder commit</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v3" value="c"> <span>git clone opnieuw</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v3" value="d"> <span>git merge --abort</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="d">
+              <div class="vraag__nr">Vraag 4</div>
+              <p class="vraag__tekst">Hoe voorkom je merge conflicten?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v4" value="a"> <span>Door nooit branches aan te maken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v4" value="b"> <span>Door nooit bestanden te wijzigen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v4" value="c"> <span>Door altijd op main te werken</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v4" value="d"> <span>Door regelmatig te pullen en kleine frequente commits te maken</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div class="vraag" data-type="mc" data-correct="b">
+              <div class="vraag__nr">Vraag 5</div>
+              <p class="vraag__tekst">Welk VS Code-commando toont de conflict markers als knoppen?</p>
+              <div class="vraag__keuzes">
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v5" value="a"> <span>VS Code toont ze nooit automatisch</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v5" value="b"> <span>VS Code detecteert conflict markers automatisch en toont knoppen</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v5" value="c"> <span>Je moet een extension installeren</span></label>
+                <label class="vraag__keuze"><input type="radio" name="h6-04-v5" value="d"> <span>Via de Git-extension in de activiteitsbalk</span></label>
+              </div>
+              <div class="vraag__feedback"></div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: right;">
+              <button class="btn btn-primary" onclick="checkQuiz(this)">Controleer antwoorden</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="chapter-completion">
+        <button class="btn btn-primary" onclick="markComplete('6adb/github-version-control/H04')" data-progress-key="6adb/github-version-control/H04">&#10003; Markeer als voltooid</button>
+        <div class="chapter-completion__nav">
+          <a href="H03.html" class="btn btn-ghost">← H03</a>
+          <a href="H05.html" class="btn btn-ghost">H05 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; 6ADB &mdash; 2025&ndash;2026</p>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/app.js"></script>
+</body>
+</html>

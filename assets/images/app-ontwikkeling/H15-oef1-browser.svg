@@ -1,0 +1,229 @@
+<svg viewBox="0 0 1200 750" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <!-- Achtergrond -->
+  <rect width="1200" height="750" fill="#0f1117"/>
+
+  <!-- Titel -->
+  <text x="600" y="38" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="700" letter-spacing="1">Responsive Receptenpagina — drie schermformaten</text>
+
+  <!-- ============================================================
+       MOBIEL — 1 kolom (320px breed)
+       ============================================================ -->
+  <!-- Browser chrome -->
+  <rect x="40" y="60" width="280" height="640" rx="12" fill="#1e2130" stroke="#334155" stroke-width="1.5"/>
+  <!-- Top bar met notch -->
+  <rect x="40" y="60" width="280" height="36" rx="12" fill="#252840"/>
+  <rect x="40" y="84" width="280" height="12" fill="#252840"/>
+  <!-- adresbalk -->
+  <rect x="68" y="68" width="184" height="18" rx="9" fill="#1a1a2e"/>
+  <text x="160" y="81" text-anchor="middle" fill="#94a3b8" font-size="9">recepten.be</text>
+  <!-- sluit / min / max bolletjes -->
+  <circle cx="56" cy="77" r="4" fill="#ff5f56"/>
+  <circle cx="70" cy="77" r="4" fill="#ffbd2e"/>
+  <circle cx="84" cy="77" r="4" fill="#27c93f"/>
+
+  <!-- Pagina-achtergrond -->
+  <rect x="40" y="96" width="280" height="604" rx="0" fill="#0f1117"/>
+  <rect x="40" y="672" width="280" height="28" rx="0" fill="#0f1117"/>
+
+  <!-- Header -->
+  <rect x="40" y="96" width="280" height="44" fill="#1a1a2e"/>
+  <text x="180" y="123" text-anchor="middle" fill="#00d4ff" font-size="14" font-weight="700">Mijn Recepten</text>
+
+  <!-- Kaartje 1 -->
+  <rect x="58" y="150" width="244" height="130" rx="8" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="58" y="150" width="244" height="60" rx="8" fill="#2a2d3e"/>
+  <rect x="58" y="196" width="244" height="14" fill="#2a2d3e"/>
+  <!-- afbeelding icoon -->
+  <rect x="90" y="158" width="180" height="40" rx="4" fill="#1a1a2e"/>
+  <text x="180" y="183" text-anchor="middle" fill="#39ff14" font-size="18">🍝</text>
+  <text x="180" y="226" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">Spaghetti Bolognese</text>
+  <text x="180" y="242" text-anchor="middle" fill="#94a3b8" font-size="9">Een klassiek Italiaans recept met</text>
+  <text x="180" y="253" text-anchor="middle" fill="#94a3b8" font-size="9">gehakt en tomatensaus.</text>
+  <rect x="90" y="262" width="100" height="10" rx="5" fill="#00d4ff" opacity="0.7"/>
+  <text x="140" y="271" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Kaartje 2 -->
+  <rect x="58" y="294" width="244" height="130" rx="8" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="58" y="294" width="244" height="60" rx="8" fill="#2a2d3e"/>
+  <rect x="58" y="340" width="244" height="14" fill="#2a2d3e"/>
+  <rect x="90" y="302" width="180" height="40" rx="4" fill="#1a1a2e"/>
+  <text x="180" y="327" text-anchor="middle" fill="#ff6b35" font-size="18">🥗</text>
+  <text x="180" y="370" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">Griekse Salade</text>
+  <text x="180" y="386" text-anchor="middle" fill="#94a3b8" font-size="9">Frisse zomersalade met feta,</text>
+  <text x="180" y="397" text-anchor="middle" fill="#94a3b8" font-size="9">olijven en tomaten.</text>
+  <rect x="90" y="406" width="100" height="10" rx="5" fill="#00d4ff" opacity="0.7"/>
+  <text x="140" y="415" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Kaartje 3 -->
+  <rect x="58" y="438" width="244" height="130" rx="8" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="58" y="438" width="244" height="60" rx="8" fill="#2a2d3e"/>
+  <rect x="58" y="484" width="244" height="14" fill="#2a2d3e"/>
+  <rect x="90" y="446" width="180" height="40" rx="4" fill="#1a1a2e"/>
+  <text x="180" y="471" text-anchor="middle" fill="#7c3aed" font-size="18">🍰</text>
+  <text x="180" y="514" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">Chocoladetaart</text>
+  <text x="180" y="530" text-anchor="middle" fill="#94a3b8" font-size="9">Rijke, smeuïge chocoladetaart</text>
+  <text x="180" y="541" text-anchor="middle" fill="#94a3b8" font-size="9">voor echte chocoladeliefhebbers.</text>
+  <rect x="90" y="550" width="100" height="10" rx="5" fill="#00d4ff" opacity="0.7"/>
+  <text x="140" y="559" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Label mobiel -->
+  <rect x="90" y="590" width="140" height="22" rx="11" fill="#334155"/>
+  <text x="160" y="605" text-anchor="middle" fill="#00d4ff" font-size="10" font-weight="700">📱 Mobiel — 1 kolom</text>
+  <text x="160" y="622" text-anchor="middle" fill="#94a3b8" font-size="8">max-width: 599px</text>
+  <!-- Media query label -->
+  <rect x="56" y="636" width="248" height="14" rx="4" fill="#1a1a2e"/>
+  <text x="180" y="647" text-anchor="middle" fill="#39ff14" font-size="7" font-weight="600">/* geen media query — mobile first */</text>
+
+  <!-- ============================================================
+       TABLET — 2 kolommen (768px breed)
+       ============================================================ -->
+  <!-- Browser chrome -->
+  <rect x="350" y="60" width="480" height="640" rx="12" fill="#1e2130" stroke="#334155" stroke-width="1.5"/>
+  <rect x="350" y="60" width="480" height="36" rx="12" fill="#252840"/>
+  <rect x="350" y="84" width="480" height="12" fill="#252840"/>
+  <rect x="398" y="68" width="284" height="18" rx="9" fill="#1a1a2e"/>
+  <text x="540" y="81" text-anchor="middle" fill="#94a3b8" font-size="9">recepten.be</text>
+  <circle cx="366" cy="77" r="4" fill="#ff5f56"/>
+  <circle cx="380" cy="77" r="4" fill="#ffbd2e"/>
+  <circle cx="394" cy="77" r="4" fill="#27c93f"/>
+
+  <rect x="350" y="96" width="480" height="604" fill="#0f1117"/>
+  <rect x="350" y="672" width="480" height="28" fill="#0f1117"/>
+
+  <!-- Header -->
+  <rect x="350" y="96" width="480" height="44" fill="#1a1a2e"/>
+  <text x="590" y="123" text-anchor="middle" fill="#00d4ff" font-size="14" font-weight="700">Mijn Recepten</text>
+
+  <!-- Rij 1: kaartjes 1+2 naast elkaar -->
+  <!-- Kaartje 1 -->
+  <rect x="368" y="152" width="212" height="150" rx="8" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="368" y="152" width="212" height="70" rx="8" fill="#2a2d3e"/>
+  <rect x="368" y="208" width="212" height="14" fill="#2a2d3e"/>
+  <rect x="388" y="158" width="172" height="52" rx="4" fill="#1a1a2e"/>
+  <text x="474" y="190" text-anchor="middle" fill="#39ff14" font-size="22">🍝</text>
+  <text x="474" y="236" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">Spaghetti Bolognese</text>
+  <text x="474" y="251" text-anchor="middle" fill="#94a3b8" font-size="9">Klassiek Italiaans recept</text>
+  <text x="474" y="262" text-anchor="middle" fill="#94a3b8" font-size="9">met gehakt en tomatensaus.</text>
+  <rect x="408" y="274" width="132" height="11" rx="5" fill="#00d4ff" opacity="0.7"/>
+  <text x="474" y="283" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Kaartje 2 -->
+  <rect x="600" y="152" width="212" height="150" rx="8" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="600" y="152" width="212" height="70" rx="8" fill="#2a2d3e"/>
+  <rect x="600" y="208" width="212" height="14" fill="#2a2d3e"/>
+  <rect x="620" y="158" width="172" height="52" rx="4" fill="#1a1a2e"/>
+  <text x="706" y="190" text-anchor="middle" fill="#ff6b35" font-size="22">🥗</text>
+  <text x="706" y="236" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">Griekse Salade</text>
+  <text x="706" y="251" text-anchor="middle" fill="#94a3b8" font-size="9">Frisse zomersalade met</text>
+  <text x="706" y="262" text-anchor="middle" fill="#94a3b8" font-size="9">feta, olijven en tomaten.</text>
+  <rect x="640" y="274" width="132" height="11" rx="5" fill="#00d4ff" opacity="0.7"/>
+  <text x="706" y="283" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Kaartje 3 — alleen, gecentreerd -->
+  <rect x="484" y="316" width="212" height="150" rx="8" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="484" y="316" width="212" height="70" rx="8" fill="#2a2d3e"/>
+  <rect x="484" y="372" width="212" height="14" fill="#2a2d3e"/>
+  <rect x="504" y="322" width="172" height="52" rx="4" fill="#1a1a2e"/>
+  <text x="590" y="354" text-anchor="middle" fill="#7c3aed" font-size="22">🍰</text>
+  <text x="590" y="400" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">Chocoladetaart</text>
+  <text x="590" y="415" text-anchor="middle" fill="#94a3b8" font-size="9">Rijke chocoladetaart voor</text>
+  <text x="590" y="426" text-anchor="middle" fill="#94a3b8" font-size="9">echte chocoladeliefhebbers.</text>
+  <rect x="524" y="438" width="132" height="11" rx="5" fill="#00d4ff" opacity="0.7"/>
+  <text x="590" y="447" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Label tablet -->
+  <rect x="460" y="480" width="260" height="22" rx="11" fill="#334155"/>
+  <text x="590" y="495" text-anchor="middle" fill="#00d4ff" font-size="10" font-weight="700">💻 Tablet — 2 kolommen</text>
+  <text x="590" y="515" text-anchor="middle" fill="#94a3b8" font-size="8">600px ≤ breedte &lt; 1024px</text>
+  <!-- CSS indicator -->
+  <rect x="368" y="528" width="444" height="14" rx="4" fill="#1a1a2e"/>
+  <text x="590" y="539" text-anchor="middle" fill="#39ff14" font-size="7" font-weight="600">@media (min-width: 600px) &#123; .kaart &#123; width: 48%; &#125; &#125;</text>
+
+  <!-- ============================================================
+       DESKTOP — 3 kolommen (1200px breed)
+       ============================================================ -->
+  <!-- Browser chrome -->
+  <rect x="860" y="60" width="300" height="640" rx="12" fill="#1e2130" stroke="#334155" stroke-width="1.5"/>
+  <rect x="860" y="60" width="300" height="36" rx="12" fill="#252840"/>
+  <rect x="860" y="84" width="300" height="12" fill="#252840"/>
+  <rect x="898" y="68" width="184" height="18" rx="9" fill="#1a1a2e"/>
+  <text x="990" y="81" text-anchor="middle" fill="#94a3b8" font-size="9">recepten.be</text>
+  <circle cx="876" cy="77" r="4" fill="#ff5f56"/>
+  <circle cx="890" cy="77" r="4" fill="#ffbd2e"/>
+  <circle cx="904" cy="77" r="4" fill="#27c93f"/>
+
+  <rect x="860" y="96" width="300" height="604" fill="#0f1117"/>
+  <rect x="860" y="672" width="300" height="28" fill="#0f1117"/>
+
+  <!-- Header -->
+  <rect x="860" y="96" width="300" height="44" fill="#1a1a2e"/>
+  <text x="1010" y="123" text-anchor="middle" fill="#00d4ff" font-size="14" font-weight="700">Mijn Recepten</text>
+
+  <!-- Drie kaartjes naast elkaar (klein formaat want browser is verkleind) -->
+  <!-- Kaartje 1 -->
+  <rect x="870" y="152" width="84" height="130" rx="6" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="870" y="152" width="84" height="50" rx="6" fill="#2a2d3e"/>
+  <rect x="870" y="190" width="84" height="12" fill="#2a2d3e"/>
+  <text x="912" y="183" text-anchor="middle" fill="#39ff14" font-size="16">🍝</text>
+  <text x="912" y="213" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">Spaghetti</text>
+  <text x="912" y="224" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">Bolognese</text>
+  <text x="912" y="237" text-anchor="middle" fill="#94a3b8" font-size="6">Klassiek Italiaans</text>
+  <text x="912" y="247" text-anchor="middle" fill="#94a3b8" font-size="6">recept met gehakt.</text>
+  <rect x="882" y="258" width="60" height="9" rx="4" fill="#00d4ff" opacity="0.7"/>
+  <text x="912" y="266" text-anchor="middle" fill="#ffffff" font-size="5" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Kaartje 2 -->
+  <rect x="963" y="152" width="84" height="130" rx="6" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="963" y="152" width="84" height="50" rx="6" fill="#2a2d3e"/>
+  <rect x="963" y="190" width="84" height="12" fill="#2a2d3e"/>
+  <text x="1005" y="183" text-anchor="middle" fill="#ff6b35" font-size="16">🥗</text>
+  <text x="1005" y="213" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">Griekse</text>
+  <text x="1005" y="224" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">Salade</text>
+  <text x="1005" y="237" text-anchor="middle" fill="#94a3b8" font-size="6">Feta, olijven</text>
+  <text x="1005" y="247" text-anchor="middle" fill="#94a3b8" font-size="6">en tomaten.</text>
+  <rect x="975" y="258" width="60" height="9" rx="4" fill="#00d4ff" opacity="0.7"/>
+  <text x="1005" y="266" text-anchor="middle" fill="#ffffff" font-size="5" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Kaartje 3 -->
+  <rect x="1056" y="152" width="84" height="130" rx="6" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <rect x="1056" y="152" width="84" height="50" rx="6" fill="#2a2d3e"/>
+  <rect x="1056" y="190" width="84" height="12" fill="#2a2d3e"/>
+  <text x="1098" y="183" text-anchor="middle" fill="#7c3aed" font-size="16">🍰</text>
+  <text x="1098" y="213" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">Chocolade-</text>
+  <text x="1098" y="224" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="600">taart</text>
+  <text x="1098" y="237" text-anchor="middle" fill="#94a3b8" font-size="6">Rijke, smeuïge</text>
+  <text x="1098" y="247" text-anchor="middle" fill="#94a3b8" font-size="6">chocoladetaart.</text>
+  <rect x="1068" y="258" width="60" height="9" rx="4" fill="#00d4ff" opacity="0.7"/>
+  <text x="1098" y="266" text-anchor="middle" fill="#ffffff" font-size="5" font-weight="600">BEKIJK RECEPT</text>
+
+  <!-- Label desktop -->
+  <rect x="880" y="296" width="260" height="22" rx="11" fill="#334155"/>
+  <text x="1010" y="311" text-anchor="middle" fill="#00d4ff" font-size="10" font-weight="700">🖥️ Desktop — 3 kolommen</text>
+  <text x="1010" y="331" text-anchor="middle" fill="#94a3b8" font-size="8">breedte ≥ 1024px</text>
+  <!-- CSS indicator -->
+  <rect x="868" y="344" width="284" height="14" rx="4" fill="#1a1a2e"/>
+  <text x="1010" y="355" text-anchor="middle" fill="#39ff14" font-size="7" font-weight="600">@media (min-width: 1024px) &#123; .kaart &#123; width: 31%; &#125; &#125;</text>
+
+  <!-- ============================================================
+       Verbindingspijlen tussen de drie schermen
+       ============================================================ -->
+  <!-- Pijl mobiel -> tablet -->
+  <line x1="322" y1="380" x2="348" y2="380" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="348,376 356,380 348,384" fill="#334155"/>
+
+  <!-- Pijl tablet -> desktop -->
+  <line x1="832" y1="380" x2="858" y2="380" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="858,376 866,380 858,384" fill="#334155"/>
+
+  <!-- ============================================================
+       Legende onderaan
+       ============================================================ -->
+  <rect x="40" y="710" width="1120" height="32" rx="8" fill="#1e2130" stroke="#334155" stroke-width="1"/>
+  <text x="140" y="730" text-anchor="middle" fill="#94a3b8" font-size="9">Mobile first:</text>
+  <text x="230" y="730" text-anchor="middle" fill="#39ff14" font-size="9" font-weight="600">basis CSS (geen query)</text>
+  <text x="390" y="730" text-anchor="middle" fill="#94a3b8" font-size="9">Tablet:</text>
+  <text x="530" y="730" text-anchor="middle" fill="#00d4ff" font-size="9" font-weight="600">@media (min-width: 600px)</text>
+  <text x="700" y="730" text-anchor="middle" fill="#94a3b8" font-size="9">Desktop:</text>
+  <text x="840" y="730" text-anchor="middle" fill="#ff6b35" font-size="9" font-weight="600">@media (min-width: 1024px)</text>
+  <text x="1060" y="730" text-anchor="middle" fill="#94a3b8" font-size="9">Eenheid: rem / % / fr</text>
+</svg>
