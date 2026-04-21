@@ -133,10 +133,10 @@
       <div class="code-block">
         <div class="code-block__lang">SQL — sportclub_db.sql</div>
         <pre><code class="language-sql">-- Stap 1: database aanmaken (IF NOT EXISTS = geen fout als de database al bestaat)
-CREATE DATABASE IF NOT EXISTS jouw_db;
+CREATE DATABASE IF NOT EXISTS sportclub_db;
 
 -- Stap 2: vertel MySQL welke database we gebruiken voor de rest van het script
-USE jouw_db;
+USE sportclub_db;
 
 -- ── Tabel: users ──────────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS users (
@@ -176,6 +176,16 @@ CREATE TABLE IF NOT EXISTS activiteiten (
 
   -- DEFAULT 20: als je max_deelnemers weglaat bij INSERT, wordt het 20
   max_deelnemers INT NOT NULL DEFAULT 20
+);
+
+-- Tabel: inschrijvingen (koppelt een lid aan een activiteit)
+CREATE TABLE IF NOT EXISTS inschrijvingen (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    user_id         INT NOT NULL,
+    activiteit_id   INT NOT NULL,
+    UNIQUE (user_id, activiteit_id),
+    FOREIGN KEY (user_id)           REFERENCES users(id)        ON DELETE CASCADE,
+    FOREIGN KEY (activiteit_id)     REFERENCES activiteiten(id) ON DELETE CASCADE,
 );</code></pre>
       </div>
 
