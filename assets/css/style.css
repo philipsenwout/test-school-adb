@@ -4217,3 +4217,188 @@ body.modal-open { overflow: hidden; }
 @media (max-width: 480px) {
   .gip-vakken { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   NAV LOGO ANIMATION — Dodecahedron (03 · horizontal · light)
+   ============================================================ */
+
+/* Allow bounce to overflow above the nav bar */
+.site-nav,
+.site-nav .container,
+.site-nav__inner,
+.site-nav__logo {
+  overflow: visible;
+}
+
+.nav-logo-anim {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  overflow: visible;
+  position: relative;
+  text-decoration: none;
+  margin: 14px 0;
+}
+
+.nav-logo-anim__mark-wrap {
+  position: relative;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+}
+
+.nav-logo-anim__bounce {
+  display: inline-block;
+  animation: logoBounceFall 2.6s cubic-bezier(.5,.05,.3,1) both;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+}
+
+.nav-logo-anim__spin {
+  display: inline-block;
+  animation: logoSpin 2.6s cubic-bezier(.5,.05,.3,1) both;
+  transform-origin: 50% 50%;
+  line-height: 0;
+}
+
+.nav-logo-anim__shadow {
+  width: 70%;
+  height: 14px;
+  background: radial-gradient(ellipse at center, rgba(123,63,228,0.55) 0%, rgba(123,63,228,0) 70%);
+  border-radius: 50%;
+  animation: logoShadowPulse 2.6s cubic-bezier(.5,.05,.3,1) both;
+  transform-origin: 50% 50%;
+  margin-top: 4px;
+}
+
+[data-theme="light"] .nav-logo-anim__shadow {
+  background: radial-gradient(ellipse at center, rgba(45,21,87,0.3) 0%, rgba(45,21,87,0) 70%);
+}
+
+.nav-logo-anim__text {
+  line-height: 1;
+}
+
+.nav-logo-anim__main {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  display: block;
+  animation: logoTextRise .9s 2.55s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.nav-logo-anim__sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 7.5px;
+  font-weight: 400;
+  color: var(--color-primary-400);
+  letter-spacing: 0.36em;
+  white-space: nowrap;
+  margin-top: 5px;
+  display: block;
+  text-transform: uppercase;
+  animation: logoTextRiseSub .9s 2.85s cubic-bezier(.2,.7,.2,1) both;
+}
+
+[data-theme="light"] .nav-logo-anim__main  { color: #2D1557; }
+[data-theme="light"] .nav-logo-anim__sub   { color: #6D28D9; }
+
+/* Footer static logo */
+.footer-logo-anim {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: var(--space-4);
+}
+
+.footer-logo-anim__mark { line-height: 0; }
+
+.footer-logo-anim__text { line-height: 1; }
+
+.footer-logo-anim__main {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.footer-logo-anim__sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  color: var(--color-primary-400);
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Keyframes */
+@keyframes logoBounceFall {
+  0%   { transform: translate3d(0, -120px, 0) scale(0.85); opacity: 0; }
+  8%   { opacity: 1; }
+  18%  { transform: translate3d(0, 0, 0) scale(1.05, 0.92); }
+  28%  { transform: translate3d(0, -60px, 0) scale(0.98, 1.04); }
+  38%  { transform: translate3d(0, 0, 0) scale(1.04, 0.94); }
+  46%  { transform: translate3d(0, -28px, 0) scale(1, 1); }
+  54%  { transform: translate3d(0, 0, 0) scale(1.03, 0.96); }
+  60%  { transform: translate3d(0, -12px, 0) scale(1, 1); }
+  66%  { transform: translate3d(0, 0, 0) scale(1.02, 0.98); }
+  100% { transform: translate3d(0, 0, 0) scale(1, 1); }
+}
+
+@keyframes logoSpin {
+  0%   { transform: rotate(0deg); }
+  66%  { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes logoShadowPulse {
+  0%   { transform: scale(0.4); opacity: 0; }
+  18%  { transform: scale(1.0); opacity: 0.55; }
+  28%  { transform: scale(0.7); opacity: 0.3; }
+  38%  { transform: scale(0.95); opacity: 0.5; }
+  46%  { transform: scale(0.78); opacity: 0.32; }
+  54%  { transform: scale(0.9); opacity: 0.45; }
+  60%  { transform: scale(0.85); opacity: 0.38; }
+  66%  { transform: scale(0.88); opacity: 0.42; }
+  100% { transform: scale(0.85); opacity: 0.4; }
+}
+
+@keyframes logoTextRise {
+  0%   { opacity: 0; transform: translateY(8px); filter: blur(4px); letter-spacing: 0.12em; }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); letter-spacing: -0.02em; }
+}
+
+@keyframes logoTextRiseSub {
+  0%   { opacity: 0; transform: translateY(5px); letter-spacing: 0.85em; }
+  100% { opacity: 1; transform: translateY(0); letter-spacing: 0.42em; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav-logo-anim__bounce,
+  .nav-logo-anim__spin,
+  .nav-logo-anim__shadow,
+  .nav-logo-anim__main,
+  .nav-logo-anim__sub {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    letter-spacing: initial;
+  }
+  .nav-logo-anim__main { letter-spacing: -0.02em; }
+  .nav-logo-anim__sub  { letter-spacing: 0.42em; }
+}

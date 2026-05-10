@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appschool Munsterbilzen — Data- en Applicatiebeheer</title>
+  <title>So-lid Solutions — Data- en Applicatiebeheer</title>
   <meta name="description" content="Het digitale leerplatform voor Data- en Applicatiebeheer. Interactieve cursussen, leerplandoelen, voortgangsopvolging en krachtige tools voor leerkrachten.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/homepage.css">
   <script>(function(){var t=localStorage.getItem('ai-school-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
 </head>
 <body>
 
 <a href="#main" class="skip-link">Ga naar de inhoud</a>
 
-<!-- ═══════════════════════════════════════════════════════════
-     NAVIGATIE
-════════════════════════════════════════════════════════════ -->
 <nav class="site-nav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="container">
     <div class="site-nav__inner">
       <a href="index.html" class="site-nav__logo">
-        <img src="assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-nav__logo-img">
+        <img src="assets/images/logo.png" alt="So-lid Solutions" class="site-nav__logo-img">
       </a>
       <ul class="site-nav__links" role="list">
         <li><a href="index.html" class="site-nav__link active">Home</a></li>
@@ -39,510 +40,488 @@
   </div>
 </nav>
 
-<main id="main">
+<main id="main" class="hp-page">
 
-  <!-- ═══════════════════════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-hero">
-    <div class="hp-hero__bg" aria-hidden="true">
-      <div class="hp-hero__glow hp-hero__glow--1"></div>
-      <div class="hp-hero__glow hp-hero__glow--2"></div>
-      <div class="hp-hero__glow hp-hero__glow--3"></div>
-    </div>
-    <div class="container hp-hero__inner">
-      <div class="hp-hero__content animate-fade-in-up">
-        <div class="hp-hero__eyebrow">Provinciaal Secundair Onderwijs &mdash; Data- en Applicatiebeheer &mdash; 3e graad</div>
-        <h1 class="hp-hero__title">Het digitale leerplatform voor <span class="hp-hero__title-accent">Data- en Applicatiebeheer</span></h1>
-        <p class="hp-hero__subtitle">
-          Appschool Munsterbilzen is een volledig interactief leerplatform specifiek ontwikkeld voor de richting Data- en Applicatiebeheer. Van de eerste HTML-tag tot een volledig netwerk configureren — alle leerstof voor het 5e en 6e jaar staat klaar, afgestemd op de officiële leerplandoelen, met ingebouwde voortgangsopvolging en krachtige tools voor leerkrachten.
-        </p>
-        <div class="hp-hero__actions">
-          <a href="5adb/index.html" class="btn btn-primary btn-lg">Naar 5ADB &rarr;</a>
-          <a href="6adb/index.html" class="btn btn-ghost btn-lg">Naar 6ADB &rarr;</a>
+  <!-- ── HERO ────────────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Provinciaal Secundair Onderwijs &mdash; Data- en Applicatiebeheer &mdash; 3e graad</span>
+        <h1>Het leerplatform voor<br><em>Data- en&nbsp;Applicatiebeheer</em></h1>
+        <p class="lede">So-lid Solutions is een volledig interactief leerplatform specifiek ontwikkeld voor de richting Data- en Applicatiebeheer. Van de eerste HTML-tag tot een volledig netwerk configureren &mdash; alle leerstof voor 5ADB en 6ADB, afgestemd op de officiële leerplandoelen.</p>
+        <div class="hero-actions">
+          <a href="5adb/index.html" class="btn btn-primary">Naar 5ADB <span class="arrow">→</span></a>
+          <a href="6adb/index.html" class="btn btn-ghost">Naar 6ADB <span class="arrow">→</span></a>
         </div>
-        <div class="hp-hero__tags" aria-hidden="true">
-          <span class="hp-tag hp-tag--netwerken">&#127760; Netwerken</span>
-          <span class="hp-tag hp-tag--appdev">&#128187; App-ontwikkeling</span>
-          <span class="hp-tag hp-tag--data">&#128441; Databeheer</span>
-          <span class="hp-tag hp-tag--estem">&#127827; E-STEM</span>
-        </div>
+      </div>
+      <div class="hero-stage-wrap reveal" data-delay="1">
+        <div class="hero-stage" data-hero-stage></div>
+        <div class="hero-stage-bg" aria-hidden="true"></div>
+        <div class="hero-stage-grid" aria-hidden="true"></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       STATISTIEKEN
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-stats" aria-label="Kerncijfers">
-    <div class="container">
-      <div class="hp-stats__grid">
-        <div class="hp-stat">
-          <span class="hp-stat__value">2</span>
-          <span class="hp-stat__label">leerjaren</span>
-        </div>
-        <div class="hp-stat">
-          <span class="hp-stat__value">4</span>
-          <span class="hp-stat__label">vakken</span>
-        </div>
-        <div class="hp-stat">
-          <span class="hp-stat__value">55+</span>
-          <span class="hp-stat__label">hoofdstukken</span>
-        </div>
-        <div class="hp-stat">
-          <span class="hp-stat__value">400+</span>
-          <span class="hp-stat__label">uur lesinhoud</span>
-        </div>
-        <div class="hp-stat">
-          <span class="hp-stat__value">100%</span>
-          <span class="hp-stat__label">curriculum-afgestemd</span>
-        </div>
+  <!-- ── MARQUEE STRIP ────────────────────────────────────────── -->
+  <div class="hp-strip">
+    <div class="hp-strip-track">
+      <div class="hp-strip-row">
+        <span>App-ontwikkeling</span>
+        <span>Netwerken</span>
+        <span>Databeheer</span>
+        <span>E-STEM</span>
+        <span>5ADB</span>
+        <span>6ADB</span>
+        <span>Leerplandoelen</span>
+        <span>GIP-Project</span>
+        <span>GitHub Workflow</span>
+        <span>Raspberry Pi</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>DOM-manipulatie</span>
+        <span>Flexbox</span>
+        <span>CSS Grid</span>
+        <span>Node.js</span>
+        <span>Fetch API</span>
+        <span>SQL</span>
+        <span>SELECT</span>
+        <span>JOIN</span>
+        <span>ERD-modellering</span>
+        <span>Normalisatie</span>
+        <span>Python</span>
+        <span>Pandas</span>
+        <span>Datavisualisatie</span>
+        <span>OSI-model</span>
+        <span>TCP/IP</span>
+        <span>IP-adressering</span>
+        <span>Subnetting</span>
+        <span>DNS</span>
+        <span>DHCP</span>
+        <span>SSH</span>
+        <span>Firewall</span>
+        <span>VLAN</span>
+        <span>UniFi OS</span>
+        <span>Linux terminal</span>
+        <span>Flask webserver</span>
+        <span>SQLite</span>
+        <span>IoT-projecten</span>
+        <span>Sensordata</span>
+        <span>VS Code</span>
+        <span>Git commit</span>
+        <span>Stored procedures</span>
+        <span>OOP</span>
+        <span>Promises</span>
+        <span>LocalStorage</span>
+        <span>Netwerksecurity</span>
+        <span>Windows Server</span>
+        <span>VPN</span>
+        <span>HTTP/HTTPS</span>
+        <span>MAC-adres</span>
+        <span>Router configuratie</span>
+        <span>Switch</span>
+        <span>INSERT INTO</span>
+        <span>UPDATE</span>
+        <span>DELETE</span>
+        <span>Primary Key</span>
+        <span>Foreign Key</span>
+        <span>Matplotlib</span>
+        <span>Dashboard</span>
+        <span>Semantische HTML</span>
+        <span>Responsive design</span>
+        <span>JSON</span>
+        <span>Back-end koppeling</span>
+        <span>Trunking</span>
+        <span>PoE</span>
+        <span>Monitoring</span>
+        <span>Remote beheer</span>
+        <span>pip install</span>
+        <span>cron job</span>
+        <span>Groepsproject</span>
+        <span>Eindpresentatie</span>
+        <span>Functionele analyse</span>
+        <span>Evaluatierubriek</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       OVER HET PLATFORM
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-section" aria-labelledby="platform-title">
-    <div class="container">
-      <div class="hp-section__header animate-fade-in-up">
-        <span class="hp-section__label">Over het platform</span>
-        <h2 id="platform-title" class="hp-section__title">Eén platform. Alles wat je nodig hebt.</h2>
-        <p class="hp-section__desc">Appschool is specifiek gebouwd voor de richting Data- en Applicatiebeheer in het Belgisch secundair onderwijs. Geen generieke leerstof — alles is op maat geschreven voor jouw leerlingen, afgestemd op de officiële Vlaamse leerplandoelen.</p>
+      <div class="hp-strip-row">
+        <span>App-ontwikkeling</span>
+        <span>Netwerken</span>
+        <span>Databeheer</span>
+        <span>E-STEM</span>
+        <span>5ADB</span>
+        <span>6ADB</span>
+        <span>Leerplandoelen</span>
+        <span>GIP-Project</span>
+        <span>GitHub Workflow</span>
+        <span>Raspberry Pi</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>DOM-manipulatie</span>
+        <span>Flexbox</span>
+        <span>CSS Grid</span>
+        <span>Node.js</span>
+        <span>Fetch API</span>
+        <span>SQL</span>
+        <span>SELECT</span>
+        <span>JOIN</span>
+        <span>ERD-modellering</span>
+        <span>Normalisatie</span>
+        <span>Python</span>
+        <span>Pandas</span>
+        <span>Datavisualisatie</span>
+        <span>OSI-model</span>
+        <span>TCP/IP</span>
+        <span>IP-adressering</span>
+        <span>Subnetting</span>
+        <span>DNS</span>
+        <span>DHCP</span>
+        <span>SSH</span>
+        <span>Firewall</span>
+        <span>VLAN</span>
+        <span>UniFi OS</span>
+        <span>Linux terminal</span>
+        <span>Flask webserver</span>
+        <span>SQLite</span>
+        <span>IoT-projecten</span>
+        <span>Sensordata</span>
+        <span>VS Code</span>
+        <span>Git commit</span>
+        <span>Stored procedures</span>
+        <span>OOP</span>
+        <span>Promises</span>
+        <span>LocalStorage</span>
+        <span>Netwerksecurity</span>
+        <span>Windows Server</span>
+        <span>VPN</span>
+        <span>HTTP/HTTPS</span>
+        <span>MAC-adres</span>
+        <span>Router configuratie</span>
+        <span>Switch</span>
+        <span>INSERT INTO</span>
+        <span>UPDATE</span>
+        <span>DELETE</span>
+        <span>Primary Key</span>
+        <span>Foreign Key</span>
+        <span>Matplotlib</span>
+        <span>Dashboard</span>
+        <span>Semantische HTML</span>
+        <span>Responsive design</span>
+        <span>JSON</span>
+        <span>Back-end koppeling</span>
+        <span>Trunking</span>
+        <span>PoE</span>
+        <span>Monitoring</span>
+        <span>Remote beheer</span>
+        <span>pip install</span>
+        <span>cron job</span>
+        <span>Groepsproject</span>
+        <span>Eindpresentatie</span>
+        <span>Functionele analyse</span>
+        <span>Evaluatierubriek</span>
       </div>
-      <div class="hp-features-grid">
-
-        <div class="hp-feature-card animate-fade-in-up animate-delay-1">
-          <div class="hp-feature-card__icon hp-feature-card__icon--purple">&#128218;</div>
-          <h3 class="hp-feature-card__title">Interactieve cursussen</h3>
-          <p class="hp-feature-card__desc">Elke les combineert heldere theorie, codevoorbeelden, schema's en hands-on oefeningen. Leerlingen leren door te doen — niet alleen door te lezen.</p>
-        </div>
-
-        <div class="hp-feature-card animate-fade-in-up animate-delay-2">
-          <div class="hp-feature-card__icon hp-feature-card__icon--cyan">&#127919;</div>
-          <h3 class="hp-feature-card__title">Leerplandoelen centraal</h3>
-          <p class="hp-feature-card__desc">Elk hoofdstuk, elke oefening en elke toetsvraag is gelinkt aan een officieel leerplandoelnummer. Transparant voor leerlingen én controleerbaar voor inspectie.</p>
-        </div>
-
-        <div class="hp-feature-card animate-fade-in-up animate-delay-3">
-          <div class="hp-feature-card__icon hp-feature-card__icon--green">&#128200;</div>
-          <h3 class="hp-feature-card__title">Voortgang per leerling</h3>
-          <p class="hp-feature-card__desc">Elke leerling heeft een persoonlijk account. Voortgang wordt bijgehouden per hoofdstuk én per leerplandoelnummer — zichtbaar voor de leerling én de leerkracht.</p>
-        </div>
-
-        <div class="hp-feature-card animate-fade-in-up animate-delay-1">
-          <div class="hp-feature-card__icon hp-feature-card__icon--orange">&#9997;&#65039;</div>
-          <h3 class="hp-feature-card__title">Toetsen &amp; examens</h3>
-          <p class="hp-feature-card__desc">Per vak zijn er kant-en-klare toetsen, een kerstexamen en een juni-examen — elk met een verbetersleutel en puntenverdeling. Klaar voor gebruik in de klas.</p>
-        </div>
-
-        <div class="hp-feature-card animate-fade-in-up animate-delay-2">
-          <div class="hp-feature-card__icon hp-feature-card__icon--purple">&#128202;</div>
-          <h3 class="hp-feature-card__title">Leerkrachtendashboard</h3>
-          <p class="hp-feature-card__desc">Via een back-end dashboard ziet de leerkracht in real-time welke leerlingen achterlopen, welke leerplandoelen nog niet bereikt zijn en hoe de klas evolueert.</p>
-        </div>
-
-        <div class="hp-feature-card animate-fade-in-up animate-delay-3">
-          <div class="hp-feature-card__icon hp-feature-card__icon--cyan">&#128241;</div>
-          <h3 class="hp-feature-card__title">Mobile-first design</h3>
-          <p class="hp-feature-card__desc">Het platform werkt vlekkeloos op smartphone, tablet en desktop. Leerlingen kunnen thuis studeren op hun eigen toestel — zonder installatie, altijd bereikbaar.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       LEERLING ERVARING
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-section hp-section--alt" aria-labelledby="leerling-title">
-    <div class="container">
-      <div class="hp-section__header animate-fade-in-up">
-        <span class="hp-section__label">Voor leerlingen</span>
-        <h2 id="leerling-title" class="hp-section__title">Hoe ervaart een leerling dit platform?</h2>
-        <p class="hp-section__desc">Van de allereerste login tot het afronden van het eindexamen — Appschool begeleidt elke leerling stap voor stap doorheen een volledig leertraject op maat.</p>
-      </div>
-
-      <div class="hp-journey-v2">
-
-        <div class="hp-journey-v2__step animate-fade-in-up animate-delay-1">
-          <div class="hp-journey-v2__num">1</div>
-          <div>
-            <div class="hp-journey-v2__title">Inloggen en account activeren</div>
-            <p class="hp-journey-v2__desc">Na activatie van het account logt de leerling in met persoonlijke gegevens. Alle voortgang, voltooide hoofdstukken en quizresultaten zijn gekoppeld aan dit account en overal toegankelijk.</p>
-          </div>
-        </div>
-
-        <div class="hp-journey-v2__step animate-fade-in-up animate-delay-2">
-          <div class="hp-journey-v2__num">2</div>
-          <div>
-            <div class="hp-journey-v2__title">Jaar en vak kiezen</div>
-            <p class="hp-journey-v2__desc">Via de navigatiebalk kiest de leerling zijn of haar jaar — 5ADB of 6ADB — en het bijhorende vak. Het platform toont direct welke hoofdstukken al voltooid zijn en waar de leerling gebleven is.</p>
-          </div>
-        </div>
-
-        <div class="hp-journey-v2__step animate-fade-in-up animate-delay-3">
-          <div class="hp-journey-v2__num">3</div>
-          <div>
-            <div class="hp-journey-v2__title">Theorie lezen met illustraties</div>
-            <p class="hp-journey-v2__desc">Elk hoofdstuk bevat heldere uitleg, codevoorbeelden, schema's en afbeeldingen. De leerstof is opgedeeld in duidelijke subsecties die de leerling één voor één kan afvinken in de zijbalk — met een live voortgangsbalk.</p>
-          </div>
-        </div>
-
-        <div class="hp-journey-v2__step animate-fade-in-up animate-delay-1">
-          <div class="hp-journey-v2__num">4</div>
-          <div>
-            <div class="hp-journey-v2__title">Oefeningen maken</div>
-            <p class="hp-journey-v2__desc">Na de theorie volgen gerichte oefeningen. Elke oefening verwijst naar het bijhorende leerplandoelnummer zodat leerlingen precies weten welke competentie ze aan het oefenen zijn.</p>
-          </div>
-        </div>
-
-        <div class="hp-journey-v2__step animate-fade-in-up animate-delay-2">
-          <div class="hp-journey-v2__num">5</div>
-          <div>
-            <div class="hp-journey-v2__title">Huistaak en vragenlijst</div>
-            <p class="hp-journey-v2__desc">Elk hoofdstuk sluit af met een huistaak (met preview van het verwachte resultaat) en een interactieve meerkeuze-vragenlijst. Leerlingen krijgen directe feedback per vraag — zo weten ze onmiddellijk hoe goed ze de leerstof begrepen hebben.</p>
-          </div>
-        </div>
-
-        <div class="hp-journey-v2__step animate-fade-in-up animate-delay-3">
-          <div class="hp-journey-v2__num">6</div>
-          <div>
-            <div class="hp-journey-v2__title">Hoofdstuk voltooien &amp; voortgang bijhouden</div>
-            <p class="hp-journey-v2__desc">Na het afronden klikt de leerling op "Markeer als voltooid". De voortgangsbalk van het vak springt omhoog en de leerkracht ziet dit automatisch verschijnen in het dashboard — real-time klasopvolging.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       LEERPLANDOELEN
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-section" aria-labelledby="ld-title">
-    <div class="container">
-      <div class="hp-two-col animate-fade-in-up" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:center;">
-        <div class="hp-two-col__text">
-          <span class="hp-section__label">Curriculum</span>
-          <h2 id="ld-title" class="hp-section__title" style="font-size:var(--text-4xl);margin-bottom:var(--space-5);">Volledig afgestemd op de officiële leerplandoelen</h2>
-          <p style="color:var(--color-text-secondary);max-width:none;">Elk onderdeel van Appschool is gebouwd rond de officiële leerplandoelen van het Vlaamse secundair onderwijs voor de richting Data- en Applicatiebeheer. Niets is willekeurig — elk hoofdstuk, elke oefening en elke toetsvraag heeft een doel en een nummer.</p>
-          <ul class="hp-check-list" style="margin-top:var(--space-5);">
-            <li>&#10003; Elk hoofdstuk vermeldt de bijhorende leerplandoelnummers</li>
-            <li>&#10003; Oefeningen zijn getagd per competentie</li>
-            <li>&#10003; Toetsvragen zijn herleidbaar tot specifieke leerplandoelen</li>
-            <li>&#10003; 5e jaar = basisniveau &mdash; 6e jaar = verdiepingsniveau</li>
-            <li>&#10003; Hetzelfde leerplandoel, andere diepte over de twee jaren</li>
-            <li>&#10003; Leerkrachten zien per leerling welke leerplandoelen nog niet bereikt zijn</li>
-            <li>&#10003; Exporteerbaar voor rapportage en inspectie</li>
-          </ul>
-        </div>
-        <div class="hp-two-col__visual">
-          <div class="hp-ld-demo">
-            <div class="hp-ld-demo__header">H07 &mdash; Subnetting &amp; IP-adressering</div>
-            <div class="hp-ld-demo__tag">
-              <span class="hp-ld-demo__code">NET-05</span>
-              <span class="hp-ld-demo__desc">De leerlingen kunnen een IP-netwerk opdelen in subnetten.</span>
-            </div>
-            <div class="hp-ld-demo__tag">
-              <span class="hp-ld-demo__code">NET-06</span>
-              <span class="hp-ld-demo__desc">De leerlingen berekenen subnet-maskers en broadcast-adressen.</span>
-            </div>
-            <div class="hp-ld-demo__divider"></div>
-            <div class="hp-ld-demo__level hp-ld-demo__level--basis">&#9679; 5ADB &mdash; Basis: IP-klassen, notatie, wat is een subnet</div>
-            <div class="hp-ld-demo__level hp-ld-demo__level--verdieping">&#9679; 6ADB &mdash; Verdieping: CIDR, subnetting, routeringstabellen</div>
-            <div class="hp-ld-demo__divider"></div>
-            <div class="hp-ld-demo__oef">
-              <span class="hp-ld-demo__oef-badge">NET-05 / NET-06</span>
-              <span>Oefening 3 &mdash; Subnet een /24 netwerk in 4 gelijke delen</span>
-            </div>
-            <div class="hp-ld-demo__oef" style="margin-top:var(--space-2);">
-              <span class="hp-ld-demo__oef-badge">Quiz</span>
-              <span>5 meerkeuze-vragen &mdash; directe feedback</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       QUOTE STRIP
-  ════════════════════════════════════════════════════════════ -->
-  <div class="hp-quote-strip" aria-hidden="true">
-    <div class="container">
-      <p class="hp-quote-strip__text">Van absolute beginner in 5ADB tot junior developer klaar voor de arbeidsmarkt in 6ADB.</p>
-      <p class="hp-quote-strip__sub">Een doorgaand leertraject gebouwd op solide fundamenten — stap voor stap, leerplandoel per leerplandoel.</p>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       VOORTGANG & ACCOUNTS
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-section" aria-labelledby="account-title">
+  <!-- ── STATS STRIP ──────────────────────────────────────────── -->
+  <section class="stats-strip">
     <div class="container">
-      <div class="hp-account-grid animate-fade-in-up">
-        <div>
-          <span class="hp-section__label">Accounts &amp; voortgang</span>
-          <h2 id="account-title" class="hp-section__title" style="font-size:var(--text-4xl);margin-bottom:var(--space-5);">Elke leerling, elke stap bijgehouden</h2>
-          <p style="color:var(--color-text-secondary);max-width:none;margin-bottom:var(--space-6);">Appschool houdt de voortgang van elke leerling nauwkeurig bij. Enkel leerlingen met een actief account hebben toegang tot de volledige cursusinhoud en hun persoonlijke voortgangsdata.</p>
-          <ul class="hp-account-list" style="list-style:none;padding:0;">
-            <li><strong>&#128100; Persoonlijk dashboard</strong> — Overzicht van voltooide hoofdstukken, voortgang per vak en openstaande huistaken.</li>
-            <li><strong>&#128274; Beveiligde toegang</strong> — Enkel betalende en geactiveerde accounts krijgen toegang. Cursusdata is niet publiek zichtbaar.</li>
-            <li><strong>&#127758; Overal toegankelijk</strong> — Log in op elk toestel en je voortgang is altijd up-to-date — thuis, op school, onderweg.</li>
-            <li><strong>&#128203; Per leerplandoel</strong> — Niet alleen per hoofdstuk, maar ook per leerplandoelnummer wordt bijgehouden of een leerling dit al behaald heeft.</li>
-            <li><strong>&#128196; Exporteerbaar</strong> — Voortgangsrapporten kunnen geëxporteerd worden voor rapportage, klasbespreking of evaluatie.</li>
+      <div class="stat-item reveal" data-delay="1"><span class="val">2</span><span class="lbl">Leerjaren</span></div>
+      <div class="stat-item reveal" data-delay="2"><span class="val">4</span><span class="lbl">Vakken</span></div>
+      <div class="stat-item reveal" data-delay="3"><span class="val">55+</span><span class="lbl">Hoofdstukken</span></div>
+      <div class="stat-item reveal" data-delay="1"><span class="val">400+</span><span class="lbl">Uur lesinhoud</span></div>
+      <div class="stat-item reveal" data-delay="2"><span class="val">100%</span><span class="lbl">Curriculum-afgestemd</span></div>
+    </div>
+  </section>
+
+  <!-- ── VAKKEN (service-detail) ──────────────────────────────── -->
+  <section style="padding-block: 0; border-top: none;">
+    <div class="container">
+
+      <!-- 01 App-ontwikkeling -->
+      <article class="service-detail reveal" id="appdev">
+        <div class="meta">
+          <span class="num">01 &mdash; App-ontwikkeling</span>
+          <h2>Van HTML-tag naar full-stack</h2>
+          <div class="solid-stage" data-solid="cube" aria-hidden="true"></div>
+        </div>
+        <div class="body">
+          <p>App-ontwikkeling is het zwaarste vak &mdash; 6 uur per week &mdash; en begeleidt leerlingen stap voor stap van absolute beginner naar junior developer. Van de allereerste HTML-tag tot een werkende back-end applicatie.</p>
+          <h3>5ADB &mdash; Basisniveau</h3>
+          <ul>
+            <li>HTML basisstructuur &amp; semantiek</li>
+            <li>CSS opmaak &amp; layout (Flexbox, Grid)</li>
+            <li>JavaScript fundamentals</li>
+            <li>DOM-manipulatie &amp; events</li>
+            <li>VS Code workflow &amp; debugging</li>
+            <li>Interactieve webpagina's bouwen</li>
           </ul>
-        </div>
-        <div class="hp-account-visual">
-          <div class="hp-account-visual__title">Mijn dashboard &mdash; 5ADB</div>
-          <div class="hp-account-visual__user">
-            <div class="hp-account-visual__avatar">LV</div>
-            <div>
-              <div class="hp-account-visual__name">Lena Vermeersch</div>
-              <div class="hp-account-visual__meta">5ADB &mdash; Schooljaar 2025–2026</div>
-            </div>
-          </div>
-          <div class="hp-bar-demo" style="margin-bottom:var(--space-3);">
-            <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">Netwerken</span>
-            <div class="hp-bar-demo__track"><div class="hp-bar-demo__fill" style="width:72%;background:var(--color-vak-netwerken)"></div></div>
-            <span style="font-size:var(--text-sm);font-family:var(--font-mono);font-weight:600;">72%</span>
-          </div>
-          <div class="hp-bar-demo" style="margin-bottom:var(--space-3);">
-            <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">App-ontwikkeling</span>
-            <div class="hp-bar-demo__track"><div class="hp-bar-demo__fill" style="width:45%;background:var(--color-vak-appdev)"></div></div>
-            <span style="font-size:var(--text-sm);font-family:var(--font-mono);font-weight:600;">45%</span>
-          </div>
-          <div class="hp-bar-demo" style="margin-bottom:var(--space-3);">
-            <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">Databeheer</span>
-            <div class="hp-bar-demo__track"><div class="hp-bar-demo__fill" style="width:30%;background:var(--color-vak-data)"></div></div>
-            <span style="font-size:var(--text-sm);font-family:var(--font-mono);font-weight:600;">30%</span>
-          </div>
-          <div class="hp-bar-demo">
-            <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">E-STEM</span>
-            <div class="hp-bar-demo__track"><div class="hp-bar-demo__fill" style="width:88%;background:var(--color-vak-estem)"></div></div>
-            <span style="font-size:var(--text-sm);font-family:var(--font-mono);font-weight:600;">88%</span>
-          </div>
-          <div style="margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid var(--color-border-subtle);display:flex;gap:var(--space-6);">
-            <div>
-              <div style="font-size:var(--text-2xl);font-weight:700;font-family:var(--font-display);color:var(--color-primary-400);">18</div>
-              <div style="font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.05em;">H. voltooid</div>
-            </div>
-            <div>
-              <div style="font-size:var(--text-2xl);font-weight:700;font-family:var(--font-display);color:var(--color-success);">24</div>
-              <div style="font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.05em;">LD bereikt</div>
-            </div>
-            <div>
-              <div style="font-size:var(--text-2xl);font-weight:700;font-family:var(--font-display);color:var(--color-warning);">3</div>
-              <div style="font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.05em;">Huistaken open</div>
-            </div>
+          <h3>6ADB &mdash; Verdiepingsniveau</h3>
+          <ul>
+            <li>JavaScript OOP &amp; modules</li>
+            <li>API's ophalen met fetch</li>
+            <li>Node.js server-side basics</li>
+            <li>Back-end koppeling met databases</li>
+            <li>GIP: volledig full-stack project</li>
+            <li>25 hoofdstukken &mdash; ~150 uur (5ADB)</li>
+          </ul>
+          <div class="detail-link">
+            <a href="5adb/app-ontwikkeling/index.html">Bekijk App-ontwikkeling 5ADB <span class="arrow">→</span></a>
           </div>
         </div>
-      </div>
+      </article>
+
+      <!-- 02 Databeheer -->
+      <article class="service-detail flip reveal" id="data">
+        <div class="meta">
+          <span class="num">02 &mdash; Databeheer</span>
+          <h2>Van tabel naar datapipeline</h2>
+          <div class="solid-stage" data-solid="tetra" aria-hidden="true"></div>
+        </div>
+        <div class="body">
+          <p>Databases zijn de ruggengraat van elke applicatie. Leerlingen leren SQL van de grond op, modelleren hun eigen databases en koppelen ze aan Python-scripts voor analyse en visualisatie.</p>
+          <h3>5ADB &mdash; Basisniveau</h3>
+          <ul>
+            <li>Wat is een database?</li>
+            <li>Tabellen, rijen &amp; kolommen</li>
+            <li>SQL: SELECT, INSERT, UPDATE, DELETE</li>
+            <li>Relaties &amp; JOIN</li>
+            <li>ERD-modellering</li>
+            <li>Datavisualisatie met Python &amp; pandas</li>
+          </ul>
+          <h3>6ADB &mdash; Verdiepingsniveau</h3>
+          <ul>
+            <li>Normalisatie (1NF, 2NF, 3NF)</li>
+            <li>Stored procedures</li>
+            <li>Python-databasekoppeling</li>
+            <li>Interactief dashboarding</li>
+            <li>GIP back-end voorbereiding</li>
+            <li>10 hoofdstukken &mdash; ~60 uur (5ADB)</li>
+          </ul>
+          <div class="detail-link">
+            <a href="5adb/databeheer/index.html">Bekijk Databeheer 5ADB <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 Netwerken -->
+      <article class="service-detail reveal" id="netwerken">
+        <div class="meta">
+          <span class="num">03 &mdash; Netwerken</span>
+          <h2>Van kabel tot firewall</h2>
+          <div class="solid-stage" data-solid="dodeca" aria-hidden="true"></div>
+        </div>
+        <div class="body">
+          <p>Netwerken leert leerlingen hoe computers met elkaar communiceren. Van het OSI-model en TCP/IP tot het hands-on opzetten van een volledig beveiligd netwerk met professionele UniFi-hardware.</p>
+          <h3>5ADB &mdash; Basisniveau</h3>
+          <ul>
+            <li>OSI-model &amp; TCP/IP</li>
+            <li>IP-adressering &amp; subnetting</li>
+            <li>DNS, DHCP, HTTP, FTP, SSH</li>
+            <li>Router &amp; switch configuratie</li>
+            <li>Windows vs Linux bestandssysteem</li>
+            <li>CLI-basics &amp; basisprotocollen</li>
+          </ul>
+          <h3>6ADB &mdash; Verdiepingsniveau</h3>
+          <ul>
+            <li>VLANs &amp; trunking</li>
+            <li>Firewall-policies</li>
+            <li>Windows Server &amp; Linux serverbeheer</li>
+            <li>Netwerksecurity &amp; monitoring</li>
+            <li>UniFi OS: switch, router, access point</li>
+            <li>Praktijkproject: volledig netwerk opzetten</li>
+          </ul>
+          <div class="detail-link">
+            <a href="5adb/netwerken/index.html">Bekijk Netwerken 5ADB <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 E-STEM -->
+      <article class="service-detail flip reveal" id="estem">
+        <div class="meta">
+          <span class="num">04 &mdash; E-STEM</span>
+          <h2>Hands-on met Raspberry Pi</h2>
+          <div class="solid-stage" data-solid="icosa" aria-hidden="true"></div>
+        </div>
+        <div class="body">
+          <p>E-STEM combineert Science, Technology, Engineering en Mathematics op een toegankelijke manier. Leerlingen experimenteren met Raspberry Pi en bouwen projecten die verbonden zijn met de andere vakken.</p>
+          <h3>5ADB &mdash; Basisniveau</h3>
+          <ul>
+            <li>Introductie Raspberry Pi</li>
+            <li>Linux terminal &amp; basiscommando's</li>
+            <li>Python scripts op de Pi</li>
+            <li>SSH-verbinding &amp; remote beheer</li>
+            <li>Kleine individuele projecten</li>
+            <li>Groepsproject als afsluiter</li>
+          </ul>
+          <h3>6ADB &mdash; Verdiepingsniveau</h3>
+          <ul>
+            <li>Flask webserver op Raspberry Pi</li>
+            <li>SQLite-databasekoppeling</li>
+            <li>IoT-projecten &amp; sensordata</li>
+            <li>Complex groepsproject</li>
+            <li>Eindpresentatie &amp; evaluatierubriek</li>
+            <li>Koppeling met App-ontwikkeling &amp; Databeheer</li>
+          </ul>
+          <div class="detail-link">
+            <a href="5adb/e-stem/index.html">Bekijk E-STEM 5ADB <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       VOOR LEERKRACHTEN
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-section hp-section--alt" aria-labelledby="teacher-title">
+  <!-- ── GITHUB & LEERKRACHTEN (dark band) ────────────────────── -->
+  <div class="dp-band dark">
+    <div class="dp-inner">
+      <div class="reveal">
+        <span class="dp-eyebrow">Voor leerkrachten</span>
+        <h2>GitHub als centraal<br><em>werkinstrument</em></h2>
+        <p>Geen taken meer uploaden via Smartschool. Elke leerling heeft een eigen GitHub-repo, elke leerkracht een referentierepo met verbetersleutels. Inline commentaar rechtstreeks in de code van de leerling &mdash; professioneel en altijd gebacked in de cloud.</p>
+        <div class="hp-code-block">
+          <span class="c-com"># Repo structuur leerling — lena-vermeersch/</span><br>
+          <span class="c-hi">app-ontwikkeling/</span> &nbsp; <span class="c-hi">databeheer/</span> &nbsp; <span class="c-hi">netwerken/</span><br><br>
+          <span class="c-com"># Leerling dient huistaak in</span><br>
+          <span class="c-hi">git commit</span> -m <span style="color:#86efac;">"H03 huistaak afgewerkt"</span><br>
+          <span class="c-hi">git push</span> &nbsp; <span class="c-ok">✓ ingediend &amp; opgeslagen in de cloud</span>
+        </div>
+      </div>
+      <ul class="dp-pills reveal" data-delay="2">
+        <li>Elke leerkracht krijgt een referentierepo met verbetersleutels en evaluatie-instructies</li>
+        <li>Elke leerling krijgt een persoonlijke repo &mdash; leerkracht en leerling zijn beiden collaborator</li>
+        <li>Per vak staan vooropgestelde bestanden klaar voor taken en toetsen</li>
+        <li>Leerkracht geeft inline commentaar rechtstreeks in de code van de leerling</li>
+        <li>Geen taken meer uploaden via Smartschool &mdash; alles gebundeld in één repo</li>
+        <li>Automatische back-up in de GitHub cloud &mdash; nooit werk kwijt</li>
+        <li>Kant-en-klare toetsen, kerstexamen en juni-examen per vak met verbetersleutel</li>
+        <li>Jaarplanning &amp; GIP-begeleiding volledig uitgewerkt voor het 6e jaar</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── LEERPLANDOELEN ────────────────────────────────────────── -->
+  <section>
     <div class="container">
-      <div class="hp-section__header animate-fade-in-up">
-        <span class="hp-section__label">Voor leerkrachten</span>
-        <h2 id="teacher-title" class="hp-section__title">Krachtige tools voor de leerkracht</h2>
-        <p class="hp-section__desc">Appschool is niet alleen een leerplatform voor leerlingen — het is een professioneel werkinstrument voor de leerkracht. Van real-time klasopvolging tot cursusaanpassingen via Git.</p>
+      <div class="hp-section-head reveal">
+        <div>
+          <span class="eyebrow">Curriculum</span>
+          <h2>Volledig afgestemd op de officiële leerplandoelen</h2>
+        </div>
+        <p class="lede">Elk onderdeel van So-lid Solutions is gebouwd rond de officiële leerplandoelen van het Vlaamse secundair onderwijs voor Data- en Applicatiebeheer. Elk hoofdstuk, elke oefening en elke toetsvraag heeft een doel en een nummer.</p>
       </div>
-
-      <!-- Dashboard + GitHub top row -->
-      <div class="hp-teacher-top animate-fade-in-up">
-
-        <!-- Dashboard card -->
-        <div class="hp-teacher-feature" style="flex-direction:column;display:flex;gap:0;padding:var(--space-8);">
-          <div style="display:flex;gap:var(--space-4);align-items:flex-start;margin-bottom:var(--space-5);">
-            <div class="hp-teacher-feature__icon">&#128202;</div>
-            <div>
-              <h3 style="font-size:var(--text-2xl);margin-bottom:var(--space-2);">Leerkrachtendashboard</h3>
-              <p style="color:var(--color-text-secondary);margin:0;max-width:none;">Via het beveiligde back-end dashboard krijgt de leerkracht een volledig real-time overzicht van de klas. Filter op vak, jaar, leerling of leerplandoelnummer. Zie in één oogopslag wie achteroploopt, welke hoofdstukken het vaakst gemist worden en hoe de klas evolueert per periode.</p>
-            </div>
+      <div class="hp-two-col">
+        <ul class="hp-ld-checklist reveal">
+          <li><span class="check-icon">✓</span><span>Elk hoofdstuk vermeldt de bijhorende leerplandoelnummers</span></li>
+          <li><span class="check-icon">✓</span><span>Oefeningen en quizvragen zijn getagd per competentie</span></li>
+          <li><span class="check-icon">✓</span><span>Toetsvragen zijn herleidbaar tot specifieke leerplandoelen</span></li>
+          <li><span class="check-icon">✓</span><span>5e jaar = basisniveau &mdash; 6e jaar = verdiepingsniveau</span></li>
+          <li><span class="check-icon">✓</span><span>Hetzelfde leerplandoelnummer terugkerend over de twee jaren, op een andere diepte</span></li>
+          <li><span class="check-icon">✓</span><span>Voortgang per leerling bijgehouden via localStorage &mdash; overal bereikbaar</span></li>
+          <li><span class="check-icon">✓</span><span>Controleerbaar voor inspectie &mdash; transparant voor leerlingen</span></li>
+        </ul>
+        <div class="hp-ld-widget reveal" data-delay="2">
+          <div class="hp-ld-widget-head">H07 &mdash; Subnetting &amp; IP-adressering</div>
+          <div class="hp-ld-tag">
+            <span class="hp-ld-tag-code">NET-05</span>
+            <span class="hp-ld-tag-desc">De leerlingen kunnen een IP-netwerk opdelen in subnetten.</span>
           </div>
-          <!-- Mock dashboard widget -->
-          <div class="hp-dashboard-mock">
-            <div style="font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-muted);margin-bottom:var(--space-3);">Klasoverzicht — App-ontwikkeling 5ADB</div>
-            <div class="hp-dashboard-mock__row">
-              <div class="hp-dashboard-mock__dot hp-dashboard-mock__dot--green"></div>
-              <div class="hp-dashboard-mock__name">Lena Vermeersch</div>
-              <div class="hp-dashboard-mock__bar"><div class="hp-dashboard-mock__bar-fill" style="width:88%;background:var(--color-success)"></div></div>
-              <div class="hp-dashboard-mock__pct" style="color:var(--color-success)">88%</div>
-            </div>
-            <div class="hp-dashboard-mock__row">
-              <div class="hp-dashboard-mock__dot hp-dashboard-mock__dot--green"></div>
-              <div class="hp-dashboard-mock__name">Jonas Pieters</div>
-              <div class="hp-dashboard-mock__bar"><div class="hp-dashboard-mock__bar-fill" style="width:74%;background:var(--color-success)"></div></div>
-              <div class="hp-dashboard-mock__pct" style="color:var(--color-success)">74%</div>
-            </div>
-            <div class="hp-dashboard-mock__row">
-              <div class="hp-dashboard-mock__dot hp-dashboard-mock__dot--orange"></div>
-              <div class="hp-dashboard-mock__name">Amber Claes</div>
-              <div class="hp-dashboard-mock__bar"><div class="hp-dashboard-mock__bar-fill" style="width:42%;background:var(--color-warning)"></div></div>
-              <div class="hp-dashboard-mock__pct" style="color:var(--color-warning)">42%</div>
-            </div>
-            <div class="hp-dashboard-mock__row">
-              <div class="hp-dashboard-mock__dot hp-dashboard-mock__dot--red"></div>
-              <div class="hp-dashboard-mock__name">Remi Jacobs</div>
-              <div class="hp-dashboard-mock__bar"><div class="hp-dashboard-mock__bar-fill" style="width:18%;background:var(--color-error)"></div></div>
-              <div class="hp-dashboard-mock__pct" style="color:var(--color-error)">18%</div>
-            </div>
+          <div class="hp-ld-tag">
+            <span class="hp-ld-tag-code">NET-06</span>
+            <span class="hp-ld-tag-desc">De leerlingen berekenen subnet-maskers en broadcast-adressen.</span>
+          </div>
+          <hr class="hp-ld-divider">
+          <div class="hp-ld-level">
+            <span class="hp-ld-level-dot" style="background:#22c55e;"></span>
+            5ADB &mdash; Basis: IP-klassen, notatie, wat is een subnet
+          </div>
+          <div class="hp-ld-level">
+            <span class="hp-ld-level-dot" style="background:var(--hp-p-500);"></span>
+            6ADB &mdash; Verdieping: CIDR, subnetting, routeringstabellen
+          </div>
+          <hr class="hp-ld-divider">
+          <div class="hp-ld-badge">
+            <span class="hp-ld-badge-code">NET-05 / NET-06</span>
+            <span class="hp-ld-badge-text">Oefening 3 &mdash; Subnet een /24 netwerk in 4 gelijke delen</span>
+          </div>
+          <div class="hp-ld-badge">
+            <span class="hp-ld-badge-code">Quiz</span>
+            <span class="hp-ld-badge-text">5 meerkeuze-vragen &mdash; directe feedback per vraag</span>
           </div>
         </div>
-
-        <!-- GitHub card -->
-        <div class="hp-github-card animate-fade-in-up animate-delay-1">
-          <div class="hp-github-card__icon">&#128008;</div>
-          <div class="hp-github-card__body">
-            <h3>GitHub voor leerkrachten</h3>
-            <p>Wil je als leerkracht een hoofdstuk aanpassen, een fout corrigeren of nieuwe leerstof toevoegen? Appschool draait volledig op GitHub en bevat een gedetailleerde stap-voor-stap handleiding voor leerkrachten — geen programmeerervaring vereist.</p>
-            <ul class="hp-check-list hp-check-list--sm" style="margin-bottom:var(--space-4);">
-              <li>&#10003; Duidelijke handleiding ingebakken in het platform</li>
-              <li>&#10003; Aanpassingen gaan live na één commit op de main branch</li>
-              <li>&#10003; Versiebeheer via Git &mdash; nooit iets definitief kwijt</li>
-              <li>&#10003; Samenwerken met collega&rsquo;s via pull requests</li>
-              <li>&#10003; GitHub Pages deployment &mdash; geen server nodig</li>
-              <li>&#10003; Gratis hosting voor de volledige school</li>
-            </ul>
-            <div style="padding:var(--space-4);background:var(--color-bg-sunken);border-radius:var(--radius-lg);border:1px solid var(--color-border-subtle);">
-              <div style="font-size:var(--text-xs);color:var(--color-text-muted);font-family:var(--font-mono);margin-bottom:var(--space-2);"># Stap 1: wijziging doorvoeren</div>
-              <div style="font-size:var(--text-xs);color:var(--color-primary-400);font-family:var(--font-mono);">git add . &amp;&amp; git commit -m "H03: extra oefening toegevoegd"</div>
-              <div style="font-size:var(--text-xs);color:var(--color-text-muted);font-family:var(--font-mono);margin-top:var(--space-1);">git push origin main &nbsp;&nbsp;<span style="color:var(--color-success);">✓ live in seconden</span></div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Extra features row -->
-      <div class="hp-teacher-extras animate-fade-in-up animate-delay-2">
-
-        <div class="hp-teacher-extra">
-          <span class="hp-teacher-extra__icon">&#9997;&#65039;</span>
-          <h3>Kant-en-klare toetsen &amp; examens</h3>
-          <p>Per vak zijn er schriftelijke toetsen, een kerstexamen en een juni-examen aanwezig — elk met verbetersleutel en puntenverdeling. De leerkracht hoeft niets van nul te maken en kan alles naar eigen inzicht aanpassen.</p>
-        </div>
-
-        <div class="hp-teacher-extra">
-          <span class="hp-teacher-extra__icon">&#128197;</span>
-          <h3>Jaarplanning &amp; lessenrooster</h3>
-          <p>De inhoud is verdeeld over een volledig schooljaar, rekening houdend met de Belgische schoolkalender — kerstvakantie, paasvakantie, stagedagen en eindexamens. Klaar voor gebruik vanaf dag één.</p>
-        </div>
-
-        <div class="hp-teacher-extra">
-          <span class="hp-teacher-extra__icon">&#127891;</span>
-          <h3>GIP-begeleiding (6e jaar)</h3>
-          <p>Het Geïntegreerd Industrieel Project is volledig uitgewerkt: functionele analyse template, mijlpalen, evaluatierubriek en een volledige voorbeeldoplossing als referentie voor de leerkracht bij de beoordeling.</p>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       DE 4 VAKKEN
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-section" aria-labelledby="vakken-title">
+  <!-- ── FAQ ──────────────────────────────────────────────────── -->
+  <section class="faq">
     <div class="container">
-      <div class="hp-section__header animate-fade-in-up">
-        <span class="hp-section__label">Aanbod</span>
-        <h2 id="vakken-title" class="hp-section__title">4 vakken &mdash; 2 jaar &mdash; 1 platform</h2>
-        <p class="hp-section__desc">Van basisnetwerken tot full-stack development — het volledige curriculum voor Data- en Applicatiebeheer is beschikbaar voor het 5e én 6e jaar, progressief opgebouwd van beginner naar gevorderd.</p>
+      <div class="hp-section-head reveal">
+        <div>
+          <span class="eyebrow">Veelgestelde vragen</span>
+          <h2>Alles wat je wilt weten</h2>
+        </div>
+        <p class="lede">Vragen over het platform, de GitHub-workflow, de leerplandoelen of het GIP-project? Hier vind je de antwoorden.</p>
       </div>
+      <div class="faq-list reveal" data-delay="2">
 
-      <div class="hp-vakken-grid">
-
-        <div class="hp-vak-card hp-vak-card--netwerken animate-fade-in-up animate-delay-1">
-          <div class="hp-vak-card__header">
-            <span class="hp-vak-card__icon">&#127760;</span>
-            <div>
-              <div class="hp-vak-card__name">Netwerken</div>
-              <div class="hp-vak-card__uren">2 u/week</div>
-            </div>
-          </div>
-          <div class="hp-vak-card__jaar">
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">5ADB &mdash; Basis</div>
-              <p>OSI-model, IP-adressering, subnetting, TCP/UDP, basisprotocollen (DNS, DHCP, HTTP, FTP, SSH) en een praktisch project in Cisco Packet Tracer.</p>
-              <div class="hp-vak-card__meta"><span>13 hoofdstukken</span><span>~88 uur</span></div>
-            </div>
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">6ADB &mdash; Verdieping</div>
-              <p>VLANs, firewallregels, Windows Server &amp; Linux serverbeheer, netwerksecurity en een eindproject met echte UniFi-netwerkhardware (switch, router, access point).</p>
-              <div class="hp-vak-card__meta"><span>7 hoofdstukken</span><span>~84 uur</span></div>
-            </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Voor wie is dit platform bedoeld?
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>So-lid Solutions is exclusief ontwikkeld voor leerlingen van de richting Data- en Applicatiebeheer in het Belgisch secundair onderwijs &mdash; het 5e jaar (5ADB) en 6e jaar (6ADB). Alle leerstof, oefeningen en evaluaties zijn afgestemd op de officiële Vlaamse leerplandoelen voor deze richting.</p>
           </div>
         </div>
 
-        <div class="hp-vak-card hp-vak-card--appdev animate-fade-in-up animate-delay-2">
-          <div class="hp-vak-card__header">
-            <span class="hp-vak-card__icon">&#128187;</span>
-            <div>
-              <div class="hp-vak-card__name">App-ontwikkeling</div>
-              <div class="hp-vak-card__uren">6 u/week</div>
-            </div>
-          </div>
-          <div class="hp-vak-card__jaar">
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">5ADB &mdash; Basis</div>
-              <p>HTML basisstructuur, CSS opmaak &amp; layout (Flexbox, Grid), JavaScript fundamentals, DOM-manipulatie en het bouwen van interactieve webpagina's met VS Code.</p>
-              <div class="hp-vak-card__meta"><span>25 hoofdstukken</span><span>~150 uur</span></div>
-            </div>
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">6ADB &mdash; Verdieping</div>
-              <p>JavaScript OOP, API's ophalen met fetch, Node.js server-side basics, back-end koppeling met databases en GIP-voorbereiding (volledig front-end + back-end project).</p>
-              <div class="hp-vak-card__meta"><span>6 hoofdstukken</span><span>~90 uur</span></div>
-            </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Hoe werkt de voortgangsopvolging?
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Elke leerling kan in de sidebar van elk hoofdstuk subsecties afvinken via checkboxes. De voortgangsbalk toont in real-time hoe ver de leerling is. Wanneer een leerling op "Markeer als voltooid" klikt, wordt het hoofdstuk geregistreerd. Alle voortgang wordt opgeslagen in localStorage &mdash; geen account nodig.</p>
           </div>
         </div>
 
-        <div class="hp-vak-card hp-vak-card--data animate-fade-in-up animate-delay-3">
-          <div class="hp-vak-card__header">
-            <span class="hp-vak-card__icon">&#128441;</span>
-            <div>
-              <div class="hp-vak-card__name">Databeheer</div>
-              <div class="hp-vak-card__uren">4 u/week</div>
-            </div>
-          </div>
-          <div class="hp-vak-card__jaar">
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">5ADB &mdash; Basis</div>
-              <p>Wat is een database, tabellen &amp; relaties, SQL (SELECT, INSERT, UPDATE, DELETE), ERD-modellering en eerste datavisualisaties met Python en pandas.</p>
-              <div class="hp-vak-card__meta"><span>10 hoofdstukken</span><span>~60 uur</span></div>
-            </div>
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">6ADB &mdash; Verdieping</div>
-              <p>Normalisatie (1NF/2NF/3NF), stored procedures, Python-databasekoppeling, interactief dashboarding en voorbereiding van de GIP back-end.</p>
-              <div class="hp-vak-card__meta"><span>6 hoofdstukken</span><span>~70 uur</span></div>
-            </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Hoe werkt het GitHub-systeem voor taken?
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Elke leerling krijgt een persoonlijke GitHub-repo met mappen per vak en duidelijke instructies voor elke taak en toets. De leerling werkt zijn bestanden bij en dient in via git commit + git push. De leerkracht geeft inline commentaar rechtstreeks in de code &mdash; professioneler dan een upload via Smartschool, en altijd een automatische back-up in de cloud.</p>
           </div>
         </div>
 
-        <div class="hp-vak-card hp-vak-card--estem animate-fade-in-up animate-delay-4">
-          <div class="hp-vak-card__header">
-            <span class="hp-vak-card__icon">&#127827;</span>
-            <div>
-              <div class="hp-vak-card__name">E-STEM</div>
-              <div class="hp-vak-card__uren">2 u/week (5ADB) &mdash; 1 u/week (6ADB)</div>
-            </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Wat is het GIP-project in het 6e jaar?
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Het Geïntegreerd Industrieel Project (GIP) is het sluitstuk van het 6e jaar. Leerlingen bouwen een volledig eigen webapplicatie: front-end in HTML, CSS en JavaScript, gekoppeld aan een back-end database. Een functionele analyse template, mijlpalen, evaluatierubriek en een volledige voorbeeldoplossing staan klaar als referentie voor leerkrachten.</p>
           </div>
-          <div class="hp-vak-card__jaar">
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">5ADB &mdash; Basis</div>
-              <p>Introductie Raspberry Pi, Linux terminal, Python scripts, SSH-verbinding en kleine individuele projecten, afgesloten met een groepsproject.</p>
-              <div class="hp-vak-card__meta"><span>7 hoofdstukken</span><span>~60 uur</span></div>
-            </div>
-            <div class="hp-vak-card__jaar-blok">
-              <div class="hp-vak-card__jaar-label">6ADB &mdash; Verdieping</div>
-              <p>Flask webserver op Raspberry Pi, SQLite-koppeling, IoT-projecten en een complex groepsproject met eindpresentatie en evaluatierubriek.</p>
-              <div class="hp-vak-card__meta"><span>4 hoofdstukken</span><span>~60 uur</span></div>
-            </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Zijn er kant-en-klare toetsen en examens?
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Ja &mdash; voor elk vak zijn er schriftelijke toetsen doorheen het jaar, een kerstexamen in december en een juni-examen. Elk heeft twee bestanden: een opgave voor de leerlingen en een verbetersleutel met modelantwoorden en puntenverdeling voor de leerkracht. Geen paasexamens, want leerlingen zijn dan op stage.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Werkt het platform op smartphone en tablet?
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Volledig. So-lid Solutions is mobile-first ontworpen en werkt vlekkeloos op smartphone, tablet en desktop. De website is gehost op GitHub Pages &mdash; statische bestanden, geen server-side code, geen installatie nodig. Altijd bereikbaar via de browser.</p>
           </div>
         </div>
 
@@ -550,35 +529,28 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       CTA
-  ════════════════════════════════════════════════════════════ -->
-  <section class="hp-cta" aria-labelledby="cta-title">
-    <div class="hp-cta__bg" aria-hidden="true">
-      <div class="hp-hero__glow hp-hero__glow--1" style="top:20%;left:20%"></div>
-      <div class="hp-hero__glow hp-hero__glow--2" style="top:60%;left:70%"></div>
-    </div>
-    <div class="container hp-cta__inner">
-      <h2 id="cta-title" class="hp-cta__title">Klaar om te beginnen?</h2>
-      <p class="hp-cta__desc">Kies je jaar en start vandaag nog met het leerplatform. Alle leerstof, oefeningen, quizzen en tools staan klaar.</p>
-      <div class="hp-cta__actions">
-        <a href="5adb/index.html" class="btn btn-primary btn-lg">&#128214; Naar 5ADB</a>
-        <a href="6adb/index.html" class="btn btn-ghost btn-lg">&#128214; Naar 6ADB</a>
+  <!-- ── CTA STRIP ─────────────────────────────────────────────── -->
+  <section class="cta-strip">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Klaar om te beginnen?</span>
+        <h2>Kies je jaar.<br><em>Start vandaag.</em></h2>
+        <p>Alle leerstof, oefeningen, quizzen en GitHub-tools staan klaar. Kies je leerjaar en ga direct aan de slag.</p>
+      </div>
+      <div class="actions reveal" data-delay="2">
+        <a href="5adb/index.html" class="btn btn-primary">Naar 5ADB <span class="arrow">→</span></a>
+        <a href="6adb/index.html" class="btn btn-dark">Naar 6ADB <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- ═══════════════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="container">
-    <div class="site-footer__grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-12);padding:var(--space-12) 0 var(--space-8);">
-
+    <div class="site-footer__grid site-footer__grid-hp">
       <div>
-        <img src="assets/images/logo.png" alt="Appschool Munsterbilzen" class="site-footer__logo-img" style="height:80px;width:auto;margin-bottom:var(--space-4);">
+        <img src="assets/images/logo.png" alt="So-lid Solutions" class="site-footer__logo-img" style="height:80px;width:auto;margin-bottom:var(--space-4);">
         <p class="site-footer__tagline" style="color:var(--color-text-secondary);font-size:var(--text-sm);max-width:40ch;line-height:var(--leading-relaxed);">Het digitale leerplatform voor Data- en Applicatiebeheer &mdash; Provinciaal Secundair Onderwijs Munsterbilzen, 3e graad.</p>
         <div style="margin-top:var(--space-4);display:flex;gap:var(--space-2);flex-wrap:wrap;">
           <span class="hp-tag hp-tag--netwerken" style="font-size:var(--text-xs);">Netwerken</span>
@@ -587,7 +559,6 @@
           <span class="hp-tag hp-tag--estem" style="font-size:var(--text-xs);">E-STEM</span>
         </div>
       </div>
-
       <div>
         <div class="site-footer__nav-title">Platform</div>
         <nav class="site-footer__nav">
@@ -595,20 +566,52 @@
           <a href="6adb/index.html">6ADB &mdash; Zesde jaar</a>
         </nav>
       </div>
-
       <div>
         <div class="site-footer__nav-title">Over ons</div>
-        <p style="font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);margin:0;max-width:none;">Appschool Munsterbilzen is een initiatief van de vakgroep Data- en Applicatiebeheer. Het platform is gebouwd voor en door leerkrachten van het Provinciaal Secundair Onderwijs.</p>
+        <p style="font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed);margin:0;max-width:none;">So-lid Solutions is een initiatief van de vakgroep Data- en Applicatiebeheer. Het platform is gebouwd voor en door leerkrachten van het Provinciaal Secundair Onderwijs.</p>
       </div>
-
     </div>
     <div class="site-footer__bottom">
-      <p>&copy; 2025&ndash;2026 Appschool Munsterbilzen &mdash; Data- en Applicatiebeheer &mdash; Schooljaar 2025&ndash;2026</p>
+      <p>&copy; 2025&ndash;2026 So-lid Solutions &mdash; Data- en Applicatiebeheer &mdash; Schooljaar 2025&ndash;2026</p>
     </div>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js" crossorigin="anonymous"></script>
+<script src="assets/js/dodecahedron.js"></script>
+<script src="assets/js/logo-anim.js"></script>
+<script src="assets/js/hero.js"></script>
+<script src="assets/js/service-solids.js"></script>
 <script src="assets/js/app.js"></script>
+<script>
+(function(){
+  // Scroll reveal for hp-page
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('main.hp-page .reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('main.hp-page .reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var open = item.hasAttribute('open');
+      item.closest('.faq-list').querySelectorAll('.faq-item[open]').forEach(function(o){
+        if (o !== item){ o.removeAttribute('open'); o.querySelector('.faq-q').setAttribute('aria-expanded','false'); }
+      });
+      if (open){ item.removeAttribute('open'); btn.setAttribute('aria-expanded','false'); }
+      else { item.setAttribute('open',''); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+})();
+</script>
 </body>
 </html>
